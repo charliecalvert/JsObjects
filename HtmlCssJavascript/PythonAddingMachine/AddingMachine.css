@@ -1,0 +1,32 @@
+
+.able {
+	width: 400px;
+	font-size:xx-large;
+}
+
+.addForm
+{
+	border-style: double;
+	background-color: #00CC00;
+	width:325px;
+}
+
+.addLine
+{
+	margin: 5px;
+	width: 300px;
+	border-style: solid;
+	border-color: #00EE00;
+	padding: 5px;
+}
+
+.rowName
+{
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+}
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Adding Machine</title>  
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>  
+	<script src="index.js" type="text/javascript"></script>
+	<link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<h1>Adding Database</h1>
+	
+	<p><strong>Instructions</strong>: Enter integers in the fields labeled 
+	<strong>Number One</strong> and <strong>Number Two</strong>. Press the 
+	<strong>Add Numbers</strong> button to add the numbers.</p>
+	
+	
+	<div class="addForm">
+		<span class="rowName">Number One:</span> <input id="operanda" name="operanda" type="text">
+	</div>
+	<div class="addForm">
+		<span class="rowName">Number Two:</span> <input id="operandb" name="operandb" type="text">
+	</div>
+	<hr />
+	<div>
+		<input onclick="addNumbersXml()" type="button" value="Add Numbers">			
+		<input onclick="getAllAddingData()" type="button" value="Show All Addtions">
+	</div>
+			
+	<div>
+		
+		<hr>
+		<div>
+			<span class="addForm">Result</span>: <span id="result"></span>
+			<ul id="items"></ul>
+		</div>
+		<hr>
+	</div>
+	
+	
+	<ul id="debug"></ul>
+</body>
+</html>

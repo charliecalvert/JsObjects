@@ -1,0 +1,53 @@
+-- MySQL dump 10.13  Distrib 5.1.57, for Win64 (unknown)
+--
+-- Host: localhost    Database: charlie
+-- ------------------------------------------------------
+-- Server version	5.1.57-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `additions`
+--
+
+DROP TABLE IF EXISTS `additions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `additions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `operanda` int(11) DEFAULT NULL,
+  `operandb` int(11) DEFAULT NULL,
+  `answer` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `additions`
+--
+
+LOCK TABLES `additions` WRITE;
+/*!40000 ALTER TABLE `additions` DISABLE KEYS */;
+INSERT INTO `additions` VALUES (1,2,3,5),(5,3,6,9),(8,15,34,49),(9,15,17,32),(10,3,1,4),(11,3,5,8),(12,12,45,57),(13,4,36,40),(14,23,25,48),(15,23,25,48),(16,5,7,12),(17,23,12,35),(18,2,3,5),(19,2,3,5),(20,2,3,5),(21,2,3,5),(22,2,3,5),(23,2,3,5),(24,2,3,5),(25,2,3,5),(26,2,3,5),(27,2,3,5),(28,2,3,5),(29,2,3,5),(30,2,3,5),(31,2,3,5),(32,2,3,5),(33,3,2,5),(34,3,2,5),(35,3,56,59),(36,3,4,7),(37,3,4,7),(38,4,6,10),(39,3,65,68),(40,3,56,59),(41,12,12,24),(42,3,5,8),(43,156,12,168),(44,156,126,282),(45,1,2,3),(46,1,2,3),(47,1,2,3),(48,1,2,3),(49,1,2,3),(50,12,15,27),(51,1612,3,1615),(52,3,5,8),(53,34,52,86),(54,3,2,5),(55,3,6,9),(56,4,2,6),(57,4,2,6),(58,43,33,76);
+/*!40000 ALTER TABLE `additions` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-04-26 21:15:46

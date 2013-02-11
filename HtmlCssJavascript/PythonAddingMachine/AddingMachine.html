@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Adding Machine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/themes/south-street/jquery-ui.css" rel="stylesheet" type="text/css" title="south-street" />
+	<link href="AddingMachine.css" rel="stylesheet" title="stysle2" type="text/css" />
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="AddingMachine.js"></script>
+</head>
+
+<body>
+
+<h2 id="adding">Adding Machine</h2>
+
+<p><strong><em>This page is part of the  
+<a href="http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#adding"> Elvenware site</a>. 
+</em></strong></p>
+<p>The page demonstrates how to use a form to submit data to a Python script. 
+There are also calls to JavaScript routines that perform simple addition. Follow 
+the instructions outlined below, and then read the text found beneath example.</p>
+
+<p><strong>Instructions</strong>: Below you will find a form outlined in blue 
+dashes. Enter two numbers in the fields labeled <strong>Number One</strong> and
+<strong>Number Two</strong>. Press the <strong>Add</strong> button to add the 
+numbers. If you are satisfied with your result, press the <strong>Submit</strong> 
+button.</p>
+
+<form action="/cgi-bin/AddingMachine/AddingMachineWrite.py" method="post">
+	<div>
+		<div><label>Operand A: </label> </div>
+		<input id="operanda" name="operanda" type="text">
+	</div>
+	<div>
+		<div><label>Operand B: </label></div>
+		<input id="operandb" name="operandb" type="text"></div>
+	<div>
+		<hr>
+		<div>
+			<div>
+				<div><label for="answer">Result:</label></div><input id="answer" name="answer" type="text" readonly="readonly">
+			</div>
+		</div>
+		<hr>
+		<div>
+			<input onclick="addingMachine.addNumbers()" type="button" value="Add Numbers">
+			<input type="submit" value="Submit Query">
+		</div>
+	</div>
+</form>
+
+<p>Here is what is going on behind the scenes. When you press the <strong>Submit
+</strong>button two things happen:</p>
+<ul>
+	<li>The submit button forces the form to submit its data to a python script 
+	called <strong>AddingMachineWrite.py</strong>. This happens because the form has its action 
+	attribute set to /cgi-bin/AddingMachineWrite.py<ul>
+		<li>&lt;<strong>form</strong> action="/cgi-bin/AddingMachineWrite.py" <strong>
+		method</strong>="post"&gt;</li>
+	</ul>
+	</li>
+	<li>Three pieces of data are also submitted.<ul>
+		<li>The text from the input field labeled <strong>Operand A</strong> 
+		and named <strong>operanda</strong></li>
+		<li>The text from the input field labeled <strong>Operand B</strong> 
+		and named <strong>operandb</strong></li>
+		<li>The text from the input field named <strong>answer</strong>.</li>
+	</ul>
+	</li>
+	<li>A fourth input control, a button labeled <strong>Add Numbers</strong>, is used to call the JavaScript routine that adds the numbers 
+	together.</li>
+	<li>Finally, the fifth input control, of type <strong>submit, </strong>
+	executes the <strong>form</strong> and submits the contents of the form to 
+	<strong>AddingMachineWrite.py</strong>.</li>
+</ul>
+
+<p>Here is the complete code for the form:</p>
+<pre class="code">&lt;form action="/cgi-bin/AddingMachineWrite.py" method="post"&gt;
+  &lt;div&gt;
+  	&lt;div&gt;&lt;label&gt;Operand A:&lt;/label&gt;&lt;/div&gt;
+  	&lt;input type="text" 
+  		name="operanda" 
+  		id="operanda" /&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  	&lt;div&gt;&lt;label&gt;Operand B:&lt;/label&gt;&lt;/div&gt;
+  	&lt;input type="text" 
+  		name="operandb" 
+  		id="operandb" /&gt;
+  &lt;/div&gt;
+  &lt;hr&gt;
+  &lt;div&gt;
+	&lt;div&gt;
+		&lt;label&gt;Result&lt;/label&gt;: 
+		&lt;input type="text" name="answer" id="answer"/&gt;
+	&lt;/div&gt;
+	&lt;hr&gt;
+	&lt;div&gt;
+		&lt;input type="button" 
+			onclick="addingMachine.addNumbers()" 
+			value="Add Numbers" /&gt;
+		&lt;input type="submit" /&gt;
+	&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/<span class="brown">form</span>&gt;</pre>
+
+<p>Below is the JavaScript routine that adds two numbers together. Note that it 
+makes heavy use of jQuery to locate the fields were the operands are located, 
+and where the result is displayed.</p>
+<pre class="code">this.addNumbers = function()
+{
+  var operanda = $("#operanda").val();
+  var operandb = $("#operandb").val();
+  var sum = parseInt(operanda) + parseInt(operandb);
+  $("#answer").val(sum);
+}</pre>
+
+<p>Press the <strong>Get all additions</strong> button to see a list of all the 
+additions people have performed. Pressing this button calls another Python 
+script</p>
+
+<form action="/cgi-bin/AddingMachine/AddingMachineRead.py" method="post">
+	<input type="submit" value="Get all additions">
+</form>
+
+<p>The code for the <strong>Get all additions</strong> button looks like this:</p>
+<pre class="code">&lt;form action="/cgi-bin/AddingMachineRead.py" method="post"&gt;
+  &lt;input type="submit" value="Get all additions"&gt;
+&lt;/form&gt;</pre>
+
+<p>Call the add line code directly:</p>
+<p><a href="http://www.elvenware.com/cgi-bin/AddingMachineWrite.py?operanda=2&operandb=3&answer=5">
+	http://www.elvenware.com/cgi-bin/AddingMachineWrite.py?operanda=2&amp;operandb=3&amp;answer=5</a></p>
+<p>If you want to execute code when a form is submitted, but don't want to return HTML that
+would replace the current page, then write this:</p>
+
+<pre>&lt;form action="javascript:void validate( )"&gt;</pre>
+
+<p>By using void, we assure that a method gets called, but does not return anything. If 
+     we return HTML, then the that HTML would replace the current page, which is not 
+     always what we want.</p>
+
+
+</body>
+
+</html>

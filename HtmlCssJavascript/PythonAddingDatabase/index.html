@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+   	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Adding Machine</title>
+	<link href="style2.css" rel="stylesheet" title="style2" type="text/css" />
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script src="index.js"></script>
+</head>
+<body>
+
+	<h2 id="adding">Adding Machine</h2>
+	<p><strong><em>This is an excerpt from 
+	<a href="http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#adding">a page on the Elvenware site</a>. 
+	If I do have reason to update the text of the page, I will most likely update 
+	only the Elvenware page, and not this one. Note that this page essentially 
+	identical to the page with a similar name in the PythonAddingMachine folder 
+	except for the action attribute in the form.</em></strong></p>
+	<p>The section demonstrates how to use a form to submit data to Python script
+	which writes the results to a database. 
+	There are also calls to JavaScript routines that perform simple addition. Follow 
+	the instructions outlined below, and then read the text found beneath example.</p>
+	
+	<p><strong>Instructions</strong>: Below you will find a form outlined in blue 
+	dashes. Enter two numbers in the fields labeled <strong>Number One</strong> and
+	<strong>Number Two</strong>. Press the <strong>Add</strong> button to add the 
+	numbers. If you are satisfied with your result, press the <strong>Submit</strong> 
+	button.</p>
+	<form action="/cgi-bin/AddingMachineDatabase/AddingData.py" method="post">
+		<div class="addForm">
+			Number One: <input id="operanda" name="operanda" type="text"></div>
+		<div class="addForm">
+			Number Two: <input id="operandb" name="operandb" type="text"></div>
+		<div>
+			<hr>
+			<div>
+				<span class="addForm">Result</span>: <span id="result"></span>
+				<div>
+					<span class="addForm">Result</span>:
+					<input id="answer" name="answer" type="text"></div>
+			</div>
+			<hr>
+			<div>
+				<input onclick="jQueryTests.addNumbers()" type="button" value="Add Numbers">
+				<input type="submit" value="Submit Query">
+			</div>
+		</div>
+	</form>
+	
+	<p>Here is what is going on behind the scenes. When you press the <strong>Submit
+	</strong>button two things happen:</p>
+	<ul>
+		<li>The submit button forces the form to submit its data to a python script 
+		called AddingData.py which writes the data to a database. The script that
+		knows how to write to a database is called because the form has its 
+		action attribute set to /cgi-bin/AddingData.py. It is AddingData.py that
+		actually writes to the database.<ul>
+			<li>&lt;<strong>form</strong> action="/cgi-bin/AddingData.py" <strong>
+			method</strong>="post"&gt;</li>
+		</ul>
+		</li>
+		<li>Three pieces of data are also submitted.<ul>
+			<li>The text from the input field labeled <strong>Number One</strong> 
+			and named <strong>operanda</strong></li>
+			<li>The text from the input field labeled <strong>Number Two</strong> 
+			and named <strong>operandb</strong></li>
+			<li>The text from the input field named <strong>answer</strong>.</li>
+		</ul>
+		</li>
+		<li>There is a fourth input control, a button labeled <strong>Add Numbers</strong>. 
+		This control is used to call the JavaScript routine that adds the numbers 
+		together.</li>
+	</ul>
+	
+	<p>Here is the complete code for the form:</p>
+	<pre class="code">&lt;<span class="brown">form</span> action="/cgi-bin/AddingData.py" method="post"&gt;
+	  &lt;div&gt;Number One: &lt;<span class="brown">input</span> type="text" 
+	  	name="operanda" 
+	  	id="operanda" /&gt;&lt;/div&gt;
+	  &lt;div&gt;Number Two: &lt;<span class="brown">input</span> type="text" 
+	  	name="operandb" 
+	  	sid="operandb" /&gt;&lt;/div&gt;
+	  &lt;div&gt;
+		&lt;hr&gt;
+		&lt;div&gt;&lt;span&gt;Result&lt;/span&gt;: 
+			&lt;p id="result"&gt;&lt;/p&gt;
+			&lt;<span class="brown">input</span> type="text" name="answer" id="answer"/&gt;
+		&lt;/div&gt;
+		&lt;hr&gt;
+		&lt;div&gt;
+			&lt;<span class="brown">input</span> type="button" 
+				onclick="jQueryTests.addNumbers()" 
+				value="Add Numbers" /&gt;
+			&lt;<span class="brown">input</span> type="submit" /&gt;
+		&lt;/div&gt;
+	  &lt;/div&gt;
+	&lt;/<span class="brown">form</span>&gt;</pre>
+	
+	<p>Below is the JavaScript routine that adds two numbers together. Note that it 
+	makes heavy use of JQuery to locate the fields were the operands are located, 
+	and where the result is displayed.</p>
+	<pre class="code">this.addNumbers = function()
+	{
+	  var operanda = $("#operanda").val();
+	  var operandb = $("#operandb").val();
+	  var sum = parseInt(operanda) + parseInt(operandb);
+	  $("#result").html(sum);
+	  $("#answer").val(sum);
+	}</pre>
+	
+	<p>Press the <strong>Get all additions</strong> button to retrieve from the 
+	database a list of all the additions people have performed. Pressing this 
+	button calls a server side Python script that actually retrieves the data 
+	from the database, wraps the results in HTML, and returns them to your
+	browser.</p>
+	
+	<form action="/cgi-bin/AddingMachineDatabase/AddingMachineDataReader.py" method="post">
+		<input type="submit" value="Get all additions">
+	</form>
+
+</body>
+
+</html>

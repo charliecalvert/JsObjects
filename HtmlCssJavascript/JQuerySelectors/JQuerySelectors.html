@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+   	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JQuery Experiment</title>
+	<link href="JQuerySelectors.css" rel="stylesheet" type="text/css">
+	<link href="Blue.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="JQuerySelectors.js"></script>
+</head>
+
+<body>
+
+	<h2>Experimenting with jQuery</h2>
+	<h3 id="testHeader">I'm the temp Header</h3>
+	<p id="a">Paragraph A: I'm a &lt;p&gt; tag with an id of "a"</p>
+	<p id="b">Paragraph B: I'm a &lt;p&gt; tag with an id of "b"</p>
+	<p>This file links in jQuery, as do all the pages on Elvenware. This means that 
+	you can exercise some of the functionality of jQuery inside this page. For 
+	instance, you can press the buttons below to manipulate this text. You may need to press Refresh (F5) to 
+	return things to normal after pressing some of the buttons. For instance, the swp paragraphs functionality might
+	not work after you hit some buttons if do not first press F5.</p>
+	
+	<div class="box">
+	<div>
+	  <input type="button" onclick="jQueryTests.modifyHeaderStyle()" value="Toggle Header Style" />
+	  <input type="button" onclick="jQueryTests.setH1()" value="Set Header Text" />
+	  <input type="button" onclick="jQueryTests.restoreH1()" value="Restore Header Text" />
+	</div>
+	<div>
+	  <input type="button" onclick="jQueryTests.movePars()" value="Swap Paragraphs a and b" />
+	  <input type="button" onclick="jQueryTests.movePars02()" value="Swap Paragraphs b and a" />
+	</div>
+	<div>
+	  <input type="button" onclick="jQueryTests.addPar()" value="Add Paragraph" />
+	  <input type="button" onclick="jQueryTests.hiLite()" value="Highlight Paragraph" />
+	  <input type="button" onclick="jQueryTests.removeHiLite()" value="Remove Highlight" />
+	</div>
+	<div>  
+	  <input type="button" onclick="jQueryTests.applyClassToPars()" value="Apply Green Able Class to all <p>s" />
+	  <input type="button" onclick="jQueryTests.removeAbleClass()" value="Remove Green Able Class from all <p>s" />
+	</div>
+	<div>
+	  <input type="button" onclick="jQueryTests.replaceParsWithH2()" value="Replace P with h2" />
+	  <input type="button" onclick="jQueryTests.replaceSwitchMeBackWithPars()" value="Switch the new H2s back to highlighted Ps" />
+	</div>
+	</div>
+
+</body>
+
+</html>
