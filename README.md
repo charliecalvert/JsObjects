@@ -1,4 +1,4 @@
 JsObjects
 ========
 
-Various JavaScript Projects
+Various JavaScript Projects covering basic programming issues
