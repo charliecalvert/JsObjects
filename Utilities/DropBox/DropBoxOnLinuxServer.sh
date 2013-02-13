@@ -3,7 +3,7 @@
 # You can use dropbox.py to help you manage dropbox.
 
 dropBoxName=dropbox.tar.gz
-wget -O dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py
+wget -O dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
 wget -O $dropBoxName "https://www.dropbox.com/download?plat=lnx.x86"
 tar xzf $dropBoxName
 if [ ! -e ~/.dropbox-dist/dropboxd ]
