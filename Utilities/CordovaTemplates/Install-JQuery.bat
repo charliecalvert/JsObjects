@@ -23,7 +23,7 @@ IF EXIST %ASSETS% (
 	IF NOT EXIST %ASSETS% (
 		mkdir %ASSETS%
 	)
-	Robocopy JQueryMobile\Assets %PROJECT%\Assets /MIR /Z
+	Robocopy JQueryMobile\Assets %PROJECT%\Assets /E
 )
 rem cscript "%~dp0\create.js" %*
 GOTO END

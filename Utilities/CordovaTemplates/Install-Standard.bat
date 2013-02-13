@@ -23,7 +23,7 @@ IF EXIST %ASSETS% (
 	IF NOT EXIST %ASSETS% (
 		mkdir %ASSETS%
 	)
-	ROBOCOPY Standard\Assets %PROJECT%\Assets /MIR /Z
+	ROBOCOPY Standard\Assets %PROJECT%\Assets /E
 )
 rem cscript "%~dp0\create.js" %*
 GOTO END
