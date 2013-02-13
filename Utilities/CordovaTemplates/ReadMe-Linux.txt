@@ -9,3 +9,8 @@ export ANDROID_SDK_HOME=/home/charlie/Dev/Eclipse/sdk
 export PHONEGAP_HOME=/home/charlie/Dev/phonegap-2.3.0
 
 PATH="$ANDROID_SDK_HOME/tools:$ANDROID_SDK_HOME/platform-tools:$PHONEGAP_HOME/lib/android/bin:$PATH"
+
+
+Then here is the mechanism for moving the assets folder into the right location:
+
+ln -s JQueryMobile/Assets /home/charlie/Dev/phonegap-2.3.0/lib/android/bin/templates/project/assets
