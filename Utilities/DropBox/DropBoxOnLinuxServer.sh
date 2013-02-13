@@ -11,6 +11,6 @@ then
 	mv .dropbox-dist ~/.
 else
 	echo "I see that /home/$USER/.dropbox-dist already exists."
-	echo "I didn't expect that. I'm going to exit and let you"
+	echo "I did not expect that. I am going to exit and let you"
 	echo "handle this manually."
 fi
