@@ -62,10 +62,11 @@ assetsDir=$PHONEGAP_HOME/lib/android/bin/templates/project/assets
 if [ -e $assetsDir ]
 then
 	echo "Deleting Assets Dir"
-	rm $assetsDir
+	rm -r $assetsDir
+	mkdir $assetsDir
 fi
 
 # echo $templateDir
 
-ln -s $templateDir $PHONEGAP_HOME/lib/android/bin/templates/project/assets
-echo Link successfully created.
+cp -r $templateDir/* $assetsDir
+echo Folder successfully copied.
