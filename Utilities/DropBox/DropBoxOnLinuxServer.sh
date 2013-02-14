@@ -13,4 +13,6 @@ else
 	echo "I see that /home/$USER/.dropbox-dist already exists."
 	echo "I did not expect that. I am going to exit and let you"
 	echo "handle this manually."
+	exit
 fi
+.dropbox-dist/dropboxd
