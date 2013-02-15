@@ -1,0 +1,35 @@
+/**
+ * @author Charlie Calvert
+ */
+
+/*jshint jquery:true, browser: true */
+/*global Handlebars: false */
+
+function addNames(initFirstName, initLastName) {
+    'use strict';
+            
+    var script = $("#nameItem").html(),    
+    template=Handlebars.compile(script);    
+    
+    var result = template({
+        firstName: initFirstName,
+        lastName: initLastName
+    });    
+    
+    $("#nameDiv").append(result); 
+}
+
+$(document).ready(function() {
+  "use strict";
+  
+  $.getJSON('index.json', function(data) {
+      $.each(data, function(i, item) {
+         addNames(item.firstName, item.lastName); 
+      });
+      addNames(data[0].firstName, data[0].lastName);
+  }).success(function() { console.log("csc: success. Loaded index.json"); })
+    .error(function(jqXHR, textStatus, errorThrown) { alert("error calling JSON. Try JSONLint or JSLint: " + textStatus); })
+    .complete(function() { console.log("csc: completed call to get index.json"); });
+});
+
+

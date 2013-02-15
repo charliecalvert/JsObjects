@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="handlebar-demos">HandleBar Demos</h2>
+<p>Example 01: Use HandleBars to change a paragraph tag.<br />Example 02: Use HandleBars to dynamically change the CSS and a paragraph tag.<br />Example 03: Use HandleBars to add items to list.<br />Example 04: Read JSON<br />Example 05: Read JSON and display with HandleBars</p>
+<figure>
+<img src="img/Image00_calvert.png" alt="This is the caption" /><figcaption>This is the caption</figcaption>
+</figure>
+<pre><code>/**
+ * @author Charlie Calvert
+ */
+
+/*jshint jquery:true, browser: true */
+/*global Handlebars: false */
+
+function addNames(initFirstName, initLastName) {
+    &#39;use strict&#39;;
+            
+    var script = $(&quot;#nameItem&quot;).html(),    
+    template=Handlebars.compile(script);    
+    
+    var result = template({
+        firstName: initFirstName,
+        lastName: initLastName
+    });    
+    
+    $(&quot;#nameDiv&quot;).append(result); 
+}
+
+$(document).ready(function() {
+  &quot;use strict&quot;;
+  
+  $.getJSON(&#39;index.json&#39;, function(data) {
+      $.each(data, function(i, item) {
+         addNames(item.firstName, item.lastName); 
+      });
+      addNames(data[0].firstName, data[0].lastName);
+  }).success(function() { console.log(&quot;csc: success. Loaded index.json&quot;); })
+    .error(function(jqXHR, textStatus, errorThrown) { alert(&quot;error calling JSON. Try JSONLint or JSLint: &quot; + textStatus); })
+    .complete(function() { console.log(&quot;csc: completed call to get index.json&quot;); });
+});</code></pre>
+</body>
+</html>
