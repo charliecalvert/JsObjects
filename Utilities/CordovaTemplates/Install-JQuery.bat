@@ -9,7 +9,7 @@ FOR %%X in (java.exe javac.exe ant.bat android.bat) do (
     IF NOT DEFINED FOUND GOTO MISSING
 )
 SET PROJECT=%PHONEGAP_HOME%\lib\android\bin\templates\project
-SET ASSETS=%PROJECT%\Assets
+SET ASSETS=%PROJECT%\assets
 ECHO %PROJECT%
 IF NOT EXIST %PROJECT% (
 	echo Can't find Phone GAP Project folder. Cannot continue. Exiting
@@ -23,7 +23,7 @@ IF EXIST %ASSETS% (
 	IF NOT EXIST %ASSETS% (
 		mkdir %ASSETS%
 	)
-	Robocopy JQueryMobile\Assets %PROJECT%\Assets /E
+	Robocopy JQueryMobile\assets %ASSETS% /E
 )
 rem cscript "%~dp0\create.js" %*
 GOTO END

@@ -34,17 +34,17 @@ do
     case $opt in
         "jQueryMobile")
 		echo "you chose choice 1"
-		templateDir=${PWD}/JQueryMobile/Assets
+		templateDir=${PWD}/JQueryMobile/assets
 		break;
             ;;
         "Standard")
 		echo "you chose choice 2"
-		templateDir=${PWD}/Standard/Assets
+		templateDir=${PWD}/Standard/assets
 		break;
             ;;
         "Default")
 		echo "you chose choice 3"
-		templateDir=${PWD}/Default/Assets
+		templateDir=${PWD}/Default/assets
 		break;
             ;;
         "Quit")
