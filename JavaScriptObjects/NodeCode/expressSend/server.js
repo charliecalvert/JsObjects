@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 30025;
 
 app.get('/', function(req, res) {
 	var html = fs.readFileSync('index.html');
