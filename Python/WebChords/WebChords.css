@@ -1,0 +1,27 @@
+﻿.blue {
+	color: cadetblue;
+}
+
+li {
+	list-style-type: none;
+}
+.wide {
+	width: 250px;
+}
+
+.narrow {
+	width: 150px;
+}
+
+.noblock {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.nice {
+	margin: 3px;
+	border: thin antiquewhite solid;
+}
+.ui-button-text {
+	font-size:0.71em;
+}
