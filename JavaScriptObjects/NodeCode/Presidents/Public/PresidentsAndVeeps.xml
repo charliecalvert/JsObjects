@@ -1,0 +1,779 @@
+<Presidents>
+  <President sequence="1">
+    <Name>George Washington</Name>
+    <term_start>1789</term_start>
+    <term_end>1797</term_end>
+    <party>none</party>
+    <born>1732</born>
+    <died>1799</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John Adams</vp_name>
+        <termStart>1789</termStart>
+        <termEnd>1797</termEnd>
+        <born>1735</born>
+        <died>1826</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="2">
+    <Name>John Adams</Name>
+    <term_start>1797</term_start>
+    <term_end>1801</term_end>
+    <party>Federalist</party>
+    <born>1735</born>
+    <died>1826</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Thomas Jefferson</vp_name>
+        <termStart>1797</termStart>
+        <termEnd>1801</termEnd>
+        <born>1743</born>
+        <died>1826</died>
+        <party>Democratic_Republican</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="3">
+    <Name>Thomas Jefferson</Name>
+    <term_start>1801</term_start>
+    <term_end>1809</term_end>
+    <party>Democratic_Republican</party>
+    <born>1743</born>
+    <died>1826</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Aaron Burr</vp_name>
+        <termStart>1801</termStart>
+        <termEnd>1805</termEnd>
+        <born>1756</born>
+        <died>1836</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <vp_name>George Clinton</vp_name>
+        <termStart>1805</termStart>
+        <termEnd>1809</termEnd>
+        <born>1739</born>
+        <died>1812</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="4">
+    <Name>James Madison</Name>
+    <term_start>1809</term_start>
+    <term_end>1817</term_end>
+    <party>Democratic_Republican</party>
+    <born>1751</born>
+    <died>1836</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>George Clinton</vp_name>
+        <termStart>1809</termStart>
+        <termEnd>1812</termEnd>
+        <born>1739</born>
+        <died>1812</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <vp_name>Elbridge Gerry</vp_name>
+        <termStart>1813</termStart>
+        <termEnd>1814</termEnd>
+        <born>1744</born>
+        <died>1814</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="5">
+    <Name>James Monroe</Name>
+    <term_start>1817</term_start>
+    <term_end>1825</term_end>
+    <party>Democratic_Republican</party>
+    <born>1758</born>
+    <died>1831</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Daniel D. Tompkins</vp_name>
+        <termStart>1817</termStart>
+        <termEnd>1825</termEnd>
+        <born>1774</born>
+        <died>1825</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="6">
+    <Name>John Quincy Adams</Name>
+    <term_start>1825</term_start>
+    <term_end>1829</term_end>
+    <party>Democratic_Republican</party>
+    <born>1767</born>
+    <died>1848</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John C. Calhoun</vp_name>
+        <termStart>1825</termStart>
+        <termEnd>1829</termEnd>
+        <born>1782</born>
+        <died>1850</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="7">
+    <Name>Andrew Jackson</Name>
+    <term_start>1829</term_start>
+    <term_end>1837</term_end>
+    <party>Democrat</party>
+    <born>1767</born>
+    <died>1845</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John C. Calhoun</vp_name>
+        <termStart>1829</termStart>
+        <termEnd>1832</termEnd>
+        <born>1782</born>
+        <died>1850</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <vp_name>Martin Van Buren</vp_name>
+        <termStart>1833</termStart>
+        <termEnd>1837</termEnd>
+        <born>1782</born>
+        <died>1862</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="8">
+    <Name>Martin Van Buren</Name>
+    <term_start>1837</term_start>
+    <term_end>1841</term_end>
+    <party>Democrat</party>
+    <born>1782</born>
+    <died>1862</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Richard M. Johnson</vp_name>
+        <termStart>1837</termStart>
+        <termEnd>1841</termEnd>
+        <born>1780</born>
+        <died>1850</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="9">
+    <Name>William Henry Harrison</Name>
+    <term_start>1841</term_start>
+    <term_end>1841</term_end>
+    <party>Whig</party>
+    <born>1773</born>
+    <died>1841</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John Tyler</vp_name>
+        <termStart>1841</termStart>
+        <termEnd>1841</termEnd>
+        <born>1790</born>
+        <died>1862</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="10">
+    <Name>John Tyler</Name>
+    <term_start>1841</term_start>
+    <term_end>1845</term_end>
+    <party>Whig</party>
+    <born>1790</born>
+    <died>1862</died>
+    <VicePresidents />
+  </President>
+  <President sequence="11">
+    <Name>James Knox Polk</Name>
+    <term_start>1845</term_start>
+    <term_end>1849</term_end>
+    <party>Democrat</party>
+    <born>1795</born>
+    <died>1849</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>George M. Dallas</vp_name>
+        <termStart>1845</termStart>
+        <termEnd>1849</termEnd>
+        <born>1792</born>
+        <died>1864</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="12">
+    <Name>Zachary Taylor</Name>
+    <term_start>1849</term_start>
+    <term_end>1850</term_end>
+    <party>Whig</party>
+    <born>1784</born>
+    <died>1850</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Millard Fillmore</vp_name>
+        <termStart>1849</termStart>
+        <termEnd>1850</termEnd>
+        <born>1800</born>
+        <died>1874</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="13">
+    <Name>Millard Fillmore</Name>
+    <term_start>1850</term_start>
+    <term_end>1853</term_end>
+    <party>Whig</party>
+    <born>1800</born>
+    <died>1874</died>
+    <VicePresidents />
+  </President>
+  <President sequence="14">
+    <Name>Franklin Pierce</Name>
+    <term_start>1853</term_start>
+    <term_end>1857</term_end>
+    <party>Democrat</party>
+    <born>1804</born>
+    <died>1869</died>
+    <VicePresidents />
+  </President>
+  <President sequence="15">
+    <Name>James Buchanan</Name>
+    <term_start>1857</term_start>
+    <term_end>1861</term_end>
+    <party>Democrat</party>
+    <born>1791</born>
+    <died>1868</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John C. Breckinridge</vp_name>
+        <termStart>1857</termStart>
+        <termEnd>1861</termEnd>
+        <born>1821</born>
+        <died>1875</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="16">
+    <Name>Abraham Lincoln</Name>
+    <term_start>1861</term_start>
+    <term_end>1865</term_end>
+    <party>Republican</party>
+    <born>1809</born>
+    <died>1865</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Hannibal Hamlin</vp_name>
+        <termStart>1861</termStart>
+        <termEnd>1865</termEnd>
+        <born>1809</born>
+        <died>1891</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="17">
+    <Name>Andrew Johnson</Name>
+    <term_start>1865</term_start>
+    <term_end>1869</term_end>
+    <party>Democrat</party>
+    <born>1808</born>
+    <died>1875</died>
+    <VicePresidents />
+  </President>
+  <President sequence="18">
+    <Name>Ulysses Simpson Grant</Name>
+    <term_start>1869</term_start>
+    <term_end>1877</term_end>
+    <party>Republican</party>
+    <born>1822</born>
+    <died>1885</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Schuyler Colfax</vp_name>
+        <termStart>1869</termStart>
+        <termEnd>1873</termEnd>
+        <born>1823</born>
+        <died>1885</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <vp_name>Henry Wilson</vp_name>
+        <termStart>1873</termStart>
+        <termEnd>1875</termEnd>
+        <born>1812</born>
+        <died>1875</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="19">
+    <Name>Rutherford Birchard Hayes</Name>
+    <term_start>1877</term_start>
+    <term_end>1881</term_end>
+    <party>Republican</party>
+    <born>1822</born>
+    <died>1893</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>William A. Wheeler</vp_name>
+        <termStart>1877</termStart>
+        <termEnd>1881</termEnd>
+        <born>1819</born>
+        <died>1887</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="20">
+    <Name>James Abram Garfield</Name>
+    <term_start>1881</term_start>
+    <term_end>1881</term_end>
+    <party>Republican</party>
+    <born>1831</born>
+    <died>1881</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Chester A. Arthur</vp_name>
+        <termStart>1881</termStart>
+        <termEnd>1881</termEnd>
+        <born>1829</born>
+        <died>1886</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="21">
+    <Name>Chester Alan Arthur</Name>
+    <term_start>1881</term_start>
+    <term_end>1885</term_end>
+    <party>Republican</party>
+    <born>1829</born>
+    <died>1886</died>
+    <VicePresidents />
+  </President>
+  <President sequence="22">
+    <Name>Grover Cleveland</Name>
+    <term_start>1885</term_start>
+    <term_end>1889</term_end>
+    <party>Democrat</party>
+    <born>1837</born>
+    <died>1908</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Thomas A. Hendricks</vp_name>
+        <termStart>1885</termStart>
+        <termEnd>1885</termEnd>
+        <born>1819</born>
+        <died>1885</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="23">
+    <Name>Benjamin Harrison</Name>
+    <term_start>1889</term_start>
+    <term_end>1893</term_end>
+    <party>Republican</party>
+    <born>1833</born>
+    <died>1901</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Levi P. Morton</vp_name>
+        <termStart>1889</termStart>
+        <termEnd>1893</termEnd>
+        <born>1824</born>
+        <died>1920</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="24">
+    <Name>Grover Cleveland</Name>
+    <term_start>1893</term_start>
+    <term_end>1897</term_end>
+    <party>Democrat</party>
+    <born>1837</born>
+    <died>1908</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Adlai E. Stevenson</vp_name>
+        <termStart>1893</termStart>
+        <termEnd>1897</termEnd>
+        <born>1835</born>
+        <died>1914</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="25">
+    <Name>William McKinley</Name>
+    <term_start>1897</term_start>
+    <term_end>1901</term_end>
+    <party>Republican</party>
+    <born>1843</born>
+    <died>1901</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Garret A. Hobart</vp_name>
+        <termStart>1897</termStart>
+        <termEnd>1899</termEnd>
+        <born>1844</born>
+        <died>1899</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="26">
+    <Name>Theodore Roosevelt</Name>
+    <term_start>1901</term_start>
+    <term_end>1909</term_end>
+    <party>Republican</party>
+    <born>1858</born>
+    <died>1919</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Charles W. Fairbanks</vp_name>
+        <termStart>1905</termStart>
+        <termEnd>1909</termEnd>
+        <born>1852</born>
+        <died>1918</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="27">
+    <Name>William Howard Taft</Name>
+    <term_start>1909</term_start>
+    <term_end>1913</term_end>
+    <party>Republican</party>
+    <born>1857</born>
+    <died>1930</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>James S. Sherman</vp_name>
+        <termStart>1909</termStart>
+        <termEnd>1912</termEnd>
+        <born>1855</born>
+        <died>1912</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="28">
+    <Name>Woodrow Wilson</Name>
+    <term_start>1913</term_start>
+    <term_end>1921</term_end>
+    <party>Democrat</party>
+    <born>1856</born>
+    <died>1924</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Thomas R. Marshall</vp_name>
+        <termStart>1913</termStart>
+        <termEnd>1921</termEnd>
+        <born>1854</born>
+        <died>1925</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="29">
+    <Name>Warren Gamaliel Harding</Name>
+    <term_start>1921</term_start>
+    <term_end>1923</term_end>
+    <party>Republican</party>
+    <born>1865</born>
+    <died>1923</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Calvin Coolidge</vp_name>
+        <termStart>1921</termStart>
+        <termEnd>1923</termEnd>
+        <born>1872</born>
+        <died>1933</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="30">
+    <Name>Calvin Coolidge</Name>
+    <term_start>1923</term_start>
+    <term_end>1929</term_end>
+    <party>Republican</party>
+    <born>1872</born>
+    <died>1933</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Charles G. Dawes</vp_name>
+        <termStart>1925</termStart>
+        <termEnd>1929</termEnd>
+        <born>1865</born>
+        <died>1951</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="31">
+    <Name>Herbert Clark Hoover</Name>
+    <term_start>1929</term_start>
+    <term_end>1933</term_end>
+    <party>Republican</party>
+    <born>1874</born>
+    <died>1964</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Charles Curtis</vp_name>
+        <termStart>1929</termStart>
+        <termEnd>1933</termEnd>
+        <born>1860</born>
+        <died>1936</died>
+        <party>Republican</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="32">
+    <Name>Franklin Delano Roosevelt</Name>
+    <term_start>1933</term_start>
+    <term_end>1945</term_end>
+    <party>Democrat</party>
+    <born>1882</born>
+    <died>1945</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>John N. Garner</vp_name>
+        <termStart>1933</termStart>
+        <termEnd>1941</termEnd>
+        <born>1868</born>
+        <died>1967</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <vp_name>Henry A. Wallace</vp_name>
+        <termStart>1941</termStart>
+        <termEnd>1945</termEnd>
+        <born>1888</born>
+        <died>1965</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="33">
+    <Name>Harry S. Truman</Name>
+    <term_start>1945</term_start>
+    <term_end>1953</term_end>
+    <party>Democrat</party>
+    <born>1884</born>
+    <died>1972</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Alben W. Barkley</vp_name>
+        <termStart>1949</termStart>
+        <termEnd>1953</termEnd>
+        <born>1877</born>
+        <died>1956</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="34">
+    <Name>Dwight David Eisenhower</Name>
+    <term_start>1953</term_start>
+    <term_end>1961</term_end>
+    <party>Republican</party>
+    <born>1890</born>
+    <died>1969</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Richard M. Nixon</vp_name>
+        <termStart>1953</termStart>
+        <termEnd>1961</termEnd>
+        <born>1913</born>
+        <died>1994</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="35">
+    <Name>John Fitzgerald Kennedy</Name>
+    <term_start>1961</term_start>
+    <term_end>1963</term_end>
+    <party>Democrat</party>
+    <born>1917</born>
+    <died>1963</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Lyndon B. Johnson</vp_name>
+        <termStart>1961</termStart>
+        <termEnd>1963</termEnd>
+        <born>1908</born>
+        <died>1973</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="36">
+    <Name>Lyndon Baines Johnson</Name>
+    <term_start>1963</term_start>
+    <term_end>1969</term_end>
+    <party>Democrat</party>
+    <born>1908</born>
+    <died>1973</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Hubert H. Humphrey</vp_name>
+        <termStart>1965</termStart>
+        <termEnd>1969</termEnd>
+        <born>1911</born>
+        <died>1978</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="37">
+    <Name>Richard Milhous Nixon</Name>
+    <term_start>1969</term_start>
+    <term_end>1974</term_end>
+    <party>Republican</party>
+    <born>1913</born>
+    <died>1994</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Spiro T. Agnew</vp_name>
+        <termStart>1969</termStart>
+        <termEnd>1973</termEnd>
+        <born>1918</born>
+        <died>1996</died>
+        <party></party>
+      </VicePresident>
+      <VicePresident>
+        <Name>Gerald R. Ford</Name>
+        <termStart>1973</termStart>
+        <termEnd>1974</termEnd>
+        <born>1913</born>
+        <died>2006</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="38">
+    <Name>Gerald Rudolph Ford</Name>
+    <term_start>1974</term_start>
+    <term_end>1977</term_end>
+    <party>Republican</party>
+    <born>1913</born>
+    <died>2006</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Nelson A. Rockefeller</vp_name>
+        <termStart>1974</termStart>
+        <termEnd>1977</termEnd>
+        <born>1908</born>
+        <died>1979</died>
+        <party></party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="39">
+    <Name>James Earl Carter</Name>
+    <term_start>1977</term_start>
+    <term_end>1981</term_end>
+    <party>Democrat</party>
+    <born>1924</born>
+    <died>0</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Walter F. Mondale</vp_name>
+        <termStart>1977</termStart>
+        <termEnd>1981</termEnd>
+        <born>1928</born>
+        <died>0</died>
+        <party>Democratic</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="40">
+    <Name>Ronald Reagan</Name>
+    <term_start>1981</term_start>
+    <term_end>1989</term_end>
+    <party>Republican</party>
+    <born>1911</born>
+    <died>2004</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>George H. W. Bush</vp_name>
+        <termStart>1981</termStart>
+        <termEnd>1989</termEnd>
+        <born>1924</born>
+        <died>0</died>
+        <party>Republican</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="41">
+    <Name>George H. W. Bush</Name>
+    <term_start>1989</term_start>
+    <term_end>1993</term_end>
+    <party>Republican</party>
+    <born>1924</born>
+    <died>0</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Dan Quayle</vp_name>
+        <termStart>1989</termStart>
+        <termEnd>1993</termEnd>
+        <born>1947</born>
+        <died>0</died>
+        <party>Republican</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="42">
+    <Name>William Jefferson Clinton</Name>
+    <term_start>1993</term_start>
+    <term_end>2001</term_end>
+    <party>Democrat</party>
+    <born>1946</born>
+    <died>0</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Albert Gore, Jr.</vp_name>
+        <termStart>1993</termStart>
+        <termEnd>2001</termEnd>
+        <born>1948</born>
+        <died>0</died>
+        <party>Democrat</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+  <President sequence="43">
+    <Name>George W. Bush</Name>
+    <term_start>2001</term_start>
+    <term_end>2008</term_end>
+    <party>Republican</party>
+    <born>1946</born>
+    <died>0</died>
+    <VicePresidents>
+      <VicePresident>
+        <vp_name>Dick Cheney</vp_name>
+        <termStart>2001</termStart>
+        <termEnd>2008</termEnd>
+        <born>1941</born>
+        <died>0</died>
+        <party>Republican</party>
+      </VicePresident>
+    </VicePresidents>
+  </President>
+</Presidents>

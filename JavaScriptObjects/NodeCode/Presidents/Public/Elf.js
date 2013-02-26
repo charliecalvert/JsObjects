@@ -1,0 +1,5 @@
+/**
+ * @author Charlie
+ */
+
+var ELF = {};
