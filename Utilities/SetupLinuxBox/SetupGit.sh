@@ -17,4 +17,5 @@ if [ ! -L "$PRESIDENT_DIR" ]; then
 fi
 
 cd $PRESIDENT_DIR
+npm install
 nodejs server.js

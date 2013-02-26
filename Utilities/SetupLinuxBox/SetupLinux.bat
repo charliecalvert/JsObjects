@@ -5,6 +5,7 @@ REM Copy three scripts
 set SshUser=ubuntu@YOUR_ELASTICIP_HERE
 set SshKey01=YOUR_PRIVATE_KEY_01
 set SshKey02=YOUR_PRIVATE_KEY_02_IF_YOU_NEED_IT
+set CreateBin=CreateBin.sh
 set SetupGitScript=SetupGit.sh
 set SetupSshScript=SetupSsh.sh
 set SetupNodeScript=SetupNode.sh
@@ -17,6 +18,12 @@ REM Copy Key 02
 pscp %USERPROFILE%\documents\Data\Putty\%SshKey02% %SshUser%:/home/ubuntu/.ssh/.
 plink %SshUser% /bin/chmod 400 /home/ubuntu/.ssh/%SshKey02%
 
+REM Create Bin
+pscp %CreateBin% %SshUser%:/home/ubuntu/%CreateBin%
+plink %SshUser% /bin/chmod +x /home/ubuntu/%CreateBin%
+plink %SshUser% /home/ubuntu/%CreateBin%
+plink %SshUser% /bin/rm /home/ubuntu/%CreateBin%
+
 REM Copy Scripts
 pscp %SetupSshScript% %SshUser%:/home/ubuntu/bin/%SetupSshScript%
 pscp %SetupGitScript% %SshUser%:/home/ubuntu/bin/%SetupGitScript%
@@ -27,4 +34,4 @@ plink %SshUser% /bin/chmod +x /home/ubuntu/bin/%SetupNodeScript%
 
 REM Run Scripts 
 plink %SshUser% /home/ubuntu/bin/%SetupNodeScript%
-plink %SshUser% /home/ubuntu/bin/%SetupScript%
+REM plink %SshUser% /home/ubuntu/bin/%SetupGitScript%
