@@ -42,7 +42,7 @@ function testPresident() {
 		p.init('AA', 111, 222, 333, 444);
 		ok(p.PresidentName === 'AA');
 		ok(p.TermStart === 111);
-		ok(p.TermEnd === 222);
+		equal(p.TermEnd, 222, "Term End is mixed up. We got: ", p.TermEnd);
 		ok(p.Born === 333);
 		ok(p.Died === 444);
 	});	
