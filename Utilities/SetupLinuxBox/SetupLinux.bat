@@ -2,7 +2,7 @@
 REM Set up a Linux Box
 REM Set up two private keys
 REM Copy three scripts
-set SshUser=ubuntu@YOUR_ELASTICIP_HERE
+set SshUser=ubuntu@YOUR IP OR URL HERE
 set CreateBin=CreateBin.sh
 set SetupGitScript=SetupGit.sh
 set SetupSshScript=SetupSsh.sh
@@ -24,4 +24,4 @@ plink %SshUser% /bin/chmod +x /home/ubuntu/bin/%SetupNodeScript%
 
 REM Run Scripts 
 plink %SshUser% /home/ubuntu/bin/%SetupNodeScript%
-REM plink %SshUser% /home/ubuntu/bin/%SetupGitScript%
+plink %SshUser% /home/ubuntu/bin/%SetupGitScript%

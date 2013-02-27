@@ -1,3 +1,7 @@
-if [ ! -d "$GIT_DIR" ]; then
-	mkdir $GIT_DIR
+BIN_DIR=~/bin
+
+cd ~/
+
+if [ ! -d "$BIN_DIR" ]; then
+	mkdir $BIN_DIR
 fi
