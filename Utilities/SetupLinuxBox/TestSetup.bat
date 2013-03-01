@@ -23,7 +23,7 @@ ECHO elastic ip if you are using EC2. Otherwise
 ECHO it is probably the IP of your remote system.
 ECHO ---------------------------------------------
 ECHO You can set ELF_USER and ELF_IP by using the 
-ECHO ENVIRONMENT ECHO VARIABLES dialog. To get to 
+ECHO ENVIRONMENT VARIABLES dialog. To get to 
 ECHO that dialog:
 ECHO   Control Panel\System and Security\System
 ECHO   Advanced System Settings\Environment Vars
