@@ -1,0 +1,38 @@
+@ECHO OFF
+
+if "%ELF_USER%"=="" goto usage
+if "%ELF_IP%"=="" goto usage
+
+ECHO Your set up looks good.
+ECHO ELF_USER=%ELF_USER%
+ECHO ELF_IP=%ELF_IP%
+goto :eof
+
+:usage
+ECHO =============================================
+ECHO ====== Batch Files in This Directory ========
+ECHO =============================================
+ECHO Some of the scripts in this folder expect
+ECHO two environment variables on your system
+ECHO to be set. They are called ELF_USER and
+ECHO ELF_IP.
+ECHO ---------------------------------------------
+ECHO Before you run this script, set ELF_USER 
+ECHO and ELF_IP. Your ELF_IP might be your 
+ECHO elastic ip if you are using EC2. Otherwise
+ECHO it is probably the IP of your remote system.
+ECHO ---------------------------------------------
+ECHO You can set ELF_USER and ELF_IP by using the 
+ECHO ENVIRONMENT ECHO VARIABLES dialog. To get to 
+ECHO that dialog:
+ECHO   Control Panel\System and Security\System
+ECHO   Advanced System Settings\Environment Vars
+ECHO ---------------------------------------------
+ECHO Alternatively you can set them temporarily 
+ECHO at the command prompt like this:
+ECHO   set ELF_USER=MyUserName
+ECHO   set ELF_IP=MyRemoteIp
+ECHO For instance:
+ECHO   set ELF_USER=charlie
+ECHO   set ELF_IP=192.168.2.3
+ECHO =============================================
