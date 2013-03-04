@@ -14,6 +14,8 @@ App.Main = (function() {'use strict';
 	/*
 	 * Bind any events that are required on startup.
 	 * Common events: 'load', 'deviceready', 'offline', and 'online'.
+	 * Note that we are now loading HTML and setting up
+	 * the change handler in this method.
 	 */
 	var bindEvents = function() {
 		console.log("debug: App bindEvents called");
