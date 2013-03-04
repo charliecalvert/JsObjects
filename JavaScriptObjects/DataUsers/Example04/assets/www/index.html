@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.css" />
+        <title>jQuery Basic</title>
+    </head>
+    <body>
+
+        <div data-role="page" id="page1" data-theme="b">
+
+            <div data-role="header">
+                <h1>Page One</h1>
+            </div>
+
+            <!-- /header -->
+
+            <div data-role="content">                
+                <div class="app">
+                <p>Basic jQuery Mobile</p>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                    <p id="curDate"> </p>
+                    <a href="#page2" data-role="button" data-icon="star">Go to Page Two</a>
+                </div>
+                </div>
+                
+            </div>
+
+            <!-- /content -->
+
+        </div>
+
+        <!-- /page -->
+
+        <div data-role="page" id="page2" data-theme="b">
+
+            <div data-role="header">
+                <h1>Page Two</h1>
+            </div><!-- /header -->
+
+            <div data-role="content">
+                <p>US Presidents</p>
+                <ul id="data01" data-role="listview" data-inset="true" data-filter="true">
+                    <li><a href="#">George Washingon</a></li>
+                    <li><a href="#">John Adams</a></li>
+                    <li><a href="#">Thomas Jefferson</a></li>
+                    <li><a href="#">James Madison</a></li>
+                    <li><a href="#">James Monroe</a></li>
+                </ul>
+                <a href="#page1" data-role="button" data-icon="star">Back to Page One</a>
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+        <script src="cordova-2.3.0.js"></script>
+        <script src="jquery.js"></script>
+        <script src="jquery.mobile-1.2.0.js"></script>
+        <script src="js/utility.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
