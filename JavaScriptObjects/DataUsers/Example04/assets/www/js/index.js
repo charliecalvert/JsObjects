@@ -24,8 +24,15 @@ App.Main = (function() {'use strict';
 
 		$.getJSON("index.json", function(json) {
 			$('#data01').empty();
+			
+			// Our callback is the usePresident method above
 			$.each(json, usePresident);
-			$('#data01').listview('refresh');
+			try {
+				$('#data01').listview('refresh');
+			}
+			catch(error) {
+				alert(error.message);	
+			}
 		}).success(function() {
 			console.log("csc: success. Loaded index.json");
 		}).error(function(jqXHR, textStatus, errorThrown) {
