@@ -14,7 +14,7 @@ var GeoCode = (function() {'use strict';
 
 	var geocoder;
 	var map;
-	
+
 	var initialize = function(latitude, longitude) {
 		geocoder = new google.maps.Geocoder();
 		var latlng = new google.maps.LatLng(latitude, longitude);
@@ -26,8 +26,8 @@ var GeoCode = (function() {'use strict';
 		map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 	}
 
-	GeoCode.prototype.getCoordinates = function() {
-		var address = document.getElementById('address').value;
+	GeoCode.prototype.getCoordinates = function() {		
+		var address = $('#address').val();
 		geocoder.geocode({
 			'address' : address
 		}, function(results, status) {
