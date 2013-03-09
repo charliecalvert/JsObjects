@@ -3,8 +3,6 @@
 import re
 
 class ParseFile():
-	# regEx = '\s*<p>[^<]*.\/p>'
-	# regEx = '^\s*<p(.*?)<\/p>'
 	regEx = '<p>(.*?)<\/p>'
 
 	def openFile(self):
