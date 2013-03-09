@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html dir="ltr">
+
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>MediaWiki</title>
+        <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport" />
+        <link href="/charlie/libs/css/style2.css" rel="stylesheet" title="style2" type="text/css" />
+        <link href="/charlie/libs/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <script src="/charlie/libs/scripts/jquery.min.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="/charlie/libs/scripts/elvenware.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2806409-2']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div id="container">
+            <header>
+                <div class="navButton" onclick="elvenware.toggleMenu()">
+                    Toggle Menu
+                </div>
+                <h1>Charlie Calvert on Elvenware</h1>
+                <h2>Writing Code and Prose on Computers</h2>
+            </header>
+            <nav>
+                <h2>Menu</h2>
+                <div id="accordion00">
+                    <h2 class="navSection01">Core Code</h2>
+                    <ul>
+                        <li><a href="../index.html">Strongly Typed</a></li>
+                        <li><a href="../web/index.html">Web &amp; Scripts</a></li>
+                        <li><a href="index.shtml">Cloud</a></li>
+                    </ul>
+
+                    <h2 class="navSection02">OS and Tools</h2>
+                    <ul>
+                        <li><a href="../../os/index.html">OS</a></li>
+                        <li><a href="../database/index.html">Database</a></li>
+                        <li><a href="../../books/index.html">My Writing</a></li>
+                    </ul>
+
+                    <h2 class="navSection03">Art</h2>
+                    <ul>
+                        <li><a href="../../Art/index.html">Poems &amp; Photos</a></li>
+                        <li><a href="../../books/reading/index.html">Book Reviews</a></li>
+                        <li><a href="../../spirit/index.html">Spiritual</a></li>
+                    </ul>
+                    <h2 class="navSection04">Links</h2>
+                    <ul>
+                        <li><a href="../../links.html">My Links</a></li>
+                        <li><a href="http://www.falafel.com/">Falafel</a></li>
+                        <li><a href="http://sourceforge.net/projects/elvenware/">Sourceforge</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <article>
+                <figure>
+                    <img alt="Elvenware" src="../../images/elvenwarelogo.png" />
+                </figure>
+
+                <h1>MediaWiki</h1>
+                <p>This page is dedicated to explaining the MediaWiki software package.</p>
+                <h3>Index</h3>
+                <ul>
+                    <li><a href="#what">What is MediaWiki</a></li>
+                    <li><a href="#install">Install</a></li>
+                    <li><a href="#installWeb">Web Portion of Install</a></li>
+                    <li><a href="#extend">Extensions</a></li>
+                    <li><a href="#setLogo">Set up the Logo</a></li>
+                    <li><a href="#basicEditing">Basic Editing and Page Creation</a></li>
+                    <li><a href="#links">Links</a></li>
+                </ul>
+                <h2 id="what">What is MediaWiki</h2>
+                <p>MediaWiki is an open source, free software package that allows you to
+                    create your own, personal, customized wikis. A wiki is a web site that
+                    can be edited by its users. The web site is generally a repository of
+                    information on some topic or set of topics. The users who edit the web
+                    site work to contribute additional information to the site. They also
+                    edit each other's work, and strive to make the entries in the wiki as
+                    factual as possible.</p>
+                <p>The word wiki is Hawian, and it means "quick." Therefore the idea
+                    behind software like WikiMedia is to create a web site where information
+                    can be posted, edited, and viewed quickly and easily. MediaWiki is the
+                    same software used to power the popular Wikipedia site. It is therefore
+                    one of the most commonly used pieces of software in the entire world.</p>
+                <p>When you install MediaWiki, you are using the same software that
+                    drives the Wikipedia. You can use it, however, not to create an
+                    encyclopedia, but to create a repository of information on any subject
+                    you deem appropriate.</p>
+                <h3>What Kinds of Wiki Sites Exist?</h3>
+                <p>One quick way to begin to get a feeling for MediaWiki is to go to the <a href="http://www.wikimedia.org/">WikiMedia.org</a> web site. The <a href="http://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a> site is
+                    just one of the projects you will find on that page. Others include:</p>
+                <ul>
+                    <li><a href="http://www.wiktionary.org/" target="_blank">Wiktionary</a> - A dictionary</li>
+                    <li><a href="http://en.wikiquote.org/wiki/Main_Page" target="_blank"> Wikiquote</a> - A collection of quotes</li>
+                    <li><a href="http://en.wikibooks.org/wiki/Main_Page" target="_blank"> WikiBooks</a> - A collection of editable books</li>
+                    <li>WikiSource</li>
+                    <li><a href="http://en.wikinews.org/wiki/Main_Page" target="_blank"> WikiNews</a> - You write the news</li>
+                    <li>Wikiversity</li>
+                    <li>WikiSpecides</li>
+                    <li>WikiMedia MetaWiki, WikiMedia Commons nd WikiMedia Incubator</li>
+                </ul>
+                <p>As you can see, the same piece of software can be put to many
+                    different uses. But this is only a very tiny fraction of the sites that
+                    use MediaWiki. Below is a link to a page with a more comprehensive list
+                    of sites. It shows that there are hundreds, if not thousands of sites
+                    that use MediaWiki, though I find that many, though by no means all, the
+                    sites are no longer active:</p>
+                <p><a href="http://www.mediawiki.org/wiki/Sites_using_MediaWiki/en"> http://www.mediawiki.org/wiki/Sites_using_MediaWiki/en</a></p>
+                <p>Frequently a privately owned compay will download the WikiMedia
+                    software and create a wiki on one or more of the their products. </p>
+                <h2>Installing MediaWiki - Easy Version</h2>
+                <ul>
+                    <li>sudo apt-get install mediawiki</li>
+                </ul>
+                <p>Optionally, and if you have a large amount of disk space (4 GB free?) install the following:</p>
+                <ul>
+                    <li>sudo apt-get install imagemagick mediawiki-math php5-gd</li>
+                </ul>
+                <p>We then need to edit apache.conf, removing the # from the line that reads <strong>Alias /mediawiki /var/lib/mediawiki</strong>. After we edit the file, restart apache:</p>
+                <ul>
+                    <li>sudo nano /etc/mediawiki/apache.conf</li>
+                    <li>sudo /etc/init.d/apache2 restart</li>
+                </ul>
+                <p>Here is what the restart might look like on your system:</p>
+                <p><a href="images/ApacheRestart.png"> <img alt="Apache restart image" class="auto-style1" height="380" src="images/ApacheRestart-Small.png" style="width: 600px"></a></p>
+                <p><strong>Figure 0X: Restarting apache. Since we have not <a href="http://stackoverflow.com/questions/9541460/httpd-could-not-reliably-determine-the-servers-fully-qualified-domain-name-us"> set the server name</a>, the warning is what you should expect, and is
+                    not harmful. (Click image to expand.)</strong></p>
+                <p>Now start MediaWiki: <a href="http://localhost/mediawiki">http://localhost/mediawiki</a></p>
+                <p>If everything is working, skip from here to the <a href="#installWeb"> Web Setup Portion</a> of this document.&nbsp;</p>
+                <h2 id="install">Installing MediaWiki Manually</h2>
+
+                <p>If the easy-install shown above does not work for you, then you can
+                    try this more detailed install process. Download MediaWiki from this site:</p>
+                <pre class="code"><a href="http://www.mediawiki.org/wiki/MediaWiki">http://www.mediawiki.org/wiki/MediaWiki</a></pre>                                                
+
+ <p>The official installation guide can be found here:</p>
+                <pre class="code"><a href="http://www.mediawiki.org/wiki/Installation">http://www.mediawiki.org/wiki/Installation</a></pre>                                                
+
+ <p>Configuration tips and tricks can be found here:</p>
+                <pre class="code"><a href="http://www.mediawiki.org/wiki/Manual:Configuration">http://www.mediawiki.org/wiki/Manual:Configuration</a></pre>
+                <h3>Key Links:</h3>
+                <ul>
+                    <li><a href="https://help.ubuntu.com/community/ApacheMySQLPHP"> https://help.ubuntu.com/community/ApacheMySQLPHP</a></li>
+                    <li><a href="https://help.ubuntu.com/11.10/serverguide/C/lamp-overview.html"> https://help.ubuntu.com/11.10/serverguide/C/lamp-overview.html</a></li>
+                    <li><a href="https://help.ubuntu.com/11.04/serverguide/C/mediawiki.html"> https://help.ubuntu.com/11.04/serverguide/C/mediawiki.html</a></li>
+                </ul>
+                <h3>Overview of Install</h3>
+                <pre class="code">$ tar xvzf mediawiki-1.18.1.tar.gz</pre>
+                <pre class="code">$ sudo mv mediawiki-1.18.1 /var/www/mediawiki
+$ cd /var/www/mediawiki/
+$ chmod 777 mw-config</pre>                                                
+
+ <h3>Set up the Database</h3>
+                <p>This step is optional, as the scripts run in the Web Setup Portion
+                    should do this for you automatically. Nevertheless, it is perhaps useful to
+                    undersand how to create a database of the type that MediaWiki uses to store
+                    data. In this example, we create the database itself, but not the tables that
+                    populate it.</p>
+                <pre class="code">charlie@WesternSea:/var/www/mediawiki$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 74
+Server version: 5.1.58-1ubuntu1 (Ubuntu)
+
+Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| charlie_test       |
+| mysql              |
+| phpmyadmin         |
+| script_child       |
+| wordpress          |
++--------------------+
+6 rows in set (0.08 sec)
+
+mysql&gt; create database mediawiki;
+Query OK, 1 row affected (0.05 sec)
+
+mysql&gt; grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by 'bar';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt;</pre>
+                <h2 id="installWeb">Web Setup Portion</h2>
+                <p> Now it is time for the Web portion
+                    of the install. It is during this stage that you configure MediaWiki to support
+                    the database, and features, that you want it to use. To begin this process, you
+                    typically browse to <strong><a href="http://localhost/mediawiki"> http://localhost/mediawiki</a></strong>. You might, however, type in the name of
+                    another server besides localhost, depending on where you performed the portion
+                    of the install outlined in the previous section. When you browse to that page,
+                    you will see something like what is shown in Figure 01.</p>
+                <p><img class="leaveAlone" alt="Media Wiki Initial Install Screen" src="../design/images/MediaWiki.png" /></p>
+
+                <p><strong>Figure 01: Click the "set up the wiki" link to begin the core
+                    steps in configuring your Wiki.</strong></p>
+
+                <p> When performing the install, one of the most important steps is the
+                    last, when you copy a file called <strong>LocalSettings.php</strong> from you local machine to your MediaWiki installation. This file is
+                    created during the install process, and is handed to you as the last
+                    step in the install. I typically save it into <strong>/home/$USER/Downloads</strong>. It contains all the settings you specified when you ran the installatation. Here is the command I gave to copy to the LocalSettings file to its proper location. There is a built-in symlink that goes from <strong>/etc/mediawiki/LocalSettings.php</strong> to&nbsp; <strong>/var/lib/mediawiki/LocalSettings.php</strong>.</p>
+                <pre class="code">sudo cp /home/charlie/Downloads/LocalSettings.php /etc/mediawiki/.</pre>
+                <p>It is also possible that LocalSettings.php was saved automatically to
+                    some location on your system, probably /etc/mediawiki/config. If this
+                    happens, you will see a note at the end of the install to this effect.
+                    Please note the exact location where LocalSettings is stored as reported
+                    by the install application. You can then copy the from there, instead of
+                    from your downloads directory. Depending on where the file is placed on
+                    your system, it might look something like this:</p>
+                <pre class="code">sudo cp /etc/mediawiki/config/LocalSettings.php /etc/mediawiki/.</pre>
+                <p>Or on some systems, it might be this:</p>
+                <pre class="code">sudo mv /var/lib/mediawiki/config/LocalSettings.php /etc/mediawiki/.</pre>
+                <p>When the software is fully installed, it might looking something like
+                    the image shown in Figure 02.</p>
+
+                <p><a href="images/MediaWiki01.png"> <img alt="Screenshot of the fully install MediaWiki software" class="auto-style1" height="407" src="images/MediaWiki01Small.png" style="width: 475px" /></a></p>
+
+                <p><strong>Figure 02: Screenshot of the fully install MediaWiki software.
+                    Click to enlarge.</strong></p>
+                <h2 id="setLogo">Set up the Logo</h2>
+                <p>You might want to change the logo seen in the upper left hand corner
+                    of your screen. You should not try to edit the image found in:</p>
+                <pre class="code">/var/lib/mediawiki/skins/common/images. </pre>
+                <p>This file will be replaced when you update your system.
+                    Instead, place the file that you want to use as a logo in the <strong>images</strong> directory,
+                    by issuing a command that looks something like this: </p>
+                <pre class="code">sudo cp /home/$USER/MyLogo.png /var/lib/mediawiki/images/. </pre>
+                <p>Then use an editor like<strong> nano</strong> or <strong>vi </strong> to edit <strong>LocalSettings.php</strong> and set the <strong>$wgLogo</strong> variable found on about line 38: </p>
+                <pre class="code">sudo nano /etc/mediawiki/LocalSettings.php </pre>
+                <p>The line you want to edit should end up looking something like this:</p>
+                <p><strong>$wgLogo="/mediawiki/images/MyLogo.png"</strong></p>
+                <p>Then go back to your copy of MediaWiki and press F5. You should see the new logo
+                    as shown here:</p>
+                <p><img alt="Mediawiki with logo" height="412" src="images/MediaWiki02.png" style="width: 601px"></p>
+                <h2 id="basicEditing">Basic Editing Syntax and Page Creation</h2>
+                <p>You typically do not use HTML to format the pages in a Wiki. Instead,
+                    you begin editing your page, and then use the simple wiki markup syntax to format the text you place on your pages. </p>
+                <ul>
+                    <li>If you put two single quote marks are text it appears in
+                        ''italic'': <em>italic</em></li>
+                    <li>If you put two equal marks on each side of a word, it appears as
+                        a heading, level 2. Which is the equivalent of an H2 in HTML. For
+                        example: ==My Heading==.</li>
+                </ul>
+                <p>The wiki markup syntax is designed for non-technical people. The
+                    easiest way to learn the basics, is to study the <a href="http://www.mediawiki.org/wiki/Help:Editing">reference</a> on
+                    the mediawiki site. Some of the more advanced issues are a bit tricky to
+                    use. For a mix of simple and more advanced syntax, see these links:</p>
+                <ul>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Editing"> http://www.mediawiki.org/wiki/Help:Editing</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Starting_a_new_page"> http://www.mediawiki.org/wiki/Help:Starting_a_new_page</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Formatting"> http://www.mediawiki.org/wiki/Help:Formatting</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Links"> http://www.mediawiki.org/wiki/Help:Links</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Images"> http://www.mediawiki.org/wiki/Help:Images</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Tables">http://www.mediawiki.org/wiki/Help:Tables</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Templates"> http://www.mediawiki.org/wiki/Help:Templates</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Variables">http://www.mediawiki.org/wiki/Help:Variables</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Managing_files"> http://www.mediawiki.org/wiki/Help:Managing_files</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Deleting_a_page"> http://www.mediawiki.org/wiki/Help:Deleting_a_page</a></li>
+                    <li><a href="http://www.mediawiki.org/wiki/Help:Categories"> http://www.mediawiki.org/wiki/Help:Categories</a></li>
+                </ul>
+
+                <h2 id="extend">Extensions</h2>
+                <p>There are hundreds of extensions to MediaWiki:</p>
+                <ul>
+                    <li><a href="http://www.mediawiki.org/wiki/Category:Stable_extensions"> http://www.mediawiki.org/wiki/Category:Stable_extensions</a></li>
+                </ul>
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="http://www.mediawiki.org/wiki/Manual:FAQ" target="_blank"> MediaWiki FAQ</a></li>
+                    <li><a href="http://en.wikibooks.org/wiki/Subject:Languages_of_Europe" target="_blank"> Learning European Languages - Spanish</a></li>
+                </ul>
+                <p>&nbsp;</p>
+                <!-- #EndEditable -->
+            </article>
+            <footer>
+
+                <p>Copyright &copy; <a href="../../index.html">Charlie Calvert</a> | <a href="../../index.html">Elvenware Home</a> | <a href="../index.html">Writing Code</a> | <a href="../delphi/index.html">Delphi</a> | <a href="../csharp/index.html">CSharp</a> | <a href="../../books/index.html">My Books</a></p>
+            </footer>
+        </div>
+
+    </body>
+
+    <!-- #EndTemplate -->
+
+</html>
