@@ -1,0 +1,8 @@
+{
+    "name": "Example06", 
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"handlebars": "3.1"
+	}
+}
