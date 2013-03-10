@@ -1,76 +1,52 @@
-function addNames(initFirstName, initLastName) {'use strict';
+var Folks = (function() {
 
-	var script = $("#nameItem").html(); 
-	var template = Handlebars.compile(script);
+	function Folks() {
+		$("#buttonParse").click(parse);
+	}
 
-	var result = template({
-		firstName : initFirstName,
-		lastName : initLastName
-	});
+	function addNames(initFirstName, initLastName) {'use strict';
 
-	$("#nameDiv").append(result);
-}
+		var script = $("#nameItem").html();
+		var template = Handlebars.compile(script);
 
-function parse() {
-	$.getJSON('/read', function(data) {
-		$.each(data, function(i, item) {
-			addNames(item.firstName, item.lastName);
+		var result = template({
+			firstName : initFirstName,
+			lastName : initLastName
 		});
-		addNames(data[0].firstName, data[0].lastName);
-	}).success(function() {
-		console.log("csc: success. Loaded index.json");
-	}).error(function(jqXHR, textStatus, errorThrown) {
-		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus);
-	}).complete(function() {
-		console.log("csc: completed call to get index.json");
-	});
-}
 
-function addNine() {
-	$.getJSON('/addToNine?a=5', function(data) {
-		alert(data.result + " Value = " + data.value );
-	}).success(function() {
-		console.log("csc: success. Loaded index.json");
-	}).error(function(jqXHR, textStatus, errorThrown) {
-		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus);
-	}).complete(function() {
-		console.log("csc: completed call to get index.json");
-	});
-}
+		$("#nameDiv").append(result);
+	}
 
-function addFive() {
-	var userNumber = $("#userNumber").val();
-	var data = {
-		value : userNumber
+	function parse() {
+		$.getJSON('/read', function(data) {
+			$.each(data, function(i, item) {
+				addNames(item.firstName, item.lastName);
+			});
+			addNames(data[0].firstName, data[0].lastName);
+		}).success(function() {
+			console.log("csc: success. Loaded index.json");
+		}).error(function(jqXHR, textStatus, errorThrown) {
+			alert("error calling JSON. Try JSONLint or JSLint: " + textStatus);
+		}).complete(function() {
+			console.log("csc: completed call to get index.json");
+		});
+	}
+
+	var showError = function(request, ajaxOptions, thrownError) {
+		showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
+		showDebug(request.status);
+		showDebug(request.statusText);
+		showDebug(request.getAllResponseHeaders());
+		showDebug(request.responseText);
 	};
-	
-	$.ajax({
-		type : "POST",
-		url : '/addToFive',
-		dataType : "json",
-		cache : 'False',
-		data : data,
-		success : function (result) {
-			alert(JSON.stringify(result));
-		},
-		error : showError
-	});
-};
 
-var showError = function(request, ajaxOptions, thrownError) {
-	showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
-	showDebug(request.status);
-	showDebug(request.statusText);
-	showDebug(request.getAllResponseHeaders());
-	showDebug(request.responseText);
-};
+	var showDebug = function(data) {
+		$("#debugList").append("<li>" + data + "</li>");
+	};
 
-var showDebug = function(data) {
-	$("#debugList").append("<li>" + data + "</li>");
-};
+	return Folks;
+})();
 
 $(document).ready(function() {
-	$("#buttonParse").click(parse);
-	$("#buttonAddNine").click(addNine);
-	$("#buttonAddFive").click(addFive);
-}); 
+	new Folks();
+});

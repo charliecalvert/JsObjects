@@ -15,28 +15,6 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/addToNine', function(request, response) {
-	console.log('AddToNine request: ' + request);
-	console.log('AddToNine request.query: ' + request.query);
-	console.log('AddToNine request.query.a: ' + request.query.a);
-	try {
-		var newValue = parseInt(request.query.a) + 9;
-	} catch(error) {
-		console.log(error);
-	}
-	response.send( { result : "Success", value: newValue } );
-});
-
-app.post('/addToFive', function(request, response) {
-	console.log("AddToFive called");
-	console.log(request.body);	
-	var data = request.body;
-	var newNumber = parseInt(data.value) + 5;
-	console.log(data.value);
-
-	response.send( { result : "Success", value: newNumber	} );
-});
-
 app.get('/read', function(req, res){
 	var obj;
 	
@@ -51,7 +29,6 @@ app.get('/read', function(req, res){
 });
 
 app.use("/public", express.static(__dirname + '/public'));
-
 
 app.listen(port);
 console.log('Listening on port :' + port);
