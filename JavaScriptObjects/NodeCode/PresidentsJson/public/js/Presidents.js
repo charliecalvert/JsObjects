@@ -10,7 +10,8 @@ var Presidents = (function(displayInit, initUtilities) {
 
 	function Presidents() {
 
-	};
+	}
+
 
 	$(document).ready(function() {
 
@@ -99,109 +100,106 @@ var Presidents = (function(displayInit, initUtilities) {
 		});
 	};
 
-	/*Presidents.prototype.displayRow = function(row) {
-	 display.showResponse(row.$ItemName + " " + row.FirstName + " " + row.LastName);
-	 };*/
-
 	Presidents.prototype.getItem = function() {
-	that.clearResponse('called getitem');
-	query = "itemName=First";
-	request = $.ajax(
-	{
-	type: "get",
-	data: query,
-	url: '/getitem',
-	var presidents = new Presidents(new Display(), new Utilities());cache: false,
-	dataType: "json",
-	success: function (data) {
-	that.displayRow(data);
-	},
-	error: display.showError
-	});
+		that.clearResponse('called getitem');
+		query = "itemName=First";
+		request = $.ajax({
+			type : "get",
+			data : query,
+			url : '/getitem',
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				that.displayRow(data);
+			},
+			error : display.showError
+		});
 	};
-})
-function getNames() {
-	var names = {};
-	names.firstName = $.trim($('#firstName').val());
-	names.middleName = $.trim($('#middleName').val());
-	names.lastName = $.trim($('#lastName').val());
-	if (!readyForUpdate(firstName, lastName)) {
-		alert("Please enter a name");
-		return null;
+
+	function getNames() {
+		var names = {};
+		names.firstName = $.trim($('#firsvar presidents = new Presidents(new Display(), new Utilities());tName').val());
+		names.middleName = $.trim($('#middleName').val());
+		names.lastName = $.trim($('#lastName').val());
+		if (!readyForUpdate(firstName, lastName)) {
+			alert("Please enter a name");
+			return null;
+		}
+		return names;
 	}
-	return names;
-}
 
-Presidents.prototype.insertPresident = function() {
-	names = getNames();
-	if (names) {
-		that.insertRecord(names.firstName, names.middleName, names.lastName);
-	}
-};
 
-Presidents.prototype.update = function() {
-if (!presidentMode) {
-alert("You must select Get President before updating.");
-return;
-}
+	Presidents.prototype.insertPresident = function() {
+		names = getNames();
+		if (names) {
+			that.insertRecord(names.firstName, names.middleName, names.lastName);
+		}
+	};
 
-var names = getNames();
-if ((names) == null) return
+	Presidents.prototype.update = function() {
+		if (!presidentMode) {
+			alert("You must select Get President before updating.");
+			return;
+		}
 
-var query = })"uuid=" + selectedItem + "&firstName=" + names.firstName + '&middleName=' + names.middleName + "&lastName=" + names.lastName;
+		var names = getNames();
+		if ((names) === null)
+			return;
 
-request = $.ajax({
-	type : "get",
-	data : query,
-	url : '/update',
-	cache : false,
-	dataType : "json",
-	success : function(data) {
-		display.showResponse("success");
-	},
-	error : display.showError
-});
-};
+		var query = "uuid=" + selectedItem + "&firstName=" + names.firstName + '&middleName=' + names.middleName + "&lastName=" + names.lastName;
 
-Presidents.prototype.insertRecord = function(firstName, middleName, lastName) {
-	display.showDebug("inserting: " + firstName + " " + middleName + " " + lastName);
-	that.clearResponse('called putitem');
-	var query = "firstName=" + firstName + "&middleName=" + middleName + "&lastName=" + lastName;
-	request = $.ajax({
-		type : "get",
-		data : query,
-		url : '/putItem',
-		cache : false,
-		dataType : "json",
-		success : function(data) {
-			display.showResponse("success");
-			var presidents = new Presidents(new Display(), new Utilities());
-		},
-		error : display.showError
-	});
-}
+		request = $.ajax({
+			type : "get",
+			data : query,
+			url : '/update',
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				display.showResponse("success");
+			},
+			error : display.showError
+		});
+	};
 
-Presidents.prototype.deleteItem = function() {
-	if (!presidentMode) {
-		alert("You must select Get Presidents before trying to delete a president");
-		return;
-	}
-	that.clearResponse('Called delete item: ' + selectedItem);
-	query = "itemName=" + selectedItem;
-	request = $.ajax({
-		type : "get",
-		data : query,
-		url : '/delete',
-		cache : false,
-		dataType : "json",
-		success : function(data) {
-			display.showResponse("success");
-		},
-		error : display.showError
-	});
-};
+	Presidents.prototype.insertRecord = function(firstName, middleName, lastName) {
+		display.showDebug("inserting: " + firstName + " " + middleName + " " + lastName);
+		that.clearResponse('called putitem');
+		var query = "firstName=" + firstName + "&middleName=" + middleName + "&lastName=" + lastName;
+		request = $.ajax({
+			type : "get",
+			data : query,
+			url : '/putItem',
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				display.showResponse("success");
+				var presidents = new Presidents(new Display(), new Utilities());
+			},
+			error : display.showError
+		});
+	};
 
-return Presidents;
+	Presidents.prototype.deleteItem = function() {
+		if (!presidentMode) {
+			alert("You must select Get Presidents before trying to delete a president");
+			return;
+		}
+		that.clearResponse('Called delete item: ' + selectedItem);
+		query = "itemName=" + selectedItem;
+		request = $.ajax({
+			type : "get",
+			data : query,
+			url : '/delete',
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				display.showResponse("success");
+			},
+			error : display.showError
+		});
+	};
+
+	return Presidents;
 
 })();
 
