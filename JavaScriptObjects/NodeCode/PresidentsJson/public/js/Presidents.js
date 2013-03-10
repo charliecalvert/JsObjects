@@ -1,5 +1,3 @@
-
-
 var Presidents = (function(displayInit, initUtilities) {
 
 	var that = this;
@@ -7,15 +5,14 @@ var Presidents = (function(displayInit, initUtilities) {
 	var presidentMode = false;
 	var selectedItem = '';
 	var utilities = null;
+	var presidentsList = null;
 
 	function Presidents(displayInit, initUtilities) {
 		display = displayInit;
 		utilities = initUtilities;
 	}
 
-
-	
-	Presidents.prototype.radioSelection = function() {
+	var radioSelection = function() {
 		selectedItem = $("input[name=responseGroup]:checked").attr('id');
 		var firstName = $("input[name=responseGroup]:checked").attr('first');
 		var middleName = $("input[name=responseGroup]:checked").attr('middle');
@@ -61,6 +58,14 @@ var Presidents = (function(displayInit, initUtilities) {
 		});
 	};
 
+	var showPresidents = function() {
+		$(presidentsList).each(function() {
+			$(this).each(function() {
+				display.displayRow(this);
+			});
+		});
+	};
+
 	Presidents.prototype.getPresidents = function(callback) {
 		clearResponse("Get Presidents called");
 		presidentMode = true;
@@ -70,14 +75,11 @@ var Presidents = (function(displayInit, initUtilities) {
 			cache : false,
 			dataType : "json",
 			success : function(data) {
-				$(data).each(function() {
-					$(this).each(function() {
-						display.displayRow(this);
-					});
-				});
+				presidentsList = data;
+				showPresidents();
 				$("input[name=responseGroup]:radio").click(that.radioSelection);
 				$("input[name=responseGroup]:radio:first").attr('checked', true);
-				that.radioSelection();
+				radioSelection();
 				if ( typeof (callback) == 'function') {
 					display.showDebug("Callback coming");
 					callback();
@@ -86,7 +88,23 @@ var Presidents = (function(displayInit, initUtilities) {
 			error : display.showError
 		});
 	};
-
+	
+	Presidents.prototype.savePresidents = function() {
+		var data = { details: 'presidents', data: JSON.stringify(presidentsList) };
+		$.ajax(
+		{
+			type: "POST",
+			url: '/savePresidents',
+			dataType: "json",
+			cache: 'False',
+			data: data, 
+			success: function(data) {
+				display.showDebug(data.result);
+			},
+			error: display.showError			
+		});	
+	}
+	
 	Presidents.prototype.getItem = function() {
 		that.clearResponse('called getitem');
 		query = "itemName=First";
@@ -105,10 +123,10 @@ var Presidents = (function(displayInit, initUtilities) {
 
 	function getNames() {
 		var names = {};
-		names.firstName = $.trim($('#firsvar presidents = new Presidents(new Display(), new Utilities());tName').val());
+		names.firstName = $.trim($('#firstName').val());
 		names.middleName = $.trim($('#middleName').val());
 		names.lastName = $.trim($('#lastName').val());
-		if (!readyForUpdate(firstName, lastName)) {
+		if (!utilities.readyForUpdate(firstName, lastName)) {
 			alert("Please enter a name");
 			return null;
 		}
@@ -119,7 +137,7 @@ var Presidents = (function(displayInit, initUtilities) {
 	Presidents.prototype.insertPresident = function() {
 		names = getNames();
 		if (names) {
-			that.insertRecord(names.firstName, names.middleName, names.lastName);
+			insertRecord(names.firstName, names.middleName, names.lastName);
 		}
 	};
 
@@ -148,11 +166,15 @@ var Presidents = (function(displayInit, initUtilities) {
 		});
 	};
 
-	Presidents.prototype.insertRecord = function(firstName, middleName, lastName) {
-		display.showDebug("inserting: " + firstName + " " + middleName + " " + lastName);
-		that.clearResponse('called putitem');
-		var query = "firstName=" + firstName + "&middleName=" + middleName + "&lastName=" + lastName;
-		request = $.ajax({
+	var insertRecord = function(firstName, middleName, lastName) {
+		var pName = firstName + " " + middleName + " " + lastName;
+		display.showDebug("inserting: " + pName);
+		clearResponse('called putitem');
+		var president = new ELF.EasyPresident(pName, 5, 6, 7, 8);
+		var query = president.toJSON();
+		presidentsList.push(query);
+		showPresidents();
+		/* request = $.ajax({
 			type : "get",
 			data : query,
 			url : '/putItem',
@@ -160,10 +182,9 @@ var Presidents = (function(displayInit, initUtilities) {
 			dataType : "json",
 			success : function(data) {
 				display.showResponse("success");
-				var presidents = new Presidents(new Display(), new Utilities());
 			},
 			error : display.showError
-		});
+		}); */
 	};
 
 	Presidents.prototype.deleteItem = function() {
@@ -190,21 +211,19 @@ var Presidents = (function(displayInit, initUtilities) {
 
 })();
 
-
 $(document).ready(function() {
 	var presidents = new Presidents(new Display(), new Utilities());
-		$('button:#dirname').click(presidents.dirName);
-		$('button:#port').click(presidents.port);
-		$('button:#getPresidents').click(presidents.getPresidents);
-		$('button:#getitem').click(presidents.getItem);
-		$('button:#insertPresident').click(presidents.insertPresident);
-		$('button:#update').click(presidents.update);
-		$('button:#deleteitem').click(presidents.deleteItem);
-		$('button:#deleteAll').click(presidents.deleteAll);
-		$('button:#listAllItemNames').click(presidents.listAllItemNames);
-		$('button:#addListOfPresidents').click(presidents.addListOfPresidents);
-		$('button:#testAzureSimpleDb').click(presidents.testAzureSimpleDb);
+	$('button:#dirname').click(presidents.dirName);
+	$('button:#port').click(presidents.port);
+	$('button:#getPresidents').click(presidents.getPresidents);
+	$('button:#getitem').click(presidents.getItem);
+	$('button:#insertPresident').click(presidents.insertPresident);
+	$('button:#savePresidents').click(presidents.savePresidents);
+	$('button:#update').click(presidents.update);
+	$('button:#deleteitem').click(presidents.deleteItem);
+	$('button:#deleteAll').click(presidents.deleteAll);
+	$('button:#listAllItemNames').click(presidents.listAllItemNames);
+	$('button:#addListOfPresidents').click(presidents.addListOfPresidents);
+	$('button:#testAzureSimpleDb').click(presidents.testAzureSimpleDb);
 });
-
-
 

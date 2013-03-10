@@ -25,14 +25,15 @@ ELF.EasyPresident = (function() {
 		Object.defineProperty(this, "Died", withValue(initDied));
 	}
 
-
+	// Readonly, we can't init
+	/*
 	President.prototype.init = function(initName, initStart, initEnd, initBorn, initDied) {
 		this.PresidentName = initName;
 		this.TermStart = initStart;
 		this.TermEnd = initEnd;
 		this.Born = initBorn;
 		this.Died = initDied;
-	};
+	}; */
 
 	President.prototype.initFromJSON = function(json) {
 		this.PresidentName = json.presidentName;

@@ -5,6 +5,8 @@ var fs = require('fs');
 var coreData = { Domain: 'History', Category: 'Presidents02' };
 
 var port = process.env.port || 30025;
+app.use(express.bodyParser());
+var presidentsFileName = 'data/Presidents.json';
 
 app.get('/', function(req, res) {
 	var html = fs.readFileSync('public/index.html');
@@ -47,7 +49,7 @@ app.get('/listItems', function(request, result) {
 });
 
 app.get('/getPresidents', function(request, response) {
-	var json = fs.readFileSync('data/Presidents.json');
+	var json = fs.readFileSync(presidentsFileName);
 	response.send(json);
 });
 
@@ -171,14 +173,37 @@ app.get('/addListOfPresidents', function(request, result) {
 
 });
 
+function writeToFile(fileName, json) {
+	fs.writeFile(fileName, json, function(err) {
+		if(err) {
+		  console.log(err);
+		} else {
+		  console.log("JSON saved to " + fileName);
+		  return {"result":"success"};
+		}
+	});	
+}
+
+app.post('/savePresidents', function(request, result) {
+	console.log("savePresidents called");
+	
+	if (typeof request.body == 'undefined') {
+		console.log("request.body is not defined. Did you add app.use(express.bodyParser()); at top");
+	} else {
+	console.log(request.body);	
+	var details = request.body.details;
+	var json = JSON.parse(request.body.data);
+	console.log(details);
+	json = JSON.stringify(json, null, 4);
+	writeToFile(presidentsFileName, json);
+	}
+});
 
 app.get('/putitem', function(request, result) {	
-	console.log(request.query.firstName);
-	console.log(request.query.middleName);
-	console.log(request.query.lastName);
-	outcome = putItem(request.query.firstName,
-			request.query.middleName,
-			request.query.lastName);
+	console.log(request.query.presidentName);
+	console.log(request.query.born);
+	console.log(request.query.died);
+	writeToFile('temp.json', request.query)
 	result.send(outcome);
 });
 
