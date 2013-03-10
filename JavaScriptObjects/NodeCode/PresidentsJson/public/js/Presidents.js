@@ -1,4 +1,4 @@
-new Presidents(new Display(), new Utilities());
+
 
 var Presidents = (function(displayInit, initUtilities) {
 
@@ -13,21 +13,7 @@ var Presidents = (function(displayInit, initUtilities) {
 	}
 
 
-	$(document).ready(function() {
-
-		$('button:#dirname').click(presidents.dirName);
-		$('button:#port').click(presidents.port);
-		$('button:#getPresidents').click(presidents.getPresidents);
-		$('button:#getitem').click(presidents.getItem);
-		$('button:#insertPresident').click(presidents.insertPresident);
-		$('button:#update').click(presidents.update);
-		$('button:#deleteitem').click(presidents.deleteItem);
-		$('button:#deleteAll').click(presidents.deleteAll);
-		$('button:#listAllItemNames').click(presidents.listAllItemNames);
-		$('button:#addListOfPresidents').click(presidents.addListOfPresidents);
-		$('button:#testAzureSimpleDb').click(presidents.testAzureSimpleDb);
-	});
-
+	
 	Presidents.prototype.radioSelection = function() {
 		selectedItem = $("input[name=responseGroup]:checked").attr('id');
 		var firstName = $("input[name=responseGroup]:checked").attr('first');
@@ -202,4 +188,22 @@ var Presidents = (function(displayInit, initUtilities) {
 	return Presidents;
 
 })();
+
+
+$(document).ready(function() {
+	var presidents = new Presidents(new Display(), new Utilities());
+		$('button:#dirname').click(presidents.dirName);
+		$('button:#port').click(presidents.port);
+		$('button:#getPresidents').click(presidents.getPresidents);
+		$('button:#getitem').click(presidents.getItem);
+		$('button:#insertPresident').click(presidents.insertPresident);
+		$('button:#update').click(presidents.update);
+		$('button:#deleteitem').click(presidents.deleteItem);
+		$('button:#deleteAll').click(presidents.deleteAll);
+		$('button:#listAllItemNames').click(presidents.listAllItemNames);
+		$('button:#addListOfPresidents').click(presidents.addListOfPresidents);
+		$('button:#testAzureSimpleDb').click(presidents.testAzureSimpleDb);
+});
+
+
 
