@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Presidents</title>
+	<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script>
+	<script src="js/Elf.js"> </script>
+	<script src="js/utilities.js"> </script>
+	<script src="js/Display.js"> </script>
+	<script src="js/Presidents.js"> </script>
+	<script src="js/ElvenPresidentsEasy02.js"> </script>
+		
+</head>
+	<body>
+		
+	<div class="addForm">
+		<span class="rowName">First Name:</span> <input id="firstName" name="firstName" type="text">
+	</div>
+	<div class="addForm">
+		<span class="rowName">Middle Name:</span> <input id="middleName" name="middleName" type="text">
+	</div>
+	<div class="addForm">
+		<span class="rowName">Last Name:</span> <input id="lastName" name="lastName" type="text">
+	</div>
+
+	<div>		
+		<button id="getPresidents">Get Presidents</button>				
+		<button id="insertPresident">Insert President</button>
+		<button id="update">Update Current</button>
+		<button id="deleteitem">Delete President</button>
+	</div>
+		
+	<div>		
+		<button id="createDomain">Create History Domain</button>
+		<button id="addListOfPresidents">Add List of Presidents</button>
+		<button id="deleteAll">Delete All Presidents</button>
+		<button id="listAllItemNames">List All ItemNames</button>
+	</div>
+
+	<div>	
+		<button id="listDomains">List Domains</button>
+		<button id="dirname">Get Directory Name</button>
+		<button id="port">Get Port</button>
+		<button id="testAzureSimpleDb">Test Azure SimpleDb</button>		
+	</div>	
+	
+	<section id=responseGroup>
+		<ul id="response"> </ul>	
+	</section>
+	<ul id='debug'> </ul>
+	</body>
+</html>

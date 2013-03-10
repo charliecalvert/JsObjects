@@ -16,7 +16,8 @@ Presidents.prototype.readPresidents = function() {
 	$("#debug").empty();
 	request = $.ajax({
 		type : "GET",
-		url : this.readXml,
+		url : thi	}
+	});s.readXml,
 		cache : false,
 		dataType : "xml",
 		success : function(xml) {
@@ -65,7 +66,8 @@ Presidents.prototype.postPresidents = function(first, last) {
 				$("#items").append("<li>" + additions + "</li>");
 			});
 		},
-		error : function(request, ajaxOptions, thrownError) {
+		error : f	}
+	});unction(request, ajaxOptions, thrownError) {
 			that.showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
 			that.showDebug(request.status);
 			that.showDebug(request.statusText);
@@ -85,7 +87,8 @@ Presidents.prototype.deletePresident = function() {
 	itemNameChoice = $("input[name=itemGroup]:checked").attr('itemName');
 	deleteRequest = "delete=" + itemNameChoice;
 	request = $.ajax({
-		type : "POST",
+		type : "P	}
+	});OST",
 		data : deleteRequest,
 		url : this.deleteXml,
 		dataType : "xml",

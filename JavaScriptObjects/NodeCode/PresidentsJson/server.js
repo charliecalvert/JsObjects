@@ -1,17 +1,10 @@
 var express = require('express');
 var simpledb = require('simpledb');
-var app = express.createServer();
+var app = express();
 var fs = require('fs');
-var utils = require('./public/javascripts/utilities').utils;
 var coreData = { Domain: 'History', Category: 'Presidents02' };
 
-keys = utils.readKeyFile();
-
-var sdb = new simpledb.SimpleDB({
-	keyid : keys[0],
-	secret : keys[1]
-});
-var port = process.env.port || 3000;
+var port = process.env.port || 30025;
 
 app.get('/', function(req, res) {
 	var html = fs.readFileSync('public/index.html');
@@ -53,14 +46,9 @@ app.get('/listItems', function(request, result) {
 	});
 });
 
-app.get('/history', function(request, result) {
-	sdb.select('select * from History where Category="' + coreData.Category + '"', function(error, queryResult, metadata) {
-		if (error) {
-			res.send('history query failed: ' + error.Message);
-		} else {
-			result.send(queryResult);
-		}
-	});
+app.get('/getPresidents', function(request, response) {
+	var json = fs.readFileSync('data/Presidents.json');
+	response.send(json);
 });
 
 app.get('/deleteDomain', function(request, result) {
@@ -325,4 +313,5 @@ app.get('/port', function(request, result) {
 
 app.use(express.static(__dirname + '/public'));
 
+console.log("listening on Port: ", port);
 app.listen(port);

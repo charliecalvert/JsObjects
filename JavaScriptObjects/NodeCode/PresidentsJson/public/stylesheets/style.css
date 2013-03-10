@@ -1,0 +1,22 @@
+body {
+	background-color: #AABBFF;
+	padding: 20px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.rowName {
+	float: left;
+	width: 100px;
+	text-align: left;	
+}
+
+button {
+	margin-top: 10;
+	margin-right: 10;
+	padding: 10;
+	width: 200;
+}
