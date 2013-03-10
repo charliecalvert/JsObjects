@@ -3,13 +3,14 @@
 var Presidents = (function(displayInit, initUtilities) {
 
 	var that = this;
-	var display = displayInit;
+	var display = null;
 	var presidentMode = false;
 	var selectedItem = '';
-	var utilities = initUtilities;
+	var utilities = null;
 
-	function Presidents() {
-
+	function Presidents(displayInit, initUtilities) {
+		display = displayInit;
+		utilities = initUtilities;
 	}
 
 
@@ -27,7 +28,7 @@ var Presidents = (function(displayInit, initUtilities) {
 		$('#lastName').val(lastName);
 	};
 
-	Presidents.prototype.clearResponse = function(debugMessage) {
+	var clearResponse = function(debugMessage) {
 		presidentMode = false;
 		display.clearResponse();
 		display.showDebug(debugMessage);
@@ -61,7 +62,7 @@ var Presidents = (function(displayInit, initUtilities) {
 	};
 
 	Presidents.prototype.getPresidents = function(callback) {
-		that.clearResponse("Get Presidents called");
+		clearResponse("Get Presidents called");
 		presidentMode = true;
 		request = $.ajax({
 			type : "get",
