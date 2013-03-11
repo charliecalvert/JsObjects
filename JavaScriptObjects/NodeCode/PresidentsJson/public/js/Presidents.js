@@ -1,6 +1,5 @@
 var Presidents = (function(displayInit, initUtilities) {
 
-	var that = this;
 	var display = null;
 	var presidentMode = false;
 	var selectedItem = '';
@@ -46,29 +45,6 @@ var Presidents = (function(displayInit, initUtilities) {
 		window.location.replace('/testAzureSimpleDb');
 	};
 
-	Presidents.prototype.addListOfPresidents = function() {
-		that.clearResponse("Add List of Presidents Called");
-		that.simpleQuery('/adFirstNamedListOfPresidents');
-	};
-
-	Presidents.prototype.deleteAll = function() {
-		that.clearResponse("Delete all Presidents Called");
-		that.simpleQuery('/deleteAll');
-	};
-
-	Presidents.prototype.simpleQuery = function(query) {
-		request = $.ajax({
-			type : "get",
-			url : query,
-			cache : false,
-			dataType : "json",
-			success : function(data) {
-				display.showResponse(data.result);
-			},
-			error : display.showError
-		});
-	};
-
 	var showPresidents = function() {
 		display.clearResponse();
 		var count = 0;
@@ -92,7 +68,6 @@ var Presidents = (function(displayInit, initUtilities) {
 				presidentsList = data;
 				showPresidents();
 				$('#responseGroup').change(radioSelection);
-				//$("input[name=responseGroup]:radio").change(radioSelection);
 				$("input[name=responseGroup]:radio:first").attr('checked', true);
 				radioSelection();
 				if ( typeof (callback) == 'function') {
@@ -119,22 +94,7 @@ var Presidents = (function(displayInit, initUtilities) {
 			error: display.showError			
 		});	
 	}
-	
-	Presidents.prototype.getItem = function() {
-		that.clearResponse('called getitem');
-		query = "itemName=First";
-		request = $.ajax({
-			type : "get",
-			data : query,
-			url : '/getitem',
-			cache : false,
-			dataType : "json",
-			success : function(data) {
-				that.displayRow(data);
-			},
-			error : display.showError
-		});
-	};
+
 
 	function getNames() {
 		var names = {};
@@ -156,6 +116,31 @@ var Presidents = (function(displayInit, initUtilities) {
 		}
 	};
 
+
+
+	var insertRecord = function(firstName, middleName, lastName) {
+		var pName = firstName + " " + middleName + " " + lastName;
+		display.showDebug("inserting: " + pName);
+		clearResponse('called putitem');
+		var president = new ELF.EasyPresident(pName, 5, 6, 7, 8);
+		var query = president.toJSON();
+		presidentsList.push(query);
+		showPresidents();
+	};
+
+	Presidents.prototype.deleteItem = function() {
+		if (!presidentMode) {
+			alert("You must select Get Presidents before trying to delete a president");
+			return;
+		}
+		clearResponse('Called delete item: ' + selectedItem);
+		query = "itemName=" + selectedItem;
+		utilities.deleteFromArray2(presidentsList, selectedItem);			
+		showPresidents();	
+	};
+
+	// TODO: Get this method working so we can update an existing
+	// record
 	Presidents.prototype.update = function() {
 		if (!presidentMode) {
 			alert("You must select Get President before updating.");
@@ -180,56 +165,18 @@ var Presidents = (function(displayInit, initUtilities) {
 			error : display.showError
 		});
 	};
-
-	var insertRecord = function(firstName, middleName, lastName) {
-		var pName = firstName + " " + middleName + " " + lastName;
-		display.showDebug("inserting: " + pName);
-		clearResponse('called putitem');
-		var president = new ELF.EasyPresident(pName, 5, 6, 7, 8);
-		var query = president.toJSON();
-		presidentsList.push(query);
-		showPresidents();
-		/* request = $.ajax({
-			type : "get",
-			data : query,
-			url : '/putItem',
-			cache : false,
-			dataType : "json",
-			success : function(data) {
-				display.showResponse("success");
-			},
-			error : display.showError
-		}); */
-	};
-
-	Presidents.prototype.deleteItem = function() {
-		if (!presidentMode) {
-			alert("You must select Get Presidents before trying to delete a president");
-			return;
-		}
-		clearResponse('Called delete item: ' + selectedItem);
-		query = "itemName=" + selectedItem;
-		utilities.deleteFromArray2(presidentsList, selectedItem);			
-		showPresidents();	
-	};
-
+	
 	return Presidents;
 
 })();
 
 $(document).ready(function() {
 	var presidents = new Presidents(new Display(), new Utilities());
-	$('button:#dirname').click(presidents.dirName);
-	$('button:#port').click(presidents.port);
 	$('button:#getPresidents').click(presidents.getPresidents);
-	$('button:#getitem').click(presidents.getItem);
 	$('button:#insertPresident').click(presidents.insertPresident);
 	$('button:#savePresidents').click(presidents.savePresidents);
 	$('button:#update').click(presidents.update);
 	$('button:#deleteitem').click(presidents.deleteItem);
-	$('button:#deleteAll').click(presidents.deleteAll);
-	$('button:#listAllItemNames').click(presidents.listAllItemNames);
-	$('button:#addListOfPresidents').click(presidents.addListOfPresidents);
 	$('button:#testAzureSimpleDb').click(presidents.testAzureSimpleDb);
 });
 

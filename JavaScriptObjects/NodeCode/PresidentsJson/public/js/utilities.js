@@ -29,15 +29,5 @@ var Utilities = (function() {
 		}
 	}
 	
-	Utilities.prototype.port = function() {
-		that.clearResponse("Get Port Called");
-		that.simpleQuery('/port');
-	};
-
-	Utilities.prototype.dirName = function() {
-		that.clearResponse("Dir Name Called");
-		that.simpleQuery('/dirname');
-	};
-	
 	return Utilities;
 })(); 
