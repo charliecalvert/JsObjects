@@ -23,11 +23,12 @@ Display.prototype.displayRow = function(row) {
 	var middle = (!thisDisplay.isValidRow(row)) ? '' : row.MiddleName;
 	var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
 	textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
-	$('#response').append('<li><input id=' + row.$ItemName + 
-			  ' name=' + row.presidentName +
-			  ' born=' + row.born + 
+	var coreString = '<li><input id=' + row.itemName + 
+			  ' presidentName="' + row.presidentName +
+			  '" born=' + row.born + 
 			  ' died=' + row.died + 
-			  ' type=radio name=responseGroup />' + 
+			  ' type=radio name=responseGroup />';
+	$('#response').append(coreString + 
 			textToDisplay + '</li>');	
 };
 

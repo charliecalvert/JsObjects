@@ -14,14 +14,25 @@ var Presidents = (function(displayInit, initUtilities) {
 
 	var radioSelection = function() {
 		selectedItem = $("input[name=responseGroup]:checked").attr('id');
-		var firstName = $("input[name=responseGroup]:checked").attr('first');
-		var middleName = $("input[name=responseGroup]:checked").attr('middle');
+		presidentName = $("input[name=responseGroup]:checked").attr('presidentName');
+		var names = presidentName.split(' ');
+		var firstName = names[0];
+		var lastName = '';
+		var middleName = undefined;
+		if (names.length === 3) {
+			var middleName = names[1];
+			lastName = names[2];
+		} else {
+			lastName = names[1];
+		}
+		
 		if (middleName !== undefined)
 			middleName = ($.trim(middleName) === '-' ? '' : $.trim(middleName));
-		var lastName = $("input[name=responseGroup]:checked").attr('last');
 		display.showDebug(selectedItem);
 		$('#firstName').val(firstName);
-		$('#middleName').val(middleName);
+		if (names.length = 3) {
+			$('#middleName').val(middleName);
+		}
 		$('#lastName').val(lastName);
 	};
 
@@ -59,8 +70,11 @@ var Presidents = (function(displayInit, initUtilities) {
 	};
 
 	var showPresidents = function() {
+		display.clearResponse();
+		var count = 0;
 		$(presidentsList).each(function() {
 			$(this).each(function() {
+				this.itemName = 'item' + count++;
 				display.displayRow(this);
 			});
 		});
@@ -77,7 +91,8 @@ var Presidents = (function(displayInit, initUtilities) {
 			success : function(data) {
 				presidentsList = data;
 				showPresidents();
-				$("input[name=responseGroup]:radio").click(that.radioSelection);
+				$('#responseGroup').change(radioSelection);
+				//$("input[name=responseGroup]:radio").change(radioSelection);
 				$("input[name=responseGroup]:radio:first").attr('checked', true);
 				radioSelection();
 				if ( typeof (callback) == 'function') {
@@ -192,19 +207,10 @@ var Presidents = (function(displayInit, initUtilities) {
 			alert("You must select Get Presidents before trying to delete a president");
 			return;
 		}
-		that.clearResponse('Called delete item: ' + selectedItem);
+		clearResponse('Called delete item: ' + selectedItem);
 		query = "itemName=" + selectedItem;
-		request = $.ajax({
-			type : "get",
-			data : query,
-			url : '/delete',
-			cache : false,
-			dataType : "json",
-			success : function(data) {
-				display.showResponse("success");
-			},
-			error : display.showError
-		});
+		utilities.deleteFromArray2(presidentsList, selectedItem);			
+		showPresidents();	
 	};
 
 	return Presidents;
