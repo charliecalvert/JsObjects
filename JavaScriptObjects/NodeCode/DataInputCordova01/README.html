@@ -1,0 +1,21 @@
+<h2 id="datainputcordova01">DataInputCordova01</h2>
+<p>This example shows how to use a node server from a phonegap/cordova application. Start the DataInput01 node server running EC2. Run this project on your local machine, and load it into an Android Device, AndroidX86 on VirtualBox, or into an Android Emulator. The only change you need to make to this code is to change the IP addresses in DataInput.js to reflect the Elastic IP address of the EC2 virtual machine your node server is running.</p>
+<pre><code>function addFive() {        
+ var data = {
+   value : getUserNumber()
+ };
+
+ $.ajax({
+    type : &quot;POST&quot;,
+    url : &#39;http://YOUR_IP_HERE:30025/addToFive&#39;,
+    dataType : &quot;json&quot;,
+    cache : &#39;False&#39;,
+    data : data,
+    success : function(json) {
+      var result = &quot;&lt;p&gt;Result: &quot; + json.result + &quot;&lt;/p&gt;&quot;;
+      var value = &quot;&lt;p&gt;Value: &quot; + json.value + &quot;&lt;/p&gt;&quot;;
+      $(&quot;#resultDiv&quot;).html(result + value);
+    },
+    error : showError
+  });
+};</code></pre>
