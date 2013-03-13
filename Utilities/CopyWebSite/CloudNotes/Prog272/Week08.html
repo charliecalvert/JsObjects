@@ -1,0 +1,191 @@
+<h1 id="week-08-day-01">Week 08 Day 01</h1>
+<p>We will focus on</p>
+<ul>
+<li><p>Node</p></li>
+<li><p>Cloud 9</p></li>
+<li><p>Markdown and Pandoc</p></li>
+<li><p>AWS</p></li>
+</ul>
+<h2 id="node">Node</h2>
+<p>Many of you may have node installed already. A simple test to see if it is installed:</p>
+<pre><code>node --help</code></pre>
+<p>If you don't get an error message, then it is installed. If it is not installed, then go here and install install it:</p>
+<p><a href="http://nodejs.org/">http://nodejs.org/</a></p>
+<p>If you are on a school computer, and need help with the install, raise your hand and get my attention.</p>
+<p>Here is hello world node program:</p>
+<pre><code>var http = require(&#39;http&#39;);
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+  response.end(&#39;It works!\n&#39;);
+}).listen(8124);
+
+console.log(&#39;Server running at http://127.0.0.1:8124/&#39;);</code></pre>
+<p>Here is another:</p>
+<pre><code>var http = require(&#39;http&#39;);
+
+http.createServer(function (request, response) {
+  response.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;});
+  response.end(&#39;&lt;p&gt;It works&lt;/p&gt;&#39;);
+}).listen(8124);
+
+console.log(&#39;Server running at http://127.0.0.1:8124/&#39;);</code></pre>
+<p>And here is one more:</p>
+<pre><code>var http = require(&#39;http&#39;);
+var fs = require(&#39;fs&#39;);
+
+http.createServer(function (request, response) {
+    var html = fs.readFileSync(&#39;index.html&#39;);
+    response.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;});
+    response.write(html);
+    response.end();
+}).listen(8124);
+
+console.log(&#39;Server running at http://127.0.0.1:8124/&#39;);</code></pre>
+<p>Notice that this last program depends on the presence of a file called index.html, where index.html can be any valid HTML file.</p>
+<p>Here is how to get the server to specify the port:</p>
+<p>var port = process.env.PORT || 3000;</p>
+<p>So here is NODE example that uses express:</p>
+<pre><code>var express = require(&#39;express&#39;);
+var app = express();
+var fs = require(&#39;fs&#39;);
+
+var port = process.env.PORT || 3000;
+
+app.get(&#39;/&#39;, function(req, res) {
+    console.log(&quot;root request sent&quot;);
+    var html = fs.readFileSync(&#39;public/index.html&#39;);
+    res.writeHeader(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});   
+    res.write(html);
+    res.end();
+});
+
+app.get(&#39;/dirname&#39;, function(req, result) {
+    result.send({&#39;result&#39;: __dirname});
+});
+
+app.get(&#39;/port&#39;, function(request, result) {
+    result.send({&#39;result&#39;: port});
+});
+
+app.use(express.static(__dirname + &#39;/public&#39;));
+
+app.listen(port);
+console.log(&#39;Express server started on port %s&#39;, process.env.PORT);</code></pre>
+<h2 id="cloud-9">Cloud 9</h2>
+<p>Cloud 9 is an online IDE. You can find it here:</p>
+<p><a href="https://c9.io/">https://c9.io</a></p>
+<p>On your account page, you can link to your GitHub account.</p>
+<p>Installing NPM modules:</p>
+<p><a href="https://docs.c9.io/installing_npm_modules.html">https://docs.c9.io/installing_npm_modules.html</a></p>
+<h2 id="markdown">Markdown</h2>
+<p>Markdown allows you to write a simple syntax defining a file. The markdown file can be read on its own, or converted to:</p>
+<ul>
+<li><p>HTML</p></li>
+<li><p>WikiMedia</p></li>
+<li><p>PDF</p></li>
+<li><p>Word</p></li>
+<li><p>etc</p></li>
+</ul>
+<p>The point is to have one source file that can be used in multiple places. Perhaps more importantly, it ensures that we don't get locked into any one technology.</p>
+<p>We use a slightly expanded syntax for markdown that can be compiled with Pandoc. You can install it from here:</p>
+<p><a href="http://johnmacfarlane.net/pandoc/installing.html">http://johnmacfarlane.net/pandoc/installing.html</a></p>
+<p>The drawback is that it has only a limited number of things it can handle:</p>
+<ul>
+<li><p>Headings</p></li>
+<li><p>Plain text (Paragraphs)</p></li>
+<li><p>Lists</p></li>
+<li><p>Figures (images)</p></li>
+<li><p>Tables</p></li>
+<li><p>A few other simple items.</p></li>
+</ul>
+<p>Read the documentation here:</p>
+<p><a href="http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown">http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown</a></p>
+<p>You will also want to read this, of which the above is subset:</p>
+<p><a href="http://johnmacfarlane.net/pandoc/README.html">http://johnmacfarlane.net/pandoc/README.html</a></p>
+<h2 id="pandoc">Pandoc</h2>
+<p>If Pandoc is hard for you to install, instead use Dillinger:</p>
+<p><a href="http://dillinger.io/">http://dillinger.io/</a></p>
+<p>Use this with NPPExec in NotePad++. it will convert the markdown file currently in the editor to standalone HTML file with the same root name. For instance, it will convert <em>foo.md</em> to<em>foo.html</em>.</p>
+<pre><code>&quot;C:\Program Files (x86)\Pandoc\bin\pandoc.exe&quot; -s -t html5 -o $(CURRENT_DIRECTORY)\$(NAME_PART).html &quot;$(FULL_CURRENT_PATH)&quot; </code></pre>
+<p>It means:</p>
+<ul>
+<li><p>Run Pandoc: &quot;C:Files (x86).exe&quot;</p></li>
+<li><p>Create an standalone HTML5 file: -s -t html5</p></li>
+<li><p>Put the output here: $(CURRENT_DIRECTORY)$(NAME_PART).html</p></li>
+<li><p>Convert contents of file in the NPP editor: &quot;$(FULL_CURRENT_PATH)&quot;</p></li>
+</ul>
+<h2 id="aws">AWS</h2>
+<p>You can find out about AWS here:</p>
+<p><a href="http://www.elvenware.com/charlie/development/cloud/WebServices.html">http://www.elvenware.com/charlie/development/cloud/WebServices.html</a></p>
+<p>We will be focusing on EC2, the the following is the most important part for most of us:</p>
+<p><a href="http://www.elvenware.com/charlie/development/cloud/WebServices.html#ec2Install">http://www.elvenware.com/charlie/development/cloud/WebServices.html#ec2Install</a></p>
+<h1 id="day-02">Day 02</h1>
+<h2 id="live-headers">Live Headers</h2>
+<ul>
+<li><p>Open FireFox</p></li>
+<li><p>Open Add on Manager</p></li>
+<li><p>Search for Live HTTP Headers</p></li>
+<li><p>Click install button</p></li>
+<li><p>Restart browser</p></li>
+<li><p>Then either:</p>
+<ul>
+<li>Ctrl-Shift-L</li>
+</ul></li>
+<li><p>or</p>
+<ul>
+<li><p>Options | Menubar</p></li>
+<li><p>View | Sidebar | Live Http Headers</p></li>
+</ul></li>
+</ul>
+<p>&quot;C:Files (x86).exe&quot; -t html5 -o $(CURRENT_DIRECTORY)\$(NAME_PART).html &quot;$(FULL_CURRENT_PATH)&quot;</p>
+<h2 id="understanding-package.json">Understanding package.json</h2>
+<p>Many projects have dependencies on libraries such as Express or Jade. When you place it in GitHub, or share with others, it is usually convienent to store your project with the libraries it uses because the libraries tend to be big and bulky. The ideal situation would be to ship your source code, and then leave a reference to the libraries it needs. The user can then install the libraries as needed, rather than downloading them with the source. Fortunately, there is an automated way to separate your source from their libraries. In particular you can include a file called <strong>package.json</strong> with your project. In that file you can define the dependencies for your project. The Node Package Manager (npm) can read this file and automatically download the needed libraries.</p>
+<p>You can use the JSON shown in this file to define the dependencies for your project. Here is a typical example:</p>
+<pre><code>{
+    &quot;name&quot;: &quot;expressSend&quot;,
+    &quot;description&quot;: &quot;Work with express and sending information&quot;,
+    &quot;version&quot;: &quot;0.0.1&quot;,
+    &quot;private&quot;: true,
+    &quot;dependencies&quot;: {
+        &quot;express&quot;: &quot;3.1&quot;
+    }
+}</code></pre>
+<p>A file like this should usually be called <strong>package.json</strong>. To use the file, just type the following:</p>
+<pre><code>npm install</code></pre>
+<p>In the case of the file shown above, this command will install express version 3.1.</p>
+<p><strong>Note</strong>: <em>You can learn the version of number of the most recent release of express by typing the following</em>:</p>
+<pre><code>npm info express version</code></pre>
+<h2 id="setting-up-the-port">Setting up the Port</h2>
+<p>Let's allways use the following:</p>
+<pre><code>var port = process.env.PORT || 30025;
+
+// Code omitted here...
+
+app.listen(port);
+console.log(&#39;Listening on port :&#39; + port);  </code></pre>
+<p>We want to pick a particular port because in some situations, such as running on EC2, we need to open the port ahead of time. By choosing one port, and always using it, you won't have to edit my code before you can run it, and vice versa.</p>
+<h2 id="node-express-basics">Node Express Basics</h2>
+<p>Express offers support for HTTP verbs such as Get, Post, Put, etc.</p>
+<p>The verbs provide a response to specific routes, such as '/':</p>
+<pre><code>app.get(&#39;/&#39;, function(req, res) {
+    console.log(&quot;root request sent&quot;);
+});</code></pre>
+<p>Or here is request that uses a wildcards or regular expressions:</p>
+<pre><code>app.get(&#39;/a*&#39;, function(req, res) {
+    console.log(&quot;A request sent that begins with an a&quot;);
+});</code></pre>
+<p>Working with numbers:</p>
+<pre><code>app.get(&#39;/book/:id((d+)&#39;, function(req, res) {
+    console.log(&quot;Only requests that are numbers&quot;);
+});</code></pre>
+<h2 id="node-express-serving-up-static-pages">Node Express Serving up Static Pages</h2>
+<p>Put your static files in a particular directory and tell express about the directory:</p>
+<pre><code>app.use(&quot;/public&quot;, express.static(__dirname + &#39;/public&#39;));</code></pre>
+<p>Server them up like this:</p>
+<pre><code>app.get(&#39;/&#39;, function(req, res) {
+    var html = fs.readFileSync(&#39;public/index.html&#39;);
+    res.writeHeader(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
+    res.end(html);
+});</code></pre>
+<p><a href="http://www.senchalabs.org/connect/static.html">http://www.senchalabs.org/connect/static.html</a></p>

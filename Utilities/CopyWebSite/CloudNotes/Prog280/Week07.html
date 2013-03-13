@@ -1,0 +1,37 @@
+<h1 id="week-07">Week 07</h1>
+<p>Today we are going to look at loading data using several different techniques. We will look at Handlebars.js and templating. We will look at jQuery load, and at jQuery.getJSON.</p>
+<ul>
+<li>HandleBarsDemo01</li>
+<li>JQueryLoad01</li>
+<li>JQuerySelect01 (Cordova)</li>
+</ul>
+<p>Working with JSON:</p>
+<p><a href="http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#getJSON">http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#getJSON</a></p>
+<p>This code can go in the head section of your HTML:   ~~~~</p>
+<pre><code>&lt;script type=&quot;textx-handlebars-template&quot; id=&quot;par01&quot;&gt;  
+    &lt;p&gt;{{text}}&lt;/p&gt;  
+&lt;/script&gt;</code></pre>
+<pre><code>
+Here is code for using the template:
+</code></pre>
+<pre><code>function addItem(text) {  
+    &#39;use strict&#39;;  
+  
+    var script = \$(&quot;#par01&quot;).html(),  
+    template=Handlebars.compile(script);  
+  
+    var result = template({  
+        text: text  
+    });  
+  
+    $(&quot;#myDiv&quot;).append(result);  
+}
+
+$.getJSON(&quot;index.json&quot;, function(data) {  
+    $.each(data, function(i, president) {  
+        $(&#39;#data01&#39;).append(&quot;&lt;p&gt;&quot; + president.firstName 
+            + &#39; &#39; + president.lastName + &quot;&lt;/p&gt;&quot;);  
+    });  
+});</code></pre>
+<p>~~~~</p>
+<p>You can download jQuery from http://jquery.com</p>

@@ -1,0 +1,75 @@
+<h1 id="week-09-days-one-and-two">Week 09 Days One and Two</h1>
+<h2 id="aws">AWS</h2>
+<ul>
+<li><p>Automate Setup</p></li>
+<li><p>Running Scripts on Linux</p></li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li><p>More on updates, adds, commits</p></li>
+<li><p>Private Repos on BitBucket</p></li>
+<li><p><a href="http://www.elvenware.com/charlie/development/cloud/Git.html">http://www.elvenware.com/charlie/development/cloud/Git.html</a></p></li>
+</ul>
+<h2 id="node">Node</h2>
+<ul>
+<li><p>Setup</p></li>
+<li><p>Express</p></li>
+<li><p>Posting Data</p></li>
+</ul>
+<h2 id="unit-tests">Unit Tests</h2>
+<ul>
+<li><p>Setting up the HTML</p></li>
+<li><p>Setting up the JavaScript</p></li>
+<li><p>QUnit</p></li>
+</ul>
+<h2 id="day-02">Day 02</h2>
+<p>Here are some of the things covered on day 2.</p>
+<h2 id="setting-up-qunit">Setting up QUnit</h2>
+<p>Here is the new code for the QUnit html file:</p>
+<pre><code>    &lt;div id=&quot;qunit&quot;&gt; &lt;/div&gt;
+    &lt;div id=&quot;qunit-fixture&quot;&gt; &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;ul id=&quot;debugList&quot;&gt; &lt;/ul&gt;
+    &lt;/div&gt;</code></pre>
+<p>Here was the old style QUnit code for your HTML file:</p>
+<pre><code>    &lt;div id=&quot;qunit-fixture&quot;&gt;  
+        \\ tests depend on markup that goes here   
+    &lt;/div&gt;
+
+    &lt;h1 id=&quot;qunit-header&quot;&gt;Using QUnit&lt;/h1&gt;  
+    &lt;h2 id=&quot;qunit-banner&quot;&gt; &lt;/h2&gt;  
+    &lt;h2 id=&quot;qunit-userAgent&quot;&gt; &lt;/h2&gt;  
+    &lt;ol id=&quot;qunit-tests&quot;&gt; &lt;/ol&gt;</code></pre>
+<h2 id="git-1">Git</h2>
+<ul>
+<li><a href="http://www.elvenware.com/charlie/development/cloud/Git.html">http://www.elvenware.com/charlie/development/cloud/Git.html</a></li>
+</ul>
+<h1 id="example-script">Example Script</h1>
+<pre><code>    ECHO ====== Create SSH Dir ======  
+    ECHO ============================  
+    ECHO This script expects your server&#39;s password as a parameter  
+    ECHO ----------------------------  
+    ECHO Example:  
+    ECHO CreateSshDir.bat MyPassword  
+    ECHO ----------------------------  
+    ECHO Before you run this script, set ELF_USER and ELF_IP  
+    ECHO Your ELF_IP might be your elastic ip if you are using  
+    ECHO EC2. You can set ELF_USER and ELF_IP by using  
+    ECHO the ENVIRONMENT VARIABLES dialog. Alternatively  
+    ECHO you can set them at the command prompt like this:  
+    ECHO set ELF_USER=MyUserName  
+    ECHO set ELF_IP=MyRemoteIp  
+    ECHO For instance:  
+    ECHO set ELF_USER=charlie  
+    ECHO set ELF_IP=192.168.2.3  
+    ECHO ----------------------------  
+    ECHO You should also create a file called PublicKey.txt  
+    ECHO That contains your public key. This script will  
+    ECHO use the file to create an authorized keys  
+    ECHO file on the server. The key should be all on one  
+    ECHO line and the line should end with a UNIX style LF.  
+    ECHO ============================</code></pre>
+<figure>
+<img src="https://bc.instructure.com/courses/795060/files/24309741/preview" />
+</figure>

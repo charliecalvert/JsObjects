@@ -1,0 +1,78 @@
+<h1 id="prog-272-week-06-2013">Prog 272 Week 06, 2013</h1>
+<p>Reply in conversations in the appropriate assignment, not just as a general comment.</p>
+<p>It's JavaScript first, jQuery second. jQuery is a library built on top of JavaScript. No matter how could the library, it is the language that is primary.</p>
+<p>Put ShowDirectories in your main object.</p>
+<h2 id="working-with-input-and-select-controls">Working with Input and Select Controls</h2>
+<ul>
+<li><p><a href="http://localhost:1835/charlie/development/web/HtmlGuide/GettingStarted.html#input">http://localhost:1835/charlie/development/web/HtmlGuide/GettingStarted.html#input</a></p></li>
+<li><p><a href="http://localhost:1835/charlie/development/web/HtmlGuide/GettingStarted.html#select">http://localhost:1835/charlie/development/web/HtmlGuide/GettingStarted.html#select</a></p></li>
+</ul>
+<p>Variable Declarations</p>
+<p>Regardless of where you declare a var statement, it will be moved by the compiler to the top of the method (or scope) in which it is declared:</p>
+<pre><code>function run() {    var x = 0;    x = 2 + 3;    var firstName = &quot;Tom&quot;;    var lastName = &quot;Fielding&quot;;}</code></pre>
+<p>The var statements are hoisted, and this becomes:</p>
+<pre><code>function run() {   var x = 0;   var firstName;   var lastName;</code></pre>
+<pre><code>   x = 2 + 3;}</code></pre>
+<h2 id="globals">Globals</h2>
+<p>Source from class: <a href="https://bc.instructure.com/courses/795060/files/23932861/download?wrap=1">ObjectVariables01.zip</a><sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></p>
+<pre><code>function foo() {
+   var number01 = 0;
+   number02 = 0; 
+}</code></pre>
+<p>In this example, number01 is not a global variable, but number02 is global. That is, it is part of window: window.number02.</p>
+<p>JSHint is designed to help you catch problems like this, particularly if you turn on strict mode. In fact, in strict mode, many browsers will through a ReferenceError if number02 is not defined.</p>
+<h2 id="global-abatement">Global Abatement</h2>
+<p>var MyApp = {};</p>
+<p>MyApp.InitCordova = (function() { } )();</p>
+<p>MyApp.ShowDirectories = (function() { } )();</p>
+<p>There are also tools like AMD modules used with RequireJS or Dojo. We are not going to cover them in this part of this course.</p>
+<h2 id="separate-html-css-and-javascript">Separate HTML, CSS and JavaScript</h2>
+<p>Reasons:</p>
+<ul>
+<li><p>Separation of concerns</p></li>
+<li><p>Loose coupling</p></li>
+</ul>
+<p>If you have a JavaScript error, you want to know that the problem is in a JavaScript file. It is simply confusing to have to look through all your code, HTML, CSS, and JavaScript to find the error. The same rule applies to CSS and HTML problems.</p>
+<p>Keep HTML in HTML files and you will know where to look for solutions. This means that we like writing code like this:</p>
+<p>$(&quot;#test01&quot;).addClass(&quot;green&quot;);</p>
+<p>But we don't really like this:</p>
+<p>$(&quot;#test01).css( { backgroundColor: &quot;blue&quot; } );</p>
+<p>If you write code like this, you are putting JavaScript in your HTML:</p>
+<p>&lt;button id=&quot;myButton01&quot; onclick=&quot;myObject.runButton01()&quot;&gt;Click Me 01&lt;/button&gt;</p>
+<p>Instead, it is better to put code like this in your JavaScript file:</p>
+<p>$(&quot;#myButton01&quot;).click(myObject.runButton01);</p>
+<h2 id="handlebars">Handlebars</h2>
+<p><a href="http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#jqHandlebars">http://www.elvenware.com/charlie/development/web/JavaScript/JQueryBasic.html#jqHandlebars</a></p>
+<h2 id="more-on-adb">More on ADB</h2>
+<p>You can install program, copy files, and start a shell. See here:</p>
+<ul>
+<li><a href="http://www.elvenware.com/charlie/development/android/AndroidSdk.html#installAPK">http://www.elvenware.com/charlie/development/android/AndroidSdk.html#installAPK</a></li>
+</ul>
+<h2 id="programs-to-look-at">Programs to look At</h2>
+<ul>
+<li><p>CordovaListDirectories</p></li>
+<li><p>CordovaListDirs02</p></li>
+<li><p>CordovaFileReader</p></li>
+<li><p>WebFileTests</p></li>
+<li><p>HandleBarDemo01</p></li>
+</ul>
+<p>Homework - Basic File</p>
+<p>Discuss how to create two loops.</p>
+<p>Speed test</p>
+<p>More on module pattern pattern</p>
+<ul>
+<li><p>The book analogy</p></li>
+<li><p>When writing code, structure is even more important than when creating a book. Code is harder to understand than text.</p></li>
+</ul>
+<p>More on functions, methods and constructors.</p>
+<p>More on passing functions as a parameter.</p>
+<h2 id="install-linux">Install Linux</h2>
+<ul>
+<li><a href="http://www.elvenware.com/charlie/os/linux/VirtualBox.html#server1210Install">http://www.elvenware.com/charlie/os/linux/VirtualBox.html#server1210Install</a></li>
+</ul>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://bc.instructure.com/courses/795060/files/23932861/download?wrap=1">https://bc.instructure.com/courses/795060/files/23932861/download?wrap=1</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
