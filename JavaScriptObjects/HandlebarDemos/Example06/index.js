@@ -16,6 +16,7 @@ function writeHtml(fileName, data) {
 	});	
 }
 
+// Please not that we convert to a string.
 function readHtml() {
 	return String(fs.readFileSync('index.html'));
 }
@@ -29,7 +30,8 @@ function addNames(initFirstName, initLastName) {
     var template=handlebars.compile(script);    
     
     var result = template({
-        MyStuff: 'This is what we insert.'
+        MyStuff: 'This is what we insert.',
+		OtherStuff: 'This is the other stuff'
     });    
     
     writeHtml('upLoadMe.html', result); 
