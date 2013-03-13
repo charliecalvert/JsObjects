@@ -358,5 +358,13 @@
         "born": 7,
         "died": 8,
         "itemName": "item44"
+    },
+    {
+        "presidentName": "Suzie  Maker",
+        "termStart": 5,
+        "termEnd": 6,
+        "born": 7,
+        "died": 8,
+        "itemName": "item45"
     }
 ]

@@ -16,6 +16,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/getPresidents', function(request, response) {
+	console.log("Get Presidents called");
 	var json = fs.readFileSync(presidentsFileName);
 	response.send(json);
 });
