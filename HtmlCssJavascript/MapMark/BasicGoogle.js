@@ -149,8 +149,8 @@ var Mapper = (function() {'use strict';
 		var latLong = mapDiv.getCenter();
 		var latData = document.getElementById("latData");
 		var longData = document.getElementById("longData");
-		latData.value = latLong.mb.toString();
-		longData.value = latLong.nb.toString();
+		latData.value = latLong.lat().toString();
+		longData.value = latLong.lng().toString();
 	}
 
 	function gotoBellevueCollege()

@@ -37,15 +37,42 @@ function writeFile(localFileName, nameOnS3, binary) {
 			console.log("Making binary");
 			data = new Buffer(data, 'binary').toString('base64');
 		}
+		
+		var ext = localFileName.split('.').pop();
+		
+		var contentType = 'text/html';
+		switch(ext) {
+			case 'db':
+				return;
+				
+			case 'htm':
+			case 'html': 
+				break;
+			case 'css':
+				contentType = 'text/css';
+				break
+			case 'png':
+				contentType = 'image/png';
+				break;
+			case 'jpg':
+				contentType = 'image/jpg';
+				break;
+			case 'bmp':
+				contentType = 'image/bmp';
+				break;
+			case 'gif':
+				contentType = 'image/gif';
+				break;
+		}
 
 		s3.client.putObject({
 			ACL: 'public-read',
 			Bucket : bucketName,
 			Key : nameOnS3,
 			Body : data,
-			ContentType: 'text/html'
+			ContentType: contentType
 		}, function(resp) {
-			console.log('Successfully uploaded package.');
+			console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType);
 		});
 	});
 }
@@ -55,7 +82,7 @@ function walkDirs() {
 		followLinks : false,
 	};
 
-	var walker = walk.walk("G:/Web/Elvenware/charlie/books/CloudNotes", options);
+	var walker = walk.walk("CloudNotes", options);
 
 
 	walker.on("names", function(root, nodeNamesArray) {
@@ -79,10 +106,12 @@ function walkDirs() {
 	});
 
 	walker.on("file", function(root, fileStats, next) {
+		// console.log("fileStats.name: " + fileStats.name);
 		var fileName = root + "/" + fileStats.name;
 		var pieces = root.split('/');
 		var s3Dir = pieces[pieces.length - 1];
 		s3Name = s3Dir + '/' + fileStats.name;
+		// console.log("s3Name: " + s3Name);
 	 	writeFile(fileName, s3Name, false);
 		next();
 	});
