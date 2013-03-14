@@ -1,19 +1,35 @@
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-#map_canvas {
-  height: 100%;
+#mainDiv {
+	position: relative;
+	border: 1px;
+	width: 610px;
+	height: 400px;
+}
+
+#mapCanvas {
+	height: 100%;
+	width: 100%;	
 }
 
 @media print {
-  html, body {
-    height: auto;
-  }
+	html, body {
+		height: auto;
+	}
 
-  #map_canvas {
-    height: 650px;
-  }
+	#map_canvas {
+		height: 650px;
+	}
+}
+
+#directions {
+	background-color: #AAAAAA;
+	
+	width: 100%;
+	height: 400px;
+	overflow: auto;	
 }

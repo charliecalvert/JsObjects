@@ -7,14 +7,18 @@
     <script src='http://code.jquery.com/jquery.js'></script>
     <link href="GeoCode.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="Directions.js"></script>
     <script src="GeoCode.js"></script>
   </head>
   <body>
     <div>
-      <input id="address" type="textbox" value="Seattle, WA">
-      <input id="getCoordinates" type="button" value="Geocode">
+      <input id="address" type="textbox" value="Bellevue, WA">
+      <input id="getDirections" type="button" value="Get Directions">
       <p id="position"> </p>
     </div>
-    <div id="map_canvas" style="height:90%;top:30px"></div>
+    <div id="mainDiv">
+	    <div id="mapCanvas"> </div>
+    	<div id="directions"> </div>
+    </div>
   </body>
 </html>

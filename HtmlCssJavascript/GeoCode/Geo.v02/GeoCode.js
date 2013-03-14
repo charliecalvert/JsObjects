@@ -8,54 +8,64 @@
 
 var GeoCode = (function() {'use strict';
 
+	var startPosition = null;
+	var directions = null;
+	var geocoder;
+	var googleMap;
+
 	function GeoCode(latitude, longitude) {
 		initialize(latitude, longitude);
+		directions = new Directions(googleMap);
 	}
-
-	var geocoder;
-	var map;
 
 	var initialize = function(latitude, longitude) {
 		geocoder = new google.maps.Geocoder();
-		var latlng = new google.maps.LatLng(latitude, longitude);
+		startPosition = new google.maps.LatLng(latitude, longitude);
 		var mapOptions = {
 			zoom : 8,
-			center : latlng,
+			center : startPosition,
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
-		map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+		var mapCanvas = $('#mapCanvas');
+		googleMap = new google.maps.Map(mapCanvas[0], mapOptions);
+		makeMarker(startPosition, "init at Seattle");
 	}
-
-	GeoCode.prototype.getCoordinates = function() {		
-		var address = $('#address').val();
+	var makeMarker = function(initPosition, initTitleString) {
+		var marker = new google.maps.Marker({
+			map : googleMap,
+			position : initPosition,
+			title : initTitleString
+		});
+	}
+	var geoCode = function(initAddress) {
 		geocoder.geocode({
-			'address' : address
+			'address' : initAddress
 		}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
-				var pos = results[0].geometry.location;
-				var latititude = pos.ib;
-				var longitude = pos.jb;
-				var titleString = address + " Latitude: " + latititude + " Longitude: " + longitude;
+				var position = results[0].geometry.location;
+				var latititude = position.lat();
+				var longitude = position.lng();
+				var titleString = initAddress + "; Latitude: " + latititude + "; Longitude: " + longitude;
 				$("#position").html(titleString);
-				map.setCenter(results[0].geometry.location);
-				var marker = new google.maps.Marker({
-					map : map,
-					position: pos,
-					title: titleString
-				});
+				googleMap.setCenter(position);
+				makeMarker(position);
+				directions.drawRoute(startPosition, position)
 			} else {
 				alert('Geocode error: ' + status);
 			}
 		});
+	};
+
+	GeoCode.prototype.getDirections = function() {
+		var userAddress = $('#address').val();
+		geoCode(userAddress);
 	}
 
 	return GeoCode;
 })();
 
+$(document).ready(function() {"use strict";
+	var geoCode = new GeoCode(47.6062095, -122.3320708);
+	$("#getDirections").click(geoCode.getDirections);
 
-$(document).ready(function() {
-  "use strict";
-  var geoCode = new GeoCode(47.6062095, -122.3320708);
-  $("#getCoordinates").click(geoCode.getCoordinates);
-  
 });
