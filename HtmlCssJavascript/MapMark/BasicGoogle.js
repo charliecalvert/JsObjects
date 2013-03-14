@@ -4,12 +4,12 @@
 var Mapper = (function() {'use strict';
 	var mapDiv;
 	var latitude;
-	var longitude;
-	//var latData = $("#latData");
+	var longitude;	
 	
 	function Mapper() {
 		setupDialog();
 		loadMap();
+		$("#accordion").accordion({ collapsible: true, active: 2 });
 		$("#gotoDarwin").click(gotoDarwin);
 		$("#gotoVermont").click(gotoVermont);
 		$("#gotoBellevueCollege").click(gotoBellevueCollege);
@@ -190,9 +190,6 @@ var Mapper = (function() {'use strict';
 })();
 
 $(document).ready(function() {'use strict';
-	var mapper = new Mapper();
-	$(function () {
-		$("#accordion").accordion({ collapsible: true, active: 2 });
-	});
+	new Mapper();
 });
 
