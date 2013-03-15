@@ -4,11 +4,23 @@ html, body {
 	padding: 0;
 }
 
+#inputSection {
+	background-color: #EEEEEE;
+	width: 610px;
+}
+
 #mainDiv {
 	position: relative;
 	border: 1px;
 	width: 610px;
 	height: 400px;
+}
+
+#directions {
+	background-color: #AAAAAA;	
+	width: 100%;
+	height: 400px;
+	overflow: auto;	
 }
 
 #mapCanvas {
@@ -26,10 +38,4 @@ html, body {
 	}
 }
 
-#directions {
-	background-color: #AAAAAA;
-	
-	width: 100%;
-	height: 400px;
-	overflow: auto;	
-}
+
