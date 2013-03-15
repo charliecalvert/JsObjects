@@ -2,5 +2,6 @@
 Thumbs.db
 *.apk
 *.dex
+*.bak
 resources.ap_
 jarlist.cache

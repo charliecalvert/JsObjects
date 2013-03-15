@@ -48,6 +48,9 @@ function writeFile(localFileName, nameOnS3, binary) {
 			case 'htm':
 			case 'html': 
 				break;
+			case 'js':
+				contentType = 'application/x-javascript';
+				break;
 			case 'css':
 				contentType = 'text/css';
 				break
