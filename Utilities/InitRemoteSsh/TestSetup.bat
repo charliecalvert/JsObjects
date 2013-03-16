@@ -2,10 +2,14 @@
 
 if "%ELF_USER%"=="" goto usage
 if "%ELF_IP%"=="" goto usage
+if "%ELF_PRIVATE_KEY_NAME%"=="" goto usage
+if "%ELF_PRIVATE_KEY_DIR%"=="" goto usage
 
 ECHO Your set up looks good.
 ECHO ELF_USER=%ELF_USER%
 ECHO ELF_IP=%ELF_IP%
+ECHO ELF_PRIVATE_KEY_NAME=%ELF_PRIVATE_KEY_NAME%
+ECHO ELF_PRIVATE_KEY_DIR=%ELF_PRIVATE_KEY_DIR%
 goto :eof
 
 :usage
@@ -32,7 +36,11 @@ ECHO Alternatively you can set them temporarily
 ECHO at the command prompt like this:
 ECHO   set ELF_USER=MyUserName
 ECHO   set ELF_IP=MyRemoteIp
+ECHO   set ELF_PRIVATE_KEY_DIR=MyPrivateKeyDirectory
+ECHO   set ELF_PRIVATE_KEY_NAME=FileNameOfPrivateKey
 ECHO For instance:
 ECHO   set ELF_USER=charlie
 ECHO   set ELF_IP=192.168.2.3
+ECHO   set ELF_PRIVATE_KEY_NAME=CharlieMainKey.pem
+ECHO   SET ELF_PRIVATE_KEY_DIR=C:\Users\charles.calvert\documents\Data\Putty\
 ECHO =============================================
