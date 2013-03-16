@@ -8,7 +8,7 @@ User=$ELF_USER
 SshUser=$User@$ELF_IP
 HomeDir=/home/$ELF_USER
 CreateBin=CreateBin.sh
-SetupGitScript=SetupGit.sh
+SetupGitScript=SetupGitForPresTest.sh
 SetupSshScript=SetupSsh.sh
 SetupNodeScript=SetupNode.sh
 
