@@ -4,6 +4,17 @@ Created on May 19, 2012
 
 @author: Charlie Calvert
 @attention: Note that this project depends on elfutils.
+elfutils is a directory, and it needs to be on the Python
+path. For instance:
+
+set PYTHONPATH=G:\Src\GitHub\JsObjects\Python\PythonUtils\
+
+Or Maybe.
+
+set PYTHONPATH=G:\Src\andelf\Utilties\src\
+
+Please see the Deploy.config file, referenced in 
+this script.
 '''
 
 from elfutils.elffiles import CopyFilesBasePredefined
