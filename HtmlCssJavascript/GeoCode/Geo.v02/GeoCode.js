@@ -6,16 +6,18 @@
 /*global google: false */
 /*jshint devel: true, browser: true, jquery: true, strict: true */
 
-var GeoCode = (function() {'use strict';
+ELF.own.GeoCode = (function() {'use strict';
 
 	var startPosition = null;
 	var directions = null;
 	var geocoder;
 	var googleMap;
+    var that = {}
 
 	function GeoCode(latitude, longitude) {
+		$("#getDirections").click(getDirections);
 		initialize(latitude, longitude);
-		directions = new Directions(googleMap);
+		that.directions = new ELF.own.Directions(googleMap);
 	}
 
 	var initialize = function(latitude, longitude) {
@@ -30,6 +32,7 @@ var GeoCode = (function() {'use strict';
 		googleMap = new google.maps.Map(mapCanvas[0], mapOptions);
 		makeMarker(startPosition, "init at Seattle");
 	}
+	
 	var makeMarker = function(initPosition, initTitleString) {
 		var marker = new google.maps.Marker({
 			map : googleMap,
@@ -37,6 +40,7 @@ var GeoCode = (function() {'use strict';
 			title : initTitleString
 		});
 	}
+	
 	var geoCode = function(initAddress) {
 		geocoder.geocode({
 			'address' : initAddress
@@ -49,14 +53,14 @@ var GeoCode = (function() {'use strict';
 				$("#position").html(titleString);
 				googleMap.setCenter(position);
 				makeMarker(position);
-				directions.drawRoute(startPosition, position)
+				that.directions.drawRoute(startPosition, position)
 			} else {
 				alert('Geocode error: ' + status);
 			}
 		});
 	};
 
-	GeoCode.prototype.getDirections = function() {
+	var getDirections = function() {
 		var userAddress = $('#address').val();
 		geoCode(userAddress);
 	}
@@ -65,7 +69,5 @@ var GeoCode = (function() {'use strict';
 })();
 
 $(document).ready(function() {"use strict";
-	var geoCode = new GeoCode(47.6062095, -122.3320708);
-	$("#getDirections").click(geoCode.getDirections);
-
+	new ELF.own.GeoCode(47.6062095, -122.3320708);
 });

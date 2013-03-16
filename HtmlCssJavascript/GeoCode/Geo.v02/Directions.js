@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-var Directions = (function() {
+ELF.own.Directions = (function() {
 
 	var waypoints = [];
 	var directionsService = null;
