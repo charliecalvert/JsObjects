@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# This script clones a private repository into GIT_DIR.
+# It loads a key into memory, then clones the repository.
+
 GIT_DIR=~/Git
 
 if [ ! -d "$GIT_DIR" ]; then
