@@ -1,7 +1,7 @@
 set User=%ELF_USER%
 set SshUser=%User%@%ELF_IP%
 set SshKey01=%ELF_PRIVATE_KEY_NAME%
-set GitSshScript=SetupSshAgent.sh
+set GitSshScript=PullGitRepository.sh
 
 REM Copy Key 01
 pscp %ELF_PRIVATE_KEY_DIR%\%SshKey01% %SshUser%:/home/%User%/.ssh/.
