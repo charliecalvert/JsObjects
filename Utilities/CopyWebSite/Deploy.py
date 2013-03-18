@@ -35,6 +35,7 @@ class CopyFiles(CopyFilesBasePredefined):
         self.cgiFiles.remove("Deploy.py")                
         self.scriptPath = ""
 
+print os.environ['PYTHONPATH'].split(os.pathsep)
 if __name__ == '__main__':
     copy_files = CopyFiles()
     copy_files.copyFiles(True)

@@ -70,16 +70,18 @@ class CopyFilesBase(object):
         self.htmlDest = self.config.get("Paths", htmlLocation) + self.projectName        
         self.cgiDest = self.config.get("Paths", cgiLocation) + self.projectName    
         
-    def setUpFileNames(self, htmlExtensions, cgiExtensions, includeRoot):                
-        self.htmlFiles = getFilesFromExtensions(os.getcwd(), htmlExtensions, includeRoot)        
-        self.cgiFiles = getFilesFromExtensions(os.getcwd(), cgiExtensions, includeRoot)
+    def setUpFileNames(self, htmlExtensions, cgiExtensions, imageExtensions, includeRoot):
+		self.htmlFiles = getFilesFromExtensions(os.getcwd(), htmlExtensions, includeRoot)
+		self.cgiFiles = getFilesFromExtensions(os.getcwd(), cgiExtensions, includeRoot)
+		self.imageFiles = getFilesFromExtensions(os.getcwd(), imageExtensions, includeRoot)
             
     def copyFiles(self, verbose):
         "Execute this method only if htmlDest has been set up"
         if hasattr(self, 'htmlDest'):
-            copyFiles(self.htmlDest, self.srcDir, self.htmlFiles,  verbose)
-            copyFiles(self.cgiDest, self.scriptPath, self.cgiFiles,  verbose)
-            setPermissions(self.cgiDest, self.cgiFiles, verbose)
+			copyFiles(self.htmlDest, self.srcDir, self.htmlFiles,  verbose)
+			copyFiles(self.cgiDest, self.scriptPath, self.cgiFiles,  verbose)
+			copyFiles(self.htmlDest, self.srcDir, self.imageFiles,  verbose)
+			setPermissions(self.cgiDest, self.cgiFiles, verbose)
         
 class CopyFilesBasePredefined(CopyFilesBase):
     
@@ -106,7 +108,7 @@ class CopyFilesBasePredefined(CopyFilesBase):
         elif choiceOs == self.LINUX:
             self.locations = ["linuxSitePath", "linuxCgi"]
         if choiceFiles == self.STANDARD:
-            self.extensions = [[".html", ".css", ".js"], [".py", ".csv", ".txt"]]
+            self.extensions = [[".html", ".css", ".js"], [".py", ".csv", ".txt"], [".png", ".jpg", ".bmp"]]
         self.setUpCore(configPath, includeRoot)
         self.fineTune()
         
@@ -120,7 +122,7 @@ class CopyFilesBasePredefined(CopyFilesBase):
         CopyFilesBase.setUpDestination(self, self.locations[0], self.locations[1])
                     
     def setUpFileNames(self, includeRoot):
-        CopyFilesBase.setUpFileNames(self, self.extensions[0], self.extensions[1], includeRoot)
+        CopyFilesBase.setUpFileNames(self, self.extensions[0], self.extensions[1], self.extensions[2], includeRoot)
 
     def doArgs(self):
         if len(sys.argv) > 1:

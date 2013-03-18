@@ -1,12 +1,14 @@
 #!/bin/python
 
 import re
+import sys
 
 class ParseFile():
 	regEx = '<p>(.*?)<\/p>'
+	errorString = 'error'
 
-	def openFile(self):
-		f = open('C:/Users/Charlie/Documents/Temp/regex/MediaWiki.html', 'r')
+	def openFile(self, fileName):
+		f = open(fileName, 'r')
 		return f.read()
 
 	def replace(self, m):		
@@ -15,10 +17,20 @@ class ParseFile():
 		result = re.sub('\n', '', result, flags=re.DOTALL)	
 		return result
             
+	def getInput(self):
+		if len(sys.argv) == 1:
+			return self.errorString
+		else:
+			return sys.argv[1]
+			
 	def parseReplace(self):
-		contents = self.openFile()
-		result = re.sub(self.regEx, self.replace, contents, flags=re.DOTALL)
-		print result;
+		arg = self.getInput()
+		if arg != self.errorString:
+			contents = self.openFile(arg)
+			result = re.sub(self.regEx, self.replace, contents, flags=re.DOTALL)
+			print result;
+		else:
+			print 'pass in the name of the file you want to parse'
 			
 p = ParseFile()
 p.parseReplace()

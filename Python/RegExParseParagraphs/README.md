@@ -15,6 +15,16 @@ The program would turn it into this:
 
 <p>This is the sample paragraph.</p>
 
-To run the program type python replace.py. The 
-output will be a copy of MediaWiki.html with all
-the <p> elements on one line.
+To run the program type:
+
+	python replace.py [MyFile.html]
+
+For instance: 
+
+	python replace.py MediaWiki.html. 
+	
+The output will be a copy of MediaWiki.html with all
+the <p> elements on one line. To write the file to disk, 
+write the following: 
+
+	python replace.py MediaWiki.html > Result.html
