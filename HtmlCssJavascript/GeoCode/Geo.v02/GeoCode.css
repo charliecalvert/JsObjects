@@ -11,9 +11,9 @@ html, body {
 
 #mainDiv {
 	position: relative;
-	border: 1px;
+	border: 1px;	
 	width: 610px;
-	height: 400px;
+	height: 400px;	
 }
 
 #directions {
@@ -25,7 +25,7 @@ html, body {
 
 #mapCanvas {
 	height: 100%;
-	width: 100%;	
+	width: 100%;		
 }
 
 @media print {
