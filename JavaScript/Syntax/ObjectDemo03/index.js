@@ -70,7 +70,7 @@ var MyFunction04 = (function() {
 var App = (function() {
    
     function App() { }
-
+    
     App.prototype.initialize = function() {
         
     };
