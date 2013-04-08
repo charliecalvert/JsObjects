@@ -4,7 +4,6 @@ import re
 import sys
 
 class FindHeadings():
-	#regEx = '<h\d\sid="([^"]*)">([^<]*)'
 	regEx = '<h\d\sid="([^"]*)">([^<]*)'
 	errorString = 'error'
 
