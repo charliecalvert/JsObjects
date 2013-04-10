@@ -9,6 +9,14 @@ var App = (function() {
 		makeImageData();
 	}
 
+	var draw = function() {
+		var count = 0;
+		for (imageName in pictures) {
+			context.drawImage(pictures[imageName], 0, rectSize, rectSize, rectSize, 
+				rectSize * (count++ + 1), 135, rectSize, rectSize);
+		}
+	};
+
 	var makeImageData = function() {
 		var images = ["cscGarden01.gif", "cscGarden02.gif"];
 		var x = 10;
@@ -34,6 +42,7 @@ var App = (function() {
 		var example = document.getElementById('mainCanvas');
 		if (example !== null) {
 			var context = example.getContext('2d');
+			setInterval(draw, 50);
 			return context;
 		} else {
 			$("#debugs").css({
