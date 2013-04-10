@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html dir="ltr">
+
+<!-- #BeginTemplate "../../Elvenware.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>SSH SFTP and Putty</title>
+<!-- #EndEditable -->
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport" />
+<link href="/charlie/libs/css/style2.css" rel="stylesheet" title="style2" type="text/css" />
+<link href="/charlie/libs/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="/charlie/libs/scripts/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/charlie/libs/scripts/elvenware.js" type="text/javascript"></script>
+<!-- #BeginEditable "docScripts" -->
+<style type="text/css">
+
+
+.auto-style1
+{
+	border-width: 0px;
+}
+
+.auto-style2
+{
+	border-width: 0px;
+	width: auto;
+	height: auto;
+}
+
+</style>
+<!-- #EndEditable -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2806409-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+
+<div id="container">
+	<header>
+		<div class="navButton" onclick="elvenware.toggleMenu()">
+			Toggle Menu</div>
+		<h1>Charlie Calvert on Elvenware</h1>
+		<h2>Writing Code and Prose on Computers</h2>
+	</header>
+	<nav>
+		<h2>Menu</h2>
+		<div id="accordion00">
+		<h2 class="navSection01">Core Code</h2>
+			<ul>
+				<li><a href="../index.html">Strongly Typed</a></li>
+				<li><a href="../web/index.html">Web &amp; Scripts</a></li>
+				<li><a href="index.shtml">Cloud</a></li>
+			</ul>
+		
+			<h2 class="navSection02">OS and Tools</h2>
+			<ul>
+				<li><a href="../../os/index.html">OS</a></li>
+				<li><a href="../database/index.html">Database</a></li>
+				<li><a href="../../books/index.html">My Writing</a></li>
+			</ul>
+			
+		
+			<h2 class="navSection03">Art</h2>
+			<ul>
+				<li><a href="../../Art/index.html">Poems &amp; Photos</a></li>
+				<li><a href="../../books/reading/index.html">Book Reviews</a></li>
+				<li><a href="../../spirit/index.html">Spiritual</a></li>
+			</ul>
+			<h2 class="navSection04">Links</h2>
+			<ul>
+				<li><a href="../../links.html">My Links</a></li>
+				<li><a href="http://www.falafel.com/">Falafel</a></li>
+				<li><a href="http://sourceforge.net/projects/elvenware/">Sourceforge</a></li>
+			</ul>
+		</div>
+	</nav>
+	<article>
+		<figure>
+			<img alt="Elvenware" src="../../images/elvenwarelogo.png" /></figure>
+		<!-- #BeginEditable "body" -->
+
+
+
+		<h2>Networks, SSH, SFTP and Putty</h2>
+		<h3>Index</h3>
+		<ul>
+			<li><a href="#ping">Ping</a></li>
+			<li><a href="#sshBasics">SSH Basics</a></li>
+			<li><a href="#sshKeys">Private, Public and Authorized Keys</a></li>
+			<li><a href="#putty">Putty</a></li>
+			<li><a href="#puttyGen">Creating a Public/Private Key Pair with PuttyGen</a></li>
+			<li><a href="#pem">PEM Files, PuttyGen and EC2</a></li>
+			<li><a href="#pageant">Loading a Private Key with Pageant</a></li>
+			<li><a href="#pscp">Secure Copy with pscp </a></li>
+			<li><a href="#pem">AWS and PEM Files</a></li>
+			<li><a href="#ec2Trouble">Trouble Shooting EC2 SSH Connections</a></li>
+			<li><a href="#filezilla">FileZilla</a></li>
+			<li><a href="#vnc">VNC</a></li>
+		</ul>
+
+		<p>The ability to communicate securely across a network is a fundamental building block for those seeking expertise in Cloud computing. SSH is protocol that supports very secure communication both for remote command line sessions and for the Secure File Transfer Protocol (SFTP). </p>
+
+		<p>As a general rule SSH is part of the Unix world and not part of the Windows world. Linux boxes come with SSH already installed or easily installable, and Windows boxes have no understanding of the protocol. To add SSH to Windows most people use a free tool called Putty, which is explained in this document. To add SFTP to Windows and Linux, you can use a tool called <a href="http://filezilla-project.org/">Filezilla</a>. You can use Filezilla on Windows, or you can use Putty. For a relatively small fee, you can also use an excellent tool called <a href="http://www.scootersoftware.com/">Beyond Compare</a>. More details on SFTP clients are available here:</p>
+		<ul>
+			<li>
+			<a href="http://en.wikipedia.org/wiki/Comparison_of_FTP_client_software">
+			http://en.wikipedia.org/wiki/Comparison_of_FTP_client_software</a></li>
+		</ul>
+
+		<p>Follow this link to learn how to set up <a href="/charlie/os/linux/LinuxDays/LinuxFAQ.html#ssh"> SSH</a>, and then return to this document to learn more.&nbsp;</p>
+
+		<h2 id="ping">Pinging a Machine</h2>
+		<div>
+			
+			<p>Sometimes you might try to use SSH, SFTP or HTTP to commuicate with a machine and get an error. There could be many probable causes for receiving an error when attempting to use one of these protocols. It is usually best, however, to start at the beginning and determine whether the machine with which you want to communicate is running and signed into the network. One way to test if a machine is available on the network is to go to the command prompt and try to <strong>ping</strong> it. If it works, the session should look something like this:</p>
+		</div>
+		<pre class="code">
+<strong>C:\Users\Charlie&gt;ping 192.168.0.123
+	
+Pinging 192.168.0.123 with 32 bytes of data:
+Reply from 192.168.0.123: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.0.123: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.0.123: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.0.123: bytes=32 time&lt;1ms TTL=64
+Ping statistics for 192.168.0.123:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\Charlie&gt;</strong></pre>
+
+		<p>On Windows, a session with PING ends by default after four iterations. On Linux, however, the process of ping a machine will continue indefinitely. To break out of the loop, press <strong>Ctrl-C</strong>.</p>
+
+		<p>When an attempt to ping a machine fails, your session might look like this:</p>
+		<div>
+			<strong>C:\Users\Charlie&gt;ping 192.168.0.167</strong>
+		</div>
+		<div>
+			<strong>Pinging 192.168.0.167 with 32 bytes of data:<br>
+			Reply from 192.168.0.101: Destination host unreachable.<br>
+			Reply from 192.168.0.101: Destination host unreachable.<br>
+			Reply from 192.168.0.101: Destination host unreachable.<br>
+			Reply from 192.168.0.101: Destination host unreachable.</strong>
+		</div>
+		<div>
+			<strong>Ping statistics for 192.168.0.167:<br>
+			Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),</strong></div>
+		<div>
+			<strong>C:\Users\Charlie&gt;</strong></div>
+		<div>
+		</div>
+		<div>
+			Sometimes an admin for a machine will close down the service that 
+			responds to pings, and hence a machine won't respond even though it 
+			is running and on the network. However, as a general rule, if ping doesn't work, 
+			then either the machine isn't running, or else the network isn't set 
+			up right. (Or you might have the wrong address for the machine.)</div>
+		<div>
+		</div>
+		<div>
+			If the ping succeeds but you can't browse or SSH to the machine you 
+			pinged, then that often means that the machine does not have ports 
+			80 and 22 open. </div>
+		<div>
+		</div>
+		<div>
+			Pinging a machine is meant to be a way of asking the question: "Are 
+			you alive? Are you running?"</div>
+
+		<h2 id="sshBasics">SSH Basics</h2>
+
+		<p>If you haven't already done so, follow this link to learn how to set up <a href="/charlie/os/linux/LinuxDays/LinuxFAQ.html#ssh"> SSH</a>:</p>
+		<h2 id="sshKeys">SSH Between Machines with Authorized Keys</h2>
+
+		<p> <a href="http://www.elvenware.com/charlie/os/linux/LinuxDays/LinuxFAQ.html#ssh"> http://www.elvenware.com/charlie/os/linux/LinuxDays/LinuxFAQ.html#ssh</a></p>
+
+		<p>Issue these commands to generate a key pair and copy the public key part into your <strong>authorized keys </strong>file:</p>
+<pre class="code">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa 
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<br></pre>
+
+
+
+<p>After issuing these commands you will have a private key and matching public key in a file called authorized_keys. This file will be located in a directory called <strong>.ssh</strong>. You should now be able to SSH into localhost without being prompted for a password. This might look a bit like this in practice, where the first line is the command you give to start the SSH session:</p>
+
+<pre class="code">$ <strong>ssh localhost</strong>
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is 2b:33:64:c1:42:f9:08:42:f6:d3:4e:7e:92:14:32:d4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
+Welcome to Linux Mint 12 Lisa (GNU/Linux 3.0.0-12-generic i686)
+
+Welcome to Linux Mint
+ * Documentation:  <a href="http://www.linuxmint.com">http://www.linuxmint.com</a></pre>
+
+		<p>Note that the above session include text establishing the identity of a key fingerprint. This will occur the first time you SSH into a machine, even if it is localhost. You should, however, see this only one time. If you see it more than once, then someone might be trying to fool you into signing into a "honeypot" or fake machine designed to fool you into giving away some of your private information. (This is in fact an unlikely scenerio, but it is not impossible.)</p>
+
+		<p>The ability to SSH without passwords&nbsp; is possible because of the following:</p>
+		<ul>
+			<li><strong>ssh-keygen</strong> ensured that you have a private key 
+			and public key on your current machine. In this case they are called
+			<strong>id_rsa</strong> and <strong>id_rsa.pub, </strong>where the 
+			latter is the public key.</li>
+			<li>The command to <strong>cat id_rsa.pub</strong> into <strong>
+			authorized keys</strong> ensured that your machine also has a copy 
+			of your public key in its <strong>authorized keys</strong> file. 
+			The<strong> authorized_keys </strong>file lists the public keys for 
+			the machines that are allowed to visit it via SSH 
+			without having to type a password. It is this private key, public 
+			key pair that makes SSH without passwords possible. </li>
+		</ul>
+
+		<p>The odd thing about this example is that we enabling ourselves to SSH into the current machine. This is something that normally would not make much sense, but that is sometimes needed for testing. For instance, it can be used to help you understand how SSH work, and it be you are simulating both sides of a <strong>hadoop</strong> client server transaction on a single machine.</p>
+
+		<p>Note that this command will enable you to copy your public key to another machine on the network. After issuing this command you should be able to SSH to BoxPrimary without having to type a password:</p>
+		<pre class="code">ssh-copy-id -i $HOME/.ssh/id_rsa.pub <a href="mailto:hadooper@BoxPrimary">hadooper@BoxPrimary</a></pre>
+
+		<p>For help setting up SSH, see the script called setupSsh.sh, as explained at the <a href="#scripts">end of this document</a>.<br> </p>
+
+		
+
+		<h2 id="putty">Using Putty</h2>
+
+		<p>Putty is a Windows client for SSH. It is free, open source and provides you with a range of easy to use tools. Here is the link to a well known location where you can download Putty:</p>
+		<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/"> http://www.chiark.greenend.org.uk/~sgtatham/putty/</a></p>
+		<p>You can either download a compressed folder containing the files or download the Windows installer. If you download the compressed folder, you can just unzip it, and then run the various programs found inside it. However, I would unzip the folder to a location on your home drive rather than trying to run it off a slow USB drive.</p>
+
+		<h3>Connecting to an SSH Server with Putty</h3>
+
+		<p>The simplest way to use Putty is to open up the GUI client, enter the address of a machine that has an SSH server, then click the Open button. If you know the name and password for a user of the machine, then you should be able to sign in to that machine.</p>
+
+		<p> <img class="leaveAlone" alt="A Simple Putty Connection" src="images/Putty01.png"></p>
+
+		<p><strong>Figure 01: The simplest possible way to use Putty. Specify the address in the <em>Host Name</em> field, and press the <em>Open</em> button. A window will open, use it to fill in your user name and password.</strong></p>
+
+		<p>Though the process outlined above is simple, it is not the easiest way to use Putty. To make the process simpler, you will need to:</p>
+		<ul>
+			<li>Name and save the entry for your server. (See the Saved Sessions 
+			in Figure01)</li>
+			<li>Specify a user name</li>
+			<li>Create a public and private key</li>
+		</ul>
+
+		<p>To use Putty properly, you can start with the steps shown in Figure 1. Then you should give a name to your session and press the <strong> Save</strong> button. </p>
+
+		<p> <img class="leaveAlone" alt="Saving a session in Putty" src="images/Putty02.png"></p>
+
+		<p><strong>Figure 02: In this screen shot you can see that the session has been saved under the name <em>NorthSea</em></strong></p>
+
+		<p>Next, click on the <strong>Data</strong> field in the <strong> Category</strong> window and enter your user name on the server.</p>
+
+		<p> <img class="leaveAlone" alt="Enter a user name" src="images/Putty03.png"></p>
+
+		<p><strong>Figure 03: Enter a username, then click on Session once again, and save your work. (If you are signing into an EC2 Ubuntu instance, the username is set, by default, to <em>ubuntu</em>. So in that case, don't write your own name, write <em>ubuntu</em>.)</strong></p>
+
+		<p>After saving a session that contains a user name, you can click the open button, or double click on your session name, and open your SSH window. This time your user name is supplied automatically, and you only need to enter a password. I often use Putty in this mode, but it gets tiring having to type in the password each time.</p>
+
+		<p>If you take one more step and learn about public and private keys, then you are on your way to becoming the master of Putty in particular and SSH in general. </p>
+		<h2 id="puttyGen">Creating Key Pairs with PuttyGen</h2>
+
+		<p><em><strong>NOTE</strong>: If you have downloaded a PEM key from AWS EC2, then you should skip ahead to the section on </em><a href="#pem"> <em>converting PEM files into PPK files</em></a><em>. After reading that section you should should skip ahead to the section on <a href="#pageant">Loading a Private Key with Pageant</a>. If you are not using a PEM file, continue reading to learn how to create a public/private key pair with PuttyGen. The key point to grasp is the following: Normally you would use would use PuttyGen to create a public/private key pair. However. If you downloaded a PEM private key&nbsp; from someplace like EC2, then all you need to do is <a href="#pem">convert the PEM file</a> into a Putty PPK file. </em></p>
+
+		<p>Putty comes with an easy to use tool called PuttyGen that allows you to generate a public/private key pair. You can also use PuttyGen as a simple way to view the public key associated with a particular private key.</p>
+
+		<p>&nbsp;The private key you keep on your client machine and you show to no one. The public key you put on one or more servers in a file called <strong>authorized_keys</strong> that is stored in the user's home directory in a folder called <strong>.ssh</strong>:</p>
+		<pre class="code">/home/someUserName/.ssh/authorized_keys</pre>
+		<p>The same folder is also commonly written like this:</p>
+		<pre class="code">~/.ssh/authorized_keys</pre>
+
+		<p>To create a public/private key first open PuttyGen and select <strong> Key | SSH-2 RSA Key</strong> from the menu. Click the <strong>Generate</strong> button and move the mouse around a bit.</p>
+
+		<p> <img class="leaveAlone" alt="Generate a public private key pair with Putty" src="images/Putty04.png"></p>
+
+		<p><strong>Figure 04: Generating a public private key pair with PuttyGen</strong></p>
+
+		<p> <img class="leaveAlone" alt="PuttyGen as it looks after you have generated a public and private key pair." src="images/Putty05.png"></p>
+
+		<p><strong>Figure 05: PuttyGen as it looks after you have generated a public and private key pair.</strong></p>
+
+		<p>You can, and perhaps should, associate password (passphrase) with your key. Once you have done so, you should save the private key to a well known location on your system, and optionally save the public key. Saving the public key is optional since you can always view it by loading your private key. In Figure 05, you can see the Public key in the top of the window.</p>
+
+		<p>Once you have create your key pair, you should copy the Public key into your clipboard (key buffer). Now you should open a command prompt on your server, and paste your key into the<strong> authorized_keys </strong>file. There is a bit of a chick and the egg problem here in some cases, but one solution is to use Putty to open the command window, then load or create the authorized keys file with the Nano editor, and finally right click to paste the key from the clipboard into your file. If you are running your Linux box in a VM, then there might be other ways for you to copy the key into the appropriate file. </p>
+
+		<p><a href="images/Putty06.png"> <img alt="Pasting the public key into the authorized key file." class="leaveAlone" src="images/Putty06Small.png" ></a></p>
+
+		<p><strong>Figure 06: Pasting the public key into the authorized keys file. Click to expand.</strong></p>
+
+		<p>You can use <strong>pscp</strong>, the Putty Secure Copy command to copy a file to a remote machine. Suppose you have a connection in Putty that you have named MyConnection. First back up your authorized_keys file; the command I'm about to show you will overwrite your authorized_keys file if it exists. Make sure the Putty utility called <strong>pscp</strong> is on the path, and then write the following at the command line, where <strong>charlie</strong> is your user name on the Linux system:</p>
+		<pre class="code">pscp MyPublicKey.ppk charlie@MyConnection:.ssh/authorized_keys</pre>
+
+		<p>For more information, see the section below called <a href="#pscp"> Secure Copy with PSCP</a>.</p>
+
+		<p>As a general rule, you want the authorized keys file to be readable and writable only by the owner, so you might give it 600 permissions:</p>
+		<pre class="code"> ~/.ssh $ chmod 600 authorized_keys		
+~/.ssh $ stat -c "%A %a %n" authorized_keys
+-rw------- 600 authorized_keys</pre>
+		<p> You have now completed the process of creating a private/public key pair. Since you are probably not using a PEM file, and since you already have your Putty private key, you should skip the next section on PEM files, and go directly to the section on <a href="#pageant">Loading a Private key with Pageant</a>. </p>
+		<h2 id="pem">Convert a PEM File to a Putty PPK File</h2>
+		<p><em>This section describes how to convert a PEM file from a source like EC2 into a Putty private key (PPK). If you are not working with PEM files, you should skip this section and go to the section on <a href="#pageant">Loading a Private Key with Pageant</a>.</em></p>
+
+		<p>A PEM file is a private key, but it is not in the format that Putty expects. PEM files are generated by some SSH tools, notably the one used on AWS. Since the format is different than that found in a Putty PPK file, you need to convert it before you can use it with Putty. <p>Launch PuttyGen if it is not already running. Choose <strong>Conversions</strong> from the menu and browse to the PEM file that you saved. After you import the key, simple save the file as a Putty PPK file by selecting <strong>Save private key</strong>. (Do not push the <strong>Generate</strong> button.) You will be prompted for a password if you did not supply, but you can choose to ignore that.</p>
+		<p id="note"><strong>NOTE</strong>: <em>Do not press the <strong>
+		Generate</strong> button after you use the <strong>Conversions</strong> 
+		menu. Your key was already generated on EC2. (Or possibly it was 
+		generated on some other system, such as a local Linux box.) You do not, 
+		and should not, <strong>generate</strong> the key. You are just 
+		converting the key. After you convert it by using the menu item, you 
+		should simple press the </em><strong><em>Save private key </em></strong>
+		<em>button. Don't press the <strong>Generate</strong> button</em>!</p>
+		<p> <img alt="AWS and PuttyGen" height="477" src="images/AmazonWebServices04.png" style="width: 493px"></p>
+
+		<p> <strong>Figure 09: Converting the PEM file to a PPK file.</strong></p>
+		<p>After you have converted the PEM file to PPK, you should launch the Putty tool called Pagaent, and load your PPK into it. See Figure 7 above for a screen shot of the Pagaent tool. As you can see from the screen shot, you need to select the <strong>Add Key </strong>button and add the key to Pagaent. Figure 7 shows two different keys loaded, but you need only load the one to access your EC2 instance. Also, see Figure 08 for a means of making Putty explicitly aware of your PPK key. Be sure you have also set the <strong>auto-login username </strong>in the <strong>Data</strong> dialog, as shown in Figure 3. If you are trying to log into an EC2 instance, the default user name is <strong>ubuntu</strong>. In general, you should make sure you complete all the steps <a href="#putty">Using Putty</a> section found above, except for the section on generating a PPK file. You have already done that.</p>
+
+		<p>Though you aren't quite ready yet to connect with Putty, still it might be useful to see what it will look like when you do. In Figure 10 you can see an example of what the EC2 SSH Shell looks like just after you sign in with PuTTY. In this screen shot, the user has already filed in all the fields of the Putty dialog and clicked connect. As the connection takes place, a window opens that shows the text from a Linux shell. You are placed at the command prompt for the shell, and can begin issuing commands to configure Linux, or to move and copy files. Again, don't try to do this yet, but you you will probably find it useful to have this screen shot if you are want to confirm that you are successfully logged into an EC2 Linux instance.</p>
+		<p><a href="images/AmazonWebServices05.png"> <img alt="Browsing with Putty" class="leaveAlone" src="images/AmazonWebServices05Small.png"></a></p>
+
+		<p><strong>Figure 10: The SSH shell as it appears when you sign on to an AWS server using PuTTY. From this command prompt you can control all the features of the Linux OS. (Click to Enlarge)</strong></p>
+
+		<p>You have now finished converting the PEM file to a Putty PPK file. You should continue by reading the next section on loading the private key with Pageant.</p>
+		<h2 id="pageant">Loading the Private Key with Pageant</h2>
+
+		<p>Now that you have done all this, you can use the <strong>Category | Connection | SSH | Auth | Private key </strong>field to associate this key with your Putty session. However, this does not work quite as you hope if you have associated with a password (passphrase) with your private key. To get around this problem, you can use use a Putty tool called Pageant, which will keep your key and password in memory. You can load this file in the morning when you sign in, and then never have to enter the password again until Pagaent is unloaded from memory. Figure 07 shows Pagaent running with two private keys loaded:</p>
+
+		<p><a href="images/Putty07.png"> <img alt="Pagaent" class="leaveAlone" src="images/Putty07Small.png" ></a></p>
+
+		<p><strong>Figure 07: Using Pagaent. Click to expand.</strong></p>
+
+		<p>You can also link to your private key directly from your PuTTY, as shown in Figure 08.</p>
+
+		<p> <img alt="Browse for your PPK and to help PuTTY use it for authentication." height="448" src="images/Putty08.png" style="width: 466px"></p>
+
+		<p><strong>Figure 08: Browse for your PPK and to help PuTTY use it for authentication.</strong></p>
+		<h2 id="ec2Trouble"><strong>Trouble Shooting the Connectiong to EC2</strong></h2>
+		<p>If you see, "disconnected No supported authentication methods available (server sent public key)" and "using user name Ubuntu server refused our key," then you might try the following:</p>
+
+		<p>First find the key associated with your running instance, as shown in Figure 10a. In this screenshot, you can see that the Key Pair is called Elvenware006.</p>
+
+		<p><a href="images/Ec2KeyPair01.png"> <img alt="Finding the Key Pair for an EC2 instance" class="auto-style1" height="363" src="images/Ec2KeyPair01Small.png" style="width: 500px"></a></p>
+
+		<p><strong>Figure 10a: Finding the Key Pair for an EC2 instance. (Click image to expand)</strong></p>
+		<ul>
+			<li>Locate that key (PEM file) on your Windows machine. If you can't 
+			find the key, it will probably be simplest to start over. Create a 
+			new instance instance and a new key, and this time be sure that you 
+			do not lose your key. Keep it secret! Back it up!</li>
+			<li>Run PuttyGen, choose<strong> Conversions</strong> from the menu,<strong>
+			</strong>and convert the PEM key to a PPK file. Choose<strong> Save 
+			Private Key, </strong>as shown above in Figure 09. When you save the 
+			PPK file, it would be wise to give it the same name as the PEM file. 
+			For instance, I would name my file <strong>Elvenware006.ppk</strong>.
+			<strong>&nbsp;</strong></li>
+			<li>Run Pageant, right click on it in the taskbar tray, select the
+			<strong>Add</strong> button. Load in your PPK, as shown above in 
+			Figure 07. This is redundant, but you should also load the key into 
+			Putty, as shown in Figure 08. Don't forget to the set <strong>
+			Connection | Data</strong> to <strong>ubuntu, </strong>as shown in 
+			Figure 10b.</li>
+		</ul>
+
+		<p> <img alt="Set the authorized user to ubuntu" height="448" src="images/Ec2KeyPair02.png" style="width: 466px"></p>
+
+		<p><strong>Figure 10b: Set the Auto-login username to ubunut.</strong></p>
+
+		<p>By this point, you should have everything set up correctly and should be able to connect. </p>
+		<h2 id="pscp">Secure Copy with pscp</h2>
+		<p>If you want securely copy a file from a Windows machine to Linux box, you can use the Putty utility called pscp (Putty Secure Copy). This is a command line tool. If you want a more GUI driven interactive tool, I recommend Filezilla, which is covered later in this document. </p>
+		<p>The best way to use pscp is to first set up a Putty connection to a server, and save it. For instance, on my machine I have a connection called WesternSea. I can use this connection to quickly and efficiently open an SSH shell that places me at the command prompt for my Linux instance. But there is more that I can do with that connection. Given this connection, at the command prompt of my Windows machine, I can type the following to copy a file from my Windows box to my Linux box. In the example shown below, the first line is the command, and the second the output generated by the command:</p>
+		<pre class="code">C:\Users\Ch\Temp&gt;pscp MySite.zip charlie@WesternSea:/home/charlie/.
+MySite.zip | 75 kB | 75.2 kB/s | ETA: 00:00:00 | 100%</pre>
+		<p>As you can probably surmise, the command copies the file MySite.zip to a Linux box called WesternSea. In particular, the file ends up the <strong>/home/charlie</strong> directory of the Linux box. Notice that when I copy the file, I specify the name of the user and the name of the Putty connection I have established for the Linux box: <a href="mailto:charlie@WesternSea">charlie@WesternSea</a>. If you were working with an EC2 instance, you would probably use the user <strong> ubuntu</strong> rather than <strong>charlie</strong>.</p>
+
+		<p>Tools like pscp can be run from batch files. It often makes sense to use pscp in conjunction with another tool such as plink, which allows you to execute a command on the remote machine. Thus, you can first copy a file to the remote machine, then execute a command that acts upon that file. For instance, you can copy a zip file to a remote machine, then use plink to execute a script on the remote machine that unzips the file and copies its content to a specific location.</p>
+
+		<p>Here is a simple plink command, which assumes you have a connection called MyConnection all set up in Putty.</p>
+		<pre class="code">plink MyConnection ls</pre>
+
+		<p>This will give you a listing of your home folder on your Linux box.</p>
+
+		<p>If you want to execute a command that requires <strong>sudo</strong> permissions on the remote machine, do something like this:</p>
+		<pre class="code">plink -t MountainPass sudo cp /home/ubuntu/Temp/Twitter.js /var/www/.</pre>
+		<p>The command above, when run from the Windows command prompt, copies a file on your Linux box from the <strong>Temp</strong> directory to the <strong>/var/www/.</strong> directory. If you need to enter a password to run sudo, then the <strong> -t</strong> argument passed to plink will offer TTY support for that operation. If you don't include the <strong>-t</strong>, you may get errors about "no tty present" and/or "no askpass program specified."</p>
+		<ul>
+			<li>
+			<a href="http://tartarus.org/~simon/putty-snapshots/htmldoc/Chapter5.html#pscp">
+			http://tartarus.org/~simon/putty-snapshots/htmldoc/Chapter5.html#pscp</a></li>
+		</ul>
+		<h2 id="filezilla">Filezilla</h2>
+		<p>The <a href="http://filezilla-project.org/">Filezilla</a> client is free and supports SFTP. It allows you to copy (or mirror) files on your local hard drive to some Linux server that supports SSH and SFTP. EC2 supports these features automatically.</p>
+		<p>Connecting with Filezilla is a lot like using Putty, but the tool is very powerful when it comes to copying and comparing files. To connect, you will need to know:</p>
+		<ol>
+			<li>The URL (or IP address) of your Linux box</li>
+			<li>Your username and password for the Linux box. (On Ec2, by 
+			default, the username is ubuntu.)</li>
+		</ol>
+		<p>To get started choose <strong>File | Site Manager (Ctrl-S)</strong> from the Filezilla menu. Fill in the dialog with the host, the protocol, the logon type and the user name.:</p>
+		<p> <img alt="Filezilla Site Manager dialog" height="438" src="images/Filezilla02.png" style="width: 519px"></p>
+		<p><strong>Figure 0X: The Filezilla Site Manager dialog. Fill in the host, the protocol, the logon type and the user name.</strong></p>
+		<p>If you want, go to the Advanced TAB to set up the location where you want to copy files from and to. Click OK to save your work. Now reload the Site Manager or use the little icon right below the <strong>File</strong> menu to launch your session. Below you can see an active session with local files on the left, and the files for my EC2 instance on the right.</p>
+		<p><a href="images/Filezilla01.png"> <img alt="Filezilla Connect to an EC2 image" class="auto-style1" height="380" src="images/Filezilla01Small.png" style="width: 500px"></a></p>
+		<p><strong>Figure 0X: Filezilla logged into an EC2 instance running Ubuntu.</strong></p>
+		<p>Note that I'm copying files to my home folder because I have rights in my home folder. You can right click and choose<strong> upload</strong> to copy files.<strong> </strong>By default I won't have rights to create files in the <strong>/var/www</strong> folder.</p>
+
+		<p>Learn about using queues in Filezilla. Instead of just right-clicking and choosing Upload, in Filezilla, select a group of files, right click, and choose <strong>Add to queue</strong>. Choose <strong>File | Export</strong> and save your queue to an XML file stored in a well known location. When you want to copy your files, type <strong>Ctrl-P</strong> or choose <strong>Transfer | Process Queue</strong> from the menu. When you want to run the queue again, choose <strong>File | Import</strong>, retrieve your XML file from your well known location, and then process the queue. The point is that the XML stores your selected files, so that you don't have to continually select the same group of files and copy them. If this gets old, try the <a href="#pscp">pscp and plink commands</a>.</p>
+		<p>One of the most useful commands is <strong>View | Directory Comparison. </strong>&nbsp;You can compare files either by date or by file size. You can use this tool to filter out all the files that are the same on your Windows box and on your Linux box. In other words, it provides a means of seeing only the files that you have updated on your Windows or Linux box, and ignoring all the other files. To see a list of only the files that differ between your selected directories on your Windows and Linux boxes:&nbsp;</p>
+		<ul>
+			<li>Select <strong>View | Directory Comparison | Hide identical 
+			files</strong>. Make sure the check mark is now set before the
+			<strong>Hide identical files</strong> option.</li>
+			<li>Choose <strong>View | Directory Comparison | Enable</strong>, or 
+			else choose <strong>Ctrl | O</strong>.</li>
+			</ul>
+			<p>The real trick is to memorize the <strong>Ctrl | O</strong> hotkey (Control - Capital Oh). That will allow you to quickly switch back and forth between normal and selected modes.</p>
+
+		<p>Learn more here:</p>
+			
+			<pre><a href="http://wiki.filezilla-project.org/Other_Features">http://wiki.filezilla-project.org/Other_Features</a></pre>
+
+		<h2 id="vnc">VNC Servers</h2>
+
+		<p>A VNC server allows you to create a connection between a client machine and the GUI for a server. This is like a Windows Remote Desktop session where you can see the remote desktop and interact with it as you please.</p>
+
+		<p>VNC connections have two parts. There is the server, which in our case will typically run on a Linux box. Then there is the client, which displays the remote desktop, and which typically runs on a Windows box. You can, of course, also run a VNC client on a Linux box and indeed that is a common scenario. But in my case, when I use VNC, I am generally on a Windows box and want to see a remote Linux desktop.</p>
+
+		<p>On Mint Linux desktop or Ubuntu desktop it is simple to get a VNC server running. On Mint Linux, for instance, choose <strong>Application | Internet | Desktop Sharing </strong>and share your desktop using VNC.</p>
+
+		<p> <a href="images/Vnc03.png"> <img class ="auto-style2" alt="Setting up the VNC Server on Mint Linux" src="images/Vnc03Small.png"></a></p>
+
+		<p><strong>Figure0X: Setting up the VNC Server on Mint Linux</strong></p>
+
+		<p>Then on Windows, I installed the <a href="http://www.tightvnc.com/">TightVnc</a> client. To attach the client to a TightVNC server, at the TightVNC client prompt type the ip address plus port 5901. If you just want to attach to your Mint Linux desktop, you can leave off the port number. But if you want to use the port number, it looks like this:</p>
+
+		<p> <img alt="Connecting with TightVnc" height="175" src="images/Vnc02.png" style="width: 417px"></p>
+
+		<p> Below you can see a screenshot that shows VNC in action. In background I have Mint Linux running on the Windows desktop inside of VirtualBox. The foreground image shows TightVNC displaying the same desktop in an interactive session.</p>
+
+		<p><a href="images/Vnc01.png"> <img alt="Mint Linux: VNC in the foreground, VirtualBox in the background" class="auto-style1" height="313" src="images/Vnc01Small.png" style="width: 500px"></a></p>
+
+		<p><strong>Figure 0X: Mint Linux: VNC in the foreground, VirtualBox in the background.</strong></p>
+		
+		
+
+		<p>If you are running Ubuntu server, and particularly if you have a lightweight <a href="/charlie/os/linux/XWinOpenBox.html">OpenBox</a> desktop installed, then you might want to install TightVNC on the server so that you can connect to your OpenBox desktop from a Windows machine. Here is the command to install TightVNC server on Ubuntu:</p>
+
+		<p>$ sudo apt-get install tightvncserver</p>
+
+		<p>And to start the server:</p>
+
+		<p>tightvncserver -nolisten tcp :1</p>
+
+		<p>On the client side (Windows) I like to run TightVNC Client, as shown above, and this time the 5901 port will probably be needed.</p>
+
+		<p><a href="images/Vnc04.png"> <img alt="VNC and OpenBox" class="auto-style1" height="400" src="images/Vnc04Small.png" style="width: 500px"></a></p>
+
+		<p><strong>Figure0X: VNC and OpenBox running on Ubuntu Server. Click to enlarge.</strong></p>
+
+		<p>When VNC server runs, it create a file called <strong>xstartup </strong>in a <strong>.vnc</strong> folder. Here is how I edited the file to get it to run OpenBox:</p>
+		<pre class="code">charlie@Whitecap:~/.vnc$ cat xstartup
+#!/bin/sh
+
+# xrdb $HOME/.Xresources
+# xsetroot -solid grey
+# x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &amp;
+# x-window-manager &amp;
+# Fix to make GNOME work
+export XKL_XMODMAP_DISABLE=1
+exec ck-launch-session openbox-session
+# /etc/X11/Xsession
+nitrogen --restore</pre>
+
+		<p>Frankly, I'm not sure all that was necessary, it might have worked correctly out of the box. But I needed to go to the command prompt once in the VNC session and run Nitrogen to get the background setup.</p>
+
+			
+
+		<!-- #EndEditable -->
+	</article>
+	<footer>
+
+		<p>Copyright &copy; <a href="../../index.html">Charlie Calvert</a> | <a href="../../index.html">Elvenware Home</a> | <a href="../index.html">Writing Code</a> | <a href="../delphi/index.html">Delphi</a> | <a href="../csharp/index.html">CSharp</a> | <a href="../../books/index.html">My Books</a> </p>
+	</footer>
+</div>
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>
+
