@@ -2,7 +2,7 @@ var App = (function() {
 
 	var context = null;
 	var rectSize = 25;
-	var images = {};
+	var pictures = {};
 
 	function App() {
 		context = getCanvas();
@@ -14,18 +14,24 @@ var App = (function() {
 	};
 
 	var makeImageData = function() {
-		var image01 = "cscGarden.gif"
+		var images = ["cscGarden01.gif", "cscGarden02.gif"];
+		var x = 10;
+		loadImages(images, function(pictures, a) {
+			var fileName = images[a];
+			context.drawImage(pictures[fileName], 0, rectSize, rectSize, rectSize, rectSize * (a + 1), 10, rectSize, rectSize);
+		});
+	};
 
-		var callback = function(image, x, y) {
-			context.drawImage(image, rectSize, 0, rectSize, rectSize, x, y, rectSize, rectSize);
-		};
-		
-		var image = new Image();
-		image.onload = function() {
-			callback(image, 10, 10);
-		};
-		
-		image.src = image01;
+	var loadImages = function(images, callback) {
+		var a = 0;
+		for (var i = 0; i < images.length; i++) {
+			var fileName = images[i];
+			pictures[fileName] = new Image();
+			pictures[fileName].onload = function() {
+				callback(pictures, a++);
+			};
+			pictures[fileName].src = fileName;
+		}
 	};
 
 	var getCanvas = function() {
