@@ -5,8 +5,8 @@ var App = (function() {
 	// Private variables (in closure)
 	var context = null;
 	var rectSize = 25;
-	var WIDTH = 300;
-	var HEIGHT = 300;
+	var width = -1;
+	var height = -1;
 	var count = 0;
 
 	// Constructor has Caps, must be called with new, returned from App
@@ -16,16 +16,19 @@ var App = (function() {
 	}
 
 	var getCanvas = function() {
-		var example = document.getElementById('mainCanvas');
-		if (example !== null) {
-			context = example.getContext('2d');
-			setInterval(draw, 950);
+		canvas = document.getElementById('mainCanvas');
+		if (canvas !== null) {
+			width = canvas.width;
+			height = canvas.height;
+			context = canvas.getContext('2d');
+			setInterval(draw, 1000);
 			return context;
 		} else {
 			$("#debugs").css({
-				backgroundColor : "blue"
+				backgroundColor : "blue",
+				color: "yellow"
 			});
-			$("#debugs").html("No Canvas");
+			$("#debugs").html("Could not retrieve Canvas");
 			return null;
 		}
 	}
@@ -56,7 +59,7 @@ var App = (function() {
 	};
 
 	var clear = function() {
-		context.clearRect(0, 0, WIDTH, HEIGHT);
+		context.clearRect(0, 0, width, height);
 	};
 
 	var drawNpc = function(row, col) {
