@@ -7,6 +7,7 @@ var App = (function() {
 	var rectSize = 25;
 	var WIDTH = 300;
 	var HEIGHT = 300;
+	var count = 0;
 
 	// Constructor has Caps, must be called with new, returned from App
 	function App() {
@@ -17,8 +18,8 @@ var App = (function() {
 	var getCanvas = function() {
 		var example = document.getElementById('mainCanvas');
 		if (example !== null) {
-			var context = example.getContext('2d');
-			setInterval(draw, 50);
+			context = example.getContext('2d');
+			setInterval(draw, 950);
 			return context;
 		} else {
 			$("#debugs").css({
@@ -29,12 +30,13 @@ var App = (function() {
 		}
 	}
 	var draw = function() {
+		clear();
 		drawRectangle();
 		drawPyramid();
 		circle(10, 10, 5);
 		drawNpc(4, 2);
 		drawGreen(5, 3);
-		drawRed(6, 4);
+		drawRed(6, 4 + count++);
 	}
 	var drawImage = function() {
 		var sources = this.loadBitmap();
