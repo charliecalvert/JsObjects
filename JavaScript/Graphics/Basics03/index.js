@@ -29,10 +29,10 @@ var App = (function() {
 	};
 
 	var getCanvas = function() {
-		var example = document.getElementById('mainCanvas');
-		if (example !== null) {
-			var context = example.getContext('2d');
-			setInterval(draw, 50);
+		var canvas = document.getElementById('mainCanvas');
+		if (canvas !== null) {
+			var context = canvas.getContext('2d');
+			setInterval(draw, 250);
 			return context;
 		} else {
 			$("#debugs").css({

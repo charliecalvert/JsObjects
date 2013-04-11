@@ -39,16 +39,17 @@ var App = (function() {
 	};
 
 	var getCanvas = function() {
-		var example = document.getElementById('mainCanvas');
-		if (example !== null) {
-			var context = example.getContext('2d');
+		var canvas = document.getElementById('mainCanvas');
+		if (canvas !== null) {
+			var context = canvas.getContext('2d');
 			setInterval(draw, 50);
 			return context;
 		} else {
 			$("#debugs").css({
-				backgroundColor : "blue"
+				backgroundColor : "blue",
+				color: "yellow"
 			});
-			$("#debugs").html("No Canvas");
+			$("#debugs").html("Could not retrieve canvas");
 			return null;
 		}
 	}
