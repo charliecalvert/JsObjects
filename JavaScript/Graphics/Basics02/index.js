@@ -13,7 +13,8 @@ var App = (function() {
 		var image01 = "cscGarden.gif"
 
 		loadImage(image01, function(image, x, y) {
-			context.drawImage(image, rectSize, 0, rectSize, rectSize, x, y, rectSize, rectSize);
+			context.drawImage(image, rectSize, 0, rectSize, rectSize, 
+				x, y, rectSize, rectSize);
 		});
 	};
 
