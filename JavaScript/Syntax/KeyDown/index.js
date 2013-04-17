@@ -4,10 +4,10 @@
 
 var App = (function() {
 	function App() {
-		window.addEventListener('keydown', doKeyDown, true);	
+		window.addEventListener('keydown', doKeyDown, true);
 	}
 	
-		var doKeyDown = function(evt) {
+	var doKeyDown = function(evt) {
 		switch (evt.keyCode) {
 			case 38:
 				/* Up arrow was pressed */
@@ -27,10 +27,8 @@ var App = (function() {
 				break;
 		}
 	};
-
 	
 	return App;
-	
 })();
 
 
