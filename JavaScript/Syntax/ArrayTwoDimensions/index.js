@@ -3,7 +3,8 @@
 var App = (function() {
 
 	var MAX = 3;
-	var grid = [[0, 1, 0], 
+	var grid = [
+		[0, 1, 0], 
 		[1, 0, 1], 
 		[0, 1, 0]
 	];
