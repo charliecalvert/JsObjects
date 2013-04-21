@@ -1,0 +1,9 @@
+{
+  "name": "Two HTML FIles",
+  "description": "Launch a second HTML file from a Node Server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "latest"
+  }
+}
