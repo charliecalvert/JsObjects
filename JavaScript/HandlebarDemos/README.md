@@ -1,6 +1,8 @@
 HandleBar Demos
----------------
- 
+===============
+
+Web Applications
+----------------
  
 Example 01: Use HandleBars to change a paragraph tag.  
 Example 02: Use HandleBars to dynamically change the CSS and a paragraph tag.  
@@ -8,6 +10,15 @@ Example 03: Use HandleBars to add items to list.
 Example 04: Read JSON  
 Example 05: Read JSON and display with HandleBars  
  
+Node Applications
+-----------------
+
+Example 06:
+Example 07:
+Example 08:
+
+Other
+-----
 ![This is the caption](img/Image00_calvert.png)
 
 	/**
