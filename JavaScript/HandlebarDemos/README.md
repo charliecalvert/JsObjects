@@ -4,18 +4,18 @@ HandleBar Demos
 Web Applications
 ----------------
  
-Example 01: Use HandleBars to change a paragraph tag.  
-Example 02: Use HandleBars to dynamically change the CSS and a paragraph tag.  
-Example 03: Use HandleBars to add items to list.  
-Example 04: Read JSON  
-Example 05: Read JSON and display with HandleBars  
+- Example 01: Use HandleBars to change a paragraph tag.  
+- Example 02: Use HandleBars to dynamically change the CSS and a paragraph tag.  
+- Example 03: Use HandleBars to add items to list.  
+- Example 04: Read JSON  
+- Example 05: Read JSON and display with HandleBars  
  
 Node Applications
 -----------------
 
-Example 06:
-Example 07:
-Example 08:
+- Example 06: Output an HTML file from using templates
+- Example 07: Node server to serve up templated HTML file
+- Example 08: Add structure that can be used in larger programs
 
 Other
 -----
