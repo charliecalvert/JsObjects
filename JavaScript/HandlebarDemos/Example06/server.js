@@ -28,9 +28,8 @@ var App = (function() {	'use strict';
 		return String(fs.readFileSync('index.html'));
 	}
 
-	var addNames = function(initFirstName, initLastName) {
+	var addNames = function() {
 		var script = readHtml();
-		// console.log(script);
 
 		var template = handlebars.compile(script);
 
