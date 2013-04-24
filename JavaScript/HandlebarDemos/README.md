@@ -16,6 +16,7 @@ Node Applications
 - Example 06: Output an HTML file from using templates
 - Example 07: Node server to serve up templated HTML file
 - Example 08: Add structure that can be used in larger programs
+- Example 08: Put a table into an HTML file
 
 Other
 -----
