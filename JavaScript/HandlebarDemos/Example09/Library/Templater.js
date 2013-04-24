@@ -15,20 +15,20 @@ var Templater = (function() {'use strict';
 		return String(fs.readFileSync(fileName));
 	};
 
-	Templater.prototype.addNames = function(fileName) {
+
+Templater.prototype.addTable = function(fileName, tableName) {
 		var mainFile = readHtml(fileName);
+		var table = readHtml(tableName);
 
 		var template = handlebars.compile(mainFile);
 
 		var result = template({
-			MyStuff : 'This is what we insert.',
-			OtherStuff : 'This is the other stuff'
+			MyTable : table
 		});
 
 		return result;
 	};
-
-	
+		
 	return Templater;
 
 })();
