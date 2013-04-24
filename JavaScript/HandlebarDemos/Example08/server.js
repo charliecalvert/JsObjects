@@ -23,7 +23,7 @@ var port = process.env.PORT || 30025;
 app.get('/', function(request, response) { 'use strict';
 	var htmlTemplate = templater.template;
 	var html = htmlTemplate.addNames(__dirname + '/Public/index.html');
-	response.writeHead(200);
+	response.writeHead(200, {"Content-Type": "text/html"});
 	response.end(html);
 });
 
