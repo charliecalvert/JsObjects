@@ -27,7 +27,7 @@ app.get('/', function(request, response) { 'use strict';
 	response.end(html);
 });
 
-app.use("/Public", express.static(__dirname + '/Public'));
+app.use('/', express.static(__dirname + '/Public'));
 
 
 app.listen(port);
