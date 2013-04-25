@@ -21,7 +21,12 @@ function readJson() {
 }
 
 var writeJson = function() {
-	var data = { firstName: $('#firstName').val(), lastName: $('#lastName').val(), age: $('#age').val() };
+	var data = { 
+		firstName: $('#firstName').val(), 
+		lastName: $('#lastName').val(), 
+		age: $('#age').val() 
+	};
+	
 	$.ajax(
     {
       type: 'GET',
