@@ -16,41 +16,41 @@ var relyingParty = new openid.RelyingParty(
 
 var port = process.env.PORT || 30025;
 
-app.get('/', function(req, res) {
+app.get('/', function(reqest, response) {
 	// Deliver an OpenID form on all other URLs
-	res.writeHead(200);
-	res.end('<!DOCTYPE html><html><body>' + '<form method="get" action="/authenticate">' + '<p>Login using OpenID</p>' + '<input name="openid_identifier" />' + '<input type="submit" value="Login" />' + '</form></body></html>');
+	response.writeHead(200);
+	response.end('<!DOCTYPE html><html><body>' + '<form method="get" action="/authenticate">' + '<p>Login using OpenID</p>' + '<input name="openid_identifier" />' + '<input type="submit" value="Login" />' + '</form></body></html>');
 });
 
-app.get('/go', function(req, res) {
-	relyingParty.verifyAssertion(req, function(error, result) {
-		res.writeHead(200);
-		res.end(!error && result.authenticated ? 'Success :)' : 'Failure :(');
+app.get('/go', function(request, response) {
+	relyingParty.verifyAssertion(request, function(error, result) {
+		response.writeHead(200);
+		response.end(!error && result.authenticated ? 'Success :)' : 'Failure :(');
 	});
 });
 
-app.get('/authenticate', function(req, res) {
+app.get('/authenticate', function(request, response) {
 	console.log("Authenticate called");
-	console.log(req.query);
+	console.log(request.query);
 	// User supplied identifier
-	var query = querystring.parse(req.query);
+	var query = querystring.parse(request.query);
 	console.log("Parsed Query: " + query);
-	var identifier = req.query.openid_identifier;
+	var identifier = request.query.openid_identifier;
 	console.log("identifier: " + identifier);
 
 	// Resolve identifier, associate, and build authentication URL
 	relyingParty.authenticate(identifier, false, function(error, authUrl) {
 		if (error) {
-			res.writeHead(200);
-			res.end('Authentication failed: ' + error.message);
+			response.writeHead(200);
+			response.end('Authentication failed: ' + error.message);
 		} else if (!authUrl) {
-			res.writeHead(200);
-			res.end('Authentication failed');
+			response.writeHead(200);
+			response.end('Authentication failed');
 		} else {
-			res.writeHead(302, {
+			response.writeHead(302, {
 				Location : authUrl
 			});
-			res.end();
+			response.end();
 		}
 	});
 });

@@ -1,0 +1,10 @@
+{
+  "name": "MakeDirectory",
+  "description": "Make a Directory, Copy a File",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "latest",
+    "mkdirp": "latest"
+  }
+}

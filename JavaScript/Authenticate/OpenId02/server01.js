@@ -18,7 +18,7 @@ var port = process.env.PORT || 30025;
 
 app.get('/', function(req, res) {
 	// Deliver an OpenID form on all other URLs
-	res.writeHead(200);
+	res.writeHead(200,  {'Content-Type': 'text/html'});
 	res.end('<!DOCTYPE html><html><body>' + '<form method="get" action="/authenticate">' + '<p>Login using OpenID</p>' + '<input name="openid_identifier" />' + '<input type="submit" value="Login" />' + '</form></body></html>');
 });
 

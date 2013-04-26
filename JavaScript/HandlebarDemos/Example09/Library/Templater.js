@@ -1,13 +1,14 @@
 /**
  * @author Charlie Calvert
  */
- 
+
 var fs = require('fs');
 var handlebars = require('handlebars');
- 
-var Templater = (function() {'use strict';
 
-	function Templater() {	
+var Templater = (function() {
+	'use strict';
+
+	function Templater() {
 	}
 
 	// Please not that we convert to a string.
@@ -15,8 +16,7 @@ var Templater = (function() {'use strict';
 		return String(fs.readFileSync(fileName));
 	};
 
-
-Templater.prototype.addTable = function(fileName, tableName) {
+	Templater.prototype.addTable = function(fileName, tableName) {
 		var mainFile = readHtml(fileName);
 		var table = readHtml(tableName);
 
@@ -28,9 +28,9 @@ Templater.prototype.addTable = function(fileName, tableName) {
 
 		return result;
 	};
-		
+
 	return Templater;
 
 })();
 
-exports.template = new Templater()    
+exports.template = new Templater()
