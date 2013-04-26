@@ -8,24 +8,26 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var files = require('./Library/ElvenFiles');
- 
+var newDirectory = "/bar";
+
 var port = process.env.PORT || 30025;
 
 app.get('/', function(request, response) { 'use strict';
 	response.writeHead(200, {'Content-Type': 'text/html'});
-	var html = fs.fileRead(__dirname + 'Public/index.html');
+	var html = fs.readFileSync(__dirname + '/Public/index.html');
 	response.end(html);
 });
 
-
-
-app.get('/createDir', function(request, response) { 'use strict';
+app.get('/createDirectory', function(request, response) { 'use strict';
+	console.log('createDirectory called');
+	files.elvenFiles.createDirectory(__dirname + newDirectory);
 	response.send({'result':'success'});
 });
 	
-app.get('/copyFile', function(request, response) { 'use strict';	
-	var dest = "bar";
-	files.copyFile(__dirname + '/data/README.md', dest + "/README.md");
+app.get('/copyFile', function(request, response) { 'use strict';
+	console.log('createDirectory called');
+	
+	files.elvenFiles.copyFile(__dirname + '/README.md', __dirname + newDirectory + "/README.md");
 	response.send({'result':'success'});
 });
 

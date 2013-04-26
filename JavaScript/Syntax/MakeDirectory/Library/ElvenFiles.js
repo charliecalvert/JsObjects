@@ -33,9 +33,8 @@ var ElvenFiles = (function() { 'use strict';
 		}
 	};
 
-	ElvenFiles.prototype.makeDir = function(directory) {
-		var dest = __dirname + '/users/' + directory;
-		mkdirp(dest, function(err) {
+	ElvenFiles.prototype.createDirectory = function(directory) {
+		mkdirp(directory, function(err) {
 			if (err) {
 				console.log(err);
 			} else {
