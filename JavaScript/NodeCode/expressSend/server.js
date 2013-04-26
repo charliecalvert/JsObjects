@@ -23,6 +23,6 @@ app.get('/express', function(req, res){
   res.send('Sent with Express res.send');
 });
 
-app.use("/Public", express.static(__dirname + '/Public'));
+app.use("/", express.static(__dirname + '/Public'));
 app.listen(port);
 console.log('Listening on port :' + port);
