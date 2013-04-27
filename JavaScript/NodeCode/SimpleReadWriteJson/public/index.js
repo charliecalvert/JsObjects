@@ -3,13 +3,10 @@ function addNames(initFirstName, initLastName, initAge) {
             
    $("#firstName").val(initFirstName);
    $("#lastName").val(initLastName);
-   $("#age").val(initAge);
-    
-    
+   $("#age").val(initAge);    
 }
 
 function readJson() {
-
 	$.getJSON('/read', function(data) {
 		addNames(data.firstName, data.lastName, data.age); 
 	})
@@ -27,18 +24,16 @@ var writeJson = function() {
 		age: $('#age').val() 
 	};
 	
-	$.ajax(
-    {
-      type: 'GET',
-      url: '/write',
-      dataType: 'json',
-      cache: 'False',
-      data: userInput, 
-      success: function(data) {
-        showDebug(data.result);
-      },
-      error: showError      
-    });
+	$.ajax({
+		type: 'GET',
+		url: '/write',
+		dataType: 'json',
+		data: userInput, 
+		success: function(data) {
+			display.showDebug(data.result);
+		},
+		error: showError      
+	});
 };
 
 var showError = function(request, ajaxOptions, thrownError) {
