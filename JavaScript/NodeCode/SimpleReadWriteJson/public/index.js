@@ -30,7 +30,7 @@ var writeJson = function() {
 		dataType: 'json',
 		data: userInput, 
 		success: function(data) {
-			display.showDebug(data.result);
+			showDebug(data.result);
 		},
 		error: showError      
 	});
