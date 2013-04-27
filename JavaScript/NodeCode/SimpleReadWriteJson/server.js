@@ -36,6 +36,7 @@ app.get('/write', function(request, response) {
 		if (err) throw err;
 		console.log('It\'s saved!');
 	});
+	response.send('{"result":"success"}');
 });
 
 app.use("/", express.static(__dirname + '/public'));

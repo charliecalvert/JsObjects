@@ -13,7 +13,7 @@ function readJson() {
 	$.getJSON('/read', function(data) {
 		addNames(data.firstName, data.lastName, data.age); 
 	})
-	.success(function() { console.log("csc: success. Loaded index.json"); })
+	.success(function() { showDebug('success'); })
 	.error(function(jqXHR, textStatus, errorThrown) { 
 		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus); 
 	})
@@ -21,7 +21,7 @@ function readJson() {
 }
 
 var writeJson = function() {
-	var data = { 
+	var userInput = { 
 		firstName: $('#firstName').val(), 
 		lastName: $('#lastName').val(), 
 		age: $('#age').val() 
@@ -33,9 +33,9 @@ var writeJson = function() {
       url: '/write',
       dataType: 'json',
       cache: 'False',
-      data: data, 
+      data: userInput, 
       success: function(data) {
-        display.showDebug(data.result);
+        showDebug(data.result);
       },
       error: showError      
     });
