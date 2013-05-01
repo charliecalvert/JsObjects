@@ -10,11 +10,10 @@ function readJson() {
 	$.getJSON('/read', function(data) {
 		addNames(data.firstName, data.lastName, data.age); 
 	})
-	.success(function() { showDebug('success'); })
 	.error(function(jqXHR, textStatus, errorThrown) { 
 		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus); 
 	})
-	.complete(function() { console.log("csc: completed call to get index.json"); });
+	.complete(function() { console.log("csc: completed call to get index.json"); }); 
 }
 
 var writeJson = function() {
