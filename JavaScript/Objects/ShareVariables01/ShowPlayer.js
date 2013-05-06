@@ -10,15 +10,15 @@ ELF.own = {};
 
 ELF.own.ShowPlayer = (function() { 'use strict';
 
-	var data = null;
+	var sharedData = null;
 
 	function ShowPlayer(initData) {
-		data = initData;
+		sharedData = initData;
 		$('#buttonShowPlayer').click(showPlayerXY);
 	}
 
 	var showPlayerXY = function() {
-		$('#test01').html('X = ' + data.playerX + ' Y = ' + data.playerY);
+		$('#test01').html('X = ' + sharedData.playerX + ' Y = ' + sharedData.playerY);
 	};
 
 	return ShowPlayer;
