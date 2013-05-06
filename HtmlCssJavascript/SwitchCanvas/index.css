@@ -1,0 +1,14 @@
+#mainDiv {
+	width: 500px;
+	height: 300px;
+	background-color: lightblue;
+}
+
+.screen {
+	background: yellow;
+	border-style:solid;
+	padding: 10px;
+	border-width:15px;
+	width: 500px;
+	height: 300px;
+}
