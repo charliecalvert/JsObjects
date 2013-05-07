@@ -28,6 +28,7 @@ $(document).ready(function() {
   subClass.firstName = "Harriet";
   subClass.lastName = "Tubman";
   $("#name03").html("Modified Name: " + subClass.firstName + ' ' + subClass.lastName);
-  
-  
+  var instance2 = new SubClass('Abraham', 'Lincoln');
+  $("#name04").html("Instance2 Name: " + instance2.firstName + ' ' + instance2.lastName);
+  $("#name05").html("Original object's name is unchanged: " + subClass.firstName + ' ' + subClass.lastName);
 });
