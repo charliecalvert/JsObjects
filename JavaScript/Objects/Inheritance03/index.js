@@ -14,6 +14,10 @@ var SubClass = (function() {
     SubClass.prototype.sayName = function(selector) {
         $(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
     }
+    
+    SubClass.prototype.getName = function() {
+        return this.firstName + ' ' + this.lastName;
+    }
 
     return SubClass;
 })();

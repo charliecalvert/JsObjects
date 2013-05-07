@@ -28,6 +28,15 @@
  		var expected = lastName;
  		equal(subClass.lastName, expected);
  	});
+ 	
+ 	test('UniqueNames', function() {
+ 		var instance01 = new SubClass('Sam', 'Hill');
+ 		var instance02 = new SubClass('Lucy', 'Lu');
+ 		var expected01 = 'Sam';
+ 		var expected02 = 'Lu';
+ 		equal(instance01.firstName, expected01, 'Instance01 = ' + instance01.getName()); 
+ 		equal(instance02.lastName, expected02, 'Instance02 = ' + instance02.getName());
+ 	});
  }
  
  $(document).ready(function() {
