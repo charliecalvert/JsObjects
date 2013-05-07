@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>ElvenCanvas - Default.htm</title>
+		<link href="index.css" rel="stylesheet" type="text/css">
+		<link href="Buttons.css" rel="stylesheet" type="text/css">
+		<script src="jquery.js"></script>
+		<script src="ElfCore.js"></script>
+		<script src="ElvenEvent.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+
+		<div id="dataDisplay">
+		    <div id='viewHero'>
+		        <h3>Hero View</h3>
+		        <img src="FlowersSmall.jpg" alt="an image">
+		    </div>
+		    
+		    <div id='viewNpc'>
+                <h3>NPC View</h3>
+                <img src="MonkeySmall.png" alt="an image">
+            </div>
+		    
+			<div id='locationDisplay'>
+			    <div id="locationLeft">
+    				
+    				<table border="1">
+    					<tr><th>Player</th><th>Mouse</th></tr>
+    					<tr>
+    						<td class='elvenSmall' id='reportCurrentNpc'>Item01</td>
+    						<td class='elvenSmall' id='reportMouseNpc'>Item02</td>
+    					</tr>
+    				</table>
+				</div>
+                <div id="locationBottom">
+                    <p class='elvenSmall' id='reportLocation'>Basic Data</p>
+                    <p class='elvenSmall' id='reportMouse'>Advanced Data</p>
+                </div>
+			</div>
+
+			<div id='textDisplay'>
+				<p id='message'>This is a brief message</p>
+				<img src="PacificSmall.jpg" alt="an image">
+			</div>
+
+			<div id="debugButtonDiv">
+				<section id="buttons">
+					<input type="button" id="buttonOffsetLeft" class="myButton" value="GridLeft" />
+					<input type="button" id="buttonOffsetRight" class="myButton" value="GridRight" />
+					<input type="button" id="buttonOffsetUp" class="myButton" value="GridUp" />
+					<input type="button" id="buttonOffsetDown" class="myButton" value="GridDown" />
+
+					<input type="button" id="getData" class="myButton" value="GetData" />
+					<input type="button" id="newSection" class="myButton" value="New Section" />
+					<input type="button" id="writeState" class="myButton" value="WriteState" />
+					<input type="button" id="buttonShowDebug" class="myButton" value="ShowDebug" />
+				</section>
+			</div>
+			
+			<div id='radios'>
+
+				<div id="tileDiv" class="elvenSmall" >
+					<section id="tileGroups">
+						<ul>
+							<li>
+								<input type="radio" name="tileGroup" id="grass">
+								<label for="grass">Grass</label>
+							</li>
+							<li>
+								<input type="radio" name="tileGroup" id="road">
+								<label for="road">Road</label>
+							</li>
+							<li>
+								<input type="radio" name="tileGroup" id="place">
+								<label for="place">Place</label>
+							</li>
+							<li>
+								<input type="radio" name="tileGroup" id="no_place">
+								<label for="noplace">No Place</label>
+							</li>
+						</ul>
+					</section>
+				</div>
+				<div id="layerDiv" class="elvenSmall">
+					<section id="layerGroups">
+						<ul>
+							<li>
+								<input type="radio" name="layerGroup" id="base">
+								<label for="walk">Base</label>
+							</li>
+							<li>
+								<input type="radio" name="layerGroup" id="npc">
+								<label for="drive">NPC</label>
+							</li>
+						</ul>
+					</section>
+
+				</div>
+
+				<div id="checkLayersDiv" class="elvenSmall">
+					<ul id='checksLeft'>
+					    <li>
+                            <input type="radio" name="checkHide" id="normalView" />
+                            <label for="normalView">Normal</label>
+                        </li>
+						<li>
+                            <input type="radio" name="checkHide" id="checkHeroView" />
+                            <label for="checkHeroView">Hero View</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="checkHide" id="checkHideNpc" />
+                            <label for="checkHideNpc">NPC View</label>
+                        </li>
+					</ul>
+					<ul id='checksRight'>
+					    <li>
+                            <input type="radio" name="checkHide" id="checkEditMode" />
+                            <label for="checkEditMode">Edit Mode</label>
+                        </li>
+						<li>
+							<input type="radio" name="checkHide" id="checkSetButtons" />
+							<label for="checkSetButtons">Buttons</label>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		
+
+		</div>
+
+		<div id="debugDiv"></div>
+	</body>
+</html>
