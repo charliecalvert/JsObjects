@@ -3,14 +3,18 @@
  */
 
 var App = (function() {
+
+	// Private variables
 	var myCanvas;
 	var context;
 	var mainDiv;
 	
+	// Constructor
 	function App() {		
 		$("#switch01").click(screen01);
 		$("#switch02").click(screen02);
-		$("#switch03").click(htmlOnly);
+		$("#switch03").click(htmlOnly01);
+		$("#switch04").click(htmlOnly02);
 		mainDiv = $('#mainDiv');
 		base();
 		screen02();
@@ -20,12 +24,12 @@ var App = (function() {
 		$("body").css("overflow", "hidden");
 		myCanvas = $('<canvas />');
 		$(myCanvas).css({
-			left : 0,
+			left : 0
 		});
 
 		context = myCanvas.get(0).getContext("2d");
-		myCanvas.attr("width", $(mainDiv).get(0).clientWidth);
-		myCanvas.attr("height", $(mainDiv).get(0).clientHeight);
+		myCanvas.attr("width", mainDiv[0].clientWidth);
+		myCanvas.attr("height", mainDiv[0].clientHeight);
 	}
 	
 	var clear = function() {
@@ -38,6 +42,21 @@ var App = (function() {
 			$(myCanvas).hide();
 			$("body").css("overflow", "auto");
 		});
+	}
+	
+	var screen01 = function() {
+		clear();
+		mainDiv.append(myCanvas);
+		context.lineWidth = 35;
+		context.strokeStyle = "green";
+		context.fillStyle = "lightgreen";
+		context.fillRect(0, 0, myCanvas.width(), myCanvas.height());
+		context.strokeRect(0, 0, myCanvas.width(), myCanvas.height());
+		context.fillStyle = "green";
+		context.font = "36px Comic Sans MS";
+		context.fillText("Using Canvas", 35, 65);
+		context.font = "24px Comic Sans MS";
+		context.fillText("The big cat walked in graphics mode.", 35, 100);
 	}
 
 	var screen02 = function() {
@@ -57,24 +76,14 @@ var App = (function() {
 	}
 	
 		
-	var screen01 = function() {
+	var htmlOnly01 = function() {
 		clear();
-		mainDiv.append(myCanvas);
-		context.lineWidth = 35;
-		context.strokeStyle = "green";
-		context.fillStyle = "lightgreen";
-		context.fillRect(0, 0, myCanvas.width(), myCanvas.height());
-		context.strokeRect(0, 0, myCanvas.width(), myCanvas.height());
-		context.fillStyle = "green";
-		context.font = "36px Comic Sans MS";
-		context.fillText("Using Canvas", 35, 65);
-		context.font = "24px Comic Sans MS";
-		context.fillText("The big cat walked in graphics mode.", 35, 100);
+		mainDiv.load("data.html #data01");
 	}
 	
-	var htmlOnly = function() {
+	var htmlOnly02 = function() {
 		clear();
-		mainDiv.load("data.html #data");
+		mainDiv.load("data.html #data02");
 	}
 
 	return App;

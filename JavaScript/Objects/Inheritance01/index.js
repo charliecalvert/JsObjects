@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 var BaseObject = (function() {
@@ -19,9 +19,9 @@ var SubClass02 = (function() {
 	
 	SubClass02.prototype = new BaseObject();
 	
-	SubClass02.prototype.sayName = function(selector) {
+    SubClass02.prototype.sayName = function(selector) {
 		$(selector).html("In sayName1 I'm the: " + this.constructor.name);
-	}
+	} 
 	
 	return SubClass02;
 })();
