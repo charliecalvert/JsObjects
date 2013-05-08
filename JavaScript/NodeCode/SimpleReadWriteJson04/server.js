@@ -30,7 +30,12 @@ app.get('/write', function(request, response) {
     // We begin with some debug calls
     
     // View all the data that was sent
-	console.log('Write called: ' + JSON.stringify(request.query));
+	console.log('Write called: ' + JSON.stringify(request.query, null, 4));
+	
+	console.log('Here are the properties passed in the request: ');
+	for (var propertyName in request.query) {
+		console.log(" -> " + propertyName);
+	}
 	
 	// Find both pieces of data: 
 	var person = request.query.person;
@@ -38,8 +43,8 @@ app.get('/write', function(request, response) {
 	
 	// Display both pieces of data separately
 	var personString = JSON.stringify(person, null, 4);
-	console.log('PersonString: ' + personString);
-	console.log('fileName: ' + JSON.stringify(path));
+	console.log('Path: ' + JSON.stringify(path));
+	console.log('Person: ' + personString);
 	
 	// Now do our actual work of writing the file.
 	// This assumes the path exists. See the mkdirp 
