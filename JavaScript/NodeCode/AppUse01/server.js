@@ -10,20 +10,6 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-
-app.get('/read', function(request, response){
-	var obj;
-	
-	function readData(err, data) {
-		if (err) throw err;
-		obj = JSON.parse(data);
-		response.send(obj);
-	}
-
-	// Asynch call 
-	fs.readFile('presidents.json', 'utf8', readData);
-});
-
 app.get('/dirName', function(request, response) {
 	response.send(__dirname);
 });

@@ -14,7 +14,15 @@ is happening. Also, be sure to watch the address bar.</p>
 that don't need to be assembled. That is why there is a call to express.static: it is telling express 
 how to process static pages.</p>
 
-<p>By default, app.use assumes the first first parameter is a slash : '/'. Thus these 
+<p>Here are the two <strong>app.use</strong> statements in our node server.js file for this program:</p>
+
+<pre>
+app.use("/", express.static(__dirname + '/Public'));
+app.use("/FakeRoute", express.static(__dirname + '/Folder02'));
+</pre>
+
+<h2>The First Parameter Defaults to the Root</h2>
+<p>By default, app.use assumes the first parameter is a slash : '/'. Thus these 
 statements are identical:</p>
 
 <pre>
@@ -32,21 +40,16 @@ shown in the first case, or variants of that syntax.</p>
 <p><a href="/Folder02/Other.html">This will fail,</a> but click to see what happens when you try to 
 get other.html from Folder02. The point is that <strong>Other.html</strong> really is in Folder02, but the call fails, because
 of the way we set up the routes with <strong>app.use</strong>. </p>
-<p><a href="/dirName">DirName</a> Click the DirName link to see what __dirname is set to on your system.</p>
+<p><a href="/dirName">DirName</a> Click the DirName link to see what <strong>__dirname</strong> is set to on your system.</p>
 <h2>The Pseudo Code</h2>
- <p>Here is pseudo code for the hrefs to be used in lieu of viewing the HTML: </p>
+ <p>Here is pseudo code for the hrefs in our HTML. They can be used in lieu of viewing the HTML for this page: </p>
  <pre>
 Get &lt;a href="/FakeRoute/Other.html">other.html&lt;/a&gt;
 &lt;a href="/Folder02/Other.html"&gt;This will fail,&lt;/a&gt;
 &lt;a href="/dirName"&gt;DirName&lt;/a&gt;
  </pre>
 <hr>
-<p>Here are the two <strong>app.use</strong> statements in our node server.js file:</p>
 
-<pre>
-app.use("/", express.static(__dirname + '/Public'));
-app.use("/FakeRoute", express.static(__dirname + '/Folder02'));
-</pre>
 
 <p>As you can see, they are set up so requests to localhost:30025/index.html will get the copy of index.html found
 in the /Public directory. They also are set up to send requests to /FakeRoute to the /Folder02 directory.</p>
