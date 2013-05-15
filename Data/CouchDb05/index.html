@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>CouchDb05</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="jquery-1.9.1.min.js"> </script>
+  <script src="index.js"> </script>
+</head>
+<body>
+    
+<h1 id="read-json-code">Couch Db, jQuery, jsonp, Hello World</h1>
+
+<p>You must have CouchDb installed, and use the <a href="http://localhost:5984/_utils/config.html">configuration
+    tool</a> to set jsonp to <strong>true.</strong></p>
+<div>
+    <button id="buttonRead02">Hello from CouchDb</button>
+    <ul id='debug'>  </ul>
+</div>
+
+<p>The call we are making looks like this:</p>
+
+<pre>
+    var readJson02 = function() {
+        $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:5984/',
+            dataType: 'jsonp', 
+            success: function(data) {
+                showDebug(data.couchdb);
+                showDebug(data.vendor.name);
+                showDebug(data.version);
+            },
+            error: showError      
+        });
+    }
+</pre>
+
+</body>
+</html>

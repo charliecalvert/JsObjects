@@ -1,0 +1,10 @@
+{
+  "name": "SimpleReadWriteJson",
+  "description": "Simple Reading and writing of JSON",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "latest",
+    "nano": "latest"
+  }
+}
