@@ -6,3 +6,5 @@ Thumbs.db
 resources.ap_
 jarlist.cache
 geany_run_script.bat
+node_modules
+
