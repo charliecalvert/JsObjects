@@ -1,9 +1,9 @@
 {
-  "name": "Couch02",
+  "name": "Couch05",
   "description": "Learn about Presidents",
   "version": "0.0.2",
   "private": true,
   "dependencies": {
-    "request": "latest"
+    "nano": "latest"
   }
 }
