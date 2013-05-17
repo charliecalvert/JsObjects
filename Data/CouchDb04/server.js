@@ -1,10 +1,11 @@
 var nano = require('nano')('http://localhost:5984');
 
 var docName = 'bigName';
+var dbName = 'prog28201';
 
 function insert() {
-	nano.db.create('prog28201');
-	var prog = nano.db.use('prog28201');
+	nano.db.create(dbName);
+	var prog = nano.db.use(dbName);
 
 	prog.insert({ firstName: 'Suzie' }, docName, function(err, body) {
 	  if (!err)
@@ -13,11 +14,12 @@ function insert() {
 }
 
 var readIt = function() {
-	var prog = nano.db.use('prog28201');
+	var prog = nano.db.use(dbName);
 	prog.get(docName, { revs_info: true }, function(err, body) {
 		if (!err)
 			console.log(body);
 	});
 }
 
+insert();
 readIt();

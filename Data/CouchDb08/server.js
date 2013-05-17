@@ -47,7 +47,7 @@ app.get('/read', function(request, response) {
 });
 
 app.get('/docNames', function(request, response) {
-	var url = 'http://localhost:5984/prog28202/_all_docs';
+	// var url = 'http://localhost:5984/prog28202/_all_docs';
 	var prog = nano.db.use(dbName);
 	var result = [];
 	prog.list(function(err, body) {

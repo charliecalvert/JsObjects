@@ -11,7 +11,11 @@ var sayHello = function() {
 var showDatabases = function() {
 	request('http://127.0.0.1:5984/_all_dbs', function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
-		console.log(body);
+	  	console.log(body);
+	  	var bodyString = JSON.parse(body); 
+	  	for (var i = 0; i < bodyString.length; i++) {
+			console.log(bodyString[i]);
+		}
 	  }
 	})
 }
@@ -63,6 +67,6 @@ var bigName = function() {
 }  
  
 // sayHello();
-// showDatabases();
+showDatabases();
 // getDoc();
-bigName();
+// bigName();

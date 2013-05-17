@@ -1,6 +1,6 @@
 @ECHO OFF
 
-set AppName=CouchApp06
+set AppName=CouchApp10
 REM You can put all your apps in one database. In other
 REM words, you don't have to change the DbName each time
 REM you create a new App
