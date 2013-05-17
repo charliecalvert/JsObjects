@@ -3,11 +3,14 @@
  */
 
  
- var App = (function() {
+ ELF.own.App = (function() {
+ 	
+ 	var ajaxBase = null;
  	
  	function App() {
  		$("#addNumbers").click(this.addNumbers);
- 		$("#ajaxCall").click(readJsonProgram);
+ 		$("#ajaxCall").click(readGrid);
+ 		ajaxBase = new ELF.own.AjaxBase;
  	}
  	
  	var privateAdd = function(operanda, operandb) {
@@ -29,9 +32,9 @@
  		return operanda * operandb;
  	}
  	
- 	var readJsonProgram = function() {
+ 	var readGrid = function() {
  		var gridString = '';
- 		readJsonPrivate('Grid.json', function(data) {
+ 		ajaxBase.readJson('Grid.json', function(data) {
  			for (var i = 0; i < data[0].length; i++) {
  				for (var j = 0; j < data[0].length; j++) {
 					gridString += data[i][j] + '\t';
@@ -44,41 +47,10 @@
 		);
  	}
  	
- 	var readJsonPrivate = function(fileName, success, failure) {
- 		$.ajax({
-			type : 'GET',
-			url : fileName,
-			cache : false,
-			dataType : "json",
-			success : success,
-			error: failure
-		});
- 	}
- 	
- 	App.prototype.readJsonTest = function(fileName, success, failure) {
- 		readJsonPrivate(fileName, success, failure);
- 	};	
- 	
- 	var writeJsonPrivate = function(data, typeRequest, success, failure) {
- 		$.ajax({
-			type : typeRequest,
-			url : '/writeJson',
-			cache : false,
-			data: data,
-			dataType : "json",
-			success : success,
-			error: failure
-		});
- 	}
- 	
- 	App.prototype.writeJsonTest = function(data, success, failure) {
- 		writeJsonPrivate(data, success, failure);
- 	};	
- 	
  	var showDebug = function(textToDisplay)
-{
-	$("#debug").append('<li>' + textToDisplay + '</li>');
-};
+	{
+		$("#debug").append('<li>' + textToDisplay + '</li>');
+	};
 
 	var showError = function(request, ajaxOptions, thrownError) {
 		showDebug("Error occurred: = " + ajaxOptions + " " + thrownError );
@@ -93,5 +65,5 @@
  })();
  
  $(document).ready(function() {
- 	new App();	
+ 	new ELF.own.App();	
  });
