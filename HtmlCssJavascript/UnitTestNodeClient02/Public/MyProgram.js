@@ -6,7 +6,7 @@
  var App = (function() {
  	
  	function App() {
- 		$("#clickMe").click(this.clickMe);
+ 		$("#addNumbers").click(this.clickMe);
  		$("#ajaxCall").click(readJsonProgram);
  	}
  	
@@ -15,8 +15,10 @@
  	}
  	
  	App.prototype.clickMe = function() {
- 		var result = privateAdd(2, 3); 
- 		$('#test01').html(result);
+ 		var operanda = parseInt($('#operanda').val(), 10);
+ 		var operandb = parseInt($('#operandb').val(), 10);
+ 		var result = privateAdd(operanda, operandb); 
+ 		$('#addResult').html(operanda + ' + ' + operandb + ' = ' + result);
  	}
  	
  	App.prototype.add = function(operanda, operandb) {
@@ -28,8 +30,15 @@
  	}
  	
  	var readJsonProgram = function() {
- 		readJsonPrivate(function(data) {
-			$('#test01').html(data.Result);
+ 		var gridString = '';
+ 		readJsonPrivate('Grid.json', function(data) {
+ 			for (var i = 0; i < data[0].length; i++) {
+ 				for (var j = 0; j < data[0].length; j++) {
+					gridString += data[i][j] + '\t';
+				}
+				$('#debug').append('<li>' + gridString + '</li>');
+				gridString = '';
+			}
 		},
 		showError
 		);
