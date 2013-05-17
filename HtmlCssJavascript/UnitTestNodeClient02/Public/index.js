@@ -197,7 +197,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 	
 	asyncTest('readJsonGrid', function() {
 		var app = new App();
-		app. 	('Grid.json', function(data) {
+		app.readJsonTest('Grid.json', function(data) {
 			try {
 				equal(data[0][0], 0);			
 				ok(typeof data[0][0] === "number");
