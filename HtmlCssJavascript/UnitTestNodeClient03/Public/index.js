@@ -14,21 +14,21 @@ function mathTests() {
 	});
 	
 	test('TestAdd', function() {
-		var app = new App();
+		var app = new ELF.own.App();
 		var result = app.add(2, 3);
 		var expected = 5;
 		equal(result, expected);
 	});
 	
 	test('TestAdd2', function() {
-		var app = new App();
+		var app = new ELF.own.App();
 		var result = app.add(2, 3);
 		var expected = 5;
 		ok(result === expected, 'result for now: ' + result);
 	});
 	
 	test('TestMultiply', function() {
-		var app = new App();
+		var app = new ELF.own.App();
 		var result = app.multiply(2, 3);
 		var expected = 6;
 		equal(result, expected, 'result for now: ' + result);
@@ -40,7 +40,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 	module(moduleName);
 	
 	asyncTest('writeJson', function() {
-		var app = new App();
+		var app = new ELF.own.AjaxBase();
 		
 		var dataInfo = {
 	    	dataType: 0,
@@ -55,7 +55,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 			names: JSON.stringify(nameIt)			
 		};
 		
-		app.writeJsonTest(data, typeRequest, function(data) {
+		app.writeJson(data, typeRequest, function(data) {
 			equal(data.Result, 'Success');
 			start();
 		},
@@ -66,7 +66,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 	});
 	
 	asyncTest('writeJson', function() {
-		var app = new App();
+		var app = new ELF.own.AjaxBase();
 		
 		var person = { 
 			"firstName": "Suzie",
@@ -151,7 +151,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 			grid: JSON.stringify(grid)		
 		};
 		
-		app.writeJsonTest(data, typeRequest, function(data) {
+		app.writeJson(data, typeRequest, function(data) {
 			equal(data.Result, 'Success');
 			start();
 		},
@@ -162,8 +162,8 @@ var ajaxTests = function(moduleName, typeRequest) {
 	});
 	
 	asyncTest('readJsonPerson', function() {
-		var app = new App();
-		app.readJsonTest('Person.json', function(data) {
+		var app = new ELF.own.AjaxBase();
+		app.readJson('Person.json', function(data) {
 			try {
 				equal(data.firstName, 'Suzie');
 				equal(data.age, 3);
@@ -179,8 +179,8 @@ var ajaxTests = function(moduleName, typeRequest) {
 	});
 	
 	asyncTest('readJsonNpcs', function() {
-		var app = new App();
-		app.readJsonTest('Npcs.json', function(data) {
+		var app = new ELF.own.AjaxBase();
+		app.readJson('Npcs.json', function(data) {
 			try {
 				equal(data[0].row, 6);			
 				ok(typeof data[0].row === "number");
@@ -196,8 +196,8 @@ var ajaxTests = function(moduleName, typeRequest) {
 	});
 	
 	asyncTest('readJsonGrid', function() {
-		var app = new App();
-		app.readJsonTest('Grid.json', function(data) {
+		var app = new ELF.own.AjaxBase();
+		app.readJson('Grid.json', function(data) {
 			try {
 				equal(data[0][0], 0);			
 				ok(typeof data[0][0] === "number");

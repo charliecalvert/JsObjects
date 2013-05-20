@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <title>Inheritance 01</title>
+  <meta name="description" content="Javascript Inheritance and Prototypes" />
+  <meta name="author" content="Charlie Calvert" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src='jquery-1.9.1.js'></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1>Learn about Constants</h1>
+    </header>
+
+	
+    <div>
+		<h2>The Code</h2>
+		<p> We declare constants in an object that follows the module pattern like this: </p>
+		<pre>var App = (function() {
+	
+	function Constants() {
+		Object.defineProperty(this, "MAIN_BIG", withValue('mainBig'));
+		Object.defineProperty(this, "MAIN_SMALL", withValue('mainSmall'));
+		Object.defineProperty(this, "MAIN_DIV", withValue('#main'));
+	}
+	
+	var withValue = function(value) {
+		var d = withValue.d || (withValue.d = {
+			enumerable : false,
+			writable : false,
+			configurable : false,
+			value : null
+		});
+		
+		d.value = value;
+		return d;
+	}
+	
+	return Constants;
+})();</pre>
+		<h2>Display Constants</h2>
+		<p>Display the constants like this</p>
+		<pre>var app = new App();
+$('#test01').html(app.MAIN_BIG);
+$('#test02').html(app.MAIN_SMALL);
+$('#test03').html(app.MAIN_DIV);</pre>
+
+<p>The result of the code shown above:</p>	
+       <p id="test01"> </p>
+       <p id="test02"> </p>
+       <p id="test03"> </p>
+	   <h2>Try to Change Constant</h2>
+	   <p>Now let's try to change a constant by setting it equal to a new value: </p>
+	   <pre>app.MAIN_DIV = "Some new value";</pre>
+	   <p>Check the value of the MAIN_DIV after setting it to a new value. It is unchanged: </p>
+	   <p id="test04"> </p>
+    </div>
+
+    <footer>
+     <p>Constants and properties by Charlie Calvert</p>
+    </footer>
+  </div>
+</body>
+</html>
