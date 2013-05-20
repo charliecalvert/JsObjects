@@ -8,14 +8,19 @@ REM On a Linux box, PPK files won't work. You want to copy
 REM PEM files. You can convert PPK files to PEM files with
 REM PuttyGen.
 
-set SshUser=[PUT THE NAME OF YOUR PUTTY EC2 CONNECTION HERE]
+set SshUser=[PUT THE NAME OF YOUR PUTTY EC2 OR LINUX CONNECTION HERE]
 set SshKey01=[PUT THE NAME OF PRIVATE KEY HERE]
-set SshKey02=[PUT THE NAME OF A PRIVATE KEY HERE]
+set SshKey02=[PUT THE NAME OF ANOTHER PRIVATE KEY HERE]
+REM KeyDir is where you copy your key from
+set KeyDir=%USERPROFILE%\documents\Data\Putty\
+REM RemoteDir is where you copy your key to
+set RemoteDir=/home/ubuntu/
 
 REM Copy Key 01
-pscp %USERPROFILE%\documents\Data\Putty\%SshKey01% %SshUser%:/home/ubuntu/.ssh/.
-plink %SshUser% /bin/chmod 400 /home/ubuntu/.ssh/%SshKey01%
+pscp %KeyDir%%SshKey01% %SshUser%:%RemoteDir%.ssh/.
+plink -t %SshUser% /bin/chmod 400 %RemoteDir%.ssh/%SshKey01%
 
 REM Copy Key 02
-pscp %USERPROFILE%\documents\Data\Putty\%SshKey02% %SshUser%:/home/ubuntu/.ssh/.
-plink %SshUser% /bin/chmod 400 /home/ubuntu/.ssh/%SshKey02%
+pscp %KeyDir%%SshKey02% %SshUser%:%RemoteDir%.ssh/.
+plink -t %SshUser% /bin/chmod 400 %RemoteDir%.ssh/%SshKey02%
+
