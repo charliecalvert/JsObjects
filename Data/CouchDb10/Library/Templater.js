@@ -14,7 +14,7 @@ handlebars.registerHelper('list', function(context, block) {
     var ret = "<ul>";
 
     for (var i = 0, j = context.length; i < j; i++) {
-        ret = ret + "<li>" + context[i].key + ": " + context[i].value + "</li>";
+        ret = ret + "<li>" + block.fn(context[i]) + "</li>";
     }
 
     return ret + "</ul>";
