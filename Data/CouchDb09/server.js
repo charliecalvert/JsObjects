@@ -7,7 +7,8 @@ var fs = require('fs');
 // See this: http://mahoney.eu/2012/05/23/couchdb-cookie-authentication-nodejs-nano/#.UZpztbXrw6o
 
 //var nano = require('nano')('http://192.168.2.21:5984');
-var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
+//var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
+var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
 
 var port = process.env.PORT || 30025;
 
@@ -21,7 +22,7 @@ app.get('/', function(req, res) { 'use strict';
     res.end(html);
 });
 
-var dbName = 'prog28203';
+var dbName = 'prog28204';
 var docName = 'doc03';
 
 var firstAndLast = function(doc) {'use strict';
@@ -45,7 +46,7 @@ app.get('/designDoc', function(request, response) { 'use strict';
     var prog = nano.db.use(dbName);
     prog.insert({
         "views" : {
-            "last_only" : {
+            "firstAndLast" : {
                 "map" : firstAndLast
             }
         }
