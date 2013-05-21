@@ -10,6 +10,7 @@ var fs = require('fs');
 //var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
 //var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
 var nano = require('nano')('http://127.0.0.1:5984');
+
 var port = process.env.PORT || 30025;
 
 // var fileName = 'person.json';
@@ -73,7 +74,7 @@ app.get('/view01', function(request, response) { 'use strict';
     console.log("view Called");
 
     var prog = nano.db.use(dbName);
-    prog.view('people', 'first_and_last', function(err, body) {
+    prog.view('people', 'firstAndLast', function(err, body) {
         if (!err) {
             var result = [];
             body.rows.forEach(function(doc) {
