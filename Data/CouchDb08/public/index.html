@@ -7,6 +7,7 @@
   <style type="text/css">code{white-space: pre;}</style>
   <script src="jquery-1.9.1.min.js"> </script>
   <script src="index.js"> </script>
+  <link href="index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1 id="read-json-code">Read and Write JSON</h1>
@@ -20,12 +21,21 @@
 
 <div>
     <h2>First Create the Database</h2>
-    <button id="buttonCreate">Create</button>
-    <h2>Now Read and Write to It</h2>
-    <button id="buttonRead">Read</button>
+    <p>Select the Create Database button to create a database and 
+       insert one record.</p>
+    <button id="buttonCreate">Create Database</button>
     
-    <button id="buttonWrite">Write</button>
+    <h2>Now Read and Write to It</h2>
+    <p>Choose <strong>Get Doc Names</strong> to get a list of the
+        records that have been inserted. Put the name of one of the
+        documents in the docName (the first) field, and press
+        read. Choose a new name for the document, fill in your
+        own data in the other fields, and press <strong>Insert</strong> to insert
+        a new record.</p>
     <button id="buttonDocNames">Get Doc Names</button>
+    <button id="buttonRead">Read</button>    
+    <button id="buttonWrite">Insert</button>
+    
 </div>
 
 <ul id='debug'>  </ul> 

@@ -9,39 +9,67 @@ var fileName = 'person.json';
 
 app.get('/', function(req, res) {
 	var html = fs.readFileSync('public/index.html');
-	res.writeHeader(200, {"Content-Type": "text/html"});
+	res.writeHeader(200, {
+		"Content-Type" : "text/html"
+	});
 	res.end(html);
 });
 
 var dbName = 'prog28202';
-var docName = 'doc03';
+var docName = 'doc01';
 
 function insertAndCreateNew() {
 
-	nano.db.create(dbName);
-	var prog = nano.db.use(dbName);
-
-	prog.insert({ firstName: 'Suzie', lastName: 'Fredrick', age: 38 }, docName, function(err, body) {
-	  if (!err)
-		console.log(body);
-	});
+	
 }
 
-app.get('/create', function(request, response){
+app.get('/create', function(request, response) {
 	console.log('create called.');
-	insertAndCreateNew();
-	response.send({'Result':'Success'});	
+	nano.db.create(dbName, function(err, body) {
+		if (err) {
+			response.send({
+				'Result' : 'Database already exists.'
+			});
+			return;
+		}
+	});
 	
+	var prog = nano.db.use(dbName);
+
+	prog.insert({
+		firstName : 'Suzie',
+		lastName : 'Fredrick',
+		age : 38
+	}, docName, function(err, body) {
+		if (!err) {
+			console.log(body);
+			response.send({
+				'Result' : 'Failure'
+			});
+		} else {
+			console.log(err);
+			response.send({
+				'Result' : 'Success'
+			});
+		}
+	});
+	
+
 });
 
 app.get('/read', function(request, response) {
 	console.log('Read called: ' + JSON.stringify(request.query));
 
 	var prog = nano.db.use(dbName);
-	prog.get(request.query.docName, { revs_info: true }, function(err, body) {
+	prog.get(request.query.docName, {
+		revs_info : true
+	}, function(err, body) {
 		if (!err) {
 			console.log(body);
 			response.send(body);
+		} else {
+			console.log(err);
+			response.send("No such record as: " + request.query.docName);
 		}
 	});
 });
@@ -51,19 +79,19 @@ app.get('/docNames', function(request, response) {
 	var prog = nano.db.use(dbName);
 	var result = [];
 	prog.list(function(err, body) {
-  		if (!err) {
-	    	body.rows.forEach(function(doc) {
-	      		console.log(doc);
-	      		result.push(doc.key);
-	    	});
-	    	console.log(result);
-  			response.send(result);
-    	} else {
-    		console.log(err);
-    		response.send(err);
-    		return;
-    	}    	
-  	});
+		if (!err) {
+			body.rows.forEach(function(doc) {
+				console.log(doc);
+				result.push(doc.key);
+			});
+			console.log(result);
+			response.send(result);
+		} else {
+			console.log(err);
+			response.send(err);
+			return;
+		}
+	});
 });
 
 app.get('/write', function(request, response) {
@@ -71,18 +99,20 @@ app.get('/write', function(request, response) {
 	var person = request.query;
 	var personString = JSON.stringify(person, null, 4);
 	console.log('PersonString: ' + personString);
-	
+
 	var prog = nano.db.use(dbName);
 	prog.insert(person, person.docName, function(err, body) {
-	  if (!err) {
-		console.log(body);
-	  } else {
-	  	console.log(err);
-	  	response.send(err);
-	  	return;
-	  }
+		if (!err) {
+			console.log(body);
+		} else {
+			console.log(err);
+			response.send(err);
+			return;
+		}
 	});
-	response.send({'Result':'Success'});	
+	response.send({
+		'Result' : 'Success'
+	});
 });
 
 app.use("/", express.static(__dirname + '/public'));
