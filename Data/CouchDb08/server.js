@@ -65,11 +65,13 @@ app.get('/read', function(request, response) {
 		revs_info : true
 	}, function(err, body) {
 		if (!err) {
+			console.log("No error");
 			console.log(body);
 			response.send(body);
 		} else {
-			console.log(err);
-			response.send("No such record as: " + request.query.docName);
+			console.log("There was an error");
+			// console.log(err);
+			response.send("No such record as: " + request.query.docName + ". Use a the Get Doc Names button to find the name of an existing document.");
 		}
 	});
 });
