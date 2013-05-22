@@ -97,7 +97,7 @@ var App = (function() {
 
 })();
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	new App();
 
 });

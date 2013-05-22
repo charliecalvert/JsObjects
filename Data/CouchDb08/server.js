@@ -1,3 +1,5 @@
+/*jshint jquery:true, browser:true, devel: true, strict: true */
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
@@ -8,6 +10,7 @@ var port = process.env.PORT || 30025;
 var fileName = 'person.json';
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	res.writeHeader(200, {
 		"Content-Type" : "text/html"
@@ -20,20 +23,23 @@ var docName = 'doc01';
 
 function insertAndCreateNew() {
 
-	
 }
 
 app.get('/create', function(request, response) {
+	'use strict';
 	console.log('create called.');
 	nano.db.create(dbName, function(err, body) {
-		if (err) {
+		if (!err) {
+			console.log(body);
+		} else {
+			console.log('Could not create database');
+			console.log(err);
 			response.send({
 				'Result' : 'Database already exists.'
 			});
-			return;
 		}
 	});
-	
+
 	var prog = nano.db.use(dbName);
 
 	prog.insert({
@@ -53,30 +59,28 @@ app.get('/create', function(request, response) {
 			});
 		}
 	});
-	
 
 });
 
-app.get('/read', function(request, response) {
-	console.log('Read called: ' + JSON.stringify(request.query));
-
+app.get('/read', function(request, response) { 'use strict';
+	console.log('Read called: '	+ JSON.stringify(request.query));
 	var prog = nano.db.use(dbName);
-	prog.get(request.query.docName, {
-		revs_info : true
-	}, function(err, body) {
-		if (!err) {
-			console.log("No error");
-			console.log(body);
-			response.send(body);
-		} else {
-			console.log("There was an error");
-			// console.log(err);
-			response.send("No such record as: " + request.query.docName + ". Use a the Get Doc Names button to find the name of an existing document.");
+	prog.get(request.query.docName, { revs_info : true },
+		function(err, body) {
+			if (!err) {
+				console.log("No error");
+				console.log(body);
+				response.send(body);
+			} else {
+				console.log("There was an error");
+				response.send("No such record as: " + request.query.docName +
+					". Use a the Get Doc Names button to find the name of an existing document.");
 		}
 	});
 });
 
 app.get('/docNames', function(request, response) {
+	'use strict';
 	// var url = 'http://localhost:5984/prog28202/_all_docs';
 	var prog = nano.db.use(dbName);
 	var result = [];
@@ -97,6 +101,7 @@ app.get('/docNames', function(request, response) {
 });
 
 app.get('/write', function(request, response) {
+	'use strict';
 	console.log('Write called: ' + request.query);
 	var person = request.query;
 	var personString = JSON.stringify(person, null, 4);
