@@ -14,7 +14,22 @@ var App = (function() { 'use strict';
         $("#buttonAttachHtml").click(attachHtml);
         $("#buttonGetAttachedHtml").click(getAttachedHtml);
         $("#buttonUpdateAttachedHtml").click(updateAttachedHtml);
+        $("input[type=checkbox]").click(checkBox);
     }
+    
+    var checkBox = function(e) {
+        if ($('#checkBoxHider').is(':checked')) {
+            $('#createData').hide('slow');
+        } else {
+            $('#createData').show();
+        } 
+        
+        if ($('#checkBoxEdit').is(':checked')) {
+            $('#editData').hide('slow');
+        } else {
+            $('#editData').show();
+        }
+    };
 
     var updateAttachedHtml = function() {
         $.ajax({
