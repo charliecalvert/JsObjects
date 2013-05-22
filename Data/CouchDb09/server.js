@@ -62,8 +62,7 @@ app.get('/designDoc', function(request, response) { 'use strict';
         } else {
             console.log("error: " + error);
             response.send({
-                 'Result' : 'Failure',
-                 'body': error
+                 'Result' : 'The document might already exist. ' + error
             });
         }
     });
@@ -88,14 +87,19 @@ app.get('/view01', function(request, response) { 'use strict';
     });
 });
 
-function insertAndCreateNew(response) {'use strict';
-    console.log('create database');
+app.get('/create', function(request, response) { 'use strict';
+    console.log('create called.');
+    
     nano.db.create(dbName, function(err, body) {
         if (!err) {
             console.log(body);
         } else {
             console.log('Could not create database');
             console.log(err);
+            response.send({
+				'Result' : 'Database already exists.'
+			});
+            return;
         }        
     });
     
@@ -118,11 +122,6 @@ function insertAndCreateNew(response) {'use strict';
         }
         
     });
-}
-
-app.get('/create', function(request, response) { 'use strict';
-    console.log('create called.');
-    insertAndCreateNew(response);
 });
 
 app.get('/read', function(request, response) { 'use strict';

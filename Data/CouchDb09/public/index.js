@@ -3,6 +3,7 @@
 var App = (function() { 'use strict';
     
     function App() {
+		$("#buttonClear").click(clear);
         $("#buttonRead").click(readJson);
         $("#buttonCreate").click(create);
         $("#buttonWrite").click(write);
@@ -44,6 +45,9 @@ var App = (function() { 'use strict';
         $("#age").val(initAge);
     }
 
+	var clear = function() {
+		$('#debug').empty();
+	}
     function readJson() {
         var docName = {
             "docName" : $('#docName').val()

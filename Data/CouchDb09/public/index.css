@@ -1,0 +1,16 @@
+p {
+	width: 385px;	
+}
+
+label {
+	display: block;
+	width: 125px;
+	float: left;
+	text-align: right;
+}
+
+.dataFields {
+	background-color: #DDDDDD;
+	border: thin solid gray;
+	width: 385px;
+}
