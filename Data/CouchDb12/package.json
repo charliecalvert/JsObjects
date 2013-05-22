@@ -1,0 +1,11 @@
+{
+  "name": "CouchDb10",
+  "description": "Simple Couch Db with Some Templating",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "latest",
+    "nano": "latest",
+	"handlebars": "latest"
+  }
+}
