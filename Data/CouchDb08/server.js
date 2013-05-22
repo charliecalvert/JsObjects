@@ -18,8 +18,12 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-var dbName = 'prog28202';
+var dbName = 'prog28208';
 var docName = 'doc01';
+app.get('/databaseName', function(request, response) {
+	console.log("\/databaseName called.")
+	response.send({ 'Result': dbName} );
+});
 
 function insertAndCreateNew() {
 

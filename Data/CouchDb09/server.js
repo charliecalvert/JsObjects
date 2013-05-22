@@ -23,8 +23,12 @@ app.get('/', function(req, res) { 'use strict';
     res.end(html);
 });
 
-var dbName = 'prog28204';
-var docName = 'doc03';
+var dbName = 'prog28209';
+var docName = 'doc01';
+app.get('/databaseName', function(request, response) {
+	console.log("\/databaseName called.")
+	response.send({ 'Result': dbName} );
+});
 
 var firstAndLast = function(doc) {'use strict';
     if (doc.firstName && doc.lastName) {
@@ -83,6 +87,7 @@ app.get('/view01', function(request, response) { 'use strict';
             response.send(result);
         } else {
             console.log(err);
+            response.send({ 'Result': 'Could not create view ' + err })
         }
     });
 });
@@ -134,6 +139,10 @@ app.get('/read', function(request, response) { 'use strict';
         if (!err) {
             console.log(body);
             response.send(body);
+        } else {
+        	response.send("No such record as: " + request.query.docName +
+        		". Use a the Get Doc Names button to find " +
+        		"the name of an existing document.");
         }
     });
 });

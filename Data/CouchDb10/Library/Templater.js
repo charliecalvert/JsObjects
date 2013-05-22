@@ -44,8 +44,9 @@ var Templater = (function() {'use strict';
         console.log('Build template');
         
         var result = template({   
-            nav: data,         
-            headGuy : "Test01"
+            nav: data, 
+            description: "The templated HTML in this section was created with handlebars.",
+            headGuy : "Templated HTML"
         });
         
         console.log('Return result')

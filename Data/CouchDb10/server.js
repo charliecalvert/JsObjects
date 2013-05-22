@@ -8,7 +8,9 @@ var templater = require('./Library/Templater');
 
 // See this: http://mahoney.eu/2012/05/23/couchdb-cookie-authentication-nodejs-nano/#.UZpztbXrw6o
 //var nano = require('nano')('http://192.168.2.21:5984');
-var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
+//var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
+//var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
+var nano = require('nano')('http://127.0.0.1:5984');
 
 var port = process.env.PORT || 30025;
 
@@ -22,8 +24,13 @@ app.get('/', function(req, res) { 'use strict';
     res.end(html);
 });
 
-var dbName = 'prog28203';
-var docName = 'doc03';
+var dbName = 'prog28210';
+var docName = 'doc01';
+
+app.get('/databaseName', function(request, response) {
+	console.log("\/databaseName called.")
+	response.send({ 'Result': dbName} );
+});
 
 var firstAndLast = function(doc) {'use strict';
     if (doc.firstName && doc.lastName) {
@@ -46,7 +53,7 @@ app.get('/designDoc', function(request, response) { 'use strict';
     var prog = nano.db.use(dbName);
     prog.insert({
         "views" : {
-            "last_only" : {
+            "firstAndLast" : {
                 "map" : firstAndLast
             }
         }
@@ -61,8 +68,7 @@ app.get('/designDoc', function(request, response) { 'use strict';
         } else {
             console.log("error: " + error);
             response.send({
-                 'Result' : 'Failure',
-                 'body': error
+                 'Result' : 'The document might already exist. ' + error
             });
         }
     });
@@ -73,7 +79,7 @@ app.get('/view01', function(request, response) { 'use strict';
     console.log("view Called");
 
     var prog = nano.db.use(dbName);
-    prog.view('people', 'first_and_last', function(err, body) {
+    prog.view('people', 'firstAndLast', function(err, body) {
         if (!err) {
             var result = [];
             body.rows.forEach(function(doc) {
@@ -84,18 +90,23 @@ app.get('/view01', function(request, response) { 'use strict';
             response.send(html);
         } else {
             console.log(err);
+            response.send({ 'Result': 'Could not create view ' + err })
         }
     });
 });
 
-function insertAndCreateNew(response) {'use strict';
-    console.log('create database');
+app.get('/create', function(request, response) { 'use strict';
+    console.log('create called.');
     nano.db.create(dbName, function(err, body) {
         if (!err) {
             console.log(body);
         } else {
             console.log('Could not create database');
             console.log(err);
+            response.send({
+				'Result' : 'Database already exists.'
+			});
+            return;
         }        
     });
     
@@ -118,11 +129,7 @@ function insertAndCreateNew(response) {'use strict';
         }
         
     });
-}
 
-app.get('/create', function(request, response) { 'use strict';
-    console.log('create called.');
-    insertAndCreateNew(response);
 });
 
 app.get('/read', function(request, response) { 'use strict';
@@ -135,7 +142,12 @@ app.get('/read', function(request, response) { 'use strict';
         if (!err) {
             console.log(body);
             response.send(body);
+        } else {
+        	response.send("No such record as: " + request.query.docName +
+        		". Use a the Get Doc Names button to find " +
+        		"the name of an existing document.");
         }
+        	
     });
 });
 

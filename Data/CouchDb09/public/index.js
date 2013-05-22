@@ -6,12 +6,25 @@ var App = (function() { 'use strict';
 		$("#buttonClear").click(clear);
         $("#buttonRead").click(readJson);
         $("#buttonCreate").click(create);
+        $("#buttonDatabaseName").click(databaseName);
         $("#buttonWrite").click(write);
         $("#buttonDocNames").click(docNames);
         $("#buttonDesignDoc").click(designDoc);
         $("#buttonView").click(view);
     }
 
+    var databaseName = function() {
+    	$.ajax({
+            type : 'GET',
+            url : '/databaseName',
+            dataType : 'json',
+            success : function(data) {
+                showDebug(data.Result);
+            },
+            error : showError
+        });
+    }
+    
     var view = function() {
         $.ajax({
             type : 'GET',

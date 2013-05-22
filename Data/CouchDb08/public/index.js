@@ -5,8 +5,21 @@ var App = (function() {
 		$("#buttonClear").click(clear);
 		$("#buttonRead").click(readJson);
 		$("#buttonCreate").click(create);
+		$("#buttonDatabaseName").click(databaseName);
 		$("#buttonWrite").click(write);
 		$("#buttonDocNames").click(docNames);
+	}
+
+	var databaseName = function() {
+		$.ajax({
+			type : 'GET',
+			url : '/databaseName',
+			dataType : 'json',
+			success : function(data) {
+				showDebug(data.Result);
+			},
+			error : showError
+		});
 	}
 
 	var addNames = function(docName, initFirstName, initLastName, initAge) {
@@ -24,14 +37,14 @@ var App = (function() {
 		var docName = {
 			"docName" : $('#docName').val()
 		};
+		
 		$.ajax({
 			type : 'GET',
 			url : '/read',
 			data : docName,
 			dataType : 'json',
 			success : function(data) {
-				addNames(data.docName, data.firstName, data.lastName,
-						data.age);
+				addNames(data.docName, data.firstName, data.lastName, data.age);
 			},
 			error : showError
 		});
@@ -97,7 +110,7 @@ var App = (function() {
 
 })();
 
-$(document).ready(function() {'use strict';
+$(document).ready(function() {
+	'use strict';
 	new App();
-
 });

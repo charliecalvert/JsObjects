@@ -1,0 +1,34 @@
+p {
+	width: 385px;	
+}
+
+label {
+	display: block;
+	width: 125px;
+	float: left;
+	text-align: right;
+}
+
+.dataFields {
+	background-color: #DDDDDD;
+	border: thin solid gray;
+	width: 385px;
+}
+
+#mainContent {
+	background-color: #EEEEEE;
+	border: thin solid gray;
+	width: 385px;
+}
+
+#details, #mainContent {
+	float: left;
+}
+
+#div01, #debugInfo {
+	background-color: #BBDDBB;
+	border: thin solid gray;
+	width: 350px;
+	
+}
+
