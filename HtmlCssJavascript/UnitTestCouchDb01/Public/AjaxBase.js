@@ -7,11 +7,12 @@
  	function AjaxBase() {
  	}
  	
- 	AjaxBase.prototype.readJson = function(fileName, success, failure) {
+ 	AjaxBase.prototype.readJson = function(docName, success, failure) {
  		$.ajax({
 			type : 'GET',
-			url : fileName,
+			url : '/readJson',
 			cache : false,
+			data: { 'docName': docName },
 			dataType : "json",
 			success : success,
 			error: failure

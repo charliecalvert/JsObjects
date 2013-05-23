@@ -184,11 +184,12 @@ var ajaxReadTests = function(moduleName, typeRequest) {
     
 	asyncTest('readJsonPerson', function() {
 		var app = new ELF.own.AjaxBase();
-		app.readJson('Person.json', function(data) {
+		app.readJson('Person', function(data) {
 			try {
-				equal(data.firstName, 'Suzie');
-				equal(data.age, 3);
-				ok(typeof data.age === "number");
+			    var result = JSON.parse(data.person);
+				equal(result.firstName, 'Macy');
+				equal(result.age, 3);
+				ok(typeof result.age === "number");
 			} finally {
 				start();
 			}
@@ -201,11 +202,12 @@ var ajaxReadTests = function(moduleName, typeRequest) {
 	
 	asyncTest('readJsonNpcs', function() {
 		var app = new ELF.own.AjaxBase();
-		app.readJson('Npcs.json', function(data) {
+		app.readJson('Npcs', function(data) {
 			try {
-				equal(data[0].row, 6);			
-				ok(typeof data[0].row === "number");
-				equal(data[0].traits.Core.Health, -1);
+			    var result = JSON.parse(data.npc);
+				equal(result[0].row, 6);			
+				ok(typeof result[0].row === "number");
+				equal(result[0].traits.Core.Health, -1);
 			} finally {
 				start();
 			}
@@ -218,11 +220,12 @@ var ajaxReadTests = function(moduleName, typeRequest) {
 	
 	asyncTest('readJsonGrid', function() {
 		var app = new ELF.own.AjaxBase();
-		app.readJson('Grid.json', function(data) {
+		app.readJson('Grid', function(data) {
+		    var result = JSON.parse(data.grid);
 			try {
-				equal(data[0][0], 0);			
-				ok(typeof data[0][0] === "number");
-				equal(data[2][4], 1);
+				equal(result[0][0], 0);			
+				ok(typeof result[0][0] === "number");
+				equal(result[2][4], 1);
 			} finally {
 				start();
 			}
@@ -238,7 +241,7 @@ var ajaxReadTests = function(moduleName, typeRequest) {
  $(document).ready(function() {
  //	mathTests();
  //	createDatabase();
- // ajaxWriteTests('POST Tests', 'POST');
- 	ajaxWriteTests('GET Tests', 'GET');
- // ajaxReadTests('GET Tests', 'GET');
+    ajaxWriteTests('POST Tests', 'POST');
+ 	//ajaxWriteTests('GET Tests', 'GET');
+    ajaxReadTests('GET Tests', 'GET');
  });
