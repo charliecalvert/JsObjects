@@ -14,7 +14,8 @@ var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
 
 var port = process.env.PORT || 30025;
 
-// var fileName = 'person.json';
+var dbName = 'prog28212';
+var docName = 'doc01';
 
 app.get('/', function(req, res) { 'use strict';
     var html = fs.readFileSync('Public/index.html');
@@ -23,9 +24,6 @@ app.get('/', function(req, res) { 'use strict';
     });
     res.end(html);
 });
-
-var dbName = 'prog28212';
-var docName = 'doc01';
 
 app.get('/databaseName', function(request, response) {'use strict';
 	console.log("\/databaseName called.")
