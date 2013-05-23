@@ -41,7 +41,7 @@ app.get('/createDatabase', function(request, response) {
     });
 });
     
-var sendToCouch = function(response, data, docName) {'use strict';
+var doInsert = function(response, data, docName) {'use strict';
     console.log('sendToCouch called: ' + data);
 
     var prog = nano.db.use(dbName);
@@ -64,7 +64,20 @@ var sendToCouch = function(response, data, docName) {'use strict';
 };
 
 
-
+var sendToCouch = function(response, data, docName) { 
+    var prog = nano.db.use(dbName);
+    prog.get(docName, function(error, existing) {
+        if(!error) { 
+            console.log(existing);
+            console.log(existing._rev);
+            data._rev = existing._rev;
+            doInsert(response, data, docName);
+        }  else {
+            console.log(error);
+            response.send(500, error);
+        }
+    });
+}
 
 
 app.get('/writeJson', function(request, response) {'use strict';

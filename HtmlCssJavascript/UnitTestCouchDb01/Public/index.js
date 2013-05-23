@@ -64,7 +64,7 @@ var ajaxWriteTests = function(moduleName, typeRequest) {
 			fileName: 'Names.json',
 	    };
 	    
-		var person = { "firstName": "Suzie",
+		var person = { "firstName": "Sarah",
 					   "lastName": "Lu",
 					   "age": 3 };
 		var data = { 
@@ -86,8 +86,8 @@ var ajaxWriteTests = function(moduleName, typeRequest) {
 		var app = new ELF.own.AjaxBase();
 		
 		var person = { 
-			"firstName": "Suzie",
-			"lastName": "Lu",
+			"firstName": "Macy",
+			"lastName": "Ng",
 			"age": 3 
 		};
 		
