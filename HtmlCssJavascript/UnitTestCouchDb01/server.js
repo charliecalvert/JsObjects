@@ -97,9 +97,9 @@ app.get('/writeJson', function(request, response) {'use strict';
             break;
         case 1:
             console.log('Sent datatype 1');
-            sendToCouch(response,  querystring.parse(request.query.npcs), dataInfo.docNameNpcs);
-            sendToCouch(response, { 'person' : querystring.parse(request.query.person) }, dataInfo.docNamePerson);
-            sendToCouch(response, { 'grid' : querystring.parse(request.query.grid) }, dataInfo.docNameGrid);
+            sendToCouch(response, { 'npc' : request.query.npcs }, dataInfo.docNameNpcs);
+            sendToCouch(response, { 'person' : request.query.person }, dataInfo.docNamePerson);
+            sendToCouch(response, { 'grid' : request.query.grid }, dataInfo.docNameGrid);
             break;
         default:
             console.log('Unknown dataType sent: ' + dataInfo.dataType);

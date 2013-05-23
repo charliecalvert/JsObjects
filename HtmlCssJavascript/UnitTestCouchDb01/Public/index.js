@@ -242,6 +242,6 @@ var ajaxReadTests = function(moduleName, typeRequest) {
  //	mathTests();
  //	createDatabase();
     ajaxWriteTests('POST Tests', 'POST');
- 	//ajaxWriteTests('GET Tests', 'GET');
+ 	ajaxWriteTests('GET Tests', 'GET');
     ajaxReadTests('GET Tests', 'GET');
  });
