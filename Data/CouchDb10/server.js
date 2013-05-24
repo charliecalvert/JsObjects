@@ -9,8 +9,8 @@ var templater = require('./Library/Templater');
 // See this: http://mahoney.eu/2012/05/23/couchdb-cookie-authentication-nodejs-nano/#.UZpztbXrw6o
 //var nano = require('nano')('http://192.168.2.21:5984');
 //var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
-var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
-//var nano = require('nano')('http://127.0.0.1:5984');
+//var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
+var nano = require('nano')('http://127.0.0.1:5984');
 
 var port = process.env.PORT || 30025;
 
