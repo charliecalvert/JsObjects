@@ -152,5 +152,7 @@ app.get('/readJson', function(request, response) {
 app.use("/", express.static(__dirname + '/Public'));
 app.use("/", express.static(__dirname + '/SaveData'));
 
+console.log('CouchDb URL: ' + nano.config.url);
+console.log('Listening on port: ' + port);
 app.listen(port);
-console.log('Listening on port :' + port); 
+

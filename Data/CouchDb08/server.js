@@ -25,6 +25,10 @@ app.get('/databaseName', function(request, response) {
 	response.send({ 'Result': dbName} );
 });
 
+app.get('/couchDbUrl', function(request, response) {
+	console.log("couchDbUrl called.")
+	response.send({ 'Result': nano.config.url} );
+});
 function insertAndCreateNew() {
 
 }
@@ -128,5 +132,6 @@ app.get('/write', function(request, response) {
 
 app.use("/", express.static(__dirname + '/public'));
 
-app.listen(port);
+console.log('CouchDb URL: ' + nano.config.url);
 console.log('Listening on port :' + port);
+app.listen(port);

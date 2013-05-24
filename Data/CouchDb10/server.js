@@ -195,5 +195,7 @@ app.get('/write', function(request, response) { 'use strict';
 app.use("/", express.static(__dirname + '/Public'));
 app.use("/", express.static(__dirname + '/Library'));
 
+console.log('CouchDb URL: ' + nano.config.url);
+console.log('Listening on port: ' + port);
 app.listen(port);
-console.log('Listening on port :' + port); 
+
