@@ -14,12 +14,12 @@ if [ ! -d "$ERICA_DIR" ]; then
 	git clone git://github.com/benoitc/erica.git
 	cd erica
 	make
-	make install
+	sudo make install
 fi
 
 # build an app
 WORK_DIR=~/dev
-APP_DIR=goober
+APP_DIR=goober1
 
 if [ ! -d "$WORK_DIR" ]; then
 	/bin/mkdir $WORK_DIR
