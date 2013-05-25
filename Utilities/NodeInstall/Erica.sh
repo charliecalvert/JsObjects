@@ -19,7 +19,7 @@ fi
 
 # build an app
 WORK_DIR=~/dev
-APP_DIR=goober1
+APP_DIR=$WORK_DIR/goober1
 
 if [ ! -d "$WORK_DIR" ]; then
 	/bin/mkdir $WORK_DIR
@@ -28,7 +28,9 @@ fi
 cd $WORK_DIR
 if [ ! -d "$APP_DIR" ]; then
 	mkdir $APP_DIR
+	pwd
 	cd $APP_DIR
+	pwd
 	erica create-webapp
 	cd myapp
 	erica push http://127.0.0.1:5984/myapp
