@@ -35,6 +35,13 @@ function mathTests() {
 	});
 };
 
+
+/**
+ * We can now handle the case where this calls fails
+ *  because the database has already been created. 
+ *  Now an error saying the database has already been 
+ *  created does not cause a failed test
+ */
 var createDatabase = function() {
     module("Create Database")
     
