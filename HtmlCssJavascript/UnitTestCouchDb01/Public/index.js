@@ -45,7 +45,12 @@ var createDatabase = function() {
             start();
         },
         function(err) {
-            ok(false, err.responseText)
+        	var responseText = JSON.parse(err.responseText);
+        	if (responseText.error === "file_exists") {
+        		ok(true, responseText.message);
+        	} else {
+        		ok(false, err.responseText);
+        	}
             start(); 
         });
     });
@@ -240,7 +245,7 @@ var ajaxReadTests = function(moduleName, typeRequest) {
 
  $(document).ready(function() {
  //	mathTests();
- //	createDatabase();
+ 	createDatabase();
     ajaxWriteTests('POST Tests', 'POST');
  	ajaxWriteTests('GET Tests', 'GET');
     ajaxReadTests('GET Tests', 'GET');
