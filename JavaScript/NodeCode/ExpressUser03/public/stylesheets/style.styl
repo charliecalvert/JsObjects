@@ -1,0 +1,51 @@
+@import "mixins/css3"
+
+body 
+	background-color: #880000
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+h1 
+	color #EE5555
+
+p, q, cite, address, ul, ol, dl
+	font-size 1.2em
+	line-height 1.5em
+	margin-bottom 1.5em 
+
+li, dd, dt
+	font-size 1em 
+a
+	text-decoration underline
+	color #3333cc
+	outline none
+
+a:hover
+	text-decoration none
+
+/* Header
+-----------------------------------------------------------------------------*/
+header
+	background #EE0000
+	nav 
+		text-align left
+		margin-left auto 
+		margin-right auto
+		ul 
+			list-style none
+			padding 10px
+			margin-bottom 0
+			li 
+				display inline
+				margin-left 1%
+				a 
+					background #AA0000 
+					border-radius(5px)
+					display inline-block
+					padding 5px 15px 6px 
+					color #fff
+					text-decoration none
+					position relative
+					cursor pointer
+					&:hover
+						background-color #db0d5f 
