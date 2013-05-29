@@ -154,6 +154,46 @@ function couchDbTests() {
 			}
 		});
 	});
+	
+	asyncTest('readJsonNpcs', function() {
+		var app = new ELF.own.AjaxBase();
+		app.readJson('current_npcs', function(data) {
+			try {
+			    var result = JSON.parse(data.current_npcs);
+				equal(result[0].row, 6);			
+				ok(typeof result[0].row === "number");
+				equal(result[0].traits.Core.Health, -1);
+			} catch(err) {
+				ok(false);
+			} finally {
+				start();
+			}
+		},
+		function(request, ajaxOptions, thrownError) {
+			ok(false, 'call to readJson failed: ' + request.responseText);
+			start();
+		});
+	});
+	
+	asyncTest('readJsonGrid', function() {
+		var app = new ELF.own.AjaxBase();
+		app.readJson('gameboard', function(data) {		   
+			try {
+				var result = JSON.parse(data.gameboard);
+				equal(result[0][0], 0);			
+				ok(typeof result[0][0] === "number");
+				equal(result[2][4], 1);
+			} catch(err) {
+				ok(false);
+			} finally {
+				start();
+			}
+		},
+		function(request, ajaxOptions, thrownError) {
+			ok(false, 'call to readJson failed: ' + request.responseText);
+			start();
+		});
+	});
 };
 
 

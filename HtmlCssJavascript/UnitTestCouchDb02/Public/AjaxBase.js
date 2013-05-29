@@ -10,7 +10,7 @@
  	AjaxBase.prototype.readJson = function(docName, success, failure) {
  		$.ajax({
 			type : 'GET',
-			url : '/readJson',
+			url : '/couchReadDoc',
 			cache : false,
 			data: { 'docName': docName },
 			dataType : "json",
