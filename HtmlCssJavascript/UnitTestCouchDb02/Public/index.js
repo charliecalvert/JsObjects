@@ -134,7 +134,7 @@ function couchDbTests() {
 		var currentNpcs = getCurrentNpcs();
 		var npcs = getNpcs();
 		var gameboard = getGameboard();
-		var bar = {
+		var allInOne = {
 			gameboard : JSON.stringify(gameboard),
 			npcs : JSON.stringify(npcs),
 			current_npcs : JSON.stringify(currentNpcs)
@@ -143,7 +143,7 @@ function couchDbTests() {
 			type : "get",
 			url : '/couchWriteGrids',
 			dataType : "json",
-			data : bar,
+			data : allInOne,
 			success : function(result) {
 				ok(true);
 				start();

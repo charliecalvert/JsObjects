@@ -6,7 +6,8 @@
 
 var CouchCode = (function() {'use strict';
 
-	var nano = require('nano')('http://127.0.0.1:5984');
+//	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+var nano = require('nano')('http://127.0.0.1:5984');
 
 	function CouchCode() {
 
