@@ -1,5 +1,8 @@
 #!/bin/python
 
+# Strip all the carraige return line feeds from the P elements in a file
+# This is not about line endings. It takes file with wordwrap in P elements and removes them.
+
 import re
 import sys
 

@@ -9,8 +9,8 @@ var templater = require('./Library/Templater');
 // See this: http://mahoney.eu/2012/05/23/couchdb-cookie-authentication-nodejs-nano/#.UZpztbXrw6o
 //var nano = require('nano')('http://192.168.2.21:5984');
 //var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
-var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
-// var nano = require('nano')('http://127.0.0.1:5984');
+//var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
+var nano = require('nano')('http://127.0.0.1:5984');
 
 var port = process.env.PORT || 30025;
 
@@ -278,5 +278,7 @@ app.get("/attachUpdateHtml", function(request, response) {'use strict';
 app.use("/", express.static(__dirname + '/Public'));
 app.use("/", express.static(__dirname + '/Library'));
 
+console.log('CouchDb URL: ' + nano.config.url);
+console.log('Listening on port: ' + port);
 app.listen(port);
-console.log('Listening on port :' + port); 
+

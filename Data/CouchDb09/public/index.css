@@ -9,7 +9,7 @@ label {
 	text-align: right;
 }
 
-.dataFields {
+.dataFields, .buttonList {
 	background-color: #DDDDDD;
 	border: thin solid gray;
 	width: 385px;

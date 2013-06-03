@@ -6,8 +6,21 @@ var App = (function() {
 		$("#buttonRead").click(readJson);
 		$("#buttonCreate").click(create);
 		$("#buttonDatabaseName").click(databaseName);
+        $("#buttonCouchDbUrl").click(couchDbUrl);
 		$("#buttonWrite").click(write);
 		$("#buttonDocNames").click(docNames);
+	}
+	
+    var couchDbUrl = function() {
+    	$.ajax({
+            type : 'GET',
+            url : '/couchDbUrl',
+            dataType : 'json',
+            success : function(data) {
+                showDebug(data.Result);
+            },
+            error : showError
+        });
 	}
 
 	var databaseName = function() {

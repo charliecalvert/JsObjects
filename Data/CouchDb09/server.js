@@ -25,9 +25,15 @@ app.get('/', function(req, res) { 'use strict';
 
 var dbName = 'prog28209';
 var docName = 'doc01';
+
 app.get('/databaseName', function(request, response) {
-	console.log("\/databaseName called.")
+	console.log("databaseName called.")
 	response.send({ 'Result': dbName} );
+});
+
+app.get('/couchDbUrl', function(request, response) {
+	console.log("couchDbUrl called.")
+	response.send({ 'Result': nano.config.url} );
 });
 
 var firstAndLast = function(doc) {'use strict';
@@ -190,5 +196,7 @@ app.get('/write', function(request, response) { 'use strict';
 
 app.use("/", express.static(__dirname + '/public'));
 
+console.log('CouchDb URL: ' + nano.config.url);
+console.log('Listening on port: ' + port);
 app.listen(port);
-console.log('Listening on port :' + port); 
+
