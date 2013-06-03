@@ -41,5 +41,5 @@ app.get('/write', function(request, response) {
 
 app.use("/", express.static(__dirname + '/public'));
 
-app.listen(port);
 console.log('Listening on port :' + port);
+app.listen(port);
