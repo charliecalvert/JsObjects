@@ -23,11 +23,12 @@ var SessionHelper = (function() {
         var template = handlebars.compile(mainFile);
 
         var result = template({
-            pageName: '2',
+            pageName: request.url,
             userName: request.session.userName,
             previousPage: request.session.lastPage,
             cookieId : request.id,
-            sessionId: request.sessionID
+            sessionId: request.sessionID,
+            userAgent: request.headers['user-agent']
             
         });
 

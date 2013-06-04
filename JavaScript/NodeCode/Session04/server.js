@@ -42,9 +42,9 @@ app.get('/', function(request, response) {
 
 app.get('/page01', function(request, response) {
     var info = "";
-    if(request.session.lastPage) {
+    /* if(request.session.lastPage) {
         info =  previous + request.session.lastPage + '. ';
-    }
+    } */
     
     var result = sessionHelp.sessionHelper.run(request)
     request.session.lastPage = '/page01';
@@ -80,11 +80,11 @@ app.get('/page03', function(request, response) {
 app.get('/base01', routes.base01);
 app.get('/users', user.list);
 
-app.post('/addUser', function(req, res) {
+app.post('/addUser', function(request, response) {
     console.log('/addUser called.')
-    console.log(req.body);
-    req.session.userName = req.body.userName;
-    res.send({'Result': JSON.stringify(req.session)});
+    console.log(request.body);
+    request.session.userName = request.body.userName;
+    response.send({'Result': JSON.stringify(request.session)});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
