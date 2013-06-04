@@ -2,12 +2,16 @@
  * @author Charlie Calvert
  */
 
-var fs = require('fs');
-var handlebars = require('handlebars');
+/*jshint jquery:true, node:true, devel: true, strict: true */
+
 
 var SessionHelper = (function() {
     'use strict';
 
+    var fs = require('fs');
+    var handlebars = require('handlebars');
+
+    
     function SessionHelper() {
     }
 
@@ -17,7 +21,8 @@ var SessionHelper = (function() {
     };
 
     SessionHelper.prototype.run = function(request) {
-        debugger;
+    	debugger;
+        console.log(request.headers);
         var mainFile = readHtml('./Templates/SessionInfo.html');
 
         var template = handlebars.compile(mainFile);
@@ -26,10 +31,13 @@ var SessionHelper = (function() {
             pageName: request.url,
             userName: request.session.userName,
             previousPage: request.session.lastPage,
-            cookieId : request.id,
+            host : request.headers.host,
             sessionId: request.sessionID,
-            userAgent: request.headers['user-agent']
-            
+            referer: request.headers.referer,
+            cookie: request.headers.cookie,
+            connection: request.headers['connection'],
+            userAgent: request.headers['user-agent'],
+            cacheControl: request.headers['cache-control']
         });
 
         return result;
