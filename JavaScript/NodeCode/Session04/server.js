@@ -77,7 +77,7 @@ app.get('/page03', function(request, response) {
 });
 
 
-// app.get('/', routes.index);
+app.get('/base01', routes.base01);
 app.get('/users', user.list);
 
 app.post('/addUser', function(req, res) {
