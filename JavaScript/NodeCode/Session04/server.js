@@ -22,7 +22,7 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
+  app.use(express.cookieParser('1234567ASDFG'));
   app.use(express.session());
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
@@ -35,6 +35,7 @@ app.configure('development', function(){
 
 app.get('/', function(request, response) {
     console.log('main route called');
+    request.session.visitCount = request.session.visitCount ? request.session.visitCount + 1 : 1;
     var html = fs.readFileSync('public/main.html');
     response.writeHeader(200, {"Content-Type": "text/html"});
     response.end(html);
@@ -74,6 +75,15 @@ app.get('/page03', function(request, response) {
 	request.session.lastPage = '/page03';
 	response.writeHeader(200, {"Content-Type": "text/html"});
 	response.end(result);
+});
+
+app.get('/cookieData', function(request, response) {
+	console.log('CookieTest');
+	response.cookie('cookieName01', request.session.userName, { maxAge: 900000, httpOnly: true });
+	response.cookie('cookieName02', 'Sing like a bird.', { maxAge: 900000, httpOnly: true });
+	response.cookie('cookieName03', request.query.cookieData, { maxAge: 900000, httpOnly: true });
+	response.send({'Result':'Success'});
+	
 });
 
 

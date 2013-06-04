@@ -7,7 +7,8 @@
 var App = (function() { 'use strict';
     
     function App() {
-        $('#buttonSignIn').click(signIn);    
+        $('#buttonSignIn').click(signIn);
+        $('#buttonCookieData').click(cookieData);  
     }
     
     var signIn = function() {
@@ -17,6 +18,22 @@ var App = (function() { 'use strict';
             dataType : "json",
             cache : 'False',
             data : { userName : $('#userName').val() },
+            success : function(json) {
+                $('#debug').html(json.Result);
+            },
+            error : function(error) {
+                alert(error.responseText);
+            }
+        });
+    };
+    
+    var cookieData = function() {
+        $.ajax({
+            type : "GET",
+            url : '/cookieData',
+            dataType : "json",
+            cache : 'False',
+            data : { cookieData : $('#cookieData').val() },
             success : function(json) {
                 $('#debug').html(json.Result);
             },

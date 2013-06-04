@@ -30,6 +30,7 @@ var SessionHelper = (function() {
         var result = template({
             pageName: request.url,
             userName: request.session.userName,
+            visitCount: request.session.visitCount,
             previousPage: request.session.lastPage,
             host : request.headers.host,
             sessionId: request.sessionID,
@@ -37,7 +38,12 @@ var SessionHelper = (function() {
             cookie: request.headers.cookie,
             connection: request.headers['connection'],
             userAgent: request.headers['user-agent'],
-            cacheControl: request.headers['cache-control']
+            cacheControl: request.headers['cache-control'],
+        	cookieName01: request.cookies['cookieName01'],
+        	cookieName02: request.cookies['cookieName02'],
+        	cookieName03: request.cookies['cookieName03'],
+        	secret: request.secret,
+        	httpVersion: request.httpVersion
         });
 
         return result;
