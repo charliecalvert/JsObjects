@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>CouchReadDoc02</title>
+        <meta name="description" content="Example of using CouchDb" />
+        <meta name="author" content="Charlie Calvert" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <script src="jquery-1.9.1.js"></script>
+        <script src="Elf.js"></script>
+        <script src="AjaxBase.js"></script>
+        <script src="index.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <h1>Read From CouchDb</h1>
+            </header>            
+
+            <p>You need to run CouchDoc01 in order to create the database
+                where the data used in this program is stored.</p>
+            <div class="buttonDiv">
+                <div>
+                    <button id="readHero">Read Hero</button>
+                    <button id="readPerson01" class='buttonRight'>Read Person01</button>
+                </div>
+                <div>
+                    <button id="readPerson02">Read Person02</button>
+                    <button id="readPerson03" class='buttonRight'>Read Person03</button>
+                </div>
+                <div>
+                    <button id="readPerson04">Read Person04</button>
+                    <button id="readPerson05" class='buttonRight'>Read Person05</button>
+                </div>
+                <div>
+                    <button id="readGrid">Read Grid</button>
+                    <button id="readGameData" class='buttonRight'>Read Game Data</button>
+                </div>
+                
+            </div>
+
+            <ul id='debugList'> </ul>
+            
+            <footer>
+                <p><a href="http://www.elvenware.com/charlie/development/database/NoSql/CouchDb.html" target="_blank">Couch Db on Elvenware</a></p>
+            </footer>
+        </div>
+    </body>
+</html>

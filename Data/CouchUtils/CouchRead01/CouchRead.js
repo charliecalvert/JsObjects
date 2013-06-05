@@ -4,10 +4,6 @@ var qs = require('querystring');
 
 var dbName = 'couchdocs01';
 
-function writeData(fileName, data) {
-	fs.writeFileSync(fileName, data);
-}
-
 function run() {
 	var docName = process.argv[2];
 	var fileName = process.argv[3];

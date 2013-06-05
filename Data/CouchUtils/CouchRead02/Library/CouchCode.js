@@ -57,16 +57,16 @@ var CouchCode = (function() {'use strict';
 /** 
  * ReadDoc
  */ 
-	CouchCode.prototype.readDoc = function(docName, dbName, func) {
+	CouchCode.prototype.readDoc = function(docName, dbName, response) {
 		var prog = nano.db.use(dbName);
     
 	    prog.get(docName, function(error, existing) {
 	        if(!error) { 
 	            console.log(existing);
-	            func(200, existing);
+	            response.send(existing);
 	        }  else {
 	            console.log(error);
-	            func(500, error);
+	            response.send(500, error);
 	        }
 	    });
 	};

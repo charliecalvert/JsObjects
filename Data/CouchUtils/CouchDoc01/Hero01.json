@@ -1,0 +1,17 @@
+{
+	"Core" : {
+		"Type": "Hero",
+		"Confidence": 0,
+		"Experience": 0,
+		"Health": 1,
+		"Knowledge": 0,
+		"Moves": 0,
+		"Strength": 1,		
+		"Wisdom": 1
+	},
+	"Items": {
+		"Bread": 0,
+		"Plants": 0,
+		"Water": 0
+	}
+}
