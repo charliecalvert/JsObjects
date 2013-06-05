@@ -1,0 +1,23 @@
+{
+	"colOffset": 0,
+	"rowOffset": 0,
+	"canvasWidth": 768,
+	"canvasHeight": 768,
+	"grassOffsetX": 192,
+	"grassOffsetY": 928,
+	"gridLevel": 0,
+	"halfRect": 16,
+	"mainImage": "terrainAtlas.gif",	
+	"mainCharX": 288,
+	"mainCharY": 448,
+	"npcPresX": 320,
+	"npcPresY": 448,
+	"nextLevelX": 832,
+	"nextLevelY": 992,
+	"maxGridSize": 24,
+	"rectSizeX": 32,
+	"rectSizeY": 32,	
+	"roadOffsetX": 864, 
+	"roadOffsetY": 320
+}
+	

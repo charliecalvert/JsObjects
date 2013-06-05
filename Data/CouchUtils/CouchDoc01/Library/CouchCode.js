@@ -81,7 +81,7 @@ var CouchCode = (function() {'use strict';
 			} else {
 				console.log(err);
 				if (response) {
-				response.send(500, err);
+					response.send(500, err);
 				}
 				return;
 			}

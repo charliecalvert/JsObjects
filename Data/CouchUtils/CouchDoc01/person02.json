@@ -1,0 +1,13 @@
+{"bar":
+[
+	{
+		"firstName": "Sara",
+		"lastName": "Lu",
+		"age": 25
+	},
+	{
+		"firstName": "Frank",
+		"lastName": "Oz",
+		"age": 29
+	}
+]}

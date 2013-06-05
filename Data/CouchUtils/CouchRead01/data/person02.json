@@ -1,0 +1,16 @@
+{
+    "_id": "person02",
+    "_rev": "1-77cf9e2d19e59a50142040828dac2071",
+    "bar": [
+        {
+            "firstName": "Sara",
+            "lastName": "Lu",
+            "age": 25
+        },
+        {
+            "firstName": "Frank",
+            "lastName": "Oz",
+            "age": 29
+        }
+    ]
+}

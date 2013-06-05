@@ -17,7 +17,10 @@ var CouchCode = (function() {'use strict';
 		return nano.config.url;
 	};
 	
-		var makeDatabase = function(dbName, func) {
+/**
+  * Create Database  
+*/
+	var makeDatabase = function(dbName, func) {
 		console.log('MakeDatabase: ' + dbName);
 		nano.db.create(dbName, function(err, body) {
 			if (!err) {
@@ -50,21 +53,27 @@ var CouchCode = (function() {'use strict';
 			}
 		});		
 	};
-	
-	CouchCode.prototype.readDoc = function(response, docName, dbName) {
+
+/** 
+ * ReadDoc
+ */ 
+	CouchCode.prototype.readDoc = function(docName, dbName, func) {
 		var prog = nano.db.use(dbName);
     
 	    prog.get(docName, function(error, existing) {
 	        if(!error) { 
 	            console.log(existing);
-	            response.send(existing);
+	            func(200, existing);
 	        }  else {
 	            console.log(error);
-	            response.send(500, error);
+	            func(500, error);
 	        }
 	    });
 	};
 	
+/* 
+ * sendToCouch
+*/	
 	var doInsert = function(response, data, docName, dbName) {
 		console.log('doInsert called with database: ' + dbName);
 		console.log('doInsert called with document: ' + docName);
@@ -81,7 +90,7 @@ var CouchCode = (function() {'use strict';
 			} else {
 				console.log(err);
 				if (response) {
-				response.send(500, err);
+					response.send(500, err);
 				}
 				return;
 			}
@@ -106,6 +115,8 @@ var CouchCode = (function() {'use strict';
 	};
 
 	/**
+	 * Attachments
+	 *
 	 * If rev is null, this is an insert, else, it is an update
 	 * See the attachUpdateHtml handler below
 	 */
