@@ -100,9 +100,7 @@ var CouchCode = (function() {'use strict';
 			if (!dbFound) {
 				makeDatabase(dbName, func);
 			} else {
-				if (response) {
-					func()
-				}
+				func()
 			}
 		});		
 	};

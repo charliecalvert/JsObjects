@@ -6,8 +6,8 @@
 
 var CouchCode = (function() {'use strict';
 
+	var nano = require('nano')('http://127.0.0.1:5984');
 //	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
-var nano = require('nano')('http://127.0.0.1:5984');
 
 	function CouchCode() {
 
@@ -110,8 +110,53 @@ var nano = require('nano')('http://127.0.0.1:5984');
 		dbExists(response, dbName);
 	};
 
-	
+	/**
+	 * If rev is null, this is an insert, else, it is an update
+	 * See the attachUpdateHtml handler below
+	 */
+	var doAttachInsert = function(rev, response, docName, doc, dbName) {
+		var prog = nano.db.use(dbName);
+		prog.attachment.insert(docName, docName + '.html', doc, 'text/html', rev, function(err1, body) {
+			if (!err1) {
+				console.log('Attach Insert succeeded');
+				response.send({
+					"Result" : "Success"
+				});
+			} else {
+				console.log(err1);
+				err1.p282special = "Document conflict means document already exists. Try an update."
+				response.send(500, err1);
+			}
+		});
+	}
 
+	CouchCode.prototype.couchAttach = function(response, docName, doc, dbName) {
+		console.log('/couchAttach called');
+		var prog = nano.db.use(dbName);
+		prog.get(docName, function(error, existing) {
+			if (!error) {
+				console.log('Attach Doc Exists: ' + existing._rev);
+				doAttachInsert({ "rev" : existing._rev }, response, docName, doc, dbName);
+			} else {
+				console.log('New Attach Document');
+				doAttachInsert(null, response, docName, doc, dbName);
+			}
+		});
+	};
+	CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
+	   console.log('getAttachedHtml called');   
+	   var prog = nano.db.use(dbName);
+	   prog.attachment.get(docName, docName + '.html', function(err, body) {
+	        if (!err) {
+	            console.log('Success getting Attached.');
+	            response.send(body);
+	        } else {
+	        	console.log('Error');
+	            console.log(err);
+	            response.send(500, err);
+	        }   
+	    }); 
+    };
 	return CouchCode;
 
 })();
