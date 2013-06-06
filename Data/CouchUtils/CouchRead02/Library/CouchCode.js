@@ -151,12 +151,15 @@ var CouchCode = (function() {'use strict';
 			}
 		});
 	};
-	CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
+	
+	CouchCode.prototype.getAttachedDocument = function(response, docName, dbName) {
 	   console.log('getAttachedHtml called');   
 	   var prog = nano.db.use(dbName);
-	   prog.attachment.get(docName, docName + '.html', function(err, body) {
+	   prog.attachment.get(docName, docName, function(err, body) {
 	        if (!err) {
-	            console.log('Success getting Attached.');
+	            console.log("---------------------------------");
+	            console.log(body);
+	            console.log("---------------------------------");
 	            if (response) {
 	            	response.send(body);
 	            }
@@ -169,6 +172,29 @@ var CouchCode = (function() {'use strict';
 	        }   
 	    }); 
     };
+    
+    CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
+       console.log('getAttachedHtml called');   
+       var prog = nano.db.use(dbName);
+       prog.attachment.get(docName, docName, function(err, body) {
+            if (!err) {
+                console.log("---------------------------------");
+                console.log(body);
+                console.log("---------------------------------");
+                if (response) {
+                    response.writeHeader(200, {"Content-Type": "text/html"});
+                    response.end(body);
+                }
+            } else {
+                console.log('Error');
+                console.log(err);
+                if (response) {
+                    response.send(500, err);
+                }
+            }   
+        }); 
+    };
+    
 	return CouchCode;
 
 })();

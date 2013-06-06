@@ -6,8 +6,8 @@
 
 var CouchCode = (function() {'use strict';
 
-	var nano = require('nano')('http://127.0.0.1:5984');
-//	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+//	var nano = require('nano')('http://127.0.0.1:5984');
+	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
 	function CouchCode() {
 
@@ -79,7 +79,7 @@ var CouchCode = (function() {'use strict';
 				}
 				return;
 			} else {
-				console.log(err);
+				this.reportError(err);
 				if (response) {
 					response.send(500, err);
 				}
@@ -111,7 +111,7 @@ var CouchCode = (function() {'use strict';
 	 */
 	var doAttachInsert = function(rev, response, docName, doc, dbName) {
 		var prog = nano.db.use(dbName);
-		prog.attachment.insert(docName, docName + '.html', doc, 'text/html', rev, function(err1, body) {
+		prog.attachment.insert(docName, docName, doc, 'text/html', rev, function(err1, body) {
 			if (!err1) {
 				console.log('Attach Insert succeeded');
 				if (response) {
@@ -143,21 +143,30 @@ var CouchCode = (function() {'use strict';
 	CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
 	   console.log('getAttachedHtml called');   
 	   var prog = nano.db.use(dbName);
-	   prog.attachment.get(docName, docName + '.html', function(err, body) {
-	        if (!err) {
+	   prog.attachment.get(docName, docName + '.html', function(error, body) {
+	        if (!error) {
 	            console.log('Success getting Attached.');
 	            if (response) {
 	            	response.send(body);
 	            }
 	        } else {
 	        	console.log('Error');
-	            console.log(err);
+	            this.reportError(error)
 	            if (response) {
-	            	response.send(500, err);
+	            	response.send(500, error);
 	            }
 	        }   
 	    }); 
     };
+    
+    CouchCode.prototype.reportError = function(error) {
+        console.log('==========================')
+        console.log('Error: ' + error.error);
+        console.log('Status Code: ' + error['status_code']);
+        console.log('Reason: ' + error.reason);
+        console.log('Description: ' + error.description); 
+    }
+    
 	return CouchCode;
 
 })();

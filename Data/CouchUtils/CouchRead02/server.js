@@ -15,6 +15,18 @@ app.get('/couchReadDoc', function(request, response) {;
 	couch.couchCode.readDoc(request.query.docName, dbName, response);
 });
 
+app.get("/couchReadAttached", function(request, response) {'use strict';
+   console.log('/getAttachedHtml called');
+   console.log(request.query);
+   couch.couchCode.getAttachedDocument(response, request.query.docName, dbName);
+});
+
+app.get("/couchReadHtml", function(request, response) {'use strict';
+   console.log('/getAttachedHtml called');
+   console.log(request.query);
+   couch.couchCode.getAttachedHtml(response, request.query.docName, dbName);
+});
+
 app.use("/", express.static(__dirname + '/Public'));
 app.use("/Library", express.static(__dirname + '/Library'));
 

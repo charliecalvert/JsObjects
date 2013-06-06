@@ -1,0 +1,125 @@
+<h1 id="week-10">Week 10</h1>
+<p>We have three classes left, 6/3, 6/5, 6/10.</p>
+<p>Main Topics discussed this week include:</p>
+<ul>
+<li>More on CouchDb and maybe CouchApp/Erica</li>
+<li>Sessions</li>
+<li>Redis</li>
+</ul>
+<p>Key Demos:</p>
+<ul>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchSession01">JsObjects/Data/CouchSession01</a></li>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchSession02">JsObjects/Data/CouchSession02</a></li>
+</ul>
+<p>Note that NodeJs is now up to v0.10.9.</p>
+<h2 id="couchdb-attach-example">CouchDb Attach Example</h2>
+<p>You can find it here:</p>
+<pre><code>JsObjects/Data/CouchUtils/CouchAttach01</code></pre>
+<p>Pass in the document name you want to use in couchDb and the name of the document you want send to couchDb. For example:</p>
+<pre><code>node CouchAttach.js index index.html</code></pre>
+<h2 id="redis">Redis</h2>
+<p><a href="http://redis.io/">Redis</a> is a NoSql database that stores sets, lists and numbers. It includes a nice <a href="http://try.redis.io/">tutorial</a> and <a href="http://redis.io/documentation">documentation</a>.</p>
+<p>On Windows, we can <a href="https://github.com/MSOpenTech/redis">download</a> the unofficial Windows build of Redis like this:</p>
+<ul>
+<li>git clone git://github.com/MSOpenTech/redis.git</li>
+</ul>
+<p>After the download, look in the <strong>bin</strong> directory and unzip the 64 bit binaries.</p>
+<p>On Linux, first make sure you have gcc and make installed:</p>
+<pre><code>    gcc -v
+    make -v </code></pre>
+<p>The above should produce lengthy, but reasonable output. If you see errors, then you need to install <a href="https://help.ubuntu.com/community/InstallingCompilers">these tools</a>:</p>
+<pre><code>    sudo apt-get install build-essential</code></pre>
+<p>You can then use the following script to install redis:</p>
+<pre><code>wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make</code></pre>
+<p>I have placed this script in JsObjects/Utilities/InstallScripts.</p>
+<p>After installing redis, you probably have a copy of the redis tar file and a directory containing the stable version of redis right in the middle of your JsObjects repository. If that is the case, move the stable directory to some other location:</p>
+<p>mv redis-stable ~/.</p>
+<p>Then cd into redis-stable and run the test:</p>
+<pre><code>cd ~/redis-stable
+./runtest</code></pre>
+<p>If necessary, also install tcl:</p>
+<pre><code>sudo apt-get install tcl</code></pre>
+<p>To run the server, type:</p>
+<pre><code>src/redis-server</code></pre>
+<p>If you are working on AWS, you might want to open two Putty windows, one for running redis, and another for running your application.</p>
+<p>There is also a redis client:</p>
+<pre><code>src/redis-cli </code></pre>
+<h2 id="sessions">Sessions</h2>
+<p>Sessions have the following traits:</p>
+<p>When we create session, a cookie is built in, it is part of the session. Each cookie is maintained by the browser and has an id. Each request from the browser contains the cookie and its ID. The server can use this ID to associate data that it (the server) maintains with the cookie, that is with the session associated with a particular browser.</p>
+<p>The best way to learn more about sessions is to run and study the following two demos:</p>
+<ul>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/NodeCode/Session01">JsObjects/JavaScript/NodeCode/Session01</a></li>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/NodeCode/Session02">JsObjects/JavaScript/NodeCode/Session02</a></li>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/NodeCode/Session03">JsObjects/JavaScript/NodeCode/Session03</a></li>
+<li><a href="https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/NodeCode/Session04">JsObjects/JavaScript/NodeCode/Session04</a></li>
+</ul>
+<h2 id="users">Users</h2>
+<p>When you sign in as a user, you can use the session object to track each individual user. You can use a database like redis or dbcouch to store user's progress.</p>
+<p>See NodeCode/Session03 or NodeCode/Session04 to see working examples of the code discussed in this section.</p>
+<p>Be sure to include the session code from Express:</p>
+<pre><code>  app.use(express.cookieParser(&#39;your secret here&#39;));
+  app.use(express.session());</code></pre>
+<p>The addUser method responds to a click on a button. It retrieves the <strong>userName</strong> that the user typed in to our client side HTML.</p>
+<pre><code>app.post(&#39;/addUser&#39;, function(req, res) {
+    console.log(&#39;/addUser called.&#39;)
+    console.log(req.body);
+    req.session.userName = req.body.userName;
+    res.send({&#39;Result&#39;: JSON.stringify(req.session)});
+});</code></pre>
+<p>When you call up a particular page, the program first tracks the page you selected in the session object, and then uses handlebars to display an HTML file designed to mirror back information about your session. The handlebars code is encapsulated in an object called SessionHelper:</p>
+<pre><code>sessionHelp = require(&#39;./Library/SessionHelper&#39;)</code></pre>
+<p>We pass in the request object to the SessionHelper, and it uses that object to retrieve the data that we need to help us track an individual session, or an individual user:</p>
+<pre><code>    var mainFile = readHtml(&#39;./Templates/SessionInfo.html&#39;);
+
+    var template = handlebars.compile(mainFile);
+
+    var result = template({
+        pageName: &#39;2&#39;,
+        userName: request.session.userName,
+        previousPage: request.session.lastPage,
+        cookieId : request.id,
+        sessionId: request.sessionID      
+    });</code></pre>
+<h2 id="cookies">Cookies</h2>
+<p>A cookie is small file stored on the client side by the browser containing information sent from the server. The usual purpose of a cookie is to enable a site to store information about a user. This information can:</p>
+<ul>
+<li>Help authenticate a user</li>
+<li>Track information throughout a session that is associated with a user.</li>
+<li>Help personalize a web site</li>
+<li>Track the sites visited by a user</li>
+</ul>
+<p>Cookies contain a maximum of:</p>
+<ul>
+<li>255 characters</li>
+<li>4K of disk space</li>
+</ul>
+<p>All cookies must have:</p>
+<ul>
+<li>A name</li>
+<li>And a value</li>
+</ul>
+<p>They can also have:</p>
+<ul>
+<li>A path</li>
+<li>An expiration date</li>
+<li>A domain name</li>
+<li>A connection type</li>
+</ul>
+<h2 id="get-command-line-arguments-in-node">Get Command Line Arguments in Node</h2>
+<p>Command line arguments are kept in an array called argv:</p>
+<pre><code>process.argv</code></pre>
+<p>Suppose you run the following:</p>
+<pre><code>node server.js bar</code></pre>
+<p>Bar will be process.argv[2]</p>
+<h2 id="turn-off-the-bell-in-linux">Turn off the Bell in Linux</h2>
+<p>Linux terminals can sometimes emit an annoying beep which can lead to familial discord. To fix it, edit or a create a file .inputrc in your home directory. Add the following line to the file:</p>
+<pre><code>set bell-style visible</code></pre>
+<p>Now your terminal will blink, rather than beep. One imagines that there must be a <strong>set bell-style none</strong> command as well, but I have not tried it.</p>
+<ul>
+<li><a href="http://superuser.com/questions/15770/what-is-the-best-way-to-turn-off-the-ubuntu-beep-permanently/15779#15779">http://superuser.com/questions/15770/what-is-the-best-way-to-turn-off-the-ubuntu-beep-permanently/15779#15779</a></li>
+<li><a href="http://www.tldp.org/HOWTO/Visual-Bell-8.html">http://www.tldp.org/HOWTO/Visual-Bell-8.html</a></li>
+</ul>

@@ -5,6 +5,9 @@
 ELF.own.App = (function() {
 	
 	function App() {
+	    $('#newPage').click(newPage);
+	    $('#clearDebug').click({item:'debug'}, clear);
+	    $('#clearDocs').click({item:'docs'}, clear);
 		$('#readHero').click({doc:'hero'}, readJson);
 		$('#readPerson01').click({doc:'person01'}, readJson);
 		$('#readPerson02').click({doc:'person02'}, readJson);
@@ -13,7 +16,25 @@ ELF.own.App = (function() {
 		$('#readPerson05').click({doc:'person05'}, readJson);
 		$('#readGrid').click({doc:'grid'}, readJson);
 		$('#readGameData').click({doc:'gameData'}, readJson);
+		$('#readWeek01').click({doc:'week01.htm'}, readHtml);
+		$('#readWeek02').click({doc:'week02.htm'}, readHtml);
+		$('#readWeek03').click({doc:'week03.htm'}, readHtml);
+        $('#readWeek04').click({doc:'week04.htm'}, readHtml);
+        $('#readWeek05').click({doc:'week05.htm'}, readHtml);
+        $('#readWeek06').click({doc:'week06.htm'}, readHtml);
+        $('#readWeek07').click({doc:'week07.htm'}, readHtml);
+        $('#readWeek08').click({doc:'week08.htm'}, readHtml);
+        $('#readWeek09').click({doc:'week09.htm'}, readHtml);
+        $('#readWeek10').click({doc:'week10.htm'}, readHtml);
 	}
+	
+	var clear = function(event) {
+	   if (event.data.item === "debug") {
+	       $('#debugList').empty();
+	   } else {
+	       $('#showDoc').empty();
+	   }  
+	};
 	
 	var readJson = function(event) {
 		showDebug('ReadJson called with: <strong>' + event.data.doc + '</strong>');
@@ -29,8 +50,30 @@ ELF.own.App = (function() {
 		function(request, ajaxOptions, thrownError) {
 			showDebug(request.responseText);
 		});
-	}
+	};
 	
+	var readHtml = function(event) {
+	    showDebug('ReadHtml called with: <strong>' + event.data.doc + '</strong>');
+	    $.ajax({
+            type : 'GET',
+            url : '/couchReadAttached',
+            cache : false,
+            data: { 'docName': event.data.doc },
+            dataType : "html",
+            success : function(doc) {
+                $('#showDoc').empty();
+                $('#showDoc').append(doc);        
+            },
+            error: function(err) {
+                showDebug(err.responseText);
+            }
+        });
+	};
+
+    var newPage = function() {
+        window.location.href = '/couchReadHtml?docName=index.html';
+    };
+    
 	var showDebug = function(value) {
 		$('#debugList').append('<li>' + value + '</li>');
 	}

@@ -11,9 +11,11 @@ function run() {
 		if (exists) {
 			var data = fs.readFileSync(fileName);
 			
-			couch.couchCode.createDatabase(dbName, function(err) {
-				if (!err) {
+			couch.couchCode.createDatabase(dbName, function(error) {
+				if (!error) {
 					couch.couchCode.couchAttach(null, docName, data, dbName);
+				} else {
+				  couch.couchCode.reportError(error);			    
 				}
 			});
 		} else {

@@ -6,8 +6,20 @@ button {
 	width: 150px;
 }
 
-.buttonDiv {
+#buttonDiv01, #buttonDiv02 {
+	float: left;
 	background-color: #00FFFF;
-	width: 315px;
+	width: auto;
+	height: 135px;
+	padding: 10px;
 }
+
+#showDoc {
+	background-color: #00AADD;
+	border: thin solid black;
+	clear: both;
+	width: 647px;
+}
+
+
 
