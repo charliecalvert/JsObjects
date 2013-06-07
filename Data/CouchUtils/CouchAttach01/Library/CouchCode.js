@@ -6,8 +6,8 @@
 
 var CouchCode = (function() {'use strict';
 
-	// var nano = require('nano')('http://127.0.0.1:5984');
-    var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+	var nano = require('nano')('http://127.0.0.1:5984');
+    // var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
 	function CouchCode() {
 
@@ -31,16 +31,21 @@ var CouchCode = (function() {'use strict';
 	};
 
 	CouchCode.prototype.createDatabase = function(dbName, func) {
-		nano.db.list(function(err, body) {
+		nano.db.list(function(error, body) {
 			var dbFound = false;
 			// body is an array
-			body.forEach(function(db) {
-				console.log(db);
-				if (db === dbName) {
-					console.log('database exists');
-					dbFound = true;
-				}
-			});
+			if (!error) {
+				body.forEach(function(db) {
+					console.log(db);
+					if (db === dbName) {
+						console.log('database exists');
+						dbFound = true;
+					}
+				});
+			} else {
+				reportErrorPrivate(error);
+				return;
+			}
 			
 			// If dbName not found, create database			
 			if (!dbFound) {
@@ -152,7 +157,7 @@ var CouchCode = (function() {'use strict';
 	            }
 	        } else {
 	        	console.log('Error');
-	            this.reportError(error)
+	            reportErrorPrivate(error)
 	            if (response) {
 	            	response.send(500, error);
 	            }
@@ -160,12 +165,16 @@ var CouchCode = (function() {'use strict';
 	    }); 
     };
     
-    CouchCode.prototype.reportError = function(error) {
-        console.log('==========================')
+	var reportErrorPrivate = function(error) {
+	    console.log('==========================')
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
         console.log('Description: ' + error.description); 
+	}
+	
+    CouchCode.prototype.reportError = function(error) {
+		reportErrorPrivate(error);
     }
     
 	return CouchCode;
