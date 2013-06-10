@@ -6,6 +6,7 @@
 
 var CouchCode = (function() {'use strict';
 
+	var fs = require('fs');
 	var nano = require('nano')('http://127.0.0.1:5984');
 //	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
@@ -194,6 +195,30 @@ var CouchCode = (function() {'use strict';
             }   
         }); 
     };
+    
+    CouchCode.prototype.getAttachedImage = function(response, docName, dbName) {
+        console.log('CouchCode.getAttachedBitmap called');   
+        var prog = nano.db.use(dbName);
+        prog.attachment.get(docName, docName, function(err, body) {
+             if (!err) {
+                 console.log("---------------------------------");
+                 var fileName = 'Images/' + docName;
+                 console.log('Writing:' + fileName);
+                 fs.writeFile(fileName, body, function() {
+                	 if (response) {                     
+                         response.send({'Result':'Success'});
+                     }	 
+                 });
+                 console.log("---------------------------------");
+             } else {
+                 console.log('Error');
+                 console.log(err);
+                 if (response) {
+                     response.send(500, err);
+                 }
+             }   
+         }); 
+     };
     
 	return CouchCode;
 

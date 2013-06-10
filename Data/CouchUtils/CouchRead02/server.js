@@ -27,8 +27,14 @@ app.get("/couchReadHtml", function(request, response) {'use strict';
    couch.couchCode.getAttachedHtml(response, request.query.docName, dbName);
 });
 
+app.get('/couchReadImage', function(request, response) {'use strict';
+	console.log('/readImage called');
+	couch.couchCode.getAttachedImage(response, request.query.docName, dbName);
+});	
+
 app.use("/", express.static(__dirname + '/Public'));
 app.use("/Library", express.static(__dirname + '/Library'));
+app.use("/Images", express.static(__dirname + '/Images'));
 
 console.log('CouchDb URL from Library/CouchCode: ' + couch.couchCode.getCouchUrl());
 console.log('Listening on port: ' + port);
