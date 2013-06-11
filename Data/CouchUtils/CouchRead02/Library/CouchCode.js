@@ -7,8 +7,8 @@
 var CouchCode = (function() {'use strict';
 
 	var fs = require('fs');
-	var nano = require('nano')('http://127.0.0.1:5984');
-//	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+	// var nano = require('nano')('http://127.0.0.1:5984');
+	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
 	function CouchCode() {
 
@@ -156,8 +156,8 @@ var CouchCode = (function() {'use strict';
 	CouchCode.prototype.getAttachedDocument = function(response, docName, dbName) {
 	   console.log('getAttachedHtml called');   
 	   var prog = nano.db.use(dbName);
-	   prog.attachment.get(docName, docName, function(err, body) {
-	        if (!err) {
+	   prog.attachment.get(docName, docName, function(error, body) {
+	        if (!error) {
 	            console.log("---------------------------------");
 	            console.log(body);
 	            console.log("---------------------------------");
@@ -165,10 +165,10 @@ var CouchCode = (function() {'use strict';
 	            	response.send(body);
 	            }
 	        } else {
-	        	console.log('Error');
-	            console.log(err);
+	        	console.log('Error in CouchCode.getAttachedDocument');
+	            reportErrorPrivate(error);
 	            if (response) {
-	            	response.send(500, err);
+	            	response.send(500, error);
 	            }
 	        }   
 	    }); 
@@ -219,6 +219,14 @@ var CouchCode = (function() {'use strict';
              }   
          }); 
      };
+    
+    var reportErrorPrivate = function(error) {
+        console.log('==========================')
+        console.log('Error: ' + error.error);
+        console.log('Status Code: ' + error['status_code']);
+        console.log('Reason: ' + error.reason);
+        console.log('Description: ' + error.description); 
+    }
     
 	return CouchCode;
 

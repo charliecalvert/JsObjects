@@ -16,7 +16,7 @@ ELF.own.App = (function() {
 		$('#readPerson05').click({doc:'person05'}, readJson);
 		$('#readGrid').click({doc:'grid'}, readJson);
 		$('#readGameData').click({doc:'gameData'}, readJson);
-		$('#readWeek01').click({doc:'week01.htm'}, readHtml);
+		$('#readWeek01').click({doc:'week01asdf.htm'}, readHtml);
 		$('#readWeek02').click({doc:'week02.htm'}, readHtml);
 		$('#readWeek03').click({doc:'week03.htm'}, readHtml);
         $('#readWeek04').click({doc:'week04.htm'}, readHtml);
@@ -26,7 +26,7 @@ ELF.own.App = (function() {
         $('#readWeek08').click({doc:'week08.htm'}, readHtml);
         $('#readWeek09').click({doc:'week09.htm'}, readHtml);
         $('#readWeek10').click({doc:'week10.htm'}, readHtml);
-        $('#readImage').click(readImage);
+        $('#readImage').click(loadBitMap);
 	}
 	
 	var clear = function(event) {
@@ -39,6 +39,7 @@ ELF.own.App = (function() {
 	
 	var loadBitMap = function() {
 		var img = $("<img />").attr('src', 'Images/cscGarden.png').load(function() {
+		// var img = $("<img />").attr('src', 'http://localhost:5984/couchdocs01/cscGarden.png/cscGarden.png').load(function() {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                 alert('Could not load image!');
             } else {
@@ -94,7 +95,8 @@ ELF.own.App = (function() {
                 $('#showDoc').append(doc);        
             },
             error: function(err) {
-                showDebug(err.responseText);
+                var responseText = JSON.parse(err.responseText);
+                showDebug(responseText.description);
             }
         });
 	};
