@@ -6,9 +6,11 @@
 
 var CouchCode = (function() {'use strict';
 
-	var fs = require('fs');
-	// var nano = require('nano')('http://127.0.0.1:5984');
-	var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+    var fs = require('fs');
+	var nano = require('nano')('http://127.0.0.1:5984');
+    // var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+    var separatorLine = '=======================';
+    var smallSeparatorLine = '-----------------------';
 
 	function CouchCode() {
 
@@ -35,16 +37,27 @@ var CouchCode = (function() {'use strict';
 	};
 
 	CouchCode.prototype.createDatabase = function(dbName, func) {
-		nano.db.list(function(err, body) {
+	    var dbList = separatorLine + '\nExisting Databases\n' + smallSeparatorLine + '\n';
+	    var fileName = 'ExistingDatabases.txt';
+		nano.db.list(function(error, body) {
 			var dbFound = false;
 			// body is an array
-			body.forEach(function(db) {
-				console.log(db);
-				if (db === dbName) {
-					console.log('database exists');
-					dbFound = true;
-				}
-			});
+			if (!error) {
+				body.forEach(function(db) {
+					dbList += db + '\n';
+					if (db === dbName) {
+						console.log('the ' + dbName + ' database exists');
+						dbFound = true;
+					}
+				});
+				fs.writeFile(fileName, dbList, function() {
+				    console.log('Saved dbList to: ' + fileName);
+				})
+				
+			} else {
+				reportErrorPrivate(error);
+				return;
+			}
 			
 			// If dbName not found, create database			
 			if (!dbFound) {
@@ -115,22 +128,23 @@ var CouchCode = (function() {'use strict';
 		});
 	};
 
+
 	/**
 	 * Attachments
 	 *
 	 * If rev is null, this is an insert, else, it is an update
 	 * See the attachUpdateHtml handler below
 	 */
-	var doAttachInsert = function(rev, response, docName, doc, dbName) {
+	var insertAttachment = function(rev, response, docToAttachTo, docName, docData, dbName) {
 		var prog = nano.db.use(dbName);
-		prog.attachment.insert(docName, docName + '.html', doc, 'text/html', rev, function(err1, body) {
+		prog.attachment.insert(docToAttachTo, docName, docData, 'text/html', rev, function(err1, body) {
 			if (!err1) {
 				console.log('Attach Insert succeeded');
 				if (response) {
 					response.send({ "Result" : "Success" });
 				}
 			} else {
-				console.log(err1);
+				reportErrorPrivate(err1);
 				if (response) {
 					err1.p282special = "Document conflict means document already exists. Try an update."
 					response.send(500, err1);
@@ -145,10 +159,10 @@ var CouchCode = (function() {'use strict';
 		prog.get(docName, function(error, existing) {
 			if (!error) {
 				console.log('Attach Doc Exists: ' + existing._rev);
-				doAttachInsert({ "rev" : existing._rev }, response, docName, doc, dbName);
+				insertAttachment({ "rev" : existing._rev }, response, docName, docName, doc, dbName);
 			} else {
 				console.log('New Attach Document');
-				doAttachInsert(null, response, docName, doc, dbName);
+				insertAttachment(null, response, docName, doc, dbName);
 			}
 		});
 	};
@@ -158,9 +172,9 @@ var CouchCode = (function() {'use strict';
 	   var prog = nano.db.use(dbName);
 	   prog.attachment.get(docName, docName, function(error, body) {
 	        if (!error) {
-	            console.log("---------------------------------");
+	            console.log(separatorLine);
 	            console.log(body);
-	            console.log("---------------------------------");
+	            console.log(separatorLine);
 	            if (response) {
 	            	response.send(body);
 	            }
@@ -179,9 +193,9 @@ var CouchCode = (function() {'use strict';
        var prog = nano.db.use(dbName);
        prog.attachment.get(docName, docName, function(err, body) {
             if (!err) {
-                console.log("---------------------------------");
+                console.log(separatorLine);
                 console.log(body);
-                console.log("---------------------------------");
+                console.log(separatorLine);
                 if (response) {
                     response.writeHeader(200, {"Content-Type": "text/html"});
                     response.end(body);
@@ -201,7 +215,7 @@ var CouchCode = (function() {'use strict';
         var prog = nano.db.use(dbName);
         prog.attachment.get('images', docName, function(err, body) {
              if (!err) {
-                 console.log("---------------------------------");
+                 console.log(separatorLine);
                  var fileName = 'Images/' + docName;
                  console.log('Writing:' + fileName);
                  fs.writeFile(fileName, body, function() {
@@ -209,7 +223,7 @@ var CouchCode = (function() {'use strict';
                          response.send({'Result':'Success'});
                      }	 
                  });
-                 console.log("---------------------------------");
+                 console.log(separatorLine);
              } else {
                  console.log('Error');
                  console.log(err);
@@ -221,11 +235,16 @@ var CouchCode = (function() {'use strict';
      };
     
     var reportErrorPrivate = function(error) {
-        console.log('==========================')
+        console.log(separatorLine)
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
-        console.log('Description: ' + error.description); 
+        console.log('Description: ' + error.description);
+        console.log(smallSeparatorLine); 
+    }
+	
+    CouchCode.prototype.reportError = function(error) {
+		reportErrorPrivate(error);
     }
     
 	return CouchCode;

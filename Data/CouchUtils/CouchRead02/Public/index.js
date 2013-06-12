@@ -16,7 +16,7 @@ ELF.own.App = (function() {
 		$('#readPerson05').click({doc:'person05'}, readJson);
 		$('#readGrid').click({doc:'grid'}, readJson);
 		$('#readGameData').click({doc:'gameData'}, readJson);
-		$('#readWeek01').click({doc:'week01asdf.htm'}, readHtml);
+		$('#readWeek01').click({doc:'week01.htm'}, readHtml);
 		$('#readWeek02').click({doc:'week02.htm'}, readHtml);
 		$('#readWeek03').click({doc:'week03.htm'}, readHtml);
         $('#readWeek04').click({doc:'week04.htm'}, readHtml);
