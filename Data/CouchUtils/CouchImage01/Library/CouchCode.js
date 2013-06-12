@@ -20,7 +20,10 @@ var CouchCode = (function() {'use strict';
 		return nano.config.url;
 	};
 	
-		var makeDatabase = function(dbName, func) {
+/**
+  * Create Database  
+*/
+	var makeDatabase = function(dbName, func) {
 		console.log('MakeDatabase: ' + dbName);
 		nano.db.create(dbName, function(err, body) {
 			if (!err) {
@@ -79,6 +82,9 @@ var CouchCode = (function() {'use strict';
 	    });
 	};
 	
+/* 
+ * sendToCouch
+*/	
 	var doInsert = function(response, data, docName, dbName) {
 		console.log('doInsert called with database: ' + dbName);
 		console.log('doInsert called with document: ' + docName);
@@ -95,7 +101,7 @@ var CouchCode = (function() {'use strict';
 			} else {
 				console.log(err);
 				if (response) {
-				response.send(500, err);
+					response.send(500, err);
 				}
 				return;
 			}
@@ -119,9 +125,10 @@ var CouchCode = (function() {'use strict';
 		});
 	};
 
-/*** Work with Attachments ********************************************/
- 
+
 	/**
+	 * Attachments
+	 *
 	 * If rev is null, this is an insert, else, it is an update
 	 * See the attachUpdateHtml handler below
 	 */
@@ -170,36 +177,61 @@ var CouchCode = (function() {'use strict';
             }
         });
     };
-	
-	CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
-	   console.log('getAttachedHtml called');   
-	   var prog = nano.db.use(dbName);
-	   prog.attachment.get(docName, docName + '.html', function(error, body) {
-	        if (!error) {
-	            console.log('Success getting Attached.');
-	            if (response) {
-	            	response.send(body);
-	            }
-	        } else {
-	        	console.log('Error');
-	            reportErrorPrivate(error)
-	            if (response) {
-	            	response.send(500, error);
-	            }
-	        }   
-	    }); 
+    
+    CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
+       console.log('getAttachedHtml called');   
+       var prog = nano.db.use(dbName);
+       prog.attachment.get(docName, docName, function(err, body) {
+            if (!err) {
+                console.log(separatorLine);
+                console.log(body);
+                console.log(separatorLine);
+                if (response) {
+                    response.writeHeader(200, {"Content-Type": "text/html"});
+                    response.end(body);
+                }
+            } else {
+                console.log('Error');
+                console.log(err);
+                if (response) {
+                    response.send(500, err);
+                }
+            }   
+        }); 
     };
     
-	var reportErrorPrivate = function(error) {
-	    console.log(separatorLine);
-	    console.log('ERROR ** ERROR ** ERROR')
-	    console.log(smallSeparatorLine);
+    CouchCode.prototype.getAttachedImage = function(response, docName, dbName) {
+        console.log('CouchCode.getAttachedBitmap called');   
+        var prog = nano.db.use(dbName);
+        prog.attachment.get('images', docName, function(err, body) {
+             if (!err) {
+                 console.log(separatorLine);
+                 var fileName = 'Images/' + docName;
+                 console.log('Writing:' + fileName);
+                 fs.writeFile(fileName, body, function() {
+                	 if (response) {                     
+                         response.send({'Result':'Success'});
+                     }	 
+                 });
+                 console.log(separatorLine);
+             } else {
+                 console.log('Error');
+                 console.log(err);
+                 if (response) {
+                     response.send(500, err);
+                 }
+             }   
+         }); 
+     };
+    
+    var reportErrorPrivate = function(error) {
+        console.log(separatorLine)
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
         console.log('Description: ' + error.description);
         console.log(smallSeparatorLine); 
-	}
+    }
 	
     CouchCode.prototype.reportError = function(error) {
 		reportErrorPrivate(error);

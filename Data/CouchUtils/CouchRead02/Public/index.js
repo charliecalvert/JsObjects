@@ -50,7 +50,7 @@ ELF.own.App = (function() {
 	};
 	
 	var readImage = function(imageName) {
-		showDebug('readImage called');
+		showDebug('readImage called: ' + imageName);
 		$.ajax({
             type : 'GET',
             url : '/couchReadImage',
