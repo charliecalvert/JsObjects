@@ -26,7 +26,7 @@ ELF.own.App = (function() {
         $('#readWeek08').click({doc:'week08.htm'}, readHtml);
         $('#readWeek09').click({doc:'week09.htm'}, readHtml);
         $('#readWeek10').click({doc:'week10.htm'}, readHtml);
-        $('#readImage').click(loadBitMap);
+        $('#readImage').click(readImage);
 	}
 	
 	var clear = function(event) {
