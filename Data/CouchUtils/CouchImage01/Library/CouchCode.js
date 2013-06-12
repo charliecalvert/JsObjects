@@ -6,8 +6,11 @@
 
 var CouchCode = (function() {'use strict';
 
+    var fs = require('fs');
 	var nano = require('nano')('http://127.0.0.1:5984');
     // var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
+    var separatorLine = '=======================';
+    var smallSeparatorLine = '-----------------------';
 
 	function CouchCode() {
 
@@ -31,17 +34,23 @@ var CouchCode = (function() {'use strict';
 	};
 
 	CouchCode.prototype.createDatabase = function(dbName, func) {
+	    var dbList = separatorLine + '\nExisting Databases\n' + smallSeparatorLine + '\n';
+	    var fileName = 'ExistingDatabases.txt';
 		nano.db.list(function(error, body) {
 			var dbFound = false;
 			// body is an array
 			if (!error) {
 				body.forEach(function(db) {
-					console.log(db);
+					dbList += db + '\n';
 					if (db === dbName) {
-						console.log('database exists');
+						console.log('the ' + dbName + ' database exists');
 						dbFound = true;
 					}
 				});
+				fs.writeFile(fileName, dbList, function() {
+				    console.log('Saved dbList to: ' + fileName);
+				})
+				
 			} else {
 				reportErrorPrivate(error);
 				return;
@@ -110,20 +119,22 @@ var CouchCode = (function() {'use strict';
 		});
 	};
 
+/*** Work with Attachments ********************************************/
+ 
 	/**
 	 * If rev is null, this is an insert, else, it is an update
 	 * See the attachUpdateHtml handler below
 	 */
-	var doAttachInsert = function(rev, response, docName, doc, dbName) {
+	var insertAttachment = function(rev, response, docToAttachTo, docName, docData, dbName) {
 		var prog = nano.db.use(dbName);
-		prog.attachment.insert(docName, docName, doc, 'text/html', rev, function(err1, body) {
+		prog.attachment.insert(docToAttachTo, docName, docData, 'text/html', rev, function(err1, body) {
 			if (!err1) {
 				console.log('Attach Insert succeeded');
 				if (response) {
 					response.send({ "Result" : "Success" });
 				}
 			} else {
-				console.log(err1);
+				reportErrorPrivate(err1);
 				if (response) {
 					err1.p282special = "Document conflict means document already exists. Try an update."
 					response.send(500, err1);
@@ -138,13 +149,27 @@ var CouchCode = (function() {'use strict';
 		prog.get(docName, function(error, existing) {
 			if (!error) {
 				console.log('Attach Doc Exists: ' + existing._rev);
-				doAttachInsert({ "rev" : existing._rev }, response, docName, doc, dbName);
+				insertAttachment({ "rev" : existing._rev }, response, docName, docName, doc, dbName);
 			} else {
 				console.log('New Attach Document');
-				doAttachInsert(null, response, docName, doc, dbName);
+				insertAttachment(null, response, docName, doc, dbName);
 			}
 		});
 	};
+	
+	CouchCode.prototype.couchAttachImage = function(response, docToAttachTo, imageName, imageData, dbName) {
+        console.log('/couchAttachImage called');
+        var prog = nano.db.use(dbName);
+        prog.get(docToAttachTo, function(error, existing) {
+            if (!error) {
+                console.log('Attach Doc Exists: ' + existing._rev);
+                insertAttachment({ "rev" : existing._rev }, response, docToAttachTo, imageName, imageData, dbName);
+            } else {
+                console.log('New Attach Document');
+                insertAttachment(null, response, docToAttachTo, imageName, imageData, dbName);
+            }
+        });
+    };
 	
 	CouchCode.prototype.getAttachedHtml = function(response, docName, dbName) {
 	   console.log('getAttachedHtml called');   
@@ -166,11 +191,14 @@ var CouchCode = (function() {'use strict';
     };
     
 	var reportErrorPrivate = function(error) {
-	    console.log('==========================')
+	    console.log(separatorLine);
+	    console.log('ERROR ** ERROR ** ERROR')
+	    console.log(smallSeparatorLine);
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
-        console.log('Description: ' + error.description); 
+        console.log('Description: ' + error.description);
+        console.log(smallSeparatorLine); 
 	}
 	
     CouchCode.prototype.reportError = function(error) {

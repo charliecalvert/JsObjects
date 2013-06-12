@@ -13,7 +13,7 @@ function run() {
 			
 			couch.couchCode.createDatabase(dbName, function(error) {
 				if (!error) {
-					couch.couchCode.couchAttach(null, docName, data, dbName);
+					couch.couchCode.couchAttachImage(null, 'images', docName, data, dbName);
 				} else {
 				  couch.couchCode.reportError(error);			    
 				}

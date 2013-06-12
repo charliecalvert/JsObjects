@@ -199,7 +199,7 @@ var CouchCode = (function() {'use strict';
     CouchCode.prototype.getAttachedImage = function(response, docName, dbName) {
         console.log('CouchCode.getAttachedBitmap called');   
         var prog = nano.db.use(dbName);
-        prog.attachment.get(docName, docName, function(err, body) {
+        prog.attachment.get('images', docName, function(err, body) {
              if (!err) {
                  console.log("---------------------------------");
                  var fileName = 'Images/' + docName;

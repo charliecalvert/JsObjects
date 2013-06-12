@@ -26,7 +26,7 @@ ELF.own.App = (function() {
         $('#readWeek08').click({doc:'week08.htm'}, readHtml);
         $('#readWeek09').click({doc:'week09.htm'}, readHtml);
         $('#readWeek10').click({doc:'week10.htm'}, readHtml);
-        $('#readImage').click(readImage);
+        $('#readImages').click(readImages);
 	}
 	
 	var clear = function(event) {
@@ -37,34 +37,42 @@ ELF.own.App = (function() {
 	   }  
 	};
 	
-	var loadBitMap = function() {
-		var img = $("<img />").attr('src', 'Images/cscGarden.png').load(function() {
+	var loadBitMap = function(imageName) {
+		var img = $("<img />").attr('src', imageName).load(function() {
 		// var img = $("<img />").attr('src', 'http://localhost:5984/couchdocs01/cscGarden.png/cscGarden.png').load(function() {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                 alert('Could not load image!');
             } else {
-            	$('#showDoc').empty();
                 $("#showDoc").append(img);
+                $("#showDoc").append('</br>');
             }
         });        
-	}
+	};
 	
-	var readImage = function(event) {
+	var readImage = function(imageName) {
 		showDebug('readImage called');
 		$.ajax({
             type : 'GET',
             url : '/couchReadImage',
             cache : false,
-            data: { 'docName': 'cscGarden.png' },
+            data: { 'docName': imageName },
             dataType : "json",
-            success : function(doc) {
-            	loadBitMap();
+            success : function(doc) {                
+            	loadBitMap('Images/' + imageName);
             },
             error: function(err) {
                 showDebug(err.responseText);
             }
         });
-	}
+	};
+	
+	var readImages = function(event) {
+	    $('#showDoc').empty();
+        readImage('cscGarden.png');
+        readImage('cscGarden01.gif');
+        readImage('cscGarden02.gif');
+        readImage('cscGarden-32X32.gif');
+	};
 	
 	var readJson = function(event) {
 		showDebug('ReadJson called with: <strong>' + event.data.doc + '</strong>');
