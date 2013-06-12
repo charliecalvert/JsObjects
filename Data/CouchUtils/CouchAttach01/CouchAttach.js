@@ -1,12 +1,19 @@
 var couch = require('./Library/CouchCode')
 var fs = require('fs');
 
-var dbName = 'couchdocs01';
+
 
 function run() {
 	var docName = process.argv[2];
 	var fileName = process.argv[3];
-
+	
+   /* var dbName = fs.readFileSync("config.json", function(error) {
+        if (error) {
+            alert("Error");
+        }
+    }); */
+   var dbName = "couchdocs01";
+    
 	fs.exists(fileName, function(exists) {
 		if (exists) {
 			var data = fs.readFileSync(fileName);

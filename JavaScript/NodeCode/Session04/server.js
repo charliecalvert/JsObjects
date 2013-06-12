@@ -34,7 +34,7 @@ app.configure('development', function(){
 });
 
 app.get('/', function(request, response) {
-    console.log('main route called');
+    console.log('main route called: ' + JSON.stringify(request.session));
     request.session.visitCount = request.session.visitCount ? request.session.visitCount + 1 : 1;
     var html = fs.readFileSync('public/main.html');
     response.writeHeader(200, {"Content-Type": "text/html"});
