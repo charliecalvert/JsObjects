@@ -87,7 +87,7 @@ var CouchCode = (function() {'use strict';
 	/**
 	 * doInsert
 	 */
-	var doInsert = function(response, data, docName, dbName, id, next) {
+	var doInsert = function(response, data, docName, dbName, index, next) {
 		console.log('doInsert called with database: ' + dbName);
 		console.log('doInsert called with document: ' + docName);
 		console.log('doInsert called with data: ' + data);
@@ -99,7 +99,7 @@ var CouchCode = (function() {'use strict';
 				if (response) {
 					response.send({"Result" : "Success"});
 				}
-				next(id);
+				next(index);
 			} else {
 				console.log(err);
 				if (response) {
@@ -112,7 +112,7 @@ var CouchCode = (function() {'use strict';
 	/**
 	 * sendToCouch
 	 */
-	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName, id, next) {
+	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName, index, next) {
 		console.log('Send to Couch docName: ' + docName)
 		console.log('Send to Couch dbName: ' + dbName)
 		var prog = nano.db.use(dbName);
@@ -121,10 +121,10 @@ var CouchCode = (function() {'use strict';
 				console.log("Document exists. Doing Update!");
 				console.log(existing._rev);
 				data._rev = existing._rev;
-				doInsert(response, data, docName, dbName, id, next);
+				doInsert(response, data, docName, dbName, index, next);
 			} else {
 				console.log("Document does not exist. Doing insert.");
-				doInsert(response, data, docName, dbName, id, next);
+				doInsert(response, data, docName, dbName, index, next);
 			}
 		});
 	};
@@ -133,7 +133,7 @@ var CouchCode = (function() {'use strict';
 	 * If rev is null, this is an insert, else, it is an update
 	 * See the attachUpdateHtml handler below
 	 */
-	var doAttachInsert = function(rev, response, docName, doc, dbName, id, next) {
+	var doAttachInsert = function(rev, response, docName, doc, dbName, index, next) {
 		var prog = nano.db.use(dbName);
 		prog.attachment.insert(docName, docName, doc, 'text/html', rev, function(err1, body) {
 			if (!err1) {
@@ -141,7 +141,7 @@ var CouchCode = (function() {'use strict';
 				if (response) {
 					response.send({ "Result" : "Success" });
 				}
-				next(id);
+				next(index);
 			} else {
 				console.log(err1);
 				if (response) {
@@ -152,16 +152,16 @@ var CouchCode = (function() {'use strict';
 		});
 	}
 
-	CouchCode.prototype.couchAttach = function(response, docName, doc, dbName, id, next) {
+	CouchCode.prototype.couchAttach = function(response, docName, doc, dbName, index, next) {
 		console.log('/couchAttach called');
 		var prog = nano.db.use(dbName);
 		prog.get(docName, function(error, existing) {
 			if (!error) {
 				console.log('Attach Doc Exists: ' + existing._rev);
-				doAttachInsert({ "rev" : existing._rev }, response, docName, doc, dbName, id, next);
+				doAttachInsert({ "rev" : existing._rev }, response, docName, doc, dbName, index, next);
 			} else {
 				console.log('New Attach Document');
-				doAttachInsert(null, response, docName, doc, dbName, id, next);
+				doAttachInsert(null, response, docName, doc, dbName, index, next);
 			}
 		});
 	};
