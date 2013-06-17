@@ -6,11 +6,14 @@
 
 var CouchCode = (function() {'use strict';
 
-	var nano = require('nano')('http://127.0.0.1:5984');
+	var fs = require('fs');
+	var nano = null;
     // var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
 	function CouchCode() {
-
+		var data = fs.readFileSync("config.json")
+		data = JSON.parse(data)
+		nano = require('nano')(data.nanoUrl);
 	}
 
 	CouchCode.prototype.getCouchUrl = function() {

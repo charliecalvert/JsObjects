@@ -1,4 +1,4 @@
 {
 	"dbName": "prog282-calvert",
-	"nanoUrl": "http://ccalvert:foobar@127.0.0.1:5984"
+	"nanoUrl": "http://127.0.0.1:5984"
 }

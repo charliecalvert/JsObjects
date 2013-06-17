@@ -68,6 +68,9 @@ var CouchCode = (function() {'use strict';
 		});		
 	};
 	
+	/**
+	 * readDoc
+	 */
 	CouchCode.prototype.readDoc = function(response, docName, dbName) {
 		var prog = nano.db.use(dbName);
     
@@ -82,8 +85,8 @@ var CouchCode = (function() {'use strict';
 	    });
 	};
 	
-/* 
- * sendToCouch
+	/**
+	 * doInsert
 */	
 	var doInsert = function(response, data, docName, dbName) {
 		console.log('doInsert called with database: ' + dbName);
@@ -108,7 +111,10 @@ var CouchCode = (function() {'use strict';
 		});
 	};
 
-	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName) {
+	/**
+	 * sendToCouch
+	 */
+	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName, id, next) {
 		console.log('Send to Couch docName: ' + docName)
 		console.log('Send to Couch dbName: ' + dbName)
 		var prog = nano.db.use(dbName);
