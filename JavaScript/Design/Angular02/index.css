@@ -1,0 +1,8 @@
+body {
+	background-color: #8888AA;	
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: #5555FF;
+}

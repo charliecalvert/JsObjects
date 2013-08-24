@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+    <meta charset='utf-8'>
+    <title>My blank page</title>
+    <script src='Ractive.js'></script>
+</head>
+
+<body>
+    <h1>Getting started with Ractive</h1>
+	<p>This page is based on the <a href="https://github.com/Rich-Harris/Ractive/wiki/60-second-setup">Ractive Quickstart</a></p>
+	
+	<div id='container'></div>
+	
+	<!-- 
+	    The following script tag is designed not to execute. 
+	    It will not execute because it is not marked as text/javascript 
+	-->
+	<script id='myTemplate' type='text/ractive'>
+        <p>The School: <strong>{{school}}</strong>, The Course: <strong>{{class}}</strong></p>
+    </script>
+	
+	 <script>
+        var ractive = new Ractive({
+            el: 'container',
+            template: '#myTemplate',
+            data: { school: 'Bellevue College', class: 'ISIT 320' }
+        });
+    </script>
+	
+	 
+</body>
+</html>
