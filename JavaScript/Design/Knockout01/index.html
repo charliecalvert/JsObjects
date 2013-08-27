@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="knockout-2.3.0.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+<h1>Knockout Example</h1>
+
+<p>You can read about knockout here: </p>
+
+<h2>The Code</h2>
+
+<p>City: <strong data-bind="text: city"></strong></p>
+<p>State: <strong data-bind="text: state"></strong></p>
+
+<div id="inputArea">
+City: <input data-bind="value: city" /></br>
+State: <input data-bind="value: state" />
+</div>
+
+<p>Full name: <strong data-bind="text: placeName"></strong></p>
+
+</body>
+</html>

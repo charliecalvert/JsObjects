@@ -1,0 +1,12 @@
+body {	
+	background-color: #555599;
+	font-size: x-large;
+}
+
+#inputArea {
+	background-color: #5599BB;
+	font-size: x-large;
+	width: 255px;
+	height: 62px;
+	padding-left: 5px;
+}
