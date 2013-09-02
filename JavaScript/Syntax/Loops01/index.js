@@ -19,7 +19,6 @@ var app = {
 };
 
 console.log('\nHere is the for loop:');
-
 app.basicForLoop();
 
 console.log('\nHere is the while loop:');
