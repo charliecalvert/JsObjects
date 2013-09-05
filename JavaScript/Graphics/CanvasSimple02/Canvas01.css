@@ -1,0 +1,49 @@
+﻿body
+{	
+	background-color:#007700;
+}
+
+.audio.ogg h2
+{
+	color:aqua;
+	
+}
+
+.no-websqldatabase h1
+{	
+	color:crimson;
+}
+
+.websqldatabase h1
+{
+	color:aquamarine;
+}
+
+h1, h2, h3, h4, h5, pre, li, p.distinct
+{
+	color: #AAAA00
+}
+
+a:link, a:visited 
+{
+	color: #999900
+}
+
+
+pre, li, p.distinct
+{
+	font-size: x-large;	
+}
+
+
+p.distinct
+{
+	border-radius: 8px;
+	background-color: #008800;
+	max-width: 1000px;
+}
+
+#canvas01, #canvas02 {
+	background-color:lime;
+	width: 250px;	
+}
