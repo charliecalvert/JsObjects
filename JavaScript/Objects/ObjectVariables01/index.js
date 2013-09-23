@@ -3,41 +3,45 @@
  */
 /*jshint jquery:true, devel:true, browser: true, strict: true */
 
-var MyObjects = (function{
+var MyObjects = (function() {'use strict';
 
-MyObjects.App = (function() {'use strict';
-    
-    function App() {
-        $("#test01").html("It works: ");       
-    }
-    
-    App.prototype.getNine = function() {
-        return 9;
+    // Constructor
+    function MyObjects() 
+    {
+        
     };
     
-    App.prototype.myPrivateVariable = 3;
-     
-    return App;
-})();
+    MyObjects.prototype.nested = {
 
-MyObjects.ShowDirectories = (function() {'use strict';
-    
-    // Constructor
-    function ShowDirectories() {
-      $("#showDirectories").html("showDirectories");
-    }
-    
-    return ShowDirectories;    
-})();
+        bigFunc: function() {
+            $("#test01").html("It works: ");
+        },
+
+
+        getNine: function() {
+            return 9;
+        },   
+
+       
+    };
+
+    MyObjects.prototype.ShowDirectories = (function() {'use strict';
+
+        // Constructor
+        function ShowDirectories() {
+            $("#showDirectories").html("showDirectories");
+        }
+
+        return ShowDirectories;
+    })();
 
     return MyObjects;
 })();
 
-$(document).ready(function() {
-  "use strict";
-  MyObjects.foo = 25;
-  var obj = new MyObjects();
-  new MyObjects.ShowDirectories();
-  
-  $("#test02").html("This is test: " + obj.App.getNine());
-}); 
+$(document).ready(function() {"use strict";
+    // MyObjects.foo = 25;
+    var obj = new MyObjects();
+    new obj.ShowDirectories();
+    obj.nested.bigFunc();
+    $("#test02").html("This is test: " + obj.nested.getNine());
+});

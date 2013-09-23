@@ -13,6 +13,7 @@ Objects
 - [ObjectDemo06: Simple Modular Pattern Example](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo06)
 - [ObjectTest01: Simple Modular Pattern](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectTest01)
 - [ObjectTest02: Simple Modular Pattern](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectTest02)
+- [ObjectVariables01: Nested Objects](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectVariables01)
 
 Functions
 ---------
@@ -24,13 +25,15 @@ Functions
 Variables and Scope
 ---------
 - [ObjectThis: Learn about Scope and this](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectThis)
-
-- [ObjectVariables01](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectVariables01)
-- [ObjectVariables02](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectVariables02)
-- [ShareVariables01](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ShareVariables01)
-- [ShareVariables02](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ShareVariables02)
+- [ShareVariables01: Two Objects Share One Set of Data](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ShareVariables01)
+- [ShareVariables02: Two Instances with Unique Properties](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ShareVariables02)
 
 Events and Buttons
 ------------------
 
 - [ObjectVariables00](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectVariables00)
+
+Misc
+------------------
+
+- [ObjectVariables02: Do Nothing Until You hear from me - The Duke](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectVariables02)
