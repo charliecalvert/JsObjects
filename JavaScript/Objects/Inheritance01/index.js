@@ -3,6 +3,7 @@
  */
 
 var BaseObject = (function() {
+    
     function BaseObject() {
     }
     

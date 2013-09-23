@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 // getNine is assigned a function that returns the number 9

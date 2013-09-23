@@ -5,13 +5,8 @@ var Point = (function() {
 	var x = 0;
 	var y = 0;
 
-	// Private function
-	var bar = function() {
-		return 25;
-	};
-
 	// Constructor
-	var Point = function(x1, y1) {
+	function Point(x1, y1) {
 		x = x1;
 		y = y1;
 	}
@@ -20,6 +15,11 @@ var Point = (function() {
 	Point.prototype.add = function() {
 		return x + y + bar();
 	};
+
+    // Private function
+    var bar = function() {
+        return 25;
+    };
 
 	return Point;
 })();

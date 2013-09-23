@@ -2,8 +2,6 @@
  * @author Charlie Calvert
  */
 
-var foo = {};
-
 function returnTwo() {
 	return 2;
 }

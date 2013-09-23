@@ -1,19 +1,19 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
-//var Goober = (function() {
+var Goober = (function() {
     var x = 2;
     
-    function Foo() {}
+    function Goober() {}
 
-    Foo.prototype.Bar() {
-    
-    }
+    Goober.prototype.Bar = function() {
+        $('#test01').html("Bar is called: " + x);
+    };
 
-//    return Foo;
-    
-//})();
+    return Goober;
+   
+})();
 
 $(document).ready(function() {
   "use strict";

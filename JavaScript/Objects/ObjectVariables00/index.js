@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 /*jshint browser:true, jquery:true, devel:true, strict: true */

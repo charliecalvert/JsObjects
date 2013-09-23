@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 var myApp01 = {
@@ -19,10 +19,13 @@ var MyApp = (function myFunction() {'use strict';
     }
 
 
-    MyApp.prototype.function1 = function() {
+    MyApp.prototype.function01 = function() {
+        $('#test02').html('MyApp.function01 called.');
+        function02();
     };
 
-    var function2 = function() {
+    var function02 = function() {
+        $('#test03').html('MyApp.function02 called.');
     };
 
     return MyApp;
@@ -30,8 +33,9 @@ var MyApp = (function myFunction() {'use strict';
 
 $(document).ready(function() {
     myApp01.function1();    
-    $("#test01").html(myApp01.property1);    
+    $("#test01").html('MyApp01 Property1: ' + myApp01.property1);    
 
     var myApp = new MyApp();
-    myApp.function1();
+    myApp.function01();
+    // We can't call myApp.function02 from here
 }); 
