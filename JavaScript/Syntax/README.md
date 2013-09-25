@@ -3,7 +3,7 @@ Programs in this Directory
 
 ###Basics
 
-- [Primitive Types](Primitive Types)
+- [Primitive Types](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Syntax/PrimitiveTypes)
 - [Looping](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Syntax/Loops01)
 - [Nested for Loops](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Syntax/ForLoopNested)
 - [Nest loop on 2D Array](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Syntax/ArrayTwoDimensions)

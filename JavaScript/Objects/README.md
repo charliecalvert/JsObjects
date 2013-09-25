@@ -4,8 +4,8 @@ JavaScript Object Programs
 Objects
 -------
 
-- [Object Simple: Very simple JavaScript Object](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectSimple)
-- [Modular Pattern Inheritance with Prototype](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/Inheritance01)
+- [ObjectSimple: Very simple JavaScript Object](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectSimple)
+- [Inheritance01: Modular Pattern Inheritance with Prototype](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/Inheritance01)
 - [ObjectDemo01: JavaScript Objects Multiplication Demo](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo01)
 - [ObjectDemo02: Modular Pattern Demo Part 01](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo02)
 - [ObjectDemo03: From Simple Object to Modular Pattern](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo03)
