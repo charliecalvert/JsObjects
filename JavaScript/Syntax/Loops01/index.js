@@ -2,14 +2,15 @@
  * @author Charlie Calvert
  */
 
+
 var app = {
-	basicForLoop : function() {
+	basicForLoop: function() {'use strict';
 		for (var i = 0; i < 5; i++) {
 			console.log(i);
 		}
 	},
 
-	basicWhileLoop : function() {
+	basicWhileLoop : function() {'use strict';
 		var count = 0;
 
 		while (count < 5) {
