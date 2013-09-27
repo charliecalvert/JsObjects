@@ -6,14 +6,17 @@ var myObject = {
 	myProperty : 12
 };
 
-console.log(myObject.myProperty);
-console.log(myObject['myProperty'])
+var myPropertyStr = "myProperty";
 
-myObject['myProperty'] = 3;
+console.log(myObject.myProperty);
+console.log(myObject[myPropertyStr]);
+
+myObject[myPropertyStr] = 3;
 var valueA = myObject.myProperty;
 console.log(valueA);
 
 myObject.myProperty = 5;
-var valueB = myObject['myProperty'];
+var valueB = myObject[myPropertyStr];
 console.log(valueB);
+
 
