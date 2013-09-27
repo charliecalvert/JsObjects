@@ -4,6 +4,7 @@ JavaScript Object Programs
 Objects
 -------
 
+- [ObjectNameValues: Simple object, simple properties]()
 - [ObjectSimple: Very simple JavaScript Object](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectSimple)
 - [Inheritance01: Modular Pattern Inheritance with Prototype](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/Inheritance01)
 - [ObjectDemo01: JavaScript Objects Multiplication Demo](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo01)

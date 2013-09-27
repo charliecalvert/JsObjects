@@ -12,7 +12,7 @@ class MarkdownToHtml:
 
 	def run(self, fileToParse):			
 		param = " " + self.copyFrom + " " + fileToParse + " " + self.destination
-		print "Calling SubProcess: " + fileToParse
+		print "Calling SubProcess: " + param		
 		result = subprocess.check_output(self.batchFile + param)		
 		print "End Batch Call"
 		print result
