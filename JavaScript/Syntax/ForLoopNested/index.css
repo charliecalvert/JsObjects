@@ -1,0 +1,32 @@
+#divA, #divB {
+	height: 45px;
+}
+
+#span00, #span01, #span02, #span10, #span11, #span12 {
+	color: #0055FF; 
+  	font-family:arial; 
+  	font-size: large;
+  	margin: 10px;
+  	padding: 5px;  	
+  	border: black thin solid 
+}
+
+#span01 {
+	color: #0077FF;
+}
+
+#span02 {
+	color: #0099FF;
+}
+
+#span10 {
+	color: #00BBFF;
+}
+
+#span11 {
+	color: #00DDFF;
+}
+
+#span12 {
+	color: #00FFFF;
+}

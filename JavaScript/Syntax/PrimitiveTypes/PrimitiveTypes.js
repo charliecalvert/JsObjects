@@ -5,10 +5,11 @@ var aNull = null;
 var aUndefined = undefined;
 var foo;
 
-console.log("var aNumber = 3 yields this type: " + typeof aNumber);
-console.log("var aString = 'string' yields this type: " + typeof aString);
-console.log(typeof aBoolean);
-console.log(typeof aNull);
-console.log(typeof aUndefined);
-console.log(typeof foo);
-console.log(undefined == null)
+
+console.log(typeof aNumber + ":\t\tvar aNumber = 3");
+console.log(typeof aString + ":\t\tvar aString = 'string'");
+console.log(typeof aBoolean + ":\tvar aBoolean = true");
+console.log(typeof aNull + ":\t\tvar aNull = null");
+console.log(typeof aUndefined + ":\tvar aUndefined = undefined");
+console.log(typeof foo + ":\tvar foo");
+
