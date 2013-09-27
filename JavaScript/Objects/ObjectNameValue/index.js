@@ -5,11 +5,12 @@
 var myObject = {
 	myProperty : 12
 };
+
 console.log(myObject.myProperty);
 console.log(myObject['myProperty'])
 
-myOjbect['myProperty'] = 3;
-var valueA = myOjbect.myProperty;
+myObject['myProperty'] = 3;
+var valueA = myObject.myProperty;
 console.log(valueA);
 
 myObject.myProperty = 5;
