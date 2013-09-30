@@ -5,7 +5,7 @@
 /*jshint devel:true, browser: true, jquery: true */
 
 /*********************
- *  Technique One - object
+ *  Technique One - Simple Object
  *********************/ 
 var myObject = {    
     myProperty01: 12,
@@ -32,7 +32,7 @@ function myFunction02() {
 }
 
 /*********************
- *  Technique Three - Prototype
+ *  Technique Three - Extend function with Prototype
  *********************/
 var MyFunction03 = function() {
     'use strict';       
@@ -46,7 +46,7 @@ MyFunction03.prototype.nestedFunction = function() {
 };
 
 /*********************
- *  Technique Four
+ *  Technique Four - Modular Pattern 
  *********************/
 var MyFunction04 = (function() {
     'use strict';

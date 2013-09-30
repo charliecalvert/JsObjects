@@ -9,7 +9,7 @@ Objects
 - [Inheritance01: Modular Pattern Inheritance with Prototype](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/Inheritance01)
 - [ObjectDemo01: JavaScript Objects Multiplication Demo](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo01)
 - [ObjectDemo02: Modular Pattern Demo Part 01](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo02)
-- [ObjectDemo03: From Simple Object to Modular Pattern](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo03)
+- ObjectDemo03: From Simple Object to Modular Pattern [Run](ObjectDemo03/index.html) -- [GitHub](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo03)
 - [ObjectDemo05: Modular Pattern and regular Objects](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo05)
 - [ObjectDemo06: Simple Modular Pattern Example](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectDemo06)
 - [ObjectTest01: Simple Modular Pattern](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Objects/ObjectTest01)
