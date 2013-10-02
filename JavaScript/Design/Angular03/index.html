@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="angular.js"></script>    
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div ng-controller="InvoiceCntl">
+      <h1>Add Two Numbers</h1>
+      <div id=result>
+      {{operandA}} + {{operandB}} = {{operandB + operandA | number}}
+      </div>
+      <p>Enter two numbers that you want to add together in the input controls below.</p>
+      <table>
+       <tr><td>OperandA</td><td>OperandB</td></tr>
+       <tr>
+         <td><input type="number" ng-pattern="/\d+/" step="1" min="0" ng-model="operandA" required ></td>
+         <td><input type="number" ng-pattern="/\d+/" ng-model="operandB" required ></td>
+       </tr>
+      </table>
+      
+    </div>
+  </body>
+</html>
