@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ 2   "http://www.w3.org/TR/html4/loose.dtd">
+ 3 <html>
+ 4 <head>
+ 5   <title>Jasmine Spec Runner</title>
+ 6   <link rel="shortcut icon" type="image/png" href="lib/jasmine-core/jasmine_favicon.png">
+ 7   <link rel="stylesheet" type="text/css" href="lib/jasmine-core/jasmine.css">
+ 8   <script src="http://code.jquery.com/jquery.min.js"></script>
+ 9   <script src="lib/jasmine-core/jasmine.js"></script>
+10   <script src="lib/jasmine-core/jasmine-html.js"></script>
+12 
+13   <!-- include source files here... -->
+14   <!-- script src="js/calculator.js"></script -->
+15 
+16   <!-- include spec files here... -->
+17   <script src="spec/test01.spec.js"></script>
+18 
+19 </head>
+20 
+21 <body>
+22   <script type="text/javascript">
+23     (function() {
+24       var jasmineEnv = jasmine.getEnv();
+25       jasmineEnv.updateInterval = 1000;
+26 
+27       var trivialReporter = new jasmine.TrivialReporter();
+28 
+29       jasmineEnv.addReporter(trivialReporter);
+30 
+31       jasmineEnv.specFilter = function(spec) {
+32         return trivialReporter.specFilter(spec);
+33       };
+34 
+35       var currentWindowOnload = window.onload;
+36 
+37       window.onload = function() {
+38         if (currentWindowOnload) {
+39           currentWindowOnload();
+40         }
+41         execJasmine();
+42       };
+43 
+44       function execJasmine() {
+45         jasmineEnv.execute();
+46       }
+47 
+48     })();
+49   </script>
+50 </body>
+51 </html>
