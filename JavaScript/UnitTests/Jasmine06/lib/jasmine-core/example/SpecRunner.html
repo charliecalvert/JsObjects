@@ -3,19 +3,21 @@
 <html>
 <head>
   <title>Jasmine Spec Runner</title>
-  <link rel="shortcut icon" type="image/png" href="lib/jasmine-core/jasmine_favicon.png">
-  <link rel="stylesheet" type="text/css" href="lib/jasmine-core/jasmine.css">
-  <!-- script src="http://code.jquery.com/jquery.min.js"></script -->
-  <script src="lib/jasmine-core/jasmine.js"></script>
-  <script src="lib/jasmine-core/jasmine-html.js"></script>
-  <script src="lib/jasmine-core/boot.js"></script>
 
-  <!-- include source files here... -->
-  <!-- script src="js/calculator.js"></script -->
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0.rc1/jasmine_favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0.rc1/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.1.0.rc1/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.1.0.rc1/jasmine-html.js"></script>
 
   <!-- include spec files here... -->
-  <script src="spec/test01.spec.js"></script>
-   
+  <script type="text/javascript" src="spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="spec/PlayerSpec.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="src/Player.js"></script>
+  <script type="text/javascript" src="src/Song.js"></script>
+
   <script type="text/javascript">
     (function() {
       var jasmineEnv = jasmine.getEnv();
@@ -50,4 +52,3 @@
 <body>
 </body>
 </html>
->>>>>>> dab36e60f645bd46d06bece66ccf1fd7d7956c37

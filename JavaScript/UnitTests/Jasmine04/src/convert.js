@@ -1,4 +1,4 @@
-function xConvert(number, fromUnit) {
+function Convert(number, fromUnit) {
     var differences = {
         distance : {
             meters : 1,

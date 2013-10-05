@@ -1,0 +1,1 @@
+This version uses Jasmine 1.3.x
