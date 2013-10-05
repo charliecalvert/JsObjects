@@ -10,7 +10,7 @@
     <h2>Check List</h2>
     <div ng-controller="ListControl">
       <span>{{remaining()}} of {{todos.length}} remaining</span>
-      [ <a href="" ng-click="archive()">archive</a> ]
+      [ <a href="" ng-click="archive()">Save to Server</a> ]
       <ul class="unstyled">
         <li ng-repeat="todo in todos">
           <input type="checkbox" ng-model="todo.done">
