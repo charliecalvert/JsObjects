@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-function InvoiceCntl($scope) {
+function AddController($scope) {
   $scope.operandA = 17000;
   $scope.operandB = 15000;
 }
