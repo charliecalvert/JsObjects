@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Jasmine03</name>
+	<name>Jasmine01</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -13,6 +13,5 @@
 	</buildSpec>
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
-		<nature>com.aptana.ruby.core.rubynature</nature>
 	</natures>
 </projectDescription>
