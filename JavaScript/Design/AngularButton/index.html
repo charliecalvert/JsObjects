@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>Angular Getting Started</title>
+		<link href="index.css" type="text/css" rel="stylesheet" />
+		<script src="angular.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<div ng-controller='inputArea'>
+			<div>
+				<button ng-click="toggle()">
+					Toggle Visible Button
+				</button>
+			</div>
+			<label>What is the sum of 2 + 2:</label>
+			<input type="text" ng-model="answer" placeholder="Put your answer here">
+
+			<div ng-show="visible">
+				<p>
+					2 + 2 = {{answer}}
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

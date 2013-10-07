@@ -23,13 +23,13 @@ class FindHeadings():
 			#contents = "BooFar"
 			contents = self.openFile(arg)
 			results = re.findall(self.regEx, contents, re.DOTALL)
-			print '<h2>Table of Contents</h2>'
-			print '<ul>'
+			print('<h2>Table of Contents</h2>')
+			print('<ul>')
 			for result in results:
-				print "\t<li><a href='#" + result[0] + "'>" + result[1] + "</a></li>"
-			print '</ul>'
+				print("\t<li><a href='#" + result[0] + "'>" + result[1] + "</a></li>")
+			print('</ul>')
 		else:
-			print 'pass in the name of the file you want to parse'
+			print('pass in the name of the file you want to parse')
 			
 p = FindHeadings()
 p.parseReplace()

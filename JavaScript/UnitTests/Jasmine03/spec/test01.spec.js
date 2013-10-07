@@ -2,6 +2,9 @@ function addMe() {
     return 2 + 3;
 }
 
+function multiplyMe(a, b) {
+	return a * b;
+}
 
   
 describe("A suite", function() {
@@ -13,7 +16,12 @@ describe("A suite", function() {
     expect(1+1).toBe(2);
   });
   
-  it("Call addme() with 2 + 3 = 5", function() {
+  it("Call addMe() with 2 + 3 = 5", function() {
     expect(addMe()).toBe(5);
   });
+  
+  it("Call multiplyMe() with 2 * 3 = 6", function() {
+    expect(multiplyMe(2, 3)).toBe(6);
+  });
+  
 });
