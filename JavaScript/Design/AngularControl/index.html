@@ -7,20 +7,10 @@
 		<script src="index.js"></script>
 	</head>
 	<body>
-		<div ng-controller='inputArea'>
-			<div>
-				<button ng-click="toggle()">
-					Toggle Visible Button
-				</button>
-			</div>
-			<label>What is the sum of 2 + 2:</label>
-			<input type="text" ng-model="answer" placeholder="Put your answer here">
-
-			<div show="visible">
-				<p>
-					2 + 2 = {{answer}}
-				</p>
-			</div>
+		<label for="checkbox">Show Picture</label>
+		<input id="checkbox" type="checkbox" ng-model="visible">		
+		<div show="visible">		
+			<img src="IMG_6405.JPG" alt="picture">
 		</div>
 	</body>
 </html>
