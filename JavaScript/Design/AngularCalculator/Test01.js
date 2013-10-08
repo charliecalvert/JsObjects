@@ -14,6 +14,12 @@ describe("calculator", function() {'use strict';
 		expect($scope.func()).toEqual(8);
 	});
 
+    it("Sum two other values", function() {
+        $scope.operandA = 2;
+        $scope.operandB = 9;
+        expect($scope.func()).toEqual(11);
+    });
+
 });
 
 (function() {'use strict';
