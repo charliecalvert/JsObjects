@@ -2,11 +2,9 @@
  * @author Charlie Calvert
  */
 
-angular.module('plunker', ['ui.bootstrap']);
+angular.module('repeatera', ['ui.bootstrap']);
 
-var PersonController = function($scope, $dialog) {
-
-	$scope.personValue = 0;
+function PersonController($scope, $dialog) {
 
 	$scope.people = [{
 		firstName : "George",
@@ -31,13 +29,13 @@ var PersonController = function($scope, $dialog) {
 		templateUrl : 'PersonEdit.html'
 	};
 
-	$scope.edit = function(item) {
+	$scope.edit = function(person) {
 
-		var itemToEdit = item;
+		var itemToEdit = person;
 
 		$dialog.dialog(angular.extend(dialogOptions, {
 			resolve : {
-				item : angular.copy(itemToEdit)
+				person : angular.copy(itemToEdit)
 			}
 		})).open().then(function(result) {
 			if (result) {
@@ -47,16 +45,12 @@ var PersonController = function($scope, $dialog) {
 		});
 	};
 
-	$scope.getPersonValue = function() {
-		return "people[" + $scope.personValue + "].firstName";
-		// return $scope.people[$scope.personValue].firstName;
-	};
 };
 
 // the dialog is injected in the specified controller
-function EditCtrl($scope, item, dialog){
+function EditCtrl($scope, person, dialog){
   
-  $scope.person = item;
+  $scope.person = person;
   
   $scope.save = function() {
     dialog.close($scope.person);
