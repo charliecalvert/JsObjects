@@ -1,10 +1,10 @@
 /**
- * @author charlie
+ * @author Charlie Calvert
  */
 
-angular.module('plunker', ['ui.bootstrap']);
+angular.module('elfedit', ['ui.bootstrap']);
 
-function ListCtrl($scope, $dialog) {
+function TableEditor($scope, $dialog) {
   
   $scope.people = [
     {firstName: 'George', lastName: 'Washington'},
