@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html ng-app>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Angular Repeater</title>
+        <script src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+    	<link rel="stylesheet" href="index.css" />
+    	<script src="index.js"></script>
+    </head>
+    <body>
+        <h1>Angular Repeater</h1>
+        
+        <div ng-controller="PersonController">
+        	<ul>
+        		<li ng-repeat="person in people">{{person.firstName}} {{person.lastName}}</li>        			
+        	</ul>
+        	
+        </div>
+        
+    </body>
+</html>
