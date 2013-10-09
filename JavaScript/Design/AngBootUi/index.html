@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="plunker">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div ng-controller="ListCtrl">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="person in people">
+          <td>{{person.firstName}}</td>
+          <td>{{person.lastName}}</td>
+          <td><button class="btn btn-small" ng-click="edit(person)">Edit</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
