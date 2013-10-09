@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html ng-app>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Angular Repeater</title>
+        <script src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+        <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+    	<link rel="stylesheet" href="index.css" />
+    	<script src="index.js"></script>
+    	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Angular Repeater</h1>
+        
+        <div ng-controller="PersonController">
+        	<input type="number" ng-model="personValue">
+        	<input type="text" value={{getPersonValue()}}>
+        	<!-- input type="text" ng-model="{{getPersonValue()}}" -->
+        	<input type="text" ng-model="people[0].lastName">
+        	<ul>
+        		<li ng-repeat="person in people">{{person.firstName}} {{person.lastName}} <button class="btn btn-small" ng-click="edit(person)">Edit</button></li>
+        		        			
+        	</ul>
+        	
+        </div>
+        
+    </body>
+</html>
