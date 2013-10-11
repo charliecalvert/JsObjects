@@ -1,8 +1,9 @@
 <div class="modal-header">
-  <h1>Edit {{person.firstName}}</h1>
+  <h1>Edit: {{person.firstName}} {{person.lastName}}</h1>
 </div>
 <div class="modal-body">
   <p><input ng-model="person.firstName" /></p>
+  <p><input ng-model="person.lastName" /></p>
 </div>
 <div class="modal-footer">
   <button ng-click="save()" class="btn btn-primary" >Save</button>

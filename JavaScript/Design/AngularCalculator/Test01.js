@@ -1,23 +1,23 @@
 // specs code
 describe("calculator", function() {'use strict';
-	var $scope = null;
+	var $mockScope = null;
 	var pc = null;
 	
 	beforeEach(inject(function($rootScope, $controller) {
-		$scope = $rootScope.$new();
-		pc = $controller('AddController', { $scope: $scope }); 
+		$mockScope = $rootScope.$new();
+		pc = $controller('AddController', { $scope: $mockScope }); 
 	}));
 	
 	it("Sum two values", function() {
-		$scope.operandA = 3;
-		$scope.operandB = 5;
-		expect($scope.func()).toEqual(8);
+	    $mockScope.operandA = 3;
+		$mockScope.operandB = 5;
+		expect($mockScope.func()).toEqual(8);
 	});
 
     it("Sum two other values", function() {
-        $scope.operandA = 2;
-        $scope.operandB = 9;
-        expect($scope.func()).toEqual(11);
+        $mockScope.operandA = 2;
+        $mockScope.operandB = 9;
+        expect($mockScope.func()).toEqual(11);
     });
 
 });
