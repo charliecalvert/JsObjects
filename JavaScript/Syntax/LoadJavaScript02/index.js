@@ -4,7 +4,8 @@
 
 
 // From: http://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/
-// And quite frankly, everywhere else in the world. It is ubiquitous
+// That is Nicholas C. Zakas and I found it in his book on JavaScript Performance 
+// ISBN 9780596802790
 function loadScript(url, callback){
 
     var script = document.createElement("script");
