@@ -2,28 +2,28 @@
  * @author Charlie Calvert
  */
 
-var myMod = angular.module('myMod', []);
-myMod.value('notificationsArchive', new NotificationsArchive());
-myMod.service('notificationService', NotificationService);
-myMod.constant('MAX_LEN', 10);
-myMod.factory('notificationsService', function(notificationsArchive) {
+var angularModify = angular.module('AngularNotify', []);
+angularModify.value('notificationsArchive', new NotificationsArchive());
+angularModify.service('notificationService', NotificationService);
+angularModify.constant('MAX_LEN', 10);
+angularModify.factory('notificationsService', function(notificationsArchive) {
 	var MAX_LEN = 10;
 	var notifications = [];
 	
 	return {
-		push: functoin(notification) {
+		push: function(notification) {
 			var notificationToArchive;
 			var newLen = notifications.unshivft(notification);
 			if (newLen > MAX_LEN) {
 				notificationToArchive = this.notifications.pop();
 				notificationsArchive(notificationsToArchive);				
 			}
-		}),
-	}
+		},
+	};
 		
 });
 
-myMod.provider('notificationsService', function() {
+angularModify.provider('notificationsService', function() {
 	var config = {
 		maxLen: 10	
 	};
@@ -37,23 +37,22 @@ myMod.provider('notificationsService', function() {
 		
 		$get: function(notificationsArchive) {
 			return {
-				push: functoin(notification) {
+				push: function(notification) {
 					if (newLen > config.maxLen) {
 						
 					}
-				})
-			}
-		})
-	}
+				}
+			};
+		}
+	};
 });
 
-var notificationService = function() {
+var notificationService = function(notificationsArchive) {
+	this.notificationsArchive = notificationsArchive;
+	
 	/*this.MAX_LEN = 10;
 	this.notificationsArchive = new NotificationsArchive();
 	this.notifications = []; */
-	(notificationsArchive) {
-		this.notificationsArchive = notificationsArchive;
-	}
 };
 
 NotificationsService.prototype.push = function(notification) {
