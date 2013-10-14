@@ -4,30 +4,33 @@
 
 var angularNotify = angular.module('AngularNotify', ['noteArchive']);
 
-angularNotify.constant('MAX_LEN', 10);
+// angularNotify.constant('MAX_LEN', 3);
 
 // Value objects 
 // Value Objects cannot depend on another service. There is no place to do that.
 angularNotify.value('noteArchive', new NoteArchive());
 
-// Service Example
+/* Service Example
 angularNotify.service('noteService', NoteService);
 
 
 // Factory Example
-angularNotify.factory('noteService', function(notificationsArchive) {
-	var MAX_LEN = 10;
-	var notifications = [];
+angularNotify.factory('noteService', function(noteArchive) {
+	var MAX_LEN = 3;
+	var noteArray = [];
 	
 	return {
 		push: function(notification) {
-			var notificationToArchive;
-			var newLen = notifications.unshift(notification);
+			var noteToArchive;
+			// Add item to beginning of array
+			var newLen = noteArray.unshift(notification);
 			if (newLen > MAX_LEN) {
-				notificationToArchive = this.notification.pop();
-				notificationsArchive(notificationsToArchive);				
+				notificationToArchive = noteArray.pop();
+				noteArchive(noteToArchive);				
 			}
 		},
+		
+		description: "I'm from the factory"
 	};
 		
 });
@@ -35,10 +38,10 @@ angularNotify.factory('noteService', function(notificationsArchive) {
 // Provide example
 angularNotify.provider('noteService', function() {
 	var config = {
-		maxLen: 10	
+		maxLen: 3	
 	};
 	
-	var notifications = [];
+	var noteArray = [];
 	
 	return {
 		setMaxLen: function(maxLen) {
@@ -49,13 +52,16 @@ angularNotify.provider('noteService', function() {
 			return {
 				push: function(notification) {
 					if (newLen > config.maxLen) {
-						
+						notificationToArchive = noteArray.pop();
+						notificationsArchive(notificationsToArchive);	
 					}
 				}
 			};
-		}
+		},
+		
+		description: "I'm from the provider"
 	};
-});
+}); */
 
 var NoteController = function($scope, noteArchive) {
 	$scope.noteData = "DataMy " + noteArchive.description;

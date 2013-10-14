@@ -1,0 +1,16 @@
+body {
+	background-color: #00FFAA;
+}
+
+#archive {
+	background-color: #00BBCC;
+}
+
+button {
+	background-image: linear-gradient(to bottom, #00AAcc, #0077cc);
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 30px;
+	color: #00FFFF;
+	border-radius: 8px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html ng-app="AngularNotify">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>AngularNotify</title>
+        <script src="angular.js"></script>
+        <script src="NoteArchive.js"></script>
+        <script src="NoteService.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body ng-controller="NoteController">
+        <h1>Angular Notify</h1>
+        
+        <div>
+        	<p ng-model="noteData">{{noteData}}</p>
+        	<textarea ng-model="note" cols="25" value="Test Data"> </textarea>        	
+        </div>
+        <div>
+        	<button class="btn btn-primary" ng-click="addNote()">Add</button>
+        </div>
+        <div>
+        	<ul ng-repeat="notification in getNotes()">
+        		<li>{{notification}}</li>
+    		</ul>
+        </div>
+    </body>
+</html>
