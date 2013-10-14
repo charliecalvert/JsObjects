@@ -43,3 +43,81 @@ To see the complete file, look at [Test01.html](Test01.html)
 Create Our Tests
 ----------------
 
+There are two steps:
+
+- Add the boilerplate (only needs to be done once)
+- Add the test
+
+###Add the boilerplate
+
+In Test01.js, add the following boilerplate that rarely changes:
+
+```
+(function() {'use strict';
+	var jasmineEnv = jasmine.getEnv();
+	jasmineEnv.updateInterval = 1000;
+
+	var reporter = new jasmine.HtmlReporter();
+
+	jasmineEnv.addReporter(reporter);
+
+	jasmineEnv.specFilter = function(spec) {
+		return reporter.specFilter(spec);
+	};
+
+	var currentWindowOnload = window.onload;
+
+	window.onload = function() {
+		if (currentWindowOnload) {
+			currentWindowOnload();
+		}
+		execJasmine();
+	};
+
+	function execJasmine() {
+		jasmineEnv.execute();
+	}
+
+})();
+```
+
+You can also put the boilerplate in a Script tag in your HTML,
+but that breaks our rule about separating JavaScript from HTML
+from CSS.
+
+###Write your tests.
+
+Also in Test01.js, write your tests:
+
+describe("calculator", function() {'use strict';
+	var $mockScope = null;
+	var pc = null;
+	
+	beforeEach(inject(function($rootScope, $controller) {
+		$mockScope = $rootScope.$new();
+		pc = $controller('AddController', { $scope: $mockScope }); 
+	}));
+	
+	it("Sum two values", function() {
+	    $mockScope.operandA = 3;
+		$mockScope.operandB = 5;
+		expect($mockScope.func()).toEqual(8);
+	});
+});
+
+Forgive me for naming the variable #mockScope. It is not a 
+mock object, it is real instance of AddController. 
+
+The key lines of code here are these, which creates and
+then initializes an instance of the object we want to test:
+
+	$mockScope = $rootScope.$new();
+	pc = $controller('AddController', { $scope: $mockScope });
+
+Now we are free to write some tests:
+
+	it("Sum two values", function() {
+	    $mockScope.operandA = 3;
+		$mockScope.operandB = 5;
+		expect($mockScope.func()).toEqual(8);
+	});
