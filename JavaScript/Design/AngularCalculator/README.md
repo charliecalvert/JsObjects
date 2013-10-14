@@ -108,8 +108,8 @@ describe("calculator", function() {'use strict';
 Forgive me for naming the variable #mockScope. It is not a 
 mock object, it is real instance of AddController. 
 
-The key lines of code here are these, which creates and
-then initializes an instance of the object we want to test:
+The key lines of code here are these, which create and
+then initialize an instance of the object we want to test:
 
 	$mockScope = $rootScope.$new();
 	pc = $controller('AddController', { $scope: $mockScope });
