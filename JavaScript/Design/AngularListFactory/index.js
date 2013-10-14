@@ -8,31 +8,32 @@ var angularNotify = angular.module('AngularNotify', []);
 
 
 
-angularNotify.controller('NoteController', function ($scope, noteService) {
+angularNotify.controller('NoteController', function ($scope, numberService) {
 
 	var count = 1;
-	$scope.noteData = "I'm the Note Controller";
+	$scope.noteData = "I'm the Add Numbers Controller";
 	$scope.debug = "Debug";
-	$scope.note = "Test 0";
+	$scope.number = 0;
 
 	$scope.addNote = function() {
-		noteService.push($scope.note);
-		$scope.note = 'Test' + ' ' + count++;
-		$scope.archiveCount = 'ArchiveCount: ' + noteService.getArchiveCount();
+		numberService.push($scope.number);
+		$scope.number += count++;
+		$scope.debug = numberService.getTotal();
+		$scope.archiveCount = 'Archive Total: ' + numberService.getArchiveCount();
 	};
 
     $scope.getNotes = function () {
-      return noteService.getNotes();
+      return numberService.getNotes();
     };
     
     $scope.getArchive = function() {
-    	return noteService.getArchive();
+    	return numberService.getArchive();
     };
 
 });
   
 // Factory Example
-angularNotify.factory('noteService', function(noteArchive) {
+angularNotify.factory('numberService', function(noteArchive) {
 	var MAX_NOTES = 3;
 
 	var noteArray = [];
@@ -50,6 +51,14 @@ angularNotify.factory('noteService', function(noteArchive) {
 		
 		getNotes: function() {
 			return noteArray;
+		},
+		
+		getTotal: function() {
+			var total = 0;
+			for (var i = 0; i < noteArray.length; i++) {
+				total += noteArray[i];
+			}	
+			return total;
 		},
 		
 		getArchiveCount: function() {
@@ -76,7 +85,11 @@ angularNotify.factory('noteArchive', function() {
 		},
 		
 		itemCount: function() {
-			return archive.length;
+			var total = 0;
+			for (var i = 0; i < archive.length; i++) {
+				total = total + archive[i];
+			}
+			return total;
 		},
 		
 		getArchive: function() {
