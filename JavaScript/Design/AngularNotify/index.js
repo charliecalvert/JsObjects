@@ -2,20 +2,29 @@
  * @author Charlie Calvert
  */
 
-var angularModify = angular.module('AngularNotify', []);
-angularModify.value('notificationsArchive', new NotificationsArchive());
-angularModify.service('notificationService', NotificationService);
-angularModify.constant('MAX_LEN', 10);
-angularModify.factory('notificationsService', function(notificationsArchive) {
+var angularNotify = angular.module('AngularNotify', ['noteArchive']);
+
+angularNotify.constant('MAX_LEN', 10);
+
+// Value objects 
+// Value Objects cannot depend on another service. There is no place to do that.
+angularNotify.value('noteArchive', new NoteArchive());
+
+// Service Example
+angularNotify.service('noteService', NoteService);
+
+
+// Factory Example
+angularNotify.factory('noteService', function(notificationsArchive) {
 	var MAX_LEN = 10;
 	var notifications = [];
 	
 	return {
 		push: function(notification) {
 			var notificationToArchive;
-			var newLen = notifications.unshivft(notification);
+			var newLen = notifications.unshift(notification);
 			if (newLen > MAX_LEN) {
-				notificationToArchive = this.notifications.pop();
+				notificationToArchive = this.notification.pop();
 				notificationsArchive(notificationsToArchive);				
 			}
 		},
@@ -23,7 +32,8 @@ angularModify.factory('notificationsService', function(notificationsArchive) {
 		
 });
 
-angularModify.provider('notificationsService', function() {
+// Provide example
+angularNotify.provider('noteService', function() {
 	var config = {
 		maxLen: 10	
 	};
@@ -47,25 +57,6 @@ angularModify.provider('notificationsService', function() {
 	};
 });
 
-var notificationService = function(notificationsArchive) {
-	this.notificationsArchive = notificationsArchive;
-	
-	/*this.MAX_LEN = 10;
-	this.notificationsArchive = new NotificationsArchive();
-	this.notifications = []; */
+var NoteController = function($scope, noteArchive) {
+	$scope.noteData = "DataMy " + noteArchive.description;
 };
-
-NotificationsService.prototype.push = function(notification) {
-	var newLen, notificationToArchive;
-	newLen = this.notifications.unshift(notification);
-	if (newLen > this.MAX_LINE) {
-		notificationToArchive = this.notifications.pop();
-		this.notificationsArchive.archive(notificationToArchive);	
-	}	
-};
-
-NotificationService.prototype.getCurrent = function() {
-	return this.notifications;
-};
-
-

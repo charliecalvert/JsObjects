@@ -2,9 +2,17 @@
 <html ng-app="AngularNotify">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>New Web Project</title>
+        <title>AngularNotify</title>
+        <script src="angular.js"></script>
+        <script src="NoteArchive.js"></script>
+        <script src="NoteService.js"></script>
+        <script src="index.js"></script>
     </head>
     <body>
-        <h1>New Web Project Page</h1>
+        <h1>Angular Notify</h1>
+        
+        <div ng-controller="NoteController">
+        	<p ng-model="noteData">{{noteData}}</p>
+        </div>
     </body>
 </html>
