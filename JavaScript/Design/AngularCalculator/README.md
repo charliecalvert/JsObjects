@@ -50,7 +50,8 @@ There are two steps:
 
 ###Add the boilerplate
 
-In Test01.js, add the following boilerplate that rarely changes:
+In Test01.js, add the following boilerplate code that initializes 
+Jasmine and that rarely changes:
 
 ```
 (function() {'use strict';
@@ -89,6 +90,7 @@ from CSS.
 
 Also in Test01.js, write your tests:
 
+```
 describe("calculator", function() {'use strict';
 	var $mockScope = null;
 	var pc = null;
@@ -104,6 +106,7 @@ describe("calculator", function() {'use strict';
 		expect($mockScope.func()).toEqual(8);
 	});
 });
+```
 
 Forgive me for naming the variable #mockScope. It is not a 
 mock object, it is real instance of AddController. 
