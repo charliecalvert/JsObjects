@@ -1,5 +1,5 @@
 {
-  "name": "Grunt01 Sample",
+  "name": "Grunt01Sample",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.1",
