@@ -1,0 +1,22 @@
+/* Default */
+body {
+	background-color: #0088FF;
+	color: #FFFFFF;
+}
+
+/* Medium */
+@media screen and (max-width: 1024px) {
+	body {
+		background-color: #00FF00;
+		color: #006600;
+	}
+}
+
+/* Small */
+@media screen and (max-width: 520px) {
+	body {
+		background-color: #FF0000;
+		color: #440000;
+	}
+}	
+
