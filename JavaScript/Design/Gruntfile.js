@@ -2,10 +2,10 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		jshint: {
-			files: ['*.js'],
+			files: ['Angular03/**/*.js'],
 
 			options: {
-				ignores: ['angular.js']
+				ignores: ['angular.js', 'Angular03/**/angular.js']
 			}
 		}
 	});

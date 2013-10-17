@@ -8,4 +8,5 @@ jarlist.cache
 geany_run_script.bat
 node_modules
 MyTempDir
+DeleteMe*
 

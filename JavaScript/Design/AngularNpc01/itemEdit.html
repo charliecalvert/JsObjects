@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4>Edit: Name: {{npc.npcName}} HitPoints: {{npc.hitPoints}} Health: {{npc.health}} TotalMoves: {{npc.totalMoves}}</h4>
+</div>
+<div class="modal-body">
+  <p>NpcName: <input ng-model="npc.npcName" /></p>
+  <p>HitPoints: <input ng-model="npc.hitPoints" /></p>
+  <p>Health: <input ng-model="npc.health" /></p>
+  <p>TotalMoves: <input ng-model="npc.totalMoves" /></p>
+</div>
+<div class="modal-footer">
+  <button ng-click="save()" class="btn btn-primary" >Save</button>
+  <button ng-click="close()" class="btn" >close</button>
+</div>

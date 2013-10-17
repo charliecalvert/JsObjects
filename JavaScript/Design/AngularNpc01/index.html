@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html ng-app="npcapp">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+        <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+        <script src="NpcController.js"></script>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Angular NPC</h1>
+        <div ng-controller="NpcController">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>HitPoints</th>
+                        <th>Health</th>
+                        <th>TotalMoves</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="npc in npcs">
+                        <td>{{npc.npcName}}</td>
+                        <td>{{npc.hitPoints}}</td>
+                        <td>{{npc.health}}</td>
+                        <td>{{npc.totalMoves}}</td>
+                        <td>
+                        <button class="btn btn-small" ng-click="edit(npc)">
+                            Edit
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
