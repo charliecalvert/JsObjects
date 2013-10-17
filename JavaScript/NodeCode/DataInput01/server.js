@@ -16,18 +16,19 @@ app.get('/', function(req, res) {
 
 app.post('/addToFive', function(request, response) {
 	console.log("AddToFive called");
-	console.log("request.body: " + JSON.stringify(request.body));	
+	console.log("request.body: " + JSON.stringify(request.body));
 	console.log("request.body.value: " + request.body.value);
-	
-	var newNumber = parseInt(request.body.value) + 5;
+
+	var newNumber = parseInt(request.body.value, 10) + 5;
 	response.send( { result : "Success", value: newNumber } );
 });
 
-app.get('/addToNine', function(request, response) {	
+app.get('/addToNine', function(request, response) {
 	console.log('AddToNine request.query: ' + JSON.stringify(request.query));
 	console.log('AddToNine request.query.userNumber: ' + request.query.userNumber);
+	var newValue = null;
 	try {
-		var newValue = parseInt(request.query.userNumber) + 9;
+		newValue = parseInt(request.query.userNumber, 10) + 9;
 	} catch(error) {
 		console.log(error);
 	}

@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="DataInputCordova01/assets/www/js/DataInput.js">
+		<error line="34" column="6" severity="error" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="7,8,12,21,30,40,43,62,68" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="45,49" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="68" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="ExpressLink/app.js">
+		<error line="7" column="3" severity="error" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="6" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="7" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="8" column="35" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="9" column="26" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="6,7,8,9,10,25" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="15" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="16,25,26" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="38" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="ExpressUser02/app.js">
+		<error line="7" column="3" severity="error" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="6" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="7" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="8" column="35" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="9" column="26" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="6,7,8,9,10" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="15" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="16,23" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="34" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="ExpressUser03/app.js">
+		<error line="7" column="3" severity="error" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="6" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="7" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="8" column="35" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="9" column="26" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="6,7,8,9,10,23" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="15" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="16,23,24" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="49" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="34" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="40" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="HelloExpress02/server.js">
+		<error line="28" column="5" severity="error" message="Forgotten &apos;debugger&apos; statement?" source="jshint.W087" />
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="10,29,38" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="11" column="0" severity="warning" message="Implied global &apos;User&apos;" source="jshint.implied-globals" />
+		<error line="30,36" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Unused variable: &apos;res&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Presidents/Public/Presidents/ElvenPresidents.js">
+		<error line="9" column="25" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+	</file>
+	<file name="Presidents/server.js">
+		<error line="25" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="27" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="28" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="44" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="46" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="47" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="60" column="42" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="66" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="68" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="69" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="15,16,19,25,27,34,35,38,44,46,53,54,55,56,57,58,66,68,91" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="87" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="8" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="74" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/Display.js">
+		<error line="27" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="28" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="29" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="30" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="7,23,24,46,47,48,49,50" column="0" severity="warning" message="Implied global &apos;thisDisplay&apos;" source="jshint.implied-globals" />
+		<error line="12,31,37,42" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="25,32" column="0" severity="warning" message="Implied global &apos;textToDisplay&apos;" source="jshint.implied-globals" />
+		<error line="23" column="0" severity="warning" message="Unused variable: &apos;middle&apos;" source="jshint.implied-unuseds" />
+		<error line="24" column="0" severity="warning" message="Unused variable: &apos;displayMiddle&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/Presidents.js">
+		<error line="20" column="13" severity="error" message="It&apos;s not necessary to initialize &apos;middleName&apos; to &apos;undefined&apos;." source="jshint.W080" />
+		<error line="22" column="28" severity="error" message="&apos;middleName&apos; is already defined." source="jshint.W004" />
+		<error line="32" column="29" severity="error" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="96" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="15,16,29,31,33,35,51,52,62,70,71,84,101,102,103,156,173,175,176,177,178,179,180" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="16,17" column="0" severity="warning" message="Implied global &apos;presidentName&apos;" source="jshint.implied-globals" />
+		<error line="45" column="0" severity="warning" message="Implied global &apos;window&apos;" source="jshint.implied-globals" />
+		<error line="62,156" column="0" severity="warning" message="Implied global &apos;request&apos;" source="jshint.implied-globals" />
+		<error line="104" column="0" severity="warning" message="Implied global &apos;firstName&apos;" source="jshint.implied-globals" />
+		<error line="104" column="0" severity="warning" message="Implied global &apos;lastName&apos;" source="jshint.implied-globals" />
+		<error line="105,133,146" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="113,114,115" column="0" severity="warning" message="Implied global &apos;names&apos;" source="jshint.implied-globals" />
+		<error line="125" column="0" severity="warning" message="Implied global &apos;ELF&apos;" source="jshint.implied-globals" />
+		<error line="137" column="0" severity="warning" message="Implied global &apos;query&apos;" source="jshint.implied-globals" />
+		<error line="173" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+		<error line="174" column="0" severity="warning" message="Implied global &apos;Display&apos;" source="jshint.implied-globals" />
+		<error line="174" column="0" severity="warning" message="Implied global &apos;Utilities&apos;" source="jshint.implied-globals" />
+		<error line="1" column="0" severity="warning" message="Unused variable: &apos;initUtilities&apos;" source="jshint.implied-unuseds" />
+		<error line="1" column="0" severity="warning" message="Unused variable: &apos;displayInit&apos;" source="jshint.implied-unuseds" />
+		<error line="162" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/testAzureSimpleDb.js">
+		<error line="69" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="82" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="83" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="84" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="106" column="18" severity="error" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1,3,22,116,117,123,128" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="10,26" column="0" severity="warning" message="Implied global &apos;thisTestDisplay&apos;" source="jshint.implied-globals" />
+		<error line="41,71" column="0" severity="warning" message="Implied global &apos;module&apos;" source="jshint.implied-globals" />
+		<error line="43,51" column="0" severity="warning" message="Implied global &apos;test&apos;" source="jshint.implied-globals" />
+		<error line="45,46,74,76,78,90,100" column="0" severity="warning" message="Implied global &apos;presidents&apos;" source="jshint.implied-globals" />
+		<error line="45,53,74" column="0" severity="warning" message="Implied global &apos;Presidents&apos;" source="jshint.implied-globals" />
+		<error line="47,48,92,93" column="0" severity="warning" message="Implied global &apos;len&apos;" source="jshint.implied-globals" />
+		<error line="48,80,84,93,108,124,129" column="0" severity="warning" message="Implied global &apos;ok&apos;" source="jshint.implied-globals" />
+		<error line="53" column="0" severity="warning" message="Implied global &apos;states&apos;" source="jshint.implied-globals" />
+		<error line="60" column="0" severity="warning" message="Implied global &apos;equal&apos;" source="jshint.implied-globals" />
+		<error line="73,74,75,77,89,91,92,95,102,103" column="0" severity="warning" message="Implied global &apos;testDisplay&apos;" source="jshint.implied-globals" />
+		<error line="88,99,115" column="0" severity="warning" message="Implied global &apos;asyncTest&apos;" source="jshint.implied-globals" />
+		<error line="94,109,125,130" column="0" severity="warning" message="Implied global &apos;start&apos;" source="jshint.implied-globals" />
+		<error line="114" column="0" severity="warning" message="Unused variable: &apos;ajaxTestGood&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="17" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="122" column="0" severity="warning" message="Unused variable: &apos;xml&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/utilities.js">
+		<error line="9" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="14" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="19" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="30" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="17" column="0" severity="warning" message="Implied global &apos;item&apos;" source="jshint.implied-globals" />
+		<error line="24,25" column="0" severity="warning" message="Implied global &apos;pres&apos;" source="jshint.implied-globals" />
+		<error line="1" column="0" severity="warning" message="Unused variable: &apos;Utilities&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;value&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/server.js">
+		<error line="57" column="44" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="19,27,29,39,42,44,47,54,55,56,72" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="58" column="0" severity="warning" message="Implied global &apos;outcome&apos;" source="jshint.implied-globals" />
+		<error line="70" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="18" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="38" column="0" severity="warning" message="Unused variable: &apos;result&apos;" source="jshint.implied-unuseds" />
+		<error line="61" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/temp/index.js">
+		<error line="1" column="18" severity="error" message="Missing &apos;()&apos; invoking a constructor." source="jshint.W058" />
+		<error line="20" column="5" severity="error" message="Expected &apos;)&apos; and instead saw &apos;}&apos;." source="jshint.W116" />
+		<error line="20" column="6" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="20" column="6" severity="error" message="Expected an identifier and instead saw &apos;)&apos;." source="jshint.E030" />
+		<error line="20" column="6" severity="error" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="21" column="9" severity="error" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="21" column="14" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="21" column="15" severity="error" message="Expected &apos;}&apos; to match &apos;{&apos; from line 14 and instead saw &apos;:&apos;." source="jshint.E020" />
+		<error line="21" column="16" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="22" column="9" severity="error" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="22" column="17" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="22" column="18" severity="error" message="Expected &apos;(end)&apos; and instead saw &apos;:&apos;." source="jshint.W116" />
+		<error line="1" column="0" severity="warning" message="Implied global &apos;presidents&apos;" source="jshint.implied-globals" />
+		<error line="8" column="0" severity="warning" message="Implied global &apos;that&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Implied global &apos;itemNameChoice&apos;" source="jshint.implied-globals" />
+		<error line="15,16,17" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="17" column="0" severity="warning" message="Implied global &apos;request&apos;" source="jshint.implied-globals" />
+		<error line="19" column="0" severity="warning" message="Implied global &apos;thi&apos;" source="jshint.implied-globals" />
+		<error line="20" column="0" severity="warning" message="Implied global &apos;s&apos;" source="jshint.implied-globals" />
+		<error line="21" column="0" severity="warning" message="Implied global &apos;cache&apos;" source="jshint.implied-globals" />
+		<error line="22" column="0" severity="warning" message="Implied global &apos;dataType&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="PresidentsJson/temp/index01.js">
+		<error line="9" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="10" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="11" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="12" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="13" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="14" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="15" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="16" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="17" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="18" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="19" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="20" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="21" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="22" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="23" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="24" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="25" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="26" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="27" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="28" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="29" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="30" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="31" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="32" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="37" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="38" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="39" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="40" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="41" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="42" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="43" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="44" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="45" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="46" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="47" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="48" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="49" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="50" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="51" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="52" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="53" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="54" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="55" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="56" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="57" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="58" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="59" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="60" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="61" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="62" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="62" column="1" severity="error" message="Too many errors. (89% scanned)." source="jshint.E043" />
+		<error line="4,5" column="0" severity="warning" message="Implied global &apos;cgiPath&apos;" source="jshint.implied-globals" />
+		<error line="9,10,11,18,19,20,22,37,38,41,48,49,50,52" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="11,41" column="0" severity="warning" message="Implied global &apos;request&apos;" source="jshint.implied-globals" />
+		<error line="14" column="0" severity="warning" message="Implied global &apos;readXml&apos;" source="jshint.implied-globals" />
+		<error line="26,27,28,29,30,40,56,57,58,59,60" column="0" severity="warning" message="Implied global &apos;showDebug&apos;" source="jshint.implied-globals" />
+		<error line="39,40,44" column="0" severity="warning" message="Implied global &apos;dataRequest&apos;" source="jshint.implied-globals" />
+		<error line="45" column="0" severity="warning" message="Implied global &apos;postXml&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="Session03/Library/SessionHelper.js">
+		<error line="20" column="9" severity="error" message="Forgotten &apos;debugger&apos; statement?" source="jshint.W087" />
+		<error line="5,6" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="41" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="Session03/server.js">
+		<error line="58" column="36" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="2,4,6" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="17,45,58,59,72,76" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="68,69" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="14" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="71" column="0" severity="warning" message="Unused variable: &apos;response&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Session04/Library/SessionHelper.js">
+		<error line="24" column="4" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="24" column="9" severity="error" message="Forgotten &apos;debugger&apos; statement?" source="jshint.W087" />
+		<error line="39" column="40" severity="error" message="[&apos;connection&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="42" column="8" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="42" column="42" severity="error" message="[&apos;cookieName01&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="43" column="8" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="43" column="42" severity="error" message="[&apos;cookieName02&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="44" column="8" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="44" column="42" severity="error" message="[&apos;cookieName03&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="45" column="8" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="46" column="8" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+	</file>
+	<file name="Session04/server.js">
+		<error line="7" column="3" severity="error" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="6" column="32" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="7" column="39" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="8" column="35" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="9" column="26" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="10" column="22" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="11" column="52" severity="error" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="50" column="56" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="94" column="36" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="6,7,8,9,10,11,12,28" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="18" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="19,28,29" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="37,68,81,94,95,101" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="45" column="0" severity="warning" message="Unused variable: &apos;info&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleDb05/src/public/javascripts/index.js">
+		<error line="7" column="2" severity="error" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="59" column="42" severity="error" message="[&apos;$ItemName&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="218" column="17" severity="error" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="218" column="32" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="258" column="2" severity="error" message="Missing semicolon." source="jshint.W033" />
+		<error line="304" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="305" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="306" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="307" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="3,50,68,91,92,97,98,103,104,109,110,115,116,135,149,151,167,177,207,242,265" column="0" severity="warning" message="Implied global &apos;that&apos;" source="jshint.implied-globals" />
+		<error line="4,35,44,45,59,62,77,80,128,130,146,153,157,179,233,235,241,254,256,275,277" column="0" severity="warning" message="Implied global &apos;display&apos;" source="jshint.implied-globals" />
+		<error line="5,43,136,212,261" column="0" severity="warning" message="Implied global &apos;presidentMode&apos;" source="jshint.implied-globals" />
+		<error line="6,29,35,220,265,266" column="0" severity="warning" message="Implied global &apos;selectedItem&apos;" source="jshint.implied-globals" />
+		<error line="11,12,13,14,15,16,17,18,19,20,21,22,23,24,29,30,31,33,34,36,37,38,51,58,69,76,121,137,144,145,149,150,169,194,195,196,225,246,267,289,303,313,318" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="11" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+		<error line="51,69,121,137,169,225,246,267" column="0" severity="warning" message="Implied global &apos;request&apos;" source="jshint.implied-globals" />
+		<error line="86" column="0" severity="warning" message="Implied global &apos;window&apos;" source="jshint.implied-globals" />
+		<error line="168,172,266,270" column="0" severity="warning" message="Implied global &apos;query&apos;" source="jshint.implied-globals" />
+		<error line="197" column="0" severity="warning" message="Implied global &apos;firstName&apos;" source="jshint.implied-globals" />
+		<error line="197" column="0" severity="warning" message="Implied global &apos;lastName&apos;" source="jshint.implied-globals" />
+		<error line="198,213,262" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="205,206,207" column="0" severity="warning" message="Implied global &apos;names&apos;" source="jshint.implied-globals" />
+		<error line="284,300,301,322,323,324,325,326" column="0" severity="warning" message="Implied global &apos;thisDisplay&apos;" source="jshint.implied-globals" />
+		<error line="302,308" column="0" severity="warning" message="Implied global &apos;textToDisplay&apos;" source="jshint.implied-globals" />
+		<error line="232" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+		<error line="253" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+		<error line="274" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleDb05/src/public/javascripts/testAzureSimpleDb.js">
+		<error line="69" column="3" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="82" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="83" column="1" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="84" column="2" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+		<error line="106" column="18" severity="error" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1,3,22,116,117,123,128" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="10,26" column="0" severity="warning" message="Implied global &apos;thisTestDisplay&apos;" source="jshint.implied-globals" />
+		<error line="41,71" column="0" severity="warning" message="Implied global &apos;module&apos;" source="jshint.implied-globals" />
+		<error line="43,51" column="0" severity="warning" message="Implied global &apos;test&apos;" source="jshint.implied-globals" />
+		<error line="45,46,74,76,78,90,100" column="0" severity="warning" message="Implied global &apos;presidents&apos;" source="jshint.implied-globals" />
+		<error line="45,53,74" column="0" severity="warning" message="Implied global &apos;Presidents&apos;" source="jshint.implied-globals" />
+		<error line="47,48,92,93" column="0" severity="warning" message="Implied global &apos;len&apos;" source="jshint.implied-globals" />
+		<error line="48,80,84,93,108,124,129" column="0" severity="warning" message="Implied global &apos;ok&apos;" source="jshint.implied-globals" />
+		<error line="53" column="0" severity="warning" message="Implied global &apos;states&apos;" source="jshint.implied-globals" />
+		<error line="60" column="0" severity="warning" message="Implied global &apos;equal&apos;" source="jshint.implied-globals" />
+		<error line="73,74,75,77,89,91,92,95,102,103" column="0" severity="warning" message="Implied global &apos;testDisplay&apos;" source="jshint.implied-globals" />
+		<error line="88,99,115" column="0" severity="warning" message="Implied global &apos;asyncTest&apos;" source="jshint.implied-globals" />
+		<error line="94,109,125,130" column="0" severity="warning" message="Implied global &apos;start&apos;" source="jshint.implied-globals" />
+		<error line="114" column="0" severity="warning" message="Unused variable: &apos;ajaxTestGood&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="17" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="122" column="0" severity="warning" message="Unused variable: &apos;xml&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="127" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleDb05/src/server.js">
+		<error line="278" column="50" severity="error" message="[&apos;$ItemName&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="1,2,4,5" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="8,11,12" column="0" severity="warning" message="Implied global &apos;keys&apos;" source="jshint.implied-globals" />
+		<error line="14" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="49,59,69" column="0" severity="warning" message="Implied global &apos;res&apos;" source="jshint.implied-globals" />
+		<error line="139,188,189,190,198,204,205,206,207,213,225,234,238,240,247,254,256,293,305,308" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="191,194" column="0" severity="warning" message="Implied global &apos;outcome&apos;" source="jshint.implied-globals" />
+		<error line="203,207,208" column="0" severity="warning" message="Implied global &apos;lastName&apos;" source="jshint.implied-globals" />
+		<error line="212,213,214" column="0" severity="warning" message="Implied global &apos;uuid&apos;" source="jshint.implied-globals" />
+		<error line="278,280" column="0" severity="warning" message="Implied global &apos;itemName&apos;" source="jshint.implied-globals" />
+		<error line="316,326" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="25" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="34" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="36" column="0" severity="warning" message="Unused variable: &apos;meta&apos;" source="jshint.implied-unuseds" />
+		<error line="45" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="47" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="56" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="57" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="66" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="67" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="76" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="82" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="82" column="0" severity="warning" message="Unused variable: &apos;queryResult&apos;" source="jshint.implied-unuseds" />
+		<error line="91" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="137" column="0" severity="warning" message="Unused variable: &apos;meta&apos;" source="jshint.implied-unuseds" />
+		<error line="137" column="0" severity="warning" message="Unused variable: &apos;putItemResult&apos;" source="jshint.implied-unuseds" />
+		<error line="217" column="0" severity="warning" message="Unused variable: &apos;domain&apos;" source="jshint.implied-unuseds" />
+		<error line="223" column="0" severity="warning" message="Unused variable: &apos;meta&apos;" source="jshint.implied-unuseds" />
+		<error line="223" column="0" severity="warning" message="Unused variable: &apos;putItemResult&apos;" source="jshint.implied-unuseds" />
+		<error line="252" column="0" severity="warning" message="Unused variable: &apos;meta&apos;" source="jshint.implied-unuseds" />
+		<error line="262" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="268" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="291" column="0" severity="warning" message="Unused variable: &apos;metaData&apos;" source="jshint.implied-unuseds" />
+		<error line="291" column="0" severity="warning" message="Unused variable: &apos;queryResult&apos;" source="jshint.implied-unuseds" />
+		<error line="302" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="303" column="0" severity="warning" message="Unused variable: &apos;metadata&apos;" source="jshint.implied-unuseds" />
+		<error line="314" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="320" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson04/public/index.js">
+		<error line="37" column="11" severity="error" message="Mixed spaces and tabs." source="jshint.W099" />
+	</file>
+	<file name="AppUse01/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="14,17,18" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="21" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="AwsBasicS3/Server.js">
+		<error line="6,9,10" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="38" column="0" severity="warning" message="Implied global &apos;Buffer&apos;" source="jshint.implied-globals" />
+		<error line="106" column="0" severity="warning" message="Implied global &apos;dirStatusArray&apos;" source="jshint.implied-globals" />
+		<error line="116,118" column="0" severity="warning" message="Implied global &apos;s3Name&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;config&apos;" source="jshint.implied-unuseds" />
+		<error line="15" column="0" severity="warning" message="Unused variable: &apos;listBuckets&apos;" source="jshint.implied-unuseds" />
+		<error line="77" column="0" severity="warning" message="Unused variable: &apos;resp&apos;" source="jshint.implied-unuseds" />
+		<error line="91" column="0" severity="warning" message="Unused variable: &apos;root&apos;" source="jshint.implied-unuseds" />
+		<error line="101" column="0" severity="warning" message="Unused variable: &apos;root&apos;" source="jshint.implied-unuseds" />
+		<error line="122" column="0" severity="warning" message="Unused variable: &apos;nodeStatsArray&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="DataInput01/public/index.js">
+		<error line="4,5,9,18,27,37,40,59,65" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="42,46" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="65" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="DataInput01/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="18,19,20,27,28,33,41" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="38" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="10" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="DataInput02/public/index.js">
+		<error line="4,9,17,21,22,44,50" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="10" column="0" severity="warning" message="Implied global &apos;Handlebars&apos;" source="jshint.implied-globals" />
+		<error line="27,31" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="29" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="50" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+		<error line="35" column="0" severity="warning" message="Unused variable: &apos;showError&apos;" source="jshint.implied-unuseds" />
+		<error line="22" column="0" severity="warning" message="Unused variable: &apos;i&apos;" source="jshint.implied-unuseds" />
+		<error line="28" column="0" severity="warning" message="Unused variable: &apos;errorThrown&apos;" source="jshint.implied-unuseds" />
+		<error line="28" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="DataInput02/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="31" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="34" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="11" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="18" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="DataInputCordova01/assets/www/js/index.js">
+	</file>
+	<file name="DataInputCordova01/assets/www/js/utility.js">
+	</file>
+	<file name="ExpressLink/routes/index.js">
+		<error line="6,10" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="10" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="ExpressLink/routes/user.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="ExpressUser02/routes/index.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="ExpressUser02/routes/user.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="ExpressUser03/routes/index.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="ExpressUser03/routes/user.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Gruntfile.js">
+		<error line="1" column="0" severity="warning" message="Implied global &apos;module&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="HelloExpress/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="8,14" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="16" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Presidents/Public/Elf.js">
+		<error line="5" column="0" severity="warning" message="Unused variable: &apos;ELF&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Presidents/Public/Presidents/ElvenPresidentsEasy.js">
+		<error line="17" column="0" severity="warning" message="Unused variable: &apos;withValue&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Presidents/Public/Presidents/ElvenPresidentsEasy02.js">
+	</file>
+	<file name="Presidents/Public/Presidents/ElvenPresidentsPrivate.js">
+	</file>
+	<file name="Presidents/Public/Presidents/PresidentsUtils.js">
+		<error line="5,24" column="0" severity="warning" message="Implied global &apos;ELF&apos;" source="jshint.implied-globals" />
+		<error line="15,23,24,39,42,43,56,72,86,99,111" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="45,49" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="47" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="31" column="0" severity="warning" message="Unused variable: &apos;code&apos;" source="jshint.implied-unuseds" />
+		<error line="31" column="0" severity="warning" message="Unused variable: &apos;xhr&apos;" source="jshint.implied-unuseds" />
+		<error line="46" column="0" severity="warning" message="Unused variable: &apos;errorThrown&apos;" source="jshint.implied-unuseds" />
+		<error line="46" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Presidents/Public/Presidents/TestPresidents.js">
+		<error line="11,20,31,40,50,60,74,90,97,125" column="0" severity="warning" message="Implied global &apos;test&apos;" source="jshint.implied-globals" />
+		<error line="13,14,15,16,17,23,24,25,26,27,43,44,46,47,104,108,116,120" column="0" severity="warning" message="Implied global &apos;ok&apos;" source="jshint.implied-globals" />
+		<error line="33,34,35,36,37" column="0" severity="warning" message="Implied global &apos;raises&apos;" source="jshint.implied-globals" />
+		<error line="45,53,54,55,56,57,64,65,66,67,68,69,70,71,78,79,80,81,82,83,84,85,86,87,94" column="0" severity="warning" message="Implied global &apos;equal&apos;" source="jshint.implied-globals" />
+		<error line="93,94" column="0" severity="warning" message="Implied global &apos;j&apos;" source="jshint.implied-globals" />
+		<error line="101,126" column="0" severity="warning" message="Implied global &apos;stop&apos;" source="jshint.implied-globals" />
+		<error line="105,109,117,121" column="0" severity="warning" message="Implied global &apos;start&apos;" source="jshint.implied-globals" />
+		<error line="107" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="107" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="119" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="119" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/Elf.js">
+		<error line="5" column="0" severity="warning" message="Unused variable: &apos;ELF&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="PresidentsJson/public/js/ElvenPresidentsEasy02.js">
+	</file>
+	<file name="Session01/server.js">
+		<error line="2,4" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="15,40,51" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="50" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="12" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Session02/server.js">
+		<error line="1,2" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="8,9" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;res&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;res&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Session03/Public/main.js">
+	</file>
+	<file name="Session04/public/main.js">
+	</file>
+	<file name="Session04/routes/base01.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+		<error line="6" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="Session04/routes/user.js">
+		<error line="6" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="SimpleDb05/src/public/javascripts/utilities.js">
+		<error line="1,2" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="12,13" column="0" severity="warning" message="Implied global &apos;fileContent&apos;" source="jshint.implied-globals" />
+		<error line="13,14,15,16" column="0" severity="warning" message="Implied global &apos;keys&apos;" source="jshint.implied-globals" />
+		<error line="24" column="0" severity="warning" message="Implied global &apos;exports&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="SimpleReadWriteJson/public/index.js">
+		<error line="4,5,6,10,21,22,23,26,48,52,53,54" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="14" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="16" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="52" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;errorThrown&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="17,31,34,37,45" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="42" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="35" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson02/public/index.js">
+		<error line="21" column="0" severity="warning" message="Unused variable: &apos;errorThrown&apos;" source="jshint.implied-unuseds" />
+		<error line="21" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson02/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="17,31,34,37,44" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="42" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="35" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson03/public/index.js">
+		<error line="21" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson03/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="17,31,34,37,45" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="42" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="9" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="16" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="35" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="SimpleReadWriteJson04/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="15,33,35,37,46,47,54,64" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="61" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="52" column="0" severity="warning" message="Unused variable: &apos;data&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="TwoHtmlFiles/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="14,20,27" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="24" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="13" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="expressSend/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="8,26" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="28" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="14" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="22" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="foo/app.js">
+		<error line="1" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="foo/foo.js">
+		<error line="1" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+	</file>
+	<file name="jsonRead/public/index.js">
+		<error line="4,12,17,18,30,31" column="0" severity="warning" message="Implied global &apos;$&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;Handlebars&apos;" source="jshint.implied-globals" />
+		<error line="23,27" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="25" column="0" severity="warning" message="Implied global &apos;alert&apos;" source="jshint.implied-globals" />
+		<error line="30" column="0" severity="warning" message="Implied global &apos;document&apos;" source="jshint.implied-globals" />
+		<error line="18" column="0" severity="warning" message="Unused variable: &apos;i&apos;" source="jshint.implied-unuseds" />
+		<error line="24" column="0" severity="warning" message="Unused variable: &apos;errorThrown&apos;" source="jshint.implied-unuseds" />
+		<error line="24" column="0" severity="warning" message="Unused variable: &apos;jqXHR&apos;" source="jshint.implied-unuseds" />
+	</file>
+	<file name="jsonRead/server.js">
+		<error line="1,3" column="0" severity="warning" message="Implied global &apos;require&apos;" source="jshint.implied-globals" />
+		<error line="5" column="0" severity="warning" message="Implied global &apos;process&apos;" source="jshint.implied-globals" />
+		<error line="27" column="0" severity="warning" message="Implied global &apos;__dirname&apos;" source="jshint.implied-globals" />
+		<error line="30" column="0" severity="warning" message="Implied global &apos;console&apos;" source="jshint.implied-globals" />
+		<error line="7" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+		<error line="14" column="0" severity="warning" message="Unused variable: &apos;req&apos;" source="jshint.implied-unuseds" />
+	</file>
+</checkstyle>

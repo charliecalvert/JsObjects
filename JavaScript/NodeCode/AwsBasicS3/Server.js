@@ -53,7 +53,7 @@ function writeFile(localFileName, nameOnS3, binary) {
 				break;
 			case 'css':
 				contentType = 'text/css';
-				break
+				break;
 			case 'png':
 				contentType = 'image/png';
 				break;
@@ -115,7 +115,7 @@ function walkDirs() {
 		var s3Dir = pieces[pieces.length - 1];
 		s3Name = s3Dir + '/' + fileStats.name;
 		// console.log("s3Name: " + s3Name);
-	 	writeFile(fileName, s3Name, false);
+		writeFile(fileName, s3Name, false);
 		next();
 	});
 

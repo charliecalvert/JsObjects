@@ -10,7 +10,7 @@ var DataInput = (function() {
 	}
 
 	// This is the best way to POST data to the server
-	function addFive() {		
+	function addFive() {
 		var data = {
 			value : getUserNumber()
 		};
@@ -28,8 +28,8 @@ var DataInput = (function() {
 			},
 			error : showError
 		});
-	};
-	
+	}
+
 	// This is a okay way to post data to the server
 	// If you need to pass a lot of data, use POST,
 	// as shown above.
