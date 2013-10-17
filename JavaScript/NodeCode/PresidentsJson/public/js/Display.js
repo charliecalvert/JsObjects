@@ -24,12 +24,12 @@ Display.prototype.displayRow = function(row) {
 	var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
 	textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
 	var coreString = '<li><input id=' + row.itemName + 
-			  ' presidentName="' + row.presidentName +
-			  '" born=' + row.born + 
-			  ' died=' + row.died + 
-			  ' type=radio name=responseGroup />';
+		' presidentName="' + row.presidentName +
+		'" born=' + row.born + 
+		' died=' + row.died + 
+		' type=radio name=responseGroup />';
 	$('#response').append(coreString + 
-			textToDisplay + '</li>');	
+		textToDisplay + '</li>');	
 };
 
 Display.prototype.showResponse = function(textToDisplay)

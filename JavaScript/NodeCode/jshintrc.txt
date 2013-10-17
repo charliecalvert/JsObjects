@@ -1,0 +1,5 @@
+{
+  "unused": true,
+  "node": true,
+  "jquery": true
+}

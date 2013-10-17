@@ -16,7 +16,8 @@ module.exports = function(grunt) {
 					'**/cordova*.js',
 					'**/qunit*.js'],
 				reporter: 'checkstyle',
-				reporterOutput: 'result.xml'
+				reporterOutput: 'result.xml',
+				jshintrc: 'jshintrc.txt'
 			}
 		}
 	});

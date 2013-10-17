@@ -54,7 +54,7 @@ app.get('/putitem', function(request, result) {
 	console.log(request.query.presidentName);
 	console.log(request.query.born);
 	console.log(request.query.died);
-	writeToFile('temp.json', request.query)
+	writeToFile('temp.json', request.query);
 	result.send(outcome);
 });
 

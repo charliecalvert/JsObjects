@@ -1,3 +1,5 @@
+/* jshint devel: true, node: true, unused: true */
+
 var express = require('express');
 var app = express();
 var fs = require('fs');

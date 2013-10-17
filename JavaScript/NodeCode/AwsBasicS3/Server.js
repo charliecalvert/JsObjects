@@ -1,16 +1,15 @@
 // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3/Client.html
 // http://aws.amazon.com/pricing/s3/
 
-/*jshint browser: true, devel: true */
+/* jshint browser: true, devel: true, node: true, unused: true */
 
 var AWS = require('aws-sdk');
-var config = AWS.config.loadFromPath('./config.json');
+// var config = AWS.config.loadFromPath('./config.json');
 var s3 = new AWS.S3();
 var fs = require('fs');
 var walk = require('walk');
 
 var bucketName = 's3bucket03.elvenware.com';
-
 
 function listBuckets(s3) {
 	console.log("calling listBuckets");
@@ -74,8 +73,8 @@ function writeFile(localFileName, nameOnS3, binary) {
 			Key : nameOnS3,
 			Body : data,
 			ContentType: contentType
-		}, function(resp) {
-			console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType);
+		}, function(response) {
+			console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType + ' ' + response);
 		});
 	});
 }
@@ -103,7 +102,7 @@ function walkDirs() {
 		// * type
 		// * error
 		// * name
-		if (typeof dirStatusArray != 'undefined') 
+		if (typeof dirStatsArray != 'undefined') 
 			console.log("Directories: " + dirStatsArray.type);
 		next();
 	});
@@ -113,7 +112,7 @@ function walkDirs() {
 		var fileName = root + "/" + fileStats.name;
 		var pieces = root.split('/');
 		var s3Dir = pieces[pieces.length - 1];
-		s3Name = s3Dir + '/' + fileStats.name;
+		var s3Name = s3Dir + '/' + fileStats.name;
 		// console.log("s3Name: " + s3Name);
 		writeFile(fileName, s3Name, false);
 		next();
@@ -132,4 +131,4 @@ function walkDirs() {
 
 walkDirs();
 writeFile('CloudNotes.html', 'CloudNotes.html', false);
-//listBuckets(s3);
+listBuckets(s3);

@@ -25,7 +25,7 @@ app.get('/user/:id', function(req, res){
 }); 
 
 app.get('/:user', function(request, response) {
-    debugger;
+    // debugger;
     console.log(request.params.id);
 	var html = fs.readFileSync(__dirname + '/Public/index.html');
 	response.writeHeader(200, {"Content-Type": "text/html"});   

@@ -1,4 +1,4 @@
-﻿presidents = new Presidents;
+﻿presidents = new Presidents();
 
 function Presidents(option) {
 	this.cgiPath = "/cgi-bin/Presidents/";
@@ -8,7 +8,6 @@ function Presidents(option) {
 	that = this;
 	itemNameChoice = "";
 	option = option;
-
 }
 
 Presidents.prototype.readPresidents = function() {
@@ -16,8 +15,7 @@ Presidents.prototype.readPresidents = function() {
 	$("#debug").empty();
 	request = $.ajax({
 		type : "GET",
-		url : thi	}
-	});s.readXml,
+		url : this.readXml,
 		cache : false,
 		dataType : "xml",
 		success : function(xml) {
@@ -39,14 +37,13 @@ Presidents.prototype.readPresidents = function() {
 			that.showDebug(request.responseText);
 		}
 	});
-}
+};
 
-Presidents.prototype.insert = function()
-{
+Presidents.prototype.insert = function() {
 	var first = $('#firstName').val();
 	var last = $('#lastName').val();
 	this.postPresidents(first, last);
-}
+};
 
 Presidents.prototype.postPresidents = function(first, last) {
 	$("#items").empty();
@@ -66,8 +63,7 @@ Presidents.prototype.postPresidents = function(first, last) {
 				$("#items").append("<li>" + additions + "</li>");
 			});
 		},
-		error : f	}
-	});unction(request, ajaxOptions, thrownError) {
+		error : function(request, ajaxOptions, thrownError) {
 			that.showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
 			that.showDebug(request.status);
 			that.showDebug(request.statusText);
@@ -75,20 +71,19 @@ Presidents.prototype.postPresidents = function(first, last) {
 			that.showDebug(request.responseText);
 		}
 	});
-}
+};
 
 Presidents.prototype.radioButtonStateSelection = function() {
 	itemNameChoice = $("input[name=itemGroup]:checked").attr('itemName');
 	showDebug(itemNameChoice);
-}
+};
 
 Presidents.prototype.deletePresident = function() {
 	this.showDebug("Deletion");
 	itemNameChoice = $("input[name=itemGroup]:checked").attr('itemName');
 	deleteRequest = "delete=" + itemNameChoice;
 	request = $.ajax({
-		type : "P	}
-	});OST",
+		type : "POST",
 		data : deleteRequest,
 		url : this.deleteXml,
 		dataType : "xml",
@@ -107,17 +102,17 @@ Presidents.prototype.deletePresident = function() {
 			that.showDebug(request.responseText);
 		}
 	});
-}
+};
 
 Presidents.prototype.addToList = function(value, itemName, count) {
 	patId = 'Pat0' + count;
 	$("#items").append(
-			"<li><input itemName='" + itemName
-					+ "' type='radio' name='itemGroup' id='" + patId
-					+ "'/><label id='" + patId + "' for=" + patId + ">" + value
-					+ "</li>");
-}
+			"<li><input itemName='" + itemName + 
+			"' type='radio' name='itemGroup' id='" + patId + 
+			"'/><label id='" + patId + "' for=" + patId + ">" + 
+			value + "</li>");
+};
 
 Presidents.prototype.showDebug = function(textToDisplay) {
 	$("#debug").append('<li>' + textToDisplay + '</li>');
-}
+};

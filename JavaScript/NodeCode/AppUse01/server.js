@@ -1,13 +1,15 @@
+/* jshint node: true, unused: true */
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
 
 var port = process.env.PORT || 30025;
 
-app.get('/', function(req, res) {
+app.get('/', function(request, response) {
 	var html = fs.readFileSync('public/index.html');
-	res.writeHeader(200, {"Content-Type": "text/html"});
-	res.end(html);
+	response.writeHeader(200, {"Content-Type": "text/html"});
+	response.end(html);
 });
 
 app.get('/dirName', function(request, response) {

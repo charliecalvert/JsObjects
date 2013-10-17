@@ -17,9 +17,9 @@ var Presidents = (function(displayInit, initUtilities) {
 		var names = presidentName.split(' ');
 		var firstName = names[0];
 		var lastName = '';
-		var middleName = undefined;
+		var middleName;
 		if (names.length === 3) {
-			var middleName = names[1];
+			middleName = names[1];
 			lastName = names[2];
 		} else {
 			lastName = names[1];
@@ -29,7 +29,7 @@ var Presidents = (function(displayInit, initUtilities) {
 			middleName = ($.trim(middleName) === '-' ? '' : $.trim(middleName));
 		display.showDebug(selectedItem);
 		$('#firstName').val(firstName);
-		if (names.length = 3) {
+		if (names.length === 3) {
 			$('#middleName').val(middleName);
 		}
 		$('#lastName').val(lastName);
@@ -93,7 +93,7 @@ var Presidents = (function(displayInit, initUtilities) {
 			},
 			error: display.showError			
 		});	
-	}
+	};
 
 
 	function getNames() {

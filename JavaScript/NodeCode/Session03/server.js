@@ -55,7 +55,7 @@ app.get('/page03', function(request, response) {
 });
 
 app.post('/addUser', function(request, response) {
-    console.log('/addUser called.')
+    console.log('/addUser called.');
     console.log(request.body);
     request.session.userName = request.body.userName;
     response.send({'Result': JSON.stringify(request.session)});

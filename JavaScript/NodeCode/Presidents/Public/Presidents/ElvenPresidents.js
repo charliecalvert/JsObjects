@@ -6,7 +6,7 @@
 
 ELF.President = (function() {
 
-	function President() {		 		
+	function President() {
 	}
 
 	Object.defineProperty(President, "PresidentName", {

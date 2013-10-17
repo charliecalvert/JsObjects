@@ -13,40 +13,40 @@ app.get('/', function(req, res) {
 
 app.post('/writePresident', function(request, response){
 	console.log("writeJsonPostMargie called");
-	console.log(request.body);	
+	console.log(request.body);
 	var fileName = request.body.fileName;
 	var json = request.body.data;
 	console.log(fileName);
-	
+
 	json = JSON.stringify(json, null, 4);
-	
+
 	fs.writeFile(fileName, json, function(err) {
 		if(err) {
-		  console.log(err);
+			console.log(err);
 		} else {
-		  console.log("JSON saved to " + fileName);
-		  response.send({"success":"success"});
+			console.log("JSON saved to " + fileName);
+			response.send({"success":"success"});
 		}
-	});	
+	});
 });
 
 app.post('/writePresidents', function(request, response){
 	console.log("writeJsonPostMargie called");
-	console.log(request.body);	
+	console.log(request.body);
 	var fileName = request.body.fileName;
 	var json = request.body.data;
 	console.log(fileName);
-	
+
 	// json = JSON.stringify(json, null, 4);
-	
+
 	fs.writeFile(fileName, json, function(err) {
 		if(err) {
-		  console.log(err);
+			console.log(err);
 		} else {
-		  console.log("JSON saved to " + fileName);
-		  response.send({"success":"success"});
+			console.log("JSON saved to " + fileName);
+			response.send({"success":"success"});
 		}
-	});	
+	});
 });
 
 app.get('/writeJsonGet', function(request, response){
@@ -57,30 +57,30 @@ app.get('/writeJsonGet', function(request, response){
 	console.log(request.params);
 	console.log(request.params.length);
 	var json = request.query.data;
-	var fileName = request.query.fileName
-	
+	var fileName = request.query.fileName;
+
 	// json = JSON.stringify(json, null, 4);
-	
+
 	fs.writeFile(fileName, json, function(err) {
 		if(err) {
-		  console.log(err);
+			console.log(err);
 		} else {
-		  console.log("JSON saved to " + fileName);
-		  response.send({"success":"success"});
+			console.log("JSON saved to " + fileName);
+			response.send({"success":"success"});
 		}
-	});	
+	});
 });
 
 app.get('/read', function(req, res){
 	var obj;
-	
+
 	function readData(err, data) {
 		if (err) throw err;
 		obj = JSON.parse(data);
 		res.send(obj);
 	}
 
-	// Asynch call 
+	// Asynch call
 	fs.readFile('presidents.json', 'utf8', readData);
 });
 

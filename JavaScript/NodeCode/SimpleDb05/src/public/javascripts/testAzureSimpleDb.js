@@ -1,4 +1,6 @@
-﻿$('document').ready(function() {
+﻿/*jshint jquery: true */
+
+$('document').ready(function() {
 	runTest();
 	$('#debug').append('<li>Document Ready Called</li>');
 });
@@ -61,13 +63,13 @@ function runTest() {
 				"call display row, check data is correct");
 	});
 
-	
-	function pauseCode(ms) 
+
+	function pauseCode(ms)
 	{
 		ms += new Date().getTime();
 		while (new Date() < ms){}
-	} 	
-	
+	}
+
 	module("dataTests", {
 		setup : function() {
 			testDisplay = new TestDisplay();
@@ -79,13 +81,13 @@ function runTest() {
 			pauseCode(500);
 			ok(true, "once extra assert per test");
 		},
-	 	teardown: function() {
-	 		pauseCode(500);
-		    ok(true, "and one extra assert after each test");		    
+		teardown: function() {
+			pauseCode(500);
+			ok(true, "and one extra assert after each test");
 		}
 	});
 
-	asyncTest("testTwo", function() {	
+	asyncTest("testTwo", function() {
 		testDisplay.showDebugTest("Test Two started");
 		presidents.getPresidents(function() {
 			testDisplay.showDebugTest("Test Two Callback");
@@ -103,7 +105,7 @@ function runTest() {
 				if (testDisplay.rowData[i].LastName == "Washington") {
 					result = true;
 					break;
-				};
+				}
 			}
 			ok(result, "Could not find Washington");
 			start();

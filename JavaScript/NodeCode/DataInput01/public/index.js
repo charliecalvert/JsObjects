@@ -1,3 +1,5 @@
+/* jshint browser: true, devel: true  */
+
 var DataInput = (function() {
 
 	function DataInput() {

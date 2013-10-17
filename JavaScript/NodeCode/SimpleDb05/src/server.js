@@ -1,3 +1,5 @@
+/* jshint jquery: true, node: true */
+
 var express = require('express');
 var simpledb = require('simpledb');
 var app = express();
@@ -5,7 +7,7 @@ var fs = require('fs');
 var utils = require('./public/javascripts/utilities').utils;
 var coreData = { Domain: 'History', Category: 'Presidents02' };
 
-keys = utils.readKeyFile();
+var keys = utils.readKeyFile();
 
 var sdb = new simpledb.SimpleDB({
 	keyid : keys[0],
@@ -13,31 +15,31 @@ var sdb = new simpledb.SimpleDB({
 });
 var port = process.env.port || 30025;
 
-app.get('/', function(req, res) {
+app.get('/', function(request, result) {
 	var html = fs.readFileSync('public/index.html');
-	res.writeHeader(200, {
+	result.writeHeader(200, {
 		"Content-Type" : "text/html"
 	});
-	res.write(html);
-	res.end();
+	result.write(html);
+	result.end();
 });
 
-app.get('/testAzureSimpleDb', function(req, res) {
+app.get('/testAzureSimpleDb', function(request, result) {
 	var html = fs.readFileSync('public/testAzureSimpleDb.html');
-	res.writeHeader(200, {
+	result.writeHeader(200, {
 		"Content-Type" : "text/html"
 	});
-	res.write(html);
-	res.end();
+	result.write(html);
+	result.end();
 });
 
-app.get('/listDomains', function(req, res) {
+app.get('/listDomains', function(request, result) {
 	// console.log('request called');
 	sdb.listDomains(function(error, result, meta) {
 		if (error) {
-			res.send('listDomains failed: ' + error.Message);
+			result.send('listDomains failed: ' + error.Message);
 		} else {
-			res.send(result);
+			result.send(result);
 		}
 	});
 });
@@ -46,7 +48,7 @@ app.get('/listItems', function(request, result) {
 	sdb.select('select ItemName from History', function(error, queryResult,
 			metadata) {
 		if (error) {
-			res.send('history query failed: ' + error.Message);
+			result.send('history query failed: ' + error.Message);
 		} else {
 			result.send(queryResult);
 		}
@@ -56,7 +58,7 @@ app.get('/listItems', function(request, result) {
 app.get('/history', function(request, result) {
 	sdb.select('select * from History where Category="' + coreData.Category + '"', function(error, queryResult, metadata) {
 		if (error) {
-			res.send('history query failed: ' + error.Message);
+			result.send('history query failed: ' + error.Message);
 		} else {
 			result.send(queryResult);
 		}
@@ -66,11 +68,11 @@ app.get('/history', function(request, result) {
 app.get('/deleteDomain', function(request, result) {
 	sdb.deleteDomain(coreData.Domain, function(error, queryResult, metadata) {
 		if (error) {
-			res.send('history query failed: ' + error.Message);
+			result.send('history query failed: ' + error.Message);
 		} else {
 			result.send(queryResult);
 		}
-	});	
+	});
 });
 
 app.get('/createDomain', function(request, result) {
@@ -85,64 +87,64 @@ function createDomain(domainName, result)
 		} else {
 			result.send( { success: 'Success' } );
 		}
-	});	
+	});
 }
 
 app.get('/addListOfPresidents', function(request, result) {
 	createDomain(coreData.Domain, result);
 	var items = [{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'George',
 		MiddleName : '',
 		LastName : 'Washington',
 		Sequence : '01'
 	},{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'John',
 		MiddleName : '',
 		LastName : 'Adams',
 		Sequence : '02'
 	},{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'Thomas',
 		MiddleName : '',
 		LastName : 'Jefferson',
 		Sequence : '03'
 	},{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'James',
 		MiddleName : '',
 		LastName : 'Madison',
 		Sequence : '04'
 	},{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'James',
 		MiddleName : '',
 		LastName : 'Monroe',
 		Sequence : '05'
 	},{
-		$ItemName: utils.getUuid(), 
+		$ItemName: utils.getUuid(),
 		Category : coreData.Category,
 		FirstName : 'John',
 		MiddleName : 'Quincy',
 		LastName : 'Adams',
 		Sequence : '06'
 	}];
-	
+
 	sdb.batchPutItem(coreData.Domain, items, function(error, putItemResult, meta) {
 		if (error) {
 			console.log(error);
 			return { result : "Error" };
-		} else {			
+		} else {
 			return { result : "Success"	};
 		}
 	});
-	
+
 	/* putItem('Andrew', 'Jackson');
 	putItem('Martin Van', 'Buren');
 	putItem('William Henry', 'Harrison');
@@ -161,7 +163,7 @@ app.get('/addListOfPresidents', function(request, result) {
 	putItem('Grover', 'Cleveland');
 	putItem('Benjamin', 'Harrison');
 	putItem('William', 'McKinley');
-	putItem('Theodore','Roosevelt');	
+	putItem('Theodore','Roosevelt');
 	putItem('William Howard', 'Taft');
 	putItem('Woodrow', 'Wilson');
 	putItem('Warren G.', 'Harding');
@@ -184,7 +186,7 @@ app.get('/addListOfPresidents', function(request, result) {
 });
 
 
-app.get('/putitem', function(request, result) {	
+app.get('/putitem', function(request, result) {
 	console.log(request.query.firstName);
 	console.log(request.query.middleName);
 	console.log(request.query.lastName);
@@ -196,7 +198,7 @@ app.get('/putitem', function(request, result) {
 
 app.get('/update', function(request, result) {
 	console.log('Update Called');
-	var uuid = request.query.uuid;	
+	var uuid = request.query.uuid;
 	var firstName = request.query.firstName;
 	var middleName = request.query.middleName;
 	middleName = (middleName.trim().length === 0) ? '-' : middleName;
@@ -224,7 +226,7 @@ function updateOrInsert(domain, uuid, category, firstName, middleName, lastName)
 		if (error) {
 			console.log(error);
 			return { result : "Error" };
-		} else {			
+		} else {
 			return { result : "Success"	};
 		}
 	});
@@ -259,12 +261,12 @@ function deleteItem(item) {
 	});
 }
 
-app.get('/deleteAll', function(request, result) {	
-	getItemsToDelete(result);	
+app.get('/deleteAll', function(request, result) {
+	getItemsToDelete(result);
 });
 
 function getItemsToDelete(result) {
-	sdb.select('select ItemName from History where Category="' + coreData.Category + '"', 
+	sdb.select('select ItemName from History where Category="' + coreData.Category + '"',
 			function(error, queryResult, metadata) {
 				if (error) {
 					result.send({ failure : error.Message });
@@ -274,13 +276,13 @@ function getItemsToDelete(result) {
 					// We are only allowed to delete 25 items at a time.
 					if (numItems > 25) numItems = 24;
 					for (var i = 0; i < numItems; i++)
-					{						
-						itemName = queryResult[i]['$ItemName'];
+					{
+						itemName = queryResult[i][$ItemName];
 						//console.log(itemName);
 						var deleteItem = { $ItemName : itemName };
 						itemsToDelete.push(deleteItem);
 					}
-					batchDelete(itemsToDelete, result);					
+					batchDelete(itemsToDelete, result);
 				}
 			});
 }
@@ -303,7 +305,7 @@ app.get('/domainmeta', function(request, result) {
 	sdb.domainMetadata(coreData.Domain, function(error, queryResult, metadata) {
 		if (error) {
 			console.log(error);
-			// res.send('listDomains failed: '+ error.Message );
+			// result.send('listDomains failed: '+ error.Message );
 		} else {
 			console.log(queryResult);
 			result.send(queryResult);
@@ -311,7 +313,7 @@ app.get('/domainmeta', function(request, result) {
 	});
 });
 
-app.get('/dirname', function(req, result) {
+app.get('/dirname', function(request, result) {
 	result.send({
 		'result' : __dirname
 	});
