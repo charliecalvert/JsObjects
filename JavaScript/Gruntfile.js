@@ -10,7 +10,13 @@ module.exports = function(grunt) {
 					'*/knockout-*.js', 
 					'*/Ractive.js', 
 					'*/**/angular.js', 
-					'**/node_modules/**']
+					'**/node_modules/**',
+					'**/handlebars.js',
+					'**/jquery*.js',
+					'**/cordova*.js',
+					'**/qunit*.js'],
+				reporter: 'checkstyle',
+				reporterOutput: 'result.xml'
 			}
 		}
 	});
