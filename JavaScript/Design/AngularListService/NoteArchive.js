@@ -10,7 +10,7 @@ var NoteArchive = function() {
 		this.notes.push(item);
 	};
 
- 	
- 	this.description = "noteArchive text";
+	
+	this.description = "noteArchive text";
  };
  

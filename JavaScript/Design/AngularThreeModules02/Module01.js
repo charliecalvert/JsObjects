@@ -9,6 +9,6 @@ function BoatController($scope, boat, sailboat) {
 	$scope.boatType = boat.description;
 	$scope.sailBoat = sailboat.description;
 	$scope.getNine = function() {
-	    return sailboat.getNine();
+		return sailboat.getNine();
 	};
 }

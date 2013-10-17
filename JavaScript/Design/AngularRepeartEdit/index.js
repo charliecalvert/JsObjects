@@ -44,8 +44,7 @@ function PersonController($scope, $dialog) {
 			itemToEdit = undefined;
 		});
 	};
-
-};
+}
 
 // the dialog is injected in the specified controller
 function EditCtrl($scope, person, dialog){

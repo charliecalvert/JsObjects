@@ -3,7 +3,6 @@
  */
 
 
-	
 //var app = angular.module('myApp', []);
 
 /* Set up a simple controller with a few 
@@ -17,4 +16,4 @@ function AddController($scope) {
 	$scope.func = function() {
 		return $scope.operandA + $scope.operandB;
 	};
-};
+}

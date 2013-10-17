@@ -2,24 +2,23 @@
 describe("calculator", function() {'use strict';
 	var $mockScope = null;
 	var pc = null;
-	
+
 	beforeEach(inject(function($rootScope, $controller) {
 		$mockScope = $rootScope.$new();
 		pc = $controller('AddController', { $scope: $mockScope }); 
 	}));
-	
+
 	it("Sum two values", function() {
-	    $mockScope.operandA = 3;
+		$mockScope.operandA = 3;
 		$mockScope.operandB = 5;
 		expect($mockScope.func()).toEqual(8);
 	});
 
-    it("Sum two other values", function() {
-        $mockScope.operandA = 2;
-        $mockScope.operandB = 9;
-        expect($mockScope.func()).toEqual(11);
-    });
-
+	it("Sum two other values", function() {
+		$mockScope.operandA = 2;
+		$mockScope.operandB = 9;
+		expect($mockScope.func()).toEqual(11);
+	});
 });
 
 (function() {'use strict';
@@ -46,5 +45,4 @@ describe("calculator", function() {'use strict';
 	function execJasmine() {
 		jasmineEnv.execute();
 	}
-
 })();

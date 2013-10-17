@@ -2,10 +2,15 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		jshint: {
-			files: ['Angular03/**/*.js'],
+			files: ['*/**/*.js'],
 
 			options: {
-				ignores: ['angular.js', 'Angular03/**/angular.js']
+				ignores: ['*/angular-mocks.js', 
+					'*/ui-bootstrap-tpls-*.js',
+					'*/knockout-*.js', 
+					'*/Ractive.js', 
+					'*/**/angular.js', 
+					'**/node_modules/**']
 			}
 		}
 	});

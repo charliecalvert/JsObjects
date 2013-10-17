@@ -8,7 +8,7 @@ angular.module('sailboat', [])
 		description: "I'm a sailboat",
 		
 		getNine: function() {
-		    return 9;
+			return 9;
 		}		
 	};
 });
