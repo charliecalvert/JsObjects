@@ -11,12 +11,12 @@ function startGame() {
 			}
 		},
 
-		// The width of the game screen. 
+		// The width of the game screen in pixels 
 		width: function() {
 			return this.map_grid.width * this.map_grid.tile.width;
 		},
 
-		// Define the height of the game screen.
+		// Define the height of the game screen in pixels.
 		height: function() {
 			return this.map_grid.height * this.map_grid.tile.height;
 		},
@@ -45,7 +45,7 @@ Crafty.c('Grid', {
 			return { 
 				x: this.x / Crafty.game.map_grid.tile.width, 
 				y: this.y / Crafty.game.map_grid.tile.height 
-			}
+			};
 		} else {
 			this.attr(
 			{
@@ -121,9 +121,7 @@ Crafty.scene('Game', function() {
 Crafty.scene('Loading', function(){
 
 	// Define our assets
-	var images = ['Assets/cscGarden01-32X32.png',		 
-		'Assets/BoyWalk.png', 
-		'Assets/door_knock_3x.mp3'];
+	var images = ['Assets/cscGarden01-32X32.png'];
 
 	// Load our assets and call callback
 	// The offset is [Col, Row]
