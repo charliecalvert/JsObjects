@@ -244,20 +244,15 @@ Crafty.scene('Victory', function() {
 // -------------
 // Handles the loading of binary assets such as images and audio files
 Crafty.scene('Loading', function(){
+    
+    var assets = ['Assets/cscGarden01-32X32.png',        
+        'Assets/BoyWalk.png', 
+        'Assets/door_knock_3x.mp3'];
+        
 	// Load our sprite map image
-	Crafty.load(['Assets/Elf/cscGarden01-32X32.gif',	     
-		'Assets/Elf/BoyWalk.png', 
-		'http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3', 
-		'http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.ogg', 
-		'http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.aac'], function(){
-		// Once the images are loaded...
-
-		// Define the individual sprites in the image
-		// Each one (spr_tree, etc.) becomes a component
-		// These components' names are prefixed with "spr_"
-		//  to remind us that they simply cause the entity
-		//  to be drawn with a certain sprite
-		Crafty.sprite(32, 'Assets/Elf/cscGarden01-32X32.gif', {
+	Crafty.load(assets, function(){
+		
+		Crafty.sprite(32, assets[0], {
 			spr_tree:    [0, 0],
 			spr_bush:    [1, 2],
 			spr_village: [0, 1]
@@ -265,7 +260,7 @@ Crafty.scene('Loading', function(){
 
 		// Define the PC's sprite to be the first sprite in the third row of the
 		//  animation sprite map
-		Crafty.sprite(32, 'Assets/Elf/BoyWalk.png', {
+		Crafty.sprite(32, assets[1], {
 			spr_player:  [0, 0],
 		}, 0, 2);
 

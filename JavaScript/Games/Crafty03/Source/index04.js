@@ -8,7 +8,7 @@ var ElfGame = angular.module('elfgame', [])
             height: 32
         }
     };
-    
+  
      elfgame.start(mapGrid);
      
      elfgame.reportEvent = function(message) {
@@ -80,24 +80,24 @@ Crafty.c('Actor', {
 	},
 });
 
-// A Tree is just an Actor with a certain color
+// A Tree is Solid so we can detect collisions, see Player
 Crafty.c('Tree', {
 	init: function() {
-		this.requires('Actor, spr_tree');
+		this.requires('Actor, Solid, spr_tree');
 	},
 });
 
-// A Bush is just an Actor with a certain color
+// A Bush is solid so we can detect collisions, see Player
 Crafty.c('Bush', {
 	init: function() {
-		this.requires('Actor, spr_bush');
+		this.requires('Actor, Solid, spr_bush');
 	},
 });
 
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
 	init: function() {
-		this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
+		this.requires('Actor, Fourway, Collision, mainCharacter, SpriteAnimation')
 			.fourway(4)
 			.stopOnSolids()
 			.onHit('Village', this.visitVillage)
@@ -148,7 +148,7 @@ Crafty.c('PlayerCharacter', {
 
 	// Respond to this player visiting a village
 	visitVillage: function(data) {
-	    Crafty.game.reportEvent("Found Tower");
+	    Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
 		villlage = data[0].obj;
 		villlage.visit();
 	}
@@ -172,18 +172,18 @@ Crafty.c('Village', {
 // -------------
 // Runs the core gameplay loop
 Crafty.scene('Game', function() {
-	// A 2D array to keep track of all occupied tiles
-	this.occupied = new Array(Crafty.game.map_grid.width);
+	// A 2D array to keep track of all gameBoard tiles
+	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
-		this.occupied[i] = new Array(Crafty.game.map_grid.height);
+		this.gameBoard[i] = new Array(Crafty.game.map_grid.height);
 		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			this.occupied[i][y] = false;
+			this.gameBoard[i][y] = false;
 		}
 	}
 
 	// Player character, placed at 5, 5 on our grid
 	this.player = Crafty.e('PlayerCharacter').at(5, 5);
-	this.occupied[this.player.at().x][this.player.at().y] = true;
+	this.gameBoard[this.player.at().x][this.player.at().y] = true;
 
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
@@ -193,11 +193,11 @@ Crafty.scene('Game', function() {
 			if (at_edge) {
 				// Place a tree entity at the current tile
 				Crafty.e('Tree').at(x, y);
-				this.occupied[x][y] = true;
-			} else if (Math.random() < 0.06 && !this.occupied[x][y]) {
+				this.gameBoard[x][y] = true;
+			} else if (Math.random() < 0.06 && !this.gameBoard[x][y]) {
 				// Place a bush entity at the current tile
 				Crafty.e('Bush').at(x, y);
-				this.occupied[x][y] = true;
+				this.gameBoard[x][y] = true;
 			}
 		}
 	}
@@ -207,8 +207,9 @@ Crafty.scene('Game', function() {
 	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
 		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
 			if (Math.random() < 0.02) {
-				if (Crafty('Village').length < max_villages && !this.occupied[x][y]) {
-					Crafty.e('Village').at(x, y);
+				if (Crafty('Village').length < max_villages && !this.gameBoard[x][y]) {
+					var village = Crafty.e('Village').at(x, y);
+					village.setName(village._entityName.replace('Entity', 'Village'));
 				}
 			}
 		}
@@ -235,7 +236,7 @@ Crafty.scene('Victory', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.attr({ x: 0, y: 0 })
-		.text('Victory!');
+		.text('You are victorious!');
 
 	// Watch for the player to press a key, then restart the game
 	//  when a key is pressed
@@ -265,10 +266,9 @@ Crafty.scene('Loading', function(){
 			spr_village: [0, 1]
 		});
 
-		// Define the PC's sprite to be the first sprite in the third row of the
-		//  animation sprite map
+		//  The main character
 		Crafty.sprite(32, assets[1], {
-			spr_player:  [0, 0],
+			mainCharacter:  [0, 0],
 		}, 0, 2);
 
 		// Define our sounds for later use
