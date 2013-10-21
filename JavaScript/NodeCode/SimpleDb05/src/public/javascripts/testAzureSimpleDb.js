@@ -1,4 +1,4 @@
-﻿/*jshint jquery: true */
+﻿/* jshint jquery: true, unused: true */
 
 $('document').ready(function() {
 	runTest();
@@ -13,10 +13,11 @@ function TestDisplay() {
 }
 
 TestDisplay.prototype.showError = function(request, ajaxOptions, thrownError) {
+	console.log(request + ' ' + ajaxOptions + ' ' + thrownerror);
 };
 
-TestDisplay.prototype.clearResponse = function(request, ajaxOptions,
-		thrownError) {
+TestDisplay.prototype.clearResponse = function(request, ajaxOptions, thrownError) {
+	console.log(request + ' ' + ajaxOptions + ' ' + thrownerror);
 	this.responseData = [];
 };
 

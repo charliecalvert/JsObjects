@@ -139,39 +139,32 @@
 		<error line="45" column="0" severity="warning" message="Unused variable: &apos;info&apos;" source="jshint.implied-unuseds" />
 	</file>
 	<file name="SimpleDb05/src/public/javascripts/testAzureSimpleDb.js">
-		<error line="116" column="22" severity="error" message="&apos;ajaxTestGood&apos; is defined but never used." source="jshint.W098" />
+		<error line="117" column="22" severity="error" message="&apos;ajaxTestGood&apos; is defined but never used." source="jshint.W098" />
 		<error line="15" column="77" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="15" column="64" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="15" column="51" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="19" column="20" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="18" column="68" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="18" column="55" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="124" column="35" severity="error" message="&apos;xml&apos; is defined but never used." source="jshint.W098" />
-		<error line="129" column="63" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="129" column="50" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="129" column="37" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="12,28" column="0" severity="warning" message="Implied global &apos;thisTestDisplay&apos;" source="jshint.implied-globals" />
-		<error line="45,53" column="0" severity="warning" message="Implied global &apos;test&apos;" source="jshint.implied-globals" />
-		<error line="47,48,76,78,80,92,102" column="0" severity="warning" message="Implied global &apos;presidents&apos;" source="jshint.implied-globals" />
-		<error line="47,55,76" column="0" severity="warning" message="Implied global &apos;Presidents&apos;" source="jshint.implied-globals" />
-		<error line="49,50,94,95" column="0" severity="warning" message="Implied global &apos;len&apos;" source="jshint.implied-globals" />
-		<error line="50,82,86,95,110,126,131" column="0" severity="warning" message="Implied global &apos;ok&apos;" source="jshint.implied-globals" />
-		<error line="55" column="0" severity="warning" message="Implied global &apos;states&apos;" source="jshint.implied-globals" />
-		<error line="62" column="0" severity="warning" message="Implied global &apos;equal&apos;" source="jshint.implied-globals" />
-		<error line="75,76,77,79,91,93,94,97,104,105" column="0" severity="warning" message="Implied global &apos;testDisplay&apos;" source="jshint.implied-globals" />
-		<error line="90,101,117" column="0" severity="warning" message="Implied global &apos;asyncTest&apos;" source="jshint.implied-globals" />
-		<error line="96,111,127,132" column="0" severity="warning" message="Implied global &apos;start&apos;" source="jshint.implied-globals" />
-		<error line="116" column="0" severity="warning" message="Unused variable: &apos;ajaxTestGood&apos;" source="jshint.implied-unuseds" />
+		<error line="19" column="81" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
+		<error line="125" column="35" severity="error" message="&apos;xml&apos; is defined but never used." source="jshint.W098" />
+		<error line="130" column="63" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
+		<error line="130" column="50" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
+		<error line="130" column="37" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
+		<error line="12,29" column="0" severity="warning" message="Implied global &apos;thisTestDisplay&apos;" source="jshint.implied-globals" />
+		<error line="16,20" column="0" severity="warning" message="Implied global &apos;thrownerror&apos;" source="jshint.implied-globals" />
+		<error line="46,54" column="0" severity="warning" message="Implied global &apos;test&apos;" source="jshint.implied-globals" />
+		<error line="48,49,77,79,81,93,103" column="0" severity="warning" message="Implied global &apos;presidents&apos;" source="jshint.implied-globals" />
+		<error line="48,56,77" column="0" severity="warning" message="Implied global &apos;Presidents&apos;" source="jshint.implied-globals" />
+		<error line="50,51,95,96" column="0" severity="warning" message="Implied global &apos;len&apos;" source="jshint.implied-globals" />
+		<error line="51,83,87,96,111,127,132" column="0" severity="warning" message="Implied global &apos;ok&apos;" source="jshint.implied-globals" />
+		<error line="56" column="0" severity="warning" message="Implied global &apos;states&apos;" source="jshint.implied-globals" />
+		<error line="63" column="0" severity="warning" message="Implied global &apos;equal&apos;" source="jshint.implied-globals" />
+		<error line="76,77,78,80,92,94,95,98,105,106" column="0" severity="warning" message="Implied global &apos;testDisplay&apos;" source="jshint.implied-globals" />
+		<error line="91,102,118" column="0" severity="warning" message="Implied global &apos;asyncTest&apos;" source="jshint.implied-globals" />
+		<error line="97,112,128,133" column="0" severity="warning" message="Implied global &apos;start&apos;" source="jshint.implied-globals" />
+		<error line="117" column="0" severity="warning" message="Unused variable: &apos;ajaxTestGood&apos;" source="jshint.implied-unuseds" />
 		<error line="15" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
-		<error line="15" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
-		<error line="15" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
 		<error line="19" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
-		<error line="18" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
-		<error line="18" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
-		<error line="124" column="0" severity="warning" message="Unused variable: &apos;xml&apos;" source="jshint.implied-unuseds" />
-		<error line="129" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
-		<error line="129" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
-		<error line="129" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
+		<error line="125" column="0" severity="warning" message="Unused variable: &apos;xml&apos;" source="jshint.implied-unuseds" />
+		<error line="130" column="0" severity="warning" message="Unused variable: &apos;thrownError&apos;" source="jshint.implied-unuseds" />
+		<error line="130" column="0" severity="warning" message="Unused variable: &apos;ajaxOptions&apos;" source="jshint.implied-unuseds" />
+		<error line="130" column="0" severity="warning" message="Unused variable: &apos;request&apos;" source="jshint.implied-unuseds" />
 	</file>
 	<file name="SimpleDb05/src/server.js">
 		<error line="36" column="49" severity="error" message="&apos;result&apos; is defined but never used." source="jshint.W098" />
