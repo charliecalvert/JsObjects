@@ -1,4 +1,4 @@
-/**
+ /**
  * @author Charlie Calvert
  */
 
@@ -22,7 +22,7 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
     game.start();
 }); */
 
-function ElfPlayer($scope, gameEventService) {    
+function ElfController($scope, gameEventService) {    
     
     $scope.name = "ElfPlayer";
     $scope.eventNote = "no messages";    
@@ -30,7 +30,8 @@ function ElfPlayer($scope, gameEventService) {
     // This event is fired from inside crafty when a tower is found.  
     // We need to call $apply because we are calling from Crafty, not from Angular.
     $scope.$on('towerBroadcast', function() {        
-        $scope.$apply(function() { $scope.eventNote = gameEventService.message; });
+        this.$scope.eventNote = gameEventService.message;
+        // $scope.$apply(function() { $scope.eventNote = gameEventService.message; });
         console.log(gameEventService.message);
     });    
 } 

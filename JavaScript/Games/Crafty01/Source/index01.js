@@ -128,7 +128,7 @@ Crafty.scene('Loading', function(){
 	Crafty.load(images, function() {
 	
 		Crafty.sprite(32, images[0], {
-			spr_tree: [0, 3],
+			spr_tree: [1, 1],
 			spr_bush: [2, 0]
 		});
 
