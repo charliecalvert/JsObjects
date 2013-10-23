@@ -7,7 +7,7 @@ Created on May 27, 2012
 import sys
 import os
 import shutil
-import ConfigParser
+import configparser
 
 def copyFiles(pathName, srcDir, files, verbose):
 	ensureDir(pathName)
@@ -21,31 +21,43 @@ def copyFiles(pathName, srcDir, files, verbose):
 		if os.path.exists(srcFile):
 			shutil.copy2(srcFile, dest);
 			if verbose == True:
-				print dest
+				print(dest)
 		else:
-			print "Could not find {0}".format(srcFile)
+			print("Could not find {0}".format(srcFile))
 
 def setPermissions(pathName, files, verbose=False):
 	for fileName in files:
 		dest = os.path.join(pathName + fileName)
 		if os.path.exists(dest):
+			# status = os.stat(dest)
 			if dest.endswith(".txt"):
-				os.chmod(dest, 0666)
+				os.chmod(dest, stat.S_IREAD | stat.S_IWRITE)
 			else:
-				os.chmod(dest, 0775)
+				os.chmod(dest, stat.S_IRWXU | stat.S_IRWXG | stat.S_IROTH)
 		else:
-			print "Could not set permissions for: {0}".format(dest)
+			print("Could not set permissions for: {0}".format(dest))
 
+def ensureFinalSlash(pathName):
+	os.pathsep
+	if pathName[len(pathName)-1] != os.sep:
+		return pathName + os.sep
+	else:
+		return pathName
+		
 def ensureDir(pathName):
 	if not os.path.exists(pathName):
 		os.makedirs(pathName)
+
+#remove directory, subdirectories and contents of the directories
+def removeDirs(pathName):
+	shutil.rmtree(pathName)
 
 def getFilesFromExtensions(startPath, extensions, includeRoot = True):
 	# Extensions is a simple extension like this: '*.jpg'
 	fileNames = []
 	path = os.path.abspath(startPath)
 	for root, dirs, files in os.walk(path):
-		print 'Found ' + str(len(files)) + ' files'
+		print('Found ' + str(len(files)) + ' files')
 		for fileName in files:
 			extension = os.path.splitext(fileName)[1]
 			if extension in extensions:
@@ -128,11 +140,11 @@ class CopyFilesBasePredefined(CopyFilesBase):
 		if len(sys.argv) > 1:
 			return sys.argv[1]
 		else:
-			print '''Usage:
+			print('''Usage:
 	Deploy.py [arg]
 	arg can be:
 		0: Windows
 		1: Linux
 	Example:
-		python Deploy.py 0'''
+		python Deploy.py 0''')
 		return -1

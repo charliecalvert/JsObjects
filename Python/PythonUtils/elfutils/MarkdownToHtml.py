@@ -1,5 +1,6 @@
 import os
 import subprocess
+import elfutils.elffiles as elffiles
 
 class MarkdownToHtml:
 
@@ -9,6 +10,7 @@ class MarkdownToHtml:
 	def setData(self, copyFrom, destination):
 		self.copyFrom=copyFrom
 		self.destination=destination
+		elffiles.ensuredir(self.destination)
 
 	def run(self, fileToParse):		
 		param = " " + self.copyFrom + " " + fileToParse + " " + self.destination
