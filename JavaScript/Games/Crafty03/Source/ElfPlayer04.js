@@ -30,8 +30,8 @@ function ElfController($scope, gameEventService) {
     // This event is fired from inside crafty when a tower is found.  
     // We need to call $apply because we are calling from Crafty, not from Angular.
     $scope.$on('towerBroadcast', function() {        
-        this.$scope.eventNote = gameEventService.message;
-        // $scope.$apply(function() { $scope.eventNote = gameEventService.message; });
+        // this.$scope.eventNote = gameEventService.message;
+        $scope.$apply(function() { $scope.eventNote = gameEventService.message; });
         console.log(gameEventService.message);
     });    
 } 

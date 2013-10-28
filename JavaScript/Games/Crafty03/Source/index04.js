@@ -1,8 +1,8 @@
 var ElfGame = angular.module('elfgame', [])
 .controller('GameBoard', function($scope, gameEventService, elfgame) {
     var mapGrid = {
-        width:  14,
-        height: 8,
+        width:  18,
+        height: 12,
         tile: {
             width:  32,
             height: 32
