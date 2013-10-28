@@ -1,0 +1,9 @@
+body {
+	background: #00FF55;
+}
+
+#game {
+	width: 400px;
+	height: 400px;
+	background-color: #00BB88;
+}
