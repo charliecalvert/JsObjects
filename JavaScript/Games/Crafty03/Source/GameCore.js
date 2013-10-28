@@ -1,58 +1,8 @@
-var ElfGame = angular.module('elfgame', [])
-.controller('GameBoard', function($scope, gameEventService, elfgame) {
-    var mapGrid = {
-        width:  18,
-        height: 12,
-        tile: {
-            width:  32,
-            height: 32
-        }
-    };
-  
-     elfgame.start(mapGrid);
-     
-     elfgame.reportEvent = function(message) {
-        gameEventService.towerBroadcast(message);
-    };        
-})
-.factory('elfgame', function() { 
-   // Game.elfWorld = elfworld;   
-   return {
-	// This defines our grid's size and the size of each of its tiles
-	
-	map_grid: null,
+/**
+ * @author Charlie Calvert
+ */
 
-	// The total width of the game screen. Since our grid takes up the entire screen
-	//  this is just the width of a tile times the width of the grid
-	width: function() {
-		return this.map_grid.width * this.map_grid.tile.width;
-	},
-
-	// The total height of the game screen. Since our grid takes up the entire screen
-	//  this is just the height of a tile times the height of the grid
-	height: function() {
-		return this.map_grid.height * this.map_grid.tile.height;
-	},
-
-	// Initialize and start our game
-	start: function(mapGrid) {
-		// Start crafty and set a background color so that we can see it's working
-		var gameDiv = document.getElementById("gameBoard");
-		this.map_grid = mapGrid;		
-		//this.map_grid.tile.width = dimensions.tileWidth;
-		//this.map_grid.tile.height = dimensions.tileHeight;
-		Crafty.init(this.width(), this.height(), gameDiv);
-		Crafty.game = this;
-		Crafty.background('rgb(0, 109, 20)');
-
-		// Simply start the "Loading" scene to get things going
-		Crafty.scene('Loading');
-	}
-    };
-});
-
-// The Grid component allows an element to be located
-//  on a grid of tiles
+//  Allow tracking of X, Y coordinates on a Grid
 Crafty.c('Grid', {
 	init: function() {
 		this.attr({
@@ -72,8 +22,7 @@ Crafty.c('Grid', {
 	}
 });
 
-// An "Actor" is an entity that is drawn in 2D on canvas
-//  via our logical coordinate grid
+// An "Actor" is drawn on a Canvas and located on a 2D Grid
 Crafty.c('Actor', {
 	init: function() {
 		this.requires('2D, Canvas, Grid');
@@ -133,7 +82,6 @@ Crafty.c('PlayerCharacter', {
 	//  this entity hits an entity with the "Solid" component
 	stopOnSolids: function() {
 		this.onHit('Solid', this.stopMovement);
-
 		return this;
 	},
 
@@ -168,10 +116,9 @@ Crafty.c('Village', {
 	}
 });
 
-// Game scene
-// -------------
-// Runs the core gameplay loop
+// Draw the initial game state
 Crafty.scene('Game', function() {
+	
 	// A 2D array to keep track of all gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
@@ -217,6 +164,7 @@ Crafty.scene('Game', function() {
 
 	// Show the victory screen once all villages are visisted
 	this.show_victory = this.bind('VillageVisited', function() {
+		Crafty.game.sendDebugMessage("Village Length: " + Crafty('Village').length);
 		if (!Crafty('Village').length) {
 			Crafty.scene('Victory');
 		}
@@ -229,25 +177,27 @@ Crafty.scene('Game', function() {
 });
 
 
-// Victory scene
-// -------------
-// Tells the player when they've won and lets them start a new game
+// Victory scene : Announce victory, set up a new game
 Crafty.scene('Victory', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.attr({ x: 0, y: 0 })
 		.text('You are victorious!');
 
+	this.restart = function() {
+		Crafty.scene('Game');
+	};
 	// Watch for the player to press a key, then restart the game
 	//  when a key is pressed
-	this.restart_game = this.bind('KeyDown', function() {
-		Crafty.scene('Game');
-	});
+	this.restart_game = this.bind('KeyDown', this.restart); 
 }, function() {
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
-	this.unbind('KeyDown', this.restart_game);
+	if (!this.unbind('KeyDown', this.restart)) {
+		alert("Could not unbind");
+	}
+	
 });
 
 // Load binary assets such as images and audio files
@@ -276,8 +226,7 @@ Crafty.scene('Loading', function(){
 		//	knock: ['http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3']
 		//});
 
-		// Draw some text for the player to see in case the file
-		//  takes a noticeable amount of time to load
+		// Display text while loading		
 		Crafty.e('2D, DOM, Text')
 			.attr({ x: 0, y: Crafty.viewport.height / 2 - 24, w: Crafty.viewport.width })
 			.text('Loading...');
