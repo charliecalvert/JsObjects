@@ -184,16 +184,15 @@ Crafty.scene('Victory', function() {
 		.attr({ x: 0, y: 0 })
 		.text('You are victorious!');
 
+	// restart the game when a key is pressed
 	this.restart = function() {
 		Crafty.scene('Game');
 	};
-	// Watch for the player to press a key, then restart the game
-	//  when a key is pressed
-	this.restart_game = this.bind('KeyDown', this.restart); 
+	
+	// Bind keydown event. This was done wrong in the demo 
+	this.bind('KeyDown', this.restart); 
 }, function() {
-	// Remove our event binding from above so that we don't
-	//  end up having multiple redundant event watchers after
-	//  multiple restarts of the game
+	// Remove key binding to prevent multiple restarts 
 	if (!this.unbind('KeyDown', this.restart)) {
 		alert("Could not unbind");
 	}
