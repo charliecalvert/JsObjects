@@ -68,10 +68,13 @@ Crafty.c('PlayerCharacter', {
 			    Crafty.game.changeDirectionMessage("Going Right");
 				this.animate('PlayerMovingRight', animation_speed, -1);
 			} else if (data.x < 0) {
+				Crafty.game.changeDirectionMessage("Going Left");
 				this.animate('PlayerMovingLeft', animation_speed, -1);
 			} else if (data.y > 0) {
+				Crafty.game.changeDirectionMessage("Going Down");
 				this.animate('PlayerMovingDown', animation_speed, -1);
 			} else if (data.y < 0) {
+				Crafty.game.changeDirectionMessage("Going Up");
 				this.animate('PlayerMovingUp', animation_speed, -1);
 			} else {
 				this.stopMovement();
@@ -106,6 +109,7 @@ Crafty.c('PlayerCharacter', {
 		} else {
 		    // this.NewDirection({x: -2, y: 0});
 		    this.animate('PlayerMovingLeft', 3, 5);
+		    alert("you are hit");
 			//this.animate('PlayerMovingLefta', 0, 0, 2);
 		}
 	}
