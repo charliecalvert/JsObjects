@@ -22,6 +22,11 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
             this.broadcastMessage('encounterBroadcast');
         },
         
+        changeDirectionBroadcast: function(message) {
+            this.message = message;
+            this.broadcastMessage('changeDirectionBroadcast');
+        },
+        
         broadcastMessage: function(broadcastType) {
             $rootScope.$broadcast(broadcastType);            
         }        
@@ -47,6 +52,12 @@ function ElfController($scope, gameEventService) {
     });   
     
     $scope.$on('debugBroadcast', function() {        
+        // this.$scope.eventNote = gameEventService.message;
+        $scope.$apply(function() { $scope.debugMessages.unshift(gameEventService.message); });
+        console.log(gameEventService.message);
+    });
+    
+    $scope.$on('changeDirectionBroadcast', function() {        
         // this.$scope.eventNote = gameEventService.message;
         $scope.$apply(function() { $scope.debugMessages.unshift(gameEventService.message); });
         console.log(gameEventService.message);

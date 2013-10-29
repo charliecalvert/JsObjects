@@ -1,4 +1,5 @@
-var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgame) {
+var ElfGame = angular.module('elfgame', [])
+.controller('GameBoard', function($scope, gameEventService, elfgame) {
 
     // Define our grid's size and the size of its tiles
     var mapGrid = {
@@ -15,6 +16,10 @@ var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($sc
     elfgame.reportEvent = function(message) {
         gameEventService.towerBroadcast(message);
     };
+    
+    elfgame.changeDirectionMessage = function(message) {
+        gameEventService.changeDirectionBroadcast(message);
+    };
 
     elfgame.sendDebugMessage = function(message) {
         gameEventService.debugBroadcast(message);
@@ -26,8 +31,7 @@ var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($sc
         if (result === 1) {            
             gameEventService.encounterBroadcast('success');
             return true;
-        } else {
-            
+        } else {            
             gameEventService.encounterBroadcast('miss');
             return false;
         }

@@ -65,6 +65,7 @@ Crafty.c('PlayerCharacter', {
 		var animation_speed = 8;
 		this.bind('NewDirection', function(data) {
 			if (data.x > 0) {
+			    Crafty.game.changeDirectionMessage("Going Right");
 				this.animate('PlayerMovingRight', animation_speed, -1);
 			} else if (data.x < 0) {
 				this.animate('PlayerMovingLeft', animation_speed, -1);
@@ -104,7 +105,7 @@ Crafty.c('PlayerCharacter', {
 		  villlage.visit();
 		} else {
 		    // this.NewDirection({x: -2, y: 0});
-		    this.animate('PlayerMovingRight', 3, 5);
+		    this.animate('PlayerMovingLeft', 3, 5);
 			//this.animate('PlayerMovingLefta', 0, 0, 2);
 		}
 	}
