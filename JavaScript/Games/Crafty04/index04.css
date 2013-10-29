@@ -7,3 +7,13 @@ body {
 	height: 400px;
 	background-color: #00BB88;
 }
+
+#textDisplay, #gameBoard {
+	float: left;
+}
+
+#textDisplay {
+	margin-left: 50px;
+	padding: 5px;
+	border: solid black 2px; 
+}
