@@ -36,6 +36,14 @@ var ElfGame = angular.module('elfgame', [])
             return false;
         }
     };
+    
+    elfgame.goLeft = function() {
+    	Crafty.trigger('goLeft', Crafty);
+    };
+    
+    elfgame.stopMove = function() {
+    	Crafty.trigger('stopMove', Crafty);
+    };
 
 }).factory('elfgame', function() {
     // Game.elfWorld = elfworld;

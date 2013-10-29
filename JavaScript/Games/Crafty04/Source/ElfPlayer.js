@@ -37,7 +37,7 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
     game.start();
 }); */
 
-function ElfController($scope, gameEventService) {    
+function ElfController($scope, gameEventService, elfgame) {    
     
     $scope.name = "ElfPlayer";
     $scope.eventNote = "no messages";
@@ -70,6 +70,14 @@ function ElfController($scope, gameEventService) {
         $scope.$apply(function() { $scope.encounterMessage = gameEventService.message; });
         console.log(gameEventService.message);
     }); 
+    
+    $scope.goLeft = function() {
+    	elfgame.goLeft();
+    };
+    
+    $scope.stopMove = function() {
+    	elfgame.stopMove();
+    };
 } 
 
 // ElfPlayer.$inject = ['$scope', 'gameEventService'];        

@@ -47,7 +47,7 @@ Crafty.c('Bush', {
 Crafty.c('PlayerCharacter', {
 	init: function() {
 		this.requires('Actor, Fourway, Collision, mainCharacter, SpriteAnimation')
-			.fourway(4)
+			.fourway(2)
 			.stopOnSolids()
 			.onHit('Village', this.visitVillage)
 			// These next lines define our four animations
@@ -62,8 +62,9 @@ Crafty.c('PlayerCharacter', {
 			.animate('PlayerMovingLeft',  0, 0, 2);
 
 		// Watch for a change of direction and switch animations accordingly
-		var animation_speed = 8;
+		var animation_speed = 5;
 		this.bind('NewDirection', function(data) {
+			this.encounterMode = false;
 			if (data.x > 0) {
 			    Crafty.game.changeDirectionMessage("Going Right");
 				this.animate('PlayerMovingRight', animation_speed, -1);
@@ -79,6 +80,16 @@ Crafty.c('PlayerCharacter', {
 			} else {
 				this.stopMovement();
 			}
+		});
+		this.bind('goLeft', function() {
+			// this.trigger('NewDirection', {x: 1, y: 0});
+			this._movement.x = this._movement.x - 0.2;
+			// this.x = this.x - 2;
+			// this.animate('PlayerMovingRight', animation_speed, -1);
+		});
+		
+		this.bind('stopMove', function() {
+			this.stopMovement();
 		});
 	},
 
@@ -98,18 +109,26 @@ Crafty.c('PlayerCharacter', {
 		}
 	},
 
+	
+	
 	// Respond to this player visiting a village
-	visitVillage: function(data) {	
+	visitVillage: function(data) {
 		this.stopMovement();
+		
+		// If we are in an encounter, then we do nothing until the user
+		// asks to move again.
+		if (this.encounterMode) {
+			return;
+		}	
 	
 	    Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
 	    if (Crafty.game.encounter(data[0].obj._entityName)) {
-		  villlage = data[0].obj;
-		  villlage.visit();
+		   villlage = data[0].obj;
+		   villlage.visit();
 		} else {
-		    // this.NewDirection({x: -2, y: 0});
-		    this.animate('PlayerMovingLeft', 3, 5);
-		    alert("you are hit");
+			this.encounterMode = true;
+		    // this.NewDirection({x: -2, y: 0});		    
+		    // alert("you are hit");
 			//this.animate('PlayerMovingLefta', 0, 0, 2);
 		}
 	}
