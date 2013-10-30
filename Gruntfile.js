@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		
 		clean :	{			
 			yourTarget : {				
-				src : [ "**/node_modules/**", '*/barFooGoo/**'
+				src : [ "**/node_modules/**" , '*/barFooGoo/**'
 				]				
 			}
 		}

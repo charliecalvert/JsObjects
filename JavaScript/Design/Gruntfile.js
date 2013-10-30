@@ -12,8 +12,17 @@ module.exports = function(grunt) {
 					'*/**/angular.js', 
 					'**/node_modules/**']
 			}
+		},
+		
+		clean : 
+		{			
+			yourTarget : {				
+				src : [ "**/node_modules/**", '*/barFooGoo/**'
+				]				
+			}
 		}
-	});
-
+	});	
+	
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 };

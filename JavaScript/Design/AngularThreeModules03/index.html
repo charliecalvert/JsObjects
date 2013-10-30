@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html ng-app="elvenApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Angular Two Modules</title>
+        <script src="angular.js"></script>
+        <script src="Module03.js"></script>
+        <script src="Module02.js"></script>
+        <script src="Module01.js"></script>
+    </head>
+    <body>
+        <h1>Angular Two Modules</h1>
+        
+        <div ng-controller="BoatController">
+        	<p ng-model="simple">{{simple}} </p>
+        	<p ng-model="boatType">{{boatType}} </p>
+        	<p ng-model="sailBoat">{{sailBoat}} </p>
+        	<p>{{getNine()}} </p>
+        </div>
+        
+    </body>
+</html>

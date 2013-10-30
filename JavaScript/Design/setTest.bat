@@ -1,0 +1,2 @@
+call mkdir barFooGoo
+call mkDir AngularListFactory\barFooGoo
