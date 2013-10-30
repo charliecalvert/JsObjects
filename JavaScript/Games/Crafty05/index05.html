@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="elfworld">
+<head>
+    <title>ElvenWorld v5</title>
+    <link rel="shortcut icon" href="Assets/favicon.png">
+    <link href="index04.css" rel="stylesheet" type="text/css" />    
+    <script src="Library/angular.js"></script>
+	<script src="Library/crafty.js"></script>
+	<script src="Source/GameCore/GameCore.js"></script>
+	<script src="Source/GameCore/Grid.js"></script>
+	<script src="Source/GameCore/Actors.js"></script>
+	<script src="Source/GameCore/Player.js"></script>
+	<script src="Source/ElfGame.js"></script>
+	<script src="Source/ElfPlayer.js"></script>	
+			      
+</head>
+<body>
+    <div id="gameBoard" ng-controller="GameBoard">
+        
+    </div>
+    
+    <div id="textDisplay" ng-controller="ElfController">
+        <p>EvenGame05</p>
+        <p>{{name}}</p>        
+        <p>{{eventNote}}</p>
+        <p>{{encounterMessage}}</p>
+        <button ng-click="goLeft()">Left</button>
+        <button ng-click="stopMove()">Stop</button>
+        <p>Move Messages</p>
+        <select size=3 ng-model="crazyFoo" ng-options="msg for msg in moveMessages"> </select><br>
+        <p>Debug Messages</p>
+        	<select size=3 ng-model="crazyBar" ng-options="message for message in debugMessages"> </select><br>
+            <!-- ul ng-repeat="debugMessage in debugMessages track by $index">			
+                <li>{{debugMessage}}</li>
+            </ul -->                
+    </div>
+</body>
+</html>
