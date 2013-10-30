@@ -16,16 +16,20 @@
         
     </div>
     
-    <div ng-controller="ElfController">
+    <div id="textDisplay" ng-controller="ElfController">
         <p>This is my game</p>
         <p>{{name}}</p>        
         <p>{{eventNote}}</p>
         <p>{{encounterMessage}}</p>
+        <button ng-click="goLeft()">Left</button>
+        <button ng-click="stopMove()">Stop</button>
+        <p>Move Messages</p>
+        <select size=3 ng-model="crazyFoo" ng-options="msg for msg in moveMessages"> </select><br>
         <p>Debug Messages</p>
-            <ul ng-repeat="debugMessage in debugMessages track by $index">
-			<!-- ul ng-repeat="debugMessage in debugMessages" -->
+        	<select size=3 ng-model="crazyBar" ng-options="message for message in debugMessages"> </select><br>
+            <!-- ul ng-repeat="debugMessage in debugMessages track by $index">			
                 <li>{{debugMessage}}</li>
-            </ul>                
+            </ul -->                
     </div>
 </body>
 </html>

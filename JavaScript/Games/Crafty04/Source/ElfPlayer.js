@@ -37,11 +37,13 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
     game.start();
 }); */
 
-function ElfController($scope, gameEventService) {    
+function ElfController($scope, gameEventService, elfgame) {    
     
     $scope.name = "ElfPlayer";
-    $scope.eventNote = "no messages";    
+    $scope.eventNote = "no messages";
+    $scope.crazyFoo;    
     $scope.debugMessages = [];
+    $scope.moveMessages = [];
     
     // This event is fired from inside crafty when a tower is found.  
     // We need to call $apply because we are calling from Crafty, not from Angular.
@@ -58,8 +60,8 @@ function ElfController($scope, gameEventService) {
     });
     
     $scope.$on('changeDirectionBroadcast', function() {        
-        // this.$scope.eventNote = gameEventService.message;
-        $scope.$apply(function() { $scope.debugMessages.unshift(gameEventService.message); });
+        $scope.eventNote = gameEventService.message;
+        $scope.$apply(function() { $scope.moveMessages.unshift(gameEventService.message); });
         console.log(gameEventService.message);
     });
      
@@ -68,6 +70,14 @@ function ElfController($scope, gameEventService) {
         $scope.$apply(function() { $scope.encounterMessage = gameEventService.message; });
         console.log(gameEventService.message);
     }); 
+    
+    $scope.goLeft = function() {
+    	elfgame.goLeft();
+    };
+    
+    $scope.stopMove = function() {
+    	elfgame.stopMove();
+    };
 } 
 
 // ElfPlayer.$inject = ['$scope', 'gameEventService'];        
