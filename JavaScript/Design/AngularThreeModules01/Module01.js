@@ -2,7 +2,13 @@
  * @author Charlie Calvert
  */
 
-angular.module('elvenApp', ['boat', 'sailboat']);
+angular.module('elvenApp', ['sailboat', 'boat'])
+.controller('BoatController', function($scope, boat, sailboat) {
+    $scope.simple = "Simple Boat";
+    $scope.boatType = boat.description;
+    $scope.sailBoat = sailboat.description;
+});
+
 
 angular.module('boat', [])
 .factory('boat', function() {
@@ -18,8 +24,3 @@ angular.module('sailboat', [])
 	};
 });
 
-function BoatController($scope, boat, sailboat) {
-	$scope.simple = "Simple Boat";
-	$scope.boatType = boat.description;
-	$scope.sailBoat = sailboat.description;
-}

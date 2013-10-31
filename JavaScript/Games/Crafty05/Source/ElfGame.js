@@ -25,8 +25,13 @@ var ElfGame = angular.module('elfgame', [])
         gameEventService.debugBroadcast(message);
     };
 
+    var rollD3 = function() {
+        return Math.floor(Math.random() * 3) + 1;
+    };
+    
     elfgame.encounter = function(encountered) {
-        var result = Math.floor(Math.random() * 3) + 1;
+        var result = rollD3();
+        
         gameEventService.debugBroadcast('Result: ' + result);        
         if (result === 1) {            
             gameEventService.encounterBroadcast('success');

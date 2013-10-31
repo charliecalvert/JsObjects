@@ -37,7 +37,7 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
     game.start();
 }); */
 
-function ElfController($scope, gameEventService, elfgame) {    
+ElfWorld.controller('ElfController', function($scope, gameEventService, elfgame) {    
     
     $scope.name = "ElfPlayer";
     $scope.eventNote = "no messages";
@@ -78,7 +78,7 @@ function ElfController($scope, gameEventService, elfgame) {
     $scope.stopMove = function() {
     	elfgame.stopMove();
     };
-} 
+}); 
 
 // ElfPlayer.$inject = ['$scope', 'gameEventService'];        
         

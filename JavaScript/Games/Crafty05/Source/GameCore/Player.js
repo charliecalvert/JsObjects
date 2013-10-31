@@ -89,9 +89,6 @@ Crafty.c('PlayerCharacter', {
            villlage.visit();
         } else {
             this.encounterMode = true;
-            // this.NewDirection({x: -2, y: 0});            
-            // alert("you are hit");
-            //this.animate('PlayerMovingLefta', 0, 0, 2);
         }
     }
 });
