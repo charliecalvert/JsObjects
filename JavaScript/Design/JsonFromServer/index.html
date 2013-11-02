@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html ng-app>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Elvenware Test Project</title>
+        <link rel="shortcut icon" href="favicon.png">
+        <script src="angular.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <h1>Elvenware Angular JSON</h1>
+        
+        <div ng-controller="MyController">
+        	<p>This project retrieves a small amount of JSON from
+        		a node server.</p>
+            <div ng-bind-html-unsafe="hint"> </div>
+            
+            <p>Here is the JSON retreived from the server: </p>
+            
+            <p>{{data}}</p>            
+        </div>
+    </body>
+</html>
