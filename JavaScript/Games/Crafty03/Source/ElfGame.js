@@ -1,13 +1,13 @@
-var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgameService) {
+angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgameService) {
 
-	// elfgameService.start(mapGrid);
+	// elfgameService.initMapGrid(mapGrid);
 
 	elfgameService.reportEvent = function(message) {
-		gameEventService.towerBroadcast(message);
+		return gameEventService.towerBroadcast(message);
 	};
 	
 	elfgameService.sendDebugMessage = function(message) {
-		gameEventService.debugBroadcast(message);
+		return gameEventService.debugBroadcast(message);
 	};
 }).factory('elfgameService', function() {
 	// Game.elfWorld = elfworld;
@@ -25,11 +25,15 @@ var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($sc
 			return this.map_grid.height * this.map_grid.tile.height;
 		},
 
+		initMapGrid : function(mapGrid) {
+			this.map_grid = mapGrid;
+		},
+		
 		// Initialize and start our game
 		start : function(mapGrid) {
 			// Start crafty
-			var gameDiv = document.getElementById("gameBoard");
-			this.map_grid = mapGrid;
+			initMapGrid(mapGrid);
+			var gameDiv = document.getElementById("gameBoard");			
 			Crafty.init(this.width(), this.height(), gameDiv);
 			Crafty.game = this;
 			Crafty.background('rgb(0, 109, 20)');

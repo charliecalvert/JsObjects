@@ -13,29 +13,50 @@
 		module('elfworld');
 	});
 
-	beforeEach(inject(function($rootScope, $controller) {
+	/* beforeEach(inject(function($rootScope, $controller) {
 		elfController = $rootScope.$new();
 		gameEventService = $rootScope.$new();
 		$controller('ElfController', { $scope: elfController, gameEventService: gameEventService });
-	}));
+	})); */
 
 	beforeEach(inject(function($rootScope, $controller) {
 		gameBoard = $rootScope.$new();
-		gameEventService = $rootScope.$new();
+		gameEventService = { towerBroadcast: function() { return true; } };
 		elfgameService = $rootScope.$new();
 		$controller('GameBoard', { $scope: gameBoard, gameEventService: gameEventService, elfgameService: elfgameService });
-	}));
+	})); 
 
-
-	it("Width", function() {
-		var actual = elfgameService.reportEvent('a');
-		expect(actual).toEqual('3');
+	it("Check ElfGame Width", function() {
+		var actual = elfgameService.reportEvent();
+		expect(actual).toEqual(true);
 	});
 
-	it("Check ElfGame Width", inject(function(GameBoard) {
+	it("Test method to get the width of the playing field", inject(function(elfgameService) {
+		elfgameService.initMapGrid({
+			width : 18,
+			height : 12,
+			tile : {
+				width : 32,
+				height : 32
+			}
+		});
 		var actual = elfgameService.width();
-		expect(actual).toEqual(3);
+		expect(actual).toEqual(576);
 	}));
+
+	it("Test method to get the height of the playing field", inject(function(elfgameService) {
+		elfgameService.initMapGrid({
+			width : 18,
+			height : 12,
+			tile : {
+				width : 32,
+				height : 32
+			}
+		});
+		var actual = elfgameService.height();
+		expect(actual).toEqual(12 * 32);
+	}));
+	
 });
 
 (function() {'use strict';
