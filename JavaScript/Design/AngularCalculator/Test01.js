@@ -25,13 +25,13 @@ describe("calculator", function() {'use strict';
 	var jasmineEnv = jasmine.getEnv();
 	jasmineEnv.updateInterval = 1000;
 
-	var reporter = new jasmine.HtmlReporter();
+	/* var reporter = new jasmine.HtmlReporter();
 
-	jasmineEnv.addReporter(reporter);
+	 jasmineEnv.addReporter(reporter);
 
 	jasmineEnv.specFilter = function(spec) {
 		return reporter.specFilter(spec);
-	};
+	}; */
 
 	var currentWindowOnload = window.onload;
 

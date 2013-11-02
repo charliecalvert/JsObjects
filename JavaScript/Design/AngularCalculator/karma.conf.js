@@ -1,14 +1,14 @@
 module.exports = function(config) {
   config.set({
     // base path, that will be used to resolve files and exclude
-    basePath: '../..',
+    basePath: '.',
 
     frameworks: ['jasmine', 'commonjs'],
 
     // list of files / patterns to load in the browser
-    files: [
-      'client/*.js',
-      'test/client/*.js'
+    files: [      
+      'index.js',
+      'Test01.js'
     ],
 
     // list of files to exclude

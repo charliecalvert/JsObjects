@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html ng-app>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Elvenware Test Project</title>
+        <script src="angular.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <h1>Elvenware Test Project</h1>
+        
+        <div ng-controller="MyController">
+            {{hint}}
+            <div>
+            <input type="number" ng-model="miles" />
+            <p><strong>Number of feet in {{miles}} miles</strong>: {{convertMilesToFeet()}}</p>
+            </div>
+        </div>
+    </body>
+</html>
