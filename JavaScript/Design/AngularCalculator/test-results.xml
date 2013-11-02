@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-02T18:47:36" id="0" hostname="CedarIsle" tests="2" errors="0" failures="0" time="0.015">
+  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-02T19:10:04" id="0" hostname="CedarIsle" tests="2" errors="0" failures="0" time="0.014">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36"/>
     </properties>
     <testcase name="Sum two values" time="0.013" classname="Chrome 30.0.1599 (Windows).calculator"/>
-    <testcase name="Sum two other values" time="0.002" classname="Chrome 30.0.1599 (Windows).calculator"/>
+    <testcase name="Sum two other values" time="0.001" classname="Chrome 30.0.1599 (Windows).calculator"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>
