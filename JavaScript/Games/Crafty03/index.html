@@ -3,12 +3,12 @@
 <head>
     <title>ElvenWorld</title>
     <link rel="shortcut icon" href="Assets/favicon.png">
-    <link href="index04.css" rel="stylesheet" type="text/css" />    
+    <link href="index.css" rel="stylesheet" type="text/css" />    
     <script src="Library/angular.js"></script>
 	<script src="Library/crafty.js"></script>
 	<script src="Source/GameCore.js"></script>
 	<script src="Source/ElfGame.js"></script>
-	<script src="Source/ElfPlayer04.js"></script>	
+	<script src="Source/ElfPlayer.js"></script>	
 			      
 </head>
 <body>
@@ -17,10 +17,11 @@
     </div>
     
     <div ng-controller="ElfController">
-        <p>This is my game</p>
+        <p>This is my game</p>        
         <p>{{name}}</p>        
         <p>{{eventNote}}</p>
         <p>{{debugMessage}}</p>
+        <button ng-click="start()" ng-show="showButton()">Start Game</button>
     </div>
 </body>
 </html>

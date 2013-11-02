@@ -1,3 +1,6 @@
+/* global Crafty: true */
+/* jshint browser: true */
+
 function startGame() {
 	var game = {
 
@@ -87,14 +90,14 @@ Crafty.scene('Game', function() {
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
 		this.gameBoard[i] = new Array(Crafty.game.map_grid.height);
-		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			this.gameBoard[i][y] = false;
+		for (var j = 0; j < Crafty.game.map_grid.height; j++) {
+			this.gameBoard[i][j] = false;
 		}
 	}
 
 	function getAtEdge(x, y) {
-		var xStatus = (x == 0 || x == Crafty.game.map_grid.width - 1);
-		var yStatus = (y == 0 || y == Crafty.game.map_grid.height - 1);
+		var xStatus = (x === 0 || x === Crafty.game.map_grid.width - 1);
+		var yStatus = (y === 0 || y === Crafty.game.map_grid.height - 1);
 		return xStatus || yStatus;
 	}
 	

@@ -2,6 +2,10 @@
  * @author Charlie Calvert
  */
 
+/* globals Crafty: true */
+/* jshint browser: true */
+
+
 //  Allow tracking of X, Y coordinates on a Grid
 Crafty.c('Grid', {
 	init: function() {
@@ -96,8 +100,8 @@ Crafty.c('PlayerCharacter', {
 
 	// Respond to this player visiting a village
 	visitVillage: function(data) {
-	    Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
-		villlage = data[0].obj;
+		Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
+		var villlage = data[0].obj;
 		villlage.visit();
 	}
 });
@@ -123,8 +127,8 @@ Crafty.scene('Game', function() {
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
 		this.gameBoard[i] = new Array(Crafty.game.map_grid.height);
-		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			this.gameBoard[i][y] = false;
+		for (var j = 0; j < Crafty.game.map_grid.height; j++) {
+			this.gameBoard[i][j] = false;
 		}
 	}
 
@@ -135,7 +139,7 @@ Crafty.scene('Game', function() {
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
 		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			var at_edge = x == 0 || x == Crafty.game.map_grid.width - 1 || y == 0 || y == Crafty.game.map_grid.height - 1;
+			var at_edge = x === 0 || x === Crafty.game.map_grid.width - 1 || y === 0 || y === Crafty.game.map_grid.height - 1;
 
 			if (at_edge) {
 				// Place a tree entity at the current tile
@@ -151,11 +155,11 @@ Crafty.scene('Game', function() {
 
 	// Generate up to five villages on the map in random locations
 	var max_villages = 5;
-	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
-		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
+	for (x = 0; x < Crafty.game.map_grid.width; x++) {
+		for (var y1 = 0; y1 < Crafty.game.map_grid.height; y1++) {
 			if (Math.random() < 0.02) {
-				if (Crafty('Village').length < max_villages && !this.gameBoard[x][y]) {
-					var village = Crafty.e('Village').at(x, y);
+				if (Crafty('Village').length < max_villages && !this.gameBoard[x][y1]) {
+					var village = Crafty.e('Village').at(x, y1);
 					village.setName(village._entityName.replace('Entity', 'Village'));
 				}
 			}
@@ -194,22 +198,22 @@ Crafty.scene('Victory', function() {
 }, function() {
 	// Remove key binding to prevent multiple restarts 
 	if (!this.unbind('KeyDown', this.restart)) {
-		alert("Could not unbind");
+		window.alert("Could not unbind");
 	}
 	
 });
 
 // Load binary assets such as images and audio files
 Crafty.scene('Loading', function(){
-    
-    var assets = ['Assets/cscGarden01-32X32.png',         
-        'Assets/BoyWalk.png', 
-        'Assets/door_knock_3x.mp3', 
-        ];
+	
+	var assets = ['Assets/cscGarden01-32X32.png',         
+		'Assets/BoyWalk.png', 
+		'Assets/door_knock_3x.mp3', 
+		];
 	
 	// Load our sprite map image
 	Crafty.load(assets, function(){
-   		Crafty.sprite(32, assets[0], {
+		Crafty.sprite(32, assets[0], {
 			spr_tree:    [0, 3],
 			spr_bush:    [2, 0],
 			spr_village: [0, 1]

@@ -1,25 +1,15 @@
-var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgame) {
+var ElfGame = angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgameService) {
 
-	// Define our grid's size and the size of its tiles
-	var mapGrid = {
-		width : 18,
-		height : 12,
-		tile : {
-			width : 32,
-			height : 32
-		}
-	};
+	// elfgameService.start(mapGrid);
 
-	elfgame.start(mapGrid);
-
-	elfgame.reportEvent = function(message) {
+	elfgameService.reportEvent = function(message) {
 		gameEventService.towerBroadcast(message);
 	};
 	
-	elfgame.sendDebugMessage = function(message) {
+	elfgameService.sendDebugMessage = function(message) {
 		gameEventService.debugBroadcast(message);
 	};
-}).factory('elfgame', function() {
+}).factory('elfgameService', function() {
 	// Game.elfWorld = elfworld;
 	return {
 

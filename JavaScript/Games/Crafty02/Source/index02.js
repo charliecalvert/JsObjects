@@ -1,3 +1,7 @@
+/* globals Game: true, Crafty: true */
+/* jshint browser: true */
+
+
 Game = {
 	// This defines our grid's size and the size of each of its tiles
 	map_grid: {
@@ -130,7 +134,7 @@ Crafty.c('PlayerCharacter', {
 
 	// Respond to this player visiting a village
 	visitVillage: function(data) {
-		villlage = data[0].obj;
+		var villlage = data[0].obj;
 		villlage.visit();
 	}
 });
@@ -157,8 +161,8 @@ Crafty.scene('Game', function() {
 	this.occupied = new Array(Game.map_grid.width);
 	for (var i = 0; i < Game.map_grid.width; i++) {
 		this.occupied[i] = new Array(Game.map_grid.height);
-		for (var y = 0; y < Game.map_grid.height; y++) {
-			this.occupied[i][y] = false;
+		for (var j = 0; j < Game.map_grid.height; j++) {
+			this.occupied[i][j] = false;
 		}
 	}
 
@@ -169,7 +173,7 @@ Crafty.scene('Game', function() {
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Game.map_grid.width; x++) {
 		for (var y = 0; y < Game.map_grid.height; y++) {
-			var at_edge = x == 0 || x == Game.map_grid.width - 1 || y == 0 || y == Game.map_grid.height - 1;
+			var at_edge = x === 0 || x === Game.map_grid.width - 1 || y === 0 || y === Game.map_grid.height - 1;
 
 			if (at_edge) {
 				// Place a tree entity at the current tile
@@ -185,11 +189,11 @@ Crafty.scene('Game', function() {
 
 	// Generate up to five villages on the map in random locations
 	var max_villages = 5;
-	for (var x = 0; x < Game.map_grid.width; x++) {
-		for (var y = 0; y < Game.map_grid.height; y++) {
+	for (x = 0; x < Game.map_grid.width; x++) {
+		for (var y1 = 0; y1 < Game.map_grid.height; y1++) {
 			if (Math.random() < 0.02) {
-				if (Crafty('Village').length < max_villages && !this.occupied[x][y]) {
-					Crafty.e('Village').at(x, y);
+				if (Crafty('Village').length < max_villages && !this.occupied[x][y1]) {
+					Crafty.e('Village').at(x, y1);
 				}
 			}
 		}
