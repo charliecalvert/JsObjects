@@ -6,7 +6,9 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'commonjs'],
 
     // list of files / patterns to load in the browser
-    files: [      
+    files: [   
+      'angular.js',
+      'angular-mocks.js',
       'index.js',
       'Test01.js'
     ],
@@ -71,7 +73,7 @@ module.exports = function(config) {
     // CLI --report-slower-than 500
     reportSlowerThan: 500,
 
-    plugins: [
+    plugins: [      
       'karma-jasmine',
       'karma-chrome-launcher',
       'karma-firefox-launcher',

@@ -7,7 +7,7 @@ how to write unit tests for AngularJS using Jasmine.
 Suppose we want to test this object:
 
 ```
-function AddController($scope) {		
+function AddController($scope) {
 	$scope.operandA = 17000;
 	$scope.operandB = 15000;
 
@@ -50,7 +50,7 @@ There are two steps:
 
 ###Add the boilerplate
 
-In Test01.js, add the following boilerplate code that initializes 
+In a separate file, called JasmineStart.js, add the following boilerplate code that initializes 
 Jasmine and that rarely changes:
 
 ```
@@ -92,35 +92,58 @@ Also in Test01.js, write your tests:
 
 ```
 describe("calculator", function() {'use strict';
-	var $mockScope = null;
-	var pc = null;
+	var addController = null;
+
+	beforeEach(module('myApp'));
 	
 	beforeEach(inject(function($rootScope, $controller) {
-		$mockScope = $rootScope.$new();
-		pc = $controller('AddController', { $scope: $mockScope }); 
+		addController = $rootScope.$new();
+		$controller('AddController', { $scope: addController }); 
 	}));
-	
+
 	it("Sum two values", function() {
-	    $mockScope.operandA = 3;
-		$mockScope.operandB = 5;
-		expect($mockScope.func()).toEqual(8);
+		addController.operandA = 3;
+		addController.operandB = 5;
+		expect(addController.func()).toEqual(8);
+	});
+
+	it("Sum two other values", function() {
+		addController.operandA = 2;
+		addController.operandB = 9;
+		expect(addController.func()).toEqual(11);
 	});
 });
-```
 
-Forgive me for naming the variable #mockScope. It is not a 
-mock object, it is real instance of AddController. 
+
+```
 
 The key lines of code here are these, which create and
 then initialize an instance of the object we want to test:
 
-	$mockScope = $rootScope.$new();
-	pc = $controller('AddController', { $scope: $mockScope });
+	addController = $rootScope.$new();
+	pc = $controller('AddController', { $scope: addController });
 
 Now we are free to write some tests:
 
 	it("Sum two values", function() {
-	    $mockScope.operandA = 3;
-		$mockScope.operandB = 5;
-		expect($mockScope.func()).toEqual(8);
+	    addController.operandA = 3;
+		addController.operandB = 5;
+		expect(addController.func()).toEqual(8);
 	});
+
+###Run Karma
+
+To run the tests in karma, first ensure that you have installed 
+the prerequisites:
+
+	npm install
+
+The above command processes **package.json**. In other words, the 
+**config file** for **npm install** is called **package.json**.
+
+Now type the following at the command line:
+
+	karma start
+
+Chrome should open and your tests should run. Go back to the 
+command line to see if they failed or succeeded.
