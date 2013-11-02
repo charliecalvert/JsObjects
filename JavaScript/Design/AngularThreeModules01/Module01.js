@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-angular.module('elvenApp', ['sailboat', 'boat'])
+angular.module('elvenApp', ['boat', 'sailboat'])
 .controller('BoatController', function($scope, boat, sailboat) {
     $scope.simple = "Simple Boat";
     $scope.boatType = boat.description;
@@ -20,7 +20,7 @@ angular.module('boat', [])
 angular.module('sailboat', [])
 .factory('sailboat', function() {
 	return {
-		description: "I'm a sailboat"		
+		description: "I'm a sailboat."		
 	};
 });
 
