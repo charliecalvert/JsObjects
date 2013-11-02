@@ -32,7 +32,7 @@ angular.module('elfgame', []).controller('GameBoard', function($scope, gameEvent
 		// Initialize and start our game
 		start : function(mapGrid) {
 			// Start crafty
-			initMapGrid(mapGrid);
+			this.initMapGrid(mapGrid);
 			var gameDiv = document.getElementById("gameBoard");			
 			Crafty.init(this.width(), this.height(), gameDiv);
 			Crafty.game = this;
