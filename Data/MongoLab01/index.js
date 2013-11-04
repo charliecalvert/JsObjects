@@ -33,20 +33,15 @@ angular.module('pres', ['ngResource'])
       id:'@_id.$oid'
     });
 
-    Presidents.prototype.getFirstName = function() {
+    Presidents.prototype.getPresidentName = function() {
       return this.presidentName;
     };
-
-    return Presidents;
     
-	/* var res =  $resource('https://api.monolab.com/api/1/databases/ascrum/collections/users/:id', {
-		apiKey:'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy',
-		id:'#_id.$oid'
-	});
-	
-	res.prototype.getFirstName = function() {
-		return this.firstName;
-	};
-	return res; */ 
+    Presidents.prototype.getTermStart = function() {
+    	return this.termStart;
+    };
+
+    return Presidents;    
+	 
 	// return { a: 2 };		
 });

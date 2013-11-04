@@ -17,9 +17,10 @@
         		
         	<ul>
     			<li ng-repeat="president in presidents">
-    				<p>{{president.getFirstName()}}</p>
+    				<p>{{president.getPresidentName()}} TermStart {{president.getTermStart()}}</p>
     			</li>
-    		</ul>    			
+    		</ul>
+    		
 			        		
             <div ng-bind-html-unsafe="hint"> </div>
             
