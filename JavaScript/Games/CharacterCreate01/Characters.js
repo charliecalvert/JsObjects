@@ -2,7 +2,9 @@
  * @author Charlie
  */
 
-function Characters($scope) {
+angular.module('characters', [])
+.controller('Characters', function($scope) {
+	
     $scope.hint = "Enter a number of miles";
     
     $scope.races = [
@@ -70,4 +72,4 @@ function Characters($scope) {
     $scope.convertMilesToFeet = function() {
         return $scope.miles * 5280;  
     };
-}
+});
