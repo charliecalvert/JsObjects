@@ -2,14 +2,9 @@
  * @author Charlie Calvert
  */
 
-var ElfWorld = angular.module('elfworld', []);
-
-/*.controller('starter', function() {
-    game.start();
-}); */
-
-function ElfPlayer($scope) {
-    mapGrid = {
+angular.module('elfworld', ['modGame'])
+.controller("ElfPlayer", function($scope, game) {
+    var mapGrid = {
         width:  24,
         height: 16,
         tile: {
@@ -19,7 +14,7 @@ function ElfPlayer($scope) {
     };
     
     $scope.name = "ElfPlayer";
-    $scope.game = Game;
-    $scope.game.start(mapGrid);
+    Crafty.game = game;
+    Crafty.game.start(mapGrid);
     // Game.start();
-} 
+}); 

@@ -2,6 +2,8 @@
  * @author Charlie Calvert
  */
 
+/* jshint browser: true */
+
 //  Allow tracking of X, Y coordinates on a Grid
 Crafty.c('Grid', {
 	init: function() {
@@ -66,7 +68,7 @@ Crafty.c('PlayerCharacter', {
 		this.bind('NewDirection', function(data) {
 			this.encounterMode = false;
 			if (data.x > 0) {
-			    Crafty.game.changeDirectionMessage("Going Right");
+				Crafty.game.changeDirectionMessage("Going Right");
 				this.animate('PlayerMovingRight', animation_speed, -1);
 			} else if (data.x < 0) {
 				Crafty.game.changeDirectionMessage("Going Left");
@@ -87,7 +89,7 @@ Crafty.c('PlayerCharacter', {
 			// this.x = this.x - 2;
 			// this.animate('PlayerMovingRight', animation_speed, -1);
 		});
-		
+
 		this.bind('stopMove', function() {
 			this.stopMovement();
 		});
@@ -109,26 +111,26 @@ Crafty.c('PlayerCharacter', {
 		}
 	},
 
-	
-	
+
+
 	// Respond to this player visiting a village
 	visitVillage: function(data) {
 		this.stopMovement();
-		
+
 		// If we are in an encounter, then we do nothing until the user
 		// asks to move again.
 		if (this.encounterMode) {
 			return;
-		}	
-	
-	    Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
-	    if (Crafty.game.encounter(data[0].obj._entityName)) {
-		   villlage = data[0].obj;
-		   villlage.visit();
+		}
+
+		Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
+		if (Crafty.game.encounter(data[0].obj._entityName)) {
+			var villlage = data[0].obj;
+			villlage.visit();
 		} else {
 			this.encounterMode = true;
-		    // this.NewDirection({x: -2, y: 0});		    
-		    // alert("you are hit");
+			// this.NewDirection({x: -2, y: 0});
+			// alert("you are hit");
 			//this.animate('PlayerMovingLefta', 0, 0, 2);
 		}
 	}
@@ -150,13 +152,13 @@ Crafty.c('Village', {
 
 // Draw the initial game state
 Crafty.scene('Game', function() {
-	
+
 	// A 2D array to keep track of all gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
 		this.gameBoard[i] = new Array(Crafty.game.map_grid.height);
-		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			this.gameBoard[i][y] = false;
+		for (var j = 0; j < Crafty.game.map_grid.height; j++) {
+			this.gameBoard[i][j] = false;
 		}
 	}
 
@@ -167,7 +169,7 @@ Crafty.scene('Game', function() {
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
 		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
-			var at_edge = x == 0 || x == Crafty.game.map_grid.width - 1 || y == 0 || y == Crafty.game.map_grid.height - 1;
+			var at_edge = x === 0 || x === Crafty.game.map_grid.width - 1 || y === 0 || y === Crafty.game.map_grid.height - 1;
 
 			if (at_edge) {
 				// Place a tree entity at the current tile
@@ -183,11 +185,11 @@ Crafty.scene('Game', function() {
 
 	// Generate up to five villages on the map in random locations
 	var max_villages = 5;
-	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
-		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
+	for (var col = 0; col < Crafty.game.map_grid.width; col++) {
+		for (var row = 0; row < Crafty.game.map_grid.height; row++) {
 			if (Math.random() < 0.02) {
-				if (Crafty('Village').length < max_villages && !this.gameBoard[x][y]) {
-					var village = Crafty.e('Village').at(x, y);
+				if (Crafty('Village').length < max_villages && !this.gameBoard[col][row]) {
+					var village = Crafty.e('Village').at(col, row);
 					village.setName(village._entityName.replace('Entity', 'Village'));
 				}
 			}
@@ -220,28 +222,28 @@ Crafty.scene('Victory', function() {
 	this.restart = function() {
 		Crafty.scene('Game');
 	};
-	
-	// Bind keydown event. This was done wrong in the demo 
-	this.bind('KeyDown', this.restart); 
+
+	// Bind keydown event. This was done wrong in the demo
+	this.bind('KeyDown', this.restart);
 }, function() {
-	// Remove key binding to prevent multiple restarts 
+	// Remove key binding to prevent multiple restarts
 	if (!this.unbind('KeyDown', this.restart)) {
-		alert("Could not unbind");
+		window.alert("Could not unbind");
 	}
-	
+
 });
 
 // Load binary assets such as images and audio files
 Crafty.scene('Loading', function(){
-    
-    var assets = ['Assets/cscGarden01-32X32.png',         
-        'Assets/BoyWalk.png', 
-        'Assets/door_knock_3x.mp3', 
-        ];
-	
+
+	var assets = ['Assets/cscGarden01-32X32.png',
+		'Assets/BoyWalk.png',
+		'Assets/door_knock_3x.mp3',
+		];
+
 	// Load our sprite map image
 	Crafty.load(assets, function(){
-   		Crafty.sprite(32, assets[0], {
+		Crafty.sprite(32, assets[0], {
 			spr_tree:    [0, 3],
 			spr_bush:    [2, 0],
 			spr_village: [0, 1]
@@ -257,7 +259,7 @@ Crafty.scene('Loading', function(){
 		//	knock: ['http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3']
 		//});
 
-		// Display text while loading		
+		// Display text while loading
 		Crafty.e('2D, DOM, Text')
 			.attr({ x: 0, y: Crafty.viewport.height / 2 - 24, w: Crafty.viewport.width })
 			.text('Loading...');

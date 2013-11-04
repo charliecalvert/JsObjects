@@ -3,7 +3,7 @@
  */
 
  describe("GameBoard", function() {'use strict';
-	var elfController = null;
+	// var elfController = null;
 	var gameBoard = null;
 	var elfgameService = null;
 	var gameEventService = null;

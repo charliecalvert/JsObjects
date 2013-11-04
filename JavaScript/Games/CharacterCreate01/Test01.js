@@ -1,6 +1,8 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
+
+/* jshint browser: true */
 
 describe("mycontrollertest", function() {'use strict';
     var $mockScope = null;

@@ -18,7 +18,18 @@ module.exports = function(grunt) {
 					'**/cordova*.js',
 					'**/qunit*.js'],
 				reporter: 'checkstyle',
-				reporterOutput: 'result.xml'
+				reporterOutput: 'result.xml',
+				globals: {
+					describe: true,
+					beforeEach: true,
+					inject: true,
+					it: true,
+					jasmine: true,
+					expect: true,
+					angular: true,
+					module: true,
+					Crafty: true
+				}
 			}
 		},
 		

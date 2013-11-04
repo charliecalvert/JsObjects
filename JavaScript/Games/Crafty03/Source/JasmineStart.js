@@ -1,3 +1,5 @@
+/* jshint browser: true */
+
 (function() {'use strict';
 	var jasmineEnv = jasmine.getEnv();
 	jasmineEnv.updateInterval = 1000;

@@ -2,6 +2,8 @@
  * @author Charlie Calvert
  */
 
+/* jshint devel: true */
+
 var ElfWorld = angular.module('elfworld', ['elfgame'])
 .factory('gameEventService', function($rootScope) {
 	return {

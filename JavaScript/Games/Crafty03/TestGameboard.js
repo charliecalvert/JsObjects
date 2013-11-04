@@ -5,9 +5,9 @@
 // specs code
 describe("ElfController", function() {'use strict';
 		
-	var gameBoard = null;
-	var elfgameService = null;
-	var gameEventService = null;	
+	//var gameBoard = null;
+	//var elfgameService = null;
+	//var gameEventService = null;	
 	
 	beforeEach(function() {
 		module('elfgame');	

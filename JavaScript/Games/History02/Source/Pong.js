@@ -1,3 +1,5 @@
+/* jshint browser: true */
+
 function Pong() {
 	Crafty.init(600, 300);
 	Crafty.background('rgb(127,127,127)');
@@ -26,12 +28,14 @@ function Pong() {
 			if (this.x > 600) {
 				this.x = 300;
 				Crafty("LeftPoints").each(function () { 
-					this.text(++this.points + " Points") });
+					this.text(++this.points + " Points");
+				});
 			}
 			if (this.x < 10) {
 				this.x = 300;
 				Crafty("RightPoints").each(function () { 
-					this.text(++this.points + " Points") });
+					this.text(++this.points + " Points");
+                });
 			}
 
 			this.x += this.dX;
@@ -39,7 +43,7 @@ function Pong() {
 		})
 		.onHit('Paddle', function () {
 		this.dX *= -1;
-	})
+	});
 
 	//Score boards
 	Crafty.e("LeftPoints, DOM, 2D, Text")
@@ -52,4 +56,4 @@ function Pong() {
 
 window.onload = function() {
 	Pong();
-}
+};

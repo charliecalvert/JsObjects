@@ -1,6 +1,9 @@
+/* jshint browser: true */
+
 angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgameService) {
 
 	// elfgameService.initMapGrid(mapGrid);
+	$scope.name = "GameBoard";
 
 	elfgameService.reportEvent = function(message) {
 		return gameEventService.towerBroadcast(message);
