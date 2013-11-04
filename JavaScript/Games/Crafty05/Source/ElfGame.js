@@ -1,4 +1,4 @@
-/* jshint browser: true */
+/* jshint browser: true, devel: true */
 
 angular.module('elfgame', [])
 .controller('GameBoard', function($scope, gameEventService, elfgame) {
@@ -34,6 +34,8 @@ angular.module('elfgame', [])
 	};
 
 	elfgame.encounter = function(encountered) {
+		console.log(encountered);
+
 		var result = rollD3();
 
 		gameEventService.debugBroadcast('Result: ' + result);

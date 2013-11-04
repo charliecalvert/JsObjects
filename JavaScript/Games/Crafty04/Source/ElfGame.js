@@ -1,4 +1,4 @@
-/* jshint browser: true */
+/* jshint browser: true, devel: true */
 
 angular.module('elfgame', [])
 .controller('GameBoard', function($scope, gameEventService, elfgame) {
@@ -30,6 +30,8 @@ angular.module('elfgame', [])
 	};
 
 	elfgame.encounter = function(encountered) {
+		console.log(encountered);
+
 		var result = Math.floor(Math.random() * 3) + 1;
 		gameEventService.debugBroadcast('Result: ' + result);        
 		if (result === 1) {            
