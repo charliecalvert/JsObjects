@@ -11,3 +11,5 @@ Karma is working for these tests;
 - karma start
 
 then look at the command line, or read **test_results.xml**
+
+Foobar

@@ -1,6 +1,6 @@
 /* jshint browser: true */
 
-angular.module('elfgame', ['characters'])
+angular.module('elfGameMod', ['characters'])
 .factory('elfgame', function(gameEventService, people) {
 
 	return {

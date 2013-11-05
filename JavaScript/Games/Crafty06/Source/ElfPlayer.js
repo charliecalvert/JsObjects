@@ -4,7 +4,7 @@
 
  /* jshint devel: true */
 
-angular.module('elfPlayer', ['elfgame'])
+angular.module('elfPlayer', ['elfGameMod'])
 .factory('gameEventService', function($rootScope) {
 	return {
 		message: "",
