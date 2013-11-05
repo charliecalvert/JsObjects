@@ -8,8 +8,9 @@ angular.module('elvenApp', ['pres'])
     $scope.hint = "<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>";
     
     // $scope.presidents = presidents;
-    $scope.presidents = presidents.query({}, function(users){
-      console.log($scope.presidents.length);
+    $scope.presidents = presidents.query({}, function(users) {
+      $scope.presidentsLength = $scope.presidents.length;
+      console.log($scope.presidentsLength);
     });
 	
 	var getDataJson = $http.get('data.json');

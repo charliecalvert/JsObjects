@@ -14,7 +14,7 @@
         <div ng-controller="MyController">
         	<p>This project retrieves a small amount of JSON from
         		a node server.</p>
-        		
+            <p>Rows in DB: {{presidentsLength}}</p>        		
         	<ul>
     			<li ng-repeat="president in presidents">
     				<p>{{president.getPresidentName()}} TermStart {{president.getTermStart()}}</p>
