@@ -10,3 +10,4 @@ node_modules
 MyTempDir
 DeleteMe*
 *.*~
+npm-debug.log
