@@ -12,4 +12,4 @@ Karma is working for these tests;
 
 then look at the command line, or read **test_results.xml**
 
-Foobar
+Foobar4
