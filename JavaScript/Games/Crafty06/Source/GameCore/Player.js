@@ -36,10 +36,10 @@ Crafty.c('PlayerCharacter', {
                 this.playAnimation('PlayerMovingLeft', animation_speed, -1);
             } else if (data.y > 0) {
                 Crafty.game.changeDirectionMessage("Going Down");
-                this.animate('PlayerMovingDown', animation_speed, -1);
+                this.playAnimation('PlayerMovingDown', animation_speed, -1);
             } else if (data.y < 0) {
                 Crafty.game.changeDirectionMessage("Going Up");
-                this.animate('PlayerMovingUp', animation_speed, -1);
+                this.playAnimation('PlayerMovingUp', animation_speed, -1);
             } else {
                 this.resetAnimation();
             }
