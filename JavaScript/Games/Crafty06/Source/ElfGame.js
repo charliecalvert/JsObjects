@@ -16,7 +16,7 @@ angular.module('elfGameMod', ['characters'])
 			}
 		},
 
-		towers : [],
+		villages : [],
 
 		reportEvent : function(message) {
 			gameEventService.towerBroadcast(message);
@@ -49,7 +49,7 @@ angular.module('elfGameMod', ['characters'])
 
 		newVillage : function(village) {
 			village.tower = people.tower();
-			this.towers.push(village);
+			this.villages.push(village);
 		},
 
 		goLeft : function() {

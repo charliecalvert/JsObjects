@@ -8,8 +8,8 @@
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
     init: function() {
-        this.requires('Actor, Fourway, Collision, mainCharacter, SpriteAnimation')
-            .fourway(2)
+        this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation')
+            .fourway(4)
             .stopOnSolids()
             .onHit('Village', this.visitVillage)
             // These next lines define our four animations
@@ -18,13 +18,13 @@ Crafty.c('PlayerCharacter', {
             //  - the x and y coordinates within the sprite
             //     map at which the animation set begins
             //  - the number of animation frames *in addition to* the first one
-            .animate('PlayerMovingUp',    0, 2, 2)
-            .animate('PlayerMovingRight', 0, 0, 2)
-            .animate('PlayerMovingDown',  0, 2, 2)
-            .animate('PlayerMovingLeft',  0, 0, 2);
+            .animate('PlayerMovingUp',    0, 0, 4)
+            .animate('PlayerMovingRight', 0, 0, 3)
+            .animate('PlayerMovingDown',  0, 0, 4)
+            .animate('PlayerMovingLeft',  0, 0, 4);
 
         // Watch for a change of direction and switch animations accordingly
-        var animation_speed = 5;
+        var animation_speed = 8;
         this.bind('NewDirection', function(data) {
             this.encounterMode = false;
             if (data.x > 0) {
@@ -40,9 +40,10 @@ Crafty.c('PlayerCharacter', {
                 Crafty.game.changeDirectionMessage("Going Up");
                 this.animate('PlayerMovingUp', animation_speed, -1);
             } else {
-                this.stopMovement();
+                this.stop();
             }
         });
+        
         this.bind('goLeft', function() {
             // this.trigger('NewDirection', {x: 1, y: 0});
             this._movement.x = this._movement.x - 0.2;
@@ -62,6 +63,10 @@ Crafty.c('PlayerCharacter', {
         return this;
     },
 
+    stop: function() {
+        // Not sure what this is supposed to do
+    },
+    
     // Stops the movement
     stopMovement: function() {
         this._speed = 0;

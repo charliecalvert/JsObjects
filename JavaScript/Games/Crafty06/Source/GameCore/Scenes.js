@@ -94,6 +94,7 @@ Crafty.scene('Loading', function(){
 	var assets = ['Assets/cscGarden01-32X32.png',
 		'Assets/BoyWalk.png',
 		'Assets/door_knock_3x.mp3',
+		'Assets/People256.png'
 		];
 
 	// Load our sprite map image
@@ -105,9 +106,9 @@ Crafty.scene('Loading', function(){
 		});
 
 		//  The main character
-		Crafty.sprite(32, assets[1], {
-			mainCharacter:  [0, 0],
-		}, 0, 2);
+		Crafty.sprite(32, 32, assets[3], {
+			spr_mainCharacter:  [0, 0],
+		}, 0, 0);
 
 		// Define our sounds for later use
 		//Crafty.audio.add({
