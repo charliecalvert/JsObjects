@@ -19,7 +19,8 @@ Crafty.c('PlayerCharacter', {
             //     map at which the animation set begins
             //  - the number of animation frames *in addition to* the first one
             .animate('PlayerMovingUp',    0, 0, 4)
-            .animate('PlayerMovingRight', 0, 0, 3)
+            .animate('PlayerMovingRight', 0, 0, 4)
+            // .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
             .animate('PlayerMovingDown',  0, 0, 4)
             .animate('PlayerMovingLeft',  0, 0, 4);
 
@@ -29,10 +30,10 @@ Crafty.c('PlayerCharacter', {
             this.encounterMode = false;
             if (data.x > 0) {
                 Crafty.game.changeDirectionMessage("Going Right");
-                this.animate('PlayerMovingRight', animation_speed, -1);
+                this.playAnimation('PlayerMovingRight', animation_speed, -1);
             } else if (data.x < 0) {
                 Crafty.game.changeDirectionMessage("Going Left");
-                this.animate('PlayerMovingLeft', animation_speed, -1);
+                this.playAnimation('PlayerMovingLeft', animation_speed, -1);
             } else if (data.y > 0) {
                 Crafty.game.changeDirectionMessage("Going Down");
                 this.animate('PlayerMovingDown', animation_speed, -1);
@@ -40,7 +41,7 @@ Crafty.c('PlayerCharacter', {
                 Crafty.game.changeDirectionMessage("Going Up");
                 this.animate('PlayerMovingUp', animation_speed, -1);
             } else {
-                this.stop();
+                this.resetAnimation();
             }
         });
         
