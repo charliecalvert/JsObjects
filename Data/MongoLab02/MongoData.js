@@ -10,13 +10,10 @@ angular.module('elvenApp', ['pres'])
     
     // $scope.presidents = presidents;
     $scope.presidents = presidents.query({}, function(presidents) {
-      $scope.presidentsLength = $scope.presidents.length;
+      $scope.presidentsLength = presidents.length;
       console.log($scope.presidentsLength);
     });
     
-    var refresh = function() {
-        $scope.presidents = presidents.query({}, function(presidents) {});
-    };
     
     $scope.newPresident = function() {
         var pres = new presidents({
@@ -24,8 +21,9 @@ angular.module('elvenApp', ['pres'])
             termStart: $scope.termStart,
             termEnd: $scope.termEnd
         });
-        pres.$save(function(p, r) {
-            $scope.presidents.push(p);
+        pres.$save(function(president, r) {
+            $scope.presidents.push(president);
+            $scope.presidentsLength = $scope.presidents.length;
         });
     };
     
@@ -33,6 +31,7 @@ angular.module('elvenApp', ['pres'])
         var indexOfItemToDelete = $scope.indexOfItemToDelete;
         $scope.presidents[indexOfItemToDelete].$delete(function(p, r) {
             $scope.presidents.splice(indexOfItemToDelete, 1);
+            $scope.presidentsLength = $scope.presidents.length;
         });
     };
 });
