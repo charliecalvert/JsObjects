@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 					'*/ui-bootstrap-tpls-*.js',
 					'*/knockout-*.js', 
 					'**/Crafty.js',
+					'**/Crafty01.js',
 					'*/Ractive.js', 
 					'*/**/angular.js', 
 					'**/angular-mocks.js',
@@ -19,6 +20,7 @@ module.exports = function(grunt) {
 					'**/qunit*.js'],
 				reporter: 'checkstyle',
 				reporterOutput: 'result.xml',
+				strict: true,
 				globals: {
 					describe: true,
 					beforeEach: true,

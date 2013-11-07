@@ -111,9 +111,9 @@ Crafty.scene('Loading', function(){
 		}, 0, 0);
 
 		// Define our sounds for later use
-		//Crafty.audio.add({
-		//  knock: ['http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3']
-		//});
+		Crafty.audio.add({
+			knock: ['http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3']
+		});
 
 		// Display text while loading
 		Crafty.e('2D, DOM, Text')

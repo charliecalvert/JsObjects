@@ -22,7 +22,7 @@ Crafty.c('PlayerCharacter', {
             .animate('PlayerMovingRight', 0, 0, 4)
             // .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
             .animate('PlayerMovingDown',  0, 0, 4)
-            .animate('PlayerMovingLeft',  0, 0, 4);
+            .animate('PlayerMovingLeft',  0, 1, 4);
 
         // Watch for a change of direction and switch animations accordingly
         var animation_speed = 8;
