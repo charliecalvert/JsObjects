@@ -94,4 +94,9 @@ angular.module('characters', []).factory('people', function() {'use strict';
 			};
 		}
 	};
+
+}).controller('peopleController', function($scope, people) { 'use strict';
+	$scope.hint = "peopleController";
+	$scope.races = people.races;
+	$scope.classes = people.classes;
 });

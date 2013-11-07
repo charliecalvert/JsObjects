@@ -1,6 +1,6 @@
 /* jshint browser: true */
 
-function Pong() {
+function Pong() { 'use strict';
 	Crafty.init(600, 300);
 	Crafty.background('rgb(127,127,127)');
 
@@ -54,6 +54,6 @@ function Pong() {
 		.text("0 Points");
 }
 
-window.onload = function() {
+window.onload = function() { 'use strict';
 	Pong();
 };

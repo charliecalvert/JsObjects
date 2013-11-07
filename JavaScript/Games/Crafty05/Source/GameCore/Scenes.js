@@ -5,7 +5,7 @@
 /* jshint browser: true */
 
 // Draw the initial game state
-Crafty.scene('Game', function() {
+Crafty.scene('Game', function() { 'use strict';
 
 	// A 2D array to keep track of all gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
@@ -57,7 +57,7 @@ Crafty.scene('Game', function() {
 			Crafty.scene('Victory');
 		}
 	});
-}, function() {
+}, function() { 'use strict';
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
@@ -66,7 +66,7 @@ Crafty.scene('Game', function() {
 
 
 // Victory scene : Announce victory, set up a new game
-Crafty.scene('Victory', function() {
+Crafty.scene('Victory', function() { 'use strict';
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.attr({ x: 0, y: 0 })
@@ -79,7 +79,7 @@ Crafty.scene('Victory', function() {
 
 	// Bind keydown event. This was done wrong in the demo
 	this.bind('KeyDown', this.restart);
-}, function() {
+}, function() { 'use strict';
 	// Remove key binding to prevent multiple restarts
 	if (!this.unbind('KeyDown', this.restart)) {
 		window.alert("Could not unbind");
@@ -88,7 +88,7 @@ Crafty.scene('Victory', function() {
 });
 
 // Load binary assets such as images and audio files
-Crafty.scene('Loading', function(){
+Crafty.scene('Loading', function(){ 'use strict';
 
 	var assets = ['Assets/cscGarden01-32X32.png',
 		'Assets/BoyWalk.png',

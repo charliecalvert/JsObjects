@@ -5,7 +5,7 @@
  /* jshint devel: true */
 
 angular.module('elfPlayer', ['elfGameMod'])
-.factory('gameEventService', function($rootScope) {
+.factory('gameEventService', function($rootScope) { 'use strict';
 	return {
 		message: "",
 
@@ -39,7 +39,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 	game.start();
 }); */
 
-.controller('ElfController', function($scope, gameEventService, elfgame) {
+.controller('ElfController', function($scope, gameEventService, elfgame) { 'use strict';
 
 	$scope.name = "ElfPlayer";
 	$scope.eventNote = "no messages";

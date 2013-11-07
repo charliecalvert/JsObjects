@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app>
+<html ng-app="characters">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -10,9 +10,9 @@
         <!-- Latest compiled and minified JavaScript - Move to bottom of body element -->
         <script src="//code.jquery.com/jquery.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        <link href="index.css" rel="stylesheet">
-        <script src="angular.js"></script>
-        <script src="Characters.js"></script>
+        <link href="Style/index.css" rel="stylesheet">
+        <script src="Library/angular.js"></script>
+        <script src="Source/Characters.js"></script>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -45,10 +45,10 @@
                             <li><h2>Race: {{race.name}}</h2>
                                 <p>Description: {{race.description}}</p>
                                 <p>HitDie: {{race.hitDie}}</p><p>Class:</p>
-                                <ul ng-repeat="class in race.classes">
+                                <ul ng-repeat="class in races.classes">
                                     <li>{{class}}</li>
                                 </ul><p>Languages:</p>
-                                <ul ng-repeat="language in race.languages">
+                                <ul ng-repeat="language in races.languages">
                                     <li>{{language}}</li>
                                 </ul></li>
                         </ul>

@@ -1,7 +1,7 @@
 /* jshint browser: true, devel: true */
 
 angular.module('elfgame', [])
-.controller('GameBoard', function($scope, gameEventService, elfgame) {
+.controller('GameBoard', function($scope, gameEventService, elfgame) { 'use strict';
 
     $scope.name = 'GameBoard';
     
@@ -56,7 +56,7 @@ angular.module('elfgame', [])
 		Crafty.trigger('stopMove', Crafty);
 	};
 
-}).factory('elfgame', function() {
+}).factory('elfgame', function() { 'use strict';
 	// Game.elfWorld = elfworld;
 	return {
 

@@ -3,7 +3,7 @@
  */
 
 angular.module('elfworld', ['modGame'])
-.controller("ElfPlayer", function($scope, game) {
+.controller("ElfPlayer", function($scope, game) { 'use strict';
     var mapGrid = {
         width:  24,
         height: 16,

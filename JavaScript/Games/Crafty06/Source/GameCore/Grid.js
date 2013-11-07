@@ -4,7 +4,7 @@
 
 //  Allow tracking of X, Y coordinates on a Grid
 Crafty.c('Grid', {
-    init: function() {
+    init: function() { 'use strict';
         this.attr({
             w: Crafty.game.map_grid.tile.width,
             h: Crafty.game.map_grid.tile.height
@@ -12,7 +12,7 @@ Crafty.c('Grid', {
     },
 
     // Locate this entity at the given position on the grid
-    at: function(x, y) {
+    at: function(x, y) { 'use strict';
         if (x === undefined && y === undefined) {
             return { x: this.x / Crafty.game.map_grid.tile.width, y: this.y / Crafty.game.map_grid.tile.height };
         } else {

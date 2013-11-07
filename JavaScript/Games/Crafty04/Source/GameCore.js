@@ -6,7 +6,7 @@
 
 //  Allow tracking of X, Y coordinates on a Grid
 Crafty.c('Grid', {
-	init: function() {
+	init: function() { 'use strict';
 		this.attr({
 			w: Crafty.game.map_grid.tile.width,
 			h: Crafty.game.map_grid.tile.height
@@ -14,7 +14,7 @@ Crafty.c('Grid', {
 	},
 
 	// Locate this entity at the given position on the grid
-	at: function(x, y) {
+	at: function(x, y) { 'use strict';
 		if (x === undefined && y === undefined) {
 			return { x: this.x / Crafty.game.map_grid.tile.width, y: this.y / Crafty.game.map_grid.tile.height };
 		} else {
@@ -26,28 +26,28 @@ Crafty.c('Grid', {
 
 // An "Actor" is drawn on a Canvas and located on a 2D Grid
 Crafty.c('Actor', {
-	init: function() {
+	init: function() { 'use strict';
 		this.requires('2D, Canvas, Grid');
 	},
 });
 
 // A Tree is Solid so we can detect collisions, see Player
 Crafty.c('Tree', {
-	init: function() {
+	init: function() { 'use strict';
 		this.requires('Actor, Solid, spr_tree');
 	},
 });
 
 // A Bush is solid so we can detect collisions, see Player
 Crafty.c('Bush', {
-	init: function() {
+	init: function() { 'use strict';
 		this.requires('Actor, Solid, spr_bush');
 	},
 });
 
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
-	init: function() {
+	init: function() { 'use strict';
 		this.requires('Actor, Fourway, Collision, mainCharacter, SpriteAnimation')
 			.fourway(2)
 			.stopOnSolids()
@@ -97,13 +97,13 @@ Crafty.c('PlayerCharacter', {
 
 	// Registers a stop-movement function to be called when
 	//  this entity hits an entity with the "Solid" component
-	stopOnSolids: function() {
+	stopOnSolids: function() { 'use strict';
 		this.onHit('Solid', this.stopMovement);
 		return this;
 	},
 
 	// Stops the movement
-	stopMovement: function() {
+	stopMovement: function() { 'use strict';
 		this._speed = 0;
 		if (this._movement) {
 			this.x -= this._movement.x;
@@ -114,7 +114,7 @@ Crafty.c('PlayerCharacter', {
 
 
 	// Respond to this player visiting a village
-	visitVillage: function(data) {
+	visitVillage: function(data) { 'use strict';
 		this.stopMovement();
 
 		// If we are in an encounter, then we do nothing until the user
@@ -137,13 +137,13 @@ Crafty.c('PlayerCharacter', {
 });
 
 // A village is a tile on the grid that the PC must visit in order to win the game
-Crafty.c('Village', {
-	init: function() {
+Crafty.c('Village', { 
+	init: function() { 'use strict';
 		this.requires('Actor, spr_village');
 	},
 
 	// Process a visitation with this village
-	visit: function() {
+	visit: function() { 'use strict';
 		this.destroy();
 		Crafty.audio.play('knock');
 		Crafty.trigger('VillageVisited', this);
@@ -151,7 +151,7 @@ Crafty.c('Village', {
 });
 
 // Draw the initial game state
-Crafty.scene('Game', function() {
+Crafty.scene('Game', function() { 'use strict';
 
 	// A 2D array to keep track of all gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
@@ -203,7 +203,7 @@ Crafty.scene('Game', function() {
 			Crafty.scene('Victory');
 		}
 	});
-}, function() {
+}, function() { 'use strict';
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
@@ -212,7 +212,7 @@ Crafty.scene('Game', function() {
 
 
 // Victory scene : Announce victory, set up a new game
-Crafty.scene('Victory', function() {
+Crafty.scene('Victory', function() { 'use strict';
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.attr({ x: 0, y: 0 })
@@ -225,7 +225,7 @@ Crafty.scene('Victory', function() {
 
 	// Bind keydown event. This was done wrong in the demo
 	this.bind('KeyDown', this.restart);
-}, function() {
+}, function() { 'use strict';
 	// Remove key binding to prevent multiple restarts
 	if (!this.unbind('KeyDown', this.restart)) {
 		window.alert("Could not unbind");
@@ -234,7 +234,7 @@ Crafty.scene('Victory', function() {
 });
 
 // Load binary assets such as images and audio files
-Crafty.scene('Loading', function(){
+Crafty.scene('Loading', function(){ 'use strict';
 
 	var assets = ['Assets/cscGarden01-32X32.png',
 		'Assets/BoyWalk.png',
