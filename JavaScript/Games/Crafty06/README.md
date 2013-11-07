@@ -3,6 +3,11 @@ CraftyDemo06
 
 Description of CraftyDemo06.
 
+Sites of Interest
+-----------------
+
+- [Wizards HitPoints](http://www.wizards.com/default.asp?x=dnd/glossary&term=Glossary_dnd_hitpoints&alpha=)
+
 Changes
 -------
 

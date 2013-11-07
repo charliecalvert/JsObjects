@@ -1,10 +1,10 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 /* global angular:true */
 
-angular.module('characters', []).factory('people', function() {
+angular.module('characters', []).factory('people', function() {'use strict';
 
     return {
 
@@ -69,7 +69,7 @@ angular.module('characters', []).factory('people', function() {
         }]
     };
 
-}).controller('peopleController', function($scope, people) {
+}).controller('peopleController', function($scope, people) { 'use strict';
     $scope.hint = "peopleController";
     $scope.race = people.races;
     $scope.class = people.classes;

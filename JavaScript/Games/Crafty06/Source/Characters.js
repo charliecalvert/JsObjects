@@ -1,7 +1,5 @@
 /**
- * @author Charlie
- *
- * http://www.wizards.com/default.asp?x=dnd/glossary&term=Glossary_dnd_hitpoints&alpha=
+ * @author Charlie Calvert
  */
 
 angular.module('characters', [])

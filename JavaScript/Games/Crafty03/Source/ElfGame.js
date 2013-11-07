@@ -1,6 +1,7 @@
 /* jshint browser: true */
 
-angular.module('elfgame', []).controller('GameBoard', function($scope, gameEventService, elfgameService) {
+angular.module('elfgame', [])
+.controller('GameBoard', function($scope, gameEventService, elfgameService) { 'use strict';
 
 	// elfgameService.initMapGrid(mapGrid);
 	$scope.name = "GameBoard";
@@ -12,7 +13,7 @@ angular.module('elfgame', []).controller('GameBoard', function($scope, gameEvent
 	elfgameService.sendDebugMessage = function(message) {
 		return gameEventService.debugBroadcast(message);
 	};
-}).factory('elfgameService', function() {
+}).factory('elfgameService', function() {'use strict';
 	// Game.elfWorld = elfworld;
 	return {
 

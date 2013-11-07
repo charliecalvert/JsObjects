@@ -15,18 +15,18 @@ Game = {
 
 	// The total width of the game screen. Since our grid takes up the entire screen
 	//  this is just the width of a tile times the width of the grid
-	width: function() {
+	width: function() {'use strict';
 		return this.map_grid.width * this.map_grid.tile.width;
 	},
 
 	// The total height of the game screen. Since our grid takes up the entire screen
 	//  this is just the height of a tile times the height of the grid
-	height: function() {
+	height: function() {'use strict';
 		return this.map_grid.height * this.map_grid.tile.height;
 	},
 
 	// Initialize and start our game
-	start: function() {
+	start: function() {'use strict';
 		// Start crafty and set a background color so that we can see it's working
 		var gameDiv = document.getElementById("gameBoard");
 		Crafty.init(Game.width(), Game.height(), gameDiv);
@@ -40,7 +40,7 @@ Game = {
 // The Grid component allows an element to be located
 //  on a grid of tiles
 Crafty.c('Grid', {
-	init: function() {
+	init: function() {'use strict';
 		this.attr({
 			w: Game.map_grid.tile.width,
 			h: Game.map_grid.tile.height
@@ -48,7 +48,7 @@ Crafty.c('Grid', {
 	},
 
 	// Locate this entity at the given position on the grid
-	at: function(x, y) {
+	at: function(x, y) {'use strict';
 		if (x === undefined && y === undefined) {
 			return { x: this.x/Game.map_grid.tile.width, y: this.y/Game.map_grid.tile.height };
 		} else {
@@ -61,28 +61,28 @@ Crafty.c('Grid', {
 // An "Actor" is an entity that is drawn in 2D on canvas
 //  via our logical coordinate grid
 Crafty.c('Actor', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('2D, Canvas, Grid');
 	},
 });
 
 // A Tree is just an Actor with a certain color
 Crafty.c('Tree', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('Actor, Solid, spr_tree');
 	},
 });
 
 // A Bush is just an Actor with a certain color
 Crafty.c('Bush', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('Actor, Solid, spr_bush');
 	},
 });
 
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
 			.fourway(4)
 			.stopOnSolids()
@@ -117,14 +117,14 @@ Crafty.c('PlayerCharacter', {
 
 	// Registers a stop-movement function to be called when
 	//  this entity hits an entity with the "Solid" component
-	stopOnSolids: function() {
+	stopOnSolids: function() {'use strict';
 		this.onHit('Solid', this.stopMovement);
 
 		return this;
 	},
 
 	// Stops the movement
-	stopMovement: function() {
+	stopMovement: function() {'use strict';
 		this._speed = 0;
 		if (this._movement) {
 			this.x -= this._movement.x;
@@ -133,7 +133,7 @@ Crafty.c('PlayerCharacter', {
 	},
 
 	// Respond to this player visiting a village
-	visitVillage: function(data) {
+	visitVillage: function(data) {'use strict';
 		var villlage = data[0].obj;
 		villlage.visit();
 	}
@@ -141,12 +141,12 @@ Crafty.c('PlayerCharacter', {
 
 // A village is a tile on the grid that the PC must visit in order to win the game
 Crafty.c('Village', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('Actor, spr_village');
 	},
 
 	// Process a visitation with this village
-	visit: function() {
+	visit: function() {'use strict';
 		this.destroy();
 		Crafty.audio.play('knock');
 		Crafty.trigger('VillageVisited', this);
@@ -156,7 +156,7 @@ Crafty.c('Village', {
 // Game scene
 // -------------
 // Runs the core gameplay loop
-Crafty.scene('Game', function() {
+Crafty.scene('Game', function() {'use strict';
 	// A 2D array to keep track of all occupied tiles
 	this.occupied = new Array(Game.map_grid.width);
 	for (var i = 0; i < Game.map_grid.width; i++) {
@@ -205,7 +205,7 @@ Crafty.scene('Game', function() {
 			Crafty.scene('Victory');
 		}
 	});
-}, function() {
+}, function() {'use strict';
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
@@ -216,7 +216,7 @@ Crafty.scene('Game', function() {
 // Victory scene
 // -------------
 // Tells the player when they've won and lets them start a new game
-Crafty.scene('Victory', function() {
+Crafty.scene('Victory', function() {'use strict';
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.attr({ x: 0, y: 0 })
@@ -227,7 +227,7 @@ Crafty.scene('Victory', function() {
 	this.restart_game = this.bind('KeyDown', function() {
 		Crafty.scene('Game');
 	});
-}, function() {
+}, function() {'use strict';
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
@@ -237,7 +237,7 @@ Crafty.scene('Victory', function() {
 // Loading scene
 // -------------
 // Handles the loading of binary assets such as images and audio files
-Crafty.scene('Loading', function(){
+Crafty.scene('Loading', function(){'use strict';
     var assets = ['Assets/cscGarden01-32X32.png',         
         'Assets/BoyWalk.png', 
         'Assets/door_knock_3x.mp3'];
@@ -273,6 +273,6 @@ Crafty.scene('Loading', function(){
 	});
 });
 
-window.onload = function() {
+window.onload = function() {'use strict';
 	Game.start();
 };

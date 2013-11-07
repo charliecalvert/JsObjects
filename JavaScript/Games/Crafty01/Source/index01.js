@@ -1,7 +1,7 @@
 /* global Crafty: true */
 /* jshint browser: true */
 
-function startGame() {
+function startGame() {'use strict';
 	var game = {
 
 		// Describe the grid for the GameBoard
@@ -14,7 +14,7 @@ function startGame() {
 			}
 		},
 
-		// The width of the game screen in pixels 
+		// The width of the game screen in pixels
 		width: function() {
 			return this.map_grid.width * this.map_grid.tile.width;
 		},
@@ -25,59 +25,59 @@ function startGame() {
 		},
 
 		start: function() {
-		
+
 			// Set Viewport width and height
-			Crafty.init(this.width(), this.height());		
+			Crafty.init(this.width(), this.height());
 			Crafty.background('rgb(87, 109, 20)');
 
 			// Call the Loading scene defined below
 			Crafty.scene('Loading');
 		}
 	};
-	
+
 	Crafty.game = game;
-	Crafty.game.start();	
+	Crafty.game.start();
 }
 
 // Locate an entity at the given position on the grid
 // Called by Game Scene, used by all Actors: Tree, Bush
 Crafty.c('Grid', {
-	
-	at: function(x, y) {
+
+	at: function(x, y) {'use strict';
 		if (x === undefined && y === undefined) {
-			return { 
-				x: this.x / Crafty.game.map_grid.tile.width, 
-				y: this.y / Crafty.game.map_grid.tile.height 
+			return {
+				x: this.x / Crafty.game.map_grid.tile.width,
+				y: this.y / Crafty.game.map_grid.tile.height
 			};
 		} else {
 			this.attr(
 			{
-				x: x * Crafty.game.map_grid.tile.width, 
-				y: y * Crafty.game.map_grid.tile.height 
+				x: x * Crafty.game.map_grid.tile.width,
+				y: y * Crafty.game.map_grid.tile.height
 			});
 			return this;
 		}
-	} 
+	}
 });
 
 // An "Actor" is an component that is drawn in 2D on canvas
 //  via our logical coordinate grid
 Crafty.c('Actor', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('2D, Canvas, Grid');
 	},
 });
 
 // A Tree is just an Actor with a certain color
 Crafty.c('Tree', {
-	init: function() {
-		this.requires('Actor, spr_tree');		
+	init: function() {'use strict';
+		this.requires('Actor, spr_tree');
 	}
 });
 
 // A Bush is just an Actor with a certain color
 Crafty.c('Bush', {
-	init: function() {
+	init: function() {'use strict';
 		this.requires('Actor, spr_bush');
 	}
 });
@@ -85,7 +85,7 @@ Crafty.c('Bush', {
 
 // Call Crafty.scene()
 // Called by the core gameplay loop
-Crafty.scene('Game', function() {
+Crafty.scene('Game', function() {'use strict';
 	// Zero out the a 2D array that tracks gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
 	for (var i = 0; i < Crafty.game.map_grid.width; i++) {
@@ -100,7 +100,7 @@ Crafty.scene('Game', function() {
 		var yStatus = (y === 0 || y === Crafty.game.map_grid.height - 1);
 		return xStatus || yStatus;
 	}
-	
+
 	// Place a tree at every edge square on our grid of tiles
 	for (var x = 0; x < Crafty.game.map_grid.width; x++) {
 		for (var y = 0; y < Crafty.game.map_grid.height; y++) {
@@ -121,7 +121,7 @@ Crafty.scene('Game', function() {
 });
 
 // Load binary assets such as images and audio files
-Crafty.scene('Loading', function(){
+Crafty.scene('Loading', function(){'use strict';
 
 	// Define our assets
 	var images = ['Assets/cscGarden01-32X32.png'];
@@ -129,7 +129,7 @@ Crafty.scene('Loading', function(){
 	// Load our assets and call callback
 	// The offset is [Col, Row]
 	Crafty.load(images, function() {
-	
+
 		Crafty.sprite(32, images[0], {
 			spr_tree: [1, 1],
 			spr_bush: [2, 0]
@@ -140,6 +140,6 @@ Crafty.scene('Loading', function(){
 	});
 });
 
-window.onload = function() {
+window.onload = function() {'use strict';
 	startGame();
 };
