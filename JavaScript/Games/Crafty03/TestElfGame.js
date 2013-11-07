@@ -13,12 +13,6 @@
 		module('elfworld');
 	});
 
-	/* beforeEach(inject(function($rootScope, $controller) {
-		elfController = $rootScope.$new();
-		gameEventService = $rootScope.$new();
-		$controller('ElfController', { $scope: elfController, gameEventService: gameEventService });
-	})); */
-
 	beforeEach(inject(function($rootScope, $controller) {
 		gameBoard = $rootScope.$new();
 		gameEventService = { towerBroadcast: function() { return true; } };
@@ -41,7 +35,7 @@
 			}
 		});
 		var actual = elfgameService.width();
-		expect(actual).toEqual(577);
+		expect(actual).toEqual(576);
 	}));
 
 	it("Test method to get the height of the playing field", inject(function(elfgameService) {
