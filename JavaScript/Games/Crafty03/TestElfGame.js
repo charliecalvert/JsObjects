@@ -41,7 +41,7 @@
 			}
 		});
 		var actual = elfgameService.width();
-		expect(actual).toEqual(576);
+		expect(actual).toEqual(577);
 	}));
 
 	it("Test method to get the height of the playing field", inject(function(elfgameService) {
