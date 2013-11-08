@@ -9,12 +9,12 @@ var SimpleDir = (function() {
 	
 	var makeDir = function(folder) {
 		mkdirp(folder);
-	}
+	};
 	
 	// Test if a directory exists, if it does not exist create it
 	SimpleDir.prototype.ensureDir = function(folder) {
 		fs.exists(folder, existsFunc);
-	}
+	};
 	
 	// Synchronous version of directory exists
 	SimpleDir.prototype.ensureDirSync = function(folder) {

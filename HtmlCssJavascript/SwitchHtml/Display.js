@@ -26,7 +26,7 @@ ELF.own.Display = (function() {'use strict';
 		this.setConflictMode(false);		
 		this.showDebugSection(false);
 		showCore(true);
-	}
+	};
 	
 	var showCore = function(turnOn) {
 		if (turnOn === true) {
@@ -36,7 +36,7 @@ ELF.own.Display = (function() {'use strict';
 			$("#textDisplay").hide('slow');
 			$("#locationDisplay").hide('slow');
 		}
-	}
+	};
 	
 	Display.prototype.viewHero = function(turnOn) {
 		if (that.npcView) {
@@ -49,7 +49,7 @@ ELF.own.Display = (function() {'use strict';
 		} else {
 			$('#viewHero').hide('slow');
 		}			
-	}
+	};
 	
 	Display.prototype.viewNpc = function(turnOn) {
 		if (that.heroView) {
@@ -62,7 +62,7 @@ ELF.own.Display = (function() {'use strict';
 		} else {
 			$('#viewNpc').hide('slow');
 		}			
-	}
+	};
 	
 	Display.prototype.setButtons = function(turnOn) {
 		if (turnOn === true) {

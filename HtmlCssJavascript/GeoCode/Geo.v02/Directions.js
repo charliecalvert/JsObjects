@@ -75,7 +75,7 @@ ELF.own.Directions = (function() {
 		});
 
 		// directionsVisible = true;
-	}
+	};
 
 	return Directions;
 })();

@@ -10,10 +10,11 @@ var mkdirp = require('mkdirp');
  */
 var ensureDir = function(folder) {
 	if (!fs.existsSync(folder)) {
-		mkdirp(folder)	
+		mkdirp(folder);	
 	}
 	return folder;
-}
+};
+
 /** 
  * Format the JSON that holds a two dimensional array of
  * numbers representing a grid.
@@ -22,7 +23,7 @@ var prettyPrintGrid = function(grid) {
 	data = JSON.stringify(grid);
 	var result = data.replace(/\[\"/g, '\n\t[');
 	return result.replace(']]', ']\n]');
-}
+};
 
 /**
  * Be sure we start with a path separator.
@@ -32,14 +33,14 @@ var ensureStartsWithPathSep = function(fileName) {
 		fileName = path.sep + fileName;
 	}
 	return fileName;
-}
+};
 
 var ensureEndsWithPathSep = function(fileName) {
 	if (fileName.substring(fileName.length, 1) !== path.sep) {
 		fileName = fileName + path.sep ;
 	}
 	return fileName;
-}
+};
 
 /**
  * All I'm really doing here is reminding myself that path.join
@@ -50,7 +51,7 @@ var ensureEndsWithPathSep = function(fileName) {
  */
 var elfJoin = function(pathName, fileName) {
 	return path.join(pathName, fileName); 
-}
+};
 
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;

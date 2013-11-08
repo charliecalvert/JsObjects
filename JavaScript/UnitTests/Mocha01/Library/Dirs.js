@@ -21,7 +21,7 @@ var Dirs = (function() {
 	// Create a directory, supports recursion
 	var makeDir = function(dir) {
 		mkdirp(dir);
-	}
+	};
 	
 	// Get the status of a directory
 	var directoryStats = function(dir) {
@@ -42,7 +42,7 @@ var Dirs = (function() {
 	Dirs.prototype.ensureDir = function(folder) {
 		currentFolder = folder;
 		fs.exists(folder, existsFunc);
-	}
+	};
 	
 	// Synchronous version of directory exists
 	Dirs.prototype.ensureDirSync = function(folder) {

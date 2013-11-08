@@ -32,7 +32,7 @@ var Templater = (function() {'use strict';
 
 
     Templater.prototype.addNames = function(fileName, data) {
-        console.log('Here is the data: ')
+        console.log('Here is the data: ');
         console.log(data);
         
         var mainFile = readHtml(fileName);
@@ -49,7 +49,7 @@ var Templater = (function() {'use strict';
             headGuy : "Templated HTML"
         });
         
-        console.log('Return result')
+        console.log('Return result');
 
         return result;
     };
@@ -58,4 +58,4 @@ var Templater = (function() {'use strict';
 
 })();
 
-exports.template = new Templater()
+exports.template = new Templater();

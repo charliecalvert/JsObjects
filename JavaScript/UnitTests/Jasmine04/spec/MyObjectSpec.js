@@ -8,11 +8,11 @@ describe("MyObject", function () {
         obj.setState("dirty");
         console.log(obj);
         expect(obj.getState()).toEqual("dirty");
-    })
+    });
     it("adds states", function () {
         obj.addState("packaged");
         expect(obj.getState()).toEqual(["clean", "packaged"]);
-    })
+    });
 });
 
 describe("MyObject", function () {
@@ -24,11 +24,11 @@ describe("MyObject", function () {
     it("changes state", function () {
         obj.setState("dirty");
         expect(obj.getState()).toEqual("dirty");
-    })
+    });
     it("adds states", function () {
         obj.addState("packaged");
         expect(obj.getState()).toEqual(["clean", "packaged"]);
-    })
+    });
 });
 	
 describe("test", function () {

@@ -24,7 +24,7 @@ var GeoCode = (function() {'use strict';
 			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-	}
+	};
 
 	GeoCode.prototype.getCoordinates = function() {		
 		var address = $('#address').val();
@@ -47,7 +47,7 @@ var GeoCode = (function() {'use strict';
 				alert('Geocode error: ' + status);
 			}
 		});
-	}
+	};
 
 	return GeoCode;
 })();

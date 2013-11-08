@@ -12,22 +12,22 @@
  	
  	var privateAdd = function(operanda, operandb) {
  		return operanda + operandb;
- 	}
+ 	};
  	
  	App.prototype.addNumbers = function() {
  		var operanda = parseInt($('#operanda').val(), 10);
  		var operandb = parseInt($('#operandb').val(), 10);
  		var result = privateAdd(operanda, operandb); 
  		$('#addResult').html(operanda + ' + ' + operandb + ' = ' + result);
- 	}
+ 	};
  	
  	App.prototype.add = function(operanda, operandb) {
  		return privateAdd(operanda, operandb);
- 	}
+ 	};
  	
  	App.prototype.multiply = function(operanda, operandb) {
  		return operanda * operandb;
- 	}
+ 	};
  	
  	var readJsonProgram = function() {
  		var gridString = '';
@@ -42,7 +42,7 @@
 		},
 		showError
 		);
- 	}
+ };
  	
  	var readJsonPrivate = function(fileName, success, failure) {
  		$.ajax({
@@ -53,7 +53,7 @@
 			success : success,
 			error: failure
 		});
- 	}
+ 	};
  	
  	App.prototype.readJsonTest = function(fileName, success, failure) {
  		readJsonPrivate(fileName, success, failure);
@@ -69,7 +69,7 @@
 			success : success,
 			error: failure
 		});
- 	}
+ 	};
  	
  	App.prototype.writeJsonTest = function(data, success, failure) {
  		writeJsonPrivate(data, success, failure);

@@ -137,6 +137,7 @@ jasmine.HtmlReporter = function(_doc) {
     };
   }
 };
+
 jasmine.HtmlReporter.parameters = function(doc) {
   var paramStr = doc.location.search.substring(1);
   var params = [];
@@ -145,7 +146,8 @@ jasmine.HtmlReporter.parameters = function(doc) {
     params = paramStr.split('&');
   }
   return params;
-}
+};
+
 jasmine.HtmlReporter.sectionLink = function(sectionName) {
   var link = '?';
   var params = [];

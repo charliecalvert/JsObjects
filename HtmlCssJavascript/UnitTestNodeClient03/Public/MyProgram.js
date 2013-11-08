@@ -15,22 +15,22 @@
  	
  	var privateAdd = function(operanda, operandb) {
  		return operanda + operandb;
- 	}
+ 	};
  	
  	App.prototype.addNumbers = function() {
  		var operanda = parseInt($('#operanda').val(), 10);
  		var operandb = parseInt($('#operandb').val(), 10);
  		var result = privateAdd(operanda, operandb); 
  		$('#addResult').html(operanda + ' + ' + operandb + ' = ' + result);
- 	}
+ 	};
  	
  	App.prototype.add = function(operanda, operandb) {
  		return privateAdd(operanda, operandb);
- 	}
+ 	};
  	
  	App.prototype.multiply = function(operanda, operandb) {
  		return operanda * operandb;
- 	}
+ 	};
  	
  	var readGrid = function() {
  		var gridString = '';
@@ -42,10 +42,8 @@
 				$('#debug').append('<li>' + gridString + '</li>');
 				gridString = '';
 			}
-		},
-		showError
-		);
- 	}
+		}, showError);
+	};
  	
  	var showDebug = function(textToDisplay)
 	{
