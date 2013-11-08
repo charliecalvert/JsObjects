@@ -43,12 +43,13 @@
                     <div>
                         <ul ng-repeat="race in races">
                             <li><h2>Race: {{race.name}}</h2>
-                                <p>Description: {{race.description}}</p>
-                                <p>HitDie: {{race.hitDie}}</p><p>Class:</p>
-                                <ul ng-repeat="class in races.classes">
+                                <p><strong>Description</strong>: {{race.description}}</p>
+                                <p><strong>HitDie</strong>: {{race.hitDie}}</p>
+                                <p><strong>Class</strong>:</p>
+                                <ul ng-repeat="class in race.classes">
                                     <li>{{class}}</li>
-                                </ul><p>Languages:</p>
-                                <ul ng-repeat="language in races.languages">
+                                </ul><p><strong>Languages</strong>:</p>
+                                <ul ng-repeat="language in race.languages">
                                     <li>{{language}}</li>
                                 </ul></li>
                         </ul>

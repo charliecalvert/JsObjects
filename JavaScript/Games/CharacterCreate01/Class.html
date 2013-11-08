@@ -43,18 +43,18 @@
                     <div>
                         <ul data-ng-repeat="class in classes">
                             <li><h2>Race: {{class.name}}</h2>
-                                <p>Armor: {{class.armor}}</p>
-                                <p>HitDie: {{class.hitDie}}</p>
-                                <p>Shield: {{class.canUseShield}}</p>
-                                <p>Spells:</p>
+                                <p><strong>Armor</strong>: {{class.armor}}</p>
+                                <p><strong>HitDie</strong>: {{class.hitDie}}</p>
+                                <p><strong>Shield</strong>: {{class.canUseShield}}</p>
+                                <p><strong>Spells</strong>:</p>
                                 <ul data-ng-repeat="spell in class.spells">
                                     <li>{{spell}}</li>
                                  </ul>
-                                <p>Weapons:</p>                                    
+                                <p><strong>Weapons</strong>:</p>                                    
                                  <ul data-ng-repeat="weapon in class.weapons">
                                     <li>{{weapon}}</li>
                                  </ul>
-                                <p>XP for 2nd Level: {{class.xpForLevelTwo}}</p>
+                                <p><strong>XP for 2nd Level</strong>: {{class.xpForLevelTwo}}</p>
                         </ul>
                     </div>
                 </div>
