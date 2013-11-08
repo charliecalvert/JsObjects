@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app>
+<html ng-app="characters">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -39,6 +39,17 @@
                 <h1>Main</h1>
 
                 <p>The world of Characters and Classes</p>
+                
+                <div ng-controller='peopleController'>
+                	<h2>The Hero</h2>
+                	<p>{{hint}}</p>
+                	<p>HitPoints: {{hero.hitPoints}}</p>
+                	<p>Damage: {{hero.damage}}</p>
+                	
+                	<h2>The Tower</h2>
+                	<p>HitPoints: {{tower.hitPoints}}</p>
+                	<p>Damage: {{tower.damage}}</p>
+                </div>
             </div><!-- Main -->
         </div><!-- Container -->
     </body>

@@ -99,4 +99,6 @@ angular.module('characters', []).factory('people', function() {'use strict';
 	$scope.hint = "peopleController";
 	$scope.races = people.races;
 	$scope.classes = people.classes;
+	$scope.hero = people.hero;
+	$scope.tower = people.tower();
 });
