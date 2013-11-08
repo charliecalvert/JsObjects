@@ -49,6 +49,12 @@
                 	<h2>The Tower</h2>
                 	<p>HitPoints: {{tower.hitPoints}}</p>
                 	<p>Damage: {{tower.damage}}</p>
+                	
+                	<h2>Mock Encounter</h2>
+                	<p>Push this button to run a test encounter between the hero and the tower. Watch the value
+                	of the Tower's hitpoints shown above.</p>
+                	<button ng-click="encounter()">Simulate Encounter</button>
+                	<p>That hit was worth {{hitReport}} points. and now the tower's hitpoints are {{tower.hitPoints}}</p>
                 </div>
             </div><!-- Main -->
         </div><!-- Container -->

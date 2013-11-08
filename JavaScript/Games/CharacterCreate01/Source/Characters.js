@@ -83,7 +83,7 @@ angular.module('characters', []).factory('people', function() {'use strict';
 
 		tower : function() {
 			return {
-				hitPoints : 4,
+				hitPoints : 8,
 				damage : 1,
 				bonusDamage : function() {
 					return Math.floor(Math.random() * 2) + 1;
@@ -101,4 +101,9 @@ angular.module('characters', []).factory('people', function() {'use strict';
 	$scope.classes = people.classes;
 	$scope.hero = people.hero;
 	$scope.tower = people.tower();
+	
+	$scope.encounter = function() {
+		$scope.hitReport = Math.floor(Math.random() * 2);
+		$scope.tower.hitPoints -= $scope.hitReport;
+	};
 });
