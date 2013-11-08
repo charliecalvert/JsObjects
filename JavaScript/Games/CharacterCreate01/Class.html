@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="characters">
+<html data-ng-app="characters">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -38,21 +38,21 @@
             <div class="main">
                 <h1>Elvenware Class</h1>
 
-                <div ng-controller="peopleController">
+                <div data-ng-controller="peopleController">
                     <p>{{hint}}</p>                    
                     <div>
-                        <ul ng-repeat="class in classes">
+                        <ul data-ng-repeat="class in classes">
                             <li><h2>Race: {{class.name}}</h2>
                                 <p>Armor: {{class.armor}}</p>
                                 <p>HitDie: {{class.hitDie}}</p>
-                                <p>Shield: {{class.shield}}</p>
+                                <p>Shield: {{class.canUseShield}}</p>
                                 <p>Spells:</p>
-                                <ul ng-repeat="spell in classes.spells">
-                                    </li>{{spell}}</p>
+                                <ul data-ng-repeat="spell in class.spells">
+                                    <li>{{spell}}</li>
                                  </ul>
                                 <p>Weapons:</p>                                    
-                                 <ul ng-repeat="weapon in classes.weapons">
-                                    </li>{{weapon}}</p>
+                                 <ul data-ng-repeat="weapon in class.weapons">
+                                    <li>{{weapon}}</li>
                                  </ul>
                                 <p>XP for 2nd Level: {{class.xpForLevelTwo}}</p>
                         </ul>
