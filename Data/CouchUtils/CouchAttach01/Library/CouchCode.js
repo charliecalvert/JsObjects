@@ -11,8 +11,8 @@ var CouchCode = (function() {'use strict';
     // var nano = require('nano')('http://ccalvert:foobar@127.0.0.1:5984');
 
 	function CouchCode() {
-		var data = fs.readFileSync("config.json")
-		data = JSON.parse(data)
+		var data = fs.readFileSync("config.json");
+		data = JSON.parse(data);
 		nano = require('nano')(data.nanoUrl);
 	}
 
@@ -54,7 +54,7 @@ var CouchCode = (function() {'use strict';
 			if (!dbFound) {
 				makeDatabase(dbName, func);
 			} else {
-				func()
+				func();
 			}
 		});		
 	};
@@ -97,8 +97,8 @@ var CouchCode = (function() {'use strict';
 	};
 
 	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName) {
-		console.log('Send to Couch docName: ' + docName)
-		console.log('Send to Couch dbName: ' + dbName)
+		console.log('Send to Couch docName: ' + docName);
+		console.log('Send to Couch dbName: ' + dbName);
 		var prog = nano.db.use(dbName);
 		prog.get(docName, function(error, existing) {
 			if (!error) {
@@ -128,12 +128,12 @@ var CouchCode = (function() {'use strict';
 			} else {
 				console.log(err1);
 				if (response) {
-					err1.p282special = "Document conflict means document already exists. Try an update."
+					err1.p282special = "Document conflict means document already exists. Try an update.";
 					response.send(500, err1);
 				}
 			}
 		});
-	}
+	};
 
 	CouchCode.prototype.couchAttach = function(response, docName, doc, dbName) {
 		console.log('/couchAttach called');
@@ -160,7 +160,7 @@ var CouchCode = (function() {'use strict';
 	            }
 	        } else {
 	        	console.log('Error');
-	            reportErrorPrivate(error)
+	            reportErrorPrivate(error);
 	            if (response) {
 	            	response.send(500, error);
 	            }
@@ -169,16 +169,16 @@ var CouchCode = (function() {'use strict';
     };
     
 	var reportErrorPrivate = function(error) {
-	    console.log('==========================')
+	    console.log('==========================');
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
         console.log('Description: ' + error.description); 
-	}
+	};
 	
     CouchCode.prototype.reportError = function(error) {
 		reportErrorPrivate(error);
-    }
+    };
     
 	return CouchCode;
 

@@ -11,6 +11,6 @@ var dirLib = require("../Library/Dirs");
 	});
 	
 	it("Dirs", function() {
-	}
+	});
  });
  

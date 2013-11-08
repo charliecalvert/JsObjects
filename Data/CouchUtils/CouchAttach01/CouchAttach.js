@@ -1,9 +1,9 @@
-var couch = require('./Library/CouchCode')
+var couch = require('./Library/CouchCode');
 var fs = require('fs');
 
 var getDbName = function() {
-	var data = fs.readFileSync("config.json")
-	data = JSON.parse(data)
+	var data = fs.readFileSync("config.json");
+	data = JSON.parse(data);
 	// console.log(data);
 	return data.dbName; 
 };
@@ -28,7 +28,7 @@ function run() {
 		} else {
 			console.log('could not find: ' + fileName);
 		}
-	})
+	});
 };
 
 function explain() {

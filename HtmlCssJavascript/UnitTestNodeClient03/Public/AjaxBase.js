@@ -16,7 +16,7 @@
 			success : success,
 			error: failure
 		});
- 	}
+ 	};
  	
  	AjaxBase.prototype.writeJson = function(data, typeRequest, success, failure) {
  		$.ajax({
@@ -28,7 +28,7 @@
 			success : success,
 			error: failure
 		});
- 	}
+ 	};
  	
  	return AjaxBase; 
  })();

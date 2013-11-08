@@ -108,7 +108,7 @@ describe("ConsoleReporter", function() {
 
     done = false;
     reporter = new jasmine.ConsoleReporter(out.print, function(runner) {
-      done = true
+      done = true;
     });
   });
 

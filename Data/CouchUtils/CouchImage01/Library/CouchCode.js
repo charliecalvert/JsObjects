@@ -50,9 +50,10 @@ var CouchCode = (function() {'use strict';
 						dbFound = true;
 					}
 				});
+				
 				fs.writeFile(fileName, dbList, function() {
 				    console.log('Saved dbList to: ' + fileName);
-				})
+				});
 				
 			} else {
 				reportErrorPrivate(error);
@@ -63,7 +64,7 @@ var CouchCode = (function() {'use strict';
 			if (!dbFound) {
 				makeDatabase(dbName, func);
 			} else {
-				func()
+				func();
 			}
 		});		
 	};
@@ -115,8 +116,8 @@ var CouchCode = (function() {'use strict';
 	 * sendToCouch
 	 */
 	CouchCode.prototype.sendToCouch = function(response, data, docName, dbName, id, next) {
-		console.log('Send to Couch docName: ' + docName)
-		console.log('Send to Couch dbName: ' + dbName)
+		console.log('Send to Couch docName: ' + docName);
+		console.log('Send to Couch dbName: ' + dbName);
 		var prog = nano.db.use(dbName);
 		prog.get(docName, function(error, existing) {
 			if (!error) {
@@ -149,12 +150,12 @@ var CouchCode = (function() {'use strict';
 			} else {
 				reportErrorPrivate(err1);
 				if (response) {
-					err1.p282special = "Document conflict means document already exists. Try an update."
+					err1.p282special = "Document conflict means document already exists. Try an update.";
 					response.send(500, err1);
 				}
 			}
 		});
-	}
+	};
 
 	CouchCode.prototype.couchAttach = function(response, docName, doc, dbName) {
 		console.log('/couchAttach called');
@@ -231,17 +232,17 @@ var CouchCode = (function() {'use strict';
      };
     
     var reportErrorPrivate = function(error) {
-        console.log(separatorLine)
+        console.log(separatorLine);
         console.log('Error: ' + error.error);
         console.log('Status Code: ' + error['status_code']);
         console.log('Reason: ' + error.reason);
         console.log('Description: ' + error.description);
         console.log(smallSeparatorLine); 
-    }
+    };
 	
     CouchCode.prototype.reportError = function(error) {
 		reportErrorPrivate(error);
-    }
+    };
     
 	return CouchCode;
 

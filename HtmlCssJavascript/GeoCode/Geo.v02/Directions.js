@@ -27,7 +27,7 @@ ELF.own.Directions = (function() {
 		} else {
 			alert("Maximum number of waypoints reached");
 		}
-	}
+	};
 	
 	function getMode(mode) {
 		switch (mode) {

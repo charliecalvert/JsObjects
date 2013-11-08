@@ -1,4 +1,4 @@
-var couch = require('./Library/CouchCode')
+var couch = require('./Library/CouchCode');
 var fs = require('fs');
 var qs = require('querystring');
 
@@ -22,7 +22,7 @@ function run() {
 		} else {
 			console.log('could not find: ' + fileName);
 		}
-	})
+	});
 };
 
 function explain() {
