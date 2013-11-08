@@ -38,23 +38,35 @@
             <div class="main">
                 <h1>Main</h1>
 
-                <p>The world of Characters and Classes</p>
+                <p>Explore Characters and Classes</p>
                 
                 <div ng-controller='peopleController'>
-                	<h2>The Hero</h2>
                 	<p>{{hint}}</p>
-                	<p>HitPoints: {{hero.hitPoints}}</p>
-                	<p>Damage: {{hero.damage}}</p>
-                	
-                	<h2>The Tower</h2>
-                	<p>HitPoints: {{tower.hitPoints}}</p>
-                	<p>Damage: {{tower.damage}}</p>
+                	                	
+                	<div class="raceList">
+	                	<h2>The Hero</h2>
+
+	                	<p>HitPoints: {{hero.hitPoints}}</p>
+	                	<p>Damage: {{hero.damage}}</p>
+                	</div>
+
+                	<hr/>
+
+                	<div class="raceList">
+	                	<h2>The Tower</h2>
+	                	<p>HitPoints: {{tower.hitPoints}}</p>
+	                	<p>Damage: {{tower.damage}}</p>
+                	</div>
                 	
                 	<h2>Mock Encounter</h2>
                 	<p>Push this button to run a test encounter between the hero and the tower. Watch the value
                 	of the Tower's hitpoints shown above.</p>
                 	<button ng-click="encounter()">Simulate Encounter</button>
-                	<p>That hit was worth {{hitReport}} points. and now the tower's hitpoints are {{tower.hitPoints}}</p>
+                	<hr />
+                	<div class="raceList">
+	                	<p><strong>Damage</strong>: {{hitReport}}</p>
+	                	<p><strong>Tower hitpoints</strong>: {{tower.hitPoints}}</p>
+                	</div>
                 </div>
             </div><!-- Main -->
         </div><!-- Container -->

@@ -1,3 +1,9 @@
 .main {
 	padding-top: 50px;
 }
+
+.raceList {
+	border: solid black 2px;
+	background-color: #22FFAA;
+	padding-left: 10px;
+}
