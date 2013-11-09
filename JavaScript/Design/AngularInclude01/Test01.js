@@ -37,15 +37,13 @@ describe("Fragments", function() {'use strict';
 		//body = ptor.findElement(protractor.By.tagName('body'));
 		var body = element(by.tagName("body"));		
 		body.isDisplayed().then(function() {
-			expect(true).toBe(true);
-			// expect(body).toBeDefined();
+			// expect(true).toBe(true);
+			expect(body).toBeDefined();
 	   });
 	});
 	
 	it('should get some text', function() {
 		browser.get('http://127.0.0.1:8020/AngularInclude01/index.html');
-		//body = ptor.findElement(protractor.By.tagName('body'));
-		// var body = by.model("hint");	
 		var body = element(by.binding('hint'));			
 		expect(body.getText()).toEqual('TestMe');	   
 	});
