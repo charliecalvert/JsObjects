@@ -4,7 +4,7 @@
 
 /* jshint browser: true, devel: true */
 
-angular.module('elfworld', ['elfgame'])
+angular.module('elfWorld', ['elfgame'])
 .factory('gameEventService', function($rootScope) { 'use strict';
 	return {
 		message: "",

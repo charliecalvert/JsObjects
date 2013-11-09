@@ -21,6 +21,7 @@ module.exports = function(grunt) { 'use strict';
 				reporter: 'checkstyle',
 				reporterOutput: 'result.xml',
 				strict: true,
+				newcap: false,
 				globals: {
 					describe: true,
 					beforeEach: true,
