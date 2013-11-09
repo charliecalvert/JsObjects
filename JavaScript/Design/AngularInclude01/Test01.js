@@ -45,7 +45,7 @@ describe("Fragments", function() {'use strict';
 	it('should get some text', function() {
 		browser.get('http://127.0.0.1:8020/AngularInclude01/index.html');
 		var body = element(by.binding('hint'));			
-		expect(body.getText()).toEqual('TestMe');	   
+		expect(body.getText()).toEqual('Hint: TestMe');	   
 	});
 
 	/* it('should load Fragment01.html', function() {
