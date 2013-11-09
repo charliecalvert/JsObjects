@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="elfApp">
+  <head>
+  	<title>Elvenware Include Demo</title>
+  	<link href="index.css" rel="stylesheet" type="text/css" />
+    <!-- script src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0-rc.3/angular-animate.min.js"></script -->
+    <script src="angular.js"></script>
+    <script src="angular-animate.js"></script>    
+    <script src="index.js"></script>    
+  </head>
+  <body>
+    <div ng-controller="FragmentController">
+    <p>{{hint}}</p>
+      <select ng-model="fragment" ng-options="template.name for template in fragments">
+       <option value="">(blank)</option>
+      </select>
+      url of the template: <tt>{{fragment.url}}</tt>
+      <hr/>
+      <div class="slide-animate-container">
+        <div id="bar" class="slide-animate" ng-include="fragment.url"> </div>
+      </div>
+    </div>
+  </body>
+</html>
