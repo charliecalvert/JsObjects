@@ -29,9 +29,7 @@ angular.module('pres', ['ngResource'])
 .factory('presidents', function($resource) {
 	console.log('Presidents factory called');
 	var Presidents = $resource('https://api.mongolab.com/api/1/databases/elvenlab01/collections/Presidents/:id', {
-      // apiKey:'4fb51e55e4b02e56a67b0b66',
-      apiKey:'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy',
-      id:'@_id.$oid'
+      apiKey:'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy',     
     });
 
     Presidents.prototype.getPresidentName = function() {
