@@ -12,6 +12,7 @@ Crafty.c('PlayerCharacter', {
             .fourway(4)
             .stopOnSolids()
             .onHit('Village', this.visitVillage)
+            .onHit('Food', this.visitFood)
             // These next lines define our four animations
             //  each call to .animate specifies:
             //  - the name of the animation
@@ -95,6 +96,13 @@ Crafty.c('PlayerCharacter', {
            villlage.visit();
         } else {
             this.encounterMode = true;
+        }
+    },
+    
+    visitFood: function(data) { 'use strict';
+        if (Crafty.game.encounterFood(data[0].obj)) {
+           var food = data[0].obj;
+           food.visit();
         }
     }
 });

@@ -33,10 +33,15 @@ Crafty.scene('Game', function() { 'use strict';
 				// Place a bush entity at the current tile
 				Crafty.e('Bush').at(x, y);
 				this.gameBoard[x][y] = true;
+			} else if (Math.random() < 0.05 && !this.gameBoard[x][y]) {
+			    var food = Crafty.e('Food').at(x, y);
+			    this.gameBoard[x][y] = true;
 			}
 		}
 	}
 
+    
+    
 	// Generate up to five villages on the map in random locations
 	var max_villages = 5;
 	for (var col = 0; col < Crafty.game.map_grid.width; col++) {
@@ -50,6 +55,8 @@ Crafty.scene('Game', function() { 'use strict';
 			}
 		}
 	}
+	
+	
 
 	// Show the victory screen once all villages are visisted
 	this.show_victory = this.bind('VillageVisited', function() {
@@ -102,7 +109,8 @@ Crafty.scene('Loading', function(){ 'use strict';
 		Crafty.sprite(32, assets[0], {
 			spr_tree:    [0, 3],
 			spr_bush:    [2, 0],
-			spr_village: [0, 1]
+			spr_village: [0, 1],
+			spr_food: [1, 0]
 		});
 
 		//  The main character
