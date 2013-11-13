@@ -6,13 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="favicon.png">
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap.min.css">
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="bootstrap-theme.min.css">
 		<link href="index.css" rel="stylesheet" type="text/css" />
 		<!-- Latest compiled and minified JavaScript - Move to bottom of body element -->
-		<script src="//code.jquery.com/jquery.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="jquery.js"></script>
+		<script src="bootstrap.min.js"></script>
 		<script src="angular.js"></script>
 		<script src="angular-resource.js"></script>
 		<script src="index.js"></script>
@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="starter-template">
 
-				<h1>MongoLab02</h1>
+				<h1>Animate Bootstrap</h1>
 
 				<div id='drawHere01' class='draw-target'></div>				
 				<div id="monogoData" ng-controller="MyController">
@@ -65,9 +65,10 @@
     					<input type='text' ng-model='termEnd' placeholder='termEnd'>
     					<button ng-click='newPresident()'>Add President</button>
 					    <hr />
-    					<input type='number' ng-model='indexOfItemToDelete'>
+    					<input type='number' ng-change="indexChange()" ng-model='indexOfItemToDelete'>
     					<button ng-click='deleteRow()'>Delete</button>
     					<button ng-click='updateRow()'>Update</button>
+    					<p>{{selectedIndex}}</p>
 					</div>
 				</div>
 			</div>

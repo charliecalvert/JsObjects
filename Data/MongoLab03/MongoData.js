@@ -4,7 +4,11 @@
 
 /* global angular */
 
-angular.module('elvenApp', ['pres'])
+angular.module('elvenApp', ['pres']).constant('CONFIG', {
+    DB_NAME: 'elvenlab01',
+    COLLECTION: 'Foo',
+    API_KEY: 'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy'
+})
 .controller('MyController', function($scope, $http, presidents) {
     $scope.hint = "<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>";
     
@@ -44,13 +48,21 @@ angular.module('elvenApp', ['pres'])
             console.log("Error Status: " + err.status + ' ' + err.data.message);
         });  
     };
+    
+    $scope.indexChange = function() {        
+        $scope.presidentName = $scope.presidents[$scope.indexOfItemToDelete].presidentName;
+        $scope.termStart = $scope.presidents[$scope.indexOfItemToDelete].termStart;
+        $scope.termEnd = $scope.presidents[$scope.indexOfItemToDelete].termEnd;
+    };
 });
 
 angular.module('pres', ['ngResource'])
-.factory('presidents', function($resource) {
+.factory('presidents', function($resource, CONFIG) {
 	console.log('Presidents factory called');
-	var Presidents = $resource('https://api.mongolab.com/api/1/databases/elvenlab01/collections/Foo/:id', {      
-      apiKey:'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy',      
+	var Presidents = $resource(
+        'https://api.mongolab.com/api/1/databases/' + CONFIG.DB_NAME + 
+        '/collections/' + CONFIG.COLLECTION + '/:id', {      
+        apiKey: CONFIG.API_KEY,      
     },
     {
         update: {method:'PUT'}
@@ -76,7 +88,7 @@ angular.module('pres', ['ngResource'])
     Presidents.prototype.getTermEnd = function() {
     	return this.termEnd;
     };
-
+    
     Presidents.prototype.remove = function (cb, errorcb) {
       return Presidents.remove({id:this._id.$oid}, cb, errorcb);
     };
@@ -84,6 +96,7 @@ angular.module('pres', ['ngResource'])
     Presidents.prototype['delete'] = function (cb, errorcb) {
       return this.remove(cb, errorcb);
     };
+
     return Presidents;    
 	 
 	// return { a: 2 };		

@@ -1,0 +1,30 @@
+body {
+	padding-top: 50px;
+}
+
+.draw-target {
+	width: 180px;
+	height:40px;
+	background-color: #005500;
+	position: relative;
+	float: left;
+	margin: 0px;
+}
+
+#monogoData {
+	clear: both;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}
+
+.inputDiv {
+    width: 200px;
+    border: solid 2px black;
+    padding: 3px;
+    margin: 3px;
+    float: left;
+}
+
