@@ -57,16 +57,17 @@
     								TermEnd: {{president.getTermEnd()}}</p>
     						</li>
     					</ul>
-    					<div ng-bind-html-unsafe="hint"></div>
+    					<div ng-bind-html-unsafe="hint"> </div>
 					</div>
 					<div class='inputDiv'>
-    					<input type='text' ng-model='presidentName'></input>
-    					<input type='text' ng-model='termStart' placeholder='termStart'></input>
-    					<input type='text' ng-model='termEnd' placeholder='termEnd'></input>
+    					<input type='text' ng-model='presidentName'> 
+    					<input type='text' ng-model='termStart' placeholder='termStart'>
+    					<input type='text' ng-model='termEnd' placeholder='termEnd'>
     					<button ng-click='newPresident()'>Add President</button>
 					    <hr />
-    					<input type='number' ng-model='indexOfItemToDelete'></input>
+    					<input type='number' ng-model='indexOfItemToDelete'>
     					<button ng-click='deleteRow()'>Delete</button>
+    					<button ng-click='updateRow()'>Update</button>
 					</div>
 				</div>
 			</div>

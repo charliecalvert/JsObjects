@@ -34,6 +34,16 @@ angular.module('elvenApp', ['pres'])
             $scope.presidentsLength = $scope.presidents.length;
         });
     };
+    
+    $scope.updateRow = function() {
+        var indexOfItemToUpdate = $scope.indexOfItemToDelete;
+        $scope.presidents[indexOfItemToUpdate].presidentName = $scope.presidentName;
+        $scope.presidents[indexOfItemToUpdate].updateMe(function(data) {            
+            console.log("success: " + data);
+        }, function(err) {
+            console.log("Error Status: " + err.status + ' ' + err.data.message);
+        });  
+    };
 });
 
 angular.module('pres', ['ngResource'])
@@ -41,8 +51,20 @@ angular.module('pres', ['ngResource'])
 	console.log('Presidents factory called');
 	var Presidents = $resource('https://api.mongolab.com/api/1/databases/elvenlab01/collections/Foo/:id', {      
       apiKey:'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy',      
+    },
+    {
+        update: {method:'PUT'}
     });
 
+    Presidents.prototype.updateMe = function (callback, errorCallback) {
+        console.log("update called");
+        return Presidents.update(
+            {id:this._id.$oid}, 
+            angular.extend({}, this, {_id:undefined}), 
+            callback, 
+            errorCallback);
+    };
+    
     Presidents.prototype.getPresidentName = function() {
       return this.presidentName;
     };
