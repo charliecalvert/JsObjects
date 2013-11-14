@@ -3,21 +3,40 @@
  */
 
 // Food is a tile on the grid that the PC can eat
-Crafty.c('Food01', {
+Crafty.c('Food', {
+	count: 0,
+	
     init: function() { 'use strict';
-        this.requires('Actor, spr_food01');
+        this.requires('Actor, spr_food');
+    },
+    
+    visit: function() { 'use strict';
+    	this.count++;
+    	switch (this.count) {
+    		case 1: 
+    		    this.sprite(0, 2);
+    		    break;
+    	    case 2: 
+    			this.sprite(1, 0);
+    			break;
+    			
+    		case 3:
+    			this.sprite(1, 1);
+    			break;
+    					
+    		default: 
+    			this.destroy();
+    			break;
+    	}
+    		
+        Crafty.game.encounterFood(this, this.count); 
+        
+        Crafty.audio.play('knock');
+        // Crafty.trigger('FoodVisited', this);
+    },
+    
+    switchComponent: function() {
+    	this.toggleComponent('Food01', 'Food02');
     }
 });
 
-Crafty.c('Food02', {
-    init: function() { 'use strict';
-        this.requires('Actor, spr_food02');
-    },
-
-    // Process a visitation with this village
-    /*visit: function() { 'use strict';
-        this.destroy();
-        Crafty.audio.play('knock');
-        // Crafty.trigger('FoodVisited', this);
-    }*/
-});
