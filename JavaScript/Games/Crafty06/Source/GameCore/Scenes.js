@@ -108,9 +108,9 @@ Crafty.scene('Loading', function(){ 'use strict';
 	Crafty.load(assets, function(){
 		Crafty.sprite(32, assets[0], {
 			spr_tree:    [0, 3],
-			spr_bush:    [2, 0],
+			spr_bush:    [1, 3],
 			spr_village: [0, 1],
-			spr_food: [1, 0]			
+			spr_food: [0, 0]			
 		});
 
 		//  The main character

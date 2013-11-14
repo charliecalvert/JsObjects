@@ -14,14 +14,14 @@ Crafty.c('Food', {
     	this.count++;
     	switch (this.count) {
     		case 1: 
-    		    this.sprite(0, 2);
+    		    this.sprite(1, 0);
     		    break;
     	    case 2: 
-    			this.sprite(1, 0);
+    			this.sprite(2, 0);
     			break;
     			
     		case 3:
-    			this.sprite(1, 1);
+    			this.sprite(3, 0);
     			break;
     					
     		default: 
