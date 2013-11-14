@@ -15,8 +15,9 @@
 		<script src="bootstrap.min.js"></script>
 		<script src="angular.js"></script>
 		<script src="angular-resource.js"></script>
-		<script src="index.js"></script>
 		<script src="MongoData.js"></script>
+		<script src="index.js"></script>
+		
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
@@ -65,7 +66,8 @@
     					<input type='text' ng-model='termEnd' placeholder='termEnd'>
     					<button ng-click='newPresident()'>Add President</button>
 					    <hr />
-    					<input type='number' ng-change="indexChange()" ng-model='indexOfItemToDelete'>
+    					<input type='number' ng-change="indexChange()" ng-model='indexOfItemToDelete' min="0" max="{{presidentsLength-1}}">
+    					
     					<button ng-click='deleteRow()'>Delete</button>
     					<button ng-click='updateRow()'>Update</button>
     					<p>{{selectedIndex}}</p>
