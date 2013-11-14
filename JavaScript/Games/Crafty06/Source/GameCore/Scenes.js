@@ -34,7 +34,7 @@ Crafty.scene('Game', function() { 'use strict';
 				Crafty.e('Bush').at(x, y);
 				this.gameBoard[x][y] = true;
 			} else if (Math.random() < 0.05 && !this.gameBoard[x][y]) {
-			    var food = Crafty.e('Food').at(x, y);
+			    var food = Crafty.e('Food01').at(x, y);
 			    this.gameBoard[x][y] = true;
 			}
 		}
@@ -110,7 +110,8 @@ Crafty.scene('Loading', function(){ 'use strict';
 			spr_tree:    [0, 3],
 			spr_bush:    [2, 0],
 			spr_village: [0, 1],
-			spr_food: [1, 0]
+			spr_food01: [1, 0],
+			spr_food02: [1, 1]
 		});
 
 		//  The main character
