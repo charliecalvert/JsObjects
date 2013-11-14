@@ -87,7 +87,7 @@ angular.module('elfGameMod', ['characters'])
 			}
 			Crafty.init(this.width(), this.height(), gameDiv);
 			Crafty.game = this;
-			Crafty.background('rgb(0, 109, 20)');
+			Crafty.background('rgb(109, 0, 20)');
 
 			// Call load scene, defined below
 			Crafty.scene('Loading');

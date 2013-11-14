@@ -34,11 +34,6 @@ angular.module('elfPlayer', ['elfGameMod'])
 		}
 	};
 })
-
-/*.controller('starter', function() {
-	game.start();
-}); */
-
 .controller('ElfController', function($scope, gameEventService, elfgame) { 'use strict';
 
 	$scope.name = "ElfPlayer";

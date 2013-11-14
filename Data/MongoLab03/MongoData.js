@@ -4,7 +4,8 @@
 
 /* global angular */
 
-angular.module('elvenApp', ['pres']).constant('CONFIG', {
+angular.module('elvenApp', ['pres'])
+.constant('CONFIG', {
     DB_NAME: 'elvenlab01',
     COLLECTION: 'Foo',
     API_KEY: 'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy'
@@ -33,9 +34,12 @@ angular.module('elvenApp', ['pres']).constant('CONFIG', {
     
     $scope.deleteRow = function() {
         var indexOfItemToDelete = $scope.indexOfItemToDelete;
-        $scope.presidents[indexOfItemToDelete].remove(function(p, r) {
+        // if (indexOfItemToDelete < $scope.presidents.length) {}
+        $scope.presidents[indexOfItemToDelete].remove(function(deletedObject, headers) {
             $scope.presidents.splice(indexOfItemToDelete, 1);
             $scope.presidentsLength = $scope.presidents.length;
+        }, function(err) {
+            console.log("error: " + err.data.message);  
         });
     };
     
@@ -62,7 +66,7 @@ angular.module('pres', ['ngResource'])
 	var Presidents = $resource(
         'https://api.mongolab.com/api/1/databases/' + CONFIG.DB_NAME + 
         '/collections/' + CONFIG.COLLECTION + '/:id', {      
-        apiKey: CONFIG.API_KEY,      
+        apiKey: CONFIG.API_KEY     
     },
     {
         update: {method:'PUT'}
