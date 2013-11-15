@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html data-ng-app="characters">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Elvenware Class</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript - Move to bottom of body element -->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <link href="Style/index.css" rel="stylesheet">
+        <script src="../util/angular.js"></script>
+        <script src="../util/angular-resource.js"></script>
+        <script src="Source/Characters.js"></script>
+        <script src="MongoTower.js"></script>
+        <script src="../util/Dice.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Elvenware</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Character.html">Character</a></li>                        
+                        <li class="active"><a href="#">Class</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="main">
+                <h1>Elvenware Class</h1>
+
+                <div data-ng-controller="peopleController">
+                    <p>{{hint}}</p>                    
+                    <div>
+                        <ul data-ng-repeat="class in classes">
+                            <li class="raceList"><h3>Race: {{class.name}}</h3>
+                                <p><strong>Armor</strong>: {{class.armor}}</p>
+                                <p><strong>HitDie</strong>: {{class.hitDie}}</p>
+                                <p><strong>Shield</strong>: {{class.canUseShield}}</p>
+                                <p><strong>Spells</strong>:</p>
+                                <ul data-ng-repeat="spell in class.spells">
+                                    <li>{{spell}}</li>
+                                 </ul>
+                                <p><strong>Weapons</strong>:</p>                                    
+                                 <ul data-ng-repeat="weapon in class.weapons">
+                                    <li>{{weapon}}</li>
+                                 </ul>
+                                <p><strong>XP for 2nd Level</strong>: {{class.xpForLevelTwo}}</p>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- Main -->
+        </div><!-- Container -->
+    </body>
+</html>
