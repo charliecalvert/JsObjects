@@ -13,3 +13,5 @@ Karma is working for these tests;
 then look at the command line, or read **test_results.xml**
 
 Foobar45
+
+Notice that in the test, we completely mock Crafty.
