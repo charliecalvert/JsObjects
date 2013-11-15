@@ -1,7 +1,7 @@
 /* jshint browser: true */
 
-angular.module('elfGameMod', ['characters'])
-.factory('elfgame', function(gameEventService, people) { 'use strict';
+angular.module('elfGameMod', ['characters', 'gameWrapper'])
+.factory('elfGameService', function(gameEventService, people, gameWrap) { 'use strict';
 
 	return {
 
@@ -19,7 +19,7 @@ angular.module('elfGameMod', ['characters'])
 		villages : [],
 
 		reportEvent : function(message) {
-			gameEventService.towerBroadcast(message);
+			return gameEventService.towerBroadcast(message);
 		},
 
 		changeDirectionMessage : function(message) {
@@ -76,6 +76,10 @@ angular.module('elfGameMod', ['characters'])
 			return this.map_grid.height * this.map_grid.tile.height;
 		},
 
+		initMapGrid : function(mapGrid) {
+			this.map_grid = mapGrid;
+		},
+		
 		// Initialize and start our game
 		start : function(mapGrid) {			
 			// Start crafty
@@ -85,12 +89,7 @@ angular.module('elfGameMod', ['characters'])
 			} else {
 				this.map_grid = this.defaultMapGrid;
 			}
-			Crafty.init(this.width(), this.height(), gameDiv);
-			Crafty.game = this;
-			Crafty.background('rgb(109, 0, 20)');
-
-			// Call load scene, defined below
-			Crafty.scene('Loading');
+			gameWrap.startGame(gameDiv, this);	
 		}
 	};
 });

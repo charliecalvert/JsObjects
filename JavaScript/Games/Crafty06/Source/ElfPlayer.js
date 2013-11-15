@@ -12,6 +12,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 		towerBroadcast: function(message) {
 			this.message = message;
 			this.broadcastMessage('towerBroadcast');
+			return true;
 		},
 
 		debugBroadcast: function(message) {
@@ -34,7 +35,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 		}
 	};
 })
-.controller('ElfController', function($scope, gameEventService, elfgame) { 'use strict';
+.controller('ElfController', function($scope, gameEventService, elfGameService) { 'use strict';
 
 	$scope.name = "ElfPlayer";
 	$scope.eventNote = "no messages";
@@ -42,7 +43,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 	$scope.debugMessages = [];
 	$scope.moveMessages = [];
 	
-	elfgame.start();
+	elfGameService.start();
 
 	// This event is fired from inside crafty when a tower is found.
 	// We need to call $apply because we are calling from Crafty, not from Angular.
@@ -71,11 +72,11 @@ angular.module('elfPlayer', ['elfGameMod'])
 	});
 
 	$scope.goLeft = function() {
-		elfgame.goLeft();
+		elfGameService.goLeft();
 	};
 
 	$scope.stopMove = function() {
-		elfgame.stopMove();
+		elfGameService.stopMove();
 	};
 });
 
