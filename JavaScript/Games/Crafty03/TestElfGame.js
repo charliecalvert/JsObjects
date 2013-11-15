@@ -2,31 +2,21 @@
  * @author charlie
  */
 
- describe("GameBoard", function() {'use strict';
-	// var elfController = null;	
-	//var elfgameService = null;
-	//var gameEventService = null;
+ describe("GameBoard", function() {'use strict';	
 
 	beforeEach(function() {
-		module('elfGame');
+		module('elfGameMod');
 		module('elfWorld');
-	});
-
-	/* beforeEach(inject(function($rootScope, $controller) {
-		gameBoard = $rootScope.$new();
-		gameEventService = { towerBroadcast: function() { return true; } };
-		elfgameService = $rootScope.$new();
-		$controller('GameBoard', { $scope: gameBoard, gameEventService: gameEventService, elfgameService: elfgameService });
-	})); */ 
+	});	 
 
 
-	it("Check ElfGame Width", inject(function(elfgameService) {
-		var actual = elfgameService.reportEvent();
+	it("Check ElfGame Width", inject(function(elfGameService) {
+		var actual = elfGameService.reportEvent();
 		expect(actual).toEqual(true);
 	}));
 
-	it("Test method to get the width of the playing field", inject(function(elfgameService) {
-		elfgameService.initMapGrid({
+	it("Test method to get the width of the playing field", inject(function(elfGameService) {
+		elfGameService.initMapGrid({
 			width : 18,
 			height : 12,
 			tile : {
@@ -34,12 +24,12 @@
 				height : 32
 			}
 		});
-		var actual = elfgameService.width();
+		var actual = elfGameService.width();
 		expect(actual).toEqual(576);
 	}));
 
-	it("Test method to get the height of the playing field", inject(function(elfgameService) {
-		elfgameService.initMapGrid({
+	it("Test method to get the height of the playing field", inject(function(elfGameService) {
+		elfGameService.initMapGrid({
 			width : 18,
 			height : 12,
 			tile : {
@@ -47,7 +37,7 @@
 				height : 32
 			}
 		});
-		var actual = elfgameService.height();
+		var actual = elfGameService.height();
 		expect(actual).toEqual(12 * 32);
 	}));
 	

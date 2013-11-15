@@ -7,11 +7,11 @@ describe("ElfController", function() {'use strict';
 		
 	
 	beforeEach(function() {
-		module('elfGame');
+		module('elfGameMod');
 		module('elfWorld');	
 	});
 	
-	it("TestGameBoard Check ElfGame Width", inject(function(elfgameService) {
+	it("TestGameBoard Check ElfGame Width", inject(function(elfGameService) {
 		var mapGrid = {
 			width : 18,
 			height : 12,
@@ -20,8 +20,8 @@ describe("ElfController", function() {'use strict';
 				height : 32
 			}
 		};
-		elfgameService.start(mapGrid);
-		var actual = elfgameService.width();		
+		elfGameService.start(mapGrid);
+		var actual = elfGameService.width();		
 		expect(actual).toEqual(576);
 	}));
 });

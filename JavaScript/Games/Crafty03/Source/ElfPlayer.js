@@ -4,7 +4,7 @@
 
 /* jshint devel: true */
 
-var ElfWorld = angular.module('elfWorld', ['elfGame'])
+var ElfWorld = angular.module('elfWorld', ['elfGameMod'])
 .factory('gameEventService', function($rootScope) {'use strict';
 	return {
 		message: "",
@@ -30,14 +30,14 @@ var ElfWorld = angular.module('elfWorld', ['elfGame'])
 	game.start();
 }); */
 
-ElfWorld.controller('ElfController', function($scope, gameEventService, elfgameService) {'use strict';
+ElfWorld.controller('ElfController', function($scope, gameEventService, elfGameService) {'use strict';
 
 	$scope.name = "ElfPlayer";
 	$scope.eventNote = "no messages";
 	var showTheButton = true;
 	
 	$scope.start = function() {
-		elfgameService.start({
+		elfGameService.start({
 			width : 18,
 			height : 12,
 			tile : {
