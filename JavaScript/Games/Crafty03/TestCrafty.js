@@ -7,7 +7,7 @@ describe("ElfController", function() {'use strict';
 	var elfController = null;	
 	
 	beforeEach(function() {
-		module('elfworld');	
+		module('elfWorld');	
 	});
 	
 	beforeEach(inject(function($rootScope, $controller) {

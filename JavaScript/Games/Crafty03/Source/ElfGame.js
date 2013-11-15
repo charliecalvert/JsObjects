@@ -1,19 +1,7 @@
 /* jshint browser: true */
 
-angular.module('elfgame', [])
-.controller('GameBoard', function($scope, gameEventService, elfgameService) { 'use strict';
-
-	// elfgameService.initMapGrid(mapGrid);
-	$scope.name = "GameBoard";
-
-	elfgameService.reportEvent = function(message) {
-		return gameEventService.towerBroadcast(message);
-	};
-	
-	elfgameService.sendDebugMessage = function(message) {
-		return gameEventService.debugBroadcast(message);
-	};
-}).factory('elfgameService', function() {'use strict';
+angular.module('elfGame', ['gameWrapper'])
+.factory('elfgameService', function(gameEventService, gameWrap) {'use strict';
 	// Game.elfWorld = elfworld;
 	return {
 
@@ -32,18 +20,21 @@ angular.module('elfgame', [])
 		initMapGrid : function(mapGrid) {
 			this.map_grid = mapGrid;
 		},
+
+		reportEvent: function(message) {
+			return gameEventService.towerBroadcast(message);
+		},
+	
+		sendDebugMessage: function(message) {
+			return gameEventService.debugBroadcast(message);
+		},
 		
 		// Initialize and start our game
 		start : function(mapGrid) {
 			// Start crafty
 			this.initMapGrid(mapGrid);
-			var gameDiv = document.getElementById("gameBoard");			
-			Crafty.init(this.width(), this.height(), gameDiv);
-			Crafty.game = this;
-			Crafty.background('rgb(0, 109, 20)');
-
-			// Call load scene, defined below
-			Crafty.scene('Loading');
+			var gameDiv = document.getElementById("gameBoard");	
+			gameWrap.startGame(gameDiv, this);			
 		}
 	};
 });

@@ -5,26 +5,11 @@
 // specs code
 describe("ElfController", function() {'use strict';
 		
-	//var gameBoard = null;
-	//var elfgameService = null;
-	//var gameEventService = null;	
 	
 	beforeEach(function() {
-		module('elfgame');	
+		module('elfGame');
+		module('elfWorld');	
 	});
-	
-	/* beforeEach(inject(function($rootScope, $controller) {
-		gameBoard = $rootScope.$new();
-		gameEventService = $rootScope.$new();
-		elfgameService = $rootScope.$new();		 
-		$controller('GameBoard', { $scope: gameBoard, gameEventService: gameEventService, elfgameService: elfgameService });
-	})); */
-
-	
-	/* it("Check Name", function() {
-		var actual = elfgameService.width();		
-		expect(actual).toEqual('3');
-	}); */
 	
 	it("TestGameBoard Check ElfGame Width", inject(function(elfgameService) {
 		var mapGrid = {

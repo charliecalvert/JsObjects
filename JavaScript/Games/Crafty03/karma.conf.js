@@ -12,6 +12,7 @@ module.exports = function(config) { 'use strict';
       'Library/angular.js',
       'Library/angular-mocks.js',
       'Library/Crafty.js',
+      'Source/MockGameWrapper.js',
       'Source/ElfGame.js',
       'Source/ElfPlayer.js',
       'Source/GameCore.js',

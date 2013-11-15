@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-07T17:54:03" id="0" hostname="CedarIsle" tests="4" errors="0" failures="0" time="0.024">
+  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-15T05:29:39" id="0" hostname="CedarIsle" tests="4" errors="0" failures="0" time="0.021">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36"/>
     </properties>
-    <testcase name="Check Name" time="0.02" classname="Chrome 30.0.1599 (Windows).ElfController"/>
+    <testcase name="Check Name" time="0.017" classname="Chrome 30.0.1599 (Windows).ElfController"/>
     <testcase name="Check ElfGame Width" time="0.002" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
     <testcase name="Test method to get the width of the playing field" time="0.001" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
     <testcase name="Test method to get the height of the playing field" time="0.001" classname="Chrome 30.0.1599 (Windows).GameBoard"/>

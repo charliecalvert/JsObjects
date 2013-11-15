@@ -1,0 +1,18 @@
+/**
+ * @author Charlie Calvert
+ */
+
+angular.module('gameWrapper', [])
+.factory('gameWrap', function() {
+	return {
+		startGame: function(gameDiv, elfGame) {
+			Crafty.game = elfGame;
+		}, 
+		
+		trigger: function() {
+			
+		}
+		
+	};
+});
+

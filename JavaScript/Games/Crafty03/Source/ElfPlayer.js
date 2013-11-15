@@ -4,7 +4,7 @@
 
 /* jshint devel: true */
 
-var ElfWorld = angular.module('elfworld', ['elfgame'])
+var ElfWorld = angular.module('elfWorld', ['elfGame'])
 .factory('gameEventService', function($rootScope) {'use strict';
 	return {
 		message: "",
@@ -12,6 +12,7 @@ var ElfWorld = angular.module('elfworld', ['elfgame'])
 		towerBroadcast: function(message) {
 			this.message = message;
 			this.broadcastMessage('towerBroadcast');
+			return true;
 		},
 
 		debugBroadcast: function(message) {

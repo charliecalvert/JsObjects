@@ -3,27 +3,27 @@
  */
 
  describe("GameBoard", function() {'use strict';
-	// var elfController = null;
-	var gameBoard = null;
-	var elfgameService = null;
-	var gameEventService = null;
+	// var elfController = null;	
+	//var elfgameService = null;
+	//var gameEventService = null;
 
 	beforeEach(function() {
-		module('elfgame');
-		module('elfworld');
+		module('elfGame');
+		module('elfWorld');
 	});
 
-	beforeEach(inject(function($rootScope, $controller) {
+	/* beforeEach(inject(function($rootScope, $controller) {
 		gameBoard = $rootScope.$new();
 		gameEventService = { towerBroadcast: function() { return true; } };
 		elfgameService = $rootScope.$new();
 		$controller('GameBoard', { $scope: gameBoard, gameEventService: gameEventService, elfgameService: elfgameService });
-	})); 
+	})); */ 
 
-	it("Check ElfGame Width", function() {
+
+	it("Check ElfGame Width", inject(function(elfgameService) {
 		var actual = elfgameService.reportEvent();
 		expect(actual).toEqual(true);
-	});
+	}));
 
 	it("Test method to get the width of the playing field", inject(function(elfgameService) {
 		elfgameService.initMapGrid({
