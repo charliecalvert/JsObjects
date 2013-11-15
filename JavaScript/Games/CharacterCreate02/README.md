@@ -6,4 +6,4 @@ AngularTest
 
 This program has a dependency on the utils project found here:
 
-https://github.com/charliecalvert/JsObjects/blob/master/JavaScript/Games/Utils
+- <https://github.com/charliecalvert/JsObjects/blob/master/JavaScript/Games/Util>
