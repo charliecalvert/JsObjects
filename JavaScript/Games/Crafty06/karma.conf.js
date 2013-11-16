@@ -22,7 +22,7 @@ module.exports = function(config) { 'use strict';
       'Source/GameCore/Player.js',
       'Source/GameCore/Scenes.js',
       'Source/GameCore/Village.js',
-      'Tests/TestCrafty.js',
+      'Tests/TestElfPlayer.js',
       'Tests/TestElfGame.js',
       'Tests/TestGameboard.js',
       'Tests/TestBroadcasts.js'
