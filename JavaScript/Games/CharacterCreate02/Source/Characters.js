@@ -4,12 +4,10 @@
 
 /* global angular:true */
 
-angular.module('characters', ['diceTools', 'mongoTower'])
-.factory('people', function() {'use strict';
-
-	return {
-
-		races : [{
+angular.module('characterMod', ['diceTools', 'mongoTower'])
+.factory('races', function() {
+	return [
+		{
 			name : 'Dwarves',
 			description : 'Typically about 4 feet tall, stocky, lifespan of 300-400 years. Thick hair and beards',
 			hitDie : 1,
@@ -33,9 +31,11 @@ angular.module('characters', ['diceTools', 'mongoTower'])
 			hitDie : 1,
 			languages : ['Common'],
 			classes : ['Any']
-		}],
-
-		classes : [{
+		}
+	];
+})
+.factory('classes', function() { 'use strict';
+	return [{
 			name : 'Cleric',
 			armor : 'any',
 			hitDie : 6,
@@ -67,18 +67,49 @@ angular.module('characters', ['diceTools', 'mongoTower'])
 			spells : ['none'],
 			weapons : ['any'],
 			xpForLevelTwo : 1250
-		}],
+		}
+	];	
+})
+.factory('hostiles', function() { 'use strict';
+	return [{
+			name: 'Orc',
+			armor: 'leather',
+			hitDie : 4,
+			canUseShield : false,
+			spells : ['none'],
+			weapons : ['any'],
+			xpForLevelTwo : 1250
+		},
+		{
+			name: 'Skeleton',
+			armor: 'leather',
+			hitDie : 4,
+			canUseShield : false,
+			spells : ['none'],
+			weapons : ['any'],
+			xpForLevelTwo : 1250
+		}
+	];
+})
+.factory('people', function(races, classes, hostiles) {'use strict';
 
+	return {	
+		
 		hero : {
-			// race: this.races[2],
-			// "class": this.classes[2],
-			hitPoints : 12,			
+			race: races[2],
+			
+			"class": classes[2],
+			
+			hitPoints : 12,
+						
 			damage : 2,			
 		
+			// Returns a range from 1 to 2
 			bonusDamage : function() {
 				return Math.floor(Math.random() * 2) + 1;
 			},
 			
+			// Returns a range from 1 to 4
 			bonusHitPoints : function() {
 				return Math.floor(Math.random() * 4) + 1;
 			},
@@ -87,10 +118,12 @@ angular.module('characters', ['diceTools', 'mongoTower'])
 				switch(level) {
 					case 0: 
 						return 5;
-					case 2: 
+					case 1:
 						return 6;
-					case 3: 
+					case 2: 
 						return 7;
+					case 3: 
+						return 8;
 					default:
 						return 100;
 				}
@@ -99,11 +132,19 @@ angular.module('characters', ['diceTools', 'mongoTower'])
 
 		tower : function() {
 			return {
+				
+				traits: hostiles[0], 
+				
 				hitPoints : 8,
+				
 				damage : 1,
+				
+				// Returns a range from 1 to 2
 				bonusDamage : function() {
 					return Math.floor(Math.random() * 2) + 1;
 				},
+				
+				// Returns a range from 1 to 4
 				bonusHitPoints : function() {
 					return Math.floor(Math.random() * 4) + 1;
 				}
