@@ -66,6 +66,28 @@
 		expect(elfController.eventNote).toEqual(testValue);
 	});
 	
+	it("sends a debug message", function() {
+		var testValue = "turtled debug message";
+		var actual = elfGameService.sendDebugMessage(testValue);
+		expect(actual).toEqual(true);
+	});
 	
+	it("sends a debug message to elfcontroller", function() {
+		var testValue = "turtle debug soup elf controller";
+		var actual = elfGameService.sendDebugMessage(testValue);
+		expect(actual).toEqual(true);
+		expect(elfController.debugMessages).toEqual([testValue]);
+	});
+	
+	it("sends three debug messages to elfcontroller", function() {
+		var testValue01 = "turtle debug soup elf controller1";
+		var testValue02 = "turtle debug soup elf controller2";
+		var testValue03 = "turtle debug soup elf controller3";
+		elfGameService.sendDebugMessage(testValue01);
+		elfGameService.sendDebugMessage(testValue02);
+		var actual = elfGameService.sendDebugMessage(testValue03);
+		expect(actual).toEqual(true);
+		expect(elfController.debugMessages).toEqual([testValue03, testValue02, testValue01]);
+	});
 });
 

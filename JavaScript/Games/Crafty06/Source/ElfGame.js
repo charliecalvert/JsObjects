@@ -27,7 +27,7 @@ angular.module('elfGameMod', ['characters', 'gameWrapper'])
 		},
 
 		sendDebugMessage : function(message) {
-			gameEventService.debugBroadcast(message);
+			return gameEventService.debugBroadcast(message);
 		},
 
 		rollD3 : function(village) {

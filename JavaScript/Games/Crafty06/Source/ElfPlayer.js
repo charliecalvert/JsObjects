@@ -18,6 +18,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 		debugBroadcast: function(message) {
 			this.message = message;
 			this.broadcastMessage('debugBroadcast');
+			return true;
 		},
 
 		encounterBroadcast: function(message) {
