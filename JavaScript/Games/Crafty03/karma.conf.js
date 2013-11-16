@@ -16,8 +16,9 @@ module.exports = function(config) { 'use strict';
       'Source/ElfGame.js',
       'Source/ElfPlayer.js',
       'Source/GameCore.js',
-      'TestCrafty.js',
-      'TestElfGame.js'
+      'Tests/TestCrafty.js',
+      'Tests/TestElfGame.js',
+      'Tests/TestGameboard.js'
     ],
 
     // list of files to exclude

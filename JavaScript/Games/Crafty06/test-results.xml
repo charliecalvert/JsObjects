@@ -1,14 +1,20 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-15T17:51:57" id="0" hostname="CedarIsle" tests="4" errors="0" failures="0" time="0.027">
+  <testsuite name="Chrome 30.0.1599 (Windows)" package="undefined" timestamp="2013-11-16T02:09:06" id="0" hostname="CedarIsle" tests="9" errors="0" failures="0" time="0.035">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36"/>
     </properties>
-    <testcase name="Check Name" time="0.023" classname="Chrome 30.0.1599 (Windows).TestElfController"/>
-    <testcase name="Check ElfGame Width" time="0.002" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
-    <testcase name="Test method to get the width of the playing field" time="0.001" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
+    <testcase name="Check Name" time="0.024" classname="Chrome 30.0.1599 (Windows).TestElfController"/>
+    <testcase name="Check Event Note" time="0.002" classname="Chrome 30.0.1599 (Windows).TestElfController"/>
+    <testcase name="Check Debug Messages" time="0.001" classname="Chrome 30.0.1599 (Windows).TestElfController"/>
+    <testcase name="Check move Messages" time="0.002" classname="Chrome 30.0.1599 (Windows).TestElfController"/>
+    <testcase name="Check ElfGame Width" time="0.001" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
+    <testcase name="Test method to get the width of the playing field" time="0.002" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
     <testcase name="Test method to get the height of the playing field" time="0.001" classname="Chrome 30.0.1599 (Windows).GameBoard"/>
-    <system-out><![CDATA[
+    <testcase name="TestGameBoard Check ElfGame Width" time="0" classname="Chrome 30.0.1599 (Windows).TestGameboard"/>
+    <testcase name="Change Direction Broadcast" time="0.002" classname="Chrome 30.0.1599 (Windows).Test Broadcasts: gameEventService"/>
+    <system-out><![CDATA[Chrome 30.0.1599 (Windows) LOG: LOG
+ 'bar'
 ]]></system-out>
     <system-err/>
   </testsuite>

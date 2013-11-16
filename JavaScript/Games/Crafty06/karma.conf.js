@@ -22,8 +22,10 @@ module.exports = function(config) { 'use strict';
       'Source/GameCore/Player.js',
       'Source/GameCore/Scenes.js',
       'Source/GameCore/Village.js',
-      'TestCrafty.js',
-      'TestElfGame.js'
+      'Tests/TestCrafty.js',
+      'Tests/TestElfGame.js',
+      'Tests/TestGameboard.js',
+      'Tests/TestBroadcasts.js'
     ],
 
     // list of files to exclude
@@ -73,6 +75,7 @@ module.exports = function(config) { 'use strict';
     // - IE (only Windows)
     // CLI --browsers Chrome,Firefox,Safari
     browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+    // browsers: ['PhantomJS'],
 
     // If browser does not capture in given timeout [ms], kill it
     // CLI --capture-timeout 5000

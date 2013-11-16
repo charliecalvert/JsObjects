@@ -3,6 +3,16 @@ CraftyDemo06
 
 Description of CraftyDemo06.
 
+Karma
+-----
+
+Karma is a test runner.
+
+If you have karma running in one command window, you can run a test in another 
+command window that will return immediately  by typing:
+
+	karma run
+
 Sites of Interest
 -----------------
 
