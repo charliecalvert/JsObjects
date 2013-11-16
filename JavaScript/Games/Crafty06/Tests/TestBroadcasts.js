@@ -18,16 +18,19 @@ describe("Test Broadcasts: gameEventService", function() {'use strict';
 	}));
 
 	it("Change Direction Broadcast", function() {
-		gameEventService.changeDirectionBroadcast("bar");
+		var testValue = "Test Change Direction Broadcast";
+		gameEventService.changeDirectionBroadcast(testValue);
 		var actual = elfController.moveMessages;			
-		expect(actual).toEqual(['bar']);
+		expect(actual).toEqual([testValue]);
 	});
 	
 	it("Test Two Direction Broadcasts", function() {
-		gameEventService.changeDirectionBroadcast("bar");
-		gameEventService.changeDirectionBroadcast("foo");
+		var testValue01 = 'Test';
+		var testValue02 = 'Direction';
+		gameEventService.changeDirectionBroadcast(testValue01);
+		gameEventService.changeDirectionBroadcast(testValue02);
 		var actual = elfController.moveMessages;			
-		expect(actual).toEqual(['foo', 'bar']);
+		expect(actual).toEqual([testValue02, testValue01]);
 	});
 	
 	it("Change Tower Broadcast", function() {

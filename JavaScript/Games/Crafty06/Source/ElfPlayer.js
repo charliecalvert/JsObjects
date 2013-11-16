@@ -28,6 +28,7 @@ angular.module('elfPlayer', ['elfGameMod'])
 		changeDirectionBroadcast: function(message) {
 			this.message = message;
 			this.broadcastMessage('changeDirectionBroadcast');
+			return true;
 		},
 
 		broadcastMessage: function(broadcastType) {
@@ -57,7 +58,8 @@ angular.module('elfPlayer', ['elfGameMod'])
 
 	$scope.$on('changeDirectionBroadcast', function() {
 		$scope.eventNote = gameEventService.message;
-		$scope.$apply(function() { $scope.moveMessages.unshift(gameEventService.message); });		
+		$scope.$apply(function() { $scope.moveMessages.unshift(gameEventService.message); });	
+		console.log(gameEventService.message);	
 	});
 
 	$scope.$on('encounterBroadcast', function() {		

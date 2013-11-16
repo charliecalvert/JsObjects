@@ -23,7 +23,7 @@ angular.module('elfGameMod', ['characters', 'gameWrapper'])
 		},
 
 		changeDirectionMessage : function(message) {
-			gameEventService.changeDirectionBroadcast(message);
+			return gameEventService.changeDirectionBroadcast(message);
 		},
 
 		sendDebugMessage : function(message) {
