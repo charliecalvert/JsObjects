@@ -15,7 +15,8 @@ module.exports = function(config) { 'use strict';
       '../Util/Dice.js',      
       'Source/MongoTower.js',
       'Source/Characters.js',      
-      'Tests/TestCharacters.js'
+      'Tests/TestCharacters.js',
+      'Tests/TestConflict.js'
     ],
 
     // list of files to exclude

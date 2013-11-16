@@ -152,7 +152,26 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 		}
 	};
 
-}).controller('peopleController', function($scope, $http, people, dice, towerData) { 'use strict';
+})
+.factory('peopleManager', function($http, people, dice, towerData) {
+	
+	var pRunner = {
+		
+		tower: people.tower(),
+		
+		hero: people.hero,
+		
+		getTower: function() {
+			towerData.query({}, function(towerData) {				
+    			pRunner.tower.hitPoints = towerData[0].hitPoints;
+      			pRunner.tower.damage = towerData[0].damage;       
+    		});
+    	}
+  	};
+  	
+  	return pRunner;
+})
+.controller('peopleController', function($scope, peopleManager) { 'use strict';
 	$scope.hint = "peopleController";	
 	
 	$scope.races = people.races;
@@ -160,11 +179,11 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 	$scope.hero = people.hero;
 	
 	
-	towerData.query({}, function(tower) {
+	/* towerData.query({}, function(tower) {
 		$scope.tower = people.tower();
     	$scope.tower.hitPoints = tower[0].hitPoints;
       	$scope.tower.damage = tower[0].damage;       
-    });
+   }); */
 	
 	var loadDefaults = function() {
 		$http.get('hero.json').success(function(data, status, headers, config)  {
