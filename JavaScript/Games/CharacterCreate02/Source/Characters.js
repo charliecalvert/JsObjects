@@ -159,33 +159,32 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 		
 		tower: people.tower(),
 		
-		hero: people.hero,
+		hero: people.hero
 		
-		getTower: function() {
-			towerData.query({}, function(towerData) {				
+		/* getTower: function() {
+			console.log("Characters.PeopleManager.getTower called");
+			var bar = towerData.query({}, function(towerData) {		
+				console.log(towerData[0].hitPoints);		
     			pRunner.tower.hitPoints = towerData[0].hitPoints;
       			pRunner.tower.damage = towerData[0].damage;       
     		});
-    	}
+    		// console.log(bar);
+    } */
   	};
+  	
+  	// pRunner.getTower();
   	
   	return pRunner;
 })
-.controller('peopleController', function($scope, peopleManager) { 'use strict';
+.controller('peopleController', function($scope, people, $http, peopleManager, towerData, races, classes) { 'use strict';
 	$scope.hint = "peopleController";	
 	
-	$scope.races = people.races;
-	$scope.classes = people.classes;		
+	$scope.races = races;
+	$scope.classes = classes;		
 	$scope.hero = people.hero;
 	
 	
-	/* towerData.query({}, function(tower) {
-		$scope.tower = people.tower();
-    	$scope.tower.hitPoints = tower[0].hitPoints;
-      	$scope.tower.damage = tower[0].damage;       
-   }); */
-	
-	var loadDefaults = function() {
+	$scope.loadDefaults = function() {
 		$http.get('hero.json').success(function(data, status, headers, config)  {
 			people.hero.hitPoints = data.hitPoints;
 			people.hero.damage = data.damage;
@@ -194,7 +193,22 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 		});	
 	};
 	
-	loadDefaults();
+	// loadDefaults();
+	
+	$scope.loadMongo = function() {
+		towerData.query({}, function(tower) {
+			console.log("Query called");
+			$scope.tower = people.tower();
+	    	$scope.tower.hitPoints = tower[0].hitPoints;
+	      	$scope.tower.damage = tower[0].damage;       
+    	});
+	};
+	
+	$scope.loadData = function() {
+		$scope.loadMongo();
+		$scope.loadDefaults();
+		return true;	
+	};
 	
 	var canMove = function(realRoll) {
 		return (realRoll > people.hero.neededToMove());

@@ -16,7 +16,8 @@ module.exports = function(config) { 'use strict';
       'Source/MongoTower.js',
       'Source/Characters.js',      
       'Tests/TestCharacters.js',
-      'Tests/TestConflict.js'
+      'Tests/TestConflict.js',
+      'Tests/TestMongoTower.js'
     ],
 
     // list of files to exclude
@@ -81,7 +82,7 @@ module.exports = function(config) { 'use strict';
     reportSlowerThan: 500,
 
     plugins: [      
-      'karma-jasmine',
+      'karma-jasmine',      
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-junit-reporter',
