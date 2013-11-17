@@ -1,3 +1,5 @@
 {
-	"Some": "More"
+	"name": "NPC01", 
+	"hitPoints": 1,
+	"damage": 2
 }
