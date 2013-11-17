@@ -41,7 +41,6 @@ describe("Test MongoTower", function() {'use strict';
 		peopleController.loadDefaults();
 		$httpBackend.flush();
 		expect(peopleController.hero.hitPoints).toEqual(35);
-
 	});
 
 	it("can find tower hitpoints", function() {
