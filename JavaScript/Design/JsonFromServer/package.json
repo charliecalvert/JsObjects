@@ -1,5 +1,5 @@
 {
-  "name": "CraftyDemo03",
+  "name": "JsonFromServer",
   "version": "0.1.0",
   "devDependencies": {
     "karma-script-launcher": "~0.1.0",

@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 describe("mycontrollertest", function() {'use strict';
