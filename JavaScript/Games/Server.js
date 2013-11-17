@@ -4,27 +4,27 @@ var port = process.env.PORT || 30025;
 var fs = require('fs');
 var path = require('path');
 
-function getPath(request) {
+function getPath(request) { 'use strict';
 	return url.parse(request.url).pathname;
 }
 
 // Thanks to Wallace: http://stackoverflow.com/a/1203361/253576
-function getExtension(fileName) {
+function getExtension(fileName) { 'use strict';
 	var fileNameArray = fileName.split(".");
 	if( fileNameArray.length === 1 || ( fileNameArray[0] === "" && fileNameArray.length === 2 ) ) {
 		return "";
 	}
-	return fileNameArray.pop().toLowerCase();    
+	return fileNameArray.pop().toLowerCase();
 }
 
 // Add endsWith method to String
 if (typeof String.prototype.endsWith !== 'function') {
-    String.prototype.endsWith = function(suffix) {
-        return this.indexOf(suffix, this.length - suffix.length) !== -1;
-    };
+	String.prototype.endsWith = function(suffix) { 'use strict';
+		return this.indexOf(suffix, this.length - suffix.length) !== -1;
+	};
 }
 
-var findFile = function(dir, fileName, done) {
+var findFile = function(dir, fileName, done) { 'use strict';
 	var results = [];
 	var ext = path.extname(fileName);
 	fs.readdir(dir, function(err, list) {
@@ -32,30 +32,30 @@ var findFile = function(dir, fileName, done) {
 	if (err) return done(err);
 	var pending = list.length;
 	if (!pending) return done(null, results);
-	list.forEach(function(file) {
-		file = dir + '/' + file;
-		fs.stat(file, function(err, stat) {
-			if (stat && stat.isDirectory()) {
-				findFile(file, fileName, function(err, res) {
-				results = results.concat(res);
-				if (!--pending) done(null, results);
-			});
-		} else {
-			if (path.extname(file) === ext) {
-				console.log(path.basename(file) + " -- " + fileName);
-				if (file.endsWith(fileName)) {
-					file = file.replace(/\\/g, '\/');
-					results.push(file);
+		list.forEach(function(file) {
+			file = dir + '/' + file;
+			fs.stat(file, function(err, stat) {
+				if (stat && stat.isDirectory()) {
+					findFile(file, fileName, function(err, res) {
+						results = results.concat(res);
+						if (!--pending) done(null, results);
+					});
+				} else {
+					if (path.extname(file) === ext) {
+						console.log(path.basename(file) + " -- " + fileName);
+						if (file.endsWith(fileName)) {
+							file = file.replace(/\\/g, '\/');
+							results.push(file);
+						}
+					}
+					if (!--pending) done(null, results);
 				}
-			}
-			if (!--pending) done(null, results);
-		}
-	  });
+			});
+		});
 	});
-  });
 };
 
-function loadContent(request, response) {
+function loadContent(request, response) { 'use strict';
 	var path = getPath(request);
 	console.log("Request for " + path + " received.");
 	if (getExtension(path) === 'css') {
@@ -97,9 +97,9 @@ function loadContent(request, response) {
 			});
 		});
 	} else {
-	    var html = fs.readFileSync(__dirname + '/index.html');
+		var indexHtml = fs.readFileSync(__dirname + '/index.html');
 		response.writeHead(200, {'Content-Type': 'text/html'});
-		response.write(html);
+		response.write(indexHtml);
 		response.end();
 	}
 }

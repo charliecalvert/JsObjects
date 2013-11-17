@@ -13,11 +13,11 @@ describe("Test MongoTower", function() {'use strict';
 		module('characterMod');
 	});
 
-	beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $injector) {
+	beforeEach(inject(function(_$httpBackend_) {
 		$httpBackend = _$httpBackend_;
 	}));
 
-	 beforeEach(inject(function($rootScope, $controller) {
+	beforeEach(inject(function($rootScope, $controller) {
 		peopleController = $rootScope.$new();
 		$controller('peopleController', { $scope: peopleController});
 	}));

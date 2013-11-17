@@ -13,6 +13,7 @@ module.exports = function(grunt) { 'use strict';
 					'*/Ractive.js', 
 					'*/**/angular.js', 
 					'**/angular-mocks.js',
+					'**/angular-resource.js',
 					'**/node_modules/**',
 					'**/handlebars.js',
 					'**/jquery*.js',
@@ -24,6 +25,7 @@ module.exports = function(grunt) { 'use strict';
 				newcap: false,
 				globals: {
 					describe: true,
+					afterEach: true,
 					beforeEach: true,
 					inject: true,
 					it: true,

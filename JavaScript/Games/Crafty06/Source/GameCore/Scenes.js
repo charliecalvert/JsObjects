@@ -34,8 +34,8 @@ Crafty.scene('Game', function() { 'use strict';
 				Crafty.e('Bush').at(x, y);
 				this.gameBoard[x][y] = true;
 			} else if (Math.random() < 0.05 && !this.gameBoard[x][y]) {
-			    var food = Crafty.e('Food').at(x, y);
-			    this.gameBoard[x][y] = true;
+				Crafty.e('Food').at(x, y);
+				this.gameBoard[x][y] = true;
 			}
 		}
 	}

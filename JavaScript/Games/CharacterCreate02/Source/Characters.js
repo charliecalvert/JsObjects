@@ -3,9 +3,10 @@
  */
 
 /* global angular:true */
+/* jshint devel: true */
 
 angular.module('characterMod', ['diceTools', 'mongoTower'])
-.factory('races', function() {
+.factory('races', function() { 'use strict';
 	return [
 		{
 			name : 'Dwarves',
@@ -68,7 +69,7 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 			weapons : ['any'],
 			xpForLevelTwo : 1250
 		}
-	];	
+	];
 })
 .factory('hostiles', function() { 'use strict';
 	return [{
@@ -93,36 +94,36 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 })
 .factory('people', function(races, classes, hostiles) {'use strict';
 
-	return {	
-		
+	return {
+
 		hero : {
 			race: races[2],
-			
+
 			"class": classes[2],
-			
+
 			hitPoints : 12,
-						
-			damage : 2,			
-		
+
+			damage : 2,
+
 			// Returns a range from 1 to 2
 			bonusDamage : function() {
 				return Math.floor(Math.random() * 2) + 1;
 			},
-			
+
 			// Returns a range from 1 to 4
 			bonusHitPoints : function() {
 				return Math.floor(Math.random() * 4) + 1;
 			},
-			
+
 			neededToMove: function(level) {
 				switch(level) {
-					case 0: 
+					case 0:
 						return 5;
 					case 1:
 						return 6;
-					case 2: 
+					case 2:
 						return 7;
-					case 3: 
+					case 3:
 						return 8;
 					default:
 						return 100;
@@ -132,18 +133,18 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 
 		tower : function() {
 			return {
-				
-				traits: hostiles[0], 
-				
+
+				traits: hostiles[0],
+
 				hitPoints : 8,
-				
+
 				damage : 1,
-				
+
 				// Returns a range from 1 to 2
 				bonusDamage : function() {
 					return Math.floor(Math.random() * 2) + 1;
 				},
-				
+
 				// Returns a range from 1 to 4
 				bonusHitPoints : function() {
 					return Math.floor(Math.random() * 4) + 1;
@@ -153,67 +154,65 @@ angular.module('characterMod', ['diceTools', 'mongoTower'])
 	};
 
 })
-.factory('peopleManager', function($http, people, dice, towerData) {
-	
+.factory('peopleManager', function($http, people, dice, towerData) { 'use strict';
+
 	var pRunner = {
-		
+
 		tower: people.tower(),
-		
+
 		hero: people.hero
-		
+
 		/* getTower: function() {
 			console.log("Characters.PeopleManager.getTower called");
-			var bar = towerData.query({}, function(towerData) {		
-				console.log(towerData[0].hitPoints);		
-    			pRunner.tower.hitPoints = towerData[0].hitPoints;
-      			pRunner.tower.damage = towerData[0].damage;       
-    		});
-    		// console.log(bar);
-    } */
-  	};
-  	
-  	// pRunner.getTower();
-  	
-  	return pRunner;
+			var bar = towerData.query({}, function(towerData) {
+				console.log(towerData[0].hitPoints);
+				pRunner.tower.hitPoints = towerData[0].hitPoints;
+				pRunner.tower.damage = towerData[0].damage;
+			});
+			// console.log(bar);
+	} */
+	};
+
+	// pRunner.getTower();
+
+	return pRunner;
 })
-.controller('peopleController', function($scope, people, $http, peopleManager, towerData, races, classes) { 'use strict';
-	$scope.hint = "peopleController";	
-	
+.controller('peopleController', function($scope, people, $http, peopleManager, towerData, races, classes, dice) { 'use strict';
+	$scope.hint = "peopleController";
+
 	$scope.races = races;
-	$scope.classes = classes;		
+	$scope.classes = classes;
 	$scope.hero = people.hero;
-	
-	
+
+
 	$scope.loadDefaults = function() {
 		$http.get('hero.json').success(function(data, status, headers, config)  {
 			people.hero.hitPoints = data.hitPoints;
 			people.hero.damage = data.damage;
 		}).error(function(data, status, headers, config) {
-			throw new Error('Could not load hero.json!');
-		});	
+			throw new Error('Could not load hero.json: ' + data + status + headers + config);
+		});
 	};
-	
-	// loadDefaults();
-	
+
 	$scope.loadMongo = function() {
 		towerData.query({}, function(tower) {
 			console.log("Query called");
 			$scope.tower = people.tower();
-	    	$scope.tower.hitPoints = tower[0].hitPoints;
-	      	$scope.tower.damage = tower[0].damage;       
-    	});
+			$scope.tower.hitPoints = tower[0].hitPoints;
+			$scope.tower.damage = tower[0].damage;
+		});
 	};
-	
+
 	$scope.loadData = function() {
 		$scope.loadMongo();
 		$scope.loadDefaults();
-		return true;	
+		return true;
 	};
-	
+
 	var canMove = function(realRoll) {
 		return (realRoll > people.hero.neededToMove());
 	};
-	
+
 	$scope.encounter = function() {
 		var baseRoll = dice.rollD20();
 		$scope.baseRoll = baseRoll;

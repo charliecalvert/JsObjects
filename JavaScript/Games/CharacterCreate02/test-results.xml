@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-17T03:31:14" id="0" hostname="CedarIsle" tests="26" errors="0" failures="0" time="0.046">
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-17T17:55:41" id="0" hostname="CedarIsle" tests="26" errors="0" failures="0" time="0.047">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
     </properties>
-    <testcase name="can find people factory" time="0.015" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
+    <testcase name="can find people factory" time="0.016" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find a tower" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find the hero" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find the hero hitpoints" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find the hero damage" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can call hero bonus hitPoints" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
-    <testcase name="can call hero bonus damage" time="0.015" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
+    <testcase name="can call hero bonus damage" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can get hero race" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can get hero race name" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can get hero class" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
@@ -21,7 +21,7 @@
     <testcase name="can get hero needed to move" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find the tower hitpoints" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can find the tower damage" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
-    <testcase name="can call tower bonus hitPoints" time="0.016" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
+    <testcase name="can call tower bonus hitPoints" time="0.015" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can call tower bonus damage" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can get tower trait" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
     <testcase name="can get tower race name" time="0" classname="Chrome 31.0.1650 (Windows).Characters Test"/>
@@ -29,7 +29,7 @@
     <testcase name="can find people controller" time="0" classname="Chrome 31.0.1650 (Windows).Test MongoTower"/>
     <testcase name="can find people controller hint" time="0" classname="Chrome 31.0.1650 (Windows).Test MongoTower"/>
     <testcase name="can find hero hitpoints" time="0" classname="Chrome 31.0.1650 (Windows).Test MongoTower"/>
-    <testcase name="can find tower hitpoints" time="0" classname="Chrome 31.0.1650 (Windows).Test MongoTower"/>
+    <testcase name="can find tower hitpoints" time="0.016" classname="Chrome 31.0.1650 (Windows).Test MongoTower"/>
     <system-out><![CDATA[Chrome 31.0.1650 (Windows) LOG: LOG
  'Query called'
 ]]></system-out>
