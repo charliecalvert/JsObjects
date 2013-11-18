@@ -3,59 +3,41 @@
  */
 
 describe("mycontrollertest", function() {'use strict';
-    var $mockScope = null;
-    var pc = null;
-
-    beforeEach(inject(function($rootScope, $controller) {
-        $mockScope = $rootScope.$new();
-        pc = $controller('MyController', { $scope: $mockScope }); 
+    var myController = null;    
+    var $httpBackend = null;
+    
+    beforeEach(function() {
+        module("elvenApp");
+    });
+    
+    beforeEach(inject(function($rootScope, $controller) {        
+        myController = $rootScope.$new();
+        $controller('MyController', { $scope: myController }); 
     }));
+    
+    beforeEach(inject(function(_$httpBackend_) {
+        $httpBackend = _$httpBackend_;
+    }));
+    
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
 
     it("Test hint", function() {
-        expect($mockScope.hint).toEqual("Enter a number of miles");
-    });
+        expect(myController.hint).toEqual("<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>");
+    });    
     
-    it("TestMilesToFeetForOneMile", function() {
-        $mockScope.miles = 1;
-        var actual = $mockScope.convertMilesToFeet();
-        expect(actual).toEqual(5280);
-    });
-    
-    it("TestMilesToFeetFor2Miles", function() {
-        $mockScope.miles = 2;
-        var actual = $mockScope.convertMilesToFeet();
-        expect(actual).toEqual(10560);
-    });
-    
-    it("TestMilesToFeetForDefault", function() {
-        var actual = $mockScope.convertMilesToFeet();
-        expect(actual).toEqual(0);
+    it("can find tower hitpoints", function() {
+        $httpBackend.expectGET('https://api.mongolab.com/api/1/databases/elvenlab01/collections/Presidents?apiKey=qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy')
+        .respond([
+            {presidentName: "George Washington", termEnd: 1, termStart: 11},
+            {presidentName: "John Adams", termEnd: 2, termStart: 22},
+            {presidentName: "Thomas Jefferson", termEnd: 3, termStart: 33}
+          ]);
+        myController.loadMongoData();
+        $httpBackend.flush();
+        expect(myController.presidents[0].presidentName).toEqual('George Washington');
     });
 });
 
-(function() {'use strict';
-    var jasmineEnv = jasmine.getEnv();
-    jasmineEnv.updateInterval = 1000;
-
-    var reporter = new jasmine.HtmlReporter();
-
-    jasmineEnv.addReporter(reporter);
-
-    jasmineEnv.specFilter = function(spec) {
-        return reporter.specFilter(spec);
-    };
-
-    var currentWindowOnload = window.onload;
-
-    window.onload = function() {
-        if (currentWindowOnload) {
-            currentWindowOnload();
-        }
-        execJasmine();
-    };
-
-    function execJasmine() {
-        jasmineEnv.execute();
-    }
-
-})();

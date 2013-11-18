@@ -14,7 +14,12 @@ describe("mycontrollertest", function() {'use strict';
     beforeEach(inject(function(_$httpBackend_) {
 		$httpBackend = _$httpBackend_;
 	}));
-
+	
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+	
     it("Test hint", function() {
         expect(myController.hint).toEqual("<p>Start with a web server such as <strong>node server.js</strong> to retrieve JSON from Server</p>");
     });  
@@ -27,7 +32,7 @@ describe("mycontrollertest", function() {'use strict';
 		});		
     	myController.loadJson();
     	$httpBackend.flush();
-		expect(myController.data.name).toEqual("NPC01");
+		expect(myController.data.name).toEqual("NPC01");		
     });
     
     it("Test load json hitPoints", function() {
