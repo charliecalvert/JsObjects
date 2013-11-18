@@ -1,13 +1,7 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-17T22:22:48" id="0" hostname="CedarIsle" tests="4" errors="0" failures="0" time="0.031">
-    <properties>
-      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
-    </properties>
-    <testcase name="Test hint" time="0.015" classname="Chrome 31.0.1650 (Windows).mycontrollertest"/>
-    <testcase name="Test load json name" time="0" classname="Chrome 31.0.1650 (Windows).mycontrollertest"/>
-    <testcase name="Test load json hitPoints" time="0.016" classname="Chrome 31.0.1650 (Windows).mycontrollertest"/>
-    <testcase name="Test load json damage" time="0" classname="Chrome 31.0.1650 (Windows).mycontrollertest"/>
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-17T20:30:27" id="0" hostname="MountainStreams" tests="4" errors="0" failures="0" time="0.031">
+  <testcase name="Test load json damage" time="0" classname="Chrome 31.0.1650 (Windows).mycontrollertest"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>
