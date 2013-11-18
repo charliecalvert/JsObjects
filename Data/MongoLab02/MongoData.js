@@ -9,10 +9,13 @@ angular.module('elvenApp', ['pres'])
     $scope.hint = "<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>";
     
     // $scope.presidents = presidents;
-    $scope.presidents = presidents.query({}, function(presidents) {
-      $scope.presidentsLength = presidents.length;
-      console.log($scope.presidentsLength);
-    });
+    
+    $scope.loadPresidents = function() {       
+        $scope.presidents = presidents.query({}, function(presidents) {
+            $scope.presidentsLength = presidents.length;
+            console.log($scope.presidentsLength);
+        });
+    };
     
     
     $scope.newPresident = function() {
