@@ -87,7 +87,7 @@ angular.module('pres', ['ngResource'])
     Presidents.prototype['delete'] = function (cb, errorcb) {
       return this.remove(cb, errorcb);
     };
-    return Presidents;    
-	 
-	// return { a: 2 };		
+    
+    return Presidents; 
+			
 });
