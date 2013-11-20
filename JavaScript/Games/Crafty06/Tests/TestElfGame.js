@@ -89,5 +89,9 @@
 		expect(actual).toEqual(true);
 		expect(elfController.debugMessages).toEqual([testValue03, testValue02, testValue01]);
 	});
+	
+	it("is a very silly test", function() {
+	    expect(true).toBe(true);
+	});
 });
 
