@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-21T07:26:59" id="0" hostname="CedarIsle" tests="5" errors="0" failures="0" time="0.015">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
+    </properties>
+    <testcase name="checks the Name" time="0.015" classname="Chrome 31.0.1650 (Windows).Test Main"/>
+    <testcase name="gets the number eight" time="0" classname="Chrome 31.0.1650 (Windows).Test Main"/>
+    <testcase name="gets the number nine" time="0" classname="Chrome 31.0.1650 (Windows).Test Main"/>
+    <testcase name="gets the number ten" time="0" classname="Chrome 31.0.1650 (Windows).Test Main"/>
+    <testcase name="adds numbers" time="0" classname="Chrome 31.0.1650 (Windows).Test Main"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

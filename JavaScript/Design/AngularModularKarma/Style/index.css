@@ -1,0 +1,20 @@
+body {
+	background: #00FF55;
+}
+
+#textDisplay {
+	width: 250px;
+	background-color: #00AA44;
+	margin-left: 50px;
+	padding: 5px;
+	border: solid black 2px; 
+}
+
+.narrow {
+	width: 300px;
+}
+
+span {
+	font-weight: bold;
+	font-style: italic;
+}

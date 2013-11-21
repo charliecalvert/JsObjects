@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="mainModule">
+<head>
+    <meta charset="utf-8" />
+    <title>AngularKarma</title>
+    <link rel="shortcut icon" href="Assets/favicon.png">
+    <link href="Style/index.css" rel="stylesheet" type="text/css" />    
+    <script src="Library/angular.js"></script>
+    <script src="Source/TenModule.js"></script>
+    <script src="Source/NineModule.js"></script>
+    <script src="Source/EightModule.js"></script>
+	<script src="Source/Main.js"></script>	
+			      
+</head>
+<body>
+    
+    <div id="textDisplay" data-ng-controller="mainController">
+        <h1>AngularKarma</h1>
+        <p>{{name}}</p>  
+        <p>GetTen = {{getTen}}</p>
+        <p>GetNine = {{getNine}}</p>
+        <p>GetEight = {{getEight}}</p>
+                       
+    </div>
+    
+    <hr />
+    
+    <p class="narrow">Since you probably installed this project by pulling it
+        from GitHub, it includes a <strong>.git</strong> folder. You main want 
+        to remove this folder if you downloaded it into an existing
+        Git repository.</p>
+        
+    <p>View the <a href="https://github.com/charliecalvert/AngularKarma/blob/master/README.md">readme</a>. <span>Really!</span></p>        
+</body>
+</html>
