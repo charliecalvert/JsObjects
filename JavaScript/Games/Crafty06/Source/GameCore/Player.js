@@ -56,6 +56,10 @@ Crafty.c('PlayerCharacter', {
 		this.bind('stopMove', function() {
 			this.stopMovement();
 		});
+		
+		this.bind('youLose', function() {
+        	Crafty.scene('Failure');
+        });
 	},
 
 	// Registers a stop-movement function to be called when

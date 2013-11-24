@@ -8,7 +8,7 @@ class FindHeadings():
 	errorString = 'error'
 
 	def openFile(self, fileName):
-		f = open(fileName, 'r')
+		f = open(fileName, 'r', encoding="utf8")
 		return f.read()
             
 	def getInput(self):

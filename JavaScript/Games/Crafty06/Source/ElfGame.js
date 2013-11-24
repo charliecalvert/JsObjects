@@ -6,6 +6,8 @@ angular.module('elfGameMod', ['characters', 'gameWrapper'])
 	return {
 
 		map_grid : null,
+		
+		misses: 0,
 
 		defaultMapGrid : {
 			width : 18,
@@ -49,6 +51,10 @@ angular.module('elfGameMod', ['characters', 'gameWrapper'])
 				return true;
 			} else {
 				gameEventService.encounterBroadcast('miss');
+				if (misses++ > 3) {
+					Crafty.trigger('youLose', Crafty);
+				}
+				
 				return false;
 			}
 		},
