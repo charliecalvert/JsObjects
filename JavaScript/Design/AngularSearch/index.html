@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app>
+  <head>
+  	<link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="Library/angular.js"></script>
+    <!-- script src="index.js"></script -->
+  </head>
+  <body>
+  	
+    <div ng-init="races = [
+	    	{race:'Orc', hitPoints: 10, height: 3},
+			{race:'Dwarf', hitPoints: 11, height: 4},
+			{race:'Human', hitPoints: 12, height: 5},
+			{race:'Elf', hitPoints: 13, height: 6},
+			{race:'Hobbit', hitPoints: 14, height: 7},
+			{race:'Eagle', hitPoints: 15, height: 8}
+		]">
+	</div>
+    
+    <span class="caption">Search all fields: </span> <input ng-model="search.$"> <br>
+    <span class="caption">Search race: </span> <input ng-model="search.race"><br>
+    <span class="caption">Search hit points: </span> <input ng-model="search.hitPoints"><br>
+    <span class="caption">Search height: </span> <input ng-model="search.height"><br>
+    
+    Use exact match <input type="checkbox" ng-model="strict"><br>
+    
+    <hr />
+    
+    <table id="searchObjResults">
+      <tr><th>Race</th><th>Hit Points</th><th>Height</th></tr>
+      <tr ng-repeat="race in races | filter:search:strict">
+        <td>{{race.race}}</td>
+        <td>{{race.hitPoints}}</td>
+        <td>{{race.height}}</td>
+      </tr>
+    </table>
+  </body>
+</html>

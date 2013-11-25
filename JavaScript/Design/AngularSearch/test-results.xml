@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-25T17:19:44" id="0" hostname="CedarIsle" tests="3" errors="1" failures="3" time="0.015">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
+    </properties>
+    <testcase name="should search across all fields when filtering with a string" time="0.015" classname="Chrome 31.0.1650 (Windows).Test Search">
+      <failure type="">ReferenceError: input is not defined
+    at null.&lt;anonymous&gt; (c:/Src/Git/JsObjects/JavaScript/Design/AngularSearch/TestSearch.js:27:3)
+</failure>
+    </testcase>
+    <testcase name="should search in specific fields when filtering with a predicate object" time="0" classname="Chrome 31.0.1650 (Windows).Test Search">
+      <failure type="">ReferenceError: input is not defined
+    at null.&lt;anonymous&gt; (c:/Src/Git/JsObjects/JavaScript/Design/AngularSearch/TestSearch.js:35:3)
+</failure>
+    </testcase>
+    <testcase name="should use a equal comparison when comparator is true" time="0" classname="Chrome 31.0.1650 (Windows).Test Search">
+      <failure type="">ReferenceError: input is not defined
+    at null.&lt;anonymous&gt; (c:/Src/Git/JsObjects/JavaScript/Design/AngularSearch/TestSearch.js:39:3)
+</failure>
+    </testcase>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
