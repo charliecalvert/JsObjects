@@ -9,16 +9,14 @@ module.exports = function(config) { 'use strict';
 
     // list of files / patterns to load in the browser
     files: [   
-      'angular.js',
-      'angular-mocks.js',
-      'angular-resource.js',            
-      'index.js',
-      'TestJsonLoader.js'
+      'Library/angular.js',
+      'Library/angular-mocks.js',                  
+      'Source/index.js',
+      'Test/TestJsonLoader.js'
     ],
 
     // list of files to exclude
-    exclude: [
-      'client/main.js'
+    exclude: [      
     ],
 
     preprocessors: {
