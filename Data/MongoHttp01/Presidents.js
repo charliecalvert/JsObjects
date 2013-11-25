@@ -46,7 +46,7 @@ angular.module('mongoMod', [])
       };
 
       Resource.remove = function (data) {
-        return $http['delete'](collectionUrl + '', defaultParams)
+        return $http['delete'](collectionUrl + '/' + data._id.$oid, {params: defaultParams})
           .then(function (response) {
             return new Resource(data);
           });
