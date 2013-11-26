@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-26T01:28:37" id="0" hostname="MountainStreams" tests="4" errors="0" failures="0" time="0.032">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
+    </properties>
+    <testcase name="Sum two values" time="0.016" classname="Chrome 31.0.1650 (Windows).calculator"/>
+    <testcase name="Sum two other values" time="0.016" classname="Chrome 31.0.1650 (Windows).calculator"/>
+    <testcase name="Get Circle area" time="0" classname="Chrome 31.0.1650 (Windows).calculator"/>
+    <testcase name="Get Circle area" time="0" classname="Chrome 31.0.1650 (Windows).calculator"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
