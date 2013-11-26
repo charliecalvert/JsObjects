@@ -9,7 +9,17 @@
   </head>
   <body>
     <div ng-controller="AddController">
-      <h1>Angular Calculator</h1>
+      <h1>Circles and Triangles</h1>
+      
+      <input type="number" ng-pattern="/\d+/" step="1" min="0" ng-model="circleRadius" required >
+      
+      <p>{{triangle}}</p>
+      <p>{{circle01()}}</p>
+      <p>{{circle02()}}</p>
+      
+      <hr />
+      
+      <h2>Angular Calculator</h2>
       <div id=result>
       {{operandA}} + {{operandB}} = {{func()}}
       </div>
@@ -22,9 +32,9 @@
        </tr>
       </table>
       
-      <p>{{triangle}}</p>
-      <p>{{circle01}}</p>
-      <p>{{circle02}}</p>
+      
+      
+      
       
     </div>
   </body>

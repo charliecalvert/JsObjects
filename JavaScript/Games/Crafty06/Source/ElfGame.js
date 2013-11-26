@@ -51,7 +51,7 @@ angular.module('elfGameMod', ['characters', 'gameWrapper'])
 				return true;
 			} else {
 				gameEventService.encounterBroadcast('miss');
-				if (misses++ > 3) {
+				if (this.misses++ > 3) {
 					Crafty.trigger('youLose', Crafty);
 				}
 				

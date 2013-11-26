@@ -10,6 +10,7 @@ app.controller('AddController', function($scope, triangleFactory, circleFactory)
 // function AddController($scope) {
 	$scope.operandA = 17000;
 	$scope.operandB = 15000;
+	$scope.circleRadius = 5;
 
 	$scope.func = function() {
 		return $scope.operandA + $scope.operandB;
@@ -17,7 +18,11 @@ app.controller('AddController', function($scope, triangleFactory, circleFactory)
 	
 	$scope.triangle = triangleFactory.pythagoras(3);
 	
-	$scope.circle01 = circleFactory.circumferenceOfCircle(2);
+	$scope.circle01 = function() {
+	    return circleFactory.circumferenceOfCircle($scope.circleRadius);
+	};
 	
-	$scope.circle02 = circleFactory.areaOfCircle(3);
+	$scope.circle02 = function() {
+	    return circleFactory.areaOfCircle($scope.circleRadius);
+	};
 });

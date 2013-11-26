@@ -1,7 +1,7 @@
 /**
  * @author Charlie
  */
-describe("calculator", function() {'use strict';
+describe("Test Circle", function() {'use strict';
 
     var circle = null;
 
@@ -13,8 +13,13 @@ describe("calculator", function() {'use strict';
         circle = $injector.get('circleFactory');
     }));
 
-    it("Get Circle area", function() {
-        expect(circle.areaOfCircle()).toEqual(0);
+    it("gets Circle area", function() {
+        expect(circle.areaOfCircle(3)).toEqual(4);
     });
+    
+    it("gets Circle area", function() {
+        expect(circle.circumferenceOfCircle(3)).toEqual(5);
+    });
+    
 });
 

@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-26T01:28:37" id="0" hostname="MountainStreams" tests="4" errors="0" failures="0" time="0.032">
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-11-26T06:45:36" id="0" hostname="MountainStreams" tests="8" errors="0" failures="0" time="0.032">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
     </properties>
-    <testcase name="Sum two values" time="0.016" classname="Chrome 31.0.1650 (Windows).calculator"/>
-    <testcase name="Sum two other values" time="0.016" classname="Chrome 31.0.1650 (Windows).calculator"/>
-    <testcase name="Get Circle area" time="0" classname="Chrome 31.0.1650 (Windows).calculator"/>
-    <testcase name="Get Circle area" time="0" classname="Chrome 31.0.1650 (Windows).calculator"/>
+    <testcase name="Sum two values" time="0.032" classname="Chrome 31.0.1650 (Windows).Test All Modes"/>
+    <testcase name="Sum two other values" time="0" classname="Chrome 31.0.1650 (Windows).Test All Modes"/>
+    <testcase name="get circle area" time="0" classname="Chrome 31.0.1650 (Windows).Test All Modes"/>
+    <testcase name="gets Circle area" time="0" classname="Chrome 31.0.1650 (Windows).Test Circle"/>
+    <testcase name="gets Circle area" time="0" classname="Chrome 31.0.1650 (Windows).Test Circle"/>
+    <testcase name="Get Circle area" time="0" classname="Chrome 31.0.1650 (Windows).Test Circle"/>
+    <testcase name="gets circle area" time="0" classname="Chrome 31.0.1650 (Windows).My Circle"/>
+    <testcase name="gets circle circumference" time="0" classname="Chrome 31.0.1650 (Windows).My Circle"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>

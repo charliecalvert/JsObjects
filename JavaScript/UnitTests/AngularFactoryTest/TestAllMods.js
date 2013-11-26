@@ -1,5 +1,5 @@
 // specs code
-describe("calculator", function() {'use strict';
+describe("Test All Modes", function() {'use strict';
 	var addController = null;
     var circle = null;
     
@@ -27,8 +27,8 @@ describe("calculator", function() {'use strict';
 		expect(addController.func()).toEqual(11);
 	});
 	
-	it("Get Circle area", function() {
-        expect(circle.areaOfCircle()).toEqual(0);
+	it("get circle area", function() {
+        expect(circle.areaOfCircle(6)).toEqual(7);
     });
 });
 

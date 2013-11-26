@@ -6,11 +6,11 @@ angular.module('circleMod', [])
 
     return {
         areaOfCircle : function(radius) {
-            return 0;
+            return radius + 1;
         },
 
         circumferenceOfCircle : function(radius) {
-            return 1;
+            return radius + 2;
         }
     };
 });

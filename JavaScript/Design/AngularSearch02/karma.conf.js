@@ -1,27 +1,22 @@
-module.exports = function(config) {
+/* global process: true */
+
+module.exports = function(config) { 'use strict';
   config.set({
     // base path, that will be used to resolve files and exclude
-    basePath: '.',
+    basePath: '',
 
     frameworks: ['jasmine', 'commonjs'],
 
     // list of files / patterns to load in the browser
     files: [   
-      'angular.js',
-      'angular-mocks.js',
-      'Circle.js',
-      'MyCircle.js',
-      'Triangle.js',
-      'index.js',
-      'TestAllMods.js',
-      'TestCircle.js',
-      'TestTriangle.js',
-      'TestMyCircle.js'
+      'Library/jquery-1.10.2.js',
+      'Library/angular.js',
+      'Library/angular-mocks.js',
+      'TestSearch.js'
     ],
 
     // list of files to exclude
-    exclude: [
-      'client/main.js'
+    exclude: [      
     ],
 
     preprocessors: {
@@ -66,6 +61,7 @@ module.exports = function(config) {
     // - IE (only Windows)
     // CLI --browsers Chrome,Firefox,Safari
     browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+    // browsers: ['PhantomJS'],
 
     // If browser does not capture in given timeout [ms], kill it
     // CLI --capture-timeout 5000

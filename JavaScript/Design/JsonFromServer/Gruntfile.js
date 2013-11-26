@@ -52,7 +52,7 @@ module.exports = function(grunt) { 'use strict';
 			},
 			
 			zip: {
-				src: [  ]
+				src: [ zipFile ]
 			}
 		},
 

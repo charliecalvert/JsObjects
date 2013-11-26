@@ -1,0 +1,24 @@
+body {
+	background-color: #00FFAA;
+}
+
+table {
+	border: solid black 2px;
+}
+
+th {
+	border: solid black 1px;
+	background-color: #AAFFAA;
+}
+
+td {
+	border: solid black 1px;
+	background-color: #88FF88;
+}
+
+.caption {
+	background-color: #99DD99;
+	float: left;	
+	width: 170px;
+	text-align: right;		
+}

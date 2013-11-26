@@ -3,4 +3,5 @@ Example03/bin/dexedLibs
 Example04/bin/res
 Example04/bin/dexedLibs
 BuildConfig.java
+*.class
 *.jar
