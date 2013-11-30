@@ -65,6 +65,7 @@ module.exports = function(grunt) { 'use strict';
 					files: [
 						{ src: './*.html' },
 						{ src: './*.js*' },
+						{ src: './*.css' },
 						{ src: './Assets/**' },
 						{ src: './Library/**' },
 						{ src: './Source/**' },
