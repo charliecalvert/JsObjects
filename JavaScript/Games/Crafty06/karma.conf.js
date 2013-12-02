@@ -12,25 +12,13 @@ module.exports = function(config) { 'use strict';
       'Library/angular.js',
       'Library/angular-mocks.js',
       'Library/Crafty.js',
-      'Source/MockGameWrapper.js',
-      'Source/Characters.js',
-      'Source/ElfGame.js',
-      'Source/ElfPlayer.js',
-      'Source/GameCore/Actors.js',
-      'Source/GameCore/Food.js',
-      'Source/GameCore/Grid.js',
-      'Source/GameCore/Player.js',
-      'Source/GameCore/Scenes.js',
-      'Source/GameCore/Village.js',
-      'Tests/TestElfPlayer.js',
-      'Tests/TestElfGame.js',
-      'Tests/TestGameboard.js',
-      'Tests/TestBroadcasts.js'
+      'Source/**/*.js',
+      'Tests/*.js'
     ],
 
     // list of files to exclude
     exclude: [
-      'client/main.js'
+      'Source/JasmineStart.js'
     ],
 
     preprocessors: {

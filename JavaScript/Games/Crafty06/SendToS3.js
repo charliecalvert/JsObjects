@@ -4,14 +4,14 @@
 /* jshint browser: true, devel: true, node: true, unused: true */
 
 var AWS = require('aws-sdk');
-var config = AWS.config.loadFromPath('/src/Config/config.json');
+AWS.config.loadFromPath('/src/Config/config.json');
 var s3 = new AWS.S3();
 var fs = require('fs');
 var walk = require('walk');
 
 var bucketName = 'bucket02.elvenware.com';
 
-function listBuckets(s3) {
+function listBuckets(s3) { 'use strict';
 	console.log("calling listBuckets");
 	s3.client.listBuckets(function(err, data) {
 		if (err) {
@@ -25,7 +25,7 @@ function listBuckets(s3) {
 	});
 }
 
-function writeFile(localFileName, nameOnS3, binary) {
+function writeFile(localFileName, nameOnS3, binary) { 'use strict';
 	// Read in the file, convert it to base64, store to S3
 	
 	nameOnS3 = "Crafty06" + nameOnS3;
@@ -86,7 +86,7 @@ function writeFile(localFileName, nameOnS3, binary) {
 	});
 }
 
-function walkDirs(folderName) {
+function walkDirs(folderName) { 'use strict';
 	var options = {
 		followLinks : false,
 	};
@@ -146,4 +146,4 @@ walkDirs('Library');
 walkDirs('Source');
 walkDirs('Style');
 writeFile('index.html', 'index.html', false);
-//listBuckets(s3);
+listBuckets(s3);

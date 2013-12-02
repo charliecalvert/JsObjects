@@ -58,8 +58,8 @@ Crafty.c('PlayerCharacter', {
 		});
 		
 		this.bind('youLose', function() {
-        	Crafty.scene('Failure');
-        });
+			Crafty.scene('Failure');
+		});
 	},
 
 	// Registers a stop-movement function to be called when
