@@ -4,7 +4,7 @@
 /* jshint browser: true, devel: true, node: true, unused: true */
 
 var AWS = require('aws-sdk');
-// var config = AWS.config.loadFromPath('./config.json');
+var config = AWS.config.loadFromPath('/src/Config/config.json');
 var s3 = new AWS.S3();
 var fs = require('fs');
 var walk = require('walk');
@@ -73,8 +73,12 @@ function writeFile(localFileName, nameOnS3, binary) {
 			Key : nameOnS3,
 			Body : data,
 			ContentType: contentType
-		}, function(response) {
-			console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType + ' ' + response);
+		}, function(err, response) {
+			if (err) {
+				console.log("Error: " + err);
+			} else {
+				console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType + ' ' + response);
+			}
 		});
 	});
 }
@@ -84,7 +88,7 @@ function walkDirs() {
 		followLinks : false,
 	};
 
-	var walker = walk.walk("CloudNotes", options);
+	var walker = walk.walk("Files", options);
 
 
 	walker.on("names", function(root, nodeNamesArray) {
@@ -130,5 +134,5 @@ function walkDirs() {
 }
 
 walkDirs();
-writeFile('CloudNotes.html', 'CloudNotes.html', false);
+writeFile('AwsFiles.html', 'AwsFiles.html', false);
 listBuckets(s3);
