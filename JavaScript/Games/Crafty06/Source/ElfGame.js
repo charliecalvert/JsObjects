@@ -1,6 +1,6 @@
 /* jshint browser: true */
 
-angular.module('elfGameMod', ['characters', 'gameWrapper'])
+angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 .factory('elfGameService', function(gameEventService, people, gameWrap) { 'use strict';
 
 	return {

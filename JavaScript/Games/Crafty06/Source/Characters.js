@@ -4,7 +4,7 @@
 
 /* global angular:true */
 
-angular.module('characters', []).factory('people', function() {'use strict';
+angular.module('characterMod', []).factory('people', function() {'use strict';
 
 	return {
 
