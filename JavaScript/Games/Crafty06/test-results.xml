@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-12-03T01:12:39" id="0" hostname="MountainStreams" tests="21" errors="0" failures="0" time="0.062">
+  <testsuite name="Chrome 31.0.1650 (Windows)" package="undefined" timestamp="2013-12-04T18:23:54" id="0" hostname="MountainStreams" tests="21" errors="0" failures="0" time="0.063">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36"/>
     </properties>
-    <testcase name="Change Direction Broadcast" time="0.031" classname="Chrome 31.0.1650 (Windows).Test Broadcasts: gameEventService"/>
+    <testcase name="Change Direction Broadcast" time="0.032" classname="Chrome 31.0.1650 (Windows).Test Broadcasts: gameEventService"/>
     <testcase name="Test Two Direction Broadcasts" time="0" classname="Chrome 31.0.1650 (Windows).Test Broadcasts: gameEventService"/>
     <testcase name="Change Tower Broadcast" time="0" classname="Chrome 31.0.1650 (Windows).Test Broadcasts: gameEventService"/>
     <testcase name="Tests a Debug Broadcast" time="0" classname="Chrome 31.0.1650 (Windows).Test Broadcasts: gameEventService"/>
@@ -15,8 +15,8 @@
     <testcase name="gets the height of the playing field" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
     <testcase name="reports an event" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
     <testcase name="sends a change direction message" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
-    <testcase name="sends a change direction message to elfcontroller" time="0.016" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
-    <testcase name="sends a debug message" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
+    <testcase name="sends a change direction message to elfcontroller" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
+    <testcase name="sends a debug message" time="0.016" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
     <testcase name="sends a debug message to elfcontroller" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
     <testcase name="sends three debug messages to elfcontroller" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
     <testcase name="is a very silly test" time="0" classname="Chrome 31.0.1650 (Windows).Test Elf Game"/>
@@ -25,12 +25,7 @@
     <testcase name="Check Debug Messages" time="0" classname="Chrome 31.0.1650 (Windows).TestElfController"/>
     <testcase name="Check move Messages" time="0" classname="Chrome 31.0.1650 (Windows).TestElfController"/>
     <testcase name="TestGameBoard Check ElfGame Width" time="0" classname="Chrome 31.0.1650 (Windows).TestGameboard"/>
-    <system-out><![CDATA[Chrome 31.0.1650 (Windows) LOG: LOG
- 'Test Change Direction Broadcast',Chrome 31.0.1650 (Windows) LOG: LOG
- 'Test',Chrome 31.0.1650 (Windows) LOG: LOG
- 'Direction',Chrome 31.0.1650 (Windows) LOG: LOG
- 'turtled change direction message',Chrome 31.0.1650 (Windows) LOG: LOG
- 'turtle soup in elf controller'
+    <system-out><![CDATA[
 ]]></system-out>
     <system-err/>
   </testsuite>
