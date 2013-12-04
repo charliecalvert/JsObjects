@@ -7,23 +7,17 @@
  */
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
-	init: function() { 'use strict';
-		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation')
-			.fourway(4)
-			.stopOnSolids()
-			.onHit('Village', this.visitVillage)
-			.onHit('Food', this.visitFood)
-			// These next lines define our four animations
-			// each call to .animate specifies:
-			// - the name of the animation
-			// - the x and y coordinates within the sprite
-			//   map at which the animation set begins
-			// - the number of animation frames *in addition to* the first one
-			.animate('PlayerMovingUp', 0, 0, 4)
-			.animate('PlayerMovingRight', 0, 0, 4)
-			// .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
-			.animate('PlayerMovingDown',  0, 0, 4)
-			.animate('PlayerMovingLeft',  0, 1, 4);
+	init : function() {'use strict';
+		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation').fourway(4).stopOnSolids().onHit('Village', this.visitVillage).onHit('Food', this.visitFood)
+		// These next lines define our four animations
+		// each call to .animate specifies:
+		// - the name of the animation
+		// - the x and y coordinates within the sprite
+		// map at which the animation set begins
+		// - the number of animation frames *in addition to* the first one
+		.animate('PlayerMovingUp', 0, 0, 4).animate('PlayerMovingRight', 0, 0, 4)
+		// .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
+		.animate('PlayerMovingDown', 0, 0, 4).animate('PlayerMovingLeft', 0, 1, 4);
 
 		// Watch for a change of direction and switch animations accordingly
 		var animation_speed = 8;
@@ -56,7 +50,7 @@ Crafty.c('PlayerCharacter', {
 		this.bind('stopMove', function() {
 			this.stopMovement();
 		});
-		
+
 		this.bind('youLose', function() {
 			Crafty.scene('Failure');
 		});
@@ -64,17 +58,17 @@ Crafty.c('PlayerCharacter', {
 
 	// Registers a stop-movement function to be called when
 	//	this entity hits an entity with the "Solid" component
-	stopOnSolids: function() { 'use strict';
+	stopOnSolids : function() {'use strict';
 		this.onHit('Solid', this.stopMovement);
 		return this;
 	},
 
-	stop: function() {
+	stop : function() {
 		// Not sure what this is supposed to do
 	},
 
 	// Stops the movement
-	stopMovement: function() { 'use strict';
+	stopMovement : function() {'use strict';
 		this._speed = 0;
 		if (this._movement) {
 			this.x -= this._movement.x;
@@ -82,10 +76,8 @@ Crafty.c('PlayerCharacter', {
 		}
 	},
 
-
-
 	// Respond to this player visiting a village
-	visitVillage: function(data) { 'use strict';
+	visitVillage : function(data) {'use strict';
 		this.stopMovement();
 
 		// If we are in an encounter, then we do nothing until the user
@@ -105,7 +97,7 @@ Crafty.c('PlayerCharacter', {
 
 	// visitFoodStart: function() {},
 
-	visitFood: function(data) { 'use strict';
+	visitFood : function(data) {'use strict';
 		this.stopMovement();
 		if (this.encounterMode) {
 			return;
@@ -115,5 +107,4 @@ Crafty.c('PlayerCharacter', {
 		food.visit();
 		this.encounterMode = true;
 	}
-
 });

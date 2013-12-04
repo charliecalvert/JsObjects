@@ -7,7 +7,7 @@ describe("TestGameboard", function() {'use strict';
 		
 	
 	beforeEach(function() {
-		module('gameWrapper');
+		module('gameWrapMod');
 		module('elfGameMod');
 		module('elfPlayer');				
 	});

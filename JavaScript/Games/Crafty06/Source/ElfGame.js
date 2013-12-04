@@ -1,8 +1,8 @@
 /* jshint browser: true */
 
 angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
-.factory('elfGameService', function(gameEventService, people, gameWrap) { 'use strict';
-
+.factory('elfGameService', function(gameEventService, people, gameWrap) { 
+	'use strict';
 	return {
 
 		map_grid : null,
