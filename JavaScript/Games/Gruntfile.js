@@ -18,6 +18,7 @@ module.exports = function(grunt) { 'use strict';
 					'**/handlebars.js',
 					'**/jquery*.js',
 					'**/cordova*.js',
+					'**/bootstrap.min.js',
 					'**/qunit*.js'],
 				reporter: 'checkstyle',
 				reporterOutput: 'result.xml',
