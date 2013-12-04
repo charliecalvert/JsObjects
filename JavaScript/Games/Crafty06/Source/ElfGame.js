@@ -1,12 +1,12 @@
 /* jshint browser: true */
 
 angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
-.factory('elfGameService', function(gameEventService, people, gameWrap) { 
+.factory('elfGameService', function(gameEventService, people, gameWrap) {
 	'use strict';
 	return {
 
 		map_grid : null,
-		
+
 		misses: 0,
 
 		defaultMapGrid : {
@@ -32,18 +32,18 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 			return gameEventService.debugBroadcast(message);
 		},
 
-		rollD3 : function(village) {
-			village.tower.hitPoints -= Math.floor(Math.random() * 3);
+		rollD3 : function() {
+			return Math.floor(Math.random() * 3) + 1;
 		},
 
-        encounterFood : function(food, count) {
-            gameEventService.debugBroadcast("food");
-            gameEventService.encounterBroadcast('Food success');
-            return true;
-        },
-        
+		encounterFood : function(food, count) {
+			gameEventService.debugBroadcast("food");
+			gameEventService.encounterBroadcast('Food success');
+			return true;
+		},
+
 		encounter : function(village) {
-			this.rollD3(village);
+			village.tower.hitPoints -= this.rollD3(village);
 
 			gameEventService.debugBroadcast('Tower hit points: ' + village.tower.hitPoints);
 			if (village.tower.hitPoints <= 0) {
@@ -54,14 +54,14 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 				if (this.misses++ > 3) {
 					Crafty.trigger('youLose', Crafty);
 				}
-				
+
 				return false;
 			}
 		},
 
 		newVillage : function(village) {
 			village.tower = people.tower();
-			this.villages.push(village);
+			return this.villages.push(village);
 		},
 
 		goLeft : function() {
@@ -85,9 +85,9 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 		initMapGrid : function(mapGrid) {
 			this.map_grid = mapGrid;
 		},
-		
+
 		// Initialize and start our game
-		start : function(mapGrid) {			
+		start : function(mapGrid) {
 			// Start crafty
 			var gameDiv = document.getElementById("gameBoard");
 			if (mapGrid) {
@@ -95,7 +95,7 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 			} else {
 				this.map_grid = this.defaultMapGrid;
 			}
-			gameWrap.startGame(gameDiv, this);	
+			gameWrap.startGame(gameDiv, this);
 		}
 	};
 });

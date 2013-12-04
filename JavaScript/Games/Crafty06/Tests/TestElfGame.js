@@ -48,6 +48,43 @@
 		expect(actual).toEqual(12 * 32);
 	});
 
+	it("rolls the D3", function() {
+		for (var i = 0; i < 125; i++) {
+			var actual = elfGameService.rollD3();
+			expect(actual).toBeLessThan(4);
+			expect(actual).toBeGreaterThan(0);
+		}
+	});
+
+	it("registers a new village with the villages array", function() {
+		var actual = elfGameService.newVillage({});
+		expect(actual).toEqual(1);	
+	});
+	
+	it("simulates an encounter", function() {
+		var actual = elfGameService.encounter({ tower: { hitPoints: 25 } });
+		expect(actual).toBe(false);
+	});
+	
+	it("simulates an encounter tower end", function() {
+		var actual = elfGameService.encounter({ tower: { hitPoints: 0 } });
+		expect(actual).toBe(true);
+	});
+	
+	it("simulates a food encounter", function() {
+		var actual = elfGameService.encounterFood({ }, 0);
+		expect(actual).toBe(true);
+	});
+	
+	/* it("simulates going left", function() {
+		var actual = elfGameService.goLeft();
+		expect(actual).toBe(true);
+	});
+	
+	it("simulates going Right", function() {
+		var actual = elfGameService.goRight();
+		expect(actual).toBe(true);
+	}); */
 	it("reports an event", function() {
 		var actual = elfGameService.reportEvent();
 		expect(actual).toEqual(true);
