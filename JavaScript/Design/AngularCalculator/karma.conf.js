@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function(config) { 'use strict';
   config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '.',
@@ -15,18 +15,18 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'client/main.js'
+      
     ],
 
     preprocessors: {
-      'client/*.js': ['commonjs'],
+      'index.js': ['commonjs', 'coverage'],
       'test/client/*.js': ['commonjs']
     },
 
     // use dots reporter, as travis terminal does not support escaping sequences
     // possible values: 'dots', 'progress'
     // CLI --reporters progress
-    reporters: ['progress', 'junit'],
+    reporters: ['progress', 'coverage'],
 
     junitReporter: {
       // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -76,6 +76,7 @@ module.exports = function(config) {
     plugins: [      
       'karma-jasmine',
       'karma-chrome-launcher',
+      'karma-coverage',
       'karma-firefox-launcher',
       'karma-junit-reporter',
       'karma-commonjs'
