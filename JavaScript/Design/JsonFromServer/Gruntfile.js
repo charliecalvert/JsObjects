@@ -9,7 +9,7 @@ module.exports = function(grunt) { 'use strict';
 			files: ['**/*.js'],
 
 			options: {
-				ignores: ['
+				ignores: [
 					'**/angular.js',					
 					'**/angular-mocks.js',
 					'**/coverage/**',					
