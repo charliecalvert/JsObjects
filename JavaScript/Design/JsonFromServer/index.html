@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app>
+<html data-ng-app='jsonServerMod'>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
@@ -11,7 +11,7 @@
     <body>
         <h1>Elvenware Angular JSON</h1>
         
-        <div ng-controller="MyController">
+        <div ng-controller="myController">
         	<p>This project retrieves a small amount of JSON from
         		a node server.</p>
             <div ng-bind-html-unsafe="hint"> </div>
@@ -24,6 +24,15 @@
             <p>Name: {{data.name}}</p>            
             <p>hitPoints: {{data.hitPoints}}</p>
             <p>damage: {{data.damage}}</p>
+            
+            <button ng-click="loadJson02('moreData.json')">Load Data02</button>
+            
+            <p>Here is the JSON retreived from the server: </p>
+            
+            <p>All data: {{data2}}</p>
+            <p>Name: {{data2.name}}</p>            
+            <p>hitPoints: {{data2.hitPoints}}</p>
+            <p>damage: {{data2.damage}}</p>
         </div>
     </body>
 </html>

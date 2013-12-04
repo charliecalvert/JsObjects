@@ -20,14 +20,13 @@ module.exports = function(config) { 'use strict';
     ],
 
     preprocessors: {
-      'client/*.js': ['commonjs'],
-      'test/client/*.js': ['commonjs']
+      'Source/*.js': ['commonjs', 'coverage']      
     },
 
     // use dots reporter, as travis terminal does not support escaping sequences
     // possible values: 'dots', 'progress'
     // CLI --reporters progress
-    reporters: ['progress', 'junit'],
+    reporters: ['progress', 'coverage'],
 
     junitReporter: {
       // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -76,7 +75,8 @@ module.exports = function(config) { 'use strict';
     reportSlowerThan: 500,
 
     plugins: [      
-      'karma-jasmine',      
+      'karma-jasmine', 
+      'karma-coverage',     
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-junit-reporter',

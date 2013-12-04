@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-function MyController($scope, $http) { 'use strict';
+angular.module('jsonServerMod', [])
+.controller('myController', function($scope, $http) { 'use strict';
 
 	$scope.hint = "<p>Start with a web server such as <strong>node server.js</strong> to retrieve JSON from Server</p>";
   
@@ -18,4 +19,16 @@ function MyController($scope, $http) { 'use strict';
 			throw new Error('Oh no! An Error!');
 		});
 	};
-}
+	
+	// Using dot syntax
+	$scope.loadJson02 = function(fileName) {
+		$http.get(fileName)
+		.success(function(data, status, headers, config)  {
+			$scope.data2 = data;
+		})
+		.error(function(data, status, headers, config) {
+			throw new Error('Oh no! An Error!');
+		});
+	};
+	
+});

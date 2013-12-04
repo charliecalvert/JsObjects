@@ -6,9 +6,13 @@ describe("mycontrollertest", function() {'use strict';
 	var myController = null;
 	var $httpBackend = null;
 
+	beforeEach(function() {
+		module('jsonServerMod');	
+	});
+	
 	beforeEach(inject(function($rootScope, $controller) {
 		myController = $rootScope.$new();
-		$controller('MyController', { $scope: myController });
+		$controller('myController', { $scope: myController });
 	}));
 
 	beforeEach(inject(function(_$httpBackend_) {
@@ -54,4 +58,16 @@ describe("mycontrollertest", function() {'use strict';
 		$httpBackend.flush();
 		expect(myController.data.damage).toEqual(5);
 	});
+	
+	it("Test Second load json name", function() {
+		$httpBackend.expectGET('moreData.json').respond({
+			"name": "NPC02",
+			"hitPoints": 1,
+			"damage": 2
+		});
+		myController.loadJson02('moreData.json');
+		$httpBackend.flush();
+		expect(myController.data2.name).toEqual("NPC02");
+	});
+
 });
