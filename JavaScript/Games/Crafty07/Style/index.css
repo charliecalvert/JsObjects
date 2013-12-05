@@ -1,0 +1,21 @@
+body {
+	background: #00FF55;
+}
+
+#game {
+	width: 400px;
+	height: 400px;
+	background-color: #00BB88;
+}
+
+#textDisplay, #gameBoard {
+	float: left;
+}
+
+#textDisplay {
+	width: 250px;
+	background-color: #00AA44;
+	margin-left: 50px;
+	padding: 5px;
+	border: solid black 2px; 
+}
