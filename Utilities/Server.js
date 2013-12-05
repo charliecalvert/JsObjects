@@ -1,6 +1,6 @@
 /* 
 	Server.js by Charlie Calvert 
-	v0.2.1
+	v0.2.2
 */
 
 var http = require('http');
@@ -162,7 +162,7 @@ function loadContent(request, response) { 'use strict';
 				response.end();
 			}
 		});
-	} else if (getExtension(path) === 'png' || getExtension(path) === 'gif' || getExtension(path) === 'jpg') {
+	} else if (getExtension(path) === 'png' || getExtension(path) === 'gif' || getExtension(path) === 'jpg'|| getExtension(path) === 'mp3') {
 		findFile(__dirname, path.replace('\/', ''), function(err, results) {
 			console.log("Found: " + path);
 			getBinaryFile(results[0], response);

@@ -66,10 +66,12 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 
 		goLeft : function() {
 			Crafty.trigger('goLeft', Crafty);
+			return true;
 		},
 
 		stopMove : function() {
 			Crafty.trigger('stopMove', Crafty);
+			return true;
 		},
 
 		// Get width of the game screen in pixels

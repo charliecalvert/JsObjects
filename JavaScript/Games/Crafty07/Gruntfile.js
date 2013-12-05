@@ -11,6 +11,7 @@ module.exports = function(grunt) { 'use strict';
 					'*/Ractive.js', 
 					'*/**/angular.js',
 					'**/Library/**', 
+					'**/coverage/**',
 					'**/node_modules/**',
 					'**/handlebars.js',
 					'**/jquery*.js',

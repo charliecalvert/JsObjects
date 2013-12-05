@@ -76,15 +76,17 @@
 		expect(actual).toBe(true);
 	});
 	
-	/* it("simulates going left", function() {
+	/*
+	it("simulates going left", function() {
 		var actual = elfGameService.goLeft();
 		expect(actual).toBe(true);
 	});
 	
-	it("simulates going Right", function() {
-		var actual = elfGameService.goRight();
+	it("simulates call stop move", function() {
+		var actual = elfGameService.stopMove();
 		expect(actual).toBe(true);
-	}); */
+	}); */ 
+	
 	it("reports an event", function() {
 		var actual = elfGameService.reportEvent();
 		expect(actual).toEqual(true);
