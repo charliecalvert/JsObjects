@@ -59,7 +59,7 @@ module.exports = function(grunt) { 'use strict';
 						{ src: './Library/**' },
 						{ src: './Source/**' },
 						{ src: './Style/**' },
-						{ src: './Tests/**' },
+						{ src: './Test/**' },
 						{ src: './LICENSE' },
 						{ src: './README.md' }
 					]
