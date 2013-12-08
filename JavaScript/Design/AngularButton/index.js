@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-function inputArea($scope) {
+function inputArea($scope) { 'use strict';
 	$scope.visible = true;
 	
 	$scope.toggle = function() {

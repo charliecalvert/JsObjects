@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-tools.factory('sailboat', function() {
+tools.factory('sailboat', function() { 'use strict';
     this.SailBoat = (function() {
         var description = "I'm a sailboat";
         

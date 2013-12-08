@@ -4,7 +4,8 @@
 
 var angularNotify = angular.module('AngularNotify', []);
 
-angularNotify.controller('NoteController', function($scope, noteService) {
+angularNotify
+.controller('NoteController', function($scope, noteService) { 'use strict';
 
 	var count = 1;
 	$scope.noteData = "I'm the Note Controller";
@@ -28,7 +29,7 @@ angularNotify.controller('NoteController', function($scope, noteService) {
 });
 
 // Provide example to show ability to configure
-angularNotify.provider('noteService', function() {
+angularNotify.provider('noteService', function() {  'use strict';
 	var config = {
 		maxNotes : 3
 	};
@@ -68,11 +69,11 @@ angularNotify.provider('noteService', function() {
 			};
 		}
 	};
-}).config(function(noteServiceProvider) {
+}).config(function(noteServiceProvider) { 'use strict';
 	noteServiceProvider.setMaxLen(5);
 });
 
-angularNotify.factory('noteArchive', function() {
+angularNotify.factory('noteArchive', function() { 'use strict';
 
 	var description = "noteArchive text";
 	var archive = [];

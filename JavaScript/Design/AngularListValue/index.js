@@ -63,6 +63,6 @@ angularNotify.provider('noteService', function() {
 	};
 }); */
 
-var NoteController = function($scope, noteArchive) {
+var NoteController = function($scope, noteArchive) { 'use strict';
 	$scope.noteData = "DataMy " + noteArchive.description;
 };

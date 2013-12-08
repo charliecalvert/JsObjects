@@ -4,7 +4,7 @@
 
 angular.module('repeatera', ['ui.bootstrap']);
 
-function PersonController($scope, $dialog) {
+function PersonController($scope, $dialog) { 'use strict';
 
 	$scope.people = [{
 		firstName : "George",
@@ -47,7 +47,7 @@ function PersonController($scope, $dialog) {
 }
 
 // the dialog is injected in the specified controller
-function EditCtrl($scope, person, dialog){
+function EditCtrl($scope, person, dialog){ 'use strict';
   
   $scope.person = person;
   

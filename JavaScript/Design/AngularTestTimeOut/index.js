@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-function MyController($scope) {
+function MyController($scope) { 'use strict';
     $scope.hint = "Enter a number of miles";
     
     $scope.miles = 0;
@@ -12,7 +12,8 @@ function MyController($scope) {
     };
 }
 
-angular.module('async', []).factory('greet', function($timeout, $log) {
+angular.module('async', [])
+.factory('greet', function($timeout, $log) { 'use strict';
 	return {
 		say: function(name, timeout) {
 			$timeout(function() {

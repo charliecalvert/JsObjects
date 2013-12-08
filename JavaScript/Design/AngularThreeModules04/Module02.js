@@ -3,42 +3,42 @@
  */
 
 angular.module('tools', [])
-.factory('boat', function() {
+.factory('boat', function() {  'use strict';
 	this.Boat = (function() {
-	    var description = "I'm a boat.";
-	    
-	    function Boat() {
-	        
-	    }
-	    
-	    Boat.prototype.getDescription = function() {
-	        return description;
-	    };
-	    
-	    return Boat;
+		var description = "I'm a boat.";
+
+		function Boat() {
+
+		}
+
+		Boat.prototype.getDescription = function() {
+			return description;
+		};
+
+		return Boat;
 	})();
-	
+
 	return new this.Boat();
 })
-.factory('sailboat', function() {
-    this.SailBoat = (function() {
-        var description = "I'm a sailboat";
-        
-        function SailBoat() {
-            
-        }
-        
-        SailBoat.prototype.getNine = function() {
-            return 9;
-        };
-        
-        SailBoat.prototype.getDescription = function() {
-            return description;
-        };
-        
-        return SailBoat;       
-    })();
-    
-    return new this.SailBoat();
+.factory('sailboat', function() { 'use strict';
+	this.SailBoat = (function() {
+		var description = "I'm a sailboat";
+
+		function SailBoat() {
+
+		}
+
+		SailBoat.prototype.getNine = function() {
+			return 9;
+		};
+
+		SailBoat.prototype.getDescription = function() {
+			return description;
+		};
+
+		return SailBoat;
+	})();
+
+	return new this.SailBoat();
 });
 

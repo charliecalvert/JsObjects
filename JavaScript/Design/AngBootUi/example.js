@@ -2,9 +2,8 @@
  * @author Charlie Calvert
  */
 
-angular.module('elfedit', ['ui.bootstrap']);
-
-function TableEditor($scope, $dialog) {
+angular.module('elfedit', ['ui.bootstrap'])
+.controller('TableEditor', function($scope, $dialog) { 'use strict';
   
   $scope.people = [
     {firstName: 'George', lastName: 'Washington'},
@@ -30,9 +29,9 @@ function TableEditor($scope, $dialog) {
         itemToEdit = undefined;
     });
   };
-}
+})
 // the dialog is injected in the specified controller
-function EditCtrl($scope, person, dialog){
+.controller('EditCtrl', function($scope, person, dialog){ 'use strict';
   
   $scope.person = person;
   
@@ -43,4 +42,4 @@ function EditCtrl($scope, person, dialog){
   $scope.close = function(){
     dialog.close(undefined);
   };
-}
+});

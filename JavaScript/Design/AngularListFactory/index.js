@@ -8,7 +8,8 @@ var angularNotify = angular.module('AngularNotify', []);
 
 
 
-angularNotify.controller('NoteController', function ($scope, numberService) {
+angularNotify
+.controller('NoteController', function ($scope, numberService) { 'use strict';
 
 	var count = 1;
 	$scope.noteData = "I'm the Add Numbers Controller";
@@ -33,7 +34,7 @@ angularNotify.controller('NoteController', function ($scope, numberService) {
 });
 
 // Factory Example
-angularNotify.factory('numberService', function(noteArchive) {
+angularNotify.factory('numberService', function(noteArchive) {  'use strict';
 	var MAX_NOTES = 3;
 
 	var noteArray = [];
@@ -74,7 +75,7 @@ angularNotify.factory('numberService', function(noteArchive) {
 
 });
 
-angularNotify.factory('noteArchive', function() {
+angularNotify.factory('noteArchive', function() {  'use strict';
 
 	var description = "noteArchive text";
 	var archive = [];

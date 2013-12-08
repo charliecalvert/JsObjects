@@ -3,10 +3,10 @@
  */
 angular.module('noteArchive', []);
 
-var NoteArchive = function() {
+var NoteArchive = function() { 'use strict';
 	this.archive = function(item) {
 	};
-	
+
 	this.description = "noteArchive text";
 };
  

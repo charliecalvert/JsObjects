@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-var NoteService = function(notificationsArchive) {
+var NoteService = function(notificationsArchive) { 'use strict';
 	this.notificationsArchive = notificationsArchive;
 	
 	/*this.MAX_LEN = 10;
@@ -10,7 +10,7 @@ var NoteService = function(notificationsArchive) {
 	this.notifications = []; */
 };
 
-NoteService.prototype.push = function(notification) {
+NoteService.prototype.push = function(notification) { 'use strict';
 	var newLen, notificationToArchive;
 	newLen = this.notifications.unshift(notification);
 	if (newLen > this.MAX_LINE) {
@@ -19,7 +19,7 @@ NoteService.prototype.push = function(notification) {
 	}	
 };
 
-NoteService.prototype.getCurrent = function() {
+NoteService.prototype.getCurrent = function() { 'use strict';
 	return this.notifications;
 };
 

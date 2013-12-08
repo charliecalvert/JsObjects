@@ -1,4 +1,4 @@
-function CityState() {
+function CityState() { 'use strict';
 	this.city = ko.observable("Olympia");
 	this.state = ko.observable("Washington");
 
@@ -8,7 +8,7 @@ function CityState() {
 }
 
 
-window.onload=function(){ 
+window.onload=function(){ 'use strict';
 	// Activates knockout.js
 	ko.applyBindings(new CityState());
 };

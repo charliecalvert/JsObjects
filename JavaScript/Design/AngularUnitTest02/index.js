@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-function MyController($scope) {
+function MyController($scope) { 'use strict';
     $scope.hint = "This is my hint";
     
     $scope.miles = 0;

@@ -3,7 +3,7 @@
  */
 
 
-function ListControl($scope) {
+function ListControl($scope) { 'use strict';
   $scope.todos = [
     {text:'Go to class', done: false},
     {text:'Complete assignments', done:false}];

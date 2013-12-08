@@ -3,7 +3,7 @@
  */
 
 angular.module('sailboat', [])
-.factory('sailboat', function() {
+.factory('sailboat', function() { 'use strict';
 	return {
 		description: "I'm a sailboat",
 		

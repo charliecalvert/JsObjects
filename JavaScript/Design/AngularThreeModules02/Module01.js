@@ -4,7 +4,7 @@
 
 var elvenApp = angular.module('elvenApp', ['boat', 'sailboat']);
 
-elvenApp.controller('BoatController', function($scope, boat, sailboat) {
+elvenApp.controller('BoatController', function($scope, boat, sailboat) { 'use strict';
 	$scope.simple = "Simple Boat";
 	$scope.boatType = boat.description;
 	$scope.sailBoat = sailboat.description;

@@ -3,7 +3,7 @@
  */
 
 // Use the test in the "The Basics" section of the angular home page
-describe('angularjs homepage', function() {
+describe('angularjs homepage', function() { 'use strict';
   it('should greet the named user', function() {
     browser.get('http://www.angularjs.org');
 

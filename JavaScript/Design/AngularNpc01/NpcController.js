@@ -4,7 +4,7 @@
 
 angular.module('npcapp', ['ui.bootstrap']);
 
-function NpcController($scope, $dialog) {
+function NpcController($scope, $dialog) { 'use strict';
 
     $scope.npcs = [{
         npcName : 'George',
@@ -46,7 +46,7 @@ function NpcController($scope, $dialog) {
 }
 
 // the dialog is injected in the specified controller
-function EditCtrl($scope, npc, dialog) {
+function EditCtrl($scope, npc, dialog) { 'use strict';
 
     $scope.npc = npc;
 

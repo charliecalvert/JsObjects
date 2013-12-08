@@ -3,7 +3,7 @@
  */
 
 angular.module('AngularUIControl', [])
-.controller('TextAreaController', function($scope) {
+.controller('TextAreaController', function($scope) { 'use strict';
 	var MAX_CHARS = 25;
 	var WARN_COUNT = MAX_CHARS - 10;
 

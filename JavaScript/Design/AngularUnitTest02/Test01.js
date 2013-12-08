@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-describe("mycontrollertest", function() {'use strict';
+describe("mycontrollertest", function() { 'use strict';
     var $mockScope = null;
     var pc = null;
 

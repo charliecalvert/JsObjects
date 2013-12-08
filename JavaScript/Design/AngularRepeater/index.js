@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-var PersonController = function($scope) {
+var PersonController = function($scope) { 'use strict';
 	$scope.people = [
 		{firstName: "George", lastName: "Washington", sequence: 1},
 		{firstName: "John", lastName: "Adams", sequence: 2},
