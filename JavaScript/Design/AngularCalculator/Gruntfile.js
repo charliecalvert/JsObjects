@@ -12,8 +12,8 @@ module.exports = function(grunt) { 'use strict';
 				ignores: [
 					'coverage/**',
 					'**/node_modules/**',
-					'angular.js',					
-					'angular-mocks.js'
+					'**/angular.js',					
+					'**/angular-mocks.js'
 				],
 				reporter: 'checkstyle',
 				reporterOutput: 'result.xml',
