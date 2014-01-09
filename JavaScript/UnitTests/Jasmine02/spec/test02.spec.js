@@ -1,6 +1,6 @@
 // var getEight = require('getEight');
 
-describe("A suite", function() {
+describe("Elvenware Jasmine Two suite", function() {
 	// what is being tested
     function getNine() {
         return 9;

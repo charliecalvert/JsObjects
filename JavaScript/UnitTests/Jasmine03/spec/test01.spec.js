@@ -7,7 +7,7 @@ function multiplyMe(a, b) {
 }
 
   
-describe("A suite", function() {
+describe("Elvenware Jasmine Three suite", function() {
   it("Confirm that true is true", function() {
     expect(true).toBe(true);
   });
