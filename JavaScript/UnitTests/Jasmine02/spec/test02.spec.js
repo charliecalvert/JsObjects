@@ -1,4 +1,4 @@
-var getEight = require('getEight');
+// var getEight = require('getEight');
 
 describe("A suite", function() {
 	// what is being tested
@@ -6,7 +6,11 @@ describe("A suite", function() {
         return 9;
     }
 	
-	it("contains spec with an expectation", function() {
+	it("Call local getNine", function() {
 		expect(getNine()).toBe(9);
+	});
+	
+	it("Call module that returns 8", function() {
+		expect(getEight()).toBe(8);
 	});
 });
