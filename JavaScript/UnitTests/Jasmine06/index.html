@@ -3,48 +3,20 @@
 <html>
 <head>
   <title>Jasmine Spec Runner</title>
-  <link rel="shortcut icon" type="image/png" href="lib/jasmine-core/jasmine_favicon.png">
-  <link rel="stylesheet" type="text/css" href="lib/jasmine-core/jasmine.css">
+  <link href="Library/jasmine_favicon.png" rel="shortcut icon" type="image/png">
+  <link href="Library/jasmine.css" rel="stylesheet" type="text/css">
+  
   <!-- script src="http://code.jquery.com/jquery.min.js"></script -->
-  <script src="lib/jasmine-core/jasmine.js"></script>
-  <script src="lib/jasmine-core/jasmine-html.js"></script>
-  <script src="lib/jasmine-core/boot.js"></script>
+  <script src="Library/jasmine.js"></script>
+  <script src="Library/jasmine-html.js"></script>
+  <script src="Library/boot.js"></script>
 
   <!-- include source files here... -->
-  <!-- script src="js/calculator.js"></script -->
+  <script src="src/Calculator.js"></script>
 
   <!-- include spec files here... -->
-  <script src="spec/test01.spec.js"></script>
-   
-  <script type="text/javascript">
-    (function() {
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
-
-      var trivialReporter = new jasmine.HtmlReporter();
-
-      jasmineEnv.addReporter(trivialReporter);
-
-      jasmineEnv.specFilter = function(spec) {
-        return trivialReporter.specFilter(spec);
-      };
-
-      var currentWindowOnload = window.onload;
-
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
-        }
-        execJasmine();
-      };
-
-      function execJasmine() {
-        jasmineEnv.execute();
-      }
-
-    })();
-  </script>
-
+  <script src="spec/test01.spec.js"></script>   
+  
 </head>
 
 <body>

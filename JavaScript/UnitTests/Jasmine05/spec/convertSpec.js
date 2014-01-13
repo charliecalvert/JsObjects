@@ -1,19 +1,19 @@
-function addMe() {
-    return 2 * 3;
+function addMe(a, b) {
+    return a + b;
 }
 
-function BarFoo() {
-    expect(addMe()).toBe(6);
-  }
-  
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
+
+describe("An Elvenware Suite of Specs", function() {
+  it("shows true = true", function() {
     expect(true).toBe(true);
   });
   
-  it("contains spec with an expectation", function() {
+  it("shows 1 + 1 = 2", function() {
     expect(1+1).toBe(2);
   });
+
+  it("shows addMe(2, 3) = 5", function() {
+    expect(addMe(2, 3)).toBe(5);
+  });
   
-  it("contains spec with an expectation", BarFoo() );
 });

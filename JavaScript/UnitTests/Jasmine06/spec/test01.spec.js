@@ -1,19 +1,13 @@
-function addMe() {
-    return 2 + 3;
-}
-
-function BarFoo() {
-    expect(addMe()).toBe(5);
-  }
-  
 describe("A suite", function() {
-  it("contains spec with an expectation", function() {
+  it("Expects True to Be True", function() {
     expect(true).toBe(true);
   });
   
-  it("contains spec with an expectation", function() {
+  it("expects 1 + 1 = 2", function() {
     expect(1+1).toBe(2);
   });
   
-  it("contains spec with an expectation", BarFoo() );
+  it("expects addMe(5, 6) = 11", function() {
+  	expect(addMe(5, 6)).toBe(11);
+  });
 });
