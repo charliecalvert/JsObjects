@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-var App = (function() {
+var App = (function() { 'use strict';
 
 	function App() {
 		$("#clickMe").click(this.clickMe);
@@ -63,6 +63,6 @@ var App = (function() {
 
 })();
 
-$(document).ready(function() {
+$(document).ready(function() { 'use strict';
 	new App();
 }); 
