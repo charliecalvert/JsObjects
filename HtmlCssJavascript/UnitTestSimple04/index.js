@@ -44,13 +44,16 @@ function myTests() {'use strict';
 		});
 	}); */
 	
+	
 	test('readJson', function() {
-		
+
 		$.ajax = function(options) {
-        	equal(options.url, "MyData.json");
-        	options.success( { "Result": "Success" } );
-    	};
-    
+			equal(options.url, "MyData.json");
+			options.success({
+				"Result" : "Success"
+			});
+		};
+
 		var app = new App();
 		app.readJsonTest(function(data) {
 			equal(data.Result, 'Success');
@@ -59,7 +62,8 @@ function myTests() {'use strict';
 			ok(false, 'call to readJson failed: ' + request.responseText);
 			//start();
 		});
-	});
+	}); 
+
 }
 
 
