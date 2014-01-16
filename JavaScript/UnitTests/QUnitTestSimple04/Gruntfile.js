@@ -1,6 +1,6 @@
 module.exports = function(grunt) { 'use strict';
 
-	var zipFile = 'AngularCalculator.zip';
+	var zipFile = 'QUnitTestSimple04.zip';
 
 	grunt.initConfig({
 		zipFile: zipFile,
@@ -48,7 +48,7 @@ module.exports = function(grunt) { 'use strict';
 		},
 
 		compress: {
-				angularCalculator: {
+				unitTestSimple: {
 					options: {
 						archive: '<%= zipFile %>',
 						mode: 'zip'
@@ -57,12 +57,7 @@ module.exports = function(grunt) { 'use strict';
 						{ src: './*.html' },
 						{ src: './*.js*' },
 						{ src: './*.css' },
-						{ src: './Assets/**' },
-						{ src: './Library/**' },
-						{ src: './Source/**' },
-						{ src: './Style/**' },
-						{ src: './Tests/**' },
-						{ src: './LICENSE' },
+						{ src: '*/*.json'},
 						{ src: './README.md' }
 					]
 				}
@@ -81,5 +76,5 @@ module.exports = function(grunt) { 'use strict';
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main']);
+	grunt.registerTask('dist', ['clean:zip', 'compress:unitTestSimple', 'copy:main']);
 };
