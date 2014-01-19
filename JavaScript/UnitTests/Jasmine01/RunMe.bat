@@ -1,1 +1,1 @@
-jasmine-node spec/ 
+jasmine-node --matchall Tests/ 
