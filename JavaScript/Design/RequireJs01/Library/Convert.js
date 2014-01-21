@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 define({
@@ -10,7 +10,3 @@ define({
     }
 });
 
-/*
-define(function() {
-	return {a: 5280};
-}); */
