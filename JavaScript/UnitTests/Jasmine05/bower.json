@@ -1,0 +1,25 @@
+{
+  "name": "Jasmine05",
+  "version": "0.1.0",
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "authors": [
+    "Charlie CedarIsle Calvert <charlie@elvenware.com>"
+  ],
+  "description": "Jasmine example",
+  "main": "SpecRunner.html",
+  "keywords": [
+    "jasmine"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"    
+  ],
+  "dependencies": {
+    "jasmine": "~2.0.0"
+  }
+}
