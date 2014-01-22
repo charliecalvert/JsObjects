@@ -1,0 +1,1 @@
+This project shows how to use requirejs, jasmine and karma.
