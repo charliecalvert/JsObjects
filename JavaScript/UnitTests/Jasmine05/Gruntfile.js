@@ -77,21 +77,12 @@ module.exports = function(grunt) { 'use strict';
 
 		bowercopy: {
 			options: {
-				destPrefix: 'Library',
-				srcPrefix: 'bower_components'
-				// clean: true
-			},
-			plugins: {
-				options: {
-					destPrefix: 'public/js/plugins'
-				},
-				files: {
-					// Make dependencies follow your naming conventions
-					'jquery.chosen.js': 'chosen/public/chosen.js'
-				}
+				clean: true
 			},
 			jasmine: {
 				options: {
+					srcPrefix: 'bower_components',
+					destPrefix: 'Library'
 				},
 				files: {
 					'jasmine.js': 'jasmine/lib/jasmine-core/jasmine.js',
@@ -99,7 +90,7 @@ module.exports = function(grunt) { 'use strict';
 					'jasmine-html.js': 'jasmine/lib/jasmine-core/jasmine-html.js',
 					'boot.js': 'jasmine/lib/jasmine-core/boot.js',
 					'console.js': 'jasmine/lib/console/console.js',
-					'jasmine_favicon.png': 'jasmine/images/jasmine_favicon.png'
+					'jasmine_favicon.png': 'jasmine/images/jasmine_favicon.png' 
 				}
 			}
 		}
