@@ -6,8 +6,9 @@ require.config({
     jasmine: 'jas/jasmine',
     jasmineHtml: 'jas/jasmine-html',
     boot: 'jas/boot',
-    getEight: 'spec/getEight',
-    test: 'spec/test02.spec'
+    getEight: 'spec/GetNumber',
+    SimpleTest: 'spec/SimpleTest',
+    Test02: 'spec/Test02'
   },
   shim: {
   	jasmine: {
@@ -28,7 +29,7 @@ require.config({
 require(['boot'], function(jasmine) {
 	console.log('Boot jasmine');
 	
-	require(['test'], function() {
+	require(['Test02', 'SimpleTest'], function() {
 		window.onload();
 	});
 }); 
