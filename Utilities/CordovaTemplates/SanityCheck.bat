@@ -14,12 +14,19 @@ ECHO JAVA_HOME - %JAVA_HOME%
 ECHO ANT_HOME - %ANT_HOME%
 ECHO PHONEGAP_HOME - %PHONEGAP_HOME%
 ECHO ANDROID_SDK_HOME - %ANDROID_SDK_HOME%
+ECHO -------------------
+ECHO Try one of the following locations:
+ECHO Apache ant: http://ant.apache.org
+ECHO Android SDK: http://developer.android.com
+ECHO Cordova: http://cordova.apache.org/
+ECHO JDK: http://java.oracle.com
 EXIT /B 1
 
-:MISSING
-ECHO Missing one of the following:
-ECHO JDK: http://java.oracle.com
-ECHO Android SDK: http://developer.android.com
-ECHO Apache ant: http://ant.apache.org
-EXIT /B 1
 :END
+ECHO Your system currently has these settings:
+ECHO -----------------------------------------
+ECHO JAVA_HOME - %JAVA_HOME%
+ECHO ANT_HOME - %ANT_HOME%
+ECHO PHONEGAP_HOME - %PHONEGAP_HOME%
+ECHO ANDROID_SDK_HOME - %ANDROID_SDK_HOME%
+ECHO -----------------------------------------
