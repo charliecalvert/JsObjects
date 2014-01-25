@@ -3,6 +3,7 @@ var App = (function() {
 	function App() {
 		$("#link01").click(linkClick);
 		$("#button01").click(buttonClick);
+		$("#buttonInputData").click(buttonInputData);
 	}
 
 	var linkClick = function() {
@@ -11,6 +12,11 @@ var App = (function() {
 
 	var buttonClick = function() {
 		$("#data01").html("Button Clicked");
+	};
+	
+	var buttonInputData = function() {
+		var inputData = $('#inputData').val();
+		$('#data02').html('You entered: ' + inputData);
 	};
 
 	return App;
