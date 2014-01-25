@@ -1,7 +1,8 @@
 Simple Buttons
 ==============
 
-Respond to clicks on buttons or links.
+Respond to clicks on buttons or links and also work with input
+controls.
 
 We have:
 
