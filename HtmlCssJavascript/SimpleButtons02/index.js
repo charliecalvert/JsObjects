@@ -3,7 +3,7 @@ var App = (function() {
 	function App() {
 		$("#link01").click(linkClick);
 		$("#button01").click(buttonClick);
-		$("#buttonInputData").click(buttonInputData);
+		$("#buttonGetInputData").click(buttonInputData);
 	}
 
 	var linkClick = function() {
@@ -16,7 +16,9 @@ var App = (function() {
 	
 	var buttonInputData = function() {
 		var inputData = $('#inputData').val();
-		$('#data02').html('You entered: ' + inputData);
+		var stringToShowUser = 'You entered: ' + inputData;
+		$('#data02').html(stringToShowUser);
+		$('#inputData').val(stringToShowUser);
 	};
 
 	return App;

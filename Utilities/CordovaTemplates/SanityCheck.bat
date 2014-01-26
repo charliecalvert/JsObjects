@@ -9,7 +9,7 @@ ECHO Looks good.
 GOTO END
 
 :MISSING_HOME
-ECHO Missing one of the following:
+ECHO Missing the options below which are blank:
 ECHO JAVA_HOME - %JAVA_HOME%
 ECHO ANT_HOME - %ANT_HOME%
 ECHO PHONEGAP_HOME - %PHONEGAP_HOME%
