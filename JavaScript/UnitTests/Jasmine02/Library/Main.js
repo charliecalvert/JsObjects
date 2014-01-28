@@ -4,7 +4,7 @@
 require.config({
 	paths : {
 		jquery : 'jquery-2.0.3',
-		getEight : 'spec/getEight'
+		getEight : 'spec/GetNumber'
 
 	}
 });

@@ -10,4 +10,9 @@ describe("Elvenware Jasmine One Suite", function() {
   it("expects 2 * 3 to equal 6", function() {
     expect(2*3).toBe(6);
   });
+  
+  it("1.799 is close to 1.8", function() {
+    expect(1.799).toBeCloseTo(1.8);
+  });
+
 });
