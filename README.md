@@ -12,3 +12,5 @@ If you want bullets, you put asterisks:
 * Point 1
 * Point 2
 * Point 3
+
+Or do more.
