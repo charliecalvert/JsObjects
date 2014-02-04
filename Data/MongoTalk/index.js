@@ -20,7 +20,7 @@ var QueryMongo = (function() {
 	QueryMongo.prototype.getData = function(result) {
 		console.log('Called getData');
 			// Open the test database that comes with MongoDb
-		MongoClient.connect(url03, function(err, database) {
+		MongoClient.connect(url01, function(err, database) {
 			if (err) {
 				throw err;
 			}
