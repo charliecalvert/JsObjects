@@ -2,6 +2,8 @@
  * @author Charlie Calvert
  */
 
+var express = require('express');
+var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 
@@ -9,21 +11,27 @@ var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
 	var url02 = 'mongodb://192.168.2.19:27017/test';
+	var url03 = 'mongodb://192.168.56.101:27017/test';
 
 	function QueryMongo() {
 
-		// Open the test database that comes with MongoDb
-		MongoClient.connect(url01, function(err, database) {
+	}
+
+	QueryMongo.prototype.getData = function(result) {
+		console.log('Called getData');
+			// Open the test database that comes with MongoDb
+		MongoClient.connect(url03, function(err, database) {
 			if (err) {
 				throw err;
 			}
-
-			insertIntoCollection(database, 'test_insert', { f : 7 });
-
+			console.log('IngetDataCallback');
+			// insertIntoCollection(database, 'test_insert', { f : 7 });
+			getCollection(database, result);
 		});
-	}
 
-	var getCollection = function(database) {
+	}
+	
+	var getCollection = function(database, result) {
 
 		var collection = database.collection('test_insert');
 
@@ -35,7 +43,12 @@ var QueryMongo = (function() {
 		// View the collection
 		collection.find().toArray(function(err, results) {
 			console.dir(results);
+			// $("#mongoData").html(results);
 			database.close();
+			var body = 'Mongo Data: ' + results[0].f;
+			result.setHeader('Content-Type', 'text/plain');
+			result.setHeader('Content-Length', Buffer.byteLength(body));
+			result.end(body);			
 		});
 
 	};
@@ -53,4 +66,15 @@ var QueryMongo = (function() {
 
 })();
 
-var q = new QueryMongo();
+app.get('/', function(req, result){
+  var q = new QueryMongo();
+  var data = q.getData(result);	
+
+});
+
+app.listen(30025);
+console.log('Listening on port 30025');
+
+/* $(document).ready(function() {
+	var q = new QueryMongo();
+}); */
