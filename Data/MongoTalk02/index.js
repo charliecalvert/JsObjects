@@ -41,37 +41,34 @@ var QueryMongo = (function() {
 		});
 
 		// View the collection
-		collection.find().toArray(function(err, results) {
-			console.dir(results);
-			// $("#mongoData").html(results);
+		collection.find().toArray(function(err, theArray) {
+			console.dir(theArray);
 			database.close();
-			var body = '<html><body><h2>Mongo Data: ' + results[2].firstName + '</h2></body></html>';
-			response.setHeader('Content-Type', 'text/html');
-			response.setHeader('Content-Length', Buffer.byteLength(body));
-			response.end(body);			
+			response.send(theArray);			
 		});
 
 	};
 
-	// Will create collection if it does not exist
-	var insertIntoCollection = function(db, collectionName, objectToInsert) {
-
-		var collection = db.collection(collectionName);
-		collection.insert(objectToInsert, function(err, docs) {
-			getCollection(db);
-		});
-	};
+	
 
 	return QueryMongo;
 
 })();
 
-app.get('/', function(request, response){
-  var q = new QueryMongo();
-  var data = q.getData(response);	
 
+app.get('/read', function(request, response) {
+	var q = new QueryMongo();
+	var data = q.getData(response);	
 });
 
+app.get('/', function(request, result){
+  	var html = fs.readFileSync(__dirname + '/Public/index.html');
+	result.writeHeader(200, {"Content-Type": "text/html"});   
+	result.write(html);
+	result.end();
+});
+
+app.use("/", express.static(__dirname + '/Public'));
 app.listen(30025);
 console.log('Listening on port 30025');
 

@@ -1,0 +1,14 @@
+{
+    "name": "MongoTalk",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "mongodb": "latest"
+    },
+    "devDependencies": {
+		"express": "latest"
+	}
+}

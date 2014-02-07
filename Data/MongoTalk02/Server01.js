@@ -31,7 +31,7 @@ var QueryMongo = (function() {
 
 	}
 	
-	var getCollection = function(database, response) {
+	var getCollection = function(database, result) {
 
 		var collection = database.collection('test_insert');
 
@@ -46,9 +46,9 @@ var QueryMongo = (function() {
 			// $("#mongoData").html(results);
 			database.close();
 			var body = '<html><body><h2>Mongo Data: ' + results[2].firstName + '</h2></body></html>';
-			response.setHeader('Content-Type', 'text/html');
-			response.setHeader('Content-Length', Buffer.byteLength(body));
-			response.end(body);			
+			result.setHeader('Content-Type', 'text/html');
+			result.setHeader('Content-Length', Buffer.byteLength(body));
+			result.end(body);			
 		});
 
 	};
@@ -66,9 +66,9 @@ var QueryMongo = (function() {
 
 })();
 
-app.get('/', function(request, response){
+app.get('/', function(req, result){
   var q = new QueryMongo();
-  var data = q.getData(response);	
+  var data = q.getData(result);	
 
 });
 
