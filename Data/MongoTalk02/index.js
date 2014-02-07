@@ -6,6 +6,7 @@ var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
+var fs = require('fs');
 
 var QueryMongo = (function() {
 
