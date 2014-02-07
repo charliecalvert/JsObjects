@@ -20,13 +20,13 @@ var QueryMongo = (function() {
 
 	QueryMongo.prototype.getData = function(result) {
 		console.log('Called getData');
-			// Open the test database that comes with MongoDb
+		
+		// Open the test database that comes with MongoDb
 		MongoClient.connect(url01, function(err, database) {
 			if (err) {
 				throw err;
 			}
 			console.log('IngetDataCallback');
-			// insertIntoCollection(database, 'test_insert', { f : 7 });
 			getCollection(database, result);
 		});
 
@@ -41,7 +41,7 @@ var QueryMongo = (function() {
 			console.log(format("count = %s", count));
 		});
 
-		// View the collection
+		// Send the collection to the client.
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
 			database.close();
@@ -56,12 +56,13 @@ var QueryMongo = (function() {
 
 })();
 
-
+// Read the collection
 app.get('/read', function(request, response) {
 	var q = new QueryMongo();
 	var data = q.getData(response);	
 });
 
+// Default.
 app.get('/', function(request, result){
   	var html = fs.readFileSync(__dirname + '/Public/index.html');
 	result.writeHeader(200, {"Content-Type": "text/html"});   
