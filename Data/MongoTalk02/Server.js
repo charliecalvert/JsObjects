@@ -42,7 +42,7 @@ var QueryMongo = (function() {
 			console.log(format("count = %s", count));
 		});
 
-		// View the collection
+		// Send the collection to the client.
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
 			database.close();
@@ -61,6 +61,7 @@ app.get('/read', function(request, response) {
 	var data = q.getData(response);	
 });
 
+// Default.
 app.get('/', function(request, result){
   	var html = fs.readFileSync(__dirname + '/Public/index.html');
 	result.writeHeader(200, {"Content-Type": "text/html"});   
