@@ -1,7 +1,7 @@
 # Script for downloading and installing DropBox on Linux server
 # and on other headless Linux boxes that have no GUI frontend.
 # You can use dropbox.py to help you manage dropbox.
-# I recommend running this script from $HOME/bin
+# I recommend running the script show below from $HOME/bin
 
 dropBoxName=dropbox.tar.gz
 wget -O dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
