@@ -8,6 +8,7 @@ var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 var fs = require('fs');
 
+// Access Express and implement modular pattern
 var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
@@ -20,17 +21,17 @@ var QueryMongo = (function() {
 
 	QueryMongo.prototype.getData = function(result) {
 		console.log('Called getData');
-			// Open the test database that comes with MongoDb
+		
+		// Open the test database that comes with MongoDb
 		MongoClient.connect(url01, function(err, database) {
 			if (err) {
 				throw err;
 			}
 			console.log('IngetDataCallback');
-			// insertIntoCollection(database, 'test_insert', { f : 7 });
 			getCollection(database, result);
 		});
 
-	}
+	};
 	
 	var getCollection = function(database, response) {
 
@@ -50,13 +51,11 @@ var QueryMongo = (function() {
 
 	};
 
-	
-
 	return QueryMongo;
 
 })();
 
-
+// Express Code
 app.get('/read', function(request, response) {
 	var q = new QueryMongo();
 	var data = q.getData(response);	
@@ -69,10 +68,9 @@ app.get('/', function(request, result){
 	result.end();
 });
 
+// Give express access to the Public directory
 app.use("/", express.static(__dirname + '/Public'));
+
+// Tell the webserver (and user) to listen on port 30025
 app.listen(30025);
 console.log('Listening on port 30025');
-
-/* $(document).ready(function() {
-	var q = new QueryMongo();
-}); */
