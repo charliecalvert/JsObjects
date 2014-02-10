@@ -14,6 +14,34 @@ as the Karma server, depend on NodeJs.
 
 - [Home page for Node Js](http://nodejs.org/)
 
+Use httpBackend
+----------------
+
+Jasmine wants you to mock up methods that access other services, 
+such as HTTP or database requests. Here are some examples of how 
+to do it with $HttpBackend. When checking whether you load a JSon file, you write code like this:
+
+	var $httpBackend = null;
+
+	beforeEach(inject(function(_$httpBackend_) {
+		$httpBackend = _$httpBackend_;
+	}));
+
+	afterEach(function() {
+		$httpBackend.verifyNoOutstandingExpectation();
+		$httpBackend.verifyNoOutstandingRequest();
+	});
+
+	it("Test load json hitPoints", function() {
+		$httpBackend.expectGET('data.json').respond({
+			"name": "NPC01",
+			"hitPoints": 37,
+			"damage": 5});
+		myController.loadJson();
+		$httpBackend.flush();
+		expect(myController.data.hitPoints).toEqual(37);
+	});
+
 Start Karma
 -----------
 
