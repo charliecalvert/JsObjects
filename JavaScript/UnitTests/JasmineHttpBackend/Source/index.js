@@ -5,26 +5,23 @@
 var LoadJson = (function() {
 
 	function LoadJson() {
-		$('#loadJson').click({
-			fileName : "BackEndData.json"
-		}, this.loadJson);
-		// $('#loadJson02').click({ fileName: "Moredata.json" }, loadJson);
+		$('#loadJson').click({ fileName : "BackEndData.json" }, this.loadJson);		
 	}
 
+	var showResult = function(data) {
+		$('#showJson').html(data.name);
+	};
 
 	LoadJson.prototype.loadJson = function(event) {
 		var fileName = event.data.fileName;
 
 		$.getJSON(fileName, function(data) {
-			$('#showJson').html(data.name);
+			showResult(data);
 		}).fail(function(jqxhr, textStatus, error) {
 			console.log("error: " + error);
 		});
-
-		/* jqxhr.fail(function(jqxhr, textStatus, error) {
-		 console.log( "error: " + error );
-		 }); */
 	};
+	
 
 	return LoadJson;
 
