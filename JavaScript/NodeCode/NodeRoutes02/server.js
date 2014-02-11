@@ -1,15 +1,15 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var mod01 = require('./Library/Module01');
-var mod02 = require('./Library/Module02');
+var getNine = require('./Library/GetNine');
+var addingMachine = require('./Library/AddingMachine');
 app.use(express.bodyParser());
 
 var port = process.env.PORT || 30025;
 
 app.get('/getNine', function(request, response) {
 	console.log('getNine called');
-	response.send({ "result": mod01.getNine() });
+	response.send({ "result": getNine.getNine() });
 });
 
 // With a get, the parameters are passed in request.query
@@ -18,7 +18,7 @@ app.get('/add', function(request, response) {
 	console.log(request.query);	
 	var operandA = parseInt(request.query.operandA);
 	var operandB = parseInt(request.query.operandB);
-	var result = mod02.myObject.add(operandA, operandB);
+	var result = addingMachine.myObject.add(operandA, operandB);
 	response.send({ "result": result });
 });
 
@@ -29,7 +29,7 @@ app.post('/add', function(request, response) {
 	console.log(request.body);	
 	var operandA = parseInt(request.body.operandA);
 	var operandB = parseInt(request.body.operandB);
-	var result = mod02.myObject.add(operandA, operandB);
+	var result = addingMachine.myObject.add(operandA, operandB);
 	response.send({ "result": result });
 });
 
