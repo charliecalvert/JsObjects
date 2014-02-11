@@ -4,12 +4,13 @@ var fs = require('fs');
 
 var port = process.env.PORT || 30025;
 
-app.get('/', function(req, res) {
+app.get('/', function(request, response) {
 	var html = fs.readFileSync(__dirname + '/Public/index.html');
-	res.writeHeader(200, {"Content-Type": "text/html"});   
-	res.write(html);
-	res.end();
+	response.writeHeader(200, {"Content-Type": "text/html"});   
+	response.write(html);
+	response.end();
 });
+
 
 app.use("/", express.static(__dirname + '/Public'));
 app.listen(port);

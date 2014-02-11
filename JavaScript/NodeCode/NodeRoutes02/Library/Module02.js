@@ -8,9 +8,9 @@ var MyObject = (function() {
 		console.log("MyObject.Constructor called");
 	}
 
-	MyObject.prototype.sayHello = function() {
-		console.log(helloString);
-	};
+	MyObject.prototype.add = function(operandA, operandB) {
+		return operandA + operandB;
+	};	
 
 	return MyObject;
 
