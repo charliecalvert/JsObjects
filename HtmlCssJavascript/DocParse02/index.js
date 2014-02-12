@@ -5,7 +5,7 @@ function displayCheckboxSelection()
 		$.get("Week05.htm", function(data) {			
 			var foo = $("#install-guest-additions-in-linux", '<div>' + data + '</div>')
 				.nextUntil('#get-readonly-jsobjects')
-				.andSelf();
+				.addBack();
 			$('#showData').html(foo);
 		});	
 	}
@@ -14,7 +14,7 @@ function displayCheckboxSelection()
 		$.get("Week05.htm", function(data) {			
 			var foo = $("#get-readonly-jsobjects", '<div>' + data + '</div>')
 				.nextUntil('#share-clipboard-between-windows-and-linux')
-				.andSelf();
+				.addBack();
 			$('#showData').html(foo);
 		});	
 	}
@@ -23,7 +23,7 @@ function displayCheckboxSelection()
 		$.get("Week05.htm", function(data) {			
 			var foo = $("#share-clipboard-between-windows-and-linux", '<div>' + data + '</div>')
 				.nextUntil('#virtual-appliances')
-				.andSelf();
+				.addBack();
 			$('#showData').html(foo);
 		});	
 	}
@@ -32,7 +32,7 @@ function displayCheckboxSelection()
 		$('#showData').load("Week05.htm", function() {
 			$("#get-readonly-jsobjects")
 				.nextUntil('#share-clipboard-between-windows-and-linux')
-				.andSelf().css("background", "#668800");
+				.addBack().css("background", "#668800");
 		});
 	} 	
 }
