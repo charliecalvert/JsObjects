@@ -24,11 +24,15 @@ class TestFileOperations(unittest.TestCase):
 	def testGetTemplateFile(self):
 		markdown = MarkdownToHtml()
 		fileContent = markdown.getTemplateFile('StartBasic.html');
-		self.assertEqual(len(fileContent), 884)
+		self.assertEqual(len(fileContent), 887)
 		
 	def testCreateFullHtml(self):
 		markdown = MarkdownToHtml()
-		markdown.createFullHtml(os.getcwd(), 'TestMe', elffiles.getHomeDir() + os.sep + 'Temp')
+		fileName = 'TestMe'
+		markdown.createFullHtml(os.getcwd(), fileName, elffiles.getHomeDir() + os.sep + 'Temp')
+		# Need to set up PythonPath for root to make this work.
+		#fileName += '.html'
+		#elffiles.copyFile(os.getcwd(), fileName, '/var/www/' + fileName);
 		
 if __name__ == '__main__':
 	unittest.main()

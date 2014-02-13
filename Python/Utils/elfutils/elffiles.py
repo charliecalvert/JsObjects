@@ -23,6 +23,10 @@ def saveTextFile(fileName, content):
 	
 def getHomeDir():
 	return os.environ['HOME']
+	
+def copyFile(srcFile, dest):
+	if os.path.exists(srcFile):
+		shutil.copy2(srcFile, dest);
 
 def copyFiles(pathName, srcDir, files, verbose):
 	ensureDir(pathName)
