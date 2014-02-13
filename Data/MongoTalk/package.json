@@ -5,10 +5,10 @@
     "scripts": {
         "start": "node server.js"
     },
-    "dependencies": {
-        "mongodb": "latest"
+    "dependencies": {        
     },
     "devDependencies": {
-		"express": "latest"
+		"express": "latest",
+		"mongodb": "latest"
 	}
 }

@@ -11,7 +11,8 @@ var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
 	var url02 = 'mongodb://192.168.2.19:27017/test';
-	var url03 = 'mongodb://192.168.56.101:27017/test';
+	var url03 = 'mongodb://192.168.2.34:27017/test';
+	var url04 = 'mongodb://192.168.56.101:27017/test';
 
 	function QueryMongo() {
 
@@ -19,36 +20,30 @@ var QueryMongo = (function() {
 
 	QueryMongo.prototype.getData = function(result) {
 		console.log('Called getData');
-			// Open the test database that comes with MongoDb
+		// Open the test database that comes with MongoDb
 		MongoClient.connect(url01, function(err, database) {
 			if (err) {
 				throw err;
 			}
 			console.log('IngetDataCallback');
-			insertIntoCollection(database, 'test_insert', { f : 8 });
+			insertIntoCollection(database, 'test_insert', { f : 11 });
 			getCollection(database, result);
 		});
-
-	}
+	};
 	
 	var getCollection = function(database, response) {
 
 		var collection = database.collection('test_insert');
 
-		// Count documents in the collection
-		collection.count(function(err, count) {
-			console.log(format("count = %s", count));
-		});
-
 		// View the collection
-		collection.find().toArray(function(err, results) {
-			console.dir(results);
-			// $("#mongoData").html(results);
-			database.close();
-			var body = '<html><body><h2>Mongo Data: ' + results[2].firstName + '</h2></body></html>';
+		collection.find().toArray(function(err, theArray) {
+			console.dir(theArray);
+			var body = '<html><body><h2>Mongo Data: ' + theArray[2].firstName + '</h2>';
+			body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
 			response.setHeader('Content-Type', 'text/html');
 			response.setHeader('Content-Length', Buffer.byteLength(body));
-			response.end(body);			
+			response.end(body);
+			database.close();
 		});
 
 	};
@@ -58,7 +53,10 @@ var QueryMongo = (function() {
 
 		var collection = db.collection(collectionName);
 		collection.insert(objectToInsert, function(err, docs) {
-			getCollection(db);
+			if (err) {
+				throw err;
+			}
+			console.log("insert succeeded");
 		});
 	};
 
@@ -66,10 +64,9 @@ var QueryMongo = (function() {
 
 })();
 
-app.get('/', function(request, response){
+app.get('/', function(request, response) {
   var q = new QueryMongo();
-  var data = q.getData(response);	
-
+  var data = q.getData(response);
 });
 
 app.listen(30025);
