@@ -1,8 +1,5 @@
 
-
-
-
-$(document).ready(function() {
+function showData() {
 
 	$.getJSON('/read', function(data) {
 		console.log(data);
@@ -10,4 +7,11 @@ $(document).ready(function() {
 			$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
 		}
 	});
+
+}
+
+
+
+$(document).ready(function() {
+	showData();
 });

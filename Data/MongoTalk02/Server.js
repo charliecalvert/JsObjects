@@ -13,7 +13,8 @@ var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
 	var url02 = 'mongodb://192.168.2.19:27017/test';
-	var url03 = 'mongodb://192.168.56.101:27017/test';
+	var url03 = 'mongodb://192.168.2.34:27017/test';
+	var url04 = 'mongodb://192.168.56.101:27017/test';
 
 	function QueryMongo() {
 
