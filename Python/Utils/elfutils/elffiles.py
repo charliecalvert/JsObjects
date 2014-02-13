@@ -22,7 +22,7 @@ def saveTextFile(fileName, content):
 	f.close()
 	
 def getHomeDir():
-	return os.environ['USERPROFILE']
+	return os.environ['HOME']
 
 def copyFiles(pathName, srcDir, files, verbose):
 	ensureDir(pathName)

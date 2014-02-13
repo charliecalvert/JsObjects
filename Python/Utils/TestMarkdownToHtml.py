@@ -23,8 +23,8 @@ class TestFileOperations(unittest.TestCase):
 		
 	def testGetTemplateFile(self):
 		markdown = MarkdownToHtml()
-		fileContent = markdown.getTemplateFile('Start.html');
-		self.assertEqual(len(fileContent), 1391)
+		fileContent = markdown.getTemplateFile('StartBasic.html');
+		self.assertEqual(len(fileContent), 884)
 		
 	def testCreateFullHtml(self):
 		markdown = MarkdownToHtml()
