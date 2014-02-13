@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# ReplaceStringInFile
+# Author: Charlie Calvert
 
 import sys, getopt
 

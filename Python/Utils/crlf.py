@@ -8,28 +8,31 @@ def getFileSystemInfo():
 	print(sys.getfilesystemencoding())
 	return
 
+def convert(fileName):
+	if os.path.isdir(fileName):
+		print(fileName, "Directory!")
+		return
+	inFile = open(fileName, "rb")
+	data = inFile.read()
+	dataTest = data.decode()
+	inFile.close()
+	if '\0' in dataTest:
+		print(fileName, "Binary!")
+		return
+	newdata = dataTest.replace("\r\n", "\n")
+	newdata = newdata.replace(u'\x1A', '')
+	if newdata != data:
+		print(fileName)
+		f = open(fileName, "wb")
+		f.write(bytes(newdata, 'UTF-8'))
+		f.close()
+
 def main():
-	
 	#s = u'\x1A'
 	#print(s.encode())	
 	#return 
-	
 	for filename in sys.argv[1:]:
-		if os.path.isdir(filename):
-			print(filename, "Directory!")
-			continue
-		data = open(filename, "rb").read()
-		dataTest = data.decode()		
-		if '\0' in dataTest:
-			print(filename, "Binary!")
-			continue		
-		newdata = dataTest.replace("\r\n", "\n")
-		newdata = newdata.replace(u'\x1A', '')
-		if newdata != data:
-			print(filename)
-			f = open(filename, "wb")
-			f.write(bytes(newdata, 'UTF-8'))
-			f.close()
+		convert(fileName)
 
 if __name__ == '__main__':
 	main()

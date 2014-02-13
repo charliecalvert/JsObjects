@@ -1,8 +1,14 @@
+#! /usr/bin/env python
+
+# Title: MarkdownToHtml
+# Author: Charlie Calvert
+
 import os
 import subprocess
 import elfutils.elffiles as elffiles
 import elfutils.ReplaceStringInFile as ReplaceStringInFile
 from MakeHeadings import FindHeadings
+import crlf
 
 class MarkdownToHtml:
 
@@ -41,6 +47,7 @@ class MarkdownToHtml:
 		finalName = baseName + '.html';
 		elffiles.saveTextFile(tempName, data);
 		ReplaceStringInFile.replaceIt(tempName, finalName, 'TempTitleStringToReplace', fileName)
+		crlf.convert(finalName)
 		
 	def run(self, fileToParse):		
 		param = " " + self.copyFrom + " " + fileToParse + " " + self.destination

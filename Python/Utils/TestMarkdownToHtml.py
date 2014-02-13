@@ -1,3 +1,8 @@
+#! /usr/bin/env python
+
+# Title: MarkdownToHtml
+# Author: Charlie Calvert
+
 import os
 import unittest
 from elfutils.MarkdownToHtml import MarkdownToHtml
