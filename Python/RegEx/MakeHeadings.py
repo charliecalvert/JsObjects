@@ -9,27 +9,28 @@ class FindHeadings():
 
 	def openFile(self, fileName):
 		f = open(fileName, 'r', encoding="utf8")
-		return f.read()
-            
+		fileContent = f.read()
+		f.close()
+		return fileContent
+		
 	def getInput(self):
 		if len(sys.argv) == 1:
 			return self.errorString
 		else:
 			return sys.argv[1]
 			
-	def parseReplace(self):
-		arg = self.getInput()
-		if arg != self.errorString:
-			#contents = "BooFar"
-			contents = self.openFile(arg)
+	def parseReplace(self, fileName):
+		if fileName != self.errorString:
+			contents = self.openFile(fileName)
 			results = re.findall(self.regEx, contents, re.DOTALL)
-			print('<h2>Table of Contents</h2>')
-			print('<ul>')
+			fileContent = '<h2>Table of Contents</h2>\n'
+			fileContent += '<ul>'
 			for result in results:
-				print("\t<li><a href='#" + result[0] + "'>" + result[1] + "</a></li>")
-			print('</ul>')
+				fileContent += "\t<li><a href='#" + result[0] + "'>" + result[1] + "</a></li>\n"
+			fileContent += '</ul>'
+			return fileContent
 		else:
-			print('pass in the name of the file you want to parse')
+			return 'pass in the name of the file you want to parse'
 			
-p = FindHeadings()
-p.parseReplace()
+#p = FindHeadings()
+#p.parseReplace()

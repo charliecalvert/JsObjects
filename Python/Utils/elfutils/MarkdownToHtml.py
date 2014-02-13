@@ -1,6 +1,7 @@
 import os
 import subprocess
 import elfutils.elffiles as elffiles
+from MakeHeadings import FindHeadings
 
 class MarkdownToHtml:
 
@@ -11,6 +12,16 @@ class MarkdownToHtml:
 		self.copyFrom=copyFrom
 		self.destination=destination
 		elffiles.ensuredir(self.destination)
+		
+	def makeHeadings(self, sourceFolder, fileName):
+		makeHeadings = FindHeadings()
+		sourceName = "{0}{1}{2}".format(sourceFolder, os.sep, fileName);
+		return makeHeadings.parseReplace(sourceName)
+		
+	def runPandoc(self, sourceFolder, fileName, targetFolder):
+		cmd = 'Pandoc -t HTML5 --output={0}{1}{2}.htm {0}{1}{2}.md'
+		cmd = cmd.format(sourceFolder, os.sep, fileName)
+		return subprocess.check_call(cmd, shell=False)
 
 	def run(self, fileToParse):		
 		param = " " + self.copyFrom + " " + fileToParse + " " + self.destination
