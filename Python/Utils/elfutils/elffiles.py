@@ -9,6 +9,21 @@ import os
 import shutil
 import configparser
 
+
+def getFileContent(fileName):
+	f = open(fileName, 'r', encoding="utf8")
+	fileContent = f.read()
+	f.close()
+	return fileContent
+	
+def saveTextFile(fileName, content):
+	f = open(fileName, 'w', encoding="utf8")
+	f.write(content)
+	f.close()
+	
+def getHomeDir():
+	return os.environ['USERPROFILE']
+
 def copyFiles(pathName, srcDir, files, verbose):
 	ensureDir(pathName)
 	for fileName in files:
