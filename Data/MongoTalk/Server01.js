@@ -29,8 +29,7 @@ var QueryMongo = (function() {
 			insertIntoCollection(database, 'test_insert', { f : 9 });
 			getCollection(database, result);
 		});
-
-	}
+	};
 	
 	var getCollection = function(database, response) {
 
@@ -49,7 +48,7 @@ var QueryMongo = (function() {
 			var body = '<html><body><h2>Mongo Data: ' + results[2].firstName + '</h2></body></html>';
 			response.setHeader('Content-Type', 'text/html');
 			response.setHeader('Content-Length', Buffer.byteLength(body));
-			response.end(body);			
+			response.end(body);
 		});
 
 	};
