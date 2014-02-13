@@ -25,7 +25,7 @@ var QueryMongo = (function() {
 				throw err;
 			}
 			console.log('IngetDataCallback');
-			// insertIntoCollection(database, 'test_insert', { f : 7 });
+			insertIntoCollection(database, 'test_insert', { f : 8 });
 			getCollection(database, result);
 		});
 
