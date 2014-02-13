@@ -63,9 +63,30 @@ var padNumber = function(numberToPad, width, padValue) {
 	}
 };
 
+function htmlEscape(str) {
+    return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function htmlUnescape(str) {
+    return String(str)
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>');;
+}
+
+
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
 exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin; 
 exports.padNumber = padNumber;
+exports.htmlEscape = htmlEscape;
+exports.htmlUnescape = htmlUnescape;

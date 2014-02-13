@@ -116,5 +116,19 @@ describe("Test01", function() {
     	var actual = eu.padNumber(numberToPad, width, padValue);
     	expect(actual).toBe(expected);
     });
+    
+    it ('encodes html', function() {
+    	var html = "<p>Foo</p>";
+    	var expected = "&lt;p&gt;Foo&lt;/p&gt;";
+    	var actual = eu.htmlEscape(html);
+    	expect(actual).toBe(expected);
+    });
+    
+    it ('encodes html', function() {
+    	var expected = "<p>Foo</p>";
+    	var html = "&lt;p&gt;Foo&lt;/p&gt;";
+    	var actual = eu.htmlUnescape(html);
+    	expect(actual).toBe(expected);
+    });
 
 });

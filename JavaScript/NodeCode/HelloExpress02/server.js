@@ -6,22 +6,28 @@ var port = process.env.PORT || 30025;
 
 // app.param('id', /^\d+$/);
 
-app.param('user', function(req, res, next, id){
+var User  = {
+	find: function(id, func) {
+		func(null, 'Sue');
+	}
+};
+
+app.param('user', function(request, response, next, id){
   console.log("User called: " + next + " - " + id);
   User.find(id, function(err, user){
     if (err) {
       next(err);
     } else if (user) {
-      req.user = user;
+      request.user = user;
       next();
     } else {
       next(new Error('failed to load user'));
     }
   });
-});
+}); 
 
-app.get('/user/:id', function(req, res){
-  res.send('user ' + req.params.id);
+app.get('/user/:id', function(request, response){
+  response.send('user ' + request.params.id);
 }); 
 
 app.get('/:user', function(request, response) {

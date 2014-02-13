@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html data-ng-app='jsonServerMod'>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Elvenware Test Project</title>
+        <link rel="shortcut icon" href="favicon.png">
+        <script src="Library/jquery-2.0.3.js"></script>
+        <script src="Source/index.js"></script>
+    </head>
+    <body>
+        <h1>Elvenware Jasmine, JSON and httpBackend</h1>
+        
+        <div ng-controller="myController">
+        	<p>This project retrieves a small amount of JSON from a server.</p>
+            
+            <button id='loadJson'>Load Data</button>
+            
+            <p>Here is the JSON retreived from the server: </p>
+            
+			<p id="showJson"> </p>            
+			
+			<p>But look at the tests. They are the main purpose of this project.</p>
+        </div>
+    </body>
+</html>

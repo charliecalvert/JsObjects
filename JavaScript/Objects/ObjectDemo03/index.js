@@ -34,10 +34,13 @@ function myFunction02() {
 /*********************
  *  Technique Three - Extend function with Prototype
  *********************/
+
+// Define object
 var MyFunction03 = function() {
     'use strict';       
 };
 
+// Now extend it after it is created:
 MyFunction03.prototype.field01 = 2;
 MyFunction03.prototype.field02 = 4;
 MyFunction03.prototype.nestedFunction = function() {
