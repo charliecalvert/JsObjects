@@ -38,7 +38,8 @@ var QueryMongo = (function() {
 		// View the collection
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
-			var body = '<html><body><h2>Mongo Data: ' + theArray[2].firstName + '</h2></body></html>';
+			var body = '<html><body><h2>Mongo Data: ' + theArray[2].firstName + '</h2>';
+			body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
 			response.setHeader('Content-Type', 'text/html');
 			response.setHeader('Content-Length', Buffer.byteLength(body));
 			response.end(body);
