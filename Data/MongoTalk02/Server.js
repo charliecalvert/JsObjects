@@ -47,7 +47,7 @@ var QueryMongo = (function() {
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
 			database.close();
-			response.send(theArray);			
+			response.send(theArray);
 		});
 
 	};
