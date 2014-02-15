@@ -6,6 +6,7 @@ var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
+var fs = require('fs');
 
 var QueryMongo = (function() {
 
@@ -18,7 +19,7 @@ var QueryMongo = (function() {
 
 	}
 
-	QueryMongo.prototype.getData = function(result) {
+	QueryMongo.prototype.getData = function(result, fileContent) {
 		console.log('Called getData');
 		// Open the test database that comes with MongoDb
 		MongoClient.connect(url01, function(err, database) {
@@ -26,7 +27,7 @@ var QueryMongo = (function() {
 				throw err;
 			}
 			console.log('IngetDataCallback');
-			insertIntoCollection(database, 'test_insert', { firstName : "Suzy" });
+			insertIntoCollection(database, 'test_insert', fileContent);
 			getCollection(database, result);
 		});
 	};
@@ -66,7 +67,8 @@ var QueryMongo = (function() {
 
 app.get('/', function(request, response) {
   var q = new QueryMongo();
-  var data = q.getData(response);
+  var fileContent = fs.readFileSync('Data.json', 'utf8');
+  var data = q.getData(response, JSON.parse(fileContent));
 });
 
 app.listen(30025);
