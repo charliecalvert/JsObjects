@@ -24,10 +24,10 @@ class FindHeadings():
 			contents = self.openFile(fileName)
 			results = re.findall(self.regEx, contents, re.DOTALL)
 			fileContent = '<h2>Table of Contents</h2>\n'
-			fileContent += '<ul>'
+			fileContent += '<ul>\n'
 			for result in results:
 				fileContent += "\t<li><a href='#" + result[0] + "'>" + result[1] + "</a></li>\n"
-			fileContent += '</ul>'
+			fileContent += '</ul>\n'
 			return fileContent
 		else:
 			return 'pass in the name of the file you want to parse'

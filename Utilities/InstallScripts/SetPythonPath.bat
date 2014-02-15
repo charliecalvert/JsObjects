@@ -1,2 +1,2 @@
-set BASE=C:\Users\Charlie\Documents\GitHub\JsObjects\Python
-SetX PYTHONPATH %BASE%\Utils;%BASE%\RegEx;%BASE%
+set BASE=%JSOBJECTS%\Python
+SetX PYTHONPATH %BASE%;%BASE%\Utils;%BASE%\RegEx;%BASE%
