@@ -1,0 +1,16 @@
+body {
+	background-color: #00AAAA;	
+}
+
+.dataDisplay {
+	background-color: #55AAAA;
+	width: 250px;
+	border: solid black 3px;
+	padding: 25px;
+}
+
+.dataDisplay p {
+	border: solid black 1px;
+	margin: 2px;
+	background-color: #BBAAFF;
+}

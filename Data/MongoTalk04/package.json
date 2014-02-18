@@ -1,0 +1,20 @@
+{
+    "name": "MongoTalk",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {        
+    },
+    "devDependencies": {
+	"express": "latest",
+	"mongodb": "latest",
+	"grunt": "~0.4.2",
+    	"grunt-contrib-jshint": "~0.8.0",
+    	"grunt-contrib-clean": "~0.5.0",
+    	"grunt-contrib-compress": "~0.7.0",
+    	"grunt-contrib-copy": "~0.5.0",
+    	"grunt-bowercopy": "~0.7.1"
+	}
+}

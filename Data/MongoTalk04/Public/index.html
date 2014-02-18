@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Mongo Talk 04</title>
+  <link href="index.css" rel="stylesheet" type="text/css">
+  <script src="jquery-2.1.0.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+<h1>Mongo Talk Four</h1>
+<p>A simple Node Express program with MongoDb support.</p>
+
+<p>This program assumes you have already run MongoTalk to insert 
+some data into the "built-in" MongoDb test database.</p>
+
+<button id="readAll">Read All</button>
+<button id="readTwo">Read Two</button>
+
+<div class="dataDisplay">
+	<p><span id="firstName"> </span> <span id="lastName"> </span></p>
+	<p><span id="address"> </span></p>
+	<p><span id="city"> </span> <span id="state"> </span> <span id="zip"> </span></p>
+</div>
+
+<hr />
+
+<input type="number" id="userIndex" value=0>
+<button id="showData">Show Data</button>
+
+<ul id="mongoData"> </ul>
+</body>
+</html>
