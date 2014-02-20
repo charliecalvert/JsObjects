@@ -15,6 +15,7 @@ var QueryMongo = (function() {
 	var url02 = 'mongodb://192.168.2.19:27017/test';
 	var url03 = 'mongodb://192.168.2.34:27017/test';
 	var url04 = 'mongodb://192.168.56.101:27017/test';
+	var url05 = 'mongodb://USERNAME:PASSWORD@ds049848.mongolab.com:49848/elvenlab01';
 
 	function QueryMongo() {
 
@@ -24,7 +25,7 @@ var QueryMongo = (function() {
 		console.log('Called getData');
 		
 		// Open the test database that comes with MongoDb
-		MongoClient.connect(url03, function(err, database) {
+		MongoClient.connect(url05, function(err, database) {
 			if (err) {
 				throw err;
 			}
