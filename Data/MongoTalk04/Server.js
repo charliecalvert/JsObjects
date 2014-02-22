@@ -24,6 +24,10 @@ app.get('/newRecord', function(request, response) { 'use strict';
 	response.send({ result: "Success" });
 });
 
+app.get('/hello', function(request, response) { 'use strict';
+	response.send('Hi there.');
+});
+
 // Default.
 app.get('/', function(request, result) {'use strict';
 	var html = fs.readFileSync(__dirname + '/Public/index.html');
