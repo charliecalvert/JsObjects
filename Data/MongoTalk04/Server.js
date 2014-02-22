@@ -18,6 +18,12 @@ app.get('/readTwo', function(request, response) { 'use strict';
 	queryMongo.getCollectionCount(response, 2);
 });
 
+app.get('/newRecord', function(request, response) { 'use strict';
+	var fileContent = fs.readFileSync('Data.json', 'utf8');
+	queryMongo.insertIntoCollection(JSON.parse(fileContent));
+	response.send({ result: "Success" });
+});
+
 // Default.
 app.get('/', function(request, result) {'use strict';
 	var html = fs.readFileSync(__dirname + '/Public/index.html');

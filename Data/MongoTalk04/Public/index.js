@@ -5,6 +5,7 @@ var MongoData = (function() { 'use strict';
 	function MongoData() {		
 		$("#readAll").click(queryAll);
 		$("#readTwo").click(queryTwo);
+		$("#newRecord").click(queryNewRecord);
 		$("#showData").click(showData);
 	}
 
@@ -34,6 +35,12 @@ var MongoData = (function() { 'use strict';
 		});
 	};
 
+	var queryNewRecord = function() {
+		$.getJSON('/newRecord', function(data) {
+			alert(data);
+		});
+	};
+	
 	var queryTwo = function() {
 		$.getJSON('/readTwo', function(data) {
 			mongoData = data;

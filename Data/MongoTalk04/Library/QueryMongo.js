@@ -16,11 +16,11 @@ var QueryMongo = (function() {'use strict';
 			'mongodb://192.168.2.34:27017/test',
 			'mongodb://192.168.56.101:27017/test'];
 
-		url = urls[3];
+		url = urls[0];
 	}
 
 	var getDatabase = function(func) {
-		console.log('Called getData');
+		console.log('Called getDatabase');
 		if (database !== null) {
 			console.log('database exists');
 			database.open(function(err, database) {
@@ -67,6 +67,21 @@ var QueryMongo = (function() {'use strict';
 				console.dir(theArray);
 				database.close();
 				response.send(theArray);
+			});
+		});
+	};
+	
+	// Will create collection if it does not exist
+	QueryMongo.prototype.insertIntoCollection = function(objectToInsert) {
+
+		getDatabase(function getCol(database) {
+			var collection = database.collection('test_insert');
+			collection.insert(objectToInsert, function(err, docs) {
+				if (err) {
+					throw err;
+				}
+				database.close();
+				console.log("insert succeeded");
 			});
 		});
 	};

@@ -15,7 +15,8 @@ var QueryMongo = (function() {
 	var url02 = 'mongodb://192.168.2.19:27017/test';
 	var url03 = 'mongodb://192.168.2.34:27017/test';
 	var url04 = 'mongodb://192.168.56.101:27017/test';
-	var url05 = 'mongodb://USERNAME:PASSWORD@ds049848.mongolab.com:49848/elvenlab01';
+	var url05 = 'mongodb://USERNAME:PASSWORD@ds0XXXXX.mongolab.com:XXXXX/elvenlab01';
+	var collectionName = 'test_insert';
 
 	function QueryMongo() {
 
@@ -25,19 +26,19 @@ var QueryMongo = (function() {
 		console.log('Called getData');
 		
 		// Open the test database that comes with MongoDb
-		MongoClient.connect(url05, function(err, database) {
+		MongoClient.connect(url01, function(err, database) {
 			if (err) {
 				throw err;
 			}
-			console.log('IngetDataCallback');
+			console.log('In getData Callback');
 			getCollection(database, result);
 		});
 
 	};
 	
 	var getCollection = function(database, response) {
-
-		var collection = database.collection('test_insert');
+		console.log('getCollection called');
+		var collection = database.collection(collectionName);
 
 		// Count documents in the collection
 		collection.count(function(err, count) {
@@ -59,12 +60,14 @@ var QueryMongo = (function() {
 
 // Express Code
 app.get('/read', function(request, response) {
+	console.log('read route called');
 	var q = new QueryMongo();
 	var data = q.getData(response);	
 });
 
 // Default.
 app.get('/', function(request, result){
+	console.log('Default route called');
   	var html = fs.readFileSync(__dirname + '/Public/index.html');
 	result.writeHeader(200, {"Content-Type": "text/html"});   
 	result.write(html);
