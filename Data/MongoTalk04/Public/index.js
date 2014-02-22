@@ -7,6 +7,7 @@ var MongoData = (function() { 'use strict';
 		$("#readTwo").click(readTwo);
 		$("#newRecord").click(insertNewRecord);
 		$("#showData").click(showData);
+		$("#readRecords").click(readRecords);
 	}
 
 	var displayRecord = function(index) {
@@ -56,6 +57,23 @@ var MongoData = (function() { 'use strict';
 			}
 		});
 	};
+	
+	var readRecords = function() {
+		console.log("readTwo called");
+		var request = {};
+		request.numRequested = $('#numToRead').val();
+		$.getJSON('/readRecords', request, function(data) {
+			mongoData = data;
+			console.log(data[0]);
+			console.log(data[1]);
+			displayRecord(0);
+			$("#mongoData").empty();
+			for (var i = 0; i < data.length; i++) {
+				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
+			}
+		});
+		
+	}
 
 	return MongoData;
 })();

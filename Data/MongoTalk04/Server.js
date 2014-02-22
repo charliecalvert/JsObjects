@@ -18,6 +18,13 @@ app.get('/readTwo', function(request, response) { 'use strict';
 	queryMongo.getCollectionCount(response, 2);
 });
 
+app.get('/readRecords', function(request, response) { 'use strict';
+	console.log(request.query);
+	var numToRead = parseInt(request.query.numRequested);
+	console.log("Num to Read = " + numToRead);
+	queryMongo.getCollectionCount(response, numToRead);
+});
+
 app.get('/newRecord', function(request, response) { 'use strict';
 	var fileContent = fs.readFileSync('Data.json', 'utf8');
 	queryMongo.insertIntoCollection(JSON.parse(fileContent));
