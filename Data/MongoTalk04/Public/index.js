@@ -3,9 +3,9 @@ var MongoData = (function() { 'use strict';
 	var mongoData = null;
 
 	function MongoData() {		
-		$("#readAll").click(queryAll);
-		$("#readTwo").click(queryTwo);
-		$("#newRecord").click(queryNewRecord);
+		$("#readAll").click(readAll);
+		$("#readTwo").click(readTwo);
+		$("#newRecord").click(insertNewRecord);
 		$("#showData").click(showData);
 	}
 
@@ -23,10 +23,11 @@ var MongoData = (function() { 'use strict';
 		displayRecord(index);
 	};
 
-	var queryAll = function() {
+	var readAll = function() {
+		console.log("readAll called");
 		$.getJSON('/readAll', function(data) {
 			mongoData = data;
-			console.log(data);
+			console.log(data[0]);
 			displayRecord(0);
 			$("#mongoData").empty();
 			for (var i = 0; i < data.length; i++) {
@@ -35,16 +36,19 @@ var MongoData = (function() { 'use strict';
 		});
 	};
 
-	var queryNewRecord = function() {
+	var insertNewRecord = function() {
+		console.log("insert New Record called");
 		$.getJSON('/newRecord', function(data) {
 			alert(data);
 		});
 	};
 	
-	var queryTwo = function() {
+	var readTwo = function() {
+		console.log("readTwo called");
 		$.getJSON('/readTwo', function(data) {
 			mongoData = data;
-			console.log(data);
+			console.log(data[0]);
+			console.log(data[1]);
 			displayRecord(0);
 			$("#mongoData").empty();
 			for (var i = 0; i < data.length; i++) {

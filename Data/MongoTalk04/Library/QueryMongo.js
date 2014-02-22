@@ -9,6 +9,7 @@ var QueryMongo = (function() {'use strict';
 	var response = null;
 	var database = null;
 	var url = null;
+	var collectionName = 'test_insert';
 	
 	function QueryMongo() {
 		var urls = ['mongodb://127.0.0.1:27017/test',
@@ -45,7 +46,7 @@ var QueryMongo = (function() {'use strict';
 		console.log("getCollection called");
 		response = initResponse;
 		getDatabase(function getCol(database) {
-			var collection = database.collection('test_insert');
+			var collection = database.collection(collectionName);
 
 			// Send the collection to the client.
 			collection.find().toArray(function(err, theArray) {
@@ -60,7 +61,7 @@ var QueryMongo = (function() {'use strict';
 		console.log("getCollection called");
 		response = initResponse;
 		getDatabase(function getCol(database) {
-			var collection = database.collection('test_insert');
+			var collection = database.collection(collectionName);
 
 			// Send the collection to the client.
 			collection.find().limit(count).toArray(function(err, theArray) {
@@ -75,7 +76,7 @@ var QueryMongo = (function() {'use strict';
 	QueryMongo.prototype.insertIntoCollection = function(objectToInsert) {
 
 		getDatabase(function getCol(database) {
-			var collection = database.collection('test_insert');
+			var collection = database.collection(collectionName);
 			collection.insert(objectToInsert, function(err, docs) {
 				if (err) {
 					throw err;
