@@ -31,7 +31,7 @@ Create a simple route you want to test:
 		response.send('Hi there.');
 	});
 	
-## Basic Jasmine-Node
+## Basic Jasmine-Noded
 
 Now test it by saving the following as **Tests/SimpleSpec.js**:
 

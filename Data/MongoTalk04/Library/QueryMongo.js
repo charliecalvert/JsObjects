@@ -20,7 +20,7 @@ var QueryMongo = (function() {'use strict';
 		url = urls[3];
 	}
 
-	var getDatabase = function(func) {
+	var getDatabase = function(callback) {
 		console.log('Called getDatabase');
 		if (database !== null) {
 			console.log('database exists');
@@ -28,7 +28,7 @@ var QueryMongo = (function() {'use strict';
 				if (err) {
 					throw err;
 				}
-				func(database);
+				callback(database);
 			});
 		} else {
 			console.log('Querying for database');
@@ -37,7 +37,7 @@ var QueryMongo = (function() {'use strict';
 					throw err;
 				}
 				database = databaseResult;
-				func(database);
+				callback(database);
 			});
 		}
 	};

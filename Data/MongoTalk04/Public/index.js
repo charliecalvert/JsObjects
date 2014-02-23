@@ -24,6 +24,10 @@ var MongoData = (function() { 'use strict';
 		displayRecord(index);
 	};
 
+	function foo() {
+		var allRecords = readAll();
+	}
+	
 	var readAll = function() {
 		console.log("readAll called");
 		$.getJSON('/readAll', function(data) {

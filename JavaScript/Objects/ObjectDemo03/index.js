@@ -40,6 +40,8 @@ var MyFunction03 = function() {
     'use strict';       
 };
 
+var myObject03 = MyFunction03;
+
 // Now extend it after it is created:
 MyFunction03.prototype.field01 = 2;
 MyFunction03.prototype.field02 = 4;
@@ -47,6 +49,8 @@ MyFunction03.prototype.nestedFunction = function() {
     'use strict';    
     return this.field01 + this.field02;    
 };
+
+
 
 /*********************
  *  Technique Four - Modular Pattern 
@@ -92,6 +96,7 @@ $(document).ready(function() {
     
     // Technique Three (prototype)
     var myFunction03 = new MyFunction03();
+    MyFunction03.prototype.field03 = 7;
     $("#techPrototype").html(myFunction03.nestedFunction());
 
     // Technique Four (Module Pattern)
