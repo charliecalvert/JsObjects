@@ -21,7 +21,7 @@ var QueryMongo = (function() {'use strict';
 	}
 
 	var getDatabase = function(callback) {
-		console.log('Called getDatabase');
+		console.log('Called QueryMongo.getDatabase');
 		if (database !== null) {
 			console.log('database exists');
 			database.open(function(err, database) {
@@ -42,8 +42,8 @@ var QueryMongo = (function() {'use strict';
 		}
 	};
 
-	QueryMongo.prototype.getCollection = function(initResponse) {
-		console.log("getCollection called");
+	QueryMongo.prototype.getAllDocuments = function(initResponse) {
+		console.log("QueryMongo.getAllDocuments called");
 		response = initResponse;
 		getDatabase(function getCol(database) {
 			var collection = database.collection(collectionName);
@@ -57,8 +57,9 @@ var QueryMongo = (function() {'use strict';
 		});
 	};
 	
-	QueryMongo.prototype.getCollectionCount = function(initResponse, count) {
-		console.log("getCollection called");
+	// Get a specific number of documents from the collection
+	QueryMongo.prototype.getDocuments = function(initResponse, count) {
+		console.log("QueryMongo.getDocuments called");
 		response = initResponse;
 		getDatabase(function getCol(database) {
 			var collection = database.collection(collectionName);
@@ -72,9 +73,28 @@ var QueryMongo = (function() {'use strict';
 		});
 	};
 	
+	// Get the number of documents in the collection
+	QueryMongo.prototype.getDocumentCount = function(initResponse) {
+		console.log("QueryMongo.getDocumentCount called");
+		response = initResponse;
+		getDatabase(function getCol(database) {			
+			var collection = database.collection(collectionName);
+
+			var count = collection.count(function(err, result) {
+				if (err) {
+					throw err;
+				}
+				console.log('sending back result: ' + result);
+				database.close();
+				response.send({ "documentCount": result });
+			});
+		});
+	};
+	
+	
 	// Will create collection if it does not exist
 	QueryMongo.prototype.insertIntoCollection = function(objectToInsert) {
-
+		console.log("QueryMongo.insertIntoCollection called");
 		getDatabase(function getCol(database) {
 			var collection = database.collection(collectionName);
 			collection.insert(objectToInsert, function(err, docs) {

@@ -5,9 +5,9 @@ var MongoData = (function() { 'use strict';
 	function MongoData() {		
 		$("#readAll").click(readAll);
 		$("#readTwo").click(readTwo);
-		$("#newRecord").click(insertNewRecord);
+		$("#newRecord").click(insertNewDocument);
 		$("#showData").click(showData);
-		$("#readRecords").click(readRecords);
+		$("#readRecords").click(readDocuments);
 	}
 
 	var displayRecord = function(index) {
@@ -43,7 +43,7 @@ var MongoData = (function() { 'use strict';
 
 	var insertNewRecord = function() {
 		console.log("insert New Record called");
-		$.getJSON('/newRecord', function(data) {
+		$.getJSON('/newDocument', function(data) {
 			alert(data);
 		});
 	};
@@ -62,11 +62,11 @@ var MongoData = (function() { 'use strict';
 		});
 	};
 	
-	var readRecords = function() {
+	var readDocuments = function() {
 		console.log("readTwo called");
 		var request = {};
 		request.numRequested = $('#numToRead').val();
-		$.getJSON('/readRecords', request, function(data) {
+		$.getJSON('/readDocuments', request, function(data) {
 			mongoData = data;
 			console.log(data[0]);
 			console.log(data[1]);
@@ -77,7 +77,7 @@ var MongoData = (function() { 'use strict';
 			}
 		});
 		
-	}
+	};
 
 	return MongoData;
 })();

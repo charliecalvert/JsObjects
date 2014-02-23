@@ -11,18 +11,25 @@ var queryMongo = qm.QueryMongo;
 
 // Read the collection
 app.get('/readAll', function(request, response) {'use strict';
-	queryMongo.getCollection(response);
+	queryMongo.getAllDocuments(response);
+});
+
+app.get('/getDocumentCount', function(request, response) {'use strict';
+	queryMongo.getDocumentCount(response);
 });
 
 app.get('/readTwo', function(request, response) { 'use strict';
-	queryMongo.getCollectionCount(response, 2);
+	queryMongo.getDocuments(response, 2);
 });
 
-app.get('/readRecords', function(request, response) { 'use strict';
+app.get('/readDocuments', function(request, response) { 'use strict';
+	console.log("------------");
+	console.log("Server side request for readRecords route");
+	console.log("------------");
 	console.log(request.query);
 	var numToRead = parseInt(request.query.numRequested);
 	console.log("Num to Read = " + numToRead);
-	queryMongo.getCollectionCount(response, numToRead);
+	queryMongo.getDocuments(response, numToRead);
 });
 
 app.get('/newRecord', function(request, response) { 'use strict';
