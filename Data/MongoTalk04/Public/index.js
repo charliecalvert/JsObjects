@@ -41,10 +41,11 @@ var MongoData = (function() { 'use strict';
 		});
 	};
 
-	var insertNewRecord = function() {
+	var insertNewDocument = function() {
 		console.log("insert New Record called");
 		$.getJSON('/newDocument', function(data) {
-			alert(data);
+			var result = JSON.stringify(data);
+			alert(result);
 		});
 	};
 	
@@ -65,7 +66,7 @@ var MongoData = (function() { 'use strict';
 	var readDocuments = function() {
 		console.log("readTwo called");
 		var request = {};
-		request.numRequested = $('#numToRead').val();
+		request.numRequested = $('#numRequested').val();
 		$.getJSON('/readDocuments', request, function(data) {
 			mongoData = data;
 			console.log(data[0]);

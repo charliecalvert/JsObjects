@@ -32,7 +32,11 @@ app.get('/readDocuments', function(request, response) { 'use strict';
 	queryMongo.getDocuments(response, numToRead);
 });
 
-app.get('/newRecord', function(request, response) { 'use strict';
+app.get('/newDocument', function(request, response) { 'use strict';
+	console.log("------------");
+	console.log("Server side request for newDocument route");
+	console.log("------------");
+
 	var fileContent = fs.readFileSync('Data.json', 'utf8');
 	queryMongo.insertIntoCollection(JSON.parse(fileContent));
 	response.send({ result: "Success" });

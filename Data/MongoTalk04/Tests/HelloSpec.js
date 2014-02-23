@@ -20,7 +20,7 @@ describe("A Mongo Suite", function() { 'use strict';
 			// Convert result from a JSON string to a JSON object
 			body = JSON.parse(body);			
 			//console.log(body);			
-			expect(body.documentCount).toEqual(19);
+			expect(body.documentCount).toEqual(23);
 			done();
 		});
 	});
@@ -59,7 +59,7 @@ describe("A Mongo Suite", function() { 'use strict';
 			body = JSON.parse(body);
 			
 			//console.log(body);			
-			expect(body.length).toEqual(19);
+			expect(body.length).toEqual(23);
 			done();
 		});
 	});
