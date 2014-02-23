@@ -17,7 +17,7 @@ var QueryMongo = (function() {'use strict';
 			'mongodb://192.168.2.34:27017/test',
 			'mongodb://192.168.56.101:27017/test'];
 
-		url = urls[3];
+		url = urls[0];
 	}
 
 	var getDatabase = function(callback) {
