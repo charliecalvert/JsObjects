@@ -2,51 +2,47 @@
  * @author charlie
  */
 
-describe("Test loading file", function() {
+describe("Async file", function() {
 
-	it("Tests that function is called with Sources.html", function() {
-		var data = 'Glossotherium (literally "Tongue Beast") was a genus of ground sloth. It was a heavily built animal with a length of about 4 metres (13 ft) snout to tail-tip and a weight estimated at 1002.6 kg (2210.3 lbs), and could potentially assume a slight bipedal stance.';
-		spyOn($, "get").and.returnValue({
-			fail : function(c) {
-				c(data);
-			}
-		});
+	it("Tests that loadFile is called with Sources.html", function() {
+		// get is stubbed and never really called
+		spyOn($, "get");
 		textLoader.loadFile("Sources.html", function(data) {
 			console.log(data);
 		});
-		expect($.get).toHaveBeenCalledWith("Sources.html", jasmine.any(Function));
+		expect($.get).toHaveBeenCalledWith("Sources.html",
+				jasmine.any(Function));
 	});
 
-});
+	it("Tests that loadFile is called with Sources.html and makes real integration call", function() {
+		// Actual call to function
+		spyOn($, "get").and.callThrough(); 
+		textLoader.loadFile("Sources.html", function(responseText) {
+			console.log(responseText);
+			var fineTime = $(responseText).filter('#paragraph04').html();
+			expect(fineTime).toBe('Fine time.');			
+		});
+		expect($.get).toHaveBeenCalledWith("Sources.html",
+				jasmine.any(Function));
+	});
+	
+	it("Shows that the callback is called and creates fake get method", function(done) {
+		// Create a fake "get". Don't call real jquery.get, call this one.
+		spyOn($, "get").and.callFake(function(options, callbackReference) {
+			callbackReference(); // This is the jasmine spy callback
+			expect(callback).toHaveBeenCalled(); // Was the spy called?
+			done();
+		});
+		var callback = jasmine.createSpy();
+		textLoader.loadFile("Sources.html", callback);
+	});
 
-describe("Async file", function() {
-
-	it("should make a real AJAX request", function(done) {
+	it("Integration test makes a real AJAX request", function(done) {
 		textLoader.loadFile("Sources.html", function(responseText) {
 			var bar = $(responseText).filter('#paragraph04').html();
 			expect(bar).toBe('Fine time.');
 			done();
 		});
-
 	});
 
-	it("Tests that the call back is called", function(done) {
-
-		var data = 'Glossotherium (literally "Tongue Beast") was a genus of ground sloth. It was a heavily built animal with a length of about 4 metres (13 ft) snout to tail-tip and a weight estimated at 1002.6 kg (2210.3 lbs), and could potentially assume a slight bipedal stance.';
-		/*spyOn($, "get").and.returnValue({
-			fail : function(c) {
-				c(data);
-			}
-		}); */
-		 spyOn($, "get").and.callFake(function(options, foo) { 
-		 	foo(); // This is the call back
-		 	expect(callback).toHaveBeenCalled();		 	
-         	done();
-         }); 
-		var callback = jasmine.createSpy();
-		// var callback = function() { done(); };
-		//spyOn(callback);
-		textLoader.loadFile("Sources.html", callback);
-		
-	});
 });

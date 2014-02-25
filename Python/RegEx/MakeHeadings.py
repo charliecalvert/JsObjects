@@ -22,12 +22,11 @@ class FindHeadings():
 				
 	def parseReplaceHtml(self, fileName, technique):		
 		if fileName != self.errorString:
-			contents = self.openFile(fileName)
+			contents = self.openFile(fileName)			
 			results = re.findall(self.regEx[technique], contents, re.DOTALL)
 			fileContent = '<h2>Table of Contents</h2>\n'
 			fileContent += '<ul>\n'
-			for result in results:
-				print(result)
+			for result in results:				
 				if technique == 0:
 					indexTwo = 1
 				else:
