@@ -28,8 +28,9 @@ class MarkdownToHtml:
 		return elfFiles.getFileContent(self.templateDir + os.sep + fileName)
 		
 	def makeHeadings(self, sourceFolder, fileName, technique):
+		print("Call makeHeadings")
 		makeHeadings = FindHeadings()
-		sourceName = "{0}{1}{2}".format(sourceFolder, os.sep, fileName);
+		sourceName = "{0}{1}".format(sourceFolder, fileName);
 		return makeHeadings.parseReplaceHtml(sourceName, technique)
 		
 	def runPandoc(self, sourceFolder, fileName):
@@ -83,7 +84,7 @@ class MarkdownToHtml:
 		sourceFolder = elfFiles.ensureFinalSlash(sourceFolder);		
 		#tempName = self.createTempMarkdown(sourceFolder, fileName, headings)
 		self.runPandocReveal(sourceFolder, fileName)
-		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)
+		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)		
 		baseName = sourceFolder + fileName;
 		#data = elfFiles.getFileContent(baseName + '.htm')
 		tempName = sourceFolder + fileName + ".htm"
