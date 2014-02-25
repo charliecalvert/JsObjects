@@ -26,7 +26,7 @@ def makeItSo(markdown, folder, files, technique = normalHtml):
 
 # Prog270
 def prog280(markdown):
-	files = ["DropBox", "MongoMark"];
+	files = ["DropBox", "MongoMark", "index"];
 	makeItSo(markdown, "", files);
 
 

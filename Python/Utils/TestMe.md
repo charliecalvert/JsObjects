@@ -1,29 +1,22 @@
-Test Me
-=======
+Test Feb 20 2014
+================
 
-Then you can just write a little text in here, and see how it goes. And maybe edit the text as needed. I'll make one more change.
+This is some content for my file. With a change.
 
-Add a new paragraph here. Add text to the paragraph.
+    Those hours, that with gentle work did frame
+    The lovely gaze where every eye doth dwell,
+    Will play the tyrants to the very same
+    And that unfair which fairly doth excel;
+    For never-resting time leads summer on
+    To hideous winter, and confounds him there;
+    Sap checked with frost, and lusty leaves quite gone,
+    Beauty o'er-snowed and bareness every where:
+    Then were not summer's distillation left,
+    A liquid prisoner pent in walls of glass,
+    Beauty's effect with beauty were bereft,
+    Nor it, nor no remembrance what it was:
+    But flowers distill'd, though they with winter meet,
+    Leese but their show; their substance still lives sweet.
 
-Section
--------
 
-Then you could add a list:
-
-- One
-- Two
-- Three
-
-Section 2
----------
-
-- Alpha
-- Beta
-- Charlie
-
-Section 3
----------
-
-- Window
-- Zeta
-- Value
+> Written with [StackEdit](https://stackedit.io/).

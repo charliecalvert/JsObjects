@@ -3,9 +3,11 @@ var MongoData = (function() { 'use strict';
 	var mongoData = null;
 
 	function MongoData() {		
-		$("#readAll").click(queryAll);
-		$("#readTwo").click(queryTwo);
+		$("#readAll").click(readAll);
+		$("#readTwo").click(readTwo);
+		$("#newRecord").click(insertNewDocument);
 		$("#showData").click(showData);
+		$("#readRecords").click(readDocuments);
 	}
 
 	var displayRecord = function(index) {
@@ -22,10 +24,15 @@ var MongoData = (function() { 'use strict';
 		displayRecord(index);
 	};
 
-	var queryAll = function() {
+	function foo() {
+		var allRecords = readAll();
+	}
+	
+	var readAll = function() {
+		console.log("readAll called");
 		$.getJSON('/readAll', function(data) {
 			mongoData = data;
-			console.log(data);
+			console.log(data[0]);
 			displayRecord(0);
 			$("#mongoData").empty();
 			for (var i = 0; i < data.length; i++) {
@@ -34,16 +41,43 @@ var MongoData = (function() { 'use strict';
 		});
 	};
 
-	var queryTwo = function() {
+	var insertNewDocument = function() {
+		console.log("insert New Record called");
+		$.getJSON('/newDocument', function(data) {
+			var result = JSON.stringify(data);
+			alert(result);
+		});
+	};
+	
+	var readTwo = function() {
+		console.log("readTwo called");
 		$.getJSON('/readTwo', function(data) {
 			mongoData = data;
-			console.log(data);
+			console.log(data[0]);
+			console.log(data[1]);
 			displayRecord(0);
 			$("#mongoData").empty();
 			for (var i = 0; i < data.length; i++) {
 				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
+	};
+	
+	var readDocuments = function() {
+		console.log("readTwo called");
+		var request = {};
+		request.numRequested = $('#numRequested').val();
+		$.getJSON('/readDocuments', request, function(data) {
+			mongoData = data;
+			console.log(data[0]);
+			console.log(data[1]);
+			displayRecord(0);
+			$("#mongoData").empty();
+			for (var i = 0; i < data.length; i++) {
+				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
+			}
+		});
+		
 	};
 
 	return MongoData;

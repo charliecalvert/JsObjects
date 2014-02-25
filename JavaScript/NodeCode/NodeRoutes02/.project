@@ -14,4 +14,15 @@
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1393108545219</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-jquery-2.1.0.js</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
