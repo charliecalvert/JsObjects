@@ -11,7 +11,7 @@ describe("mycontrollertest", function() {'use strict';
 		setFixtures("<p id='showJson'> </p>");
 		fix = $('#showJson');
  	});
-	
+
 	it("Tests load json", function() {
 		var data = {"name": "NPC01", 
 			"hitPoints": 1,
@@ -21,14 +21,14 @@ describe("mycontrollertest", function() {'use strict';
 		myController.loadJson({ data: { fileName: "BackEndData.json" } });
 		expect($.getJSON).toHaveBeenCalledWith("BackEndData.json", jasmine.any(Function));
 	});
-	
+
 	it("Tests load json02", function() {
 		var data = {"name": "NPC01", 
 			"hitPoints": 1,
 			"damage": 2
 		};
 		fix.html(data.name);
-		expect($('#showJson')).toHaveText('NPC01');				
+		expect($('#showJson')).toHaveText('NPC01');
 	}); 
 
 });
