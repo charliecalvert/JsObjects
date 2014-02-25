@@ -46,6 +46,12 @@ app.get('/hello', function(request, response) { 'use strict';
 	response.send('Hi there.');
 });
 
+app.get('/remove', function(request, response) {'use strict';
+	console.log('/remove Called');
+	queryMongo.removeById();
+	response.send("remove Called");
+});
+
 // Default.
 app.get('/', function(request, result) {'use strict';
 	var html = fs.readFileSync(__dirname + '/Public/index.html');

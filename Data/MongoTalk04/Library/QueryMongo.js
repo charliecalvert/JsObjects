@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-var MongoClient = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 
 var QueryMongo = (function() {'use strict';
 
@@ -104,6 +105,24 @@ var QueryMongo = (function() {'use strict';
 				database.close();
 				console.log("insert succeeded");
 			});
+		});
+	};
+	
+	QueryMongo.prototype.removeById = function(id) {
+		console.log("QueryMongo.removeById called");
+		getDatabase(function getCol(database) {
+			var collection = database.collection(collectionName);
+			// console.log(mongodb);
+			//var objectId = mongo.ObjectId;
+			//console.log(objectId);
+			collection.remove({ "_id" : mongodb.ObjectID("52fc4547640b76180b9fb9c4")}, function(err, data) {
+				if (err) {
+					throw err;
+				}
+				database.close();
+				console.log("Item deleted");
+			}); 
+			
 		});
 	};
 
