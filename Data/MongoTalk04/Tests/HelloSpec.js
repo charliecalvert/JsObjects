@@ -13,6 +13,15 @@ describe("A Mongo Suite", function() { 'use strict';
 			done();
 		});
 	});
+	
+	it("should respond with goober", function(done) { 
+		console.log('Calling Hello');
+		request("http://localhost:30025/barfoo", function(error, response, bar) {
+			console.log(response.statusCode);
+			expect(bar).toEqual("foobar");
+			done();
+		});
+	});
 
 	it("should get total document count", function(done) {
 		request("http://localhost:30025/getDocumentCount", function(error, response, body) {
@@ -20,7 +29,7 @@ describe("A Mongo Suite", function() { 'use strict';
 			// Convert result from a JSON string to a JSON object
 			body = JSON.parse(body);			
 			//console.log(body);			
-			expect(body.documentCount).toEqual(23);
+			expect(body.documentCount).toEqual(9);
 			done();
 		});
 	});
@@ -59,7 +68,7 @@ describe("A Mongo Suite", function() { 'use strict';
 			body = JSON.parse(body);
 			
 			//console.log(body);			
-			expect(body.length).toEqual(23);
+			expect(body.length).toEqual(9);
 			done();
 		});
 	});

@@ -10,8 +10,7 @@ describe("Async file", function() {
 		textLoader.loadFile("Sources.html", function(data) {
 			console.log(data);
 		});
-		expect($.get).toHaveBeenCalledWith("Sources.html",
-				jasmine.any(Function));
+		expect($.get).toHaveBeenCalledWith("Sources.html", 	jasmine.any(Function));
 	});
 
 	it("Tests that loadFile is called with Sources.html and makes real integration call", function() {
