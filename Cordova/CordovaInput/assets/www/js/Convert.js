@@ -2,21 +2,21 @@
  * @author Charlie Calvert
  */
 
-function Convert() { 
-    
-     Convert.prototype.toFarenheit = function(userInput) {'use strict';    
-        userInput = (userInput - 32) * 5 / 9;
-        return userInput.toFixed(2);               
-    };
+CordovaInput.Convert = new function() {
 
-    Convert.prototype.toMiles = function(userInput) {'use strict';
-        userInput = userInput * 1.609344;        
-        return userInput.toFixed(2);        
-    };
+	this.toFarenheit = function(userInput) {'use strict';
+		userInput = (userInput - 32) * 5 / 9;
+		return userInput.toFixed(2);
+	};
 
-    Convert.prototype.calculateSquareRoot = function(userInput) {'use strict';
-        userInput = Math.sqrt(userInput);
-        return userInput.toFixed(2);                
-    };
+	this.toMiles = function(userInput) {'use strict';
+		userInput = userInput * 1.609344;
+		return userInput.toFixed(2);
+	};
+
+	this.calculateSquareRoot = function(userInput) {'use strict';
+		userInput = Math.sqrt(userInput);
+		return userInput.toFixed(2);
+	};
 };
 

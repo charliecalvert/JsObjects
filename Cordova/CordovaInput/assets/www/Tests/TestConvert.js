@@ -4,11 +4,7 @@
 
 describe("Test Convert", function() {
     
-    var convert = null;
-    
-    beforeEach(function() {
-       convert = new Convert(); 
-    });
+    var convert = CordovaInput.Convert;    
     
     it("shows that toMiles(1) yields 1.61", function() {
        var expected = "1.61";

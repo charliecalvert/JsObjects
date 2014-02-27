@@ -1,37 +1,34 @@
 /**
- * @author charlie
+ * @author Charlie Calvert
  */
-
-var UserInterface = function(convert) {    
+CordovaInput.userInterface = new function(convert) {    
         
-    var convertToFahrenHeitClick = function(event) {
+    var convertToFahrenheitClick = function(event) {
         var userInput = $("#TextName").val();
-        var result = convert.toFarenheit(userInput);
+        var result = CordovaInput.Convert.toFarenheit(userInput);
         $("#Output").html(result);    
     };
 
     var convertToMilesClick = function(event) {
         var userInput = $("#TextName").val();
-        var result = convert.toMiles(userInput);
+        var result = CordovaInput.Convert.toMiles(userInput);
         $("#Output").html(result);    
     };
     
     var calculateSquareRootClick = function() {
         var userInput = $("#TextName").val();
-        var result = convert.calculateSquareRoot(userInput);
+        var result = CordovaInput.Convert.calculateSquareRoot(userInput);
         $("#Output").html(result);    
     };
     
-    var init = function() {        
-        $("#buttonFahrenheit").click(convertToFahrenHeitClick);
+    this.init = function() {        
+        $("#buttonFahrenheit").click(convertToFahrenheitClick);
         $("#buttonMiles").click(convertToMilesClick);
         $("#buttonSquareRoot").click(calculateSquareRootClick);
-    };
-    
-    init();
+    };   
+  
 };
 
-$(document).ready(function() {
-   var convert = new Convert();
-   new UserInterface(convert); 
+$(document).ready(function() {	
+	CordovaInput.userInterface.init();		 
 });
