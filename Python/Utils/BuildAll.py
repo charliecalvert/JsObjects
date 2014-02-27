@@ -20,7 +20,7 @@ def makeItSo(markdown, folder, files, technique = normalHtml):
 	if technique == revealHtml:
 		markdown.runReveal(files);
 	else:
-		markdown.runner(files, ['start.html', 'nav.html', 'footer.html', 'end.html']);
+		markdown.runner(files, ['StartLinux.html', 'NavLinux.html', 'footer.html', 'end.html']);
 
 
 
