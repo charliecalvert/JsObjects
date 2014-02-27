@@ -10,7 +10,7 @@
         <script src="Source/TextLoader.js"></script>
     </head>
     <body>
-        <h1>Elvenware Jasmine, JSON and httpBackend</h1>
+        <h1>Elvenware Jasmine Spies, JSON and HTML</h1>
         
         <div ng-controller="myController">
         	<p>This project retrieves a small amount of JSON from a server.</p>
@@ -19,13 +19,25 @@
             
             <p>Here is the JSON retreived from the server: </p>
             
-			<p id="showJson"> </p>            
+			<p id="showJson"> </p> 
 			
-			<p>But look at the tests. They are the main purpose of this project.</p>
+			<h2>Unit Tests</h2>
 			
-			<button class="buttonLoader" id="buttonSource01">Get Sources</button>
-			<button class="buttonLoader" id="buttonSource02">Get Sources</button>
-			<button class="buttonLoader" id="buttonSource03">Get Sources</button>
+			<p>Async unit tests for Jasmine 2.0 and later.</p>
+			
+			<a href="Test01.html">Unit Test</a>           
+			
+			<p>Look at the tests. They are the main purpose of this project.</p>
+			
+			<ul>
+				<li><a href="Test/TestJsonLoader.js">TestJsonLoader</a></li>
+				<li><a href="Test/Test01.js">Test01</a></li>
+			</ul>
+			
+			<h2>Shelley</h2>
+			<button class="buttonLoader" id="buttonSource01">Ozymandias</button>
+			<button class="buttonLoader" id="buttonSource02">Wild West Wind</button>
+			<button class="buttonLoader" id="buttonSource03">Stanzas</button>
 			
 			<p id="showSources"> </p>
         </div>

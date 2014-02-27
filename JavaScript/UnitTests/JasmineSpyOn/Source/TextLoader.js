@@ -14,12 +14,13 @@ var textLoader = {
         };      
         var query = queries[buttonId];  
         var callback = function(responseText, textStatus, XMLHttpReques) {
-            console.log("File was loaded.");            
+            console.log("File was loaded.");        
             var bar = $(responseText).filter(query).html();
             $("#showSources").html(bar);
         };
         this.loadFile("Sources.html", callback);        
     },
+    
     loadFile: function(file, callback) {
         $.get(file, callback);
     }    
