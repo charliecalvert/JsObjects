@@ -54,3 +54,14 @@ be "Sources.html".
 
 When we mock an object, it is never called. Instead it is stubbed. A fake object
 is put in its place.
+
+## Modules
+
+The code in this program uses the Modular Pattern
+
+- [Javascript Modules on Elvenware](http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptModules.html)
+
+## The CSS
+
+- [inline block](http://bit.ly/1fX5Ff6)
+- [See this fiddle](http://jsfiddle.net/kY5LL/153/)
