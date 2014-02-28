@@ -4,6 +4,13 @@
 
 describe("Async file", function() {
 
+	it("Tests that loadFile gets called", function() {
+		// get is stubbed and never really called
+		spyOn($, "get");
+		textLoader.loadFile("", null);
+		expect($.get).toHaveBeenCalled();
+	});
+	
 	it("Tests that loadFile is called with Sources.html", function() {
 		// get is stubbed and never really called
 		spyOn($, "get");

@@ -22,7 +22,7 @@ var textLoader = {
     },
     
     loadFile: function(file, callback) {
-        $.get(file, callback);
+       $.get(file, callback);
     }    
 };
 
