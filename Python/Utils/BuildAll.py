@@ -6,6 +6,7 @@ import elfutils.elffiles as elffiles
 from elfutils.MarkdownToHtml import MarkdownToHtml
 
 # Site Root
+# You may need to change the stackEditFrom path depending on your setup
 stackEditFrom=os.environ['HOME'] + '/Dropbox/StackEdit'
 bcTo='/var/www/bc'
 normalHtml = 0
