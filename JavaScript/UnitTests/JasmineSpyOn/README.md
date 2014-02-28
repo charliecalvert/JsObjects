@@ -1,71 +1,67 @@
-Json From Server
+Jasmine Spy
 ===========
 
-This sample code shows how to:
+Demonstrates how to:
 
-- Load JSON data using Angular
-- Test the load method using Jasmine
-- Use httpBackend to mock the loading of the JSON data
-- Run Karma to give you continuous feedback as you edit your code and tests
+* Use Jasmine to make async calls
+* SpyOn to create mock objects
 
-Portions of this example depend on NodeJs. You can run the core
-example without Node in an Web Server, but some of the code, such
-as the Karma server, depend on NodeJs.
+## Async
 
-- [Home page for Node Js](http://nodejs.org/)
+The Async calls use done:
 
-Use httpBackend
-----------------
-
-Jasmine wants you to mock up methods that access other services, 
-such as HTTP or database requests. Here are some examples of how 
-to do it with $HttpBackend. When checking whether you load a JSon file, you write code like this:
-
-	var $httpBackend = null;
-
-	beforeEach(inject(function(_$httpBackend_) {
-		$httpBackend = _$httpBackend_;
-	}));
-
-	afterEach(function() {
-		$httpBackend.verifyNoOutstandingExpectation();
-		$httpBackend.verifyNoOutstandingRequest();
+	it("Integration test makes a real AJAX request", function(done) {
+		textLoader.loadFile("Sources.html", function(responseText) {
+			var bar = $(responseText).filter('#paragraph04').html();
+			expect(bar).toBe('Fine time.');
+			done();
+		});
 	});
+	
+Looking at the function above, do you see that the test is past **done**
+as a parmater? Notice also that it calls **done()** when it is finished.
+The call to done notifies Jasmine that your callback is complete.
 
-	it("Test load json hitPoints", function() {
-		$httpBackend.expectGET('data.json').respond({
-			"name": "NPC01",
-			"hitPoints": 37,
-			"damage": 5});
-		myController.loadJson();
-		$httpBackend.flush();
-		expect(myController.data.hitPoints).toEqual(37);
+## SpyOn
+
+Create a mock object and instrument the object so that you can learn 
+key facts such as:
+
+- Was the mock object called?
+- What parameters were passed to the mock object
+
+	it("Tests that loadFile is called with Sources.html", function() {
+		// get is stubbed and never really called
+		spyOn($, "get");
+		textLoader.loadFile("Sources.html", function(data) {
+			console.log(data);
+		});
+		expect($.get).toHaveBeenCalledWith("Sources.html", 	jasmine.any(Function));
 	});
+	
+Here we use SpyOn to mock **jQuery.get()**: 
 
-Start Karma
------------
+	spyOn($, "get");
+	
+Once we have mocked it, we cn ask questions, such what parameters was it called
+with:
 
-Karma will give you continuous feedback on your code by running
-your unit tests every time you modify a file.
+	expect($.get).toHaveBeenCalledWith("Sources.html", 	jasmine.any(Function));
+	
+Our question here is simple: *Was **get** called with two parameters. The first
+a string, the second a function. We expect the first parameter, the string, to
+be "Sources.html". 
 
-- Be sure Karma is installed globally: $ npm install -g karma
-- Install the dependencies by processing package.json: $ npm install
-- Run Karma: karma start
+When we mock an object, it is never called. Instead it is stubbed. A fake object
+is put in its place.
 
-Note that when karma starts, it automatically process karma.conf.js. 
-There is no need to modify karma.conf.js, but you should be aware 
-that the files that will be tested are listed in it starting 
-around line 11:
+## Modules
 
-```
-files: [   
-      'angular.js',
-      'angular-mocks.js',
-      'angular-resource.js',            
-      'index.js',
-      'TestJsonLoader.js'
-    ],
-``` 
+The code in this program uses the Modular Pattern
 
-- [Karma home page](https://github.com/karma-runner/karma)
+- [Javascript Modules on Elvenware](http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptModules.html)
 
+## The CSS
+
+- [inline block](http://bit.ly/1fX5Ff6)
+- [See this fiddle](http://jsfiddle.net/kY5LL/153/)

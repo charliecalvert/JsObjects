@@ -1,3 +1,5 @@
+/*jshint browser: true, devel: true */
+
 // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3/Client.html
 // http://aws.amazon.com/pricing/s3/
 
@@ -10,6 +12,7 @@ var fs = require('fs');
 var walk = require('walk');
 
 var bucketName = 's3bucket03.elvenware.com';
+var folderToWalk = 'Files';
 
 function listBuckets(s3) {
 	console.log("calling listBuckets");
@@ -88,7 +91,7 @@ function walkDirs() {
 		followLinks : false,
 	};
 
-	var walker = walk.walk("Files", options);
+	var walker = walk.walk(folderToWalk, options);
 
 
 	walker.on("names", function(root, nodeNamesArray) {

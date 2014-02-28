@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html data-ng-app='jsonServerMod'>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        
-        <title>Elvenware Test Project</title>
+        <meta charset="utf-8" />                
+        <title>Elvenware Jasmine Spy</title>
         <link rel="shortcut icon" href="favicon.png">
+        <link href="Styles/index.css" rel="stylesheet" type="text/css" />
         <script src="Library/jquery-2.0.3.js"></script>
         <script src="Source/index.js"></script>
         <script src="Source/TextLoader.js"></script>
@@ -12,14 +12,29 @@
     <body>
         <h1>Elvenware Jasmine Spies, JSON and HTML</h1>
         
-        <div ng-controller="myController">
+        <div>
         	<p>This project retrieves a small amount of JSON from a server.</p>
             
+            
+            
+            <p>Press the button to retreive JSON from the server: </p>
             <button id='loadJson'>Load Data</button>
-            
-            <p>Here is the JSON retreived from the server: </p>
-            
-			<p id="showJson"> </p> 
+            <button id="backButton">&lt;&lt;</button>
+            <button id="foreButton">&gt;&gt;</button>
+			<div class="displayKing">				
+				<label>Name:       </label> <p id="showJsonName">0</p>
+				<label>Hit Points: </label>	<p id="showJsonHitPoints">0</p>
+				<label>Damage:     </label> <p id="showJsonDamage">0</p> 
+			</div>			
+			
+			<h2>Shelley</h2>
+			<button class="buttonLoader" id="buttonSource01">Ozymandias</button>
+			<button class="buttonLoader" id="buttonSource02">Wild West Wind</button>
+			<button class="buttonLoader" id="buttonSource03">Stanzas</button>
+			
+			<p class="displayKing" id="showSources"> </p>
+			
+			<!-- Unit Tests -->
 			
 			<h2>Unit Tests</h2>
 			
@@ -33,13 +48,6 @@
 				<li><a href="Test/TestJsonLoader.js">TestJsonLoader</a></li>
 				<li><a href="Test/Test01.js">Test01</a></li>
 			</ul>
-			
-			<h2>Shelley</h2>
-			<button class="buttonLoader" id="buttonSource01">Ozymandias</button>
-			<button class="buttonLoader" id="buttonSource02">Wild West Wind</button>
-			<button class="buttonLoader" id="buttonSource03">Stanzas</button>
-			
-			<p id="showSources"> </p>
         </div>
     </body>
 </html>

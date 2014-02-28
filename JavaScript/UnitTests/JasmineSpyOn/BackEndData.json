@@ -1,5 +1,17 @@
-{
-	"name": "NPC01", 
-	"hitPoints": 1,
-	"damage": 2
-}
+[
+	{
+		"name": "NPC100", 
+		"hitPoints": 200,
+		"damage": 2101
+	},
+	{
+		"name": "NPC101", 
+		"hitPoints": 101,
+		"damage": 2101
+	},
+	{
+		"name": "NPC102", 
+		"hitPoints": 102,
+		"damage": 2102
+	}
+]
