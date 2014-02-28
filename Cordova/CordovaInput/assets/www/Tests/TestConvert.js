@@ -6,9 +6,9 @@ describe("Test Convert", function() {
     
     var convert = CordovaInput.Convert;    
     
-    it("shows that toMiles(1) yields 1.61", function() {
+    it("shows that toKilometers(1) yields 1.61", function() {
        var expected = "1.61";
-       var actual = convert.toMiles(1) ;
+       var actual = convert.toKilometers(1) ;
        expect(actual).toBe(expected); 
     });
     

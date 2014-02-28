@@ -9,7 +9,7 @@ CordovaInput.Convert = new function() {
 		return userInput.toFixed(2);
 	};
 
-	this.toMiles = function(userInput) {'use strict';
+	this.toKilometers = function(userInput) {'use strict';
 		userInput = userInput * 1.609344;
 		return userInput.toFixed(2);
 	};

@@ -19,8 +19,10 @@ var LoadJson = (function() {
 		backButton = $('#backButton');
 		foreButton.click(forward);
 		backButton.click(backward);
-		foreButton[0].disabled = true;
-		backButton[0].disabled = true;
+		if (foreButton.length > 0) {
+			foreButton[0].disabled = true;
+			backButton[0].disabled = true;
+		}
 	}
 
 	var showResult = function(index) {
@@ -55,6 +57,7 @@ var LoadJson = (function() {
 			console.log("error: " + error);
 		});
 	};	
+
 
 	return LoadJson;
 

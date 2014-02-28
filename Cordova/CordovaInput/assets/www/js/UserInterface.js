@@ -1,7 +1,7 @@
 /**
  * @author Charlie Calvert
  */
-CordovaInput.userInterface = new function(convert) {    
+CordovaInput.userInterface = new function() {    
         
     var convertToFahrenheitClick = function(event) {
         var userInput = $("#TextName").val();
@@ -11,7 +11,7 @@ CordovaInput.userInterface = new function(convert) {
 
     var convertToMilesClick = function(event) {
         var userInput = $("#TextName").val();
-        var result = CordovaInput.Convert.toMiles(userInput);
+        var result = CordovaInput.Convert.toKilometers(userInput);
         $("#Output").html(result);    
     };
     

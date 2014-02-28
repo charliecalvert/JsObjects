@@ -4,6 +4,7 @@
 
 describe("mycontrollertest", function() {'use strict';
 	var myController = null;
+	
 	var fix = null;
 
 	beforeEach(function() {
@@ -30,5 +31,4 @@ describe("mycontrollertest", function() {'use strict';
 		fix.html(data.name);
 		expect($('#showJson')).toHaveText('NPC01');
 	}); 
-
 });
