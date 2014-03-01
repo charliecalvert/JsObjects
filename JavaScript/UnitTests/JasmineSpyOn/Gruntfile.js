@@ -90,7 +90,7 @@ module.exports = function(grunt) {'use strict';
 			},
 			your_target : {
 				// a list of files you want to strip code from
-				src : "dist/*.js"
+				src : "Deploy/Source/LoadJson.js"
 			}
 		}
 
@@ -102,7 +102,7 @@ module.exports = function(grunt) {'use strict';
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-strip-code');
 	
-	grunt.registerTask("deploy", ["jshint", "copy:deploy"]);
+	grunt.registerTask("deploy", ["jshint", "copy:deploy", "strip_code"]);
 
 	grunt.registerTask('dist', ['clean:zip', 'compress:angularKarma', 'copy:main']);
 };
