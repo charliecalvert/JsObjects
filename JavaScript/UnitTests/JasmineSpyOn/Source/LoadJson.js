@@ -10,21 +10,14 @@ var LoadJson = (function() { 'use strict';
 
 	var data = null;
 	var dataIndex = 0;
-	var foreButton = null;
-	var backButton = null;
-
+	var buttons = null;
+	
 	function LoadJson() {
-		$('#loadJson').click({
-			fileName : "BackEndData.json"
-		}, this.loadJson);
-		foreButton = $('#foreButton');
-		backButton = $('#backButton');
-		foreButton.click(forward);
-		backButton.click(backward);
-		if (foreButton.length > 0) {
-			foreButton[0].disabled = true;
-			backButton[0].disabled = true;
-		}
+		$('#loadJson').click({ fileName : "BackEndData.json" }, this.loadJson);
+		$("#foreButton").click(forward);
+		$("#backButton").click(backward);
+		buttons = $('#foreButton, #backButton');
+		buttons.attr("disabled", "disabled");
 	}
 
 	var showResult = function(index) {
@@ -55,8 +48,9 @@ var LoadJson = (function() { 'use strict';
 		$.getJSON(fileName, function(backEndData) {
 			data = backEndData;
 			showResult(0);
-			foreButton[0].disabled = false;
-			backButton[0].disabled = false;
+			//foreButton[0].disabled = false;
+			//backButton[0].disabled = false;
+			buttons.removeAttr("disabled");
 		}).fail(function(jqxhr, textStatus, error) {
 			console.log("error: " + jqxhr);
 		});
