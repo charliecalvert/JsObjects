@@ -1,4 +1,4 @@
-var textLoader = {    
+function textLoader = {    
     init : function() {
         $(".buttonLoader").click(textLoader.clickHandler);
     },

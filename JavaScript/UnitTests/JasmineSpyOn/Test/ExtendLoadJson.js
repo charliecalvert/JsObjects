@@ -5,6 +5,10 @@ LoadJson.prototype.testMe = function() {
 		it("Tests that loadFile is called with Sources.html", function() {
 			expect(true).toBe(true);
 		});
+		
+		it("Calls a private method", function() {
+			expect(true).toBe(true);
+		});
 	});
 
 };
