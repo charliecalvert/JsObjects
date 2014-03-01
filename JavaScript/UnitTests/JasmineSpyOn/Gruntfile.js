@@ -76,13 +76,10 @@ module.exports = function(grunt) {'use strict';
 			main : {
 				src : '<%= zipFile %>',
 				dest : process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
-			}
-		},
-		
-		codeploy : {
-			main : {
-				src : 'index.html',
-				dest : 'Deploy/'
+			},		
+			deploy : {
+				src : ['index.html', 'Source/*.js', 'Styles/*.css', 'Library/jquery*.js', 'BackEndData.json', 'Sources.html'],
+				dest : 'Deploy/',
 			}
 		},
 
@@ -105,7 +102,7 @@ module.exports = function(grunt) {'use strict';
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-strip-code');
 	
-	grunt.registerTask("deploy", ["jshint", "codeploy"]);
+	grunt.registerTask("deploy", ["jshint", "copy:deploy"]);
 
 	grunt.registerTask('dist', ['clean:zip', 'compress:angularKarma', 'copy:main']);
 };
