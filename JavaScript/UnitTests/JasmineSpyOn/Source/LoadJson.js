@@ -44,7 +44,9 @@ var LoadJson = (function() {
 		if (dataIndex > 0) {
 			dataIndex--;
 			showResult(dataIndex);
+			return true;
 		}
+		return false;
 	};
 
 	LoadJson.prototype.loadJson = function(event) {
@@ -58,11 +60,10 @@ var LoadJson = (function() {
 		}).fail(function(jqxhr, textStatus, error) {
 			console.log("error: " + jqxhr);
 		});
-	};
+	};	
 
-	return LoadJson;
-
-	/* LoadJson.prototype.testMe = function() {
+	/* grunt-can-remove-test-code */
+	LoadJson.prototype.testMe = function() {
 		
 		describe("These are the private tests", function() {
 
@@ -71,12 +72,16 @@ var LoadJson = (function() {
 			});
 
 			it("Calls a private method", function() {
-				backward();
+				var actual = backward();
+				expect(actual).toBe(false);
 			});
 		});
 
-	}; */
-
+	}; 
+	/* end-grunt-can-remove-test-code */
+	
+	return LoadJson;
+	
 })();
 
 $(document).ready(function() {

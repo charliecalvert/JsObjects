@@ -1,4 +1,4 @@
-LoadJson.prototype.testMe = function() {
+/* LoadJson.prototype.testMe = function() {
 	
 	describe("These are the private tests", function() {
 
@@ -7,6 +7,6 @@ LoadJson.prototype.testMe = function() {
 		});		
 	});
 
-};
+}; */
 var myController = new LoadJson();
 myController.testMe();
