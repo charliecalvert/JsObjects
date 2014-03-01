@@ -1,6 +1,6 @@
 module.exports = function(grunt) {'use strict';
 
-	var zipFile = 'JsonFromServer.zip';
+	var zipFile = 'JasmineSpyOn.zip';
 
 	grunt.initConfig({
 		zipFile : zipFile,
