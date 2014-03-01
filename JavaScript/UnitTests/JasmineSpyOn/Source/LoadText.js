@@ -1,11 +1,13 @@
 var LoadText = (function() {
+	var that = null;
 	
 	function LoadText() {		
 		$(".buttonLoader").click(clickHandler);
+		 that = this;
 	}    
 
     var clickHandler = function() {
-        textLoader.switcher(this.id);
+        switcher(this.id);
     };
     
     var switcher = function(buttonId) {
@@ -21,7 +23,7 @@ var LoadText = (function() {
             var textToDisplay = $(responseText).filter(query).html();
             $("#showSources").html(textToDisplay);
         };
-        this.loadFile("Sources.html", callback);        
+        that.loadFile("Sources.html", callback);        
     };
     
     LoadText.prototype.loadFile = function(file, callback) {
