@@ -11,7 +11,7 @@ describe("mycontrollertest", function() {'use strict';
 		myController = new LoadJson();
 		setFixtures("<p id='showJson'> </p>");
 		fix = $('#showJson');
- 	});
+	});
 
 	it("Tests load json", function() {
 		var data = {"name": "NPC01", 

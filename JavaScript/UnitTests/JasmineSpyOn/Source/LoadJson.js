@@ -6,7 +6,7 @@
  * We use the modular pattern
  * http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptModules.html
  */
-var LoadJson = (function() {
+var LoadJson = (function() { 'use strict';
 
 	var data = null;
 	var dataIndex = 0;
@@ -84,6 +84,6 @@ var LoadJson = (function() {
 	
 })();
 
-$(document).ready(function() {
+$(document).ready(function() { 'use strict';
 	new LoadJson();
 });

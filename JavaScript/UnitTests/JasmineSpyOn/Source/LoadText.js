@@ -1,9 +1,9 @@
-var LoadText = (function() {
+var LoadText = (function() { 'use strict';
 	var that = null;
 	
 	function LoadText() {		
 		$(".buttonLoader").click(clickHandler);
-		 that = this;
+		that = this;
 	}    
 
     var clickHandler = function() {
@@ -33,7 +33,7 @@ var LoadText = (function() {
     return LoadText;
 }());
 
-$(document).ready(function() {
+$(document).ready(function() { 'use strict';
 	new LoadText();	
 });
 

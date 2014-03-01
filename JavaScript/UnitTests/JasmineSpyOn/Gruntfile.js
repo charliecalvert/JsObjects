@@ -8,7 +8,13 @@ module.exports = function(grunt) {'use strict';
 			files : ['**/*.js'],
 
 			options : {
-				ignores : ['**/angular.js', '**/angular-mocks.js', '**/coverage/**', '**/node_modules/**'],
+				ignores : ['**/jquery*.js', 
+					'**/jasmine*.js', 
+					'Library/*.js', 
+					'**/angular.js', 
+					'**/angular-mocks.js', 
+					'**/coverage/**', 
+					'**/node_modules/**'],
 				reporter : 'checkstyle',
 				reporterOutput : 'result.xml',
 				strict : true,
@@ -73,7 +79,7 @@ module.exports = function(grunt) {'use strict';
 			}
 		},
 		
-		copyDeploy : {
+		codeploy : {
 			main : {
 				src : 'index.html',
 				dest : 'Deploy/'
@@ -99,7 +105,7 @@ module.exports = function(grunt) {'use strict';
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-strip-code');
 	
-	grunt.registerTask("deploy", ["jshint", "copyDeploy"]);
+	grunt.registerTask("deploy", ["jshint", "codeploy"]);
 
 	grunt.registerTask('dist', ['clean:zip', 'compress:angularKarma', 'copy:main']);
 };
