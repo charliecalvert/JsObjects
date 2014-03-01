@@ -18,9 +18,14 @@ describe("mycontrollertest", function() {'use strict';
 			"hitPoints": 1,
 			"damage": 2
 		};
-		spyOn($, "getJSON").and.returnValue({fail: function(c){c(data);}});	
-		myController.loadJson({ data: { fileName: "BackEndData.json" } });
-		expect($.getJSON).toHaveBeenCalledWith("BackEndData.json", jasmine.any(Function));
+		spyOn($, "getJSON").and.returnValue(
+			{
+				fail: function(c){ c('This error is expected in a test'); }				
+				// fail: function(c){ c(data); }
+			}
+		);	
+		myController.loadJson({ data: { fileName: "../BackEndData.json" } });
+		expect($.getJSON).toHaveBeenCalledWith("../BackEndData.json", jasmine.any(Function));
 	});
 
 	it("Tests load json02", function() {

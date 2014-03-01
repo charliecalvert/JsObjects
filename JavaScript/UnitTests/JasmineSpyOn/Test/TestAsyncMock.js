@@ -26,13 +26,14 @@ describe("Async file", function() {
 		expect($.get).toHaveBeenCalledWith("../Sources.html", 	jasmine.any(Function));
 	});
 
-	it("Tests that loadFile is called with Sources.html and makes real integration call", function() {
+	it("Tests that loadFile is called with Sources.html and makes real integration call", function(done) {
 		// Actual call to function
 		spyOn($, "get").and.callThrough(); 
 		textLoader.loadFile("../Sources.html", function(responseText) {
 			console.log(responseText);
 			var fineTime = $(responseText).filter('#paragraph04').html();
 			expect(fineTime).toBe('Fine time.');			
+			done();
 		});
 		expect($.get).toHaveBeenCalledWith("../Sources.html",
 				jasmine.any(Function));

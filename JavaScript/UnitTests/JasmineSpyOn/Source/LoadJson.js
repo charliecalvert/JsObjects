@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-/* 
+/*
  * We use the modular pattern
  * http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptModules.html
  */
@@ -12,9 +12,11 @@ var LoadJson = (function() {
 	var dataIndex = 0;
 	var foreButton = null;
 	var backButton = null;
-	
+
 	function LoadJson() {
-		$('#loadJson').click({ fileName : "BackEndData.json" }, this.loadJson);
+		$('#loadJson').click({
+			fileName : "BackEndData.json"
+		}, this.loadJson);
 		foreButton = $('#foreButton');
 		backButton = $('#backButton');
 		foreButton.click(forward);
@@ -37,29 +39,43 @@ var LoadJson = (function() {
 			showResult(dataIndex);
 		}
 	};
-	
+
 	var backward = function() {
 		if (dataIndex > 0) {
 			dataIndex--;
 			showResult(dataIndex);
 		}
-	};	
-	
+	};
+
 	LoadJson.prototype.loadJson = function(event) {
 		var fileName = event.data.fileName;
 
 		$.getJSON(fileName, function(backEndData) {
-			data = backEndData;			
+			data = backEndData;
 			showResult(0);
 			foreButton[0].disabled = false;
 			backButton[0].disabled = false;
 		}).fail(function(jqxhr, textStatus, error) {
-			console.log("error: " + error);
+			console.log("error: " + jqxhr);
 		});
-	};	
-
+	};
 
 	return LoadJson;
+
+	/* LoadJson.prototype.testMe = function() {
+		
+		describe("These are the private tests", function() {
+
+			it("Tests that loadFile is called with Sources.html", function() {
+				expect(true).toBe(true);
+			});
+
+			it("Calls a private method", function() {
+				backward();
+			});
+		});
+
+	}; */
 
 })();
 
