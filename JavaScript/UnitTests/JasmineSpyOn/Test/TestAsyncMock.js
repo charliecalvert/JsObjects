@@ -4,6 +4,12 @@
 
 describe("Async file", function() {
 
+	var textLoader = null;
+	
+	beforeEach(function() {
+		textLoader = new LoadText();
+	});
+	
 	it("Tests that loadFile gets called", function() {
 		// get is stubbed and never really called
 		spyOn($, "get");
@@ -14,21 +20,21 @@ describe("Async file", function() {
 	it("Tests that loadFile is called with Sources.html", function() {
 		// get is stubbed and never really called
 		spyOn($, "get");
-		textLoader.loadFile("Sources.html", function(data) {
+		textLoader.loadFile("../Sources.html", function(data) {
 			console.log(data);
 		});
-		expect($.get).toHaveBeenCalledWith("Sources.html", 	jasmine.any(Function));
+		expect($.get).toHaveBeenCalledWith("../Sources.html", 	jasmine.any(Function));
 	});
 
 	it("Tests that loadFile is called with Sources.html and makes real integration call", function() {
 		// Actual call to function
 		spyOn($, "get").and.callThrough(); 
-		textLoader.loadFile("Sources.html", function(responseText) {
+		textLoader.loadFile("../Sources.html", function(responseText) {
 			console.log(responseText);
 			var fineTime = $(responseText).filter('#paragraph04').html();
 			expect(fineTime).toBe('Fine time.');			
 		});
-		expect($.get).toHaveBeenCalledWith("Sources.html",
+		expect($.get).toHaveBeenCalledWith("../Sources.html",
 				jasmine.any(Function));
 	});
 	
@@ -44,7 +50,7 @@ describe("Async file", function() {
 	});
 
 	it("Integration test makes a real AJAX request", function(done) {
-		textLoader.loadFile("Sources.html", function(responseText) {
+		textLoader.loadFile("../Sources.html", function(responseText) {
 			var bar = $(responseText).filter('#paragraph04').html();
 			expect(bar).toBe('Fine time.');
 			done();

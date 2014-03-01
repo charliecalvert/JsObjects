@@ -1,32 +1,37 @@
-function textLoader = {    
-    init : function() {
-        $(".buttonLoader").click(textLoader.clickHandler);
-    },
-    clickHandler : function() {
+var LoadText = (function() {
+	
+	function LoadText() {		
+		$(".buttonLoader").click(clickHandler);
+	}    
+
+    var clickHandler = function() {
         textLoader.switcher(this.id);
-    },
+    };
     
-    switcher : function(buttonId) {
+    var switcher = function(buttonId) {
         var queries = { 
             "buttonSource01": "#paragraph01",
             "buttonSource02": "#paragraph02",
             "buttonSource03": "#paragraph03",
         };      
+        
         var query = queries[buttonId];  
         var callback = function(responseText, textStatus, XMLHttpReques) {
             console.log("File was loaded.");        
-            var bar = $(responseText).filter(query).html();
-            $("#showSources").html(bar);
+            var textToDisplay = $(responseText).filter(query).html();
+            $("#showSources").html(textToDisplay);
         };
         this.loadFile("Sources.html", callback);        
-    },
+    };
     
-    loadFile: function(file, callback) {
+    LoadText.prototype.loadFile = function(file, callback) {
        $.get(file, callback);
-    }    
-};
+    };    
+    
+    return LoadText;
+}());
 
 $(document).ready(function() {
-	textLoader.init();	
+	new LoadText();	
 });
 

@@ -36,14 +36,14 @@ var LoadJson = (function() {
 			dataIndex++;
 			showResult(dataIndex);
 		}
-	}
+	};
 	
 	var backward = function() {
 		if (dataIndex > 0) {
 			dataIndex--;
 			showResult(dataIndex);
 		}
-	}	
+	};	
 	
 	LoadJson.prototype.loadJson = function(event) {
 		var fileName = event.data.fileName;
