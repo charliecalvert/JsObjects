@@ -16,6 +16,7 @@ describe("Client Side Suite", function() {
 	
 	it("Performs Async intergration test on readAll", function(done) {
 		mongoData.readAll(function(data) {
+			expect(data[0].firstName).toBe("Abe10000");
 			done();
 		});
 	});
