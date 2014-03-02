@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <title>Mongo Talk 04</title>
-  <link href="index.css" rel="stylesheet" type="text/css">
-  <script src="jquery-2.1.0.js"></script>
-  <script src="index.js"></script>
+  <link href="Public/index.css" rel="stylesheet" type="text/css">
+  <script src="Public/jquery-2.1.0.js"></script>
+  <script src="Public/index.js"></script>
+  <script src="Public/ClientUi.js"></script>
 </head>
 <body>
 <h1>Mongo Talk Four</h1>
@@ -18,6 +19,7 @@ some data into the "built-in" MongoDb test database.</p>
 <button id="readAll">Read All</button>
 <button id="readTwo">Read Two</button>
 <button id="newRecord">New Record</button>
+<button id="clearList">Clear List</button>
 
 <input type="number" id="numRequested" value = "3">
 <button id="readRecords">Read X Records</button>
@@ -34,5 +36,9 @@ some data into the "built-in" MongoDb test database.</p>
 <button id="showData">Show Data</button>
 
 <ul id="mongoData"> </ul>
+
+<hr />
+
+<a href="../Tests/TestClient.html">Unit Tests</a>
 </body>
 </html>

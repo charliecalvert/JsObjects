@@ -65,8 +65,9 @@ app.get('/', function(request, result) {'use strict';
 	result.end();
 });
 
-app.use("/", express.static(__dirname + '/Public'));
 app.use("/", express.static(__dirname + '/Library'));
+app.use("/Public/", express.static(__dirname + '/Public'));
+app.use("/Tests/", express.static(__dirname + '/Tests'));
 
 app.listen(30025);
 console.log('Listening on port 30025');

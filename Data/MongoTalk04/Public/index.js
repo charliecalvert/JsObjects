@@ -1,15 +1,22 @@
-var MongoData = (function() { 'use strict';
+var MongoData = (function() {'use strict';
 
 	var mongoData = null;
+	//ar that = null;
 
-	function MongoData() {		
-		$("#readAll").click(readAll);
+	function MongoData() {
+		//that = this;
+		//$("#readAll").click(ui.readAllUi);
 		$("#readTwo").click(readTwo);
 		$("#newRecord").click(insertNewDocument);
 		$("#showData").click(showData);
 		$("#readRecords").click(readDocuments);
+		$("#clearList").click(clearList);
 	}
 
+	var clearList = function() {
+		$("#mongoData").empty();
+	};
+	
 	var displayRecord = function(index) {
 		$('#firstName').html(mongoData[index].firstName);
 		$('#lastName').html(mongoData[index].lastName);
@@ -27,18 +34,32 @@ var MongoData = (function() { 'use strict';
 	function foo() {
 		var allRecords = readAll();
 	}
+
+	/*var ui = {
+		readAllUi: function() {
+			that.readAll(function(data) {
+				mongoData = data;
+				console.log(data[0]);
+				displayRecord(0);
+				clearList();
+				for (var i = 0; i < data.length; i++) {
+					$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
+				}
+			});
+		}
+	};*/
+
+	// HACK: This is temporary solution. Ultimately we will send messages to maintain
+	// loose coupling between ClientUi and index.js
+	MongoData.prototype.setData = function(data) {
+		mongoData = data;
+		displayRecord(0);
+		clearList();
+	};
 	
-	var readAll = function() {
+	MongoData.prototype.readAll = function(callback) {
 		console.log("readAll called");
-		$.getJSON('/readAll', function(data) {
-			mongoData = data;
-			console.log(data[0]);
-			displayRecord(0);
-			$("#mongoData").empty();
-			for (var i = 0; i < data.length; i++) {
-				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
-			}
-		});
+		$.getJSON('/readAll', callback);
 	};
 
 	var insertNewDocument = function() {
@@ -48,7 +69,7 @@ var MongoData = (function() { 'use strict';
 			alert(result);
 		});
 	};
-	
+
 	var readTwo = function() {
 		console.log("readTwo called");
 		$.getJSON('/readTwo', function(data) {
@@ -56,13 +77,13 @@ var MongoData = (function() { 'use strict';
 			console.log(data[0]);
 			console.log(data[1]);
 			displayRecord(0);
-			$("#mongoData").empty();
+			clearList();
 			for (var i = 0; i < data.length; i++) {
 				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
 	};
-	
+
 	var readDocuments = function() {
 		console.log("readTwo called");
 		var request = {};
@@ -72,18 +93,15 @@ var MongoData = (function() { 'use strict';
 			console.log(data[0]);
 			console.log(data[1]);
 			displayRecord(0);
-			$("#mongoData").empty();
+			clearList();
 			for (var i = 0; i < data.length; i++) {
 				$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
 			}
 		});
-		
+
 	};
 
 	return MongoData;
 })();
 
-$(document).ready(function() { 'use strict';
-	var o = new MongoData();
 
-});

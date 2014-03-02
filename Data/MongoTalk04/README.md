@@ -1,5 +1,13 @@
 # MongoTalk04
 
+# Updates
+
+- March 1- Added client side unit tests. This is a half way step to a more
+complete separation of UI and business rules. Also, we need to make sure
+the business rules and Ui don't know so much about one another. But this
+current implementation is easy to understand, if you understood the earlier
+versions of this program.
+
 Be sure you have installed Bower. On Linux:
 
 	sudo npm install -g bower
