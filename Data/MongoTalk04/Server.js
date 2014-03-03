@@ -8,6 +8,7 @@ var format = require('util').format;
 var fs = require('fs');
 var qm = require('./Library/QueryMongo');
 var queryMongo = qm.QueryMongo; 
+var markdownName = "Presidents.md";
 
 // Read the collection
 app.get('/readAll', function(request, response) {'use strict';
@@ -38,8 +39,8 @@ app.get('/newDocument', function(request, response) { 'use strict';
 	console.log("------------");
 
 	var fileContent = fs.readFileSync('Data.json', 'utf8');
-	queryMongo.insertIntoCollection(JSON.parse(fileContent));
-	response.send({ result: "Success" });
+	queryMongo.insertIntoCollection(response, JSON.parse(fileContent));
+	// response.send({ result: "Success" });
 });
 
 app.get('/hello', function(request, response) { 'use strict';
@@ -57,6 +58,23 @@ app.get('/remove', function(request, response) {'use strict';
 	response.send("remove Called");
 });
 
+app.get('/readMarkdown', function(request, response) {
+	console.log("readMarkdown called");
+	var jsonObject = queryMongo.readMarkDown('Presidents', markdownName);
+	response.send(jsonObject);
+});
+
+app.get('/insertMarkdown', function(request, response) {
+	console.log('insertMarkdown');
+	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
+	queryMongo.insertIntoCollection(response, jsonObject);
+});
+
+app.get('/readFileOut', function(request, response) {
+	console.log('readFileOut called');
+	queryMongo.readFileOut(response);
+});
+
 // Default.
 app.get('/', function(request, result) {'use strict';
 	var html = fs.readFileSync(__dirname + '/Public/index.html');
@@ -64,6 +82,11 @@ app.get('/', function(request, result) {'use strict';
 	result.write(html);
 	result.end();
 });
+
+/*
+app.get('/insertDocument', function(request, result) {
+		
+}); */
 
 app.use("/", express.static(__dirname + '/Library'));
 app.use("/Public/", express.static(__dirname + '/Public'));

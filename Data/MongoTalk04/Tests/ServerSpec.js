@@ -6,10 +6,15 @@ var request = require('request');
 
 describe("A Mongo Suite", function() { 'use strict';
 
+	var server = 'http://localhost:30025/';
+
 	it("should respond with hello there", function(done) { 
 		console.log('Calling Hello');
-		request("http://localhost:30025/hello", function(error, response, body) {
-			expect(body).toEqual("Hi there.");
+		request(server + "hello", function(error, response, body) {
+			if (typeof body === 'undefined') {
+				console.log("Is there a server running at " + server + "?");
+			}
+			expect(body).toEqual("Hi there.", "Hi there undefined");
 			done();
 		});
 	});
@@ -29,7 +34,7 @@ describe("A Mongo Suite", function() { 'use strict';
 			// Convert result from a JSON string to a JSON object
 			body = JSON.parse(body);			
 			//console.log(body);			
-			expect(body.documentCount).toEqual(9);
+			expect(body.documentCount).toBeGreaterThan(3);
 			done();
 		});
 	});
@@ -68,14 +73,18 @@ describe("A Mongo Suite", function() { 'use strict';
 			body = JSON.parse(body);
 			
 			//console.log(body);			
-			expect(body.length).toEqual(9);
+			expect(body.length).toBeGreaterThan(3);
 			done();
 		});
 	});
 	
 	it("should find George Washington in PresidentsIn.md", function(done) { 
-		console.log('Calling Hello');
+		console.log('Calling readMarkdown');
 		request("http://localhost:30025/readMarkdown", function(error, response, jsonObject) {
+			if(error) {
+				console.log("Error on call");
+				throw error;
+			}
 			console.log("Response statuscode: " + response.statusCode);
 			jsonObject = JSON.parse(jsonObject);
 			console.log(typeof jsonObject);
