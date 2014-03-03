@@ -12,7 +12,7 @@ var MongoData = (function() {'use strict';
 			$("#showData").click(showData);
 			$("#readRecords").click(readDocuments);
 			$("#clearList").click(clearList);
-			$.publish('foo', {a:'bar'});
+			$.publish('buttonsLoaded', {id: "buttonBasic", list:'readTwo, newRecord, showData, readRecords, clearList'});
 		});
 		$('#intro').load("Public/Pieces.html #introTemplate");
 
