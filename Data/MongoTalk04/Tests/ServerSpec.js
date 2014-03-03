@@ -97,8 +97,16 @@ describe("A Mongo Suite", function() { 'use strict';
 		});
 	});
 
-
-	it("should call insertIntoCollection and insert a document", function(done) {
+	it("should insertIntoCollection a JSON document", function(done) {
+		request("http://localhost:30025/insertJson", function(error, response, output) {
+			console.log("Insertmarkdown called: " + output);
+			var output = JSON.parse(output);			
+			expect(output.result).toBe('Success');				
+			done();
+		});
+	});
+	
+	it("should call insertIntoCollection and insert a markdown document", function(done) {
 		request("http://localhost:30025/insertMarkdown", function(error, response, output) {
 			console.log("Insertmarkdown called: " + output);
 			var output = JSON.parse(output);			

@@ -33,14 +33,22 @@ app.get('/readDocuments', function(request, response) { 'use strict';
 	queryMongo.getDocuments(response, numToRead);
 });
 
-app.get('/newDocument', function(request, response) { 'use strict';
+function message(message) {
 	console.log("------------");
-	console.log("Server side request for newDocument route");
+	console.log(message);
 	console.log("------------");
+}
 
-	var fileContent = fs.readFileSync('Data.json', 'utf8');
+app.get('/insertJson', function(request, response) { 'use strict';
+	message("Server side request for newDocument route");
+	var fileContent = fs.readFileSync('Presidents.json', 'utf8');
 	queryMongo.insertIntoCollection(response, JSON.parse(fileContent));
-	// response.send({ result: "Success" });
+});
+
+app.get('/insertMarkdown', function(request, response) {
+	message('insertMarkdown');
+	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
+	queryMongo.insertIntoCollection(response, jsonObject);
 });
 
 app.get('/hello', function(request, response) { 'use strict';
@@ -64,11 +72,6 @@ app.get('/readMarkdown', function(request, response) {
 	response.send(jsonObject);
 });
 
-app.get('/insertMarkdown', function(request, response) {
-	console.log('insertMarkdown');
-	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
-	queryMongo.insertIntoCollection(response, jsonObject);
-});
 
 app.get('/readFileOut', function(request, response) {
 	console.log('readFileOut called');

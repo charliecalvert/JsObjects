@@ -64,7 +64,7 @@ var MongoData = (function() {'use strict';
 
 	var insertNewDocument = function() {
 		console.log("insert New Record called");
-		$.getJSON('/newDocument', function(data) {
+		$.getJSON('/insertJson', function(data) {
 			var result = JSON.stringify(data);
 			alert(result);
 		});
