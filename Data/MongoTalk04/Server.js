@@ -62,8 +62,13 @@ app.get('/barfoo', function(request, response) { 'use strict';
 
 app.get('/remove', function(request, response) {'use strict';
 	console.log('/remove Called');
-	queryMongo.removeById();
-	response.send("remove Called");
+	queryMongo.removeById();	
+	response.send({ result: "removeAll Called"});
+});
+
+app.get('/removeAll', function(request, response) {'use strict';
+	console.log('/removeAll Called');
+	queryMongo.removeAll(response);	
 });
 
 app.get('/readMarkdown', function(request, response) {

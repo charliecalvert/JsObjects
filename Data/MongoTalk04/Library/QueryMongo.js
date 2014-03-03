@@ -12,7 +12,8 @@ var QueryMongo = (function() {'use strict';
 	var response = null;
 	var database = null;
 	var url = null;
-	var collectionName = 'test_insert';
+	// var collectionName = 'test_insert';
+	var collectionName = 'MongoTalk04Data';
 	
 	function QueryMongo() {
 		var urls = ['mongodb://127.0.0.1:27017/test',
@@ -175,6 +176,22 @@ var QueryMongo = (function() {'use strict';
 				}
 				database.close();
 				console.log("Item deleted");
+			}); 
+			
+		});
+	};
+	
+	QueryMongo.prototype.removeAll = function(response) {
+		console.log("QueryMongo.removeAll called");
+		getDatabase(function getCol(database) {
+			var collection = database.collection(collectionName);
+			collection.remove(function(err, data) {
+				if (err) {
+					throw err;
+				}
+				database.close();
+				console.log("Item deleted");
+				response.send({ result: "removeAll Called"});
 			}); 
 			
 		});

@@ -7,7 +7,39 @@ var request = require('request');
 describe("A Mongo Suite", function() { 'use strict';
 
 	var server = 'http://localhost:30025/';
+	
+	beforeEach(function() {
+		
+	});
 
+	it("should delete all records", function(done) {
+		console.log("Remove all");
+		request(server + "removeAll", function(error, response, body) {
+			body = JSON.parse(body);
+			expect(body.result).toEqual("removeAll Called", "Hi there undefined");
+			done();
+		});	
+	});
+
+	it("should insertIntoCollection a JSON document", function(done) {
+		request("http://localhost:30025/insertJson", function(error, response, output) {
+			console.log("Insertmarkdown called: " + output);
+			var output = JSON.parse(output);			
+			expect(output.result).toBe('Success');				
+			done();
+		});
+	});
+	
+	it("should call insertIntoCollection and insert a markdown document", function(done) {
+		request("http://localhost:30025/insertMarkdown", function(error, response, output) {
+			console.log("Insertmarkdown called: " + output);
+			var output = JSON.parse(output);			
+			expect(output.result).toBe('Success');				
+			done();
+		});
+	});
+	
+	
 	it("should respond with hello there", function(done) { 
 		console.log('Calling Hello');
 		request(server + "hello", function(error, response, body) {
@@ -97,23 +129,7 @@ describe("A Mongo Suite", function() { 'use strict';
 		});
 	});
 
-	it("should insertIntoCollection a JSON document", function(done) {
-		request("http://localhost:30025/insertJson", function(error, response, output) {
-			console.log("Insertmarkdown called: " + output);
-			var output = JSON.parse(output);			
-			expect(output.result).toBe('Success');				
-			done();
-		});
-	});
 	
-	it("should call insertIntoCollection and insert a markdown document", function(done) {
-		request("http://localhost:30025/insertMarkdown", function(error, response, output) {
-			console.log("Insertmarkdown called: " + output);
-			var output = JSON.parse(output);			
-			expect(output.result).toBe('Success');				
-			done();
-		});
-	});
 
 	
 	it("should read file out", function(done) {

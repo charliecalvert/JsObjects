@@ -1,14 +1,14 @@
 [
     {
-        "firstName": "George", "lastName": "Washington" 
+        "firstName": "George", "lastName": "Washington", "address": "101 June Street", "city": "Bellevue", "state": "WA" 
     },
     {
-        "firstName": "John", "lastName": "Adams" 
+        "firstName": "John", "lastName": "Adams", "address":  "101 June Street", "city": "Bellevue", "state": "WA" 
     },
     {
-        "firstName": "Thomas", "lastName": "Jefferson" 
+        "firstName": "Thomas", "lastName": "Jefferson", "address":  "101 June Street", "city": "Bellevue", "state": "WA" 
     },
     {
-        "firstName": "James", "lastName": "Madison" 
+        "firstName": "James", "lastName": "Madison", "address":  "101 June Street", "city": "Bellevue", "state": "WA" 
     }
 ]
