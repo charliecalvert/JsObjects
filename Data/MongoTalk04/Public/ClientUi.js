@@ -6,9 +6,17 @@ var ClientUi = (function() {
 	var mongoData = null;
 	
 	function ClientUi() {
-		mongoData = new MongoData();
-		$("#readAll").click(readAllUi);
+		mongoData = new MongoData(this);	
+		$.subscribe('foo', function(bar, foo) {
+			setUpButtons();
+			$("#debugPubSubHeader").text(JSON.stringify(bar, null, '\t'));
+			$("#debugPubSubContent").text(JSON.stringify(foo, null, '\t'));
+		});		
 	}
+	
+	var setUpButtons = function() {
+		$("#readAll").click(readAllUi);
+	};
 	
 	readAllUi = function() {		
 		mongoData.readAll(function(data) {

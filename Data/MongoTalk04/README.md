@@ -63,4 +63,24 @@ Now run start your server running in one shell:
 Then open a second shell and run your tests:
 
 	jasmine-node Tests/
+	
+## PubSub
+
+	{	
+		"type":"foo",
+		"timeStamp":1393874949067,
+		"jQuery210004470331803895533":true,
+		"isTrigger":3,
+		"namespace":"",
+		"namespace_re": null,
+		"target":{},
+		"delegateTarget":{},
+		"currentTarget":{},
+		"handleObj": {
+			"type":"foo",
+			"origType":"foo",
+			"guid":1,
+			"namespace":""
+		}
+	}
 

@@ -6,17 +6,22 @@ var MongoData = (function() {'use strict';
 	function MongoData() {
 		//that = this;
 		//$("#readAll").click(ui.readAllUi);
-		$("#readTwo").click(readTwo);
-		$("#newRecord").click(insertNewDocument);
-		$("#showData").click(showData);
-		$("#readRecords").click(readDocuments);
-		$("#clearList").click(clearList);
+		$('#buttonBasic').load("Public/Pieces.html #buttonTemplate", function() {			
+			$("#readTwo").click(readTwo);
+			$("#newRecord").click(insertNewDocument);
+			$("#showData").click(showData);
+			$("#readRecords").click(readDocuments);
+			$("#clearList").click(clearList);
+			$.publish('foo', {a:'bar'});
+		});
+		$('#intro').load("Public/Pieces.html #introTemplate");
+
 	}
 
 	var clearList = function() {
 		$("#mongoData").empty();
 	};
-	
+
 	var displayRecord = function(index) {
 		$('#firstName').html(mongoData[index].firstName);
 		$('#lastName').html(mongoData[index].lastName);
@@ -36,17 +41,17 @@ var MongoData = (function() {'use strict';
 	}
 
 	/*var ui = {
-		readAllUi: function() {
-			that.readAll(function(data) {
-				mongoData = data;
-				console.log(data[0]);
-				displayRecord(0);
-				clearList();
-				for (var i = 0; i < data.length; i++) {
-					$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
-				}
-			});
-		}
+	readAllUi: function() {
+	that.readAll(function(data) {
+	mongoData = data;
+	console.log(data[0]);
+	displayRecord(0);
+	clearList();
+	for (var i = 0; i < data.length; i++) {
+	$("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
+	}
+	});
+	}
 	};*/
 
 	// HACK: This is temporary solution. Ultimately we will send messages to maintain
@@ -56,7 +61,7 @@ var MongoData = (function() {'use strict';
 		displayRecord(0);
 		clearList();
 	};
-	
+
 	MongoData.prototype.readAll = function(callback) {
 		console.log("readAll called");
 		$.getJSON('/readAll', callback);
@@ -103,5 +108,4 @@ var MongoData = (function() {'use strict';
 
 	return MongoData;
 })();
-
 

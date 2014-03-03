@@ -99,6 +99,7 @@ app.get('/insertDocument', function(request, result) {
 app.use("/", express.static(__dirname + '/Library'));
 app.use("/Public/", express.static(__dirname + '/Public'));
 app.use("/Tests/", express.static(__dirname + '/Tests'));
+app.use("/Library/", express.static(__dirname + '/Library'));
 
 app.listen(30025);
 console.log('Listening on port 30025');

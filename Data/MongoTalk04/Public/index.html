@@ -6,20 +6,17 @@
   <title>Mongo Talk 04</title>
   <link href="Public/index.css" rel="stylesheet" type="text/css">
   <script src="Public/jquery-2.1.0.js"></script>
+  <script src="Library/PubSubOn.js"></script>
   <script src="Public/index.js"></script>
   <script src="Public/ClientUi.js"></script>
 </head>
 <body>
-<h1>Mongo Talk Four</h1>
-<p>A simple Node Express program with MongoDb support.</p>
 
-<p>This program assumes you have already run MongoTalk to insert 
-some data into the "built-in" MongoDb test database.</p>
+<section id="intro"> </section>
 
-<button id="readAll">Read All</button>
-<button id="readTwo">Read Two</button>
-<button id="newRecord">New Record</button>
-<button id="clearList">Clear List</button>
+<section id="buttonBasic"> </section>
+
+<hr />
 
 <input type="number" id="numRequested" value = "3">
 <button id="readRecords">Read X Records</button>
@@ -40,5 +37,13 @@ some data into the "built-in" MongoDb test database.</p>
 <hr />
 
 <a href="../Tests/TestClient.html">Unit Tests</a>
+
+<hr />
+
+<h2>PubSub Debug Info</h2>
+<p>Header: </p>
+<pre id="debugPubSubHeader"> </pre>
+<p>Content:</p>
+<pre id="debugPubSubContent"> </pre>
 </body>
 </html>
