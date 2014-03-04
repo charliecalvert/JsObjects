@@ -17,7 +17,8 @@ var LoadJson = (function() { 'use strict';
 		$("#foreButton").click(forward);
 		$("#backButton").click(backward);
 		buttons = $('#foreButton, #backButton');
-		buttons.attr("disabled", "disabled");
+		// Re the jQuery docs, we use prop, not attr.
+		buttons.prop("disabled", "disabled");
 	}
 
 	var showResult = function(index) {
@@ -50,7 +51,8 @@ var LoadJson = (function() { 'use strict';
 			showResult(0);
 			//foreButton[0].disabled = false;
 			//backButton[0].disabled = false;
-			buttons.removeAttr("disabled");
+			// buttons.removeAttr("disabled");
+			buttons.prop('disabled', false);
 		}).fail(function(jqxhr, textStatus, error) {
 			console.log("error: " + jqxhr);
 		});

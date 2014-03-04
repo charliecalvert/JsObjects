@@ -18,7 +18,7 @@ var ClientUi = (function() {
 		$("#readAll").click(readAllUi);
 	};
 	
-	readAllUi = function() {		
+	var readAllUi = function() {		
 		mongoData.readAll(function(data) {
 			mongoData.setData(data);
 			console.log(data[0]);			
