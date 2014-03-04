@@ -25,6 +25,29 @@ function test() {
 			loadFixtures('Pieces.html');
 			expect($("#introTemplate")).toContainText("Talk");
 		});
+		
+		/* 
+		it('Uses Jasmine-JQuery to spy on a button click', function(done) {
+			loadFixtures('Pieces.html');
+			var elementName = '#readAll';
+			$(elementName).click(function(data) {
+				console.log(data);
+				done();				
+			});
+			
+			// $(elementName).click(mongoData.readAll);
+			$(elementName).click();
+			
+		}); */
+		
+		it('Uses Jasmine-JQuery to spy on a button click', function() {
+			loadFixtures('Pieces.html');
+			var elementName = '#readAll';
+			var spyEvent = spyOnEvent(elementName, 'click');
+			$(elementName).click();
+			expect('click').toHaveBeenTriggeredOn(elementName);
+			expect(spyEvent).toHaveBeenTriggered();
+		});
 	});	
 	
 }
