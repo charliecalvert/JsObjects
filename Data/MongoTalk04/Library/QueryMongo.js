@@ -8,6 +8,7 @@ var MongoClient = mongodb.MongoClient;
 // var mongoServer = mongodb.Server;
 var fs = require('fs');
 var exec = require('child_process').exec;
+assert = require('assert');
 
 var QueryMongo = (function() {'use strict';
 
@@ -74,9 +75,11 @@ var QueryMongo = (function() {'use strict';
 		} else {
 			console.log('Querying for database: ' + url);
 			MongoClient.connect(url, function(err, databaseResult) {
-				if (err) {
+				/* if (err) {
 					throw err;
-				}
+				}*/
+				assert.equal(null, err);
+				assert.ok(databaseResult != null);
 				database = databaseResult;
 				// showDatabase(database);
 				callback(database);
