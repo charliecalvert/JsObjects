@@ -1,9 +1,13 @@
 var express = require('express');
+var connect = require('connect');
 var app = express();
 var fs = require('fs');
 var getNine = require('./Library/GetNine');
 var addingMachine = require('./Library/AddingMachine');
-app.use(express.bodyParser());
+
+// Instead of bodyParser
+app.use(connect.urlencoded());
+app.use(connect.json());
 
 var port = process.env.PORT || 30025;
 

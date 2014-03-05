@@ -1,8 +1,12 @@
 var express = require('express');
+var connect = require('connect');
 var app = express();
 var fs = require('fs');
 
-app.use(express.bodyParser());
+// app.use(express.bodyParser());
+app.use(connect.urlencoded());
+app.use(connect.json());
+
 var port = process.env.PORT || 30025;
 
 app.get('/getNine', function(request, response) {

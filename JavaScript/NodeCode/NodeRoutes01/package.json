@@ -1,9 +1,10 @@
 {
   "name": "NodeRoutes01",
   "description": "Simple Reading and writing of JSON",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
-    "express": "latest"
+    "express": "latest",
+    "connect": "~2.13.1"
   }
 }
