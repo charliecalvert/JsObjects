@@ -1,11 +1,8 @@
 var MongoData = (function() {'use strict';
 
 	var mongoData = null;
-	//ar that = null;
 
 	function MongoData() {
-		//that = this;
-		//$("#readAll").click(ui.readAllUi);
 		$('#buttonBasic').load("Public/Pieces.html #buttonTemplate", function() {			
 			$("#readTwo").click(readTwo);
 			$("#newRecord").click(insertNewDocument);
