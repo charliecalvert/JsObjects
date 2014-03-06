@@ -1,9 +1,14 @@
 {
-    "name": "AWSBasic", 
-	"version": "0.0.1",
-	"private": true,
-	"dependencies": {
-		"walk": "2.2.1",
-		"aws-sdk": ">0.9.0"
-	}
+  "name": "AWSBasic",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.1",
+    "walk": "2.2.1",
+    "aws-sdk": ">0.9.0"
+  },
+  "devDependencies": {
+    "winston": "~0.7.2",
+    "minimist": "0.0.8"
+  }
 }
