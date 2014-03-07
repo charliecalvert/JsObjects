@@ -8,7 +8,9 @@ PubSub.Publisher = ( function() {
 		function Publisher() {
 			new PubSub.Subscriber();
 			$("#privateButton").click(privateMethod);			
-			$.publish('debug', { message: "Publisher Constructor Called" });
+			$.publish('debug', 
+					{ message: "Publisher Constructor Called" }
+			);
 		}
 		
 		var privateMethod = function() {

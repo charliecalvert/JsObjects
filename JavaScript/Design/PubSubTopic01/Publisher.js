@@ -3,23 +3,29 @@
  */
 
 // Publisher
-PubSub.Publisher = ( function() {		
+PubSub.Publisher = (function() { 'use strict';
 
-		function Publisher() {
-			new PubSub.Subscriber();
-			$("#privateButton").click(privateMethod);
-			$.Topic('debug').publish('Publisher constructor Called');
-		}
-		
-		var privateMethod = function() {
-			$.Topic('debugDetail').publish('Publisher privateMethod called by Pub Sub');
+	function Publisher() {
+		new PubSub.Subscriber();
+		$("#privateButton").click(privateMethod);
+		var event = {
+			message : 'Publisher constructor Called',
+			acknowledge : function(value) {
+				$("#response").html(value);
+			}
 		};
+		$.Topic('debug').publish(event);
+	}
 
-		return Publisher;
+	var privateMethod = function() {
+		$.Topic('debugDetail').publish(
+				'Publisher privateMethod called by Pub Sub');
+	};
 
-	}());
+	return Publisher;
+
+}());
 
 $(document).ready(function() {
 	new PubSub.Publisher();
 });
-

@@ -16,14 +16,14 @@ PubSub.Subscriber = ( function() {
 			$.subscribe('debugDetail', function02);			
 		}
 
-		function function01(a, b) {
-			console.log(a);
-			$("#message01").html(b.message);
+		function function01(event, customMessage) {
+			console.log(event);
+			$("#message01").html(customMessage.message);
 		}
 
-		function function02(a, b) {
-			console.log(a);
-			$("#message02").html(b);
+		function function02(event, customMessage) {
+			console.log(event);
+			$("#message02").html(customMessage);
 		}
 
 		return Subscriber;

@@ -16,9 +16,10 @@ PubSub.Subscriber = ( function() {
 			$.Topic('debugDetail').subscribe(function02);			
 		}
 
-		function function01(a) {
-			console.log(a);
-			$("#message01").html(a);
+		function function01(event) {
+			console.log(event);
+			$("#message01").html(event.message);
+			event.acknowledge("From Subscriber: I got the message!");
 		}
 
 		function function02(a) {
