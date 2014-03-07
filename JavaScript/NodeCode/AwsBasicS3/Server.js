@@ -27,7 +27,7 @@ function walk() {
 
 function explain() {
 	console.log("-l listBuckets");
-	console.log("-w walkDirs")
+	console.log("-w walkDirs");
 }
 
 if (process.argv.length >= 3) {
@@ -37,7 +37,7 @@ if (process.argv.length >= 3) {
 	} else if (option.w) {
 		walk();
 	} else {	
-		explain;
+		explain();
 	}
 } else {
 	explain();

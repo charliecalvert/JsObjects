@@ -6,7 +6,6 @@
 PubSub.Publisher = (function() { 'use strict';
 
 	function Publisher() {
-		new PubSub.Subscriber();
 		$("#privateButton").click(privateMethod);
 		var event = {
 			message : 'Publisher constructor Called',
@@ -27,5 +26,6 @@ PubSub.Publisher = (function() { 'use strict';
 }());
 
 $(document).ready(function() {
+	new PubSub.Subscriber();
 	new PubSub.Publisher();
 });
