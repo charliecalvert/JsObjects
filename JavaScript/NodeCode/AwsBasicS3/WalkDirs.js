@@ -14,7 +14,13 @@ var winston = require('winston');
 
 function walkDirs(serverOptions) {
 	
-	winston.log("info", serverOptions);
+	winston.log("info", JSON.stringify(serverOptions, null, 4));
+	
+	if (serverOptions.reallyWrite) {
+		winston.log("info", "Loading config");		
+		s3Code.loadConfig(serverOptions.pathToConfig);
+	}
+		
 	var options = {
 		followLinks : false,
 	};
@@ -96,7 +102,7 @@ function walkDirs(serverOptions) {
 			winston.log("info", "Pieces of root: " + pieces);
 			var s3Dir = "";
 			// not in root of upload dir			
-			if (pieces.length === 2) { 
+			if (pieces.length >= 2) { 
 				s3Dir = pieces[pieces.length - 1];
 			}
 			

@@ -4,28 +4,47 @@
 
 
 var AWS = require('aws-sdk');
-var config = AWS.config.loadFromPath('./config.json');
-var s3 = new AWS.S3();
-
+var s3 = null;
 var fs = require("fs");
+var configLoaded = false;
 
-function listBuckets() {
+function loadConfig(pathToConfig) {
+	configLoaded = true;
+	var config = AWS.config.loadFromPath(pathToConfig);
+	s3 = new AWS.S3();
+}
+
+function configMessage() {
+	console.log("------------------------------");
+	console.log("You must call loadConfig first");
+	console.log("------------------------------");
+}
+
+function listBuckets() {	
 	console.log("calling listBuckets");
-	s3.client.listBuckets(function(err, data) {
-		if (err) {
-			console.log(err);
-		} else {
-			for (var index in data.Buckets) {
-				var bucket = data.Buckets[index];
-				console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
-			} 
-		}
-	});
+	if (!configLoaded) {
+		configMessage();
+	} else {
+		s3.client.listBuckets(function(err, data) {
+			if (err) {
+				console.log(err);
+			} else {
+				for (var index in data.Buckets) {
+					var bucket = data.Buckets[index];
+					console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
+				} 
+			}
+		});
+	}
 }
 
 function writeFile(localFileName, bucketName, nameOnS3, binary) {
 	// Read in the file, convert it to base64, store to S3
 	
+	if (!configLoaded) {
+		configMessage();
+		return;
+	}
 		
 	fs.readFile(localFileName, function(err, data) {
 		if (err) {
@@ -83,5 +102,6 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
 	});
 }
 
+exports.loadConfig = loadConfig;
 exports.writeFile = writeFile;
 exports.listBuckets = listBuckets; 
