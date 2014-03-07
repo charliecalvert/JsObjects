@@ -5,8 +5,7 @@
 // Publisher
 PubSub.Publisher = ( function() {		
 
-		function Publisher() {
-			new PubSub.Subscriber();
+		function Publisher() {			
 			$("#privateButton").click(privateMethod);			
 			$.publish('debug', 
 					{ message: "Publisher Constructor Called" }
@@ -22,6 +21,7 @@ PubSub.Publisher = ( function() {
 	}());
 
 $(document).ready(function() {
+	new PubSub.Subscriber();
 	new PubSub.Publisher();
 });
 

@@ -90,7 +90,7 @@ var QueryMongo = (function() {'use strict';
 	// If you have only on MongoClient, there is no need to call close.
 	var closeDatabase = function() {
 		database.close();
-	}
+	};
 
 	QueryMongo.prototype.getAllDocuments = function(initResponse) {
 		console.log("QueryMongo.getAllDocuments called");

@@ -6,6 +6,9 @@
 
   var o = $({});
 
+  // Should we check before doing this?
+  // Should we create an object of our own 
+  // rather than extending jQuery?
   $.subscribe = function() {
     o.on.apply(o, arguments);
   };
