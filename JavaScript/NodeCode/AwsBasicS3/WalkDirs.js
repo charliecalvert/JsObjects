@@ -7,25 +7,78 @@ var walk = require('walk');
 var s3Code = require("./S3Code");
 
 var winston = require('winston');
-// var winston = console;
 
-// winston.add(winston.transports.File, { filename: './somefile.log' });
-// winston.remove(winston.transports.Console);
+
+function setupWinston() {
+	var config = {
+		levels: {
+			silly: 0,
+			verbose: 1,
+			info: 2,
+			data: 3,
+			warn: 4,
+			debug: 5,
+			error: 6
+		},
+		colors: {
+			silly: 'magenta',
+			verbose: 'cyan',
+			info: 'green',
+			data: 'grey',
+			warn: 'yellow',
+			debug: 'blue',
+			error: 'red'
+		}
+	};
+
+	var customLevels = {
+		levels: {
+			debug: 0,
+			verbose: 1,
+			info: 2,
+			warn: 3,
+			error: 4
+		},
+		colors: {
+			debug: 'blue',
+			verbose: 'cyan',
+			info: 'green',
+			warn: 'yellow',
+			error: 'red'
+		}
+	};
+
+	var logger = new (winston.Logger)({
+		transports: [
+			new (winston.transports.Console)({
+				level: 'info',
+				colorize: true
+			}),
+		]
+	});
+
+	levels = customLevels.levels;
+	colors = customLevels.colors;
+
+	// logger.level = customLevels.levels.debug;
+	// logger.add(winston.transports.File, { filename: './winston.log' });
+	return logger;
+}
 
 function walkDirs(serverOptions) {
-	
-	winston.log("info", JSON.stringify(serverOptions, null, 4));
-	
+	var winstonLog = setupWinston();
+	winstonLog.info(JSON.stringify(serverOptions, null, 4));
+
 	if (serverOptions.reallyWrite) {
-		winston.log("info", "Loading config");		
+		winstonLog.log("details", "Loading config");
 		s3Code.loadConfig(serverOptions.pathToConfig);
 	}
-		
+
 	var options = {
 		followLinks : false,
 	};
 	var myIndexFile = "<body>\n<html><ul>\n";
-	
+
 	// We care about S3 slashes, not ours
 	var ensureFinalSlash = function(fileName) {
 		var pathSep = '/';
@@ -34,19 +87,31 @@ function walkDirs(serverOptions) {
 		}
 		return fileName;
 	};
-	
-	function createIndexFile(dir, fileName) {
-		winston.log("info", "createIndexFile called");
-		try {
-			var file = "";
-			if (dir.length > 0) {
-				file = ensureFinalSlash(dir) + fileName;
-			} else
-				file = fileName;
-			myIndexFile += '<li><a href=' + file + '>' + file + '</a>\n</li>';
+
+	function validFile(fileName) {
+		if (serverOptions.filesToIgnore.indexOf(fileName) === -1) {
+			return true;
+		} else {
+			return false;
 		}
-		catch(err) {
-			winston.log(err);
+	}
+
+	function createIndexFile(dir, fileName) {
+		winstonLog.detail("createIndexFile called");
+		if (validFile(fileName)) {
+			try {
+				var file = "";
+				if (dir.length > 0) {
+					file = ensureFinalSlash(dir) + fileName;
+				} else
+					file = fileName;
+				myIndexFile += '<li><a href=' + file + '>' + file + '</a>\n</li>';
+			}
+			catch(err) {
+				winstonLog.log(err);
+			}
+		} else {
+			winstonLog.log("info", "Skipping: " + fileName);
 		}
 	}
 
@@ -55,19 +120,19 @@ function walkDirs(serverOptions) {
 			if(err) {
 			  console.log(err);
 			} else {
-			  console.log("IndexFile saved to " + fileName);
+			  winstonLog.debug("IndexFile saved to " + fileName);
 			  s3Code.writeFile(fileName, serverOptions.bucketName, nameOnS3, false);
 			}
-		});	
+		});
 	}
-	
-	winston.log("info", "walking: " + serverOptions.folderToWalk);
-	
+
+	winstonLog.log("debug", "walking: " + serverOptions.folderToWalk);
+
 	var walker = walk.walk(serverOptions.folderToWalk, options);
 
 
 	walker.on("names", function(root, nodeNamesArray) {
-		winston.log("names called: " + root);
+		winstonLog.debug("names called: " + root);
 		nodeNamesArray.sort(function(a, b) {
 			if (a > b)
 				return 1;
@@ -78,43 +143,43 @@ function walkDirs(serverOptions) {
 	});
 
 	walker.on("directories", function(root, dirStatsArray, next) {
-		winston.log("Directory Found: " + root);
+		winstonLog.debug("Directory Found: " + root);
 		// dirStatsArray is an array of `stat` objects with the additional attributes
 		// * type
 		// * error
 		// * name
-		if (typeof dirStatsArray != 'undefined') 
-			winston.log("Directories: " + dirStatsArray.type);
+		if (typeof dirStatsArray != 'undefined')
+			winstonLog.debug("Directories: " + dirStatsArray.type);
 		next();
 	});
 
-	
+
 	walker.on("file", function(root, fileStats, next) {
-		winston.log("info", 'In File, the Root: ' + root);
-		// winston.log("fileStats.name: " + fileStats.name);
+		winstonLog.verbose('In File, the Root: ' + root);
+		// winstonLog.log("fileStats.name: " + fileStats.name);
 		if (fileStats.name === 'upLoadMe.html') {
 			console.log(fileStats);
 			console.log(root);
 		}
-		if (fileStats.name.indexOf('Thumbs.db') === -1) {
+		if (validFile(fileStats.name)) {
 			var localFileName = root + "/" + fileStats.name;
 			var pieces = root.split('/');
-			winston.log("info", "Pieces of root: " + pieces);
+			winstonLog.log("debug", "Pieces of root: " + pieces);
 			var s3Dir = "";
-			// not in root of upload dir			
-			if (pieces.length >= 2) { 
+			// not in root of upload dir
+			if (pieces.length >= 2) {
 				s3Dir = pieces[pieces.length - 1];
 			}
-			
+
 			// Build the index file
 			if (serverOptions.createIndex) {
 				try {
 					createIndexFile(s3Dir, fileStats.name);
 				} catch(err) {
-					winston.log(err);
+					winstonLog.log(err);
 				}
 			}
-			
+
 			// If we are going to put it in a folder on S3
 			if (serverOptions.createFolderToWalkOnS3) {
 				if (s3Dir.length > 0) {
@@ -123,39 +188,39 @@ function walkDirs(serverOptions) {
 					s3Dir = serverOptions.s3RootFolder;
 				}
 			}
-			
+
 			// Don't put a slash in front of files in root
 			if (s3Dir.length > 0) {
 				var s3Name = ensureFinalSlash(s3Dir) + fileStats.name;
 			} else {
 				s3Name = fileStats.name;
 			}
-			winston.log("info", "s3Name: " + s3Name);
+			winstonLog.verbose("s3Name: " + s3Name);
 			if (serverOptions.reallyWrite) {
 		 		s3Code.writeFile(localFileName, serverOptions.bucketName, s3Name, false);
 		 	}
-			
-			winston.log("leaving file");			
+
+			winstonLog.log("debug", "leaving file");
 		} else {
-			winston.log("info", "Found Thumb");
+			winstonLog.verbose("Ignoring: " + fileStats.name);
 		}
 		next();
 	});
 
 	walker.on("errors", function(root, nodeStatsArray, next) {
-		winston.log("Error: " + root);
+		winstonLog.log("Error", "Error: " + root);
 		next();
 	});
 
 	walker.on("end", function() {
-		winston.log("info", "all done");
+		winstonLog.log("info", "all done");
 		var indexName = "index.html";
-		
+
 		if (serverOptions.createIndex && serverOptions.reallyWrite) {
-			myIndexFile += '\n</ul>\n</body>\n</html>'			
+			myIndexFile += '\n</ul>\n</body>\n</html>'
 			writeToDisk(indexName, myIndexFile, ensureFinalSlash(serverOptions.s3RootFolder) + indexName);
 		}
-		
+
 		/* if (serverOptions.createFolderToWalkOnS3) {
 			var indexNameOnS3 = 'CloudNotes.html';
 			indexNameOnS3 = ensureFinalSlash(serverOptions.folderToWalk) + indexNameOnS3;

@@ -1,3 +1,4 @@
 node_modules
 CloudNotes
 config.json
+winston.log

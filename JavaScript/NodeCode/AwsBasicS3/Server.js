@@ -8,10 +8,11 @@ var options = {
 		pathToConfig: '/home/charlie/config.json',
 		reallyWrite: true, 
 		bucketName: 'bucket01.elvenware.com',
-		folderToWalk: "/home/charlie/Files",
-		s3RootFolder: "FilesTwo",
+		folderToWalk: "Files",
+		s3RootFolder: "FilesOne",
 		createFolderToWalkOnS3: true,
-		createIndex: true
+		createIndex: true,
+		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
 };	
 
 /*  

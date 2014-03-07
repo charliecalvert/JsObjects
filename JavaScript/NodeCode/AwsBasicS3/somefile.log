@@ -1,0 +1,6 @@
+{"level":"info","message":"{\n    \"pathToConfig\": \"/home/charlie/config.json\",\n    \"reallyWrite\": false,\n    \"bucketName\": \"bucket01.elvenware.com\",\n    \"folderToWalk\": \"Files\",\n    \"s3RootFolder\": \"FilesOne\",\n    \"createFolderToWalkOnS3\": true,\n    \"createIndex\": true,\n    \"filesToIgnore\": [\n        \"Thumbs.db\",\n        \".gitignore\",\n        \"MyFile.html\"\n    ]\n}","timestamp":"2014-03-07T18:06:11.613Z"}
+{"level":"info","message":"s3Name: FilesOne/Styles/index.css","timestamp":"2014-03-07T18:06:11.620Z"}
+{"level":"info","message":"s3Name: FilesOne/FolderB/File01.html","timestamp":"2014-03-07T18:06:11.621Z"}
+{"level":"info","message":"Ignoring: MyFile.html","timestamp":"2014-03-07T18:06:11.621Z"}
+{"level":"info","message":"s3Name: FilesOne/FolderA/File01.html","timestamp":"2014-03-07T18:06:11.621Z"}
+{"level":"info","message":"all done","timestamp":"2014-03-07T18:06:11.624Z"}
