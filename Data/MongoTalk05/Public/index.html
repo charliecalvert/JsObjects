@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Mongo Talk 05</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="Public/index.css" rel="stylesheet" type="text/css">
+  <script data-main="Public/Main" src="Public/require.js"> </script>
+</head>
+<body>
+
+<section id="intro"> </section>
+
+<section id="buttonBasic"> </section>
+
+<hr />
+
+<input type="number" id="numRequested" value = "3">
+<button id="readRecords">Read X Records</button>
+
+<div class="dataDisplay">
+	<p><span id="firstName"> </span> <span id="lastName"> </span></p>
+	<p><span id="address"> </span></p>
+	<p><span id="city"> </span> <span id="state"> </span> <span id="zip"> </span></p>
+</div>
+
+<hr />
+
+<input type="number" id="userIndex" value=0>
+<button id="showData">Show Data</button>
+
+<ul id="mongoData"> </ul>
+
+<hr />
+
+<ul>
+	<li><a href="../Tests/TestClient.html">Unit Tests</a></li>
+	<li><a href="../Tests/TestJQueryClient.html">Jasmine-jQuery Unit Tests</a></li>
+</ul>
+
+<hr />
+
+<h2>PubSub Debug Info</h2>
+<p>Header: </p>
+<pre id="debugPubSubHeader"> </pre>
+<p>Content:</p>
+<pre id="debugPubSubContent"> </pre>
+</body>
+</html>
