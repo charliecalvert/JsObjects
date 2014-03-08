@@ -1,4 +1,4 @@
-# PubSub Topic 01
+# PubSub Require
 
 This is an example of using the Publish Subscribe 
 pattern in JavaScript. The topic objects are found
