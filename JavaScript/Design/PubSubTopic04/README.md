@@ -7,11 +7,22 @@ here:
 - [Cowboy](https://github.com/cowboy/jquery-tiny-pubsub)
 
 This example uses requireJs to load in our JavaScript
-files. In index.html we include only one line:
+files. This means we don't need a series of **script**
+tags in our HTML. Instead, we use **require** to link
+in our JavaScript. In **index.html** we include only one line:
 
 	<script data-main="Source/Main" src="Source/require.js"></script>
 	
-This links in **Main.js**, which in turn configures **jquery** and **TinyPubSub**.
+This links in **Main.js** and **require.js**. **Main.js** in turn 
+configures **jquery** and **TinyPubSub**:
+
+	require.config({
+	  paths: {
+	    "jquery": "http://code.jquery.com/jquery-1.11.0.min",
+	    "tinyPubSub": "TinyPubSub"    
+	  }
+	});
+
 **Main.js** then pulls in **Publisher** and **Subscriber**:
 
 	require(["Subscriber", "Publisher",], function(sub, pub) {
