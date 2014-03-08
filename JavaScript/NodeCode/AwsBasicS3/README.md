@@ -13,3 +13,8 @@ It should point to your copy of config.json. The end result might
 look something like this:
 
 	var config = AWS.config.loadFromPath('config.json');
+	
+# Links
+
+- [S3 Docs on AWS](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3/Client.html)
+- [AWS Pricing](http://aws.amazon.com/pricing/s3/)
