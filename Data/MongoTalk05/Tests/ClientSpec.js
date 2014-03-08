@@ -1,37 +1,39 @@
-describe("Client Side Suite", function() {
-	
-	var mongoData = null;
-	
-	beforeEach(function() {
-		mongoData = new MongoData();		
-	});
-	
-	it("Proves Jasmine is working", function() {
-		expect(true).toBe(true);
-	});
-	
-	it("Proves we can create MongoData", function() {
-		expect(mongoData).not.toBeNull();
-	});
-	
-	it("Performs Async intergration test on readAll", function(done) {
-		mongoData.readAll(function(data) {
-			expect(data[0].firstName).toBe("George");
-			done();
+define(['clientMongo', 'pubSub'], function(clientMongo) {'use strict';
+
+	describe("Client Side Suite", function() {
+
+		/* var mongoData = null; */
+
+		beforeEach(function() {
+			
+		}); 
+
+		it("Proves Jasmine is working", function() {
+			expect(true).toBe(true);
 		});
+
+		it("Proves we can create clientMongo", function() {
+			expect(clientMongo).toBeTruthy();
+		});
+
+		it("Performs Async intergration test on readAll", function(done) {
+			clientMongo();
+			$.publish('readAll', function(data) {
+				expect(data[0].firstName).toBe("George");
+				done();
+			});
+		});
+/*
+		it("Performs a mock test - a spy - on getJSON ", function() {
+			spyOn($, "getJSON");
+			mongoData.readAll(null);
+			expect($.getJSON).toHaveBeenCalled();
+		});
+
+		it("Performs a mock test - a spy - on getJSON parameters", function() {
+			spyOn($, "getJSON");
+			mongoData.readAll(null);
+			expect($.getJSON).toHaveBeenCalledWith("/readAll", null);
+		}); */
 	});
-	
-	it("Performs a mock test - a spy - on getJSON ", function() {
-		spyOn($, "getJSON");
-		mongoData.readAll(null);
-		expect($.getJSON).toHaveBeenCalled();
-	});
-	
-	it("Performs a mock test - a spy - on getJSON parameters", function() {
-		spyOn($, "getJSON");
-		mongoData.readAll(null);
-		expect($.getJSON).toHaveBeenCalledWith("/readAll", null);
-	});
-	
-	
-});
+}); 

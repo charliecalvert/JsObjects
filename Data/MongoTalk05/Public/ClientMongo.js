@@ -1,7 +1,7 @@
 // Handle Ajax and maintain list of data 
-define('ClientMongo', function() {'use strict';
+define('clientMongo', function() {'use strict';
 
-	var mongoData = null;
+	 var mongoData = null;
 
 	function ClientMongo() {
 		console.log("Client Mongo constructor called");
@@ -48,11 +48,11 @@ define('ClientMongo', function() {'use strict';
 		request.numRequested = publishedRequest.numRequested;
 		$.getJSON('/readDocuments', request, function(data) {
 			mongoData = data;
-			publishedRequest.callback(mongoData);ss
+			publishedRequest.callback(mongoData);
 		});
 
-	};
+	}; 
 
-	return ClientMongo;
+	return ClientMongo; 
 });
 
