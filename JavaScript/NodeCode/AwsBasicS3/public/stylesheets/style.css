@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+.displayKing label {	
+	display: inline-block;
+	padding: 2px;	
+	width: 30%;
+	text-align: right;
+}
+
+.displayKing {
+	overflow: hidden;	
+	border: solid black 1px;
+	background-color: #00DDAA;	
+	width: 450px;
+	padding: 5px;
+}
+
+.displayKing p {
+	display: inline-block;
+	padding-left: 3px;
+	width:65%;    
+	border: solid black 1px;
+	background-color: #00BBFF;
+	margin: 1%;
+}

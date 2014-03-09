@@ -1,9 +1,40 @@
 extends layout
 
 block content
+  img(src="favicon.png")
   h1= title
   p Welcome to #{title}
+  
+  
+  
   button#listBuckets Get Buckets
   button#copyToS3 Copy to S3
+  hr
+  button#getOptions Get Options
+  button#backButton &lt;&lt;
+  button#forwardButton &gt;&gt;
+  
   ul#buckets
   p#copyResult
+  div.displayKing    
+    label(for='documentCount') Document Count
+    p#documentCount -
+    label(for='currentDocument') Current Document
+    p#currentDocument -
+    label(for='pathToConfig') pathToConfig 
+    p#pathToConfig -
+    label(for='reallyWrite') reallyWrite
+    p#reallyWrite -
+    label(for='bucketName') bucketName
+    p#bucketName -
+    label(for='folderToWalk') folderToWalk
+    p#folderToWalk -
+    label(for='s3RootFolder') s3RootFolder
+    p#s3RootFolder -
+    label(for='createFolderToWalkOnS3') createFolderToWalkOnS3
+    p#createFolderToWalkOnS3 -
+    label(for='createIndex') createIndex
+    p#createIndex -
+    label(for='filesToIgnore') filesToIgnore
+    p#filesToIgnore -
+    

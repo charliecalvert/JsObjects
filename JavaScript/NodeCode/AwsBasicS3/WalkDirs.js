@@ -9,7 +9,7 @@ var s3Code = require("./S3Code");
 var winston = require('winston');
 
 
-function setupWinston() { 'use strict';
+function setupWinston() {
 	var config = {
 		levels: {
 			silly: 0,
@@ -51,21 +51,21 @@ function setupWinston() { 'use strict';
 	var logger = new (winston.Logger)({
 		transports: [
 			new (winston.transports.Console)({
-				level: 'debug',
+				level: 'info',
 				colorize: true
 			}),
 		]
 	});
 
-	logger.levels = customLevels.levels;
-	logger.colors = customLevels.colors;
+	levels = customLevels.levels;
+	colors = customLevels.colors;
 
 	// logger.level = customLevels.levels.debug;
 	// logger.add(winston.transports.File, { filename: './winston.log' });
 	return logger;
 }
 
-function walkDirs(serverOptions, response) { 'use strict';
+function walkDirs(serverOptions) {
 	var winstonLog = setupWinston();
 	winstonLog.info(JSON.stringify(serverOptions, null, 4));
 
@@ -77,7 +77,7 @@ function walkDirs(serverOptions, response) { 'use strict';
 	var options = {
 		followLinks : false,
 	};
-	var myIndexFile = "<!DOCTYPE html>\n<head>\n\t<title>AwsBasicS3</title>\n</head>\n<html>\n<body>\n\t<ul>\n";
+	var myIndexFile = "<body>\n<html><ul>\n";
 
 	// We care about S3 slashes, not ours
 	var ensureFinalSlash = function(fileName) {
@@ -89,49 +89,39 @@ function walkDirs(serverOptions, response) { 'use strict';
 	};
 
 	function validFile(fileName) {
-		winstonLog.debug("validFile is called: ", fileName);
 		if (serverOptions.filesToIgnore.indexOf(fileName) === -1) {
-			winstonLog.debug("File is valid: ", fileName);
 			return true;
 		} else {
-			winstonLog.debug("File is not valid: ", fileName);
 			return false;
 		}
 	}
 
 	function createIndexFile(dir, fileName) {
-		winstonLog.debug("createIndexFile called");
-		winstonLog.debug("Valid for index: ", fileName);
+		winstonLog.detail("createIndexFile called");
 		if (validFile(fileName)) {
-			winstonLog.debug("Valid for index: ", fileName);
 			try {
-				winstonLog.debug("trying");
 				var file = "";
 				if (dir.length > 0) {
 					file = ensureFinalSlash(dir) + fileName;
 				} else
 					file = fileName;
-				myIndexFile += '\t\t<li><a href=' + file + '>' + file + '</a></li>\n';
-				winstonLog.debug("Index file: ", myIndexFile);
+				myIndexFile += '<li><a href=' + file + '>' + file + '</a>\n</li>';
 			}
 			catch(err) {
-				winstonLog.debug(err);
+				winstonLog.log(err);
 			}
 		} else {
-			winstonLog.debug("Skipping: " + fileName);
+			winstonLog.log("info", "Skipping: " + fileName);
 		}
-		winstonLog.verbose("Leaving createIndexFile");
 	}
 
 	function writeToDisk(fileName, content, nameOnS3) {
 		fs.writeFile(fileName, content, function(err) {
 			if(err) {
-				console.log(err);
+			  console.log(err);
 			} else {
-				winstonLog.debug("IndexFile saved to " + fileName);
-				if (serverOptions.reallyWrite) {
-					s3Code.writeFile(fileName, serverOptions.bucketName, nameOnS3, false);
-				}
+			  winstonLog.debug("IndexFile saved to " + fileName);
+			  s3Code.writeFile(fileName, serverOptions.bucketName, nameOnS3, false);
 			}
 		});
 	}
@@ -186,7 +176,7 @@ function walkDirs(serverOptions, response) { 'use strict';
 				try {
 					createIndexFile(s3Dir, fileStats.name);
 				} catch(err) {
-					winstonLog.debug(err);
+					winstonLog.log(err);
 				}
 			}
 
@@ -200,16 +190,15 @@ function walkDirs(serverOptions, response) { 'use strict';
 			}
 
 			// Don't put a slash in front of files in root
-			var s3Name = null;
 			if (s3Dir.length > 0) {
-				s3Name = ensureFinalSlash(s3Dir) + fileStats.name;
+				var s3Name = ensureFinalSlash(s3Dir) + fileStats.name;
 			} else {
 				s3Name = fileStats.name;
 			}
 			winstonLog.verbose("s3Name: " + s3Name);
 			if (serverOptions.reallyWrite) {
-				s3Code.writeFile(localFileName, serverOptions.bucketName, s3Name, false);
-			}
+		 		s3Code.writeFile(localFileName, serverOptions.bucketName, s3Name, false);
+		 	}
 
 			winstonLog.log("debug", "leaving file");
 		} else {
@@ -224,18 +213,12 @@ function walkDirs(serverOptions, response) { 'use strict';
 	});
 
 	walker.on("end", function() {
-		winstonLog.info("all done");
+		winstonLog.log("info", "all done");
 		var indexName = "index.html";
 
-		if (serverOptions.createIndex) {
-			winstonLog.debug(myIndexFile);
-			myIndexFile += '\t</ul>\n</body>\n</html>';
+		if (serverOptions.createIndex && serverOptions.reallyWrite) {
+			myIndexFile += '\n</ul>\n</body>\n</html>'
 			writeToDisk(indexName, myIndexFile, ensureFinalSlash(serverOptions.s3RootFolder) + indexName);
-		}
-
-		if (typeof response != 'undefined') {
-			winston.info("Sending response possible");
-			response.send({ result: "Success" });
 		}
 
 		/* if (serverOptions.createFolderToWalkOnS3) {

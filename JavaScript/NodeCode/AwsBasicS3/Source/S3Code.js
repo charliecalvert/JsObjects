@@ -7,19 +7,19 @@ var s3 = null;
 var fs = require("fs");
 var configLoaded = false;
 
-function loadConfig(pathToConfig) {
+function loadConfig(pathToConfig) {'use strict';
 	configLoaded = true;
 	var config = AWS.config.loadFromPath(pathToConfig);
 	s3 = new AWS.S3();
 }
 
-function configMessage() {
+function configMessage() {'use strict';
 	console.log("------------------------------");
 	console.log("You must call loadConfig first");
 	console.log("------------------------------");
 }
 
-function listBuckets(response, useResponse) {
+function listBuckets(response, useResponse) {'use strict';
 	console.log("calling listBuckets");
 	if (!configLoaded) {
 		configMessage();
@@ -28,11 +28,6 @@ function listBuckets(response, useResponse) {
 			if (err) {
 				console.log(err);
 			} else {
-				/* for (var index in data.Buckets) {
-				 var bucket = data.Buckets[index];
-				 console.log(bucket.Name);
-				 }*/
-
 				var bucketData = [];
 				for (var index in data.Buckets) {
 					var bucket = data.Buckets[index];
@@ -51,7 +46,7 @@ function listBuckets(response, useResponse) {
 	}
 }
 
-function writeFile(localFileName, bucketName, nameOnS3, binary) {
+function writeFile(localFileName, bucketName, nameOnS3, binary) {'use strict';
 	// Read in the file, convert it to base64, store to S3
 
 	if (!configLoaded) {

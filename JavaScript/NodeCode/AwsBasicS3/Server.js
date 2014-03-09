@@ -21,7 +21,7 @@ var options = {
 		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
 };	
 
-function explain() {
+function explain() { 'use strict';
 	console.log("========================================");
 	console.log("This program takes one of two parameters");
 	console.log("--------------");
