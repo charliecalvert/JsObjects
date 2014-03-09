@@ -10,8 +10,7 @@ define('clientMongo', function() {'use strict';
 		$.subscribe('readAll', readAll);
 		$.subscribe('readCountDocuments', readCountDocuments);
 		$.subscribe('readTwo', readTwo);
-		
-		
+		$.subscribe('removeAll', removeAll);		
 	}
 
 	var getDocument = function(event, request) {		
@@ -21,7 +20,7 @@ define('clientMongo', function() {'use strict';
 	var insertNewDocument = function(event, callback) {
 		console.log("insert New Document called");
 		$.getJSON('/insertJson', function(newData) {
-			mongoData.concat(newData.mongoDocument);			
+			mongoData = mongoData.concat(newData.mongoDocument);			
 			callback(newData.mongoDocument, mongoData);			
 		});
 	};
@@ -52,6 +51,12 @@ define('clientMongo', function() {'use strict';
 		});
 
 	}; 
+	
+	var removeAll = function(event, callback) {
+		$.getJSON('/removeAll', function(data) {
+			callback(data);
+		});
+	};
 
 	return ClientMongo; 
 });

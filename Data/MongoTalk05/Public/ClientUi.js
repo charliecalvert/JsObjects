@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define(function() {
+define('ClientUi', function() {
 
 	function ClientUi() {
 		$('#intro').load("Public/Pieces.html #introTemplate");
@@ -13,6 +13,7 @@ define(function() {
 			$("#readRecords").click(readCountDocuments);
 			$("#clearList").click(clearList);
 			$('#readAll').click(readAll);
+			$('#removeAll').click(removeAll);
 		});
 	}
 
@@ -36,8 +37,16 @@ define(function() {
 		}
 	};
 
+	var insertNewDocument = function() {
+		$.publish('insertNewDocument', function(newData, mongoData) {
+			displayDocument(newData[0]);
+			displayList(mongoData);
+		});
+	};
+
 	var readAll = function() {
 		$.publish('readAll', function(data) {
+			displayDocument(data[0]);
 			displayList(data);
 		});
 	};
@@ -60,10 +69,9 @@ define(function() {
 		});
 	};
 
-	var insertNewDocument = function() {
-		$.publish('insertNewDocument', function(newData, mongoData) {
-			displayDocument(newData[0]);
-			displayList(mongoData);
+	var removeAll = function() {
+		$.publish('removeAll', function(data) {
+			alert(JSON.stringify(data));
 		});
 	};
 

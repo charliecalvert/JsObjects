@@ -43,27 +43,6 @@ describe("A Mongo Suite", function() { 'use strict';
 		});
 	});
 
-
-	it("should respond with hello there", function(done) {
-		console.log('Calling Hello');
-		request(server + "hello", function(error, response, body) {
-			if (typeof body === 'undefined') {
-				console.log("Is there a server running at " + server + "?");
-			}
-			expect(body).toEqual("Hi there.", "Hi there undefined");
-			done();
-		});
-	});
-
-	it("should respond with goober", function(done) {
-		console.log('Calling Hello');
-		request("http://localhost:30025/barfoo", function(error, response, bar) {
-			console.log(response.statusCode);
-			expect(bar).toEqual("foobar");
-			done();
-		});
-	});
-
 	it("should get total document count", function(done) {
 		request("http://localhost:30025/getDocumentCount", function(error, response, body) {
 			console.log("Calling get Document Count");

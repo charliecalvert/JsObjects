@@ -51,15 +51,6 @@ app.get('/insertMarkdown', function(request, response) {
 	queryMongo.insertIntoCollection(response, jsonObject);
 });
 
-app.get('/hello', function(request, response) { 'use strict';
-	response.send('Hi there.');
-});
-
-app.get('/barfoo', function(request, response) { 'use strict';
-	response.send('foobar');
-});
-
-
 app.get('/remove', function(request, response) {'use strict';
 	console.log('/remove Called');
 	queryMongo.removeById();	

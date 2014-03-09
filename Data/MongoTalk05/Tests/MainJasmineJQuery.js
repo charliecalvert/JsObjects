@@ -4,14 +4,15 @@
 
 require.config({
 	paths : {
-		'testMe' : '../Public/testMe',
 		'jquery' : '../Public/jquery-2.1.0',
-		'pubSub' : '../Public/PubSubOn',
-		'clientMongo' : "../Public/ClientMongo",
+		//'pubSub' : '../Public/PubSubOn',
+		//'clientMongo' : "../Public/ClientMongo",
+		//'clientUi' : "../Public/ClientUi",
 		'jasmine' : 'Library/jasmine',
 		'jasmine-html' : 'Library/jasmine-html',
+		'jasmine-jquery' : 'Library/jasmine-jquery',
 		'boot' : 'Library/boot',
-		// 'jasmine-jquery' : 'Library/jasmine-jquery'
+		
 	},
 	shim : {
 		'jasmine' : {
@@ -24,14 +25,18 @@ require.config({
 		'boot' : {
 			deps : ['jasmine', 'jasmine-html'],
 			exports : 'jasmine'
+		},
+		'jasmine-jquery' : {
+			deps: ['boot'],
+			exports: 'jasmine-jquery'
 		}
 	}
 });
 
-require(['jquery', 'boot'], function(j, b, c) {
+require(['jquery', 'jasmine-jquery'], function(j, b, c) {
 
 	// Load the specs
-	require(["TestMeSpec", "ClientSpec"], function() {
+	require(["JQuerySpec"], function() {
 		console.log("Main called.");
 		// Initialize the HTML Reporter and execute the environment (setup by `boot.js`)
 		window.onload();
