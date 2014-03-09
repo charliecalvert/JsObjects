@@ -77,7 +77,7 @@ function walkDirs(serverOptions, response) {
 	var options = {
 		followLinks : false,
 	};
-	var myIndexFile = "<body>\n<html><ul>\n";
+	var myIndexFile = "<!DOCTYPE html>\n<head>\n\t<title>AwsBasicS3</title>\n</head>\n<html>\n<body>\n\t<ul>\n";
 
 	// We care about S3 slashes, not ours
 	var ensureFinalSlash = function(fileName) {
@@ -89,30 +89,38 @@ function walkDirs(serverOptions, response) {
 	};
 
 	function validFile(fileName) {
+		winstonLog.debug("validFile is called: ", fileName);
 		if (serverOptions.filesToIgnore.indexOf(fileName) === -1) {
+			winstonLog.debug("File is valid: ", fileName);
 			return true;
 		} else {
+			winstonLog.debug("File is not valid: ", fileName);
 			return false;
 		}
 	}
 
 	function createIndexFile(dir, fileName) {
-		winstonLog.detail("createIndexFile called");
+		winstonLog.debug("createIndexFile called");
+		winstonLog.debug("Valid for index: ", fileName);
 		if (validFile(fileName)) {
+			winstonLog.debug("Valid for index: ", fileName);			
 			try {
+				winstonLog.debug("trying");
 				var file = "";
 				if (dir.length > 0) {
 					file = ensureFinalSlash(dir) + fileName;
 				} else
 					file = fileName;
-				myIndexFile += '<li><a href=' + file + '>' + file + '</a>\n</li>';
+				myIndexFile += '\t\t<li><a href=' + file + '>' + file + '</a></li>\n';
+				winstonLog.debug("Index file: ", myIndexFile);
 			}
 			catch(err) {
-				winstonLog.log(err);
+				winstonLog.debug(err);
 			}
 		} else {
-			winstonLog.log("info", "Skipping: " + fileName);
+			winstonLog.debug("Skipping: " + fileName);
 		}
+		winstonLog.verbose("Leaving createIndexFile");
 	}
 
 	function writeToDisk(fileName, content, nameOnS3) {
@@ -121,7 +129,9 @@ function walkDirs(serverOptions, response) {
 			  console.log(err);
 			} else {
 			  winstonLog.debug("IndexFile saved to " + fileName);
-			  s3Code.writeFile(fileName, serverOptions.bucketName, nameOnS3, false);
+			   if (serverOptions.reallyWrite) {
+			  	s3Code.writeFile(fileName, serverOptions.bucketName, nameOnS3, false);
+			  }
 			}
 		});
 	}
@@ -176,7 +186,7 @@ function walkDirs(serverOptions, response) {
 				try {
 					createIndexFile(s3Dir, fileStats.name);
 				} catch(err) {
-					winstonLog.log(err);
+					winstonLog.debug(err);
 				}
 			}
 
@@ -215,9 +225,10 @@ function walkDirs(serverOptions, response) {
 	walker.on("end", function() {
 		winstonLog.info("all done");
 		var indexName = "index.html";
-
-		if (serverOptions.createIndex && serverOptions.reallyWrite) {
-			myIndexFile += '\n</ul>\n</body>\n</html>';
+		
+		if (serverOptions.createIndex) {
+			winstonLog.debug(myIndexFile);
+			myIndexFile += '\t</ul>\n</body>\n</html>';			
 			writeToDisk(indexName, myIndexFile, ensureFinalSlash(serverOptions.s3RootFolder) + indexName);
 		}
 		

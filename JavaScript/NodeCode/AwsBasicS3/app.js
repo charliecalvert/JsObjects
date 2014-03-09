@@ -40,7 +40,7 @@ var options = {
 	reallyWrite : true,
 	bucketName : 'bucket01.elvenware.com',
 	folderToWalk : "Files",
-	s3RootFolder : "FilesEight",
+	s3RootFolder : "FilesNine",
 	createFolderToWalkOnS3 : true,
 	createIndex : true,
 	filesToIgnore : ['Thumbs.db', '.gitignore', 'MyFile.html']
