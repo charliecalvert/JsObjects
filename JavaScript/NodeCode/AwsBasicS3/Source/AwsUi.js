@@ -16,7 +16,7 @@ var AwsUi = (function() {
 	
 	var copyToS3 = function() {
 		$.getJSON("/copyToS3", function(data) {
-			alert(JSON.stringify(data));			
+			$("#copyResult").html("Result: " + data.result);			
 		});
 	};
 
