@@ -2,20 +2,20 @@
 
 // Handle user input with minimist
 var minimist = require('minimist');
-var walkDirs = require("./WalkDirs").walkDirs;
-var s3Code = require("./S3Code");
+var walkDirs = require("./Source/WalkDirs").walkDirs;
+var s3Code = require("./Source/S3Code");
 
 /*
  * You will need to edit the following. Before filling
  * it out, see the README file for this project.
  */
 var options = {
-		//pathToConfig: '/home/charlie/config.json',
-		pathToConfig: 'c:\\src\\config\\config.json',
+		pathToConfig: '/home/charlie/config.json',
+		//pathToConfig: 'c:\\src\\config\\config.json',
 		reallyWrite: true, 
 		bucketName: 'bucket01.elvenware.com',
-		folderToWalk: "C:/Temp/CloudNotes",
-		s3RootFolder: "FilesFour",
+		folderToWalk: "Files",
+		s3RootFolder: "FilesSix",
 		createFolderToWalkOnS3: true,
 		createIndex: true,
 		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
@@ -40,7 +40,7 @@ if (process.argv.length >= 3) {
 	var option = minimist(process.argv.slice(2));	
 	if (option.l) {
 		s3Code.loadConfig(options.pathToConfig);
-		s3Code.listBuckets();
+		s3Code.listBuckets(null, false);
 	} else if (option.u) {
 		walkDirs(options);
 	} else {	

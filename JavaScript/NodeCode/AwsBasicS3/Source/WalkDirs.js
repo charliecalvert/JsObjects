@@ -65,7 +65,7 @@ function setupWinston() {
 	return logger;
 }
 
-function walkDirs(serverOptions) {
+function walkDirs(serverOptions, response) {
 	var winstonLog = setupWinston();
 	winstonLog.info(JSON.stringify(serverOptions, null, 4));
 
@@ -213,14 +213,19 @@ function walkDirs(serverOptions) {
 	});
 
 	walker.on("end", function() {
-		winstonLog.log("info", "all done");
+		winstonLog.info("all done");
 		var indexName = "index.html";
 
 		if (serverOptions.createIndex && serverOptions.reallyWrite) {
-			myIndexFile += '\n</ul>\n</body>\n</html>'
+			myIndexFile += '\n</ul>\n</body>\n</html>';
 			writeToDisk(indexName, myIndexFile, ensureFinalSlash(serverOptions.s3RootFolder) + indexName);
 		}
-
+		
+		if (typeof response != 'undefined') {
+			winston.info("Sending response possible");
+			response.send({ Result: "Success" });
+		}
+		
 		/* if (serverOptions.createFolderToWalkOnS3) {
 			var indexNameOnS3 = 'CloudNotes.html';
 			indexNameOnS3 = ensureFinalSlash(serverOptions.folderToWalk) + indexNameOnS3;

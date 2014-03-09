@@ -2,7 +2,6 @@
  * @author Charlie Calvert
  */
 
-
 var AWS = require('aws-sdk');
 var s3 = null;
 var fs = require("fs");
@@ -20,7 +19,7 @@ function configMessage() {
 	console.log("------------------------------");
 }
 
-function listBuckets() {	
+function listBuckets(response, useResponse) {
 	console.log("calling listBuckets");
 	if (!configLoaded) {
 		configMessage();
@@ -29,10 +28,24 @@ function listBuckets() {
 			if (err) {
 				console.log(err);
 			} else {
+				/* for (var index in data.Buckets) {
+				 var bucket = data.Buckets[index];
+				 console.log(bucket.Name);
+				 }*/
+
+				var bucketData = [];
 				for (var index in data.Buckets) {
 					var bucket = data.Buckets[index];
-					console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
-				} 
+					var bucketDetails = "Bucket: " + bucket.Name + ' : ' + bucket.CreationDate;
+					if (!useResponse) {
+						console.log(bucketDetails);
+					} else {
+						bucketData.push(bucketDetails);
+					}
+				}
+				if (useResponse) {
+					response.send(bucketData);
+				}
 			}
 		});
 	}
@@ -40,12 +53,12 @@ function listBuckets() {
 
 function writeFile(localFileName, bucketName, nameOnS3, binary) {
 	// Read in the file, convert it to base64, store to S3
-	
+
 	if (!configLoaded) {
 		configMessage();
 		return;
 	}
-		
+
 	fs.readFile(localFileName, function(err, data) {
 		if (err) {
 			throw err;
@@ -55,16 +68,16 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
 			console.log("Making binary");
 			data = new Buffer(data, 'binary').toString('base64');
 		}
-		
+
 		var ext = localFileName.split('.').pop();
-		
+
 		var contentType = 'text/html';
 		switch(ext) {
 			case 'db':
 				return;
-				
+
 			case 'htm':
-			case 'html': 
+			case 'html':
 				break;
 			case 'js':
 				contentType = 'application/x-javascript';
@@ -90,11 +103,11 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
 			console.log("Writing: " + bucketName + "/" + nameOnS3);
 		} else {
 			s3.client.putObject({
-				ACL: 'public-read',
+				ACL : 'public-read',
 				Bucket : bucketName,
 				Key : nameOnS3,
 				Body : data,
-				ContentType: contentType
+				ContentType : contentType
 			}, function(resp) {
 				console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType);
 			});
@@ -104,4 +117,4 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
 
 exports.loadConfig = loadConfig;
 exports.writeFile = writeFile;
-exports.listBuckets = listBuckets; 
+exports.listBuckets = listBuckets;
