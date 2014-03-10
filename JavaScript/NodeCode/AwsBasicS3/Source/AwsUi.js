@@ -1,21 +1,27 @@
-var AwsUi = ( function() {
+var AwsUi = ( function() { 'use strict';
 
 		var buttons = null;
 		var options = null;
+		var transformOptions = null;
 		var dataIndex = 0;
+		var dataIndexTransform = 0;
 
 		function AwsUi() {
 			$("#listBuckets").click(listBuckets);
 			$("#copyToS3").click(copyToS3);
 			$("#getOptions").click(getOptions);
+			$("#transformForwardButton").click(forwardTransform);
+			$("#tranformBackButton").click(backwardTransform);
 			$("#forwardButton").click(forward);
 			$("#backButton").click(backward);
+			
 			$("#buildAll").click(buildAll);
+			getBuildConfig();
 			getOptions();
-		};		
+		}		
 		
 		var buildAll = function() {
-			$.getJSON("/buildAll", function(result) {
+			$.getJSON("/buildAll", {options: JSON.stringify(transformOptions), index: dataIndexTransform }, function(result) {
 				$("#buildData").empty();
 				var fileArray = result.data.split("\n");
 				for (var i = 0; i < fileArray.length; i++) {
@@ -32,6 +38,13 @@ var AwsUi = ( function() {
 			});
 		};
 
+		var displayTransformConfig = function(options) {
+			$("#pathToPython").html(options.pathToPython);
+			$("#copyFrom").html(options.copyFrom);
+			$("#copyTo").html(options.copyTo);
+			$("#filesToCopy").html(options.filesToCopy);	
+		};
+		
 		var displayOptions = function(options) {
 			$("#currentDocument").html(dataIndex + 1);
 			$("#pathToConfig").html(options.pathToConfig);
@@ -44,6 +57,14 @@ var AwsUi = ( function() {
 			$("#filesToIgnore").html(options.filesToIgnore);
 		};
 
+		var getBuildConfig = function() {
+			$.getJSON("/getBuildConfig", function(optionsInit) {
+				transformOptions = optionsInit;								 
+				displayTransformConfig(transformOptions[dataIndexTransform]);
+			}).fail(function(a) {
+				alert(JSON.stringify(a));
+			});
+		};
 		var getOptions = function() {
 			$.getJSON("/getOptions", function(optionsInit) {
 				options = optionsInit;
@@ -54,6 +75,22 @@ var AwsUi = ( function() {
 			});
 		};
 
+		var forwardTransform = function() {
+			if (dataIndexTransform < options.length - 1) {
+				dataIndexTransform++;
+				displayTransformConfig(transformOptions[dataIndexTransform]);
+			}
+		};
+
+		var backwardTransform = function() {
+			if (dataIndexTransform > 0) {
+				dataIndexTransform--;
+				displayTransformConfig(transformOptions[dataIndexTransform]);
+				return dataIndexTransform;
+			}
+			return dataIndexTransform;
+		};
+		
 		var forward = function() {
 			if (dataIndex < options.length - 1) {
 				dataIndex++;
@@ -71,7 +108,7 @@ var AwsUi = ( function() {
 		};
 
 		var listBuckets = function() {
-			$.getJSON("/listBuckets", function(data) {
+			$.getJSON("/listBuckets", {options: JSON.stringify(options[dataIndex])}, function(data) {
 				for (var i = 0; i < data.length; i++) {
 					$("#buckets").append("<li>" + data[i] + "</li>");
 				}
@@ -81,6 +118,6 @@ var AwsUi = ( function() {
 		return AwsUi;
 	}());
 
-$(document).ready(function() {
+$(document).ready(function() { 'use strict';
 	new AwsUi();
 });

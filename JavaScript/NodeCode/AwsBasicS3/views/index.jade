@@ -7,9 +7,21 @@ block content
   
   
   
-  button#listBuckets Get Buckets
-  button#buildAll Copy with Build All
+  button#buildAll Transform and copy
+  button#tranformBackButton &lt;&lt;
+  button#transformForwardButton &gt;&gt;
+  div.displayKing    
+    label(for='pathToPython') Path to Python
+    p#pathToPython -
+    label(for='copyFrom') Copy from
+    p#copyFrom -
+    label(for='copyTo') Copy to 
+    p#copyTo -
+    label(for='filesToCopy') Files to copy
+    p#filesToCopy -
+  
   hr
+  button#listBuckets Get Buckets
   button#copyToS3 Copy to S3
   button#getOptions Get Options
   button#backButton &lt;&lt;

@@ -38,17 +38,23 @@ app.get('/', routes.index);
 
 app.get('/users', user.list);
 
+/*
+ * You will need to edit one or more objects in Options.json. 
+ * They have this general format
+
 var options = {
-	pathToConfig : '/home/charlie/config.json',
-	//pathToConfig: 'c:\\src\\config\\config.json',
-	reallyWrite : true,
-	bucketName : 'bucket01.elvenware.com',
-	folderToWalk : "Files",
-	s3RootFolder : "FilesNine",
-	createFolderToWalkOnS3 : true,
-	createIndex : true,
-	filesToIgnore : ['Thumbs.db', '.gitignore', 'MyFile.html']
+		pathToConfig: '/home/charlie/config.json',		
+		reallyWrite: true, 
+		bucketName: 'bucket01.elvenware.com',
+		folderToWalk: "Files",
+		s3RootFolder: "FilesTwo",
+		createFolderToWalkOnS3: true,
+		createIndex: true,
+		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
 };
+ 
+ * Before filling it out, see the README file for this project. 
+ */	
 
 app.get('/getOptions', function(request, response) {'use strict';
 	var options = fs.readFileSync("Options.json", 'utf8');
@@ -57,6 +63,8 @@ app.get('/getOptions', function(request, response) {'use strict';
 });
 
 app.get('/listBuckets', function(request, response) {'use strict';
+	var options = JSON.parse(request.query.options);
+	console.log("ListBuckets: ", options.pathToConfig);
 	s3Code.loadConfig(options.pathToConfig);
 	s3Code.listBuckets(response, true);
 });
@@ -68,10 +76,13 @@ app.get('/copyToS3', function(request, response) {'use strict';
 	walkDirs(options, response);
 });
 
-var buildAll = function(response) {
+var buildAll = function(response, config, index) { 'use strict';
 	console.log("BuildAll was called");
+	// var config = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');	
+	// config = JSON.parse(config);
+	var command = config[index].pathToPython + " MarkdownTransform.py -i " + index;	
 	try {
-		exec('./BuildAll.py', function callback(error, stdout, stderr) {
+		exec(command, function callback(error, stdout, stderr) {
 			// Read in the HTML send the HTML to the client
 			console.log("convertToHtml was called er: ", error);
 			console.log("convertToHtml was called so: ", stdout);
@@ -84,9 +95,17 @@ var buildAll = function(response) {
 	}
 };
 
-app.get('/buildAll', function(request, response) {
-	console.log("buildAll called");
-	buildAll(response);
+app.get('/buildAll', function(request, response) { 'use strict';
+	console.log("buildAll called");	
+	var options = JSON.parse(request.query.options);
+	buildAll(response, options, request.query.index);
+});
+
+app.get('/getBuildConfig', function(request, response) { 'use strict';
+	console.log('getBuildConfig called');
+	var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
+	options = JSON.parse(options);
+	response.send(options);
 });
 
 http.createServer(app).listen(app.get('port'), function() {'use strict';

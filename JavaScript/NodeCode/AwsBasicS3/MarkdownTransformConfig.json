@@ -1,0 +1,18 @@
+[
+	{
+		"pathToPython": "C:\\Python\\Python33\\Python.exe",
+		"copyFrom": "C:\\Users\\Charlie\\DropBox\\StackEdit",
+		"copyTo": "C:\\Users\\Public\\Documents\\TestSite\\Site",
+		"filesToCopy": ["DropBox", "MongoMark", "Test", "index"]
+	}, {
+		"pathToPython": "C:\\Python\\Python33\\Python.exe",
+		"copyFrom": "C:\\Users\\Charlie\\DropBox\\StackEdit",
+		"copyTo": "C:\\Temp\\Site",
+		"filesToCopy": ["DropBox", "MongoMark", "Test", "index"]
+	}, {
+		"pathToPython": "/usr/bin/python3.3",
+		"copyFrom": "/home/charlie/Dropbox/StackEdit",
+		"copyTo": "/var/www/bc",
+		"filesToCopy": ["DropBox", "MongoMark", "Test", "index"]
+	}
+]

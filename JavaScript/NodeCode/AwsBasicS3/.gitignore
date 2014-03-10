@@ -1,4 +1,5 @@
 node_modules
+Deploy
 CloudNotes
 Files
 MySite
@@ -7,4 +8,3 @@ winston.log
 foo.txt
 BuildAll.py
 .pydevproject
-
