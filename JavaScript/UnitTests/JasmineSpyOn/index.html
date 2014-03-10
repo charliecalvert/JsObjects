@@ -1,54 +1,52 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="utf-8" />                
-        <title>Elvenware Jasmine Spy</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="favicon.png">
-        <link href="Styles/index.css" rel="stylesheet" type="text/css" />        
-        <script src="Library/jquery-2.0.3.js"></script>
-        <script src="Source/LoadJson.js"></script>
-        <script src="Source/LoadText.js"></script>
-    </head>
-    <body>
-        <h1>Elvenware Jasmine Spies, JSON and HTML</h1>
-        
-        <div>
-        	<p>This project retrieves a small amount of JSON from a server.</p>
-            
-            
-            
-            <p>Press the button to retreive JSON from the server: </p>
-            <button id='loadJson'>Load Data</button>
-            <button id="backButton">&lt;&lt;</button>
-            <button id="foreButton">&gt;&gt;</button>
-			<div class="displayKing">				
+	<head>
+		<meta charset="utf-8" />
+		<title>Elvenware Jasmine Spy</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.png">
+		<link href="Styles/index.css" rel="stylesheet" type="text/css" />
+		<script src="Library/jquery-2.0.3.js"></script>
+		<script src="Source/LoadJson.js"></script>
+		<script src="Source/LoadText.js"></script>
+	</head>
+	<body>
+		<h1>Elvenware Jasmine Spies, JSON and HTML</h1>
+
+		<div>
+			<p>This project retrieves a small amount of JSON from a server.</p>
+
+			<p>Press the button to retreive JSON from the server: </p>
+			<button id='loadJson'>Load Data</button>
+			<button id="backButton">&lt;&lt;</button>
+			<button id="foreButton">&gt;&gt;</button>
+			<div class="displayKing">
 				<label>Name:       </label> <p id="showJsonName">0</p>
 				<label>Hit Points: </label>	<p id="showJsonHitPoints">0</p>
-				<label>Damage:     </label> <p id="showJsonDamage">0</p> 
-			</div>			
-			
+				<label>Damage:     </label> <p id="showJsonDamage">0</p>
+			</div>
+
 			<h2>Shelley</h2>
 			<button class="buttonLoader" id="buttonSource01">Ozymandias</button>
 			<button class="buttonLoader" id="buttonSource02">Wild West Wind</button>
 			<button class="buttonLoader" id="buttonSource03">Stanzas</button>
-			
+
 			<p class="displayKing" id="showSources"> </p>
-			
+
 			<!-- Unit Tests -->
-			
+
 			<h2>Unit Tests</h2>
-			
+
 			<p>Async unit tests for Jasmine 2.0 and later.</p>
-			
-			<a href="Test01.html">Unit Test</a>           
-			
+
+			<a href="Test01.html">Unit Test</a>
+
 			<p>Look at the tests. They are the main purpose of this project.</p>
-			
+
 			<ul>
 				<li><a href="Test/TestJsonLoader.js">TestJsonLoader</a></li>
 				<li><a href="Test/Test01.js">Test01</a></li>
 			</ul>
-        </div>
-    </body>
+		</div>
+	</body>
 </html>

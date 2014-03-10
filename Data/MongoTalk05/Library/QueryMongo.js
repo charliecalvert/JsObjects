@@ -8,7 +8,7 @@ var MongoClient = mongodb.MongoClient;
 // var mongoServer = mongodb.Server;
 var fs = require('fs');
 var exec = require('child_process').exec;
-assert = require('assert');
+var assert = require('assert');
 
 var QueryMongo = (function() {'use strict';
 

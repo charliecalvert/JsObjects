@@ -4,7 +4,7 @@
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "/var/www/bc",
-		"s3RootFolder": "FilesTwo",
+		"s3RootFolder": "FilesFour",
 		"createFolderToWalkOnS3": true,
 		"createIndex": false,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
@@ -22,7 +22,7 @@
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "CloudNotes",
-		"s3RootFolder": "FilesThree",
+		"s3RootFolder": "FilesFive",
 		"createFolderToWalkOnS3": true,
 		"createIndex": true,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
