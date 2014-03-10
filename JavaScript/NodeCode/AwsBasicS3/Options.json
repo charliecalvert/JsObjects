@@ -3,10 +3,10 @@
 		"pathToConfig": "/home/charlie/config.json",
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
-		"folderToWalk": "CloudNotes",
-		"s3RootFolder": "FilesFive",
+		"folderToWalk": "/var/www/bc",
+		"s3RootFolder": "FilesTwo",
 		"createFolderToWalkOnS3": true,
-		"createIndex": true,
+		"createIndex": false,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
 	}, {
 		"pathToConfig": "c:\\src\\config\\config.json",
@@ -22,7 +22,7 @@
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "CloudNotes",
-		"s3RootFolder": "FilesSeven",
+		"s3RootFolder": "FilesThree",
 		"createFolderToWalkOnS3": true,
 		"createIndex": true,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]

@@ -8,8 +8,9 @@ block content
   
   
   button#listBuckets Get Buckets
-  button#copyToS3 Copy to S3
+  button#buildAll Copy with Build All
   hr
+  button#copyToS3 Copy to S3
   button#getOptions Get Options
   button#backButton &lt;&lt;
   button#forwardButton &gt;&gt;
@@ -38,3 +39,6 @@ block content
     label(for='filesToIgnore') filesToIgnore
     p#filesToIgnore -
     
+  div.displayKing
+    h2 Files Copied
+    ul#buildData -

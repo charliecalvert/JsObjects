@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3.3
 "Replace CRLF with LF in argument files.  Print names of changed files."
 
 import sys, os, locale
@@ -31,7 +31,7 @@ def main():
 	#s = u'\x1A'
 	#print(s.encode())	
 	#return 
-	for filename in sys.argv[1:]:
+	for fileName in sys.argv[1:]:
 		convert(fileName)
 
 if __name__ == '__main__':

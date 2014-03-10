@@ -17,22 +17,22 @@ class MarkdownToHtml:
 		self.templateNames = ['StartBasic.html', 'NavBasic.html', 'footer.html', 'end.html']
 		self.normalHtml = 0;
 		self.revealHtml = 1;
-		
+
 	def setData(self, copyFrom, destination):
 		self.copyFrom=copyFrom
 		self.destination=destination
 		elfFiles.ensuredir(self.destination)
-		
+
 	def getTemplateFile(self, fileName):
 		#templateDir = os.environ['GIT_WRITING'] + 'Tech{0}Scripts{0}Templates'.format(os.sep)
 		return elfFiles.getFileContent(self.templateDir + os.sep + fileName)
-		
+
 	def makeHeadings(self, sourceFolder, fileName, technique):
-		print("Call makeHeadings")
+		# print("Call makeHeadings")
 		makeHeadings = FindHeadings()
 		sourceName = "{0}{1}".format(sourceFolder, fileName);
 		return makeHeadings.parseReplaceHtml(sourceName, technique)
-		
+
 	def runPandoc(self, sourceFolder, fileName):
 		cmd = 'pandoc -t HTML5 --output={0}{1}{2}.htm {0}{1}{2}.md'
 		cmd = cmd.format(sourceFolder, os.sep, fileName)
@@ -46,23 +46,23 @@ class MarkdownToHtml:
 		data += self.getTemplateFile(self.templateNames[2])
 		data += self.getTemplateFile(self.templateNames[3])
 		return data;
-		
+
 	def createFullHtml(self, sourceFolder, fileName, targetFolder, technique):
 		sourceFolder = elfFiles.ensureFinalSlash(sourceFolder)
 		self.runPandoc(sourceFolder, fileName)
 		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)
 		baseName = sourceFolder + fileName;
-		data = self.concatFiles(baseName, headings)	
+		data = self.concatFiles(baseName, headings)
 		tempName = sourceFolder + "Temp.html"
 		elfFiles.saveTextFile(tempName, data);
 		finalName = baseName + '.html';
 		ReplaceStringInFile.replaceIt(tempName, finalName, 'TempTitleStringToReplace', fileName)
 		crlf.convert(finalName)
-		elfFiles.copyFile(finalName, elfFiles.ensureFinalSlash(targetFolder) + fileName + '.html') 
+		elfFiles.copyFile(finalName, elfFiles.ensureFinalSlash(targetFolder) + fileName + '.html')
 
 	def runPandocReveal(self, sourceFolder, fileName):
 		cmd = 'pandoc --section-divs -t html5 -s --template {2} --output={0}{1}.htm {0}{1}.md'
-		
+
 		# reveal = self.getTemplateFile('template.revealjs');
 		reveal = elfFiles.ensureFinalSlash(self.templateDir) + 'template.revealjs';
 		cmd = cmd.format(sourceFolder, fileName, reveal)
@@ -81,10 +81,9 @@ class MarkdownToHtml:
 		return tempName
 
 	def createReveal(self, sourceFolder, fileName, targetFolder, technique):
-		sourceFolder = elfFiles.ensureFinalSlash(sourceFolder);		
-		#tempName = self.createTempMarkdown(sourceFolder, fileName, headings)
+		sourceFolder = elfFiles.ensureFinalSlash(sourceFolder);
 		self.runPandocReveal(sourceFolder, fileName)
-		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)		
+		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)
 		baseName = sourceFolder + fileName;
 		#data = elfFiles.getFileContent(baseName + '.htm')
 		tempName = sourceFolder + fileName + ".htm"
@@ -95,7 +94,7 @@ class MarkdownToHtml:
 		ReplaceStringInFile.replaceIt(tempName, skipName, 'toc', headings)
 		ReplaceStringInFile.replaceIt(skipName, finalName, 'TempTitleStringToReplace', fileName)
 		crlf.convert(finalName)
-		elfFiles.copyFile(finalName, elfFiles.ensureFinalSlash(targetFolder) + fileName + '.html') 
+		elfFiles.copyFile(finalName, elfFiles.ensureFinalSlash(targetFolder) + fileName + '.html')
 
 	def runReveal(self, files):
 		for fileName in files:

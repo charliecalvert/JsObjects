@@ -1,0 +1,14 @@
+{
+    "pathToConfig": "/home/charlie/config.json",
+    "reallyWrite": true,
+    "bucketName": "bucket01.elvenware.com",
+    "folderToWalk": "/var/www/bc",
+    "s3RootFolder": "FilesNine",
+    "createFolderToWalkOnS3": true,
+    "createIndex": false,
+    "filesToIgnore": [
+        "Thumbs.db",
+        ".gitignore",
+        "MyFile.html"
+    ]
+}

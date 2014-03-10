@@ -10,19 +10,24 @@ var AwsUi = ( function() {
 			$("#getOptions").click(getOptions);
 			$("#forwardButton").click(forward);
 			$("#backButton").click(backward);
+			$("#buildAll").click(buildAll);
 			getOptions();
-		};
-
-		var listBuckets = function() {
-			$.getJSON("/listBuckets", function(data) {
-				for (var i = 0; i < data.length; i++) {
-					$("#buckets").append("<li>" + data[i] + "</li>");
+		};		
+		
+		var buildAll = function() {
+			$.getJSON("/buildAll", function(result) {
+				$("#buildData").empty();
+				var fileArray = result.data.split("\n");
+				for (var i = 0; i < fileArray.length; i++) {
+					if (fileArray[i].length > 0) { 
+						$("#buildData").append("<li>" + fileArray[i] + "</li>");
+					}
 				}
 			});
-		};
+		};		
 
 		var copyToS3 = function() {
-			$.getJSON("/copyToS3", {options: options[dataIndex]}, function(data) {
+			$.getJSON("/copyToS3", {options: JSON.stringify(options[dataIndex])}, function(data) {
 				$("#copyResult").html("Result: " + data.result);
 			});
 		};
@@ -30,12 +35,12 @@ var AwsUi = ( function() {
 		var displayOptions = function(options) {
 			$("#currentDocument").html(dataIndex + 1);
 			$("#pathToConfig").html(options.pathToConfig);
-			$("#reallyWrite").html(options.reallyWrite);
+			$("#reallyWrite").html(options.reallyWrite ? "true" : "false");
 			$("#bucketName").html(options.bucketName);
 			$("#folderToWalk").html(options.folderToWalk);
 			$("#s3RootFolder").html(options.s3RootFolder);
-			$("#createFolderToWalkOnS3").html(options.createFolderToWalkOnS3);
-			$("#createIndex").html(options.createIndex);
+			$("#createFolderToWalkOnS3").html(options.createFolderToWalkOnS3 ? "true" : "false");
+			$("#createIndex").html(options.createIndex ? "true" : "false");
 			$("#filesToIgnore").html(options.filesToIgnore);
 		};
 
@@ -65,6 +70,14 @@ var AwsUi = ( function() {
 			return false;
 		};
 
+		var listBuckets = function() {
+			$.getJSON("/listBuckets", function(data) {
+				for (var i = 0; i < data.length; i++) {
+					$("#buckets").append("<li>" + data[i] + "</li>");
+				}
+			});
+		};
+		
 		return AwsUi;
 	}());
 

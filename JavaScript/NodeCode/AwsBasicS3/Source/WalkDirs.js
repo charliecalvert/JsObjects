@@ -99,8 +99,8 @@ function walkDirs(serverOptions, response) { 'use strict';
 		}
 	}
 
-	function createIndexFile(dir, fileName) {
-		winstonLog.debug("createIndexFile called");
+	function buildIndexFile(dir, fileName) {
+		winstonLog.debug("buildIndexFile called");
 		winstonLog.debug("Valid for index: ", fileName);
 		if (validFile(fileName)) {
 			winstonLog.debug("Valid for index: ", fileName);
@@ -120,7 +120,7 @@ function walkDirs(serverOptions, response) { 'use strict';
 		} else {
 			winstonLog.debug("Skipping: " + fileName);
 		}
-		winstonLog.verbose("Leaving createIndexFile");
+		winstonLog.verbose("Leaving buildIndexFile");
 	}
 
 	function writeToDisk(fileName, content, nameOnS3) {
@@ -164,6 +164,13 @@ function walkDirs(serverOptions, response) { 'use strict';
 	});
 
 
+	function weAreInBareRoot(root, folderToWalk) {
+		var len = folderToWalk.length;
+		var endOfRoot = root.substr(root.length - len);
+		winstonLog.debug(endOfRoot + " -- " + folderToWalk);
+		return endOfRoot === folderToWalk;		
+	}
+	
 	walker.on("file", function(root, fileStats, next) {
 		winstonLog.verbose('In File, the Root: ' + root);
 		// winstonLog.log("fileStats.name: " + fileStats.name);
@@ -176,15 +183,20 @@ function walkDirs(serverOptions, response) { 'use strict';
 			var pieces = root.split('/');
 			winstonLog.log("debug", "Pieces of root: " + pieces);
 			var s3Dir = "";
-			// not in root of upload dir
-			if (pieces.length >= 2) {
+			
+			// not in root of upload dir. We don't create that dir here.'
+			// if (pieces[pieces.length - 1] != serverOptions.folderToWalk) {
+			if (!weAreInBareRoot(root, serverOptions.folderToWalk)) {
+				winstonLog.info("GOOD LOG: ", pieces[pieces.length -1]);
 				s3Dir = pieces[pieces.length - 1];
+			} else {
+				winstonLog.info("BAD LOG: ", pieces[pieces.length -1]);
 			}
 
 			// Build the index file
 			if (serverOptions.createIndex) {
 				try {
-					createIndexFile(s3Dir, fileStats.name);
+					buildIndexFile(s3Dir, fileStats.name);
 				} catch(err) {
 					winstonLog.debug(err);
 				}
@@ -224,10 +236,11 @@ function walkDirs(serverOptions, response) { 'use strict';
 	});
 
 	walker.on("end", function() {
-		winstonLog.info("all done");
-		var indexName = "index.html";
+		winstonLog.info("all done: ", serverOptions.createIndex);		
 
 		if (serverOptions.createIndex) {
+			winstonLog.debug("Writing index");
+			var indexName = "index.html";
 			winstonLog.debug(myIndexFile);
 			myIndexFile += '\t</ul>\n</body>\n</html>';
 			writeToDisk(indexName, myIndexFile, ensureFinalSlash(serverOptions.s3RootFolder) + indexName);
