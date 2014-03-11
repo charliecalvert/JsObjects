@@ -1,6 +1,6 @@
 {
-  "name": "Static Site",
-  "version": "0.0.1",
+  "name": "StaticSite",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node NodeStatic.js"

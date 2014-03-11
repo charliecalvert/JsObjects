@@ -6,9 +6,11 @@ var static = require('node-static');
  * See: https://github.com/cloudhead/node-static
  */
 var file = new static.Server('./Site');
+var port = 30025;
 
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {
         file.serve(request, response);
-    }).resume();
-}).listen(30025);
+    }).resume();	
+}).listen(port);
+console.log("Listing on port:", port);
