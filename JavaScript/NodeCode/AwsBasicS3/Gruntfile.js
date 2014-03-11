@@ -80,7 +80,7 @@ module.exports = function(grunt) {'use strict';
 			deploy : {
 				src : ['app.js', 'Server.js', 'MarkdownTransform.py', 
 					'views/*.jade', 'Source/*.js', 'Images/*.png', 'Images/*.ico', 
-					'public/stylesheets/*.css', 'routes/*.js',
+					'public/stylesheets/*.css', 'routes/*.js', 'package.json',
 					'Options.json', 'OptionsServer.json', 'MarkdownTransformConfig.json'],
 				dest : 'Deploy/',
 			}
