@@ -32,11 +32,27 @@ On Windows I set up my enviornment variables with this batch file that I call **
     ECHO before these variables take effect.
     ECHO =========================
 
+I maintain **SetEnvironmentVariables** in [JsObjects](https://github.com/charliecalvert/JsObjects/blob/master/Utilities/InstallScripts/SetEnvironmentVariables.bat).
+
 ## The Config File
 
 Note that you will need to edit config.json to include your
 AWS key. Note also that you will need to edit the options
 found in Server.js.
+
+You need to get the access keys from the [AWS security page](https://console.aws.amazon.com/iam/home?#security_credential) and put them in **config.json**:
+
+    { "accessKeyId": "ACCESS KEY HERE", "secretAccessKey": "SECRET KEY HERE", "region": "us-east-1" }
+
+You need to replace the strings **ACCESS KEY HERE** and **SECRET KEY HERE** with your access and secret keys from AWS.
+
+Your access key will look like this: **AKIAIOSFODNN7EXAMPLE**
+
+Your secret key will look like this: **wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY**
+
+More information is available in the [AWS security credential docs](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html): 
+
+## The Options
 
 When editing the Options class, you will should be careful
 when specifying paths in Windows. Do not use a single
