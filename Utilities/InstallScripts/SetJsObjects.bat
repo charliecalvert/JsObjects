@@ -1,0 +1,6 @@
+@ECHO OFF
+
+REM SetX GITHUB %USERPROFILE%\Documents\GitHub
+SetX GITHUB C:\Src\Git
+SetX JSOBJECTS %GITHUB%\JsObjects
+ECHO JSOBJECTS now equals: %JSOBJECTS%

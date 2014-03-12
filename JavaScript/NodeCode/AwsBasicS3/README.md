@@ -3,7 +3,36 @@ AwsBasicS3
 
 An example of how to use Node JS to upload files to S3.
 
-# The Config File
+## Set Up
+
+You need to be sure you have the environmonent variables JSOBJECTS and PYTHON path set up correctly. I have the following at the bottom of my .bashrc file:
+
+    export JSOBJECTS=$HOME/Git/JsObjects/
+    export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$JSOBJECTS/Python/Utils/RegEx/:
+
+You may need to tweak the first of these two lines slightly to fit the set up on your system.
+
+On Windows I set up my enviornment variables with this batch file that I call **SetEnvionmentVariables.bat:**
+
+    @ECHO OFF
+    
+    ECHO =========================
+    SetX GITHUB %USERPROFILE%\Documents\GitHub
+    REM Setx GITHUB C:\Src\Git
+    SetX JSOBJECTS %GITHUB%\JsObjects
+    
+    set BASE=%JSOBJECTS%\Python
+    SetX PYTHONPATH %BASE%;%BASE%\Utils;%BASE%\RegEx;%BASE%
+    ECHO =========================
+    ECHO GITHUB = %GITHUB%
+    ECHO JSOBJECTS = %JSOBJECTS%
+    ECHO PYTHONPATH = %PYTHONPATH%
+    ECHO =========================
+    ECHO You will need to restart this command window 
+    ECHO before these variables take effect.
+    ECHO =========================
+
+## The Config File
 
 Note that you will need to edit config.json to include your
 AWS key. Note also that you will need to edit the options

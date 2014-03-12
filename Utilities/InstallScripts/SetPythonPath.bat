@@ -1,2 +1,5 @@
+@ECHO OFF
+CALL SetJsObjects.bat
 set BASE=%JSOBJECTS%\Python
 SetX PYTHONPATH %BASE%;%BASE%\Utils;%BASE%\RegEx;%BASE%
+ECHO %PYTHONPATH%
