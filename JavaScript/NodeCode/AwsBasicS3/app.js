@@ -69,6 +69,8 @@ app.get('/getOptions', function(request, response) {'use strict';
 });
 
 app.get('/listBuckets', function(request, response) {'use strict';
+    console.log("ListBuckets called");
+    console.log(request.query);
 	var options = JSON.parse(request.query.options);
 	console.log("ListBuckets: ", options.pathToConfig);
 	s3Code.loadConfig(options.pathToConfig);

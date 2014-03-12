@@ -20,6 +20,7 @@
     "grunt-contrib-jshint": "^0.8.0",
     "grunt-contrib-compress": "^0.7.0",
     "grunt-contrib-copy": "^0.5.0",
-    "grunt-strip-code": "^0.1.2"
+    "grunt-strip-code": "^0.1.2",
+    "request": "~2.34.0"
   }
 }
