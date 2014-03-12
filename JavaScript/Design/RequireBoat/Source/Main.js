@@ -8,8 +8,7 @@ require.config({
   }
 });
 
-require(["Boat", "Car"], function(boat, car) {
-	console.log("Main called.");
+require([ "Boat", "Car" ], function(boat, car) { 'use strict';
 	boat.describe();
 	car.describe();
 	car.talk();
