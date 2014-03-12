@@ -72,7 +72,40 @@ The pathToConfig property should point to your
 copy of config.json. This file contains your
 Security key linked from the main menu (the one
 with your name) in AWS.
-	
+
+## Copying Files on Linux
+
+This programs works with two sites:
+
+- A staging site.
+- The release site on S3
+
+On Linux, I typically use **/var/www/bc** as my staging site. Then I access it by typing the following in the address bar of my browser:
+
+    http://localhost/bc
+    
+For security reasons, by default, you do not have rights to write to **/var/www/bc**. Since we talking about a staging site, and not a release site, there is usually little reason to be overly concerned about security. As a result, I simply give myself full rights to copy files to the site:
+
+    sudo chown charlie:charlie /var/www/bc
+    
+This is a more flexible way to say the same thing:
+
+    sudo chown $USER:$USER /var/www/bc
+
+Before running **chown** we can use the list (ls) command to see that **/var/www/bc** is owned by root:
+
+    charlie@mongovbox:~$ ls -l /var/www/
+    total 12
+    drwxr-xr-x  5 root    root    4096 Mar 10 14:39 bc
+    -rw-r--r--  1 root    root     177 Feb 14 23:10 index.html
+    
+Next we run **chown** and check the results with the list command:
+
+    charlie@mongovbox:~$ sudo chown $USER:$USER /var/www/bc
+    charlie@mongovbox:~$ ls -l /var/www/
+    total 12
+    drwxr-xr-x 5 charlie charlie 4096 Mar 10 14:39 bc
+    -rw-r--r-- 1 root    root     177 Feb 14 23:10 index.html
 	
 # Links
 
