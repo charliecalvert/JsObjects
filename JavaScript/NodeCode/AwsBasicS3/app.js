@@ -3,8 +3,8 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
+//var routes = require('./routes');
+//var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var walkDirs = require("./Source/WalkDirs").walkDirs;
@@ -16,8 +16,8 @@ var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 30025);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -34,9 +34,15 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', function(request, response) {
+    var html = fs.readFileSync(__dirname + '/public/index.html');
+    response.writeHeader(200, {"Content-Type": "text/html"});   
+    response.write(html);
+    response.end();
+});
 
-app.get('/users', user.list);
+//app.get('/', routes.index);
+// app.get('/users', user.list);
 
 /*
  * You will need to edit one or more objects in Options.json. 

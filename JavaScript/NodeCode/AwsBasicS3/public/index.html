@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AwsBasicS3</title>
+        <link rel="shortcut icon" href="favicon16.png">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script data-main="Main" src="require.js"> </script>
+        <!-- script src="jquery-1.11.0.js"></script>
+        <script src="AwsUi.js"></script -->
+    </head>
+    <body>
+        <h1>AwsBasicS3</h1>        
+        <p>Welcome to AwsBasicS3</p>
+        <div>
+        <img src="Bar02.png">
+        </div>
+        <button id="buildAll">Transform and copy</button>
+        <button id="tranformBackButton">&lt;&lt;</button>
+        <button id="transformForwardButton">&gt;&gt;</button>
+        <p id="copyResultA"></p>
+        <div class="displayKing">
+            <label for="pathToPython">Path to Python</label>
+            <p id="pathToPython">-</p>
+            <label for="copyFrom">Copy from</label>
+            <p id="copyFrom">-</p>
+            <label for="copyTo">Copy to</label>
+            <p id="copyTo">-</p>
+            <label for="filesToCopy">Files to copy</label>
+            <p id="filesToCopy">-</p>
+        </div>        
+        <div>
+        <img src="Bar02.png">
+        </div>
+        <button id="listBuckets">Get Buckets</button>
+        <button id="copyToS3"> Copy to S3 </button>
+        <button id="getOptions"> Get Options </button>
+        <button id="backButton"> &lt;&lt; </button>
+        <button id="forwardButton"> &gt;&gt; </button>
+        <ul id="buckets"></ul>
+        
+        
+        <div class="displayKing">
+            <label for="documentCount">Document Count</label>
+            <p id="documentCount">-</p>
+            <label for="currentDocument">Current Document</label>
+            <p id="currentDocument">-</p>
+            <label for="pathToConfig">pathToConfig</label>
+            <p id="pathToConfig">-</p>
+            <label for="reallyWrite">reallyWrite</label>
+            <p id="reallyWrite">-</p>
+            <label for="bucketName">bucketName</label>
+            <p id="bucketName">-</p>
+            <label for="folderToWalk">folderToWalk</label>
+            <p id="folderToWalk">-</p>
+            <label for="s3RootFolder">s3RootFolder</label>
+            <p id="s3RootFolder">-</p>
+            <label for="createFolderToWalkOnS3">createFolderToWalkOnS3</label>
+            <p id="createFolderToWalkOnS3">-</p>
+            <label for="createIndex">createIndex</label>
+            <p id="createIndex">-</p>
+            <label for="filesToIgnore">filesToIgnore</label>
+            <p id="filesToIgnore">-</p>
+        </div>
+        <div>
+        <img src="Bar02.png">
+        </div>
+        <div class="displayKing">            
+            <h2>Files Copied</h2>
+            <ul id="buildData">
+            </ul>
+        </div>
+    </body>
+</html>
