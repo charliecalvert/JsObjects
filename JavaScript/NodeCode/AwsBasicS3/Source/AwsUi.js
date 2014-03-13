@@ -81,7 +81,7 @@ define(['jquery'], function() {'use strict';
     };
 
     var forwardTransform = function() {
-        if (dataIndexTransform < options.length - 1) {
+        if (dataIndexTransform < transformOptions.length - 1) {
             dataIndexTransform++;
             displayTransformConfig(transformOptions[dataIndexTransform]);
         }
