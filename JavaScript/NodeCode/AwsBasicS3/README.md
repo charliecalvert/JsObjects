@@ -7,7 +7,7 @@ An example of how to use Node JS to upload files to S3.
 
 You need to be sure you have the environmonent variables JSOBJECTS and PYTHON path set up correctly. I have the following at the bottom of my .bashrc file:
 
-    export JSOBJECTS=$HOME/Git/JsObjects/
+    export JSOBJECTS=$HOME/Git/JsObjects
     export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$JSOBJECTS/Python/Utils/RegEx/:
 
 You may need to tweak the first of these two lines slightly to fit the set up on your system.

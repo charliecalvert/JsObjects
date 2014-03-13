@@ -6,7 +6,7 @@ Setx GITHUB C:\Src\Git
 SetX JSOBJECTS %GITHUB%\JsObjects
 
 set BASE=%JSOBJECTS%\Python
-SetX PYTHONPATH %BASE%;%BASE%\Utils;%BASE%\RegEx;%BASE%
+SetX PYTHONPATH %BASE%;%BASE%\Utils;%BASE%\RegEx;
 ECHO =========================
 ECHO GITHUB = %GITHUB%
 ECHO JSOBJECTS = %JSOBJECTS%
