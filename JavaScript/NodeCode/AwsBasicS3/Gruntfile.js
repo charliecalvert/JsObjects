@@ -78,7 +78,7 @@ module.exports = function(grunt) {'use strict';
 				dest : process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
 			},		
 			deploy : {
-				src : ['app.js', 'Server.js', 'MarkdownTransform.py', 
+				src : ['app.js', 'Server.js', 'MarkdownTransform.py', 'public/index.html', 
 					'views/*.jade', 'Source/*.js', 'Images/*.png', 'Images/*.ico', 
 					'public/stylesheets/*.css', 'routes/*.js', 'package.json',
 					'Options.json', 'OptionsServer.json', 'MarkdownTransformConfig.json'],
