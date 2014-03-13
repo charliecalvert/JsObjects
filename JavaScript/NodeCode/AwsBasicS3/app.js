@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-app.get('/', function(request, response) {
+app.get('/', function(request, response) { 'use strict';
     var html = fs.readFileSync(__dirname + '/public/index.html');
     response.writeHeader(200, {"Content-Type": "text/html"});   
     response.write(html);

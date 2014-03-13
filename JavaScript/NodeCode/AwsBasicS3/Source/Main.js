@@ -9,7 +9,7 @@ require.config({
   }
 });
 
-require(["awsui"], function(awsui) {
+require(["awsui"], function(awsui) { 'use strict';
 	console.log("Main called.");
 	awsui();
 });
