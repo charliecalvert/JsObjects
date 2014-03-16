@@ -13,7 +13,12 @@ App.MongoQuery = ( function showData() {
             $('#musicians').click({ collectionName : collections[1] }, read);
             $('#deleteData').click(deleteData);
             $('#insertData').click(insertData);
+            $('#clearList').click(clearList);
         }
+        
+        var clearList = function(event) {
+            $("#mongoData").empty();
+        };
 
         var read = function(event) {
             $.getJSON('/read', { collectionName : event.data.collectionName }, 

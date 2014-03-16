@@ -6,14 +6,13 @@
 
 var MongoClient = require('mongodb').MongoClient;
 var mongodb = require('mongodb');
-// Required for deleting by ID.
 var fs = require('fs');
-// Need Express to read from the JSON file.
+var collectionList = require('./CollectionList').CollectionList;
+
 
 var QueryMongo = (function() {'use strict';
     
-    var database = null;
-    var collectionList = [];
+    var database = null;    
     var url = null;
     var url01 = 'mongodb://127.0.0.1:27017/test';
     var url02 = 'mongodb://192.168.2.19:27017/test';
@@ -51,29 +50,6 @@ var QueryMongo = (function() {'use strict';
         console.log("Exiting getDatabase");
     };
 
-    // Given a collection name, get the index of it in the collection list
-    var getCollectionListIndex = function(collectionName) {
-        for (var i = 0; i < collectionList.length; i++) {
-            if (collectionName === collectionList[i].collectionName) {
-                return i;
-            }
-        }  
-        return - 1;
-    };
-    
-    // Maintain a list of collections
-    var getCollection = function(collectionName) {
-        message("Collection List Length: " + collectionList.length);        
-        var index = getCollectionListIndex(collectionName);
-        
-        if (index === -1) {
-            var collection = database.collection(collectionName);
-            collectionList.push(collection);            
-            return collection;
-        } else {
-            return collectionList[index];
-        }       
-    };   
 
     QueryMongo.prototype.getCollectionData = function(initResponse, collectionName) {
         console.log("getCollection called");
@@ -83,9 +59,9 @@ var QueryMongo = (function() {'use strict';
         getDatabase(response, collectionName, function(response, collectionName, database) {
             console.log("In getCollection callback: " + collectionName);
 
-            var currentCollection = getCollection(collectionName);
+            var collection = collectionList.getCollectionByName(database, collectionName);
 
-            currentCollection.find().toArray(function(err, theArray) {
+            collection.find().toArray(function(err, theArray) {
                 if (err) {
                     console.log("Error in getCollection: " + err);
                 }
@@ -103,7 +79,7 @@ var QueryMongo = (function() {'use strict';
         message("QueryMongo.insertIntoCollection called: " + collectionName);        
         console.log(objectToInsert[0]);
         getDatabase(response, collectionName, function(response, collectionName, database) {
-            var collection = getCollection(collectionName);
+            var collection = collectionList.getCollectionByName(database, collectionName);
             if (collection !== null) {
                 collection.insert(objectToInsert, function(err, docs) {
                     if (err) {
@@ -122,7 +98,7 @@ var QueryMongo = (function() {'use strict';
     QueryMongo.prototype.removeAll = function(response, collectionName) {
         console.log("QueryMongo.removeAll called");
         getDatabase(response, collectionName, function (response, collectionName, database) {            
-            var collection = getCollection(collectionName);
+            var collection = collectionList.getCollectionByName(database, collectionName);
             if (collection !== null) {
                 collection.remove(function(err, data) {
                     if (err) {
