@@ -11,16 +11,10 @@ var fs = require('fs');
 // Need Express to read from the JSON file.
 
 var QueryMongo = (function() {'use strict';
-
+    
     var database = null;
+    var collectionList = [];
     var url = null;
-    // The URL to connect to the Mongo DB. Read from config.json in constructor.
-    var targetCollection = null;
-    // The collection name for this project (midterm).
-    var collectionObjectTCO = null;
-    // The local collection for Transform Copy Options.
-    var collectionObjectCTA = null;
-    // The local collection for Copy to AWS Options.
     var url01 = 'mongodb://127.0.0.1:27017/test';
     var url02 = 'mongodb://192.168.2.19:27017/test';
     var url03 = 'mongodb://192.168.2.34:27017/test';
@@ -57,25 +51,31 @@ var QueryMongo = (function() {'use strict';
         console.log("Exiting getDatabase");
     };
 
-    var getCollection = function(collectionName) {
-        var currentCollection = null;
-        if (collectionName === 'multiPresidents') {
-            console.log("Getting collectionObjectTCO");
-            if (collectionObjectTCO === null) {
-                collectionObjectTCO = database.collection(collectionName);
+    // Given a collection name, get the index of it in the collection list
+    var getCollectionListIndex = function(collectionName) {
+        for (var i = 0; i < collectionList.length; i++) {
+            if (collectionName === collectionList[i].collectionName) {
+                return i;
             }
-            return collectionObjectTCO;
-        } else if (collectionName === 'multiMusicians') {
-            console.log("Getting collectionObjectCTA");
-            if (collectionObjectCTA === null) {
-                collectionObjectCTA = database.collection(collectionName);
-            }
-            return collectionObjectCTA;
-        }
-        return null;
+        }  
+        return - 1;
     };
+    
+    // Maintain a list of collections
+    var getCollection = function(collectionName) {
+        message("Collection List Length: " + collectionList.length);        
+        var index = getCollectionListIndex(collectionName);
+        
+        if (index === -1) {
+            var collection = database.collection(collectionName);
+            collectionList.push(collection);            
+            return collection;
+        } else {
+            return collectionList[index];
+        }       
+    };   
 
-    QueryMongo.prototype.getCollection = function(initResponse, collectionName) {
+    QueryMongo.prototype.getCollectionData = function(initResponse, collectionName) {
         console.log("getCollection called");
         console.log("collectionName is " + collectionName);
         var response = initResponse;

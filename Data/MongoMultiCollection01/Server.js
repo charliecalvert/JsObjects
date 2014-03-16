@@ -20,7 +20,7 @@ app.get('/read', function(request, response) {
 	console.log('read route called');
 	var collectionName = request.query.collectionName;
 	console.log('request.query.collectionName: ', collectionName);
-	queryMongo.getCollection(response, collectionName);	
+	queryMongo.getCollectionData(response, collectionName);	
 });
 
 app.get('/insertData', function(request, response) {
