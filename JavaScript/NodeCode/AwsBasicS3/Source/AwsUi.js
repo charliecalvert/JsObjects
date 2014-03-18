@@ -124,7 +124,3 @@ define(['jquery'], function() {'use strict';
 
     return AwsUi;
 });
-/*
- $(document).ready(function() { 'use strict';
- new AwsUi();
- }); */
