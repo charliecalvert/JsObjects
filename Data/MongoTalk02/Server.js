@@ -62,7 +62,7 @@ var QueryMongo = (function() {
 app.get('/read', function(request, response) {
 	console.log('read route called');
 	var q = new QueryMongo();
-	var data = q.getData(response);	
+	q.getData(response);	
 });
 
 // Default.
