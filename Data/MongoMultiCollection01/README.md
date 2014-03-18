@@ -1,4 +1,4 @@
-MongoTalk02
+Mongo Multi-Collection
 ===========
 
 The example shows how to maintain a list of multiple collections from

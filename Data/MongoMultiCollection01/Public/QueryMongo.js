@@ -25,9 +25,9 @@ var QueryMongo = (function() {'use strict';
         url = url05;
     }// End constructor
 
-    function message(message) {
+    function message(messageToShow) {
         console.log("------------");
-        console.log(message);
+        console.log(messageToShow);
         console.log("------------");
     }
     
@@ -107,7 +107,7 @@ var QueryMongo = (function() {'use strict';
                     console.log("Item deleted");
                     response.send({ result : "removeAll Called" });
                 });
-            };
+            }
         });    
     };
     

@@ -3,7 +3,7 @@
  */
 
 // Maintain a list of MongoDb collections
-var CollectionList = (function() {
+var CollectionList = (function() { 'use strict';
 
     var collectionList = [];
     
