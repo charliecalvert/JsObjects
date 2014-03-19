@@ -45,10 +45,16 @@ app.get('/insertJson', function(request, response) { 'use strict';
 	queryMongo.insertIntoCollection(response, JSON.parse(fileContent));
 });
 
-app.get('/insertMarkdown', function(request, response) {
+app.get('/insertMarkdown', function(request, response) { 'use strict';
 	message('insertMarkdown');
 	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
 	queryMongo.insertIntoCollection(response, jsonObject);
+});
+
+app.get('/update', function(request, response) { 'use strict';
+	message('insertMarkdown');
+	var jsonObject = request.query.president;
+	queryMongo.updateCollection(response, jsonObject);
 });
 
 app.get('/remove', function(request, response) {'use strict';

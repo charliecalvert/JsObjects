@@ -42,7 +42,7 @@ module.exports = function(grunt) { 'use strict';
 		clean :	{
 			work: {
 				src : [ 
-					"**/node_modules/**", 
+					"**/node_modules/**"
 				]
 			},
 			

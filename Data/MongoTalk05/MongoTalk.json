@@ -1,0 +1,9 @@
+{
+    "urls": [
+        "mongodb://127.0.0.1:27017/test",
+        "mongodb://192.168.2.24:27017/test",
+        "mongodb://192.168.2.34:27017/test",
+        "mongodb://USERNAME:PASSWORD@dsXXXX.mongolab.com:XXXX/elvenlab01",
+        "mongodb://192.168.56.101:27017/test"
+    ]
+}

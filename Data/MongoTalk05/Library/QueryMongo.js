@@ -1,3 +1,5 @@
+/* jshint devel: true */
+
 /**
  * @author Charlie Calvert
  */
@@ -23,14 +25,20 @@ var QueryMongo = (function() {'use strict';
 	 */
 	var callClose = false;
 
-	function QueryMongo() {
-		var urls = ['mongodb://127.0.0.1:27017/test',
-			'mongodb://192.168.2.19:27017/test',
-			'mongodb://192.168.2.34:27017/test',
-			'mongodb://charlie:foobar@ds049848.mongolab.com:49848/elvenlab01/test',
-			'mongodb://192.168.56.101:27017/test'];
-
-		url = urls[3];
+	function QueryMongo() {		
+		var configName = "C:\\Users\\Charlie\\Config\\MongoTalk.json";
+		
+		var urls = fs.readFile(configName, function(err, urls) {
+			if (err) {
+				console.log(err);
+				console.log("This program requires a config file");
+				console.log("Please put MongoTalk.json somewhere we can find it.");
+			} else {
+				urls = JSON.parse(urls);
+				url = urls.urls[1];
+				console.log("The Mongo URL:" + url);
+			}
+		});
 	}
 
 	function showDatabase(database, deep) {
@@ -148,6 +156,22 @@ var QueryMongo = (function() {'use strict';
 		getDatabase(function getCol(database) {
 			var collection = database.collection(collectionName);
 			collection.insert(objectToInsert, function(err, docs) {
+				if (err) {
+					throw err;
+				}
+				if (callClose) { closeDatabase(); }
+				console.log("insert succeeded");
+				response.send({ result: "Success", mongoDocument: docs });
+			});
+		});
+	};
+	
+	// Will create collection if it does not exist
+	QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
+		console.log("QueryMongo.insertIntoCollection called");
+		getDatabase(function getCol(database) {
+			var collection = database.collection(collectionName);
+			collection.update(objectToInsert, function(err, docs) {
 				if (err) {
 					throw err;
 				}

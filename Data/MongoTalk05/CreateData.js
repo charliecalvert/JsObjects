@@ -10,9 +10,9 @@ var fs = require('fs');
 
 var QueryMongo = (function() {'use strict';
 
-	var url01 = 'mongodb://127.0.0.1:27017/test';
-	var url02 = 'mongodb://192.168.2.19:27017/test';
-	var url03 = 'mongodb://192.168.56.101:27017/test';
+	var urls = ['mongodb://127.0.0.1:27017/test',
+	            'mongodb://192.168.2.19:27017/test',
+	            'mongodb://192.168.56.101:27017/test'];
 
 	function QueryMongo() {
 
@@ -23,7 +23,7 @@ var QueryMongo = (function() {'use strict';
 		console.log('Called getData');
 
 		// Open the test database that comes with MongoDb
-		MongoClient.connect(url01, function(err, database) {
+		MongoClient.connect(urls[0], function(err, database) {
 			if (err) {
 				throw err;
 			}
@@ -50,8 +50,10 @@ var QueryMongo = (function() {'use strict';
 	};
 
 	var insertCollection = function(database) {
-		var collection = database.collection('test_insert');
-		for (var count = 10000; count < 10005; count++) {
+		var count,
+			collection = database.collection('test_insert');
+		
+		for (count = 10000; count < 10005; count++) {
 			var newRecord = {
 				firstName : "Abe" + count,
 				"lastName" : "Lincoln" + count,
@@ -95,7 +97,7 @@ var QueryMongo = (function() {'use strict';
 
 	return QueryMongo;
 
-})();
+}());
 
 var q = new QueryMongo();
 q.getData('insert');
