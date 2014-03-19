@@ -1,8 +1,11 @@
 # MongoTalk04
 
-# Updates
+## Updates
 
-- March 1- Added client side unit tests. This is a half way step to a more
+- March 19: Added two examples to ServerSpec of how to update documents in the database.
+- March 18: Added the ability to initialize the app (read in the target database) from
+a config file. 
+- March 1: Added client side unit tests. This is a half way step to a more
 complete separation of UI and business rules. Also, we need to make sure
 the business rules and Ui don't know so much about one another. But this
 current implementation is easy to understand, if you understood the earlier
