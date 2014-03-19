@@ -9,7 +9,8 @@ a single database. It contains:
 - MongoDb
 
 Please make sure you are using the correct URL from the top of
-the MongoQuery.js file:
+the MongoTalk.json file. You may also need to configure where
+you place that file, which can be done by looking at LoadConfig.js :
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
 	var url02 = 'mongodb://192.168.2.19:27017/test';

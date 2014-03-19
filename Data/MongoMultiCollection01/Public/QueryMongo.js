@@ -8,21 +8,21 @@ var MongoClient = require('mongodb').MongoClient;
 var mongodb = require('mongodb');
 var fs = require('fs');
 var collectionList = require('./CollectionList').CollectionList;
-
+var loadConfig = require('./LoadConfig.js').loadConfig;
 
 var QueryMongo = (function() {'use strict';
     
     var database = null;    
     var url = null;
-    var url01 = 'mongodb://127.0.0.1:27017/test';
-    var url02 = 'mongodb://192.168.2.19:27017/test';
-    var url03 = 'mongodb://192.168.2.34:27017/test';
-    var url04 = 'mongodb://192.168.56.101:27017/test';
-    var url05 = 'mongodb://charlie:foobar@ds049848.mongolab.com:49848/elvenlab01';
+  
 
     // Constructor.
-    function QueryMongo() {
-        url = url05;
+    function QueryMongo() {        
+        loadConfig(function(urls) {         
+            urls = JSON.parse(urls);
+            url = urls.urls[1];
+            console.log("The Mongo URL:" + url);
+        });
     }// End constructor
 
     function message(messageToShow) {
