@@ -5,7 +5,7 @@
 var fs = require('fs');
 var os = require('os');
 
-function getConfigName() {
+function getConfigName() { 'use strict';
 	var configName = "MongoTalk.json";	
 	if (os.platform() === 'linux') {
 		configName = process.env.HOME + '/Config/MongoTalk.json';
@@ -15,7 +15,7 @@ function getConfigName() {
 	return configName;
 }
 
-function reportError(err) {
+function reportError(err) { 'use strict';
 	console.log("*********************************");
 	console.log(err);
 	console.log("*********************************");
