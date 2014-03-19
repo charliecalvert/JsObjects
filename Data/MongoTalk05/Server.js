@@ -33,9 +33,9 @@ app.get('/readDocuments', function(request, response) { 'use strict';
 	queryMongo.getDocuments(response, numToRead);
 });
 
-function message(message) {
+function message(value) { 'use strict';
 	console.log("------------");
-	console.log(message);
+	console.log(value);
 	console.log("------------");
 }
 
@@ -68,14 +68,14 @@ app.get('/removeAll', function(request, response) {'use strict';
 	queryMongo.removeAll(response);	
 });
 
-app.get('/readMarkdown', function(request, response) {
+app.get('/readMarkdown', function(request, response) { 'use strict';
 	console.log("readMarkdown called");
 	var jsonObject = queryMongo.readMarkDown('Presidents', markdownName);
 	response.send(jsonObject);
 });
 
 
-app.get('/readFileOut', function(request, response) {
+app.get('/readFileOut', function(request, response) { 'use strict';
 	console.log('readFileOut called');
 	queryMongo.readFileOut(response);
 });

@@ -2,7 +2,7 @@
 * https://github.com/cowboy/jquery-tiny-pubsub
 * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
 
-(function($) {
+(function($) { 'use strict';
 
   var o = $({});
 

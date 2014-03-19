@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-/* jshint devel:true, strict:true, browser:true, curly: true, jasmine: true */
+/* jshint devel:true, strict:true, browser:true, curly: true */
  
 /* global it: true */
  
@@ -32,7 +32,7 @@ describe("A Mongo Suite", function() { 'use strict';
 	it("should insertIntoCollection a JSON document", function(done) {
 		request("http://localhost:30025/insertJson", function(error, response, output) {
 			console.log("Insertmarkdown called: " + output);
-			var output = JSON.parse(output);
+			output = JSON.parse(output);
 			expect(output.result).toBe('Success');
 			done();
 		});
@@ -41,7 +41,7 @@ describe("A Mongo Suite", function() { 'use strict';
 	it("should update a JSON document in the database", function(done) {
 		request("http://localhost:30025/update", function(error, response, output) {
 			console.log("Insertmarkdown called: " + output);
-			var output = JSON.parse(output);
+			output = JSON.parse(output);
 			expect(output.result).toBe('Success');
 			done();
 		});
@@ -50,7 +50,7 @@ describe("A Mongo Suite", function() { 'use strict';
 	it("should call insertIntoCollection and insert a markdown document", function(done) {
 		request("http://localhost:30025/insertMarkdown", function(error, response, output) {
 			console.log("Insertmarkdown called: " + output);
-			var output = JSON.parse(output);
+			output = JSON.parse(output);
 			expect(output.result).toBe('Success');
 			done();
 		});

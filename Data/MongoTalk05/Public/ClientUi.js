@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define('ClientUi', function() {
+define('ClientUi', function() { 'use strict';
 
 	function ClientUi() {
 		$('#intro').load("Public/Pieces.html #introTemplate");

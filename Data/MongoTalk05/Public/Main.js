@@ -10,7 +10,8 @@ require.config({
   }
 });
 
-require(["jquery", "pubsub", "ClientUi", "clientMongo" ], function(j, p, clientUi, clientMongo) {
+require(["jquery", "pubsub", "ClientUi", "clientMongo" ], function(j, p, clientUi, clientMongo) { 
+	'use strict';
 	console.log("Main called.");
 	clientMongo();
 	clientUi();
