@@ -11,6 +11,7 @@ var MongoClient = mongodb.MongoClient;
 var fs = require('fs');
 var exec = require('child_process').exec;
 var assert = require('assert');
+var os = require('os');
 
 var QueryMongo = (function() {'use strict';
 
@@ -25,14 +26,23 @@ var QueryMongo = (function() {'use strict';
 	 */
 	var callClose = false;
 
-	function QueryMongo() {		
-		var configName = "C:\\Users\\Charlie\\Config\\MongoTalk.json";
+	function QueryMongo() {
+		var configName = process.env.HOME + '/Config/MongoTalk.json';
+		if (os.platform() === 'win32') {		
+			configName = "C:\\Users\\Charlie\\Config\\MongoTalk.json";
+		}
 		
 		var urls = fs.readFile(configName, function(err, urls) {
 			if (err) {
+				console.log("*********************************");
 				console.log(err);
+				console.log("*********************************");
+				console.log("Error condition in QueryMongo.js!");
 				console.log("This program requires a config file");
-				console.log("Please put MongoTalk.json somewhere we can find it.");
+				console.log("Please put MongoTalk.json somewhere we can find it.");				
+				console.log("Error condition!");
+				console.log("*********************************");
+				
 			} else {
 				urls = JSON.parse(urls);
 				url = urls.urls[1];
