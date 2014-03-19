@@ -162,15 +162,16 @@ var QueryMongo = (function() {'use strict';
 	
 	// Will create collection if it does not exist
 	QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
-		console.log("QueryMongo.insertIntoCollection called");
+		console.log("QueryMongo.updateCollection called");
 		getDatabase(function getCol(database) {
+		    console.log("In the update callback");
 			var collection = database.collection(collectionName);
-			collection.update(objectToInsert, function(err, docs) {
+			collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
 				if (err) {
 					throw err;
 				}
 				if (callClose) { closeDatabase(); }
-				console.log("insert succeeded");
+				console.log("update succeeded");
 				response.send({ result: "Success", mongoDocument: docs });
 			});
 		});

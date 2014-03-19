@@ -46,15 +46,14 @@ app.get('/insertJson', function(request, response) { 'use strict';
 });
 
 app.get('/insertMarkdown', function(request, response) { 'use strict';
-	message('insertMarkdown');
+	message('insertMarkdown route called');
 	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
 	queryMongo.insertIntoCollection(response, jsonObject);
 });
 
 app.get('/update', function(request, response) { 'use strict';
-	message('insertMarkdown');
-	var jsonObject = request.query.president;
-	queryMongo.updateCollection(response, jsonObject);
+	message('update route called');	
+	queryMongo.updateCollection(response, request.query);
 });
 
 app.get('/remove', function(request, response) {'use strict';
