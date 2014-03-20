@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -26,27 +25,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
+}
+
+function getOs() {
+	if (os.platform() === 'linux') {
+		configName = process.env.HOME + '/Config/MongoTalk.json';
+	} else if (os.platform() === 'win32') {
+		configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
+	}
 }
 
 app.get('/walk', function(request, response) {
+
 	var dirToWalk = process.env.JSOBJECTS;
 	// var dirToWalk = process.env.HOME + '/bin';
 	walk(dirToWalk, 'Gruntfile.js', 'node_modules', function(err, data) {
 		if (err) {
 			console.log(err);
-			response.send({ result: "Error", error: err});
+			response.send({
+				result : "Error",
+				error : err
+			});
 		} else {
 			console.log(data);
-			response.send({ result: "Success", files: data});
+			response.send({
+				result : "Success",
+				files : data
+			});
 		}
 	});
-	
+
 });
 
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function() {
+	console.log('Express server listening on port ' + app.get('port'));
 });
