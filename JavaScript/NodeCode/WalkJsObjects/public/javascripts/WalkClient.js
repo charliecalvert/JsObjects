@@ -13,7 +13,12 @@ var WalkFolder = (function() {
 	
 	function WalkFolder() {
 		$("#walk").click(walk);
+		$("#clearList").click(clearList);
 	}
+	
+	var clearList = function() {
+		$("#walkList").empty();
+	};
 	
 	var walk = function() {
 		$.getJSON('/walk', function(data) {

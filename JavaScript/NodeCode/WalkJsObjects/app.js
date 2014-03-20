@@ -28,19 +28,24 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-function getOs() {
+function getHomeDir() {
+	var homeDir = null;
 	if (os.platform() === 'linux') {
-		configName = process.env.HOME + '/Config/MongoTalk.json';
+		homeDir = process.env.HOME;
 	} else if (os.platform() === 'win32') {
-		configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
+		homeDir = process.env.USERPROFILE;
 	}
+	return homeDir;
 }
 
-app.get('/walk', function(request, response) {
 
+app.get('/walk', function(request, response) {
+	// If you run Node in Eclipse, to access JSOBJECTS, you made need 
+	// to choose Run | Run Configurations | Environment | Select
 	var dirToWalk = process.env.JSOBJECTS;
-	// var dirToWalk = process.env.HOME + '/bin';
-	walk(dirToWalk, 'Gruntfile.js', 'node_modules', function(err, data) {
+	// var dirToWalk = getHomeDir + '/bin';
+	console.log("About to walk: " + dirToWalk);
+	walk(dirToWalk, ['karma.conf.js', 'Gruntfile.js'], ['node_modules', 'JavaScript'], function(err, data) {
 		if (err) {
 			console.log(err);
 			response.send({
