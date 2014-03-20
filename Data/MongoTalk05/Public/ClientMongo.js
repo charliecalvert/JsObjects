@@ -12,6 +12,7 @@ define('clientMongo', function() {
 		$.subscribe('readCountDocuments', readCountDocuments);
 		$.subscribe('readTwo', readTwo);
 		$.subscribe('removeAll', removeAll);
+		$.subscribe('update', update);
 	}
 
 	var getDocument = function(event, request) {
@@ -57,6 +58,18 @@ define('clientMongo', function() {
 		$.getJSON('/removeAll', function(data) {
 			callback(data);
 		});
+	};
+	
+	var update = function(event, updateDetails) {
+	    var request = { 
+	        query: { "firstName": updateDetails.oldString },
+	        update: {
+	            $set: { "firstName" : updateDetails.newString }
+	        }         
+	    };
+	    $.getJSON('/update', request, function(data) {
+            updateDetails.callback(data);
+        });
 	};
 
 	return ClientMongo;

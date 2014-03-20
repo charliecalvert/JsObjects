@@ -28,8 +28,8 @@ var QueryMongo = (function() {'use strict';
 
 	function QueryMongo() {
 		loadConfig(function(urls) {			
-			urls = JSON.parse(urls);
-			url = urls.urls[1];
+			var mongoTalkJson = JSON.parse(urls);
+			url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
 			console.log("The Mongo URL:" + url);
 		});
 	}
@@ -253,7 +253,7 @@ var QueryMongo = (function() {'use strict';
 				}
 				if (callClose) { closeDatabase(); }
 				console.log("Item deleted");
-				response.send({ result: "removeAll Called"});
+				response.send({ result: "Success", data: data });
 			});
 
 		});
