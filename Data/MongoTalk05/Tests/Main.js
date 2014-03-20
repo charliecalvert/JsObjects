@@ -29,7 +29,7 @@ require.config({
 });
 
 require(['jquery', 'boot'], function(j, b, c) {
-
+	'use strict';
 	// Load the specs
 	require(["TestMeSpec", "ClientSpec"], function() {
 		console.log("Main called.");

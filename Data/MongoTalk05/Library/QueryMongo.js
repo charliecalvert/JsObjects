@@ -1,3 +1,5 @@
+/* jshint devel: true */
+
 /**
  * @author Charlie Calvert
  */
@@ -9,6 +11,7 @@ var MongoClient = mongodb.MongoClient;
 var fs = require('fs');
 var exec = require('child_process').exec;
 var assert = require('assert');
+var loadConfig = require('./LoadConfig.js').loadConfig;
 
 var QueryMongo = (function() {'use strict';
 
@@ -24,14 +27,13 @@ var QueryMongo = (function() {'use strict';
 	var callClose = false;
 
 	function QueryMongo() {
-		var urls = ['mongodb://127.0.0.1:27017/test',
-			'mongodb://192.168.2.19:27017/test',
-			'mongodb://192.168.2.34:27017/test',
-			'mongodb://charlie:foobar@ds049848.mongolab.com:49848/elvenlab01/test',
-			'mongodb://192.168.56.101:27017/test'];
-
-		url = urls[3];
+		loadConfig(function(urls) {			
+			var mongoTalkJson = JSON.parse(urls);
+			url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
+			console.log("The Mongo URL:" + url);
+		});
 	}
+	
 
 	function showDatabase(database, deep) {
 		// Make deep default to false
@@ -79,7 +81,7 @@ var QueryMongo = (function() {'use strict';
 					throw err;
 				}*/
 				assert.equal(null, err);
-				assert.ok(databaseResult != null);
+				assert.ok(databaseResult !== null);
 				database = databaseResult;
 				// showDatabase(database);
 				callback(database);
@@ -153,6 +155,23 @@ var QueryMongo = (function() {'use strict';
 				}
 				if (callClose) { closeDatabase(); }
 				console.log("insert succeeded");
+				response.send({ result: "Success", mongoDocument: docs });
+			});
+		});
+	};
+	
+	// Will create collection if it does not exist
+	QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
+		console.log("QueryMongo.updateCollection called");
+		getDatabase(function getCol(database) {
+		    console.log("In the update callback");
+			var collection = database.collection(collectionName);
+			collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
+				if (err) {
+					throw err;
+				}
+				if (callClose) { closeDatabase(); }
+				console.log("update succeeded");
 				response.send({ result: "Success", mongoDocument: docs });
 			});
 		});
@@ -234,7 +253,7 @@ var QueryMongo = (function() {'use strict';
 				}
 				if (callClose) { closeDatabase(); }
 				console.log("Item deleted");
-				response.send({ result: "removeAll Called"});
+				response.send({ result: "Success", data: data });
 			});
 
 		});

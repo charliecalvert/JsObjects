@@ -33,7 +33,7 @@ require.config({
 	}
 });
 
-require(['jquery', 'jasmine-jquery'], function(j, b, c) {
+require(['jquery', 'jasmine-jquery'], function(j, b, c) { 'use strict';
 
 	// Load the specs
 	require(["JQuerySpec"], function() {

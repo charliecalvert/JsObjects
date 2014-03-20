@@ -8,22 +8,21 @@ var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 var fs = require('fs');
 
-var QueryMongo = (function() {'use strict';
+var QueryMongo = (function() { 'use strict';
 
-	var url01 = 'mongodb://127.0.0.1:27017/test';
-	var url02 = 'mongodb://192.168.2.19:27017/test';
-	var url03 = 'mongodb://192.168.56.101:27017/test';
+	var urls = [ 'mongodb://127.0.0.1:27017/test',
+			'mongodb://192.168.2.19:27017/test',
+			'mongodb://192.168.56.101:27017/test' ];
 
 	function QueryMongo() {
 
 	}
 
-
 	QueryMongo.prototype.getData = function(option) {
 		console.log('Called getData');
 
 		// Open the test database that comes with MongoDb
-		MongoClient.connect(url01, function(err, database) {
+		MongoClient.connect(urls[0], function(err, database) {
 			if (err) {
 				throw err;
 			}
@@ -50,8 +49,9 @@ var QueryMongo = (function() {'use strict';
 	};
 
 	var insertCollection = function(database) {
-		var collection = database.collection('test_insert');
-		for (var count = 10000; count < 10005; count++) {
+		var count, collection = database.collection('test_insert');
+
+		for (count = 10000; count < 10005; count++) {
 			var newRecord = {
 				firstName : "Abe" + count,
 				"lastName" : "Lincoln" + count,
@@ -70,14 +70,14 @@ var QueryMongo = (function() {'use strict';
 		var collection = database.collection('test_insert');
 
 		// Count documents in the collection
-		//collection.count(function(err, count) {
-		//	console.log(format("count = %s", count));
-		//});
+		// collection.count(function(err, count) {
+		// console.log(format("count = %s", count));
+		// });
 
 		// Send the collection to the client.
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
-			//console.log('Collection shown');
+			// console.log('Collection shown');
 			database.close();
 		});
 
@@ -95,7 +95,7 @@ var QueryMongo = (function() {'use strict';
 
 	return QueryMongo;
 
-})();
+}());
 
 var q = new QueryMongo();
 q.getData('insert');

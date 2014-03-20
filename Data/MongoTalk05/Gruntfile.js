@@ -11,6 +11,7 @@ module.exports = function(grunt) { 'use strict';
 			options: {
 				ignores: [
 					'**/coverage/**',
+					'**/Tests/Library/**',
 					'**/node_modules/**',
 					'**/angular.js',
 					'**/angular-mocks.js',
@@ -42,7 +43,7 @@ module.exports = function(grunt) { 'use strict';
 		clean :	{
 			work: {
 				src : [ 
-					"**/node_modules/**", 
+					"**/node_modules/**"
 				]
 			},
 			

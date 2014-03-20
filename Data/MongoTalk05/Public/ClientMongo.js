@@ -1,7 +1,8 @@
 // Handle Ajax and maintain list of data 
-define('clientMongo', function() {'use strict';
+define('clientMongo', function() {
+	'use strict';
 
-	 var mongoData = null;
+	var mongoData = null;
 
 	function ClientMongo() {
 		console.log("Client Mongo constructor called");
@@ -10,18 +11,25 @@ define('clientMongo', function() {'use strict';
 		$.subscribe('readAll', readAll);
 		$.subscribe('readCountDocuments', readCountDocuments);
 		$.subscribe('readTwo', readTwo);
-		$.subscribe('removeAll', removeAll);		
+		$.subscribe('removeAll', removeAll);
+		$.subscribe('update', update);
+		$.subscribe('emptyMongoData', emptyMongoData)
 	}
 
-	var getDocument = function(event, request) {		
+	var getDocument = function(event, request) {
 		request.callback(mongoData[request.index]);
 	};
 
+    var emptyMongoData = function(event, callback) {
+        mongoData = [];
+        callback();
+    };
+    
 	var insertNewDocument = function(event, callback) {
 		console.log("insert New Document called");
 		$.getJSON('/insertJson', function(newData) {
-			mongoData = mongoData.concat(newData.mongoDocument);			
-			callback(newData.mongoDocument, mongoData);			
+			mongoData = mongoData.concat(newData.mongoDocument);
+			callback(newData.mongoDocument, mongoData);
 		});
 	};
 
@@ -50,14 +58,26 @@ define('clientMongo', function() {'use strict';
 			publishedRequest.callback(mongoData);
 		});
 
-	}; 
-	
+	};
+
 	var removeAll = function(event, callback) {
 		$.getJSON('/removeAll', function(data) {
 			callback(data);
 		});
 	};
+	
+	var update = function(event, updateDetails) {
+	    var request = { 
+	        query: { "firstName": updateDetails.oldString },
+	        update: {
+	            $set: { "firstName" : updateDetails.newString }
+	        }         
+	    };
+	    $.getJSON('/update', request, function(data) {
+	        data.mongoData = mongoData;
+            updateDetails.callback(data);
+        });
+	};
 
-	return ClientMongo; 
+	return ClientMongo;
 });
-

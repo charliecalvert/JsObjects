@@ -33,9 +33,9 @@ app.get('/readDocuments', function(request, response) { 'use strict';
 	queryMongo.getDocuments(response, numToRead);
 });
 
-function message(message) {
+function message(value) { 'use strict';
 	console.log("------------");
-	console.log(message);
+	console.log(value);
 	console.log("------------");
 }
 
@@ -45,10 +45,15 @@ app.get('/insertJson', function(request, response) { 'use strict';
 	queryMongo.insertIntoCollection(response, JSON.parse(fileContent));
 });
 
-app.get('/insertMarkdown', function(request, response) {
-	message('insertMarkdown');
+app.get('/insertMarkdown', function(request, response) { 'use strict';
+	message('insertMarkdown route called');
 	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
 	queryMongo.insertIntoCollection(response, jsonObject);
+});
+
+app.get('/update', function(request, response) { 'use strict';
+	message('update route called');	
+	queryMongo.updateCollection(response, request.query);
 });
 
 app.get('/remove', function(request, response) {'use strict';
@@ -62,14 +67,14 @@ app.get('/removeAll', function(request, response) {'use strict';
 	queryMongo.removeAll(response);	
 });
 
-app.get('/readMarkdown', function(request, response) {
+app.get('/readMarkdown', function(request, response) { 'use strict';
 	console.log("readMarkdown called");
 	var jsonObject = queryMongo.readMarkDown('Presidents', markdownName);
 	response.send(jsonObject);
 });
 
 
-app.get('/readFileOut', function(request, response) {
+app.get('/readFileOut', function(request, response) { 'use strict';
 	console.log('readFileOut called');
 	queryMongo.readFileOut(response);
 });
