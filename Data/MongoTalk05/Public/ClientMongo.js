@@ -13,12 +13,18 @@ define('clientMongo', function() {
 		$.subscribe('readTwo', readTwo);
 		$.subscribe('removeAll', removeAll);
 		$.subscribe('update', update);
+		$.subscribe('emptyMongoData', emptyMongoData)
 	}
 
 	var getDocument = function(event, request) {
 		request.callback(mongoData[request.index]);
 	};
 
+    var emptyMongoData = function(event, callback) {
+        mongoData = [];
+        callback();
+    };
+    
 	var insertNewDocument = function(event, callback) {
 		console.log("insert New Document called");
 		$.getJSON('/insertJson', function(newData) {
@@ -68,6 +74,7 @@ define('clientMongo', function() {
 	        }         
 	    };
 	    $.getJSON('/update', request, function(data) {
+	        data.mongoData = mongoData;
             updateDetails.callback(data);
         });
 	};

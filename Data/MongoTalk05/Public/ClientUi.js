@@ -4,6 +4,8 @@
 
 define('ClientUi', function() {'use strict';
 
+    var itemToShow = null;
+
     function ClientUi() {
         $('#intro').load("Public/Pieces.html #introTemplate");
         $('#buttonBasic').load("Public/Pieces.html #buttonTemplate", function() {
@@ -18,21 +20,28 @@ define('ClientUi', function() {'use strict';
         });
     }
 
-    var clearList = function() {
+    var clearList = function(emptyMongoData) {
         $("#mongoData").empty();
+        if (emptyMongoData) {
+            $.publish('emptyMongoData', function() {
+                // Nothing to do.
+            });
+        }
     };
 
     var displayDocument = function(document) {
-        $('#firstName').html(document.firstName);
-        $('#lastName').html(document.lastName);
-        $('#address').html(document.address);
-        $('#city').html(document.city);
-        $('#state').html(document.state);
-        $('#zip').html(document.zip);
+        if ( typeof document !== 'undefined') {
+            $('#firstName').html(document.firstName);
+            $('#lastName').html(document.lastName);
+            $('#address').html(document.address);
+            $('#city').html(document.city);
+            $('#state').html(document.state);
+            $('#zip').html(document.zip);
+        }
     };
 
     var displayList = function(data) {
-        clearList();
+        clearList(false);
         for (var i = 0; i < data.length; i++) {
             $("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
         }
@@ -45,10 +54,23 @@ define('ClientUi', function() {'use strict';
         });
     };
 
-    var readAll = function() {
+    var showItem = function(data) {
+        for (var i = 0; i < data.length; i++) {
+            if (data[i][itemToShow.field] === itemToShow.value) {
+                displayDocument(data[i]);
+                itemToShow = null;
+                return;
+            }
+        }
+    };
+
+    var readAll = function(event) {
         $.publish('readAll', function(data) {
             displayDocument(data[0]);
             displayList(data);
+            if (itemToShow !== null) {
+                showItem(data);
+            }
         });
     };
 
@@ -73,8 +95,8 @@ define('ClientUi', function() {'use strict';
     var removeAll = function() {
         $.publish('removeAll', function(data) {
             if (data.result === "Success") {
-                clearList();    
-            }            
+                clearList(true);
+            }
         });
     };
 
@@ -90,16 +112,20 @@ define('ClientUi', function() {'use strict';
 
     var update = function() {
         var updateDetails = {
+            field : 'firstName',
             oldString : "Thomas",
             newString : "Tom",
             callback : function(data) {
                 if (data.result === 'Success') {
-                    clearList();
+                    itemToShow = {
+                        field : updateDetails.field,
+                        value : updateDetails.newString
+                    };
                     readAll();
                 }
             }
         };
-        
+
         $.publish('update', updateDetails);
     };
 
