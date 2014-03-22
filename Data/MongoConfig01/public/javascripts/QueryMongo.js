@@ -75,6 +75,33 @@ var QueryMongo = (function() {
 		});
 	};
 
+	
+	QueryMongo.prototype.getCollectionProject = function(initResponse, request,
+			collectionName) {
+		console.log("getCollectionProject called");
+		console.log("collectionName is " + collectionName);
+		var response = initResponse;
+
+		getDatabase(response, collectionName, function(response,
+				collectionName, database) {
+			console.log("In getCollectionProject callback: " + collectionName);
+
+			var collection = collectionList.getCollectionByName(database,
+					collectionName);
+
+			collection.find(request.query, request.project).toArray(function(err, theArray) {
+				if (err) {
+					console.log("Error in getCollection: " + err);
+				}
+				console.log("Found collection item.");
+				console.log("Sending back the data.");
+				console.log(theArray);
+				response.send(theArray);
+			});
+
+		});
+	};
+	
 	// Will create collection if it does not exist
 	QueryMongo.prototype.insertIntoCollection = function(response,
 			collectionName, objectToInsert) {

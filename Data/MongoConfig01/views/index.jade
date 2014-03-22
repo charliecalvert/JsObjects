@@ -10,7 +10,7 @@ block content
     button#read Read
     button#insertConfig Insert Config
     button#deleteData Delete Config
-    button#clear Clear
+    button#clear Clear  
   
   pre#config01 Config
   
@@ -22,18 +22,25 @@ block content
       is successful, you will see data, otherwise, you will see an empty array.
   
   
-  
-  select#userInput01   
-    option { "Name": "ComplexConfig" }
-    option { "Part01": "Two" }
-    option { "Part01": "Five" }
-    option { "Part03.Part03A": "This is a string for Part03A." }
-    option { "Part03.Part03A": "This is a string for Part03B." }
-    option { "Part04.Part04C.SubPart4CA": "SubPart04CA." }
-  
   div
-    button#runQuery01 Run Query
-  
+    select#userInput01   
+      option { "Name": "ComplexConfig" }
+      option { "Part01": "Two" }
+      option { "Part01": "Five" }
+      option { "Part03.Part03A": "This is a string for Part03A." }
+      option { "Part03.Part03A": "This is a string for Part03B." }
+      option { "Part04.Part04C.SubPart4CA": "SubPart04CA." }
+
+  div
+    button#runQuery01 Run Query  
+
+  div  
+    select#userProject
+      option { "query": { "Part01": "Two" }, "project": { "Part01": 1 } } 
+      option { "query": { "Part03.Part03A": "This is a string for Part03A." }, "project": { "Part03": 1 } }
+
+  div
+    button#queryProject Query Project
   
   pre#config02 Config
   

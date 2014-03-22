@@ -20,6 +20,7 @@ app.MongoClient = (function() {
 		$('#deleteData').click(deleteData);
 		$('#runQuery01').click(runQuery01);
 		$('#runQuery02').click(runQuery02);
+		$('#queryProject').click(queryProject);
 		$('#clear').click(clear);
 	}
 
@@ -62,6 +63,17 @@ app.MongoClient = (function() {
 		});
 	};
 
+	var queryProject = function(event) {
+		var input = $('#userProject').val();
+		try {
+			request.query = JSON.parse(input);
+		} catch (err) {
+			alert("Please enter valid JSON");
+		}
+		$.getJSON('/queryProject', request, function(result) {
+			$('#config02').text(JSON.stringify(result, null, 4));
+		});
+	};
 	var runQuery02 = function(event) {
 		var input = $('#userInput02').val();
 		try {

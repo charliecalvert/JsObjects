@@ -70,13 +70,25 @@ app.get('/read', function(request, response) {
 	queryMongo.getCollectionData(response, query, collectionName);
 });
 
-app.get('/runQuery', function(request, response) { 'use strict';
+app.get('/runQuery', function(request, response) {
+	'use strict';
 	console.log('read route called');
 	console.log('request.query.collectionName: ', collectionName);
 	var query = request.query.query;
 	console.log(typeof query);
 	console.log(query);
 	queryMongo.getCollectionData(response, query, collectionName);
+});
+
+app.get('/queryProject', function(request, response) {
+	'use strict';
+	console.log('queryProject route called: ', request.query);
+	console.log('request.query.query: ', request.query.query);
+	console.log('request.query.project: ', request.query.project);
+	var query = request.query.query;
+	console.log(typeof query);
+	console.log(query);
+	queryMongo.getCollectionProject(response, query, collectionName);
 });
 
 app.get('/', routes.index);
