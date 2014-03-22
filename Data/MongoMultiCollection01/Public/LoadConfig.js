@@ -6,8 +6,10 @@ var fs = require('fs');
 var os = require('os');
 
 function getConfigName() { 'use strict';
-	var configName = "MongoTalk.json";	
-	if (os.platform() === 'linux') {
+	var configName = "MongoTalk.json";
+	if (os.platform() === 'darwin') {
+		configName = process.env.HOME + '/Config/MongoTalk.json';
+	} else if (os.platform() === 'linux') {
 		configName = process.env.HOME + '/Config/MongoTalk.json';
 	} else if (os.platform() === 'win32') {		
 		configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
