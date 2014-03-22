@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MongoMultiCollection01</name>
+	<name>MongoConfig01</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -13,11 +13,10 @@
 	</buildSpec>
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
-		<nature>com.aptana.ruby.core.rubynature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1395454260223</id>
+			<id>1395452352619</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
