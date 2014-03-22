@@ -25,7 +25,7 @@ describe("A Mongo Suite", function() {'use strict';
                 throw error;
             }
             body = JSON.parse(body);
-            expect(body.result).toEqual("removeAll Called", "Hi there undefined");
+            expect(body.result).toEqual("Success", "About line 28.");
             done();
         });
     });
