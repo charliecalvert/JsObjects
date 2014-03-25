@@ -31,3 +31,35 @@ Both **Publisher** and **Subscriber** explicitly pull in **jquery**
 and **TinyPubSub**:
 
 	define(['jquery', 'tinyPubSub'], function() {
+	
+## Getting Input and Callback
+
+Look at this code:
+
+	var getMessage = function() {
+		return {
+			sender : 'publisher.privateMethod02',
+			value: parseInt($("#input01").val()),
+			callback : function(reply, value) {
+				$("#message03").html(reply + "\nThe value is now: " + value);				
+			}
+		};
+	};
+
+	var privateMethod02 = function() {
+		console.log("Publisher private method called.");
+		$.publish('debugDetail03', getMessage());
+	};
+
+In **privateMethod02 we publish an event and send some data, including a hardcoded
+message and some input from the user. Then in the code that subscribes to the method, 
+we use the data that was send, perform a calculation on it, and use the callback
+to send back the result:
+
+	function function03(event, customMessage) {
+		console.log("Subscriber function02 called.");
+		console.log(event);
+		var reply = "I got your message: " + customMessage.sender;
+		var calculation = customMessage.value + 2;
+		customMessage.callback(reply, calculation);
+	}
