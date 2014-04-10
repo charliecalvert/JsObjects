@@ -1,6 +1,6 @@
 module.exports = function(grunt) { 'use strict';
 
-	var zipFile = 'AngularCalculator.zip';
+	var zipFile = 'FactorySimple01.zip';
 
 	grunt.initConfig({
 		zipFile: zipFile,
@@ -45,20 +45,33 @@ module.exports = function(grunt) { 'use strict';
 			}
 		},
 
+		jasmine_node: {
+			coverage: {
+			},
+			options: {
+				forceExit: true,
+				match: '.',
+				matchall: false,
+				extensions: 'js',
+				specNameMatcher: 'Spec',
+				captureExceptions: true,
+				junitreport: {
+					report: false,
+					savePath : "./reports/jasmine/",
+					useDotNotation: true,
+					consolidate: true
+				}
+			}
+		},
+
 		compress: {
-				angularCalculator: {
+				FactorySimple01: {
 					options: {
 						archive: '<%= zipFile %>',
 						mode: 'zip'
 					},
 					files: [
-						{ src: './*.html' },
 						{ src: './*.js*' },
-						{ src: './*.css' },
-						{ src: './Assets/**' },
-						{ src: './Library/**' },
-						{ src: './Source/**' },
-						{ src: './Style/**' },
 						{ src: './Tests/**' },
 						{ src: './LICENSE' },
 						{ src: './README.md' }
@@ -78,6 +91,9 @@ module.exports = function(grunt) { 'use strict';
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.loadNpmTasks('grunt-jasmine-node-coverage');
 
-	grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main']);
+	grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main', 'jasmine', 'jasmine_node']);
+	grunt.registerTask('check', ['jshint', 'jasmine_node']);
 };

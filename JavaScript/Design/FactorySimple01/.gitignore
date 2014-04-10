@@ -1,1 +1,4 @@
 karma.conf.js
+*.zip
+_SpecRunner.html
+.grunt
