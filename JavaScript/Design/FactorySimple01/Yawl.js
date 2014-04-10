@@ -2,28 +2,28 @@
  * New node file
  */
 
-var Yawl = function() { // implements Bicycle
+var Yawl = function() { 'use strict';
 
 };
 
 Yawl.prototype = {
-	tack : function() {
+	tack : function() { 'use strict';
 		console.log("Yawl tack called.");
 	},
 	
-	luff : function() {
+	luff : function() { 'use strict';
 		console.log("Yawl luff called.");
 	},
 	
-	reach : function() {
+	reach : function() { 'use strict';
 		console.log("Yawl reach called.");
 	},
 	
-	anchor : function() {
+	anchor : function() { 'use strict';
 		console.log("Yawl anchor called.");
 	},
 	
-	dock: function() {
+	dock: function() { 'use strict';
 		console.log("Yawl dock called");
 	}	
 };

@@ -2,29 +2,29 @@
  * New node file
  */
 
-var Ketch = function() { // implements Bicycle
+var Ketch = function() { 'use strict';
 
 };
 
-Ketch.prototype = {
-	tack : function() {
-		console.log("Ketch tack called.");
+Ketch.prototype = { 
+	tack : function() { 'use strict';
+		return "Ketch tack called.";
 	},
 	
-	luff : function() {
-		console.log("Ketch luff called.");
+	luff : function() { 'use strict';
+		return "Ketch luff called.";
 	},
 	
-	reach : function() {
-		console.log("Ketch reach called.");
+	reach : function() { 'use strict';
+		return "Ketch reach called.";
 	},
 	
-	anchor : function() {
-		console.log("Ketch anchor called.");
+	anchor : function() { 'use strict';
+		return "Ketch anchor called.";
 	},
 	
-	dock: function() {
-		console.log("Yawl dock called");
+	dock: function() { 'use strict';
+		return "Ketch dock called.";
 	}
 };
 

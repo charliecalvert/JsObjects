@@ -1,5 +1,5 @@
 // Constructor.
-var Interface = function(name, methods) {
+var Interface = function(name, methods) { 'use strict';
 	if (arguments.length !== 2) {
 		throw new Error("Interface constructor called with " + arguments.length	+
 				"arguments, but expected exactly 2.");
@@ -16,7 +16,7 @@ var Interface = function(name, methods) {
 };
 
 // Static class method.
-Interface.ensureImplements = function(instance, instanceType) {
+Interface.ensureImplements = function(instance, instanceType) {  'use strict';
 	console.log("Interface ensureImplements called with: " + instanceType.name);
 	for (var prop in instance) {		
 		if ( !instance.hasOwnProperty( prop ) ) {
@@ -32,20 +32,19 @@ Interface.ensureImplements = function(instance, instanceType) {
 	}
 
 	for (var i = 1, len = arguments.length; i < len; i++) {
-		var interface = arguments[i];
-		console.log("Interface name: " + interface.name);
-		if (interface.constructor !== Interface) {
+		var objectToTest = arguments[i];
+		console.log("Interface name: " + objectToTest.name);
+		if (objectToTest.constructor !== objectToTest) {
 			throw new Error(
 					"Expect arguments two and above to be instances of Interface.");
 
 		}
 
-		console.log("methods: " + interface.methods);
-		for (var j = 0, methodsLen = interface.methods.length; j < methodsLen; j++) {
-			var method = interface.methods[j];
+		console.log("methods: " + objectToTest.methods);
+		for (var j = 0, methodsLen = objectToTest.methods.length; j < methodsLen; j++) { 
+			var method = objectToTest.methods[j];
 			if (!instance[method] || typeof instance[method] !== 'function') {
-				throw new Error("object does not implement the " + interface.name +
-						" interface. Method " + method + " was not found.");
+				throw new Error(objectToTest.name + " interface not found. " + method + " is missing.");
 			}
 		}
 	}

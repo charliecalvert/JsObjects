@@ -2,28 +2,28 @@
  * New node file
  */
 
-var Sloop = function() { // implements Bicycle
+var Sloop = function() { 'use strict';
 
 };
 
 Sloop.prototype = {
-	tack : function() {
+	tack : function() { 'use strict';
 		console.log("Sloop tack called.");
 	},
 	
-	luff : function() {
+	luff : function() { 'use strict';
 		console.log("Sloop luff called.");
 	},
 	
-	reach : function() {
+	reach : function() { 'use strict';
 		console.log("Sloop reach called.");
 	},
 	
-	anchor : function() {
+	anchor : function() { 'use strict';
 		console.log("Sloop anchor called.");
 	},
 	
-	dock: function() {
+	dock: function() { 'use strict';
 		console.log("Sloop dock called");
 	}
 };

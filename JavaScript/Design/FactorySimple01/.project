@@ -6,6 +6,11 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>com.eclipsesource.jshint.ui.builder</name>
 			<arguments>
 			</arguments>
@@ -14,5 +19,17 @@
 	<natures>
 		<nature>org.nodeclipse.ui.NodeNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+		<nature>com.aptana.ruby.core.rubynature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1397152569510</id>
+			<name></name>
+			<type>10</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
