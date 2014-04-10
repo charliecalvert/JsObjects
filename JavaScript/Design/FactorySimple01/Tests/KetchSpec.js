@@ -1,6 +1,7 @@
 var Ketch = require("../Ketch").Ketch;
+var Yawl = require("../Yawl").Yawl;
 
-describe("A suite", function() { 'use strict';
+describe("A Ketch Suite", function() { 'use strict';
 
   it("contains spec with an expectation", function() {
     expect(true).toBe(true);

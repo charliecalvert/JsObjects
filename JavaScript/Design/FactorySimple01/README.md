@@ -1,8 +1,7 @@
-
-
 # FactorySimple01
 
-
+Using: grunt-jasmine-node
+Using: grunt-jasmine-node-coverage
 
 ## Usage
 

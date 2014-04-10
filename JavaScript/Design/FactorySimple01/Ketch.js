@@ -25,6 +25,9 @@ Ketch.prototype = {
 	
 	dock: function() { 'use strict';
 		return "Ketch dock called.";
+	},
+
+	foo: function() {
 	}
 };
 
