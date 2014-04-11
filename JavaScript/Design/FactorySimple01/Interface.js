@@ -26,21 +26,22 @@ Interface.ensureImplements = function(instance, instanceType) {  'use strict';
 			console.log("Native properties: " + prop);
 		}
 	}
-	console.log("Interface: " + JSON.stringify(instanceType));
+
 	if (arguments.length < 2) {
 		throw new Error(arguments.length + " arguments passed, but expected 2.");
 	}
 
+	console.log('---------------');
+
 	for (var i = 1, len = arguments.length; i < len; i++) {
 		var objectToTest = arguments[i];
 		console.log("Interface name: " + objectToTest.name);
-		if (objectToTest.constructor !== objectToTest) {
+		if (objectToTest.constructor !== Interface) {
 			throw new Error(
 					"Expect arguments two and above to be instances of Interface.");
-
 		}
 
-		console.log("methods: " + objectToTest.methods);
+		console.log("methods => " + objectToTest.methods);
 		for (var j = 0, methodsLen = objectToTest.methods.length; j < methodsLen; j++) { 
 			var method = objectToTest.methods[j];
 			if (!instance[method] || typeof instance[method] !== 'function') {

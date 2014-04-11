@@ -16,10 +16,12 @@ var BoatBuilder = function() {
 };
 
 BoatBuilder.prototype = {
-	buildBoat : function(model) { 'use strict';
+	buildBoat : function(boatType) { 'use strict';
 		var boat;
-
-		switch (model) {
+		console.log("===================");
+		console.log("boatType: ", boatType);
+		console.log("===================");
+		switch (boatType) {
 		case 'Sloop':
 			boat = new Sloop();
 			break;
@@ -34,6 +36,7 @@ BoatBuilder.prototype = {
 		}
 		Interface.ensureImplements(boat, Boat, OverNight);
 
+		console.log('---------------');
 		console.log(boat.tack());
 		console.log(boat.anchor());
 
