@@ -1,0 +1,931 @@
+/usr/lib
+├─┬ bower@1.3.2
+│ ├── abbrev@1.0.4
+│ ├── archy@0.0.2
+│ ├─┬ bower-config@0.5.0
+│ │ ├── mout@0.6.0
+│ │ └─┬ optimist@0.6.1
+│ │   ├── minimist@0.0.8
+│ │   └── wordwrap@0.0.2
+│ ├── bower-endpoint-parser@0.2.1
+│ ├─┬ bower-json@0.4.0
+│ │ ├── deep-extend@0.2.8
+│ │ └── intersect@0.0.3
+│ ├── bower-logger@0.2.2
+│ ├─┬ bower-registry-client@0.1.6
+│ │ ├── async@0.2.10
+│ │ ├─┬ bower-config@0.4.5
+│ │ │ ├── mout@0.6.0
+│ │ │ └─┬ optimist@0.6.1
+│ │ │   ├── minimist@0.0.8
+│ │ │   └── wordwrap@0.0.2
+│ │ ├── lru-cache@2.3.1
+│ │ ├─┬ request@2.27.0
+│ │ │ ├── aws-sign@0.3.0
+│ │ │ ├── cookie-jar@0.3.0
+│ │ │ ├── forever-agent@0.5.2
+│ │ │ ├─┬ form-data@0.1.2
+│ │ │ │ └─┬ combined-stream@0.0.4
+│ │ │ │   └── delayed-stream@0.0.5
+│ │ │ ├─┬ hawk@1.0.0
+│ │ │ │ ├── boom@0.4.2
+│ │ │ │ ├── cryptiles@0.2.2
+│ │ │ │ ├── hoek@0.9.1
+│ │ │ │ └── sntp@0.2.4
+│ │ │ ├─┬ http-signature@0.10.0
+│ │ │ │ ├── asn1@0.1.11
+│ │ │ │ ├── assert-plus@0.1.2
+│ │ │ │ └── ctype@0.5.2
+│ │ │ ├── json-stringify-safe@5.0.0
+│ │ │ ├── mime@1.2.11
+│ │ │ ├── node-uuid@1.4.1
+│ │ │ ├── oauth-sign@0.3.0
+│ │ │ ├── qs@0.6.6
+│ │ │ └── tunnel-agent@0.3.0
+│ │ └── request-replay@0.2.0
+│ ├─┬ cardinal@0.4.4
+│ │ ├── ansicolors@0.2.1
+│ │ └─┬ redeyed@0.4.4
+│ │   └── esprima@1.0.4
+│ ├─┬ chalk@0.4.0
+│ │ ├── ansi-styles@1.0.0
+│ │ ├── has-color@0.1.6
+│ │ └── strip-ansi@0.1.1
+│ ├── chmodr@0.1.0
+│ ├─┬ decompress-zip@0.0.6
+│ │ ├─┬ binary@0.3.0
+│ │ │ ├── buffers@0.1.1
+│ │ │ └─┬ chainsaw@0.1.0
+│ │ │   └── traverse@0.3.9
+│ │ ├── mkpath@0.1.0
+│ │ ├── nopt@2.2.0
+│ │ ├─┬ readable-stream@1.1.12
+│ │ │ ├── core-util-is@1.0.1
+│ │ │ ├── inherits@2.0.1
+│ │ │ ├── isarray@0.0.1
+│ │ │ └── string_decoder@0.10.25-1
+│ │ └─┬ touch@0.0.2
+│ │   └── nopt@1.0.10
+│ ├─┬ fstream@0.1.25
+│ │ └── inherits@2.0.1
+│ ├─┬ fstream-ignore@0.0.7
+│ │ ├── inherits@2.0.1
+│ │ └─┬ minimatch@0.2.14
+│ │   └── sigmund@1.0.0
+│ ├─┬ glob@3.2.9
+│ │ ├── inherits@2.0.1
+│ │ └─┬ minimatch@0.2.14
+│ │   └── sigmund@1.0.0
+│ ├── graceful-fs@2.0.3
+│ ├─┬ handlebars@1.3.0
+│ │ ├─┬ optimist@0.3.7
+│ │ │ └── wordwrap@0.0.2
+│ │ └─┬ uglify-js@2.3.6
+│ │   ├── async@0.2.10
+│ │   └─┬ source-map@0.1.33
+│ │     └── amdefine@0.1.0
+│ ├─┬ inquirer@0.4.1
+│ │ ├── async@0.2.10
+│ │ ├─┬ cli-color@0.2.3
+│ │ │ ├── es5-ext@0.9.2
+│ │ │ └─┬ memoizee@0.2.6
+│ │ │   ├── event-emitter@0.2.2
+│ │ │   └── next-tick@0.1.0
+│ │ ├── lodash@2.4.1
+│ │ ├── mute-stream@0.0.4
+│ │ ├── readline2@0.1.0
+│ │ └── through@2.3.4
+│ ├─┬ insight@0.3.1
+│ │ ├── async@0.2.10
+│ │ ├─┬ configstore@0.2.3
+│ │ │ ├─┬ js-yaml@3.0.2
+│ │ │ │ ├─┬ argparse@0.1.15
+│ │ │ │ │ ├── underscore@1.4.4
+│ │ │ │ │ └── underscore.string@2.3.3
+│ │ │ │ └── esprima@1.0.4
+│ │ │ └── uuid@1.4.1
+│ │ ├─┬ lodash.debounce@2.4.1
+│ │ │ ├── lodash.isfunction@2.4.1
+│ │ │ ├─┬ lodash.isobject@2.4.1
+│ │ │ │ └── lodash._objecttypes@2.4.1
+│ │ │ └─┬ lodash.now@2.4.1
+│ │ │   └── lodash._isnative@2.4.1
+│ │ ├── object-assign@0.1.2
+│ │ └─┬ request@2.27.0
+│ │   ├── aws-sign@0.3.0
+│ │   ├── cookie-jar@0.3.0
+│ │   ├── forever-agent@0.5.2
+│ │   ├─┬ form-data@0.1.2
+│ │   │ └─┬ combined-stream@0.0.4
+│ │   │   └── delayed-stream@0.0.5
+│ │   ├─┬ hawk@1.0.0
+│ │   │ ├── boom@0.4.2
+│ │   │ ├── cryptiles@0.2.2
+│ │   │ ├── hoek@0.9.1
+│ │   │ └── sntp@0.2.4
+│ │   ├─┬ http-signature@0.10.0
+│ │   │ ├── asn1@0.1.11
+│ │   │ ├── assert-plus@0.1.2
+│ │   │ └── ctype@0.5.2
+│ │   ├── json-stringify-safe@5.0.0
+│ │   ├── mime@1.2.11
+│ │   ├── node-uuid@1.4.1
+│ │   ├── oauth-sign@0.3.0
+│ │   ├── qs@0.6.6
+│ │   └── tunnel-agent@0.3.0
+│ ├── is-root@0.1.0
+│ ├── junk@0.2.2
+│ ├── lockfile@0.4.2
+│ ├── lru-cache@2.5.0
+│ ├── mkdirp@0.3.5
+│ ├── mout@0.9.1
+│ ├── nopt@2.1.2
+│ ├── open@0.0.5
+│ ├── osenv@0.0.3
+│ ├─┬ p-throttler@0.0.1
+│ │ └── q@0.9.7
+│ ├─┬ promptly@0.2.0
+│ │ └─┬ read@1.0.5
+│ │   └── mute-stream@0.0.4
+│ ├── q@1.0.1
+│ ├─┬ request@2.33.0
+│ │ ├── aws-sign2@0.5.0
+│ │ ├── forever-agent@0.5.2
+│ │ ├─┬ form-data@0.1.2
+│ │ │ ├── async@0.2.10
+│ │ │ └─┬ combined-stream@0.0.4
+│ │ │   └── delayed-stream@0.0.5
+│ │ ├─┬ hawk@1.0.0
+│ │ │ ├── boom@0.4.2
+│ │ │ ├── cryptiles@0.2.2
+│ │ │ ├── hoek@0.9.1
+│ │ │ └── sntp@0.2.4
+│ │ ├─┬ http-signature@0.10.0
+│ │ │ ├── asn1@0.1.11
+│ │ │ ├── assert-plus@0.1.2
+│ │ │ └── ctype@0.5.2
+│ │ ├── json-stringify-safe@5.0.0
+│ │ ├── mime@1.2.11
+│ │ ├── node-uuid@1.4.1
+│ │ ├── oauth-sign@0.3.0
+│ │ ├── qs@0.6.6
+│ │ ├─┬ tough-cookie@0.12.1
+│ │ │ └── punycode@1.2.4
+│ │ └── tunnel-agent@0.3.0
+│ ├─┬ request-progress@0.3.1
+│ │ └── throttleit@0.0.2
+│ ├── retry@0.6.0
+│ ├── rimraf@2.2.6
+│ ├── semver@2.2.1
+│ ├─┬ shell-quote@1.4.1
+│ │ ├── array-filter@0.0.1
+│ │ ├── array-map@0.0.0
+│ │ ├── array-reduce@0.0.0
+│ │ └── jsonify@0.0.0
+│ ├── stringify-object@0.2.0
+│ ├─┬ tar@0.1.19
+│ │ ├── block-stream@0.0.7
+│ │ └── inherits@2.0.1
+│ ├── tmp@0.0.23
+│ ├─┬ update-notifier@0.1.8
+│ │ ├─┬ configstore@0.2.3
+│ │ │ ├─┬ js-yaml@3.0.2
+│ │ │ │ ├─┬ argparse@0.1.15
+│ │ │ │ │ ├── underscore@1.4.4
+│ │ │ │ │ └── underscore.string@2.3.3
+│ │ │ │ └── esprima@1.0.4
+│ │ │ ├── object-assign@0.1.2
+│ │ │ └── uuid@1.4.1
+│ │ ├─┬ request@2.27.0
+│ │ │ ├── aws-sign@0.3.0
+│ │ │ ├── cookie-jar@0.3.0
+│ │ │ ├── forever-agent@0.5.2
+│ │ │ ├─┬ form-data@0.1.2
+│ │ │ │ ├── async@0.2.10
+│ │ │ │ └─┬ combined-stream@0.0.4
+│ │ │ │   └── delayed-stream@0.0.5
+│ │ │ ├─┬ hawk@1.0.0
+│ │ │ │ ├── boom@0.4.2
+│ │ │ │ ├── cryptiles@0.2.2
+│ │ │ │ ├── hoek@0.9.1
+│ │ │ │ └── sntp@0.2.4
+│ │ │ ├─┬ http-signature@0.10.0
+│ │ │ │ ├── asn1@0.1.11
+│ │ │ │ ├── assert-plus@0.1.2
+│ │ │ │ └── ctype@0.5.2
+│ │ │ ├── json-stringify-safe@5.0.0
+│ │ │ ├── mime@1.2.11
+│ │ │ ├── node-uuid@1.4.1
+│ │ │ ├── oauth-sign@0.3.0
+│ │ │ ├── qs@0.6.6
+│ │ │ └── tunnel-agent@0.3.0
+│ │ └── semver@2.1.0
+│ └── which@1.0.5
+├─┬ express@4.0.0
+│ ├─┬ accepts@1.0.0
+│ │ ├── mime@1.2.11
+│ │ └── negotiator@0.3.0
+│ ├── buffer-crc32@0.2.1
+│ ├── cookie@0.1.0
+│ ├── cookie-signature@1.0.3
+│ ├── debug@0.8.0
+│ ├── escape-html@1.0.1
+│ ├── fresh@0.2.2
+│ ├── merge-descriptors@0.0.2
+│ ├── methods@0.1.0
+│ ├── parseurl@1.0.1
+│ ├── path-to-regexp@0.1.2
+│ ├── qs@0.6.6
+│ ├── range-parser@1.0.0
+│ ├─┬ send@0.2.0
+│ │ └── mime@1.2.11
+│ ├─┬ serve-static@1.0.1
+│ │ └─┬ send@0.1.4
+│ │   ├── fresh@0.2.0
+│ │   ├── mime@1.2.11
+│ │   └── range-parser@0.0.4
+│ ├─┬ type-is@1.0.0
+│ │ └── mime@1.2.11
+│ └── utils-merge@1.0.0
+├─┬ express-generator@4.0.0
+│ ├─┬ commander@1.3.2
+│ │ └── keypress@0.1.0
+│ └── mkdirp@0.3.5
+├─┬ generator-mocha@0.1.3
+│ └─┬ yeoman-generator@0.14.2
+│   ├── async@0.2.10
+│   ├─┬ chalk@0.3.0
+│   │ ├── ansi-styles@0.2.0
+│   │ └── has-color@0.1.6
+│   ├─┬ cheerio@0.12.4
+│   │ ├─┬ cheerio-select@0.0.3
+│   │ │ └─┬ CSSselect@0.7.0
+│   │ │   ├── boolbase@1.0.0
+│   │ │   ├── CSSwhat@0.4.5
+│   │ │   ├─┬ domutils@1.4.3
+│   │ │   │ └── domelementtype@1.1.1
+│   │ │   └── nth-check@1.0.0
+│   │ ├── entities@0.5.0
+│   │ ├─┬ htmlparser2@3.1.4
+│   │ │ ├── domelementtype@1.1.1
+│   │ │ ├── domhandler@2.0.3
+│   │ │ ├── domutils@1.1.6
+│   │ │ └─┬ readable-stream@1.0.26-4
+│   │ │   ├── core-util-is@1.0.1
+│   │ │   ├── inherits@2.0.1
+│   │ │   ├── isarray@0.0.1
+│   │ │   └── string_decoder@0.10.25-1
+│   │ └── underscore@1.4.4
+│   ├── dargs@0.1.0
+│   ├── debug@0.7.4
+│   ├── diff@1.0.8
+│   ├─┬ download@0.1.15
+│   │ ├─┬ decompress@0.2.2
+│   │ │ ├── adm-zip@0.4.4
+│   │ │ ├─┬ map-key@0.1.1
+│   │ │ │ └── mout@0.9.1
+│   │ │ ├─┬ stream-combiner@0.0.4
+│   │ │ │ └── duplexer@0.1.1
+│   │ │ ├─┬ tar@0.1.19
+│   │ │ │ ├── block-stream@0.0.7
+│   │ │ │ ├─┬ fstream@0.1.25
+│   │ │ │ │ └── graceful-fs@2.0.3
+│   │ │ │ └── inherits@2.0.1
+│   │ │ └─┬ tempfile@0.1.3
+│   │ │   └── uuid@1.4.1
+│   │ ├── each-async@0.1.2
+│   │ ├── get-stdin@0.1.0
+│   │ ├── get-urls@0.1.1
+│   │ ├─┬ nopt@2.2.0
+│   │ │ └── abbrev@1.0.4
+│   │ ├─┬ request@2.34.0
+│   │ │ ├── aws-sign2@0.5.0
+│   │ │ ├── forever-agent@0.5.2
+│   │ │ ├─┬ form-data@0.1.2
+│   │ │ │ └─┬ combined-stream@0.0.4
+│   │ │ │   └── delayed-stream@0.0.5
+│   │ │ ├─┬ hawk@1.0.0
+│   │ │ │ ├── boom@0.4.2
+│   │ │ │ ├── cryptiles@0.2.2
+│   │ │ │ ├── hoek@0.9.1
+│   │ │ │ └── sntp@0.2.4
+│   │ │ ├─┬ http-signature@0.10.0
+│   │ │ │ ├── asn1@0.1.11
+│   │ │ │ ├── assert-plus@0.1.2
+│   │ │ │ └── ctype@0.5.2
+│   │ │ ├── json-stringify-safe@5.0.0
+│   │ │ ├── node-uuid@1.4.1
+│   │ │ ├── oauth-sign@0.3.0
+│   │ │ ├── qs@0.6.6
+│   │ │ ├─┬ tough-cookie@0.12.1
+│   │ │ │ └── punycode@1.2.4
+│   │ │ └── tunnel-agent@0.3.0
+│   │ └─┬ through2@0.4.1
+│   │   ├─┬ readable-stream@1.0.26-4
+│   │   │ ├── core-util-is@1.0.1
+│   │   │ ├── inherits@2.0.1
+│   │   │ ├── isarray@0.0.1
+│   │   │ └── string_decoder@0.10.25-1
+│   │   └─┬ xtend@2.1.2
+│   │     └── object-keys@0.4.0
+│   ├─┬ file-utils@0.1.5
+│   │ ├── lodash@2.1.0
+│   │ └─┬ minimatch@0.2.14
+│   │   ├── lru-cache@2.5.0
+│   │   └── sigmund@1.0.0
+│   ├─┬ findup-sync@0.1.3
+│   │ └── lodash@2.4.1
+│   ├─┬ glob@3.2.9
+│   │ ├── inherits@2.0.1
+│   │ └─┬ minimatch@0.2.14
+│   │   ├── lru-cache@2.5.0
+│   │   └── sigmund@1.0.0
+│   ├── iconv-lite@0.2.11
+│   ├─┬ inquirer@0.3.5
+│   │ ├─┬ cli-color@0.2.3
+│   │ │ ├── es5-ext@0.9.2
+│   │ │ └─┬ memoizee@0.2.6
+│   │ │   ├── event-emitter@0.2.2
+│   │ │   └── next-tick@0.1.0
+│   │ ├── lodash@1.2.1
+│   │ └── mute-stream@0.0.3
+│   ├── isbinaryfile@0.1.9
+│   ├── lodash@2.2.1
+│   ├── mime@1.2.11
+│   ├── mkdirp@0.3.5
+│   ├─┬ request@2.27.0
+│   │ ├── aws-sign@0.3.0
+│   │ ├── cookie-jar@0.3.0
+│   │ ├── forever-agent@0.5.2
+│   │ ├─┬ form-data@0.1.2
+│   │ │ └─┬ combined-stream@0.0.4
+│   │ │   └── delayed-stream@0.0.5
+│   │ ├─┬ hawk@1.0.0
+│   │ │ ├── boom@0.4.2
+│   │ │ ├── cryptiles@0.2.2
+│   │ │ ├── hoek@0.9.1
+│   │ │ └── sntp@0.2.4
+│   │ ├─┬ http-signature@0.10.0
+│   │ │ ├── asn1@0.1.11
+│   │ │ ├── assert-plus@0.1.2
+│   │ │ └── ctype@0.5.2
+│   │ ├── json-stringify-safe@5.0.0
+│   │ ├── node-uuid@1.4.1
+│   │ ├── oauth-sign@0.3.0
+│   │ ├── qs@0.6.6
+│   │ └── tunnel-agent@0.3.0
+│   ├── rimraf@2.2.6
+│   ├── shelljs@0.2.6
+│   ├── text-table@0.2.0
+│   └── underscore.string@2.3.3
+├─┬ generator-webapp@0.4.9
+│ ├─┬ chalk@0.4.0
+│ │ ├── ansi-styles@1.0.0
+│ │ ├── has-color@0.1.6
+│ │ └── strip-ansi@0.1.1
+│ ├─┬ cheerio@0.13.1
+│ │ ├─┬ CSSselect@0.4.1
+│ │ │ ├── CSSwhat@0.4.5
+│ │ │ └─┬ domutils@1.4.3
+│ │ │   └── domelementtype@1.1.1
+│ │ ├── entities@0.5.0
+│ │ ├─┬ htmlparser2@3.4.0
+│ │ │ ├── domelementtype@1.1.1
+│ │ │ ├── domhandler@2.2.0
+│ │ │ ├── domutils@1.3.0
+│ │ │ └─┬ readable-stream@1.1.12
+│ │ │   ├── core-util-is@1.0.1
+│ │ │   ├── inherits@2.0.1
+│ │ │   ├── isarray@0.0.1
+│ │ │   └── string_decoder@0.10.25-1
+│ │ └── underscore@1.5.2
+│ └─┬ yeoman-generator@0.16.0
+│   ├── async@0.2.10
+│   ├── class-extend@0.1.1
+│   ├── dargs@0.1.0
+│   ├── debug@0.7.4
+│   ├── diff@1.0.8
+│   ├─┬ download@0.1.15
+│   │ ├─┬ decompress@0.2.2
+│   │ │ ├── adm-zip@0.4.4
+│   │ │ ├─┬ map-key@0.1.1
+│   │ │ │ └── mout@0.9.1
+│   │ │ ├─┬ stream-combiner@0.0.4
+│   │ │ │ └── duplexer@0.1.1
+│   │ │ ├─┬ tar@0.1.19
+│   │ │ │ ├── block-stream@0.0.7
+│   │ │ │ ├─┬ fstream@0.1.25
+│   │ │ │ │ └── graceful-fs@2.0.3
+│   │ │ │ └── inherits@2.0.1
+│   │ │ └─┬ tempfile@0.1.3
+│   │ │   └── uuid@1.4.1
+│   │ ├── each-async@0.1.2
+│   │ ├── get-stdin@0.1.0
+│   │ ├── get-urls@0.1.1
+│   │ ├─┬ nopt@2.2.0
+│   │ │ └── abbrev@1.0.4
+│   │ ├─┬ request@2.34.0
+│   │ │ ├── aws-sign2@0.5.0
+│   │ │ ├── forever-agent@0.5.2
+│   │ │ ├─┬ form-data@0.1.2
+│   │ │ │ └─┬ combined-stream@0.0.4
+│   │ │ │   └── delayed-stream@0.0.5
+│   │ │ ├─┬ hawk@1.0.0
+│   │ │ │ ├── boom@0.4.2
+│   │ │ │ ├── cryptiles@0.2.2
+│   │ │ │ ├── hoek@0.9.1
+│   │ │ │ └── sntp@0.2.4
+│   │ │ ├─┬ http-signature@0.10.0
+│   │ │ │ ├── asn1@0.1.11
+│   │ │ │ ├── assert-plus@0.1.2
+│   │ │ │ └── ctype@0.5.2
+│   │ │ ├── json-stringify-safe@5.0.0
+│   │ │ ├── node-uuid@1.4.1
+│   │ │ ├── oauth-sign@0.3.0
+│   │ │ ├── qs@0.6.6
+│   │ │ ├─┬ tough-cookie@0.12.1
+│   │ │ │ └── punycode@1.2.4
+│   │ │ └── tunnel-agent@0.3.0
+│   │ └─┬ through2@0.4.1
+│   │   ├─┬ readable-stream@1.0.26-4
+│   │   │ ├── core-util-is@1.0.1
+│   │   │ ├── inherits@2.0.1
+│   │   │ ├── isarray@0.0.1
+│   │   │ └── string_decoder@0.10.25-1
+│   │   └─┬ xtend@2.1.2
+│   │     └── object-keys@0.4.0
+│   ├─┬ file-utils@0.1.5
+│   │ ├── isbinaryfile@0.1.9
+│   │ ├── lodash@2.1.0
+│   │ └─┬ minimatch@0.2.14
+│   │   ├── lru-cache@2.5.0
+│   │   └── sigmund@1.0.0
+│   ├── findup-sync@0.1.3
+│   ├─┬ glob@3.2.9
+│   │ ├── inherits@2.0.1
+│   │ └─┬ minimatch@0.2.14
+│   │   ├── lru-cache@2.5.0
+│   │   └── sigmund@1.0.0
+│   ├── iconv-lite@0.2.11
+│   ├─┬ inquirer@0.4.1
+│   │ ├─┬ cli-color@0.2.3
+│   │ │ ├── es5-ext@0.9.2
+│   │ │ └─┬ memoizee@0.2.6
+│   │ │   ├── event-emitter@0.2.2
+│   │ │   └── next-tick@0.1.0
+│   │ ├── mute-stream@0.0.4
+│   │ ├── readline2@0.1.0
+│   │ └── through@2.3.4
+│   ├── isbinaryfile@2.0.1
+│   ├── lodash@2.4.1
+│   ├── mime@1.2.11
+│   ├── mkdirp@0.3.5
+│   ├─┬ request@2.30.0
+│   │ ├── aws-sign2@0.5.0
+│   │ ├── forever-agent@0.5.2
+│   │ ├─┬ form-data@0.1.2
+│   │ │ └─┬ combined-stream@0.0.4
+│   │ │   └── delayed-stream@0.0.5
+│   │ ├─┬ hawk@1.0.0
+│   │ │ ├── boom@0.4.2
+│   │ │ ├── cryptiles@0.2.2
+│   │ │ ├── hoek@0.9.1
+│   │ │ └── sntp@0.2.4
+│   │ ├─┬ http-signature@0.10.0
+│   │ │ ├── asn1@0.1.11
+│   │ │ ├── assert-plus@0.1.2
+│   │ │ └── ctype@0.5.2
+│   │ ├── json-stringify-safe@5.0.0
+│   │ ├── node-uuid@1.4.1
+│   │ ├── oauth-sign@0.3.0
+│   │ ├── qs@0.6.6
+│   │ ├─┬ tough-cookie@0.9.15
+│   │ │ └── punycode@1.2.4
+│   │ └── tunnel-agent@0.3.0
+│   ├── rimraf@2.2.6
+│   ├── shelljs@0.2.6
+│   ├── text-table@0.2.0
+│   └── underscore.string@2.3.3
+├─┬ grunt@0.4.4
+│ ├── async@0.1.22
+│ ├── coffee-script@1.3.3
+│ ├── colors@0.6.2
+│ ├── dateformat@1.0.2-1.2.3
+│ ├── eventemitter2@0.4.13
+│ ├── exit@0.1.2
+│ ├─┬ findup-sync@0.1.3
+│ │ ├─┬ glob@3.2.9
+│ │ │ └── inherits@2.0.1
+│ │ └── lodash@2.4.1
+│ ├── getobject@0.1.0
+│ ├─┬ glob@3.1.21
+│ │ ├── graceful-fs@1.2.3
+│ │ └── inherits@1.0.0
+│ ├── grunt-legacy-util@0.1.2
+│ ├── hooker@0.2.3
+│ ├── iconv-lite@0.2.11
+│ ├─┬ js-yaml@2.0.5
+│ │ ├─┬ argparse@0.1.15
+│ │ │ ├── underscore@1.4.4
+│ │ │ └── underscore.string@2.3.3
+│ │ └── esprima@1.0.4
+│ ├── lodash@0.9.2
+│ ├─┬ minimatch@0.2.14
+│ │ ├── lru-cache@2.5.0
+│ │ └── sigmund@1.0.0
+│ ├─┬ nopt@1.0.10
+│ │ └── abbrev@1.0.4
+│ ├── rimraf@2.2.6
+│ ├── underscore.string@2.2.1
+│ └── which@1.0.5
+├─┬ grunt-cli@0.1.13
+│ ├─┬ findup-sync@0.1.3
+│ │ ├─┬ glob@3.2.9
+│ │ │ ├── inherits@2.0.1
+│ │ │ └─┬ minimatch@0.2.14
+│ │ │   ├── lru-cache@2.5.0
+│ │ │   └── sigmund@1.0.0
+│ │ └── lodash@2.4.1
+│ ├─┬ nopt@1.0.10
+│ │ └── abbrev@1.0.4
+│ └── resolve@0.3.1
+├─┬ istanbul@0.2.7
+│ ├── abbrev@1.0.4
+│ ├── async@0.2.10
+│ ├─┬ escodegen@1.3.1
+│ │ ├── estraverse@1.5.0
+│ │ ├── esutils@1.0.0
+│ │ └─┬ source-map@0.1.33
+│ │   └── amdefine@0.1.0
+│ ├── esprima@1.1.1
+│ ├─┬ fileset@0.1.5
+│ │ ├─┬ glob@3.2.9
+│ │ │ └── inherits@2.0.1
+│ │ └─┬ minimatch@0.2.14
+│ │   ├── lru-cache@2.5.0
+│ │   └── sigmund@1.0.0
+│ ├─┬ handlebars@1.3.0
+│ │ ├─┬ optimist@0.3.7
+│ │ │ └── wordwrap@0.0.2
+│ │ └─┬ uglify-js@2.3.6
+│ │   ├── async@0.2.10
+│ │   └─┬ source-map@0.1.33
+│ │     └── amdefine@0.1.0
+│ ├─┬ js-yaml@3.0.2
+│ │ ├─┬ argparse@0.1.15
+│ │ │ ├── underscore@1.4.4
+│ │ │ └── underscore.string@2.3.3
+│ │ └── esprima@1.0.4
+│ ├── mkdirp@0.3.5
+│ ├── nopt@2.2.0
+│ ├── resolve@0.6.2
+│ ├── which@1.0.5
+│ └── wordwrap@0.0.2
+├─┬ jasmine-node@2.0.0
+│ ├── coffee-script@1.7.1
+│ ├─┬ gaze@0.5.1
+│ │ └─┬ globule@0.1.0
+│ │   ├─┬ glob@3.1.21
+│ │   │ ├── graceful-fs@1.2.3
+│ │   │ └── inherits@1.0.0
+│ │   ├── lodash@1.0.1
+│ │   └─┬ minimatch@0.2.14
+│ │     ├── lru-cache@2.5.0
+│ │     └── sigmund@1.0.0
+│ ├─┬ jasmine-growl-reporter@0.2.0
+│ │ └── growl@1.7.0
+│ ├── minimist@0.0.8
+│ ├── mkdirp@0.3.5
+│ ├── underscore@1.6.0
+│ └── walkdir@0.0.7
+├─┬ js-beautify@1.4.2
+│ ├─┬ config-chain@1.1.8
+│ │ ├── ini@1.1.0
+│ │ └── proto-list@1.2.2
+│ ├── mkdirp@0.3.5
+│ └─┬ nopt@2.1.2
+│   └── abbrev@1.0.4
+├─┬ npm@1.4.6
+│ ├── abbrev@1.0.4
+│ ├── ansi@0.2.1
+│ ├── ansicolors@0.3.2
+│ ├── ansistyles@0.1.3
+│ ├── archy@0.0.2
+│ ├── block-stream@0.0.7
+│ ├── child-process-close@0.1.1
+│ ├── chmodr@0.1.0
+│ ├── chownr@0.0.1
+│ ├── cmd-shim@1.1.1
+│ ├── columnify@0.1.2
+│ ├── editor@0.0.5
+│ ├── fstream@0.1.25
+│ ├─┬ fstream-npm@0.1.6
+│ │ └── fstream-ignore@0.0.7
+│ ├── github-url-from-git@1.1.1
+│ ├── github-url-from-username-repo@0.0.2
+│ ├── glob@3.2.9
+│ ├── graceful-fs@2.0.2
+│ ├── inherits@2.0.1
+│ ├── ini@1.1.0
+│ ├─┬ init-package-json@0.0.15
+│ │ └── promzard@0.2.1
+│ ├── lockfile@0.4.2
+│ ├── lru-cache@2.5.0
+│ ├─┬ minimatch@0.2.14
+│ │ └── sigmund@1.0.0
+│ ├── mkdirp@0.3.5
+│ ├── node-gyp@0.13.0
+│ ├── nopt@2.2.0
+│ ├── npm-install-checks@1.0.0
+│ ├── npm-registry-client@0.4.5
+│ ├── npm-user-validate@0.0.3
+│ ├─┬ npmconf@0.1.13
+│ │ └─┬ config-chain@1.1.8
+│ │   └── proto-list@1.2.2
+│ ├── npmlog@0.0.6
+│ ├── once@1.3.0
+│ ├── opener@1.3.0
+│ ├── osenv@0.0.3
+│ ├── path-is-inside@1.0.1
+│ ├─┬ read@1.0.5
+│ │ └── mute-stream@0.0.4
+│ ├─┬ read-installed@2.0.1
+│ │ └── util-extend@1.0.1
+│ ├─┬ read-package-json@1.1.8
+│ │ └── normalize-package-data@0.2.12
+│ ├─┬ request@2.30.0
+│ │ ├── aws-sign2@0.5.0
+│ │ ├── forever-agent@0.5.0
+│ │ ├─┬ form-data@0.1.2
+│ │ │ ├── async@0.2.9
+│ │ │ └─┬ combined-stream@0.0.4
+│ │ │   └── delayed-stream@0.0.5
+│ │ ├─┬ hawk@1.0.0
+│ │ │ ├── boom@0.4.2
+│ │ │ ├── cryptiles@0.2.2
+│ │ │ ├── hoek@0.9.1
+│ │ │ └── sntp@0.2.4
+│ │ ├─┬ http-signature@0.10.0
+│ │ │ ├── asn1@0.1.11
+│ │ │ ├── assert-plus@0.1.2
+│ │ │ └── ctype@0.5.2
+│ │ ├── json-stringify-safe@5.0.0
+│ │ ├── mime@1.2.11
+│ │ ├── node-uuid@1.4.1
+│ │ ├── oauth-sign@0.3.0
+│ │ ├── qs@0.6.6
+│ │ ├─┬ tough-cookie@0.9.15
+│ │ │ └── punycode@1.2.3
+│ │ └── tunnel-agent@0.3.0
+│ ├── retry@0.6.0
+│ ├── rimraf@2.2.6
+│ ├── semver@2.2.1
+│ ├─┬ sha@1.2.3
+│ │ └── readable-stream@1.0.24
+│ ├── slide@1.1.5
+│ ├── sorted-object@1.0.0
+│ ├── tar@0.1.19
+│ ├── text-table@0.2.0
+│ ├── uid-number@0.0.5
+│ └── which@1.0.5
+└─┬ yo@1.1.2
+  ├── async@0.2.10
+  ├─┬ chalk@0.4.0
+  │ ├── ansi-styles@1.0.0
+  │ ├── has-color@0.1.6
+  │ └── strip-ansi@0.1.1
+  ├─┬ findup@0.1.5
+  │ ├── colors@0.6.2
+  │ └── commander@2.1.0
+  ├─┬ insight@0.3.1
+  │ ├── async@0.2.10
+  │ ├─┬ chalk@0.4.0
+  │ │ ├── ansi-styles@1.0.0
+  │ │ ├── has-color@0.1.6
+  │ │ └── strip-ansi@0.1.1
+  │ ├─┬ configstore@0.2.3
+  │ │ ├── graceful-fs@2.0.3
+  │ │ ├─┬ js-yaml@3.0.2
+  │ │ │ ├─┬ argparse@0.1.15
+  │ │ │ │ ├── underscore@1.4.4
+  │ │ │ │ └── underscore.string@2.3.3
+  │ │ │ └── esprima@1.0.4
+  │ │ ├── mkdirp@0.3.5
+  │ │ ├── osenv@0.0.3
+  │ │ └── uuid@1.4.1
+  │ ├─┬ inquirer@0.4.1
+  │ │ ├─┬ cli-color@0.2.3
+  │ │ │ ├── es5-ext@0.9.2
+  │ │ │ └─┬ memoizee@0.2.6
+  │ │ │   ├── event-emitter@0.2.2
+  │ │ │   └── next-tick@0.1.0
+  │ │ ├── lodash@2.4.1
+  │ │ ├── mute-stream@0.0.4
+  │ │ ├── readline2@0.1.0
+  │ │ └── through@2.3.4
+  │ ├─┬ lodash.debounce@2.4.1
+  │ │ ├── lodash.isfunction@2.4.1
+  │ │ ├─┬ lodash.isobject@2.4.1
+  │ │ │ └── lodash._objecttypes@2.4.1
+  │ │ └─┬ lodash.now@2.4.1
+  │ │   └── lodash._isnative@2.4.1
+  │ ├── object-assign@0.1.2
+  │ └─┬ request@2.27.0
+  │   ├── aws-sign@0.3.0
+  │   ├── cookie-jar@0.3.0
+  │   ├── forever-agent@0.5.2
+  │   ├─┬ form-data@0.1.2
+  │   │ └─┬ combined-stream@0.0.4
+  │   │   └── delayed-stream@0.0.5
+  │   ├─┬ hawk@1.0.0
+  │   │ ├── boom@0.4.2
+  │   │ ├── cryptiles@0.2.2
+  │   │ ├── hoek@0.9.1
+  │   │ └── sntp@0.2.4
+  │   ├─┬ http-signature@0.10.0
+  │   │ ├── asn1@0.1.11
+  │   │ ├── assert-plus@0.1.2
+  │   │ └── ctype@0.5.2
+  │   ├── json-stringify-safe@5.0.0
+  │   ├── mime@1.2.11
+  │   ├── node-uuid@1.4.1
+  │   ├── oauth-sign@0.3.0
+  │   ├── qs@0.6.6
+  │   └── tunnel-agent@0.3.0
+  ├── lodash@2.4.1
+  ├─┬ nopt@2.1.2
+  │ └── abbrev@1.0.4
+  ├── open@0.0.4
+  ├── shelljs@0.2.6
+  ├─┬ sudo-block@0.3.0
+  │ └─┬ chalk@0.3.0
+  │   ├── ansi-styles@0.2.0
+  │   └── has-color@0.1.6
+  ├─┬ update-notifier@0.1.8
+  │ ├─┬ chalk@0.4.0
+  │ │ ├── ansi-styles@1.0.0
+  │ │ ├── has-color@0.1.6
+  │ │ └── strip-ansi@0.1.1
+  │ ├─┬ configstore@0.2.3
+  │ │ ├── graceful-fs@2.0.3
+  │ │ ├─┬ js-yaml@3.0.2
+  │ │ │ ├─┬ argparse@0.1.15
+  │ │ │ │ ├── underscore@1.4.4
+  │ │ │ │ └── underscore.string@2.3.3
+  │ │ │ └── esprima@1.0.4
+  │ │ ├── mkdirp@0.3.5
+  │ │ ├── object-assign@0.1.2
+  │ │ ├── osenv@0.0.3
+  │ │ └── uuid@1.4.1
+  │ ├─┬ request@2.27.0
+  │ │ ├── aws-sign@0.3.0
+  │ │ ├── cookie-jar@0.3.0
+  │ │ ├── forever-agent@0.5.2
+  │ │ ├─┬ form-data@0.1.2
+  │ │ │ ├── async@0.2.10
+  │ │ │ └─┬ combined-stream@0.0.4
+  │ │ │   └── delayed-stream@0.0.5
+  │ │ ├─┬ hawk@1.0.0
+  │ │ │ ├── boom@0.4.2
+  │ │ │ ├── cryptiles@0.2.2
+  │ │ │ ├── hoek@0.9.1
+  │ │ │ └── sntp@0.2.4
+  │ │ ├─┬ http-signature@0.10.0
+  │ │ │ ├── asn1@0.1.11
+  │ │ │ ├── assert-plus@0.1.2
+  │ │ │ └── ctype@0.5.2
+  │ │ ├── json-stringify-safe@5.0.0
+  │ │ ├── mime@1.2.11
+  │ │ ├── node-uuid@1.4.1
+  │ │ ├── oauth-sign@0.3.0
+  │ │ ├── qs@0.6.6
+  │ │ └── tunnel-agent@0.3.0
+  │ └── semver@2.1.0
+  └─┬ yeoman-generator@0.16.0
+    ├── async@0.2.10
+    ├─┬ chalk@0.4.0
+    │ ├── ansi-styles@1.0.0
+    │ ├── has-color@0.1.6
+    │ └── strip-ansi@0.1.1
+    ├─┬ cheerio@0.13.1
+    │ ├─┬ CSSselect@0.4.1
+    │ │ ├── CSSwhat@0.4.5
+    │ │ └─┬ domutils@1.4.3
+    │ │   └── domelementtype@1.1.1
+    │ ├── entities@0.5.0
+    │ ├─┬ htmlparser2@3.4.0
+    │ │ ├── domelementtype@1.1.1
+    │ │ ├── domhandler@2.2.0
+    │ │ ├── domutils@1.3.0
+    │ │ └─┬ readable-stream@1.1.12
+    │ │   ├── core-util-is@1.0.1
+    │ │   ├── inherits@2.0.1
+    │ │   ├── isarray@0.0.1
+    │ │   └── string_decoder@0.10.25-1
+    │ └── underscore@1.5.2
+    ├── class-extend@0.1.1
+    ├── dargs@0.1.0
+    ├── debug@0.7.4
+    ├── diff@1.0.8
+    ├─┬ download@0.1.15
+    │ ├─┬ decompress@0.2.2
+    │ │ ├── adm-zip@0.4.4
+    │ │ ├─┬ map-key@0.1.1
+    │ │ │ └── mout@0.9.1
+    │ │ ├─┬ stream-combiner@0.0.4
+    │ │ │ └── duplexer@0.1.1
+    │ │ ├─┬ tar@0.1.19
+    │ │ │ ├── block-stream@0.0.7
+    │ │ │ ├─┬ fstream@0.1.25
+    │ │ │ │ └── graceful-fs@2.0.3
+    │ │ │ └── inherits@2.0.1
+    │ │ └─┬ tempfile@0.1.3
+    │ │   └── uuid@1.4.1
+    │ ├── each-async@0.1.2
+    │ ├── get-stdin@0.1.0
+    │ ├── get-urls@0.1.1
+    │ ├─┬ nopt@2.2.0
+    │ │ └── abbrev@1.0.4
+    │ ├─┬ request@2.34.0
+    │ │ ├── aws-sign2@0.5.0
+    │ │ ├── forever-agent@0.5.2
+    │ │ ├─┬ form-data@0.1.2
+    │ │ │ └─┬ combined-stream@0.0.4
+    │ │ │   └── delayed-stream@0.0.5
+    │ │ ├─┬ hawk@1.0.0
+    │ │ │ ├── boom@0.4.2
+    │ │ │ ├── cryptiles@0.2.2
+    │ │ │ ├── hoek@0.9.1
+    │ │ │ └── sntp@0.2.4
+    │ │ ├─┬ http-signature@0.10.0
+    │ │ │ ├── asn1@0.1.11
+    │ │ │ ├── assert-plus@0.1.2
+    │ │ │ └── ctype@0.5.2
+    │ │ ├── json-stringify-safe@5.0.0
+    │ │ ├── node-uuid@1.4.1
+    │ │ ├── oauth-sign@0.3.0
+    │ │ ├── qs@0.6.6
+    │ │ ├─┬ tough-cookie@0.12.1
+    │ │ │ └── punycode@1.2.4
+    │ │ └── tunnel-agent@0.3.0
+    │ └─┬ through2@0.4.1
+    │   ├─┬ readable-stream@1.0.26-4
+    │   │ ├── core-util-is@1.0.1
+    │   │ ├── inherits@2.0.1
+    │   │ ├── isarray@0.0.1
+    │   │ └── string_decoder@0.10.25-1
+    │   └─┬ xtend@2.1.2
+    │     └── object-keys@0.4.0
+    ├─┬ file-utils@0.1.5
+    │ ├── isbinaryfile@0.1.9
+    │ ├── lodash@2.1.0
+    │ └─┬ minimatch@0.2.14
+    │   ├── lru-cache@2.5.0
+    │   └── sigmund@1.0.0
+    ├── findup-sync@0.1.3
+    ├─┬ glob@3.2.9
+    │ ├── inherits@2.0.1
+    │ └─┬ minimatch@0.2.14
+    │   ├── lru-cache@2.5.0
+    │   └── sigmund@1.0.0
+    ├── iconv-lite@0.2.11
+    ├─┬ inquirer@0.4.1
+    │ ├─┬ cli-color@0.2.3
+    │ │ ├── es5-ext@0.9.2
+    │ │ └─┬ memoizee@0.2.6
+    │ │   ├── event-emitter@0.2.2
+    │ │   └── next-tick@0.1.0
+    │ ├── mute-stream@0.0.4
+    │ ├── readline2@0.1.0
+    │ └── through@2.3.4
+    ├── isbinaryfile@2.0.1
+    ├── lodash@2.4.1
+    ├── mime@1.2.11
+    ├── mkdirp@0.3.5
+    ├─┬ request@2.30.0
+    │ ├── aws-sign2@0.5.0
+    │ ├── forever-agent@0.5.2
+    │ ├─┬ form-data@0.1.2
+    │ │ └─┬ combined-stream@0.0.4
+    │ │   └── delayed-stream@0.0.5
+    │ ├─┬ hawk@1.0.0
+    │ │ ├── boom@0.4.2
+    │ │ ├── cryptiles@0.2.2
+    │ │ ├── hoek@0.9.1
+    │ │ └── sntp@0.2.4
+    │ ├─┬ http-signature@0.10.0
+    │ │ ├── asn1@0.1.11
+    │ │ ├── assert-plus@0.1.2
+    │ │ └── ctype@0.5.2
+    │ ├── json-stringify-safe@5.0.0
+    │ ├── node-uuid@1.4.1
+    │ ├── oauth-sign@0.3.0
+    │ ├── qs@0.6.6
+    │ ├─┬ tough-cookie@0.9.15
+    │ │ └── punycode@1.2.4
+    │ └── tunnel-agent@0.3.0
+    ├── rimraf@2.2.6
+    ├── shelljs@0.2.6
+    ├── text-table@0.2.0
+    └── underscore.string@2.3.3
+
