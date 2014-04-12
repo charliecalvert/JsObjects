@@ -77,9 +77,14 @@ module.exports = function(grunt) { 'use strict';
 			},
 
 		copy: {
+			deploy : {
+				src : ['Server.js', 'Ketch.js', 'Sloop.js', 'Yawl.js', 
+					'Interface.js'],
+				dest : 'Deploy/',
+			},
 			main: {
 				src: '<%= zipFile %>',
-				dest: process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
+				dest: process.env.HOMEPATH + '/.'
 			}
 		}
 	});
