@@ -2,3 +2,5 @@ karma.conf.js
 *.zip
 _SpecRunner.html
 .grunt
+Deploy
+RunIstanbul.sh
