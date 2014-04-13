@@ -3,6 +3,7 @@ Thumbs.db
 *.apk
 *.dex
 *.bak
+foo.sh
 resources.ap_
 jarlist.cache
 geany_run_script.bat
