@@ -11,9 +11,10 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    'coverage/**',
+                    'jquery*.js',
+                    '**/coverage/**',
                     '**/node_modules/**',
-                    '**/Tests/Jasmine-2.0.0/**'
+                    '**/Tests/jasmine/**'
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',

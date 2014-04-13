@@ -8,8 +8,8 @@ var app = {
     init: function() {
         'use strict';
         if (!this.arrayAll) {
-        	this.arrayAll = new ArrayAll();
-        };
+            this.arrayAll = new ArrayAll();
+        }
         return this.arrayAll;
     }
 };
