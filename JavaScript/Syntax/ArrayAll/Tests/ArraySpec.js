@@ -10,7 +10,13 @@ describe("An Array Suite", function() {
     });
 
     it("can find emptyArray", function() {
-        expect(app.arrayAll.emptyArray()).toBe(0);
+        expect(app.arrayAll.emptyArrayCount()).toBe(0);
+    });
+    
+    it("shows empty array is an array", function() {
+        var emptyArray = app.arrayAll.emptyArray();
+        var isArray = Array.isArray(emptyArray);
+        expect(isArray).toBe(true);
     });
 
     it("can count letterArray", function() {

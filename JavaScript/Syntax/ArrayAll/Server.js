@@ -1,0 +1,45 @@
+var express = require('express');
+var app = express();
+var fs = require('fs');
+var path = require('path');
+var logger = require('morgan');
+
+var port = process.env.PORT || 30025;
+
+//app.use(logger('dev'));
+
+var logger = require('morgan');
+
+// app.use(logger());
+
+app.use('/Scripts', function(req, res, next) {
+	console.log(req.url);
+	next();
+});
+
+app.use(express.static(path.join(__dirname, 'Tests')));
+app.use('/Scripts', express.static(path.join(__dirname, 'Scripts')));
+
+console.log(app._router);
+
+console.log("=========================");
+
+function charlie(err, req, res, next) {
+	console.log("Charlie called");
+	console.log(err);
+	console.log(req);
+	next();
+}
+app.use(charlie);
+console.log(app._router);
+
+app.get('/', function(req, res) {
+	var htmlFiles = ['index.html', 'Tests/ArraySpec.html'];
+    var html = fs.readFileSync(__dirname + '/' + htmlFiles[1]);
+    res.writeHeader(200, {"Content-Type": "text/html"});   
+    res.write(html);
+    res.end();
+});
+
+app.listen(port);
+console.log('Listening on port :' + port);

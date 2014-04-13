@@ -23,9 +23,14 @@ var ArrayAll = (function() {
 
     ArrayAll.prototype.emptyArray = function() {
         var empty = [];
-        return empty.length;
+        return empty;
     };
 
+	ArrayAll.prototype.emptyArrayCount = function() {
+        var empty = [];
+        return empty.length;
+    };
+    
     ArrayAll.prototype.letterArray = function() {
         var empty = [];
         var letters = ['a', 'b', 'c'];
