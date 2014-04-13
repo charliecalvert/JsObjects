@@ -5,4 +5,9 @@ describe("An Array Suite", function() { 'use strict';
     expect(true).toBe(true);
   });
   
+  it("Can create ArrayAll", function() {
+	 var arrayAll = app.init();
+	 expect(arrayAll).not.toBeNull();
+  });
+  
 });

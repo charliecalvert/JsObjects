@@ -7,7 +7,10 @@ var app = {
 
     init: function() {
         'use strict';
-        arrayAll = new ArrayAll();
+        if (!this.arrayAll) {
+        	this.arrayAll = new ArrayAll();
+        };
+        return this.arrayAll;
     }
 };
 
