@@ -18,7 +18,7 @@ var QueryMongo = (function() {'use strict';
 	var response = null;
 	var database = null;
 	var url = null;
-	var collectionName = 'MongoTalk04Data';
+	var collectionName = 'finalWalk';
 	/*
 	 * Normally we do not close the database. If you have more
 	 * more than one MongoClient then call it, otherwise, don't 

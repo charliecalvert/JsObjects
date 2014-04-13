@@ -103,10 +103,24 @@ var buildAll = function(response, config, index) { 'use strict';
 	}
 };
 
+/*
 app.get('/buildAll', function(request, response) { 'use strict';
 	console.log("buildAll called");	
 	var options = JSON.parse(request.query.options);
 	buildAll(response, options, request.query.index);
+}); */
+
+app.get('/buildAll', function(request, response) {
+	'use strict';
+	console.log("buildAll called");
+	console.log(typeof request.query.options);
+	console.log(request.query.options);
+	// Let's just start writing this out, as we are going to need to do it eventually.
+	fs.writeFile("MarkdownTransformConfig.json", request.query.options, function(err, data) {
+        var options = JSON.parse(request.query.options);
+        buildAll(response, options, request.query.index);
+    });
+	// buildAll(response, options, request.query.index);
 });
 
 app.get('/getBuildConfig', function(request, response) { 'use strict';
