@@ -21,23 +21,23 @@ var ArrayAll = (function() {
 
     }
 
-    var emptyArray = function() {
+    ArrayAll.prototype.emptyArray = function() {
         var empty = [];
         return empty.length;
     };
 
-    var lettersArray = function() {
+    ArrayAll.prototype.letterArray = function() {
         var empty = [];
         var letters = ['a', 'b', 'c'];
         return letters.length;
     };
 
-    var arrayConstructor = function() {
+    ArrayAll.prototype.arrayConstructor = function() {
         var numbers = new Array(1, 2, 3, 4, 5);
         return numbers;
     };
 
-    var mixedArray = function() {
+    ArrayAll.prototype.mixedArray = function() {
         return ['a', 23, false, 'mixed types in one array'];
     };
 
