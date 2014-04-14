@@ -1,5 +1,6 @@
 var variable00;
 var func01 = function() {};
+
 function func02() {}
 
 console.log("variable00: " + variable00);
