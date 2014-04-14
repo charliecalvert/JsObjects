@@ -1,5 +1,5 @@
 /**
- * @author charlie
+ * @author Charlie Calvert
  */
 
 function ThreeTypes(name) {
@@ -21,3 +21,8 @@ function ThreeTypes(name) {
 var threeTypes = new ThreeTypes('Passed as parameter');
 threeTypes.normalFunc();
 console.log(threeTypes.name);
+try {
+    threeTypes.privateFunc();
+} catch (e) {
+    console.log(e);
+}

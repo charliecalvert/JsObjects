@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         jsbeautifier: {
             files: ["**/*.js", '!**/node_modules/**',
                 '!**/coverage/**',
-                '!**/Tests/Jasmine-2.0.0/**'
+                '!**/jquery*.js'
             ],
             options: {
                 js: {
