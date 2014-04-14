@@ -30,5 +30,37 @@ describe("An Array Suite", function() {
     it("can find an item in a mixedArray", function() {
         expect(app.arrayAll.mixedArray()[1]).toBe(23);
     });
+    
+    it("can iterate over an array with a for loop", function() {
+        var mixedArray = app.arrayAll.mixedArray();
+        expect(mixedArray).not.toBeNull();
+        for (var i = 0; i < mixedArray.length; i++) {
+            var value = mixedArray[i];
+            if (i === 2) {
+                expect(value).toBe(false);
+            }
+        }
+    });
+    
+    it("can convert text to an array", function() {
+        var robertFrostQuote = "Education is the ability to listen to almost anything without losing your temper or your self-confidence.";
+        var robertFrostArray = app.arrayAll.convertTextToArray(robertFrostQuote);
+        var value = robertFrostArray[3];
+        expect(value).toBe('ability');        
+    });
+
+    it("can convert CSV to an array", function() {
+        var csv = "1, 2, 3, 'four', 5, 'six'";
+        var array = app.arrayAll.convertCsvToArray(csv);
+        var value = array[3];
+        expect(value).toBe('four');
+    });    
+    
+    it("can convert CSV to an array with RegEx", function() {
+        var csv = "1, 2, 3, 'four', 5, 'six'";
+        var array = app.arrayAll.convertCsvToArrayRegEx(csv);
+        var value = array[3];
+        expect(value).toBe('four');
+    });
 
 });

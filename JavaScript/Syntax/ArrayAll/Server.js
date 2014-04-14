@@ -13,25 +13,21 @@ var logger = require('morgan');
 // app.use(logger());
 
 app.use('/Scripts', function(req, res, next) {
+	console.log("Anon function called");
 	console.log(req.url);
 	next();
 });
 
-app.use(express.static(path.join(__dirname, 'Tests')));
-app.use('/Scripts', express.static(path.join(__dirname, 'Scripts')));
-
-console.log(app._router);
-
-console.log("=========================");
-
-function charlie(err, req, res, next) {
+function charlie(req, res, next) {
 	console.log("Charlie called");
-	console.log(err);
-	console.log(req);
+	console.log(req.url);
 	next();
 }
+
 app.use(charlie);
-console.log(app._router);
+
+app.use(express.static(path.join(__dirname, 'Tests')));
+app.use('/Scripts', express.static(path.join(__dirname, 'Scripts')));
 
 app.get('/', function(req, res) {
 	var htmlFiles = ['index.html', 'Tests/ArraySpec.html'];
