@@ -2,11 +2,11 @@
  * @author Charlie Calvert
  */
 
-function returnTwo() {
+function returnTwo() { 'use strict';
     return 2;
 }
 
-function passFunc(func) {
+function passFunc(func) { 'use strict';
     return func();
 }
 

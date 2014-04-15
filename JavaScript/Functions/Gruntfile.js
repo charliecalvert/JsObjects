@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function(grunt) {  'use strict';
 
     grunt.initConfig({
         jshint: {
@@ -17,7 +17,8 @@ module.exports = function(grunt) {
                     '**/qunit*.js'
                 ],
                 reporter: 'checkstyle',
-                reporterOutput: 'result.xml'
+                reporterOutput: 'result.xml',
+                strict: true,
             }
         },
 
