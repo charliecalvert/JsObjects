@@ -26,13 +26,3 @@ var QueueMaker = function() {
     };
 };
 
-$(document).ready(function() {
-    var queue = QueueMaker();
-    queue.pushTail('Hello');
-    queue.pushTail('JavaScript');
-    var head = queue.pullHead();
-    console.log(head);
-    $('#foo').html(head);
-    head = queue.pullHead();
-    $('#foo').append(head);
-});

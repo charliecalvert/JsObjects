@@ -1,8 +1,8 @@
 // Inspiration: http://stackoverflow.com/a/1590262/253576
 
 var simpleQueue = [];
-simpleQueue.push("Able");  
-simpleQueue.push("Bravo"); 
+simpleQueue.push("Able");
+simpleQueue.push("Bravo");
 simpleQueue.push("Charlie");
 simpleQueue.push("Delta");
 simpleQueue.push("Echo");
@@ -27,5 +27,3 @@ simpleQueue.push("Whiskey");
 simpleQueue.push("Xray");
 simpleQueue.push("Yankee");
 simpleQueue.push("Zulu");
-var i = simpleQueue.shift(); 
-console.log(i);              // displays 2

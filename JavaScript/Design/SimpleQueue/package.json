@@ -23,6 +23,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-jasmine-node-coverage": "^0.1.10",
     "grunt-jsbeautifier": "^0.2.7",
-    "js-beautify": "^1.4.2"
+    "js-beautify": "^1.4.2",
+    "node-static": "~0.7.3"
   }
 }
