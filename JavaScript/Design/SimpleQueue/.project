@@ -17,12 +17,21 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1397670626670</id>
+			<id>1397679218451</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1397679218452</id>
+			<name></name>
+			<type>22</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-jquery*.js</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>

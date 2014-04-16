@@ -23,7 +23,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1397679346505</id>
+			<id>1397685508105</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -32,34 +32,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1397679346507</id>
-			<name></name>
-			<type>22</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-jasmine.js</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1397679346509</id>
-			<name></name>
-			<type>22</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-boot.js</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1397679346511</id>
-			<name></name>
-			<type>22</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-jasmine-html.js</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1397679346512</id>
+			<id>1397685508106</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
