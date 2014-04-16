@@ -9,6 +9,8 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jasmine": "~0.6.3",
     "grunt-jasmine-node-coverage": "~0.1.10",
-    "grunt-lib-phantomjs": "~0.5.0"
+    "grunt-lib-phantomjs": "~0.5.0",
+    "js-beautify": "^1.4.2",
+    "grunt-jsbeautifier": "^0.2.7"
   }
 }
