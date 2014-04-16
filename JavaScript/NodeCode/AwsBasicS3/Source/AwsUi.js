@@ -1,4 +1,5 @@
-define(['jquery'], function() {'use strict';
+define(['jquery'], function() {
+    'use strict';
 
     var buttons = null;
     var options = null;
@@ -22,8 +23,8 @@ define(['jquery'], function() {'use strict';
 
     var buildAll = function() {
         $.getJSON("/buildAll", {
-            options : JSON.stringify(transformOptions),
-            index : dataIndexTransform
+            options: JSON.stringify(transformOptions),
+            index: dataIndexTransform
         }, function(result) {
             $("#buildData").empty();
             var fileArray = result.data.split("\n");
@@ -37,7 +38,7 @@ define(['jquery'], function() {'use strict';
 
     var copyToS3 = function() {
         $.getJSON("/copyToS3", {
-            options : JSON.stringify(options[dataIndex])
+            options: JSON.stringify(options[dataIndex])
         }, function(data) {
             $("#copyResult").html("Result: " + data.result);
         });
@@ -114,10 +115,15 @@ define(['jquery'], function() {'use strict';
 
     var listBuckets = function() {
         $.getJSON("/listBuckets", {
-            options : JSON.stringify(options[dataIndex])
+            options: JSON.stringify(options[dataIndex])
         }, function(data) {
-            for (var i = 0; i < data.length; i++) {
-                $("#buckets").append("<li>" + data[i] + "</li>");
+            $("#buckets").empty();
+            if (Array.isArray(data)) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#buckets").append("<li>" + data[i] + "</li>");
+                }
+            } else {
+                $("#buckets").append(data.message);
             }
         });
     };

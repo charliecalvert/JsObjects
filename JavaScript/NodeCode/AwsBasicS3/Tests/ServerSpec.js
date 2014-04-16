@@ -1,6 +1,7 @@
 var request = require('request');
 
-describe("A Mongo Suite", function() { 'use strict';
+describe("A Mongo Suite", function() {
+    'use strict';
 
     var server = 'http://localhost:30025/';
 
@@ -8,13 +9,20 @@ describe("A Mongo Suite", function() { 'use strict';
 
     });
 
-// "C:\\Src\\config\\config.json"
+    // "C:\\Src\\config\\config.json"
 
     it("Should get the buckets", function(done) {
         console.log("in get the buckets test");
-        var data = {options: JSON.stringify({"pathToConfig": "C:\\Src\\config\\config.json"})};
+        var data = {
+            options: JSON.stringify({
+                "pathToConfig": "C:\\Src\\config\\config.json"
+            })
+        };
         var serverString = server + "listBuckets";
-        var url = {url: serverString, qs: data};
+        var url = {
+            url: serverString,
+            qs: data
+        };
         request(url, function(error, response, body) {
             console.log("In get the buckets callback: ", body);
             if (error) {
