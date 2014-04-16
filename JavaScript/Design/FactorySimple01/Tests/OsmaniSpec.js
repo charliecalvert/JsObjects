@@ -1,4 +1,4 @@
-/*globals describe:true, it:true, expect:true, SailBoatFactory: true, Car: true */
+/*globals describe:true, it:true, expect:true, SailBoatFactory: true, Sloop: true */
 
 describe("Osmani Factory Suite", function() {
 
@@ -7,7 +7,7 @@ describe("Osmani Factory Suite", function() {
 	});
 
 	it("creates a sloop", function() {
-		// Create an instance of our factory that makes cars
+		// Create an instance of our factory that makes boats
 		var sloopFactory = new SailBoatFactory();
 		var sloop = sloopFactory.createVehicle({
 			vehicleType : "sloop",
@@ -15,11 +15,30 @@ describe("Osmani Factory Suite", function() {
 			sails : 3
 		});
 
-		// Test to confirm our car was created
+		// Test to confirm our Sloop was created
 		expect(sloop instanceof Sloop).toBe(true);
+	});
 
-		// Outputs: Car object of color "yellow", doors: 6 in a "brand new" 
-		expect(sloop.color).toBe('yellow');
+	it("creates a yellow sloop", function() {
+		// Create an instance of our factory that makes boats
+		var sloopFactory = new SailBoatFactory();
+		var sloop = sloopFactory.createVehicle({
+			vehicleType : "sloop",
+			color : "yellow",
+			sails : 3
+		});
+ 
+		expect(sloop.color).toBe('yellow');		
+	});
+
+	it("shows that our sloop has a keel", function() {
+		var sloopFactory = new SailBoatFactory();
+		var sloop = sloopFactory.createVehicle({
+			vehicleType : "sloop",
+			color : "yellow",
+			sails : 3
+		});
+
 		expect(sloop.keel).toBe(true);
 	});
 
