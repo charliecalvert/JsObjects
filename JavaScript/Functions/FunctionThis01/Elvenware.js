@@ -1,4 +1,4 @@
-function Elvenware() { 
+function Elvenware() {
     'use strict';
 
     this.test = function() {
@@ -10,7 +10,8 @@ function Elvenware() {
     };
 }
 
-$(document).ready(function() { 'use strict';
+$(document).ready(function() {
+    'use strict';
     var elvenware = new Elvenware();
 
     $("#test").click(function() {

@@ -3,7 +3,8 @@
  */
 
 // Modular pattern
-var GetNine = (function() {  'use strict';
+var GetNine = (function() {
+    'use strict';
 
     // Private data
     var theNumber = 0;
@@ -23,7 +24,8 @@ var GetNine = (function() {  'use strict';
 })();
 
 // JQuery ready function
-$(document).ready(function() {  'use strict';
+$(document).ready(function() {
+    'use strict';
     var getNine = new GetNine(9);
     var number = getNine.getNumber();
     $("#test01").html("Retrieving a number: " + number);

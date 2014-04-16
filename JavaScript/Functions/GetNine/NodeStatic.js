@@ -8,7 +8,8 @@ var staticServer = require('node-static');
 var file = new staticServer.Server('./');
 var port = 30025;
 
-require('http').createServer(function(request, response) { 'use strict';
+require('http').createServer(function(request, response) {
+    'use strict';
     request.addListener('end', function() {
         file.serve(request, response);
     }).resume();

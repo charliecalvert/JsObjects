@@ -1,9 +1,11 @@
-function UserException(message) { 'use strict';
+function UserException(message) {
+    'use strict';
     this.message = message;
     this.name = "UserException";
 }
 
-function add() {  'use strict';
+function add() {
+    'use strict';
     if (arguments.length === 2) {
         return arguments[0] + arguments[1];
     } else if (arguments.length === 1) {
