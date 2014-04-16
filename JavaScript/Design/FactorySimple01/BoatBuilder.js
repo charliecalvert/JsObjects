@@ -1,9 +1,9 @@
 /**
  * @author Charlie Calvert
  */
-var Sloop = require("./Sloop").Sloop;
-var Yawl = require("./Yawl").Yawl;
-var Ketch = require("./Ketch").Ketch;
+var Sloop = require("./Scripts/Sloop").Sloop;
+var Yawl = require("./Scripts/Yawl").Yawl;
+var Ketch = require("./Scripts/Ketch").Ketch;
 var Interface = require("./Interface").Interface;
 
 var Boat = new Interface('Boat', ['tack', 'luff', 'reach']);
