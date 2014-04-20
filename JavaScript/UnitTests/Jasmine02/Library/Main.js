@@ -10,6 +10,8 @@ require.config({
 });
 
 require(['jquery', 'getEight'], function($, getEight) {
+	'use strict';
+	
 	console.log('jQuery');
 	
 	$("#getEightClick").click(function() {

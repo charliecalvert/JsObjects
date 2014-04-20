@@ -6,6 +6,7 @@
  */
 angular.module('myCircleMod', [])
 .factory('myCircleFactory', function() {
+	'use strict';
 
     var MyCircle = (function() {
         

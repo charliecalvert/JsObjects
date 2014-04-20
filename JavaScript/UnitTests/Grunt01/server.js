@@ -4,10 +4,12 @@ var port = process.env.C9_PORT || 1337;
 var fs = require('fs');
 
 function getPath(request) {
+	'use strict';
 	return url.parse(request.url).pathname;
 }
 
 function onRequest(request, response) {
+	'use strict';
 	var pathname = getPath(request);
 	console.log("Request for " + pathname + " received.");
 	response.writeHead(200, {"Content-Type": "text/plain"});
@@ -16,6 +18,7 @@ function onRequest(request, response) {
 }
 
 function first(request, response) {
+	'use strict';
 	var path = getPath(request);
 	console.log("Request for " + path + " received.");
 	if (path === '/Test01.css') {

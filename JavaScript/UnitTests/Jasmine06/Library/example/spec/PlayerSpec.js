@@ -1,4 +1,6 @@
 describe("Player", function() {
+	'use strict';
+	
   var player;
   var song;
 

@@ -1,8 +1,10 @@
 function addMe(a, b) {
+	'use strict';
 	return a + b;
 }
 
 function xConvert(number, fromUnit) {
+	'use strict';
 	var differences = {
 		distance : {
 			meters : 1,
@@ -29,7 +31,7 @@ function xConvert(number, fromUnit) {
 	return {
 		to : function(toUnit) {
 			if (betweenUnit) {
-				for (type in differences) {
+				for (var type in differences) {
 					if (differences.hasOwnProperty(type)) {
 						if (( unit = differences[type][toUnit])) {
 							return fix(betweenUnit / (unit * 1000));

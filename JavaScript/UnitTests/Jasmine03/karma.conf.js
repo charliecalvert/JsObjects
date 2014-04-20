@@ -2,6 +2,7 @@
 // Generated on Sat Oct 05 2013 17:17:41 GMT-0700 (Pacific Daylight Time)
 
 module.exports = function(config) {
+	'use strict';
   config.set({
 
     // base path, that will be used to resolve files and exclude

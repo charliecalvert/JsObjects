@@ -4,6 +4,8 @@
 
 
 define('SimpleTest', [], function(getEight) { 
+	'use strict';
+	
 	describe("Elvenware Simple Suite", function() {
 		it("expects true to be true", function() {
 			expect(true).toBe(true);

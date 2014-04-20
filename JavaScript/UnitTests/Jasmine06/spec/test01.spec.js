@@ -1,4 +1,6 @@
 describe("A suite", function() {
+	'use strict';
+	
   it("Expects True to Be True", function() {
     expect(true).toBe(true);
   });

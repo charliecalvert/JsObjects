@@ -7,7 +7,7 @@ var app = angular.module('myApp', ['circleMod', 'triangleMod']);
 
 /* Set up a simple controller with a few  */
 app.controller('AddController', function($scope, triangleFactory, circleFactory) {
-// function AddController($scope) {
+	'use strict';
 	$scope.operandA = 17000;
 	$scope.operandB = 15000;
 	$scope.circleRadius = 5;

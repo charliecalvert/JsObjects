@@ -1,4 +1,6 @@
 describe("MyObject", function () {
+	'use strict';
+	
     var obj = new MyObject("clean"); // sets initial state
         
     afterEach(function () {
@@ -36,6 +38,8 @@ describe("MyObject", function () {
 });
 	
 describe("Test Custom Matcher called toBeBetween", function () {
+	'use strict';
+	
     beforeEach(function () {
 		jasmine.addMatchers({
 			toBeBetween: function() {

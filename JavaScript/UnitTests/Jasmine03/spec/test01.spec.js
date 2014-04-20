@@ -1,13 +1,16 @@
-function addMe() {
+function addMe() { 
+	'use strict';
     return 2 + 3;
 }
 
 function multiplyMe(a, b) {
+	'use strict';
 	return a * b;
 }
 
   
 describe("Elvenware Jasmine Three suite", function() {
+	'use strict';
   it("Confirm that true is true", function() {
     expect(true).toBe(true);
   });

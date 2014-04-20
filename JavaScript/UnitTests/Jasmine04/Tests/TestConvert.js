@@ -1,7 +1,9 @@
 describe("Convert Library", function () {
+	'use strict';
+	
     describe( "distance converter", function () {
         it("converts inches to centimeters", function () {
-            expect(Convert(12, "inches").to("cm")).toEqual(30.48);
+            expect(new Convert(12, "inches").to("cm")).toEqual(30.48);
         });
         
         it("converts centimeters to yards", function () {
@@ -28,7 +30,7 @@ describe("Convert Library", function () {
     it("throws an error when passed an unknown to-unit", function () {
         var testFn = function () {
             Convert(1, "cm").to("furlongs");
-        }
+        };
         expect(testFn).toThrow(new Error("unrecognized to-unit"));
     });
 });

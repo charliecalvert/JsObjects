@@ -1,4 +1,4 @@
-describe("Elvenware Jasmine One Suite", function() {
+describe("Elvenware Jasmine One Suite", function() { 'use strict';
   it("expects true to be true", function() {
     expect(true).toBe(true);
   });

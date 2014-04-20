@@ -1,4 +1,6 @@
 function Convert(number, fromUnit) {
+	'use strict';
+	
     var differences = {
         distance : {
             meters : 1,
@@ -27,7 +29,7 @@ function Convert(number, fromUnit) {
     return {
         to : function (toUnit) {
             if (betweenUnit) {
-                for (type in differences) {
+                for (var type in differences) {
                     if (differences.hasOwnProperty(type)) {
                         if ( (unit = differences[type][toUnit]) ) {
                             return fix(betweenUnit / (unit * 1000));

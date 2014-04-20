@@ -1,6 +1,8 @@
 
 
 describe("An Elvenware Suite of Specs", function() {
+	'use strict';
+	
   it("shows true = true", function() {
     expect(true).toBe(true);
   });

@@ -27,6 +27,7 @@ require.config({
 
 
 require(['boot'], function(jasmine) {
+	'use strict';
 	console.log('Boot jasmine');
 	
 	require(['Test02', 'SimpleTest'], function() {
