@@ -3,7 +3,7 @@
  */
  
  ELF.own.AjaxBase = (function() {
- 	
+ 	'use strict';
  	function AjaxBase() {
  	}
  	

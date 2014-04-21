@@ -4,7 +4,7 @@
 
  
  var App = (function() {
- 	
+ 	'use strict';
  	function App() {
  		$("#clickMe").click(this.clickMe);
  	}
@@ -31,5 +31,6 @@
  })();
  
  $(document).ready(function() {
+ 	'use strict';
  	new App();	
  });

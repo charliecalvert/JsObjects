@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define('functionObject', function() { 'use strict';
+define('FunctionObject', function() { 'use strict';
 
 	return function() {
 

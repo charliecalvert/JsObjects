@@ -3,7 +3,7 @@
  */
 
 var App = (function() {
-
+'use strict';
 	function App() {
 		$("#clickMe").click(this.clickMe);
 		$("#ajaxCall").click(readJsonProgram);
@@ -80,5 +80,6 @@ var App = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new App();
 }); 

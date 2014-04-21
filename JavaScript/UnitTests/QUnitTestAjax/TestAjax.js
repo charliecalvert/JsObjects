@@ -1,5 +1,5 @@
-﻿$('document').ready(function()
-{
+﻿$('document').ready(function() {
+	'use strict';
 	ajaxTestGood("/cgi-bin/SimpleXml.py");
 	ajaxTestGood("/cgi-bin/NoGood.py");
 	$('#debug').append('<li>Document Ready Called</li>');
@@ -7,6 +7,7 @@
 
 function ajaxTestBad()
 {
+	'use strict';
 	test("ajaxTestBad", function() {
 		$('#debug').append('<li>Bar Test called</li>');	
 		$.ajax(
@@ -30,8 +31,8 @@ function ajaxTestBad()
 }
 
 
-function ajaxTestGood(url)
-{
+function ajaxTestGood(url) {
+	'use strict';
 	asyncTest("ajaxTestGood", function() {
 		$('#debug').append('<li>Bar Test called</li>');	
 		$.ajax(

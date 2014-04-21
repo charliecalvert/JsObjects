@@ -3,6 +3,7 @@
  */
 
 function couchDbTests() {
+	'use strict';
 	module('New CouchDb Tests');
 
 	asyncTest('createDatabase', function() {
@@ -67,7 +68,7 @@ function couchDbTests() {
 			},
 			"npcName" : "Orc-5-1-1"
 		} ];
-	}
+	};
 
 	var getNpcs = function() {
 		return [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -82,7 +83,7 @@ function couchDbTests() {
 				[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
 				[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
 				[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ];
-	}
+	};
 
 	var getGameboard = function() {
 		return [ [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -194,9 +195,10 @@ function couchDbTests() {
 			start();
 		});
 	});
-};
+}
 
 
 $(document).ready(function() {
+	'use strict';
 	couchDbTests();
 });

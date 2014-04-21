@@ -12,13 +12,15 @@ var port = process.env.PORT || 30025;
 app.use(express.bodyParser());
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('Public/index.html');
 	res.writeHeader(200, {"Content-Type": "text/html"});
 	res.end(html);
 });
 
 app.get('/writeJson', function(request, response) {	
-	debugger;
+	'use strict';
+	//debugger;
 	console.log('writeJson called: ' + JSON.stringify(request.query));
 	for (var props in request.query) {
 		console.log(props);
@@ -49,7 +51,7 @@ app.get('/writeJson', function(request, response) {
 
 
 app.post('/writeJson', function(request, response) {	
-	debugger;
+	'use strict';
 	console.log('writeJson called: ' + JSON.stringify(request.body));
 	for (var props in request.body) {
 		console.log(props);

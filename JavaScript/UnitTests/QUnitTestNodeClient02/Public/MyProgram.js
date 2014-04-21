@@ -4,7 +4,7 @@
 
  
  var App = (function() {
- 	
+ 	'use strict';
  	function App() {
  		$("#addNumbers").click(this.addNumbers);
  		$("#ajaxCall").click(readJsonProgram);
@@ -93,5 +93,6 @@
  })();
  
  $(document).ready(function() {
+ 	'use strict';
  	new App();	
  });

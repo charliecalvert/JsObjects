@@ -3,6 +3,7 @@
  */
 
 function mathTests() {
+	'use strict';
 	module('Math Tests');
 	
 	test('MyFirstTest', function() {
@@ -33,7 +34,7 @@ function mathTests() {
 		var expected = 6;
 		equal(result, expected, 'result for now: ' + result);
 	});
-};
+}
 
 
 /**
@@ -43,7 +44,8 @@ function mathTests() {
  *  created does not cause a failed test
  */
 var createDatabase = function() {
-    module("Create Database")
+	'use strict';
+    module("Create Database");
     
     asyncTest('createDatabase', function() {
         var app = new ELF.own.AjaxBase();
@@ -61,10 +63,10 @@ var createDatabase = function() {
             start(); 
         });
     });
-}
+};
 
 var ajaxWriteTests = function(moduleName, typeRequest) {
-
+'use strict';
 	module(moduleName);
 	
 	asyncTest('writeJson', function() {
@@ -193,7 +195,7 @@ var ajaxWriteTests = function(moduleName, typeRequest) {
 };
 
 var ajaxReadTests = function(moduleName, typeRequest) {
-    
+    'use strict';
 	asyncTest('readJsonPerson', function() {
 		var app = new ELF.own.AjaxBase();
 		app.readJson('Person', function(data) {
@@ -251,7 +253,7 @@ var ajaxReadTests = function(moduleName, typeRequest) {
 };
 
  $(document).ready(function() {
- //	mathTests();
+ 	'use strict';
  	createDatabase();
     ajaxWriteTests('POST Tests', 'POST');
  	ajaxWriteTests('GET Tests', 'GET');

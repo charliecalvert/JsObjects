@@ -32,7 +32,7 @@ require(['boot'], function(jasmine) { 'use strict';
 	
 	require(['testNumbers', 'testFunctionObject', 'functionObject'], function(a, b, functionObject) {
 		console.log(typeof functionObject);
-		console.log(new functionObject().getA());
+		console.log(new FunctionObject().getA());
 		window.onload();
 	});
 }); 

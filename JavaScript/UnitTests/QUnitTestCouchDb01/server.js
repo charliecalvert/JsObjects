@@ -76,7 +76,7 @@ var sendToCouch = function(response, data, docName) { 'use strict';
             doInsert(response, data, docName);
         }
     });
-}
+};
 
 
 app.get('/writeJson', function(request, response) {'use strict';
@@ -135,7 +135,8 @@ app.post('/writeJson', function(request, response) {'use strict';
 });
 
 app.get('/readJson', function(request, response) {
-    console.log('readJson called: ' + request.query)
+	'use strict';
+    console.log('readJson called: ' + request.query);
     var prog = nano.db.use(dbName);
     
     prog.get(request.query.docName, function(error, existing) {

@@ -4,7 +4,7 @@
 
  
  var App = (function() {
- 	
+ 	'use strict';
  	function App() {
  		$("#clickMe").click(this.clickMe);
  		// $("#ajaxCall").click(readJsonPrivate);
@@ -57,5 +57,6 @@
  })();
  
  $(document).ready(function() {
+ 	'use strict';
  	new App();	
  });

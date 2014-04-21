@@ -4,13 +4,13 @@
 
  
  ELF.own.App = (function() {
- 	
+ 	'use strict';
  	var ajaxBase = null;
  	
  	function App() {
  		$("#addNumbers").click(this.addNumbers);
  		$("#ajaxCall").click(readGrid);
- 		ajaxBase = new ELF.own.AjaxBase;
+ 		ajaxBase = new ELF.own.AjaxBase();
  	}
  	
  	var privateAdd = function(operanda, operandb) {
@@ -63,5 +63,6 @@
  })();
  
  $(document).ready(function() {
+ 	'use strict';
  	new ELF.own.App();	
  });

@@ -20,7 +20,8 @@ module.exports = function(grunt) {
                     '**/jasmine-html.js',
                     '**/boot.js',
                     '**/console.js',
-                    '**/jasmine-jquery.js'
+                    '**/jasmine-jquery.js',
+                    '**/json2.js'
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',

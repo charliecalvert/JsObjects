@@ -16,7 +16,7 @@ require(['jquery', 'objectMethod', 'functionObject'], function($, objectMethod, 
 		$('#getASpan').html(objectMethod.a);
 		$('#getBSpan').html(objectMethod.b);
 		$('#getThreeSpan').html(objectMethod.getThree());		
-		$('#getA').html(new functionObject().getA());
+		$('#getA').html(new FunctionObject().getA());
 	});
 });
 

@@ -7,7 +7,7 @@
  var path = require("path");
  
 describe("Test01", function() {
-
+'use strict';
 	var elfPathSep = '\\';
 
     it ("Is 3 equal to 3",  function() {

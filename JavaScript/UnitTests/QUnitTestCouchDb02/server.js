@@ -26,6 +26,7 @@ app.get('/', function(req, res) {'use strict';
 });
 
 app.get('/createDatabase', function(request, response) {
+	'use strict';
 	console.log('Create Database');
 	couch.couchCode.createDatabase(response, dbName);
 	console.log('couchWriteState database Created');
@@ -33,6 +34,7 @@ app.get('/createDatabase', function(request, response) {
     
 
 app.get('/couchWriteState', function(request, response) {
+	'use strict';
 	//debugger;
 	console.log('couchWriteState');
 	for (var props in request.query) {
@@ -43,14 +45,16 @@ app.get('/couchWriteState', function(request, response) {
 });
 
 app.get('/couchWriteGrids', function(request, response) {
-	debugger;
+	'use strict';
+	// debugger;
 	console.log('couchWriteState');
 	var grids = request.query;
     couch.couchCode.sendToCouch(response, grids, 'all_in_one', dbName);
 	response.send({'Result': 'Success'});
 });
 
-app.get('/couchReadDoc', function(request, response) {;
+app.get('/couchReadDoc', function(request, response) {
+	'use strict';
 	console.log('couchReadDoc: ' + request.query.docName);
 	couch.couchCode.readDoc(response, request.query.docName, dbName);
 });

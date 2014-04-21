@@ -9,6 +9,7 @@ var mkdirp = require('mkdirp');
  * Test if a folder exists, if it does not, make it
  */
 var ensureDir = function(folder) {
+	'use strict';
 	if (!fs.existsSync(folder)) {
 		mkdirp(folder);
 	}
@@ -20,6 +21,7 @@ var ensureDir = function(folder) {
  * numbers representing a grid.
  */
 var prettyPrintGrid = function(grid) {
+	'use strict';
 	data = JSON.stringify(grid);
 	var result = data.replace(/\[\"/g, '\n\t[');
 	return result.replace(']]', ']\n]');
@@ -29,6 +31,7 @@ var prettyPrintGrid = function(grid) {
  * Be sure we start with a path separator.
  */
 var ensureStartsWithPathSep = function(fileName) {
+	'use strict';
 	if (fileName.substring(0, 1) !== path.sep) {
 		fileName = path.sep + fileName;
 	}
@@ -36,6 +39,7 @@ var ensureStartsWithPathSep = function(fileName) {
 };
 
 var ensureEndsWithPathSep = function(fileName) {
+	'use strict';
 	if (fileName.substring(fileName.length, 1) !== path.sep) {
 		fileName = fileName + path.sep;
 	}
@@ -50,10 +54,12 @@ var ensureEndsWithPathSep = function(fileName) {
  * @param {Object} fileName
  */
 var elfJoin = function(pathName, fileName) {
+	'use strict';
 	return path.join(pathName, fileName);
 };
 
 var padNumber = function(numberToPad, width, padValue) {
+	'use strict';
 	padValue = padValue || '0';
 	numberToPad = numberToPad + '';
 	if (numberToPad.length >= width) {
@@ -64,6 +70,7 @@ var padNumber = function(numberToPad, width, padValue) {
 };
 
 function htmlEscape(str) {
+	'use strict';
     return String(str)
             .replace(/&/g, '&amp;')
             .replace(/"/g, '&quot;')
@@ -73,12 +80,13 @@ function htmlEscape(str) {
 }
 
 function htmlUnescape(str) {
+	'use strict';
     return String(str)
             .replace(/&amp;/g, '&')
             .replace(/&quot;/g, '"')
             .replace(/&#39;/g, "'")
             .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>');;
+            .replace(/&gt;/g, '>');
 }
 
 

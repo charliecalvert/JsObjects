@@ -2,7 +2,7 @@ var mkdirp = require('mkdirp');
 var fs = require('fs');
 var path = require("path");
 
-var Dirs = (function() {
+var Dirs = (function() {'use strict';
 
 	var currentFolder = null;
 	

@@ -3,6 +3,7 @@
  */
 
 function myTests() {
+	'use strict';
 	test('MyFirstTest', function() {
 		ok(true);
 	});
@@ -70,5 +71,6 @@ function myTests() {
 }
  
  $(document).ready(function() {
+ 	'use strict';
  	myTests();	
  });

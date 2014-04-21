@@ -20,6 +20,8 @@ describe("MyObject", function () {
 });
 
 describe("MyObject", function () {
+    'use strict';
+    
     var obj = new MyObject();
 
     beforeEach(function () {

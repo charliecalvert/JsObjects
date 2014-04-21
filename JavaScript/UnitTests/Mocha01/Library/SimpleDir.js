@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require("path");
 
 var SimpleDir = (function() {
-
+'use strict';
 	function SimpleDir() {
 	}
 	

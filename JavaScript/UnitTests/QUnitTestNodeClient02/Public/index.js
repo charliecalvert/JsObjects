@@ -3,6 +3,7 @@
  */
 
 function mathTests() {
+	'use strict';
 	module('Math Tests');
 	
 	test('MyFirstTest', function() {
@@ -33,10 +34,10 @@ function mathTests() {
 		var expected = 6;
 		equal(result, expected, 'result for now: ' + result);
 	});
-};
+}
 
 var ajaxTests = function(moduleName, typeRequest) {
-
+	'use strict';
 	module(moduleName);
 	
 	asyncTest('writeJson', function() {
@@ -215,6 +216,7 @@ var ajaxTests = function(moduleName, typeRequest) {
 };
 
  $(document).ready(function() {
+ 	'use strict';
  	mathTests();
  	ajaxTests('POST Tests', 'POST');
  	ajaxTests('GET Tests', 'GET');
