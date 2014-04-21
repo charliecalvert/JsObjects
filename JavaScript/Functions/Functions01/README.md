@@ -9,6 +9,12 @@ off at least a few peculariaties.
 - [BasicFunction.js](BasicFunction.js)
 - [BasicScope.js](BasicScope.js)
 
+Note that **BasicScopt.js** has several **strict violations** when we run
+JsHint against it. These are intentional, and you can see the output that
+is produced by the code that violates use strict rules. In particular,
+notice that strict mode prohibits access to the global **this** variable
+because it can cause security issues.
+
 The output looks like this:
 
 	=======================

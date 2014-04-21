@@ -13,12 +13,13 @@ function func01() {
 		console.log('[func01 writeThis called]');
 		console.log('that in writeThis: ', that);
 		console.log("this in writeThis: ", this);
-	};
+	}
 	
 	writeThis();
-};
+}
 
-// Uses big first letter so don't call new on it
+// A constructor function uses a capital letter to remind you to call new on it
+
 function Func02() {
 	'use strict';
 	var privateValue = 0;
@@ -40,7 +41,7 @@ function Func02() {
 		console.log("this in writeThat: ", this);
 	}	
 	
-};
+}
 
 
 exports.BasicScope = function() {
@@ -63,6 +64,7 @@ exports.BasicScope = function() {
 	
 	
 	console.log('Try commenting out *use strict* in *func01* and see what happens');
-	console.log("Bottom line? Avoid using *this*!")
+	console.log('It shows that use strict makes this disappear unless you call new');
+	console.log("Bottom line? Avoid using *this*!");
 };
 
