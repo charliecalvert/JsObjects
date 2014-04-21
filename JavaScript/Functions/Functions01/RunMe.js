@@ -2,15 +2,15 @@ var basicScope = require('./BasicScope.js').BasicScope;
 var basicFunction = require('./BasicFunction.js').basicFunction;
 
 function startEnd(text) {
-	'use strict';
-	console.log("== " + text + " =====");	
+    'use strict';
+    console.log("== " + text + " =====");
 }
 
 function divider(text) {
-	'use strict';
-	console.log("=======================");
-	console.log(">> " + text);	
-	console.log("=======================");
+    'use strict';
+    console.log("=======================");
+    console.log(">> " + text);
+    console.log("=======================");
 }
 
 divider('basicFunction');
