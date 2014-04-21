@@ -62,7 +62,7 @@ exports.BasicScope = function() {
 	func02.writeThis();
 	
 	
-	console.log('Try commenting out *use strict* and func01 and see what happens');
+	console.log('Try commenting out *use strict* in *func01* and see what happens');
 	console.log("Bottom line? Avoid using *this*!")
 };
 
