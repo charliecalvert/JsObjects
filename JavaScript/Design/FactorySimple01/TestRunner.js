@@ -39,10 +39,13 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/', function(request, response) {
-	var html = fs.readFileSync(__dirname + '/Tests/OsmaniSpec.html');
-	response.writeHeader(200, {"Content-Type": "text/html"});   
-	response.write(html);
-	response.end();
+    'use strict';
+    var html = fs.readFileSync(__dirname + '/Tests/OsmaniSpec.html');
+    response.writeHeader(200, {
+        "Content-Type": "text/html"
+    });
+    response.write(html);
+    response.end();
 });
 
 
@@ -51,5 +54,3 @@ app.use("/Factories", express.static(__dirname + '/Factories'));
 
 app.listen(port);
 console.log('Listening on port :' + port);
-
-

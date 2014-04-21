@@ -1,6 +1,6 @@
 /*global describe:true, it:true, expect: true*/
 
-var Yawl = require("../Yawl").Yawl;
+var Yawl = require("../Scripts/Yawl").Yawl;
 
 describe("A Yawl Suite", function() {
     'use strict';

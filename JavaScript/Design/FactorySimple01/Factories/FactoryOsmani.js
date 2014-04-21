@@ -4,32 +4,29 @@
  */
 
 // Types.js - Constructors used behind the scenes
-// A constructor for defining new cars
+// Create Boats
 
-// FactoryExample.js
-// Define a skeleton vehicle factory
-function SailBoatFactory() {
-}
+// Define a SailBoat factory constructor function
+function SailBoatFactory() {}
 
-// Define the prototypes and utilities for this factory
+// By default we create Sloops
+SailBoatFactory.prototype.boatClass = Sloop;
 
-// Our default boat is Sloop
-SailBoatFactory.prototype.vehicleClass = Sloop;
+// Create a Boat with this function
+SailBoatFactory.prototype.createBoat = function(options) {
+    'use strict';
 
-// Our Factory method for creating new Vehicle instances
-SailBoatFactory.prototype.createVehicle = function(options) {
+    switch (options.boatType) {
+        case "sloop":
+            this.boatClass = Sloop;
+            break;
+        case "yawl":
+            this.boatClass = Yawl;
+            break;
+        default:
+            this.boatClass = Sloop;
+    }
 
-	switch (options.vehicleType) {
-	case "sloop":
-		this.vehicleClass = Sloop;
-		break;
-	case "yawl":
-		this.vehicleClass = Yawl;
-		break;
-	// defaults to VehicleFactory.prototype.vehicleClass (Car)
-	}
-
-	return new this.vehicleClass(options);
+    return new this.boatClass(options);
 
 };
-

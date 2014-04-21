@@ -5,9 +5,9 @@
 // Create an instance of our factory that makes cars
 var carFactory = new VehicleFactory();
 var car = carFactory.createVehicle({
-	vehicleType : "car",
-	color : "yellow",
-	doors : 6
+    vehicleType: "car",
+    color: "yellow",
+    doors: 6
 });
 
 // Test to confirm our car was created using the vehicleClass/prototype Car

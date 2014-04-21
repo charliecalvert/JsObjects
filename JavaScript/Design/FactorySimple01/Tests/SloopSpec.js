@@ -1,6 +1,6 @@
 /*global describe:true, it:true, expect: true*/
 
-var Sloop = require("../Sloop").Sloop;
+var Sloop = require("../Scripts/Sloop").Sloop;
 
 describe("A Sloop Suite", function() {
     'use strict';

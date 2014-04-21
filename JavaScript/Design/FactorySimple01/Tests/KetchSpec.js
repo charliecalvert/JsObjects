@@ -1,7 +1,6 @@
 /*global describe:true, it:true, expect: true */
 
-var Ketch = require("../Ketch").Ketch;
-var Yawl = require("../Yawl").Yawl;
+var Ketch = require("../Scripts/Ketch").Ketch;
 
 describe("A Ketch Suite", function() {
     'use strict';
