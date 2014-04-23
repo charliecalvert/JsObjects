@@ -72,7 +72,19 @@ var padNumber = function(numberToPad, width, padValue) {
 function stripWhiteSpace(value) {
 	'use strict';
     return String(value)
-    	.replace(/ /g, '');	
+    	.replace(/ /g, '')
+    	.replace(/\t/g, '')
+    	.replace(/\r/g, '')
+    	.replace(/\n/g, '');	
+}
+
+function stripPunctuation(value) {
+	'use strict';
+    return String(value)
+    	.replace(/\./g, '')
+    	.replace(/!/g, '')
+    	.replace(/\?/g, '')
+    	.replace(/,/g, '');	
 }
 
 function htmlEscape(str) {
@@ -103,5 +115,6 @@ exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin; 
 exports.padNumber = padNumber;
 exports.stripWhiteSpace = stripWhiteSpace; 
+exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;

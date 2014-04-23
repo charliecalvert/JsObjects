@@ -20,10 +20,12 @@ describe("Test01", function() {
     it ("EstablishPathSep",  function() {
     	var actual = path.sep;
     	// On Windows: 
-    	var expected = '\\';
+    	var expected = '/';
     	if (os.platform() === 'linux') {
-    		var expected = '/';
-    	}
+    		expected = '/';
+    	} else if (os.platform() === 'win32') {
+			expected = '\\';
+		}
     	// On Linux: var expected = '/';
         assert.equal(expected, actual);
     });
@@ -120,6 +122,50 @@ describe("Test01", function() {
     	var actual = eu.stripWhiteSpace(stringToStrip);
     	expect(actual).toBe(expected);	
     });
+    
+    it ("strips lots of white space", function() {
+    	var stringToStrip = "This string is long and full of words and spaces";
+    	var expected = "Thisstringislongandfullofwordsandspaces";
+    	var actual = eu.stripWhiteSpace(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
+    it ("strips white space with tabs", function() {
+    	var stringToStrip = "This\tstring is barly";
+    	var expected = "Thisstringisbarly";
+    	var actual = eu.stripWhiteSpace(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
+    it ("strips white space with tabs crlf", function() {
+    	var stringToStrip = "This\tstring is barly\r\n";
+    	var expected = "Thisstringisbarly";
+    	var actual = eu.stripWhiteSpace(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
+    
+    it ("strips periods", function() {
+    	var stringToStrip = "This string is barly. And it is gold.";
+    	var expected = "This string is barly And it is gold";
+    	var actual = eu.stripPunctuation(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
+    it ("strips periods and bangs", function() {
+    	var stringToStrip = "This string is barly. And it is gold!";
+    	var expected = "This string is barly And it is gold";
+    	var actual = eu.stripPunctuation(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
+    it ("strips commas and question marks", function() {
+    	var stringToStrip = "This string is barly, and it is gold?";
+    	var expected = "This string is barly and it is gold";
+    	var actual = eu.stripPunctuation(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+   
     
     it ('encodes html', function() {
     	var html = "<p>Foo</p>";
