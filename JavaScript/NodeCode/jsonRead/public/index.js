@@ -22,7 +22,7 @@ function parse() {
 	})
 	.success(function() { console.log("csc: success. Loaded index.json"); })
 	.error(function(jqXHR, textStatus, errorThrown) { 
-		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus); 
+		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus + errorThrown); 
 	})
 	.complete(function() { console.log("csc: completed call to get index.json"); });
 }

@@ -1,5 +1,4 @@
-﻿var presidents =
-{
+﻿ELF.presidents = {
 	cgiPath: "/cgi-bin/Presidents/",
 	readXml: cgiPath + "PresidentsXml.py",
 	postXml: cgiPath + "AddingDataXml.py",

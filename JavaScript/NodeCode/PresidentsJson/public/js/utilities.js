@@ -1,4 +1,4 @@
-var Utilities = (function() {
+ELF.Utilities = (function() {
 
 	function Utilities() {
 
@@ -14,7 +14,7 @@ var Utilities = (function() {
 	};
 
 	Utilities.prototype.deleteFromArray = function(array, value) {
-		var index = array.indexOf(item);
+		var index = array.indexOf(value);
 		array.splice(index, 1);
 	};
 

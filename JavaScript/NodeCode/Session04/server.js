@@ -42,7 +42,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/page01', function(request, response) {
-	var info = "";
+	// var info = "";
 	/* if(request.session.lastPage) {
 	info =  previous + request.session.lastPage + '. ';
 	} */

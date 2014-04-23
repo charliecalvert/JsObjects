@@ -20,8 +20,8 @@ Display.prototype.isValidRow = function(row) {
 
 
 Display.prototype.displayRow = function(row) {
-	var middle = (!thisDisplay.isValidRow(row)) ? '' : row.MiddleName;
-	var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
+	// var middle = (!thisDisplay.isValidRow(row)) ? '' : row.MiddleName;
+	// var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
 	textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
 	var coreString = '<li><input id=' + row.itemName + 
 		' presidentName="' + row.presidentName +

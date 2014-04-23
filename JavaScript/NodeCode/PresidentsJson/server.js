@@ -47,6 +47,7 @@ app.post('/savePresidents', function(request, result) {
 		console.log(details);
 		json = JSON.stringify(json, null, 4);
 		writeToFile(presidentsFileName, json);
+		result.send({'Result': 'Success'});
 	}
 });
 

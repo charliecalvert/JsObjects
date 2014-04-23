@@ -12,6 +12,10 @@ var MyObject = (function() {
 		return operandA + operandB;
 	};	
 
+	MyObject.prototype.sayHello = function() {
+		return helloString;
+	};
+	
 	return MyObject;
 
 }());

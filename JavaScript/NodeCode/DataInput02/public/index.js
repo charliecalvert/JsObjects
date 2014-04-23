@@ -26,7 +26,7 @@ var Folks = (function() {
 		}).success(function() {
 			console.log("csc: success. Loaded index.json");
 		}).error(function(jqXHR, textStatus, errorThrown) {
-			alert("error calling JSON. Try JSONLint or JSLint: " + textStatus);
+			showError(jqXHR, textStatus, errorThrown);			
 		}).complete(function() {
 			console.log("csc: completed call to get index.json");
 		});

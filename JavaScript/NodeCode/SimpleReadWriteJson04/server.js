@@ -51,7 +51,7 @@ app.get('/write', function(request, response) {
 	// NPM library if you need to create directories
 	fs.writeFile(path.fileName, personString, 'utf8', function(err, data){
 		if (err) throw err;
-		console.log('It\'s saved!');
+		console.log('It\'s saved!', data);
 	});
 	
 	// Send back a response

@@ -34,7 +34,7 @@ app.get('/write', function(request, response) {
 	console.log('PersonString: ' + personString);
 	fs.writeFile(fileName, personString, 'utf8', function(err, data){
 		if (err) throw err;
-		console.log('It\'s saved!');
+		console.log('It\'s saved!', data);
 	});
 	response.send('{"result":"success"}');
 });

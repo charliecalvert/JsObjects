@@ -11,7 +11,7 @@ function readJson() {
 		addNames(data.firstName, data.lastName, data.age); 
 	})
 	.error(function(jqXHR, textStatus, errorThrown) { 
-		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus); 
+		alert("error calling JSON. Try JSONLint or JSLint: " + textStatus + errorThrown); 
 	})
 	.complete(function() { console.log("csc: completed call to get index.json"); }); 
 }

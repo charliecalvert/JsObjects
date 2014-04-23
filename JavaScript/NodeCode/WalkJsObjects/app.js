@@ -28,15 +28,6 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-function getHomeDir() {
-	var homeDir = null;
-	if (os.platform() === 'linux') {
-		homeDir = process.env.HOME;
-	} else if (os.platform() === 'win32') {
-		homeDir = process.env.USERPROFILE;
-	}
-	return homeDir;
-}
 
 
 app.get('/walk', function(request, response) {

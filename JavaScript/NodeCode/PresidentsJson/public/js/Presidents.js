@@ -1,4 +1,4 @@
-var Presidents = (function(displayInit, initUtilities) {
+var Presidents = (function() {
 
 	var display = null;
 	var presidentMode = false;
@@ -160,7 +160,7 @@ var Presidents = (function(displayInit, initUtilities) {
 			cache : false,
 			dataType : "json",
 			success : function(data) {
-				display.showResponse("success");
+				display.showResponse("success" + data);
 			},
 			error : display.showError
 		});
