@@ -108,6 +108,17 @@ function htmlUnescape(str) {
 }
 
 
+function getHomeDir() {
+	var homeDir = null;
+	if (os.platform() === 'linux') {
+		homeDir = process.env.HOME;
+	} else if (os.platform() === 'win32') {
+		homeDir = process.env.USERPROFILE;
+	}
+	return homeDir;
+}
+
+
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
 exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
@@ -118,3 +129,4 @@ exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
+exports.getHomeDir = getHomeDir;

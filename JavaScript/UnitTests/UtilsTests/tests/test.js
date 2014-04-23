@@ -180,5 +180,10 @@ describe("Test01", function() {
     	var actual = eu.htmlUnescape(html);
     	expect(actual).toBe(expected);
     });
+    
+    it ('gets the home dir', function() {
+    	var homeDir = eu.getHomeDir();
+    	expect(homeDir).not.toBe(null);
+    });
 
 });
