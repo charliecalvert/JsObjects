@@ -117,6 +117,13 @@ describe("Test01", function() {
     	expect(actual).toBe(expected);
     });
     
+    it ("strips white space", function() {
+    	var stringToStrip = "This string";
+    	var expected = "Thisstring";
+    	var actual = eu.stripWhiteSpace(stringToStrip);
+    	expect(actual).toBe(expected);	
+    });
+    
     it ('encodes html', function() {
     	var html = "<p>Foo</p>";
     	var expected = "&lt;p&gt;Foo&lt;/p&gt;";

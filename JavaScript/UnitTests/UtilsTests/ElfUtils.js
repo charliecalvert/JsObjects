@@ -69,6 +69,12 @@ var padNumber = function(numberToPad, width, padValue) {
 	}
 };
 
+function stripWhiteSpace(value) {
+	'use strict';
+    return String(str)
+    	.replace(/ /g, '');	
+}
+
 function htmlEscape(str) {
 	'use strict';
     return String(str)
