@@ -15,7 +15,8 @@ http://creativecommons.org/publicdomain/zero/1.0/legalcode
  * items are added to the end of the queue and removed from the front.
  */
 function Queue() {
-
+	'use strict';
+	
     // initialise the queue and offset
     var queue = [];
     var offset = 0;
@@ -27,7 +28,7 @@ function Queue() {
 
     // Returns true if the queue is empty, and false otherwise.
     this.isEmpty = function() {
-        return (queue.length == 0);
+        return (queue.length === 0);
     };
 
     /* Enqueues the specified item. The parameter is:
@@ -44,7 +45,7 @@ function Queue() {
     this.dequeue = function() {
 
         // if the queue is empty, return immediately
-        if (queue.length == 0) return undefined;
+        if (queue.length === 0) return undefined;
 
         // store the item at the front of the queue
         var item = queue[offset];

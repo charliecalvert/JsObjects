@@ -5,7 +5,8 @@
 var PubSub = {};
 
 PubSub.Subscriber = ( function() {
-
+		'use strict';
+		
 		/* 
 		 * The point is that there is no reference to Publisher
 		 * in this module and yet it can recieve messages from

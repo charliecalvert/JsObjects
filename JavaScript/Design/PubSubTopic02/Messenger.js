@@ -3,7 +3,8 @@
 * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
 
 (function($) {
-
+	'use strict';
+	
   var o = $({});
 
   $.subscribe = function() {

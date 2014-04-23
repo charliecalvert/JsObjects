@@ -3,6 +3,7 @@
  */
 
 define(['jquery'], function() {
+	'use strict';
 	
 	function describe() {
 		$('#list').append("<li>I'm a car.</li>");

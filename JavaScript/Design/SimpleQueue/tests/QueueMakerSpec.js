@@ -10,7 +10,7 @@ describe("QueueMaker Spec", function() {
 	});
 
 	it("creates a queue", function() {
-		var queue = QueueMaker();
+		var queue = new QueueMaker();
 		queue.pushTail('Hello');
 		queue.pushTail('JavaScript');
 		var head = queue.pullHead();

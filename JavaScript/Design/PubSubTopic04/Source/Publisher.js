@@ -4,7 +4,8 @@
 
 // Publisher
 define(['jquery', 'tinyPubSub'], function() {
-
+	'use strict';
+	
 	function publisher() {
 		console.log("Publisher constructor called.");
 		$("#privateButton").click(privateMethod);

@@ -4,7 +4,8 @@
 
 // Publisher
 PubSub.Publisher = ( function() {		
-
+		'use strict';
+		
 		function Publisher() {			
 			$("#privateButton").click(privateMethod);			
 			$.publish('debug', 
@@ -21,6 +22,8 @@ PubSub.Publisher = ( function() {
 	}());
 
 $(document).ready(function() {
+	'use strict';
+	
 	new PubSub.Subscriber();
 	new PubSub.Publisher();
 });

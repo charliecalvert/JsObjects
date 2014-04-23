@@ -10,6 +10,7 @@ require.config({
 });
 
 require(["Subscriber", "Publisher",], function(sub, pub) {
+	'use strict';
 	console.log("Main called.");
 	sub.subscriber();
 	pub.publisher();

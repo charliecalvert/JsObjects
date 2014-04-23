@@ -26,6 +26,7 @@ PubSub.Publisher = (function() { 'use strict';
 }());
 
 $(document).ready(function() {
+	'use strict';
 	new PubSub.Subscriber();
 	new PubSub.Publisher();
 });

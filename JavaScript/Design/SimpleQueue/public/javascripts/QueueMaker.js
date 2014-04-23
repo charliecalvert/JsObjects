@@ -1,4 +1,6 @@
 var QueueMaker = function() {
+	'use strict';
+	
     return {
         array: [],
         head: 0,

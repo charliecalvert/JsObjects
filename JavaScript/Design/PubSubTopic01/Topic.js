@@ -1,6 +1,7 @@
 var topics = {};
 
 jQuery.Topic = function( id ) {
+    'use strict';
     
     var callbacks,
         topic = id && topics[ id ];
