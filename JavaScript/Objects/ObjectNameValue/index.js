@@ -3,7 +3,7 @@
  */
 
 var myObject = {
-	myProperty : 12
+    myProperty: 12
 };
 
 var myPropertyStr = "myProperty";
@@ -18,5 +18,3 @@ console.log(valueA);
 myObject.myProperty = 5;
 var valueB = myObject[myPropertyStr];
 console.log(valueB);
-
-

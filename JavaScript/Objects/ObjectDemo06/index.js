@@ -4,21 +4,22 @@
 
 /*jshint devel: true, browser: true, jquery: true, strict: true */
 
-var FooApp = (function myFunction() {'use strict';
-	
-	// Private variables
+var FooApp = (function myFunction() {
+    'use strict';
+
+    // Private variables
     var property1 = 0;
     var property2 = 1;
 
-	// Constructor
-    function MyApp() { }
+    // Constructor
+    function MyApp() {}
 
-	// Public Methods
-    MyApp.prototype.function1 = function() { 
+    // Public Methods
+    MyApp.prototype.function1 = function() {
         $("#test02").html("function 1 called.");
     };
 
-	// Private method
+    // Private method
     var function2 = function() {
         $("#test03").html("function 2 called.");
     };
@@ -27,8 +28,8 @@ var FooApp = (function myFunction() {'use strict';
 })();
 
 $(document).ready(function() {
-	'use strict';
-  $("#test01").html("It works");
-  var fooApp = new FooApp();
-  fooApp.function1();            
-}); 
+    'use strict';
+    $("#test01").html("It works");
+    var fooApp = new FooApp();
+    fooApp.function1();
+});

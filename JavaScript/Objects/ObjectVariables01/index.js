@@ -3,14 +3,14 @@
  */
 /*jshint jquery:true, devel:true, browser: true, strict: true */
 
-var MyObjects = (function() {'use strict';
+var MyObjects = (function() {
+    'use strict';
 
     // Constructor
-    function MyObjects() 
-    {
-        
+    function MyObjects() {
+
     }
-    
+
     MyObjects.prototype.nested = {
 
         bigFunc: function() {
@@ -20,9 +20,9 @@ var MyObjects = (function() {'use strict';
 
         getNine: function() {
             return 9;
-        },   
+        },
 
-       
+
     };
 
     MyObjects.prototype.ShowDirectories = (function() {
@@ -38,7 +38,8 @@ var MyObjects = (function() {'use strict';
     return MyObjects;
 })();
 
-$(document).ready(function() {"use strict";
+$(document).ready(function() {
+    "use strict";
     // MyObjects.foo = 25;
     var obj = new MyObjects();
     new obj.ShowDirectories();

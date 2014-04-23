@@ -8,18 +8,19 @@
 var ELF = {};
 ELF.own = {};
 
-ELF.own.ShowPlayer = (function() { 'use strict';
+ELF.own.ShowPlayer = (function() {
+    'use strict';
 
-	var sharedData = null;
+    var sharedData = null;
 
-	function ShowPlayer(initData) {
-		sharedData = initData;
-		$('#buttonShowPlayer').click(showPlayerXY);
-	}
+    function ShowPlayer(initData) {
+        sharedData = initData;
+        $('#buttonShowPlayer').click(showPlayerXY);
+    }
 
-	var showPlayerXY = function() {
-		$('#test01').html('X = ' + sharedData.playerX + ' Y = ' + sharedData.playerY);
-	};
+    var showPlayerXY = function() {
+        $('#test01').html('X = ' + sharedData.playerX + ' Y = ' + sharedData.playerY);
+    };
 
-	return ShowPlayer;
-})(); 
+    return ShowPlayer;
+})();
