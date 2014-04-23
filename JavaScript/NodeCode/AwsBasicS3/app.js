@@ -137,8 +137,8 @@ app.get('/buildAll', function(request, response) {
     console.log(typeof request.query.options);
     console.log(request.query.options);
     // Let's just start writing this out, as we are going to need to do it eventually.
-    fs.writeFile("MarkdownTransformConfig.json", request.query.options, function(err, data) {
-        var options = JSON.parse(request.query.options);
+    var options = JSON.parse(request.query.options);
+    fs.writeFile("MarkdownTransformConfig.json", JSON.stringify(options, null, 4), function(err, data) {
         buildAll(response, options, request.query.index);
     });
     // buildAll(response, options, request.query.index);
