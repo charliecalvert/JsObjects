@@ -32,6 +32,7 @@ var MyApp = (function myFunction() {'use strict';
 })();
 
 $(document).ready(function() {
+	'use strict';
     myApp01.function1();    
     $("#test01").html('MyApp01 Property1: ' + myApp01.property1);    
 

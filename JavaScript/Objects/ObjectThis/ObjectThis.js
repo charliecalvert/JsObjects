@@ -1,19 +1,22 @@
 function runMe() { 
-	return this; 
+	'use strict';
+	return this; // jshint ignore:line
 }
 
 var myObject = {
 	runMe: function () {
+		'use strict';
 		return this;
 	}
-}
+};
 	
 function RunMe() {
+	'use strict';
 	$('#test03').append(this instanceof RunMe);
 }
 
 var App = (function() {
-	
+	'use strict';
 	function App() {
 		$("#testButton").click(buttonClick);
 		$('#test05').append(this instanceof App);

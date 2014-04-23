@@ -21,20 +21,20 @@ var Point = (function() {
 		});
 		d.value = value;
 		return d;
-	}
+	};
 	    
 	var accessProperty = function(e) {
 		privateShowXY('#test03', e.data.that);
-	}
+	};
 	
 	// Private functions	
 	var privateShowXY = function(selector, obj) {
 		$(selector).html('X = ' + obj.x + ' Y = ' + obj.y);
-	}
+	};
 	
     Point.prototype.showXY = function(selector) {
 		privateShowXY(selector, this);    	
-    }
+    };
 
     return Point;
 })();

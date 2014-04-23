@@ -1,10 +1,10 @@
 var myObject = {    
     myProperty01: 12,
     myProperty02: 4,
-    addProperties: function() {
+    addProperties: function() { 'use strict';
         return this.myProperty01 + this.myProperty02; 
     },
-    multiplyProperties: function() {
+    multiplyProperties: function() {'use strict';
         return this.myProperty01 * this.myProperty02; 
     }                   
 };

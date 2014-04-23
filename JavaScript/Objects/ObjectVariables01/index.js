@@ -9,7 +9,7 @@ var MyObjects = (function() {'use strict';
     function MyObjects() 
     {
         
-    };
+    }
     
     MyObjects.prototype.nested = {
 
@@ -25,7 +25,7 @@ var MyObjects = (function() {'use strict';
        
     };
 
-    MyObjects.prototype.ShowDirectories = (function() {'use strict';
+    MyObjects.prototype.ShowDirectories = (function() {
 
         // Constructor
         function ShowDirectories() {

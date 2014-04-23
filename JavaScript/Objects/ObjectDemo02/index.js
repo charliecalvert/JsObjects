@@ -3,9 +3,9 @@
  */
 
 // getNine is assigned a function that returns the number 9
-var getNine01 = function() {
+var getNine01 = function() { 'use strict';
     return 9;
-}
+};
 
 /* 
  * getNine02 is set to the number 9. Notice the
@@ -13,7 +13,7 @@ var getNine01 = function() {
  * They force the function to be called during the 
  * assignment
  */
-var getNine02 = (function() {
+var getNine02 = (function() {'use strict';
     return 9;    
 })();
 

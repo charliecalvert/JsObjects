@@ -1,0 +1,11 @@
+body {
+	background-color: #00AAAA;
+}
+
+div.showInheritance {
+	background-color: #00DDDD;
+	border-radius: 8px;
+	margin: 12px;
+	padding-left: 8px;
+	padding-bottom: 2px;
+}

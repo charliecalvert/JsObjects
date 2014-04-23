@@ -15,7 +15,7 @@ var myObject03 = {
 	a: 1,
 	b: 2,
 	c: 'three',
-	addMe: function() { return this.a + this.b; }
+	addMe: function() { 'use strict'; return this.a + this.b; }
 };
 
 console.log(myObject01.firstName);

@@ -3,6 +3,8 @@
  */
 
 var Goober = (function() {
+    'use strict';
+    
     var x = 2;
     
     function Goober() {}

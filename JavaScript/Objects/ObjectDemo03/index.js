@@ -75,7 +75,7 @@ var MyFunction04 = (function() {
 
 
 var App = (function() {
-   
+   'use strict';
     function App() { }
     
     App.prototype.initialize = function() {
@@ -83,7 +83,7 @@ var App = (function() {
     };
 
     return App;
-})();
+}());
 
 $(document).ready(function() {
     'use strict';

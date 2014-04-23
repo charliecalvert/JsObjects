@@ -3,6 +3,7 @@
  */
 
 var Converter = (function() {
+    'use strict';
     
     // Private variable
     var x = 0;
