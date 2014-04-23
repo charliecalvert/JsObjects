@@ -1,28 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <checkstyle version="4.3">
-	<file name="AzureSimpleDb05/src/server.js">
-		<error line="36" column="49" severity="error" message="&apos;result&apos; is defined but never used." source="jshint.W098" />
-		<error line="36" column="41" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="87" column="71" severity="error" message="&apos;metadata&apos; is defined but never used." source="jshint.W098" />
-		<error line="87" column="61" severity="error" message="&apos;queryResult&apos; is defined but never used." source="jshint.W098" />
-		<error line="142" column="81" severity="error" message="&apos;meta&apos; is defined but never used." source="jshint.W098" />
-		<error line="142" column="75" severity="error" message="&apos;putItemResult&apos; is defined but never used." source="jshint.W098" />
-		<error line="228" column="43" severity="error" message="&apos;meta&apos; is defined but never used." source="jshint.W098" />
-		<error line="228" column="37" severity="error" message="&apos;putItemResult&apos; is defined but never used." source="jshint.W098" />
-		<error line="296" column="94" severity="error" message="&apos;metaData&apos; is defined but never used." source="jshint.W098" />
-		<error line="296" column="84" severity="error" message="&apos;queryResult&apos; is defined but never used." source="jshint.W098" />
-	</file>
-	<file name="PresidentsJson/public/js/testAzureSimpleDb.js">
-		<error line="114" column="22" severity="error" message="&apos;ajaxTestGood&apos; is defined but never used." source="jshint.W098" />
-		<error line="13" column="77" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="13" column="64" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="13" column="51" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="17" column="20" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="16" column="68" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="16" column="55" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-		<error line="122" column="35" severity="error" message="&apos;xml&apos; is defined but never used." source="jshint.W098" />
-		<error line="127" column="63" severity="error" message="&apos;thrownError&apos; is defined but never used." source="jshint.W098" />
-		<error line="127" column="50" severity="error" message="&apos;ajaxOptions&apos; is defined but never used." source="jshint.W098" />
-		<error line="127" column="37" severity="error" message="&apos;request&apos; is defined but never used." source="jshint.W098" />
-	</file>
 </checkstyle>

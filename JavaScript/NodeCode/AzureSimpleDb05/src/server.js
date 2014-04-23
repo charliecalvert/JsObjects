@@ -35,12 +35,12 @@ app.get('/testAzureSimpleDb', function(request, result) {
 
 app.get('/listDomains', function(request, result) {
 	// console.log('request called');
-	sdb.listDomains(function(error, result, metadata) {
+	sdb.listDomains(function(error, resultSdb, metadata) {
 		if (error) {
 			result.send('listDomains failed: ' + error.Message);
-			console.log(metadata);
+			console.log(resultSdb, metadata);
 		} else {
-			result.send(result);
+			result.send(resultSdb);
 		}
 	});
 });
@@ -88,7 +88,7 @@ function createDomain(domainName, result)
 		if (error) {
 			result.send('DomainFCreationFailed: ' + error.Message);
 		} else {
-			result.send( { success: 'Success' } );
+			result.send( { success: 'Success', metadata: metadata } );
 		}
 	});
 }
@@ -139,12 +139,12 @@ app.get('/addListOfPresidents', function(request, result) {
 		Sequence : '06'
 	}];
 
-	sdb.batchPutItem(coreData.Domain, items, function(error, putItemResult, meta) {
+	sdb.batchPutItem(coreData.Domain, items, function(error, putItemResult, metadata) {
 		if (error) {
 			console.log(error);
 			return { result : "Error" };
 		} else {
-			return { result : "Success"	};
+			return { result : "Success", metadata: metadata	};
 		}
 	});
 
@@ -230,7 +230,7 @@ function updateOrInsert(domain, uuid, category, firstName, middleName, lastName)
 			console.log(error);
 			return { result : "Error" };
 		} else {
-			return { result : "Success"	};
+			return { result : "Success", putItemResult: putItemResult, metadata: meta };
 		}
 	});
 }
@@ -293,13 +293,13 @@ function getItemsToDelete(result) {
 function batchDelete(itemsToDelete, result) {
 	//console.log("About to delete these items: ");
 	// console.log(itemsToDelete);
-	sdb.batchDeleteItem(coreData.Domain, itemsToDelete, function(error, queryResult, metaData) {
+	sdb.batchDeleteItem(coreData.Domain, itemsToDelete, function(error, queryResult, metadata) {
 		if (error) {
 			console.log(error.Message);
 			result.send(error.Message);
 		} else {
 			//console.log( { result: 'Success' } );
-			result.send({ result: 'Success' });
+			result.send({ result: 'Success', queryResult: queryResult, metadata: metadata });
 		}
 	});
 }

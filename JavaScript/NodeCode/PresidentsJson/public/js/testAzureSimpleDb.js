@@ -1,5 +1,6 @@
 ﻿$('document').ready(function() {
 	runTest();
+	ajaxTestGood();
 	$('#debug').append('<li>Document Ready Called</li>');
 });
 
@@ -11,10 +12,12 @@ function TestDisplay() {
 }
 
 TestDisplay.prototype.showError = function(request, ajaxOptions, thrownError) {
+	$('#debug').append('<li>' + request + '</li>');
+	$('#debug').append('<li>' + ajaxOptions + '</li>');
+	$('#debug').append('<li>' + thrownError + '</li>');
 };
 
-TestDisplay.prototype.clearResponse = function(request, ajaxOptions,
-		thrownError) {
+TestDisplay.prototype.clearResponse = function() {
 	this.responseData = [];
 };
 
@@ -121,11 +124,15 @@ function ajaxTestGood(url) {
 			cache : 'False',
 			success : function(xml) {
 				$('#debug').append('<li>Success</li>');
+				$('#debug').append('<li>' + xml + '</li>');
 				ok(true, url);
 				start();
 			},
 			error : function(request, ajaxOptions, thrownError) {
-				$('#debug').append('<li>Failure</li>');
+				$('#debug').append('<li>' + request + '</li>');
+				$('#debug').append('<li>' + ajaxOptions + '</li>');
+				$('#debug').append('<li>' + thrownError + '</li>');
+				
 				ok(false, url);
 				start();
 			}
