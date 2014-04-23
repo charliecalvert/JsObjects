@@ -71,7 +71,7 @@ var padNumber = function(numberToPad, width, padValue) {
 
 function stripWhiteSpace(value) {
 	'use strict';
-    return String(str)
+    return String(value)
     	.replace(/ /g, '');	
 }
 
@@ -102,5 +102,6 @@ exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin; 
 exports.padNumber = padNumber;
+exports.stripWhiteSpace = stripWhiteSpace; 
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;

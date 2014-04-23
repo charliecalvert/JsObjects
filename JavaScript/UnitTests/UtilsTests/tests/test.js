@@ -5,10 +5,11 @@
  var assert = require("assert");
  var eu = require("../ElfUtils");
  var path = require("path");
+ var os = require("os");
  
 describe("Test01", function() {
 'use strict';
-	var elfPathSep = '\\';
+	var elfPathSep = path.sep;
 
     it ("Is 3 equal to 3",  function() {
     	var actual = 3;
@@ -20,34 +21,30 @@ describe("Test01", function() {
     	var actual = path.sep;
     	// On Windows: 
     	var expected = '\\';
+    	if (os.platform() === 'linux') {
+    		var expected = '/';
+    	}
     	// On Linux: var expected = '/';
         assert.equal(expected, actual);
     });
     
     it ('TestEnsureStartsWithPathSep01', function() {
     	var value = 'sam';
-    	var expected = '\\sam';
+    	var expected = path.sep + 'sam';
     	var actual = eu.ensureStartsWithPathSep(value);
  		assert.equal(expected, actual);	   	
     });
-    
-    it ('TestEnsureStartsWithPathSep02', function() {
-    	var value = '\\sam';
-    	var expected = '\\sam';
-    	var actual = eu.ensureStartsWithPathSep(value);
- 		assert.equal(expected, actual);	   	
-    });
-    
+   
     it ('TestEnsureStartsWithPathSep03', function() {
     	var value = 'sam.js';
     	var actual = eu.ensureStartsWithPathSep(value);
-    	var expected = '\\sam.js';
+    	var expected = path.sep + 'sam.js';
  		assert.equal(expected, actual);	   	
     });
     
     it ('TestEnsureStartsWithPathSep04', function() {
-    	var value = '\\sam.js';
-    	var expected = '\\sam.js';
+    	var value = path.sep + 'sam.js';
+    	var expected = path.sep + 'sam.js';
     	var actual = eu.ensureStartsWithPathSep(value);
  		assert.equal(expected, actual);	   	
     });
