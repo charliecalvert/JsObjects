@@ -1,7 +1,7 @@
 define(['jquery'], function() {
     'use strict';
 
-    var buttons = null;
+    // var buttons = null;
     var options = null;
     var transformOptions = null;
     var dataIndex = 0;

@@ -35,9 +35,10 @@ app.get('/testAzureSimpleDb', function(request, result) {
 
 app.get('/listDomains', function(request, result) {
 	// console.log('request called');
-	sdb.listDomains(function(error, result, meta) {
+	sdb.listDomains(function(error, result, metadata) {
 		if (error) {
 			result.send('listDomains failed: ' + error.Message);
+			console.log(metadata);
 		} else {
 			result.send(result);
 		}
@@ -45,10 +46,10 @@ app.get('/listDomains', function(request, result) {
 });
 
 app.get('/listItems', function(request, result) {
-	sdb.select('select ItemName from History', function(error, queryResult,
-			metadata) {
+	sdb.select('select ItemName from History', function(error, queryResult,	metadata) {
 		if (error) {
 			result.send('history query failed: ' + error.Message);
+			console.log(metadata);
 		} else {
 			result.send(queryResult);
 		}
@@ -58,6 +59,7 @@ app.get('/listItems', function(request, result) {
 app.get('/history', function(request, result) {
 	sdb.select('select * from History where Category="' + coreData.Category + '"', function(error, queryResult, metadata) {
 		if (error) {
+			console.log(metadata);
 			result.send('history query failed: ' + error.Message);
 		} else {
 			result.send(queryResult);
@@ -68,6 +70,7 @@ app.get('/history', function(request, result) {
 app.get('/deleteDomain', function(request, result) {
 	sdb.deleteDomain(coreData.Domain, function(error, queryResult, metadata) {
 		if (error) {
+			console.log(metadata);
 			result.send('history query failed: ' + error.Message);
 		} else {
 			result.send(queryResult);
@@ -253,7 +256,7 @@ app.get('/delete', function(request, result) {
 function deleteItem(item) {
 	sdb.deleteItem(coreData.Domain, item, function(error,	getItemResult, meta) {
 		if (error) {
-			console.log(error);
+			console.log(error, meta);			
 		} else {
 			console.log(getItemResult);
 			return getItemResult;
@@ -267,7 +270,7 @@ app.get('/deleteAll', function(request, result) {
 
 function getItemsToDelete(result) {
 	sdb.select('select ItemName from History where Category="' + coreData.Category + '"',
-			function(error, queryResult, metadata) {
+			function(error, queryResult) {
 				if (error) {
 					result.send({ failure : error.Message });
 				} else {
@@ -307,7 +310,7 @@ app.get('/domainmeta', function(request, result) {
 			console.log(error);
 			// result.send('listDomains failed: '+ error.Message );
 		} else {
-			console.log(queryResult);
+			console.log(queryResult, metadata);
 			result.send(queryResult);
 		}
 	});

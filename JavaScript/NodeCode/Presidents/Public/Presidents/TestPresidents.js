@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-/*global ELF: false */
+/*global ELF: false, ok: true, start: true, stop: true, equal: true */
 /*jshint jquery: true, browser: true */ 
 
 
@@ -106,6 +106,7 @@ function testPresident() {
 		},
 		function(request, ajaxOptions, thrownError) {
 			ok(false, 'Could not write JSON to file: ' + request.responseText);
+			console.log(thrownError, ajaxOptions);
 			start();	
 		});		
 	});
@@ -118,6 +119,7 @@ function testPresident() {
 		},
 		function(request, ajaxOptions, thrownError) {
 			ok(false, 'Could not write JSON to file: ' + request.responseText);
+			console.log(thrownError, ajaxOptions);
 			start();				
 		});
 	}

@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-/*global ELF:true*/
+/*global ELF:true */
 
 ELF.EasyPresident = (function() {
 
@@ -12,18 +12,7 @@ ELF.EasyPresident = (function() {
 		this.TermEnd = initEnd;
 		this.Born = initBorn;
 		this.Died = initDied;
-	}
-
-	function withValue(value) {
-		var d = withValue.d || (withValue.d = {
-			enumerable : false,
-			writable : false,
-			configurable : false,
-			value : null
-		});
-		d.value = value;
-		return d;
-	}
+	}	
 
 
 	Object.defineProperty(President.prototype, "PresidentName", {

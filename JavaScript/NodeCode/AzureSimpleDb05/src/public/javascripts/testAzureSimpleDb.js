@@ -1,7 +1,9 @@
 ﻿/* jshint jquery: true, unused: true */
+/* globals test: true, Presidents: true, ok: true, start: true, asyncTest: true, equal: true */
 
 $('document').ready(function() {
 	runTest();
+	ajaxTestGood();
 	$('#debug').append('<li>Document Ready Called</li>');
 });
 
@@ -9,25 +11,25 @@ function TestDisplay() {
 	this.debugData = [];
 	this.responseData = [];
 	this.rowData = [];
-	thisTestDisplay = this;
+	var that = this;
+
+	TestDisplay.prototype.showDebug = function(textToDisplay) {
+		that.showDebugTest(textToDisplay);
+		this.debugData.push(textToDisplay);
+	};
 }
 
 TestDisplay.prototype.showError = function(request, ajaxOptions, thrownError) {
-	console.log(request + ' ' + ajaxOptions + ' ' + thrownerror);
+	console.log(request + ' ' + ajaxOptions + ' ' + thrownError);
 };
 
 TestDisplay.prototype.clearResponse = function(request, ajaxOptions, thrownError) {
-	console.log(request + ' ' + ajaxOptions + ' ' + thrownerror);
+	console.log(request + ' ' + ajaxOptions + ' ' + thrownError);
 	this.responseData = [];
 };
 
 TestDisplay.prototype.showDebugTest = function(textToDisplay) {
 	$('#debug').append('<li>' + textToDisplay + '</li>');
-};
-
-TestDisplay.prototype.showDebug = function(textToDisplay) {
-	thisTestDisplay.showDebugTest(textToDisplay);
-	this.debugData.push(textToDisplay);
 };
 
 TestDisplay.prototype.showResponse = function(textToDisplay) {
@@ -43,37 +45,38 @@ function runTest() {
 
 	module('Basic');
 
+	var presidents = null;
+	var testDisplay = null;
+	
 	test("testOne", function() {
 		var testDisplay = new TestDisplay();
 		presidents = new Presidents(testDisplay);
 		presidents.dirName();
-		len = testDisplay.debugData.length;
-		ok(len = 1);
+		var len = testDisplay.debugData.length;
+		ok( len = 1);
 	});
 
 	test("testDisplayRowJ", function() {
-		var testDisplay = new TestDisplay();
-		states = new Presidents(testDisplay);
+		testDisplay = new TestDisplay();
+		// var states = new Presidents(testDisplay);
 		var row = {};
 		row.stateName = 'foo';
 		row.abbreviation = 'bar';
 		row.capital = "fo";
 		row.population = 'ten';
 		testDisplay.displayRow(row);
-		equal(testDisplay.rowData[0].stateName, "foo",
-				"call display row, check data is correct");
+		equal(testDisplay.rowData[0].stateName, "foo", "call display row, check data is correct");
 	});
 
-
-	function pauseCode(ms)
-	{
+	function pauseCode(ms) {
 		ms += new Date().getTime();
-		while (new Date() < ms){}
+		while (new Date() < ms) {
+		}
 	}
 
 	module("dataTests", {
 		setup : function() {
-			testDisplay = new TestDisplay();
+			var testDisplay = new TestDisplay();
 			presidents = new Presidents(testDisplay);
 			testDisplay.showDebugTest("Calling deleteAll");
 			presidents.deleteAll();
@@ -82,7 +85,7 @@ function runTest() {
 			pauseCode(500);
 			ok(true, "once extra assert per test");
 		},
-		teardown: function() {
+		teardown : function() {
 			pauseCode(500);
 			ok(true, "and one extra assert after each test");
 		}
@@ -92,7 +95,7 @@ function runTest() {
 		testDisplay.showDebugTest("Test Two started");
 		presidents.getPresidents(function() {
 			testDisplay.showDebugTest("Test Two Callback");
-			len = testDisplay.rowData.length;
+			var len = testDisplay.rowData.length;
 			ok(len > 0, "Len was: " + len);
 			start();
 			testDisplay.showDebugTest("Test restarted");
@@ -102,7 +105,7 @@ function runTest() {
 	asyncTest("testForWashington", function() {
 		presidents.getPresidents(function() {
 			var result = false;
-			for ( var i = 0; i < testDisplay.rowData.length; i++) {
+			for (var i = 0; i < testDisplay.rowData.length; i++) {
 				if (testDisplay.rowData[i].LastName == "Washington") {
 					result = true;
 					break;
@@ -123,12 +126,14 @@ function ajaxTestGood(url) {
 			dataType : "xml",
 			cache : 'False',
 			success : function(xml) {
-				$('#debug').append('<li>Success</li>');
+				$('#debug').append('<li>Success: ' + xml + '</li>');
 				ok(true, url);
 				start();
 			},
 			error : function(request, ajaxOptions, thrownError) {
-				$('#debug').append('<li>Failure</li>');
+				$('#debug').append('<li>Failure: ' + request + '</li>');
+				$('#debug').append('<li>Failure: ' + ajaxOptions + '</li>');
+				$('#debug').append('<li>Failure: ' + thrownError + '</li>');
 				ok(false, url);
 				start();
 			}

@@ -11,7 +11,7 @@ var winston = require('winston');
 
 function setupWinston() {
     'use strict';
-    var config = {
+    /* var config = {
         levels: {
             silly: 0,
             verbose: 1,
@@ -30,7 +30,7 @@ function setupWinston() {
             debug: 'blue',
             error: 'red'
         }
-    };
+    }; */
 
     var customLevels = {
         levels: {

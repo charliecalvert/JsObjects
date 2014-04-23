@@ -28,9 +28,6 @@ ELF.PresidentUtils = (function() {
 					testFunc(presidents);
 				}
 			},
-			complete : function(xhr, code) {
-				// runCallbackTests();
-			},
 			error : showError			
 		});
 	};
@@ -44,7 +41,8 @@ ELF.PresidentUtils = (function() {
 		}).success(function() {
 			console.log("csc: success. Loaded index.json");
 		}).error(function(jqXHR, textStatus, errorThrown) {
-			alert("error calling JSON. Try JSONLint or JSLint: " + textStatus);
+			alert("error calling JSON." + errorThrown + 
+				" Try JSONLint or JSLint: " + textStatus);			
 		}).complete(function() {
 			console.log("csc: completed call to get index.json");
 		});

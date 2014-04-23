@@ -2,4 +2,5 @@
  * @author Charlie
  */
 
-var ELF = {};
+
+var ELF = {}; // jshint ignore:line
