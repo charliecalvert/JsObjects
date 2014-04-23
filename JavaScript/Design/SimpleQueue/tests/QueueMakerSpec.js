@@ -3,6 +3,8 @@
  */
 
 describe("QueueMaker Spec", function() {
+	'use strict';
+	
 	it("contains a QueueMaker spec with an expectation", function() {
 		expect(true).toBe(true);
 	});

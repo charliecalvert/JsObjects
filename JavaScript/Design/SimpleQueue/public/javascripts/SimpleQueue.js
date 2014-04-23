@@ -1,7 +1,7 @@
 // Inspiration: http://stackoverflow.com/a/1590262/253576
 
 var simpleQueue = [];
-simpleQueue.push("Able");
+simpleQueue.push("Alpha");
 simpleQueue.push("Bravo");
 simpleQueue.push("Charlie");
 simpleQueue.push("Delta");

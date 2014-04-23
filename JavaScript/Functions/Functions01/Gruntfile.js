@@ -18,6 +18,7 @@ module.exports = function(grunt) {
                     '**/qunit*.js'
                 ],
                 reporter: 'checkstyle',
+                newcap: true,
                 reporterOutput: 'result.xml',
                 strict: true,
             }

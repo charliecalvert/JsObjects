@@ -11,7 +11,7 @@ describe("A Queue Simple Suite", function() {
 
 	it("Tests simple query", function() {
 		var value = simpleQueue.shift();
-		expect(value).toBe("Able");
+		expect(value).toBe("Alpha");
 		console.log(value); // displays 2
 	});
 
