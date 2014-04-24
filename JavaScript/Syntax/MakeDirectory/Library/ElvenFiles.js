@@ -7,44 +7,45 @@
 var mkdirp = require('mkdirp');
 var fs = require('fs');
 
-var ElvenFiles = (function() { 'use strict';
+var ElvenFiles = (function() {
+    'use strict';
 
-	function ElvenFiles() {
-		
-	}
-	
-	ElvenFiles.prototype.copyFile = function(source, target) {
+    function ElvenFiles() {
 
-		var rd = fs.createReadStream(source);
-		rd.on("error", function(err) {
-			done(err);
-		});
-		var wr = fs.createWriteStream(target);
-		wr.on("error", function(err) {
-			done(err);
-		});
-		wr.on("close", function(ex) {
-			done('Success: ' + ex);
-		});
-		rd.pipe(wr);
+    }
 
-		function done(msg) {
-			console.log(msg);
-		}
-	};
+    ElvenFiles.prototype.copyFile = function(source, target) {
 
-	ElvenFiles.prototype.createDirectory = function(directory) {
-		mkdirp(directory, function(err) {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log("Created directory");
-			}
-		});	
-	};
+        var rd = fs.createReadStream(source);
+        rd.on("error", function(err) {
+            done(err);
+        });
+        var wr = fs.createWriteStream(target);
+        wr.on("error", function(err) {
+            done(err);
+        });
+        wr.on("close", function(ex) {
+            done('Success: ' + ex);
+        });
+        rd.pipe(wr);
 
-	return ElvenFiles;
-	
+        function done(msg) {
+            console.log(msg);
+        }
+    };
+
+    ElvenFiles.prototype.createDirectory = function(directory) {
+        mkdirp(directory, function(err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Created directory");
+            }
+        });
+    };
+
+    return ElvenFiles;
+
 })();
 
 

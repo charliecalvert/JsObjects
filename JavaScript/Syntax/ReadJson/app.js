@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 
 var file = fs.readFileSync('config.json');

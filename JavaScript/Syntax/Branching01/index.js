@@ -1,128 +1,128 @@
 var App = (function() {
-	'use strict';
-	
-	var Alabama = 'AL',
-		California = 'CA',
-		Texas = 'TX',
-		Washington = 'WA';
+    'use strict';
 
-	function App() {
-		describe('If Statements');
-		runIfStatements();
-		describe('Switch Statement');
-		runState();
-		describe('Object Map');
-		runFuncState();
-		describe('Object Map Version 2');
-		runFuncState2();
-	}
-	
-	var describe = function(value) {
-		console.log();
-		console.log(value);
-		console.log("==============");
-	};
-	
-	var isEven = function(input) {
-		if (input % 2 === 0) {
-			console.log('Your input of ' + input + ' is even');
-		} else {
-			console.log('Your input of ' + input + ' is odd');
-		}
-	};
-	
-	var statePopulation =  function(stateAbbreviation) {
-		var result = 0;
-		
-		switch (stateAbbreviation) {
-			case 'AL': 
-				result = 4800736;
-				break;
+    var Alabama = 'AL',
+        California = 'CA',
+        Texas = 'TX',
+        Washington = 'WA';
 
-			case 'CA': 
-				result = 38053956;
-				break;
+    function App() {
+        describe('If Statements');
+        runIfStatements();
+        describe('Switch Statement');
+        runState();
+        describe('Object Map');
+        runFuncState();
+        describe('Object Map Version 2');
+        runFuncState2();
+    }
 
-			case 'TX':
-				result = 25901361;
-				break;
+    var describe = function(value) {
+        console.log();
+        console.log(value);
+        console.log("==============");
+    };
 
-			case 'WA': 
-				result = 6830038;
-				break;
+    var isEven = function(input) {
+        if (input % 2 === 0) {
+            console.log('Your input of ' + input + ' is even');
+        } else {
+            console.log('Your input of ' + input + ' is odd');
+        }
+    };
 
-			default: 
-				result = -1;
-		}
+    var statePopulation = function(stateAbbreviation) {
+        var result = 0;
 
-		console.log('The population of ' + stateAbbreviation + ' is ' + result);
-	};
+        switch (stateAbbreviation) {
+            case 'AL':
+                result = 4800736;
+                break;
 
-	var funcBranch = function(stateAbbreviation) {
+            case 'CA':
+                result = 38053956;
+                break;
 
-		var stateMap = {
-			'AL': 4800736,
-			'CA': 38053956,
-			'TX': 25901361,
-			'WA': 6830038
-		};
+            case 'TX':
+                result = 25901361;
+                break;
 
-		console.log('The population of ' + stateAbbreviation + ' = ' + stateMap[stateAbbreviation]);
-	};
+            case 'WA':
+                result = 6830038;
+                break;
 
-	var funcBranch2 = function(stateAbbreviation) {
-		var stateMap2 = {
-			'AL': function() {
-				return 4800736 /100;
-			}(),
-			'CA': function() {
-				return 38053956 / 100;
-			}(),
-			'TX': function() {
-				return 25901361 / 100;
-			}(),
-			
-			'WA': function() {
-				return 6830038 / 100;
-			}()
-		};
-		
-		console.log('The population of ' + stateAbbreviation + ' = ' + stateMap2[stateAbbreviation]);
-		//var bar = stateMap2[stateAbbreviation];
-		//console.log('The population of ' + stateAbbreviation + ' = ' + bar());
-	};
+            default:
+                result = -1;
+        }
 
-	var runIfStatements = function() {
-		isEven(2);
-		isEven(3);
-		isEven(4);
-		isEven(5);
-	};
+        console.log('The population of ' + stateAbbreviation + ' is ' + result);
+    };
 
-	var runState = function() {
-		statePopulation(Alabama);
-		statePopulation(California);
-		statePopulation(Texas);
-		statePopulation(Washington);
-		statePopulation('Unknown');
-	};
+    var funcBranch = function(stateAbbreviation) {
 
-	var runFuncState = function() {
-		funcBranch(Alabama);
-		funcBranch(California);
-		funcBranch(Texas);
-		funcBranch(Washington);
-		funcBranch('Unknown');
-	};
-	
-	var runFuncState2 = function() {
-		funcBranch2(Alabama);
-		funcBranch2(California);
-		funcBranch2(Texas);
-		funcBranch2(Washington);
-	};
+        var stateMap = {
+            'AL': 4800736,
+            'CA': 38053956,
+            'TX': 25901361,
+            'WA': 6830038
+        };
 
-	return App;
+        console.log('The population of ' + stateAbbreviation + ' = ' + stateMap[stateAbbreviation]);
+    };
+
+    var funcBranch2 = function(stateAbbreviation) {
+        var stateMap2 = {
+            'AL': function() {
+                return 4800736 / 100;
+            }(),
+            'CA': function() {
+                return 38053956 / 100;
+            }(),
+            'TX': function() {
+                return 25901361 / 100;
+            }(),
+
+            'WA': function() {
+                return 6830038 / 100;
+            }()
+        };
+
+        console.log('The population of ' + stateAbbreviation + ' = ' + stateMap2[stateAbbreviation]);
+        //var bar = stateMap2[stateAbbreviation];
+        //console.log('The population of ' + stateAbbreviation + ' = ' + bar());
+    };
+
+    var runIfStatements = function() {
+        isEven(2);
+        isEven(3);
+        isEven(4);
+        isEven(5);
+    };
+
+    var runState = function() {
+        statePopulation(Alabama);
+        statePopulation(California);
+        statePopulation(Texas);
+        statePopulation(Washington);
+        statePopulation('Unknown');
+    };
+
+    var runFuncState = function() {
+        funcBranch(Alabama);
+        funcBranch(California);
+        funcBranch(Texas);
+        funcBranch(Washington);
+        funcBranch('Unknown');
+    };
+
+    var runFuncState2 = function() {
+        funcBranch2(Alabama);
+        funcBranch2(California);
+        funcBranch2(Texas);
+        funcBranch2(Washington);
+    };
+
+    return App;
 })();
 
 var app = new App();

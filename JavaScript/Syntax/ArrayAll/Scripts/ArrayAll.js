@@ -11,12 +11,12 @@ var app = {
         if (!this.arrayAll) {
             this.arrayAll = new app.ArrayAll();
         }
-        
+
         if (!this.csvToArray) {
-        	this.csvToArray = new app.CsvToArray();
+            this.csvToArray = new app.CsvToArray();
         }
         return this.arrayAll;
-    } 
+    }
 };
 
 app.ArrayAll = (function() {
@@ -56,18 +56,18 @@ app.ArrayAll = (function() {
         return array;
     };
 
- 
+
 
     // If you pass in [a, b, c] it will return a and leave [b, c]
     ArrayAll.prototype.getFirst = function(myArray) {
         return myArray.shift();
     };
-	
+
     ArrayAll.prototype.isEqual = function(one, two) {
-    	if (one === two) return true;
-  		
-  		if (one === null || two === null) return false;
-  		
+        if (one === two) return true;
+
+        if (one === null || two === null) return false;
+
         if (one.length !== two.length) {
             return false;
         }

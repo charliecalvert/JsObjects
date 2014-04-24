@@ -3,30 +3,30 @@
  */
 
 var App = (function() {
-	'use strict';
+    'use strict';
 
-	function App() {
-		$('#createDirectory').click(createDirectory);
-		$('#copyFile').click(copyFile);
-	}
+    function App() {
+        $('#createDirectory').click(createDirectory);
+        $('#copyFile').click(copyFile);
+    }
 
-	var createDirectory = function() {
-		$.getJSON('/createDirectory', function(result) {
-			$('#debug').append('<li>' + JSON.stringify(result) + '</li>');
-		});
-	};
+    var createDirectory = function() {
+        $.getJSON('/createDirectory', function(result) {
+            $('#debug').append('<li>' + JSON.stringify(result) + '</li>');
+        });
+    };
 
-	var copyFile = function() {
-		$.getJSON('/copyFile', function(result) {
-			$('#debug').append('<li>' + JSON.stringify(result) + '</li>');
-		});
-	};
+    var copyFile = function() {
+        $.getJSON('/copyFile', function(result) {
+            $('#debug').append('<li>' + JSON.stringify(result) + '</li>');
+        });
+    };
 
-	return App;
+    return App;
 
 })();
 
 $(document).ready(function() {
-	"use strict";
-	new App();
+    "use strict";
+    new App();
 });

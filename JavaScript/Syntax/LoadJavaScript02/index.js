@@ -6,22 +6,22 @@
 // From: http://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/
 // That is Nicholas C. Zakas and I found it in his book on JavaScript Performance 
 // ISBN 9780596802790
-function loadScript(url, callback){
-	'use strict';
-	
+function loadScript(url, callback) {
+    'use strict';
+
     var script = document.createElement("script");
     script.type = "text/javascript";
 
-    if (script.readyState){  //IE
-        script.onreadystatechange = function(){
+    if (script.readyState) { //IE
+        script.onreadystatechange = function() {
             if (script.readyState == "loaded" ||
-                    script.readyState == "complete"){
+                script.readyState == "complete") {
                 script.onreadystatechange = null;
                 callback();
             }
         };
-    } else {  //Others
-        script.onload = function(){
+    } else { //Others
+        script.onload = function() {
             callback();
         };
     }
@@ -31,8 +31,8 @@ function loadScript(url, callback){
 }
 
 window.onload = function() {
-	'use strict';
-	loadScript("ScriptToLoad.js", function() {
-		alert("Awagha, this is the callback");
-	});
+    'use strict';
+    loadScript("ScriptToLoad.js", function() {
+        alert("Awagha, this is the callback");
+    });
 };
