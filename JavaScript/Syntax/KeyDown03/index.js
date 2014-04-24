@@ -3,7 +3,7 @@
  */
 
 var App = (function() {
-
+	'use strict';
 	// Private variables
 	var useKeys = true;
 
@@ -22,7 +22,7 @@ var App = (function() {
 			$('#keyStatus').html('Keyboard off');
 		}
 		useKeys = !useKeys;		
-	}
+	};
 	
 	var doKeyDown = function(evt) {
 		switch (evt.keyCode) {
@@ -53,5 +53,6 @@ var App = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new App();
 });

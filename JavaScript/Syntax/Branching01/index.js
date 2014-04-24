@@ -1,5 +1,6 @@
 var App = (function() {
-
+	'use strict';
+	
 	var Alabama = 'AL',
 		California = 'CA',
 		Texas = 'TX',

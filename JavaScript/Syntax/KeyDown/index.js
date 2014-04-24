@@ -3,6 +3,8 @@
  */
 
 var App = (function() {
+    'use strict';
+
 	function App() {
 		window.addEventListener('keydown', doKeyDown, true);
 	}
@@ -33,5 +35,6 @@ var App = (function() {
 
 
 $(document).ready(function() {
+    'use strict';
 	new App();
 });

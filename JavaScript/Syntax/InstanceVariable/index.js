@@ -14,7 +14,7 @@ var Point = (function() {
     Point.prototype.init = function (x, y) {
 		Object.defineProperty(this, "x", withValue(x));
 		Object.defineProperty(this, "y", withValue(y));
-	}
+	};
 	
 	function withValue(value) {
 		var d = withValue.d || (withValue.d = {

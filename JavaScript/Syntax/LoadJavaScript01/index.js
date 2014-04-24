@@ -3,10 +3,12 @@
  */
 
 function error(xhr, xhrStatus) {
+	'use strict';
 	alert('Big xhr error: ' + xhr);	
 }
 
 var getFile = function(fileName) {
+	'use strict';
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", fileName, true);
 	xhr.onreadystatechange = function() {
@@ -28,5 +30,6 @@ var getFile = function(fileName) {
 };
 
 window.onload = function() {
+	'use strict';
 	getFile('ScriptToLoad.js');
 };

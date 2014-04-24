@@ -3,6 +3,7 @@
  */
 
 var App = (function() {
+	'use strict';
 	var MAX = 3;
 	
 	function App() {
@@ -18,5 +19,6 @@ var App = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new App();
 });

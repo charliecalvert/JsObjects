@@ -82,7 +82,7 @@ app.CsvToArray = (function() {
  
         // Keep looping over the regular expression matches
         // until we can no longer find a match.
-        while (arrMatches = objPattern.exec( strData )){
+        while (arrMatches = objPattern.exec( strData )){  //jshint ignore:line
  
             // Get the delimiter that was found.
             var strMatchedDelimiter = arrMatches[ 1 ];
@@ -103,6 +103,8 @@ app.CsvToArray = (function() {
             }
  
  
+            var strMatchedValue = null;
+
             // Now that we have our delimiter out of the way,
             // let's check to see which kind of value we
             // captured (quoted or unquoted).
@@ -110,7 +112,7 @@ app.CsvToArray = (function() {
  
                 // We found a quoted value. When we capture
                 // this value, unescape any double quotes.
-                var strMatchedValue = arrMatches[ 2 ].replace(
+                strMatchedValue = arrMatches[ 2 ].replace(
                     new RegExp( "\"\"", "g" ),
                     "\""
                     );
@@ -118,7 +120,7 @@ app.CsvToArray = (function() {
             } else {
  
                 // We found a non-quoted value.
-                var strMatchedValue = arrMatches[ 3 ];
+                strMatchedValue = arrMatches[ 3 ];
  
             }
  

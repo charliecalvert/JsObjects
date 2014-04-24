@@ -66,7 +66,7 @@ app.ArrayAll = (function() {
     ArrayAll.prototype.isEqual = function(one, two) {
     	if (one === two) return true;
   		
-  		if (one == null || two == null) return false;
+  		if (one === null || two === null) return false;
   		
         if (one.length !== two.length) {
             return false;

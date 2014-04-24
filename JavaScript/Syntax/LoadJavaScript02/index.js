@@ -7,7 +7,8 @@
 // That is Nicholas C. Zakas and I found it in his book on JavaScript Performance 
 // ISBN 9780596802790
 function loadScript(url, callback){
-
+	'use strict';
+	
     var script = document.createElement("script");
     script.type = "text/javascript";
 
@@ -30,6 +31,7 @@ function loadScript(url, callback){
 }
 
 window.onload = function() {
+	'use strict';
 	loadScript("ScriptToLoad.js", function() {
 		alert("Awagha, this is the callback");
 	});

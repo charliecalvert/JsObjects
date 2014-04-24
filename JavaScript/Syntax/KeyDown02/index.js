@@ -3,7 +3,7 @@
  */
 
 var App = (function() {
-
+    'use strict';
 	// Private variables
 	var MAX = 3;
 	var MAXY = 2;
@@ -49,5 +49,6 @@ var App = (function() {
 })();
 
 $(document).ready(function() {
+    'use strict';
 	new App();
 });
