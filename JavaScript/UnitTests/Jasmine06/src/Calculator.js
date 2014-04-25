@@ -3,8 +3,7 @@
  */
 
 function addMe(a, b) {
-	'use strict';
-	
+    'use strict';
+
     return a + b;
 }
-

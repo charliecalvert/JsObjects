@@ -1,5 +1,5 @@
 var RouteMaster = ( function() {
-
+	'use strict';
 		// Constructor
 		function RouteMaster() {
 			$("#getNine").click(getNine);
@@ -74,6 +74,6 @@ var RouteMaster = ( function() {
 		return RouteMaster;
 	}());
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	new RouteMaster();
 }); 

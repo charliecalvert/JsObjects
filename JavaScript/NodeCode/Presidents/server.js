@@ -6,12 +6,14 @@ var port = process.env.PORT || 30025;
 app.use(express.bodyParser());
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('Public/TestPresidents.html');
 	res.writeHeader(200, {"Content-Type": "text/html"});
 	res.end(html);
 });
 
 app.post('/writePresident', function(request, response){
+	'use strict';
 	console.log("writeJsonPostMargie called");
 	console.log(request.body);
 	var fileName = request.body.fileName;
@@ -31,6 +33,7 @@ app.post('/writePresident', function(request, response){
 });
 
 app.post('/writePresidents', function(request, response){
+	'use strict';
 	console.log("writeJsonPostMargie called");
 	console.log(request.body);
 	var fileName = request.body.fileName;
@@ -50,6 +53,7 @@ app.post('/writePresidents', function(request, response){
 });
 
 app.get('/writeJsonGet', function(request, response){
+	'use strict';
 	console.log("writeJsonGet called");
 	console.log(request.query);
 	console.log(request.url);
@@ -72,6 +76,7 @@ app.get('/writeJsonGet', function(request, response){
 });
 
 app.get('/read', function(req, res){
+	'use strict';
 	var obj;
 
 	function readData(err, data) {

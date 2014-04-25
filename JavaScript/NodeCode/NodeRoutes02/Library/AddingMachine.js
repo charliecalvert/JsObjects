@@ -1,5 +1,5 @@
 var MyObject = (function() {
-	
+	'use strict';
 	// Private Data
 	var helloString = "MyObject says hello";
 

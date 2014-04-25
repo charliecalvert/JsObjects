@@ -16,6 +16,7 @@ var sdb = new simpledb.SimpleDB({
 var port = process.env.port || 30025;
 
 app.get('/', function(request, result) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	result.writeHeader(200, {
 		"Content-Type" : "text/html"
@@ -25,6 +26,7 @@ app.get('/', function(request, result) {
 });
 
 app.get('/testAzureSimpleDb', function(request, result) {
+	'use strict';
 	var html = fs.readFileSync('public/testAzureSimpleDb.html');
 	result.writeHeader(200, {
 		"Content-Type" : "text/html"
@@ -34,6 +36,7 @@ app.get('/testAzureSimpleDb', function(request, result) {
 });
 
 app.get('/listDomains', function(request, result) {
+	'use strict';
 	// console.log('request called');
 	sdb.listDomains(function(error, resultSdb, metadata) {
 		if (error) {
@@ -46,6 +49,7 @@ app.get('/listDomains', function(request, result) {
 });
 
 app.get('/listItems', function(request, result) {
+	'use strict';
 	sdb.select('select ItemName from History', function(error, queryResult,	metadata) {
 		if (error) {
 			result.send('history query failed: ' + error.Message);
@@ -57,6 +61,7 @@ app.get('/listItems', function(request, result) {
 });
 
 app.get('/history', function(request, result) {
+	'use strict';
 	sdb.select('select * from History where Category="' + coreData.Category + '"', function(error, queryResult, metadata) {
 		if (error) {
 			console.log(metadata);
@@ -68,6 +73,7 @@ app.get('/history', function(request, result) {
 });
 
 app.get('/deleteDomain', function(request, result) {
+	'use strict';
 	sdb.deleteDomain(coreData.Domain, function(error, queryResult, metadata) {
 		if (error) {
 			console.log(metadata);
@@ -79,11 +85,12 @@ app.get('/deleteDomain', function(request, result) {
 });
 
 app.get('/createDomain', function(request, result) {
+	'use strict';
 	createDomain(coreData.Domain, result);
 });
 
-function createDomain(domainName, result)
-{
+function createDomain(domainName, result) {
+	'use strict';
 	sdb.createDomain(domainName, function(error, queryResult, metadata) {
 		if (error) {
 			result.send('DomainFCreationFailed: ' + error.Message);
@@ -94,6 +101,7 @@ function createDomain(domainName, result)
 }
 
 app.get('/addListOfPresidents', function(request, result) {
+	'use strict';
 	createDomain(coreData.Domain, result);
 	var items = [{
 		$ItemName: utils.getUuid(),
@@ -190,6 +198,7 @@ app.get('/addListOfPresidents', function(request, result) {
 
 
 app.get('/putitem', function(request, result) {
+	'use strict';
 	console.log(request.query.firstName);
 	console.log(request.query.middleName);
 	console.log(request.query.lastName);
@@ -200,6 +209,7 @@ app.get('/putitem', function(request, result) {
 });
 
 app.get('/update', function(request, result) {
+	'use strict';
 	console.log('Update Called');
 	var uuid = request.query.uuid;
 	var firstName = request.query.firstName;
@@ -214,12 +224,14 @@ app.get('/update', function(request, result) {
 });
 
 function putItem(firstName, middleName, lastName) {
+	'use strict';
 	uuid = utils.getUuid();
 	console.log(uuid);
 	return updateOrInsert(coreData.Domain, uuid, coreData.Category, firstName, middleName, lastName);
 }
 
 function updateOrInsert(domain, uuid, category, firstName, middleName, lastName) {
+	'use strict';
 	sdb.putItem(coreData.Domain, uuid, {
 		Category : category,
 		FirstName : firstName,
@@ -236,6 +248,7 @@ function updateOrInsert(domain, uuid, category, firstName, middleName, lastName)
 }
 
 app.get('/getitem', function(request, result) {
+	'use strict';
 	console.log(request.query.itemName);
 	sdb.getItem('History', request.query.itemName, function(error,
 			getItemResult) {
@@ -249,11 +262,13 @@ app.get('/getitem', function(request, result) {
 });
 
 app.get('/delete', function(request, result) {
+	'use strict';
 	console.log(request.query.itemName);
 	result.send(deleteItem(request.query.itemName));
 });
 
 function deleteItem(item) {
+	'use strict';
 	sdb.deleteItem(coreData.Domain, item, function(error,	getItemResult, meta) {
 		if (error) {
 			console.log(error, meta);			
@@ -265,10 +280,12 @@ function deleteItem(item) {
 }
 
 app.get('/deleteAll', function(request, result) {
+	'use strict';
 	getItemsToDelete(result);
 });
 
 function getItemsToDelete(result) {
+	'use strict';
 	sdb.select('select ItemName from History where Category="' + coreData.Category + '"',
 			function(error, queryResult) {
 				if (error) {
@@ -291,6 +308,7 @@ function getItemsToDelete(result) {
 }
 
 function batchDelete(itemsToDelete, result) {
+	'use strict';
 	//console.log("About to delete these items: ");
 	// console.log(itemsToDelete);
 	sdb.batchDeleteItem(coreData.Domain, itemsToDelete, function(error, queryResult, metadata) {
@@ -305,6 +323,7 @@ function batchDelete(itemsToDelete, result) {
 }
 
 app.get('/domainmeta', function(request, result) {
+	'use strict';
 	sdb.domainMetadata(coreData.Domain, function(error, queryResult, metadata) {
 		if (error) {
 			console.log(error);
@@ -317,12 +336,14 @@ app.get('/domainmeta', function(request, result) {
 });
 
 app.get('/dirname', function(request, result) {
+	'use strict';
 	result.send({
 		'result' : __dirname
 	});
 });
 
 app.get('/port', function(request, result) {
+	'use strict';
 	result.send({
 		'result' : port
 	});

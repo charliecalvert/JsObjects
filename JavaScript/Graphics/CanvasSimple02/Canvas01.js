@@ -4,6 +4,7 @@ var image;
 
 function loadImage(callback)
 {
+    'use strict';
 	console.log('loadImage called');
 	image = new Image();
 	image.onload = function() {
@@ -14,6 +15,7 @@ function loadImage(callback)
 
 function doLoad()
 {
+    'use strict';
 	console.log('doLoad called');
 	loadImage(function(image) {
 		$("#blitButton").prop('disabled', false);
@@ -26,6 +28,7 @@ function doLoad()
 
 function doLoader()
 {
+    'use strict';
 	console.log('doLoader called');
 	image = new Image();
 	image.src = "images/cscGarden.png";
@@ -35,12 +38,14 @@ function doLoader()
 }
 
 function draw() {
+    'use strict';
 	context.drawImage(image, 0, 0);
 	context02.drawImage(image, 0, 0);
 }
 
 function blitTest()
 {
+    'use strict';
 	console.log('blitTest called');
 	// var imageData = context.getImageData(0, 0, 25, 25);
 	for (var j = 0; j < 6; j++)
@@ -52,6 +57,8 @@ function blitTest()
 }
 
 $('document').ready(function () {
+    'use strict';
+
 	console.log('Document Ready called');
 	
 	// Without jQuery

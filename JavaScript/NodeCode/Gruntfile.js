@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+	'use strict';
 	grunt.initConfig({
 		jshint: {
 			files: ['**/*.js'],
@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 					'**/Deploy/**'
 					],
 				define: true,
+                strict: true,
 				reporter: 'checkstyle',
 				reporterOutput: 'result.xml',
 				jshintrc: 'jshintrc.txt'

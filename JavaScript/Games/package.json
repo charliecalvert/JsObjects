@@ -1,9 +1,10 @@
 {
-	"name": "GruntGames",
-	"version": "0.1.0",
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-contrib-jshint": "~0.7.1",
-		"grunt-contrib-clean": "~0.5.0"
-	}
+  "name": "GruntGames",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-jsbeautifier": "^0.2.7"
+  }
 }

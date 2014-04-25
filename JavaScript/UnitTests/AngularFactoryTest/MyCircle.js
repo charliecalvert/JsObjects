@@ -5,25 +5,25 @@
  * @author Charlie
  */
 angular.module('myCircleMod', [])
-.factory('myCircleFactory', function() {
-	'use strict';
+    .factory('myCircleFactory', function() {
+        'use strict';
 
-    var MyCircle = (function() {
-        
-        function MyCircle() {
-            
-        }
-        
-        MyCircle.prototype.areaOfCircle = function(radius) {
-            return 0;
-        };
+        var MyCircle = (function() {
 
-        MyCircle.prototype.circumferenceOfCircle = function(radius) {
-            return 1;
-        };
-      
-        return MyCircle; 
-    })();
-    
-    return new MyCircle();
-});
+            function MyCircle() {
+
+            }
+
+            MyCircle.prototype.areaOfCircle = function(radius) {
+                return 0;
+            };
+
+            MyCircle.prototype.circumferenceOfCircle = function(radius) {
+                return 1;
+            };
+
+            return MyCircle;
+        })();
+
+        return new MyCircle();
+    });

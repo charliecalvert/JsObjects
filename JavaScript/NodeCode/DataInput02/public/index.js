@@ -1,10 +1,11 @@
 var Folks = (function() {
+	'use strict';
 
 	function Folks() {
 		$("#buttonParse").click(parse);
 	}
 
-	function addNames(initFirstName, initLastName) {'use strict';
+	function addNames(initFirstName, initLastName) {
 
 		var script = $("#nameItem").html();
 		var template = Handlebars.compile(script);
@@ -48,5 +49,6 @@ var Folks = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new Folks();
 });

@@ -5,7 +5,7 @@
 /*global ELF:true*/
 
 ELF.PresidentPrivate = (function() {
-
+	'use strict';
 	function President(initName, initStart, initEnd, initBorn, initDied) {
 		var presidentName = initName;
 		var termStart = initStart;

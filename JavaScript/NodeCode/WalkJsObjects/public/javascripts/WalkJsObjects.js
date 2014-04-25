@@ -4,11 +4,11 @@
 
 var fs = require('fs');
 
-function endsWith(str, suffix) {
+function endsWith(str, suffix) {'use strict';
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 
-function isWantedFile(file, filePatterns) {
+function isWantedFile(file, filePatterns) {'use strict';
 	for (var i = 0; i < filePatterns.length; i++) {
 		if (endsWith(file, filePatterns[i])) {
 			return true;
@@ -17,7 +17,7 @@ function isWantedFile(file, filePatterns) {
 	return false;
 }
 
-function isWantedDirectory(file, foldersToSkip) {
+function isWantedDirectory(file, foldersToSkip) {'use strict';
 	for (var i = 0; i < foldersToSkip.length; i++) {
 		if (file.indexOf(foldersToSkip[i]) !== -1) {
 			return false;
@@ -26,7 +26,7 @@ function isWantedDirectory(file, foldersToSkip) {
 	return true;
 }
 
-var walk = function(dir, filePatterns, foldersToSkip, done) {
+var walk = function(dir, filePatterns, foldersToSkip, done) {'use strict';
   var results = [];
   fs.readdir(dir, function(err, list) {
     if (err) return done(err);

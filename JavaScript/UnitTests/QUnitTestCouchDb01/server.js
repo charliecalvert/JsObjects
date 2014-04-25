@@ -19,29 +19,34 @@ var dbName = 'unit_test01';
 // We need this here to make POST call work
 app.use(express.bodyParser());
 
-app.get('/', function(req, res) {'use strict';
+app.get('/', function(req, res) {
+    'use strict';
     var html = fs.readFileSync('Public/index.html');
     res.writeHeader(200, {
-        "Content-Type" : "text/html"
+        "Content-Type": "text/html"
     });
     res.end(html);
 });
 
-app.get('/createDatabase', function(request, response) {'use strict';
+app.get('/createDatabase', function(request, response) {
+    'use strict';
     nano.db.create(dbName, function(err, body) {
         if (!err) {
             console.log(body);
-            response.send({"Result":"Success"});
+            response.send({
+                "Result": "Success"
+            });
         } else {
             console.log('Could not create database');
             console.log(err);
             response.send(500, err);
             return;
-        }        
+        }
     });
 });
-    
-var doInsert = function(response, data, docName) {'use strict';
+
+var doInsert = function(response, data, docName) {
+    'use strict';
     console.log('sendToCouch called: ' + data);
 
     var prog = nano.db.use(dbName);
@@ -50,7 +55,7 @@ var doInsert = function(response, data, docName) {'use strict';
         if (!err) {
             console.log(body);
             response.send({
-                "Result" : "Success"
+                "Result": "Success"
             });
             return;
         } else {
@@ -61,16 +66,17 @@ var doInsert = function(response, data, docName) {'use strict';
     });
 };
 
-var sendToCouch = function(response, data, docName) { 'use strict';
+var sendToCouch = function(response, data, docName) {
+    'use strict';
     var prog = nano.db.use(dbName);
     prog.get(docName, function(error, existing) {
-        if(!error) { 
+        if (!error) {
             console.log("Document exists. Doing Update.");
             console.log(existing);
             console.log(existing._rev);
             data._rev = existing._rev;
             doInsert(response, data, docName);
-        }  else {
+        } else {
             console.log("Document does not exist. Doing insert.");
             console.log(error);
             doInsert(response, data, docName);
@@ -79,7 +85,8 @@ var sendToCouch = function(response, data, docName) { 'use strict';
 };
 
 
-app.get('/writeJson', function(request, response) {'use strict';
+app.get('/writeJson', function(request, response) {
+    'use strict';
 
     console.log('writeJson called: ' + JSON.stringify(request.query));
 
@@ -93,13 +100,21 @@ app.get('/writeJson', function(request, response) {'use strict';
             console.log('Sent datatype 0');
             var names = querystring.parse(request.query.names);
             sendToCouch(response, querystring.parse(request.query.names), dataInfo.docName);
-            response.send({"Result":"Success"});
+            response.send({
+                "Result": "Success"
+            });
             break;
         case 1:
             console.log('Sent datatype 1');
-            sendToCouch(response, { 'npc' : request.query.npcs }, dataInfo.docNameNpcs);
-            sendToCouch(response, { 'person' : request.query.person }, dataInfo.docNamePerson);
-            sendToCouch(response, { 'grid' : request.query.grid }, dataInfo.docNameGrid);
+            sendToCouch(response, {
+                'npc': request.query.npcs
+            }, dataInfo.docNameNpcs);
+            sendToCouch(response, {
+                'person': request.query.person
+            }, dataInfo.docNamePerson);
+            sendToCouch(response, {
+                'grid': request.query.grid
+            }, dataInfo.docNameGrid);
             break;
         default:
             console.log('Unknown dataType sent: ' + dataInfo.dataType);
@@ -107,7 +122,8 @@ app.get('/writeJson', function(request, response) {'use strict';
     console.log('Exiting Get WriteJson');
 });
 
-app.post('/writeJson', function(request, response) {'use strict';
+app.post('/writeJson', function(request, response) {
+    'use strict';
     console.log('writeJson called: ' + JSON.stringify(request.body));
     for (var props in request.body) {
         console.log(props);
@@ -123,9 +139,15 @@ app.post('/writeJson', function(request, response) {'use strict';
             break;
         case 1:
             console.log('Sent datatype 1');
-            sendToCouch(response, { 'npc': request.body.npcs}, dataInfo.docNameNpcs);
-            sendToCouch(response, {'person' : request.body.person }, dataInfo.docNamePerson);
-            sendToCouch(response, {'grid': request.body.grid }, dataInfo.docNameGrid);
+            sendToCouch(response, {
+                'npc': request.body.npcs
+            }, dataInfo.docNameNpcs);
+            sendToCouch(response, {
+                'person': request.body.person
+            }, dataInfo.docNamePerson);
+            sendToCouch(response, {
+                'grid': request.body.grid
+            }, dataInfo.docNameGrid);
             break;
         default:
             console.log('Unknown dataType sent: ' + dataInfo.dataType);
@@ -135,15 +157,15 @@ app.post('/writeJson', function(request, response) {'use strict';
 });
 
 app.get('/readJson', function(request, response) {
-	'use strict';
+    'use strict';
     console.log('readJson called: ' + request.query);
     var prog = nano.db.use(dbName);
-    
+
     prog.get(request.query.docName, function(error, existing) {
-        if(!error) { 
+        if (!error) {
             console.log(existing);
             response.send(existing);
-        }  else {
+        } else {
             console.log(error);
             response.send(500, error);
         }
@@ -156,4 +178,3 @@ app.use("/", express.static(__dirname + '/Public'));
 console.log('CouchDb URL: ' + nano.config.url);
 console.log('Listening on port: ' + port);
 app.listen(port);
-

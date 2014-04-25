@@ -2,6 +2,7 @@
  * @author Charlie
  */
 var DataInput = (function() {
+	'use strict';
 
 	function DataInput() {
 		$("#buttonAddNine").click(addNine);
@@ -66,5 +67,6 @@ var DataInput = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new DataInput();
 });

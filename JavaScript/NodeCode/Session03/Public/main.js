@@ -11,6 +11,7 @@ var App = (function() { 'use strict';
     }
     
     var signIn = function() {
+    	
         $.ajax({
             type : "POST",
             url : '/addUser',

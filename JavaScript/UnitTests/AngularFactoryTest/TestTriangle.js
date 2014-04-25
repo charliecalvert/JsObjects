@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-describe("Test Circle", function() {'use strict';
+describe("Test Circle", function() {
+    'use strict';
 
     var triangle = null;
 
@@ -18,4 +19,3 @@ describe("Test Circle", function() {'use strict';
         expect(triangle.pythagoras()).toEqual(3);
     });
 });
-

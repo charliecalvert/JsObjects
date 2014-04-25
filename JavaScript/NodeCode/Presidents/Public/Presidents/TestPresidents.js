@@ -8,6 +8,8 @@
 
 
 function testPresident() {
+	'use strict';
+	
 	test("PresidentPrivate", function() {
 		var p = new ELF.PresidentPrivate('BB', 1, 2, 3, 4);
 		ok(p.getPresidentName() === 'BB');

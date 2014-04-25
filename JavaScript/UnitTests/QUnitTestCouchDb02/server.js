@@ -17,46 +17,51 @@ var dbName = 'unit_test02';
 // We need this here to make POST call work
 app.use(express.bodyParser());
 
-app.get('/', function(req, res) {'use strict';
+app.get('/', function(req, res) {
+    'use strict';
     var html = fs.readFileSync('Public/index.html');
     res.writeHeader(200, {
-        "Content-Type" : "text/html"
+        "Content-Type": "text/html"
     });
     res.end(html);
 });
 
 app.get('/createDatabase', function(request, response) {
-	'use strict';
-	console.log('Create Database');
-	couch.couchCode.createDatabase(response, dbName);
-	console.log('couchWriteState database Created');
+    'use strict';
+    console.log('Create Database');
+    couch.couchCode.createDatabase(response, dbName);
+    console.log('couchWriteState database Created');
 });
-    
+
 
 app.get('/couchWriteState', function(request, response) {
-	'use strict';
-	//debugger;
-	console.log('couchWriteState');
-	for (var props in request.query) {
-		console.log(props);
-	    couch.couchCode.sendToCouch(response, request.query[props], props, dbName);
-	}
-	response.send({'Result': 'Success'});
+    'use strict';
+    //debugger;
+    console.log('couchWriteState');
+    for (var props in request.query) {
+        console.log(props);
+        couch.couchCode.sendToCouch(response, request.query[props], props, dbName);
+    }
+    response.send({
+        'Result': 'Success'
+    });
 });
 
 app.get('/couchWriteGrids', function(request, response) {
-	'use strict';
-	// debugger;
-	console.log('couchWriteState');
-	var grids = request.query;
+    'use strict';
+    // debugger;
+    console.log('couchWriteState');
+    var grids = request.query;
     couch.couchCode.sendToCouch(response, grids, 'all_in_one', dbName);
-	response.send({'Result': 'Success'});
+    response.send({
+        'Result': 'Success'
+    });
 });
 
 app.get('/couchReadDoc', function(request, response) {
-	'use strict';
-	console.log('couchReadDoc: ' + request.query.docName);
-	couch.couchCode.readDoc(response, request.query.docName, dbName);
+    'use strict';
+    console.log('couchReadDoc: ' + request.query.docName);
+    couch.couchCode.readDoc(response, request.query.docName, dbName);
 });
 
 
@@ -67,4 +72,3 @@ app.use("/Library", express.static(__dirname + '/Library'));
 console.log('CouchDb URL from Library/CouchCode: ' + couch.couchCode.getCouchUrl());
 console.log('Listening on port: ' + port);
 app.listen(port);
-

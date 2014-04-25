@@ -1,25 +1,26 @@
-(function() {'use strict';
-	var jasmineEnv = jasmine.getEnv();
-	jasmineEnv.updateInterval = 1000;
+(function() {
+    'use strict';
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
 
-	var reporter = new jasmine.HtmlReporter();
+    var reporter = new jasmine.HtmlReporter();
 
-	jasmineEnv.addReporter(reporter);
+    jasmineEnv.addReporter(reporter);
 
-	jasmineEnv.specFilter = function(spec) {
-		return reporter.specFilter(spec);
-	}; 
+    jasmineEnv.specFilter = function(spec) {
+        return reporter.specFilter(spec);
+    };
 
-	var currentWindowOnload = window.onload;
+    var currentWindowOnload = window.onload;
 
-	window.onload = function() {
-		if (currentWindowOnload) {
-			currentWindowOnload();
-		}
-		execJasmine();
-	};
+    window.onload = function() {
+        if (currentWindowOnload) {
+            currentWindowOnload();
+        }
+        execJasmine();
+    };
 
-	function execJasmine() {
-		jasmineEnv.execute();
-	}
+    function execJasmine() {
+        jasmineEnv.execute();
+    }
 })();

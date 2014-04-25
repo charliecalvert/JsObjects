@@ -31,6 +31,7 @@ if ('development' == app.get('env')) {
 
 
 app.get('/walk', function(request, response) {
+	'use strict';
 	// If you run Node in Eclipse, to access JSOBJECTS, you made need 
 	// to choose Run | Run Configurations | Environment | Select
 	var dirToWalk = process.env.JSOBJECTS;
@@ -58,5 +59,6 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function() {
+	'use strict';
 	console.log('Express server listening on port ' + app.get('port'));
 });

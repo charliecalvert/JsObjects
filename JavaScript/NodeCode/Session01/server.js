@@ -10,6 +10,7 @@ app.use(express.session({secret: '1234567890QWERTY'}));
 var previous = 'Previously you visited: ';
 
 app.get('/', function(request, response) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	response.writeHeader(200, {"Content-Type": "text/html"});
 	console.log(html);
@@ -17,6 +18,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/page01', function(req, res) {
+	'use strict';
 	var info = "";
 	if(req.session.lastPage) {
 		info =	previous + req.session.lastPage + '. ';
@@ -27,6 +29,7 @@ app.get('/page01', function(req, res) {
 });
 
 app.get('/page02', function(req, res) {
+	'use strict';
 	var info = "";
 	if(req.session.lastPage) {
 		info = previous + req.session.lastPage + '. ';
@@ -37,6 +40,7 @@ app.get('/page02', function(req, res) {
 });
 
 app.get('/page03', function(req, res) {
+	'use strict';
 	console.log(req.session);
 	var info = "";
 	if(req.session.lastPage) {

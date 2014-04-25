@@ -1,6 +1,7 @@
 /*jshint jquery: true, browser: true, devel: true */
 
 function Presidents(displayInit) {
+	'use strict';
 	// var that = this;
 	this.display = displayInit;
 	this.presidentMode = false;
@@ -10,6 +11,7 @@ function Presidents(displayInit) {
 var presidents = new Presidents(new Display());
 
 $(document).ready(function() {
+	'use strict';
 	$('button:#listDomains').click(presidents.listDomains);
 	$('button:#createDomain').click(presidents.createDomain);
 	$('button:#dirname').click(presidents.dirName);
@@ -27,6 +29,7 @@ $(document).ready(function() {
 
 Presidents.prototype.radioSelection = function()
 {
+	'use strict';
 	this.selectedItem = $("input[name=responseGroup]:checked").attr('id');
 	var firstName = $("input[name=responseGroup]:checked").attr('first');
 	var middleName = $("input[name=responseGroup]:checked").attr('middle');
@@ -41,6 +44,7 @@ Presidents.prototype.radioSelection = function()
 
 Presidents.prototype.clearResponse = function(debugMessage)
 {
+	'use strict';
 	this.presidentMode = false;
 	this.display.clearResponse();
 	this.display.showDebug(debugMessage);
@@ -48,6 +52,7 @@ Presidents.prototype.clearResponse = function(debugMessage)
 
 Presidents.prototype.listAllItemNames = function()
 {
+	'use strict';
 	this.clearResponse('Called List AllItemNames');
 	$.ajax(
 	{
@@ -66,6 +71,7 @@ Presidents.prototype.listAllItemNames = function()
 
 Presidents.prototype.listDomains = function()
 {
+	'use strict';
 	this.clearResponse('List Domains called');
 	$.ajax(
 	{
@@ -82,43 +88,43 @@ Presidents.prototype.listDomains = function()
 	});
 };
 
-Presidents.prototype.testAzureSimpleDb = function()
-{
+Presidents.prototype.testAzureSimpleDb = function(){
+	'use strict';
 	window.location.replace('/testAzureSimpleDb');
 };
 
-Presidents.prototype.createDomain = function()
-{
+Presidents.prototype.createDomain = function(){
+	'use strict';
 	this.clearResponse("Create Domain Called");
 	this.simpleQuery('/createDomain');
 };
 
-Presidents.prototype.port = function()
-{
+Presidents.prototype.port = function() {
+	'use strict';
 	this.clearResponse("Get Port Called");
 	this.simpleQuery('/port');
 };
 
-Presidents.prototype.dirName = function()
-{
+Presidents.prototype.dirName = function() {
+	'use strict';
 	this.clearResponse("Dir Name Called");
 	this.simpleQuery('/dirname');
 };
 
-Presidents.prototype.addListOfPresidents = function()
-{
+Presidents.prototype.addListOfPresidents = function() {
+	'use strict';
 	this.clearResponse("Add List of Presidents Called");
 	this.simpleQuery('/addListOfPresidents');
 };
 
-Presidents.prototype.deleteAll = function()
-{
+Presidents.prototype.deleteAll = function() {
+	'use strict';
 	this.clearResponse("Delete all Presidents Called");
 	this.simpleQuery('/deleteAll');
 };
 
-Presidents.prototype.simpleQuery = function(query)
-{
+Presidents.prototype.simpleQuery = function(query) {
+	'use strict';
 	$.ajax(
 	{
 		type: "get",
@@ -133,6 +139,7 @@ Presidents.prototype.simpleQuery = function(query)
 };
 
 Presidents.prototype.getPresidents = function(callback) {
+	'use strict';
 	this.clearResponse("Get Presidents called");
 	this.presidentMode=true;
 	$.ajax(
@@ -165,6 +172,7 @@ Presidents.prototype.getPresidents = function(callback) {
 };*/
 
 Presidents.prototype.getItem = function() {
+	'use strict';
 	this.clearResponse('called getitem');
 	var query = "itemName=First";
 	$.ajax(
@@ -182,15 +190,18 @@ Presidents.prototype.getItem = function() {
 };
 
 function isEmptyString(value){
+	'use strict';
 	return ( (!value) || (value === "") );
 }
 
 function readyForUpdate(firstName, lastName) {
+	'use strict';
 	var failure = isEmptyString(firstName) || isEmptyString(lastName);
 	return !failure;
 }
 
 function getNames() {
+	'use strict';
 	var names = {};
 	names.firstName = $.trim($('#firstName').val());
 	names.middleName = $.trim($('#middleName').val());
@@ -203,6 +214,7 @@ function getNames() {
 }
 
 Presidents.prototype.putItem = function() {
+	'use strict';
 	var names = getNames();
 	if (names) {
 		this.insertRecord(names.firstName, names.middleName, names.lastName);
@@ -210,6 +222,7 @@ Presidents.prototype.putItem = function() {
 };
 
 Presidents.prototype.update = function() {
+	'use strict';
 	if (!this.presidentMode) {
 		alert("You must select Get President before updating.");
 		return;
@@ -239,6 +252,7 @@ Presidents.prototype.update = function() {
 
 
 Presidents.prototype.insertRecord = function(firstName, middleName, lastName) {
+	'use strict';
 	this.display.showDebug("inserting: " + firstName + " " + middleName + " " + lastName);
 	this.clearResponse('called putitem');
 	var query = "firstName=" + firstName +
@@ -259,6 +273,7 @@ Presidents.prototype.insertRecord = function(firstName, middleName, lastName) {
 };
 
 Presidents.prototype.deleteItem = function() {
+	'use strict';
 	if (!this.presidentMode) {
 		alert("You must select Get Presidents before trying to delete a president");
 		return;
@@ -280,16 +295,18 @@ Presidents.prototype.deleteItem = function() {
 };
 
 function Display() {
+	'use strict';
 	// We have to give it a unique name in this context
 	// var thisDisplay = this;
 }
 
-Display.prototype.clearResponse = function()
-{
+Display.prototype.clearResponse = function(){
+	'use strict';
 	$('#response').empty();
 };
 
 Display.prototype.isValidRow = function(row) {
+	'use strict';
 	return !( (row.MiddleName === undefined) ||
 		(row.MiddleName === '[object Object]') ||
 		(row.MiddleName === '-') );
@@ -297,6 +314,7 @@ Display.prototype.isValidRow = function(row) {
 
 
 Display.prototype.displayRow = function(row) {
+	'use strict';
 	var middle = (!this.isValidRow(row)) ? '' : row.MiddleName;
 	var displayMiddle = (!this.isValidRow(row)) ? '-' : row.MiddleName;
 	var textToDisplay = row.FirstName + " " + middle + " " + row.LastName;
@@ -308,17 +326,18 @@ Display.prototype.displayRow = function(row) {
 		textToDisplay + '</li>');
 };
 
-Display.prototype.showResponse = function(textToDisplay)
-{
+Display.prototype.showResponse = function(textToDisplay) {
+	'use strict';
 	$('#response').append('<li>' + textToDisplay + '</li>');
 };
 
-Display.prototype.showDebug = function(textToDisplay)
-{
+Display.prototype.showDebug = function(textToDisplay) {
+	'use strict';
 	$("#debug").append('<li>' + textToDisplay + '</li>');
 };
 
 Display.prototype.showError = function(request, ajaxOptions, thrownError) {
+	'use strict';
 	this.showDebug("Error occurred: = " + ajaxOptions + " " + thrownError );
 	this.showDebug(request.status);
 	this.showDebug(request.statusText);

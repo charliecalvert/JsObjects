@@ -3,7 +3,7 @@
 	readXml: cgiPath + "PresidentsXml.py",
 	postXml: cgiPath + "AddingDataXml.py",
 
-	readPresidents: function() {
+	readPresidents: function() {'use strict';
 		$("#items").empty();
 		$("#debug").empty();
 		request = $.ajax({
@@ -29,7 +29,7 @@
 		});
 	},
 
-	postPresidents: function(first, last) {
+	postPresidents: function(first, last) {'use strict';
 		$("#items").empty();
 		$("#debug").empty();
 		dataRequest = "first=" + first + "&last=" + last;
@@ -58,7 +58,7 @@
 		});
 	},
 
-	showDebug: function(textToDisplay) {
+	showDebug: function(textToDisplay) {'use strict';
 		$("#debug").append('<li>' + textToDisplay + '</li>');
 	}
 };

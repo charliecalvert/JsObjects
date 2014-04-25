@@ -12,7 +12,7 @@ function addNames(initFirstName, initLastName) {
     $("#nameDiv").append(result); 
 }
 
-function parse() {
+function parse() {'use strict';
 
 	$.getJSON('/read', function(data) {
 		$.each(data, function(i, item) {
@@ -27,6 +27,6 @@ function parse() {
 	.complete(function() { console.log("csc: completed call to get index.json"); });
 }
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	$("#buttonParse").click(parse);
 });

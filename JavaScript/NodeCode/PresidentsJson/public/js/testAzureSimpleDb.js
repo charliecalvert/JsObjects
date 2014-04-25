@@ -1,10 +1,12 @@
 ﻿$('document').ready(function() {
+	'use strict';
 	runTest();
 	ajaxTestGood();
 	$('#debug').append('<li>Document Ready Called</li>');
 });
 
 function TestDisplay() {
+	'use strict';
 	this.debugData = [];
 	this.responseData = [];
 	this.rowData = [];
@@ -12,35 +14,41 @@ function TestDisplay() {
 }
 
 TestDisplay.prototype.showError = function(request, ajaxOptions, thrownError) {
+	'use strict';
 	$('#debug').append('<li>' + request + '</li>');
 	$('#debug').append('<li>' + ajaxOptions + '</li>');
 	$('#debug').append('<li>' + thrownError + '</li>');
 };
 
 TestDisplay.prototype.clearResponse = function() {
+	'use strict';
 	this.responseData = [];
 };
 
 TestDisplay.prototype.showDebugTest = function(textToDisplay) {
+	'use strict';
 	$('#debug').append('<li>' + textToDisplay + '</li>');
 };
 
 TestDisplay.prototype.showDebug = function(textToDisplay) {
+	'use strict';
 	thisTestDisplay.showDebugTest(textToDisplay);
 	this.debugData.push(textToDisplay);
 };
 
 TestDisplay.prototype.showResponse = function(textToDisplay) {
+	'use strict';
 	this.responseData.push(textToDisplay);
 };
 
 TestDisplay.prototype.displayRow = function(row) {
+	'use strict';
 	// thisTestDisplay.showDebugTest(row);
 	this.rowData.push(row);
 };
 
 function runTest() {
-
+	'use strict';
 	module('Basic');
 
 	test("testOne", function() {
@@ -115,6 +123,7 @@ function runTest() {
 }
 
 function ajaxTestGood(url) {
+	'use strict';
 	asyncTest("ajaxTestGood", function() {
 		$('#debug').append('<li>Bar Test called</li>');
 		$.ajax({

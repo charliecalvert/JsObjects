@@ -3,7 +3,7 @@
  */
 
 ELF.PresidentUtils = (function() {
-	
+	'use strict';
 	
 	function PresidentUtils() {
 		

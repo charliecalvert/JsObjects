@@ -1,7 +1,8 @@
 /**
  * @author Charlie
  */
-describe("My Circle", function() {'use strict';
+describe("My Circle", function() {
+    'use strict';
 
     var circle = null;
 
@@ -16,9 +17,8 @@ describe("My Circle", function() {'use strict';
     it("gets circle area", function() {
         expect(circle.areaOfCircle()).toEqual(0);
     });
-    
+
     it("gets circle circumference", function() {
         expect(circle.circumferenceOfCircle()).toEqual(1);
     });
 });
-

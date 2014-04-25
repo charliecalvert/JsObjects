@@ -5,7 +5,8 @@
 /*global ELF:true */
 
 ELF.EasyPresident = (function() {
-
+	'use strict';
+	
 	function President(initName, initStart, initEnd, initBorn, initDied) {
 		this.PresidentName = initName;
 		this.TermStart = initStart;

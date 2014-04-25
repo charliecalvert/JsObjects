@@ -15,6 +15,7 @@ var app = express();
 var previous = 'Previously you visited: ';
 
 app.configure(function(){
+	'use strict';
 	app.set('port', process.env.PORT || 30025);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
@@ -30,10 +31,12 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+	'use strict';
 	app.use(express.errorHandler());
 });
 
 app.get('/', function(request, response) {
+	'use strict';
 	console.log('main route called: ' + JSON.stringify(request.session));
 	request.session.visitCount = request.session.visitCount ? request.session.visitCount + 1 : 1;
 	var html = fs.readFileSync('public/main.html');
@@ -42,6 +45,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/page01', function(request, response) {
+	'use strict';
 	// var info = "";
 	/* if(request.session.lastPage) {
 	info =  previous + request.session.lastPage + '. ';
@@ -53,6 +57,7 @@ app.get('/page01', function(request, response) {
 });
 
 app.get('/page02', function(request, response) {
+	'use strict';
 	var info = "";
 	if(request.session.lastPage) {
 	info = previous + request.session.lastPage + '. ';
@@ -64,6 +69,7 @@ app.get('/page02', function(request, response) {
 });
 
 app.get('/page03', function(request, response) {
+	'use strict';
 	console.log(request.session);
 	var info = "";
 	if(request.session.lastPage) {
@@ -76,6 +82,7 @@ app.get('/page03', function(request, response) {
 });
 
 app.get('/cookieData', function(request, response) {
+	'use strict';
 	console.log('CookieTest');
 	response.cookie('cookieName01', request.session.userName, { maxAge: 900000, httpOnly: true });
 	response.cookie('cookieName02', 'Sing like a bird.', { maxAge: 900000, httpOnly: true });
@@ -87,6 +94,7 @@ app.get('/base01', routes.base01);
 app.get('/users', user.list);
 
 app.post('/addUser', function(request, response) {
+	'use strict';
 	console.log('/addUser called.');
 	console.log(request.body);
 	request.session.userName = request.body.userName;
@@ -94,5 +102,6 @@ app.post('/addUser', function(request, response) {
 });
 
 http.createServer(app).listen(app.get('port'), function(){
+	'use strict';
 	console.log("Express server listening on port " + app.get('port'));
 });

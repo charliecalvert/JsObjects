@@ -4,12 +4,12 @@
 
 var app = {
 	walkFolder: null,
-	init: function() {
+	init: function() {'use strict';
 		this.walkFolder = new WalkFolder();
 	}
 };
 
-var WalkFolder = (function() {
+var WalkFolder = (function() {'use strict';
 	
 	function WalkFolder() {
 		$("#walk").click(walk);
@@ -31,6 +31,6 @@ var WalkFolder = (function() {
 	return WalkFolder;
 }());
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	app.init();
 });

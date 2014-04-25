@@ -4,5 +4,6 @@
  */
 
 exports.list = function(req, res){
-  res.send(req.session);
+	'use strict';
+	res.send(req.session);
 };

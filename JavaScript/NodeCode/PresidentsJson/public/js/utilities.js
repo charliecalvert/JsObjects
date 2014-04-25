@@ -1,5 +1,5 @@
 ELF.Utilities = (function() {
-
+	'use strict';
 	function Utilities() {
 
 	}

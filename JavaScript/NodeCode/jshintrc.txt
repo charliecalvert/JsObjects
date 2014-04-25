@@ -1,5 +1,6 @@
 {
   "unused": true,
   "node": true,
-  "jquery": true
+  "jquery": true,
+  "strict": true
 }

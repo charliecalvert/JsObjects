@@ -3,7 +3,8 @@
  */
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
-    init: function() {
+	
+    init: function() {'use strict';
         this.requires('Actor, Fourway, Collision, mainCharacter, SpriteAnimation')
             .fourway(2)
             .stopOnSolids()
@@ -53,13 +54,13 @@ Crafty.c('PlayerCharacter', {
 
     // Registers a stop-movement function to be called when
     //  this entity hits an entity with the "Solid" component
-    stopOnSolids: function() {
+    stopOnSolids: function() {'use strict';
         this.onHit('Solid', this.stopMovement);
         return this;
     },
 
     // Stops the movement
-    stopMovement: function() {
+    stopMovement: function() {'use strict';
         this._speed = 0;
         if (this._movement) {
             this.x -= this._movement.x;
@@ -70,7 +71,7 @@ Crafty.c('PlayerCharacter', {
     
     
     // Respond to this player visiting a village
-    visitVillage: function(data) {
+    visitVillage: function(data) {'use strict';
         this.stopMovement();
         
         // If we are in an encounter, then we do nothing until the user

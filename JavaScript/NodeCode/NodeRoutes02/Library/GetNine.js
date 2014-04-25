@@ -1,4 +1,4 @@
-function getNine() {
+function getNine() {'use strict';
 	return 9;
 }
 

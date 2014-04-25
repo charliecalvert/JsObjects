@@ -1,18 +1,19 @@
 /**
  * @author Charlie Calvert
  */
-function Display()
-{	
+function Display() {
+	'use strict';
 	// We have to give it a unique name in this context
 	thisDisplay = this;	 
 }
 
-Display.prototype.clearResponse = function()
-{
+Display.prototype.clearResponse = function() {
+	'use strict';
 	$('#response').empty();
 };
 
 Display.prototype.isValidRow = function(row) {
+	'use strict';
 	return !( (row.MiddleName === undefined) || 
 			(row.MiddleName === '[object Object]') || 
 			(row.MiddleName === '-') );	
@@ -20,6 +21,7 @@ Display.prototype.isValidRow = function(row) {
 
 
 Display.prototype.displayRow = function(row) {
+	'use strict';
 	// var middle = (!thisDisplay.isValidRow(row)) ? '' : row.MiddleName;
 	// var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
 	textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
@@ -32,17 +34,18 @@ Display.prototype.displayRow = function(row) {
 		textToDisplay + '</li>');	
 };
 
-Display.prototype.showResponse = function(textToDisplay)
-{
+Display.prototype.showResponse = function(textToDisplay) {
+	'use strict';
 	$('#response').append('<li>' + textToDisplay + '</li>');
 };
 
-Display.prototype.showDebug = function(textToDisplay)
-{
+Display.prototype.showDebug = function(textToDisplay) {
+	'use strict';
 	$("#debug").append('<li>' + textToDisplay + '</li>');
 };
 
 Display.prototype.showError = function(request, ajaxOptions, thrownError) {
+	'use strict';
 	thisDisplay.showDebug("Error occurred: = " + ajaxOptions + " " + thrownError );
 	thisDisplay.showDebug(request.status);
 	thisDisplay.showDebug(request.statusText);

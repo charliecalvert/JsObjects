@@ -5,7 +5,7 @@
 /*global ELF:true*/
 
 ELF.President = (function() {
-
+	'use strict';
 	function President() {
 	}
 

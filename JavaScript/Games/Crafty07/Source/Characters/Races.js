@@ -5,6 +5,7 @@
 
 angular.module('raceMod', [])
 .factory('races', function() {
+	'use strict';
 	return [{
 			name : 'Dwarves',
 			description : 'Typically about 4 feet tall, stocky, lifespan of 300-400 years. Thick hair and beards',

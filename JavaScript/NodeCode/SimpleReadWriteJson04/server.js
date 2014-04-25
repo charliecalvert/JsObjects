@@ -5,6 +5,7 @@ var fs = require('fs');
 var port = process.env.PORT || 30025;
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	res.writeHeader(200, {"Content-Type": "text/html"});
 	res.end(html);
@@ -12,6 +13,7 @@ app.get('/', function(req, res) {
 
 
 app.get('/read', function(request, response){
+	'use strict';
 	console.log('Read called: ' + JSON.stringify(request.query));
 	var obj;
 	
@@ -26,6 +28,7 @@ app.get('/read', function(request, response){
 });
 
 app.get('/write', function(request, response) {
+	'use strict';
     
     // We begin with some debug calls
     

@@ -7,6 +7,7 @@ function addNames(initFirstName, initLastName, initAge) {
 }
 
 function readJson() {
+	'use strict';
 	$.getJSON('/read', function(data) {
 		addNames(data.firstName, data.lastName, data.age); 
 	})
@@ -16,7 +17,7 @@ function readJson() {
 	.complete(function() { console.log("csc: completed call to get index.json"); }); 
 }
 
-var writeJson = function() {
+var writeJson = function() {'use strict';
 	var userInput = { 
 		firstName: $('#firstName').val(), 
 		lastName: $('#lastName').val(), 
@@ -35,7 +36,7 @@ var writeJson = function() {
 	});
 };
 
-var showError = function(request, ajaxOptions, thrownError) {
+var showError = function(request, ajaxOptions, thrownError) {'use strict';
 	showDebug("Error occurred: = " + ajaxOptions + " " + thrownError );
 	showDebug(request.status);
 	showDebug(request.statusText);
@@ -43,13 +44,12 @@ var showError = function(request, ajaxOptions, thrownError) {
 	showDebug(request.responseText);
 };
 
-var showDebug = function(textToDisplay)
-{
+var showDebug = function(textToDisplay) { 'use strict';
 	$("#debug").append('<li>' + textToDisplay + '</li>');
 };
 
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	$("#buttonRead").click(readJson);
 	$("#buttonWrite").click(writeJson);
 });

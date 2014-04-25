@@ -2,67 +2,69 @@
  * @author Charlie Calvert
  */
 
-var App = (function() { 'use strict';
+var App = (function() {
+    'use strict';
 
-	function App() {
-		$("#clickMe").click(this.clickMe);
-		$("#ajaxCall").click(readJsonProgram);
-	}
+    function App() {
+        $("#clickMe").click(this.clickMe);
+        $("#ajaxCall").click(readJsonProgram);
+    }
 
-	var privateAdd = function(operanda, operandb) {
-		return operanda + operandb;
-	};
+    var privateAdd = function(operanda, operandb) {
+        return operanda + operandb;
+    };
 
-	App.prototype.clickMe = function() {
-		var result = privateAdd(2, 3);
-		$('#test01').html(result);
-	};
+    App.prototype.clickMe = function() {
+        var result = privateAdd(2, 3);
+        $('#test01').html(result);
+    };
 
-	App.prototype.add = function(operanda, operandb) {
-		return privateAdd(operanda, operandb);
-	};
+    App.prototype.add = function(operanda, operandb) {
+        return privateAdd(operanda, operandb);
+    };
 
-	App.prototype.multiply = function(operanda, operandb) {
-		return operanda * operandb;
-	};
+    App.prototype.multiply = function(operanda, operandb) {
+        return operanda * operandb;
+    };
 
-	var readJsonProgram = function() {
-		readJsonPrivate(function(data) {
-			$('#test01').html(data.Result);
-		}, showError);
-	};
+    var readJsonProgram = function() {
+        readJsonPrivate(function(data) {
+            $('#test01').html(data.Result);
+        }, showError);
+    };
 
-	var readJsonPrivate = function(success, failure) {
-		$.ajax({
-			type : "get",
-			url : 'MyData.json',
-			cache : false,
-			dataType : "json",
-			success : success,
-			error : failure
-		});
-	};
+    var readJsonPrivate = function(success, failure) {
+        $.ajax({
+            type: "get",
+            url: 'MyData.json',
+            cache: false,
+            dataType: "json",
+            success: success,
+            error: failure
+        });
+    };
 
-	App.prototype.readJsonTest = function(success, failure) {
-		readJsonPrivate(success, failure);
-	};
+    App.prototype.readJsonTest = function(success, failure) {
+        readJsonPrivate(success, failure);
+    };
 
-	var showDebug = function(textToDisplay) {
-		$("#debug").append('<li>' + textToDisplay + '</li>');
-	};
+    var showDebug = function(textToDisplay) {
+        $("#debug").append('<li>' + textToDisplay + '</li>');
+    };
 
-	var showError = function(request, ajaxOptions, thrownError) {
-		showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
-		showDebug(request.status);
-		showDebug(request.statusText);
-		showDebug(request.getAllResponseHeaders());
-		showDebug(request.responseText);
-	};
+    var showError = function(request, ajaxOptions, thrownError) {
+        showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
+        showDebug(request.status);
+        showDebug(request.statusText);
+        showDebug(request.getAllResponseHeaders());
+        showDebug(request.responseText);
+    };
 
-	return App;
+    return App;
 
 })();
 
-$(document).ready(function() { 'use strict';
-	new App();
-}); 
+$(document).ready(function() {
+    'use strict';
+    new App();
+});

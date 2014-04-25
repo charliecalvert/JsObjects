@@ -1,7 +1,7 @@
 /* jshint browser: true, devel: true  */
 
 var DataInput = (function() {
-
+	'use strict';
 	function DataInput() {
 		$("#buttonAddNine").click(addNine);
 		$("#buttonAddFive").click(addFive);
@@ -65,5 +65,6 @@ var DataInput = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	new DataInput();
 });

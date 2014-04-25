@@ -5,7 +5,7 @@ var MyObject = (function() {
     function MyObject(value01, value02) {
         myProperty01 = value01;
         Object.defineProperty(this, "key", {
-            // 	no inheritance
+            // no inheritance
             __proto__: null, // jshint ignore:line  
             value: value02
         });

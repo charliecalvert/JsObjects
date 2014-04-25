@@ -13,16 +13,16 @@ var system = require('system');
  * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
  */
 function waitFor(testFx, onReady, timeOutMillis) {
-	'use strict';
+    'use strict';
     var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3001, //< Default Max Timout is 3s
         start = new Date().getTime(),
         condition = false,
         interval = setInterval(function() {
-            if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
+            if ((new Date().getTime() - start < maxtimeOutMillis) && !condition) {
                 // If not time-out yet and condition not yet fulfilled
                 condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
             } else {
-                if(!condition) {
+                if (!condition) {
                     // If condition still not fulfilled (timeout but condition is 'false')
                     console.log("'waitFor()' timeout");
                     phantom.exit(1);
@@ -46,31 +46,31 @@ var page = require('webpage').create();
 
 // Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
 page.onConsoleMessage = function(msg) {
-	'use strict';
+    'use strict';
     console.log(msg);
 };
 
-page.open(system.args[1], function(status){
-	'use strict';
+page.open(system.args[1], function(status) {
+    'use strict';
     if (status !== "success") {
         console.log("Unable to access network");
         phantom.exit(1);
     } else {
-        waitFor(function(){
-            return page.evaluate(function(){
+        waitFor(function() {
+            return page.evaluate(function() {
                 var el = document.getElementById('qunit-testresult');
                 if (el && el.innerText.match('completed')) {
                     return true;
                 }
                 return false;
             });
-        }, function(){
-            var failedNum = page.evaluate(function(){
+        }, function() {
+            var failedNum = page.evaluate(function() {
                 var el = document.getElementById('qunit-testresult');
                 console.log(el.innerText);
                 try {
                     return el.getElementsByClassName('failed')[0].innerHTML;
-                } catch (e) { }
+                } catch (e) {}
                 return 10000;
             });
             phantom.exit((parseInt(failedNum, 10) > 0) ? 1 : 0);

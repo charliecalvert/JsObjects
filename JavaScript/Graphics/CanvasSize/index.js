@@ -1,4 +1,5 @@
 var App = (function() {
+    'use strict';
 
 	var myCanvas = null;
 	var context = null;
@@ -18,13 +19,13 @@ var App = (function() {
 		context.strokeStyle = 'black';
 		context.stroke();
 		context.restore();
-}
+    };
 
 	var fixCanvas = function() {
 		myCanvas.width = 600;
 		myCanvas.height = 400;
 		drawShape();
-	}
+	};
 		
 	return App;
 	

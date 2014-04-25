@@ -1,6 +1,6 @@
 ﻿presidents = new Presidents();
 
-function Presidents(option) {
+function Presidents(option) {'use strict';
 	this.cgiPath = "/cgi-bin/Presidents/";
 	this.readXml = this.cgiPath + "PresidentsXmlMySql.py";
 	this.postXml = this.cgiPath + "PresidentsXmlMySql.py";
@@ -10,7 +10,7 @@ function Presidents(option) {
 	option = option;
 }
 
-Presidents.prototype.readPresidents = function() {
+Presidents.prototype.readPresidents = function() {'use strict';
 	$("#items").empty();
 	$("#debug").empty();
 	request = $.ajax({
@@ -39,13 +39,13 @@ Presidents.prototype.readPresidents = function() {
 	});
 };
 
-Presidents.prototype.insert = function() {
+Presidents.prototype.insert = function() {'use strict';
 	var first = $('#firstName').val();
 	var last = $('#lastName').val();
 	this.postPresidents(first, last);
 };
 
-Presidents.prototype.postPresidents = function(first, last) {
+Presidents.prototype.postPresidents = function(first, last) {'use strict';
 	$("#items").empty();
 	$("#debug").empty();
 	dataRequest = "first=" + first + "&last=" + last;
@@ -73,12 +73,12 @@ Presidents.prototype.postPresidents = function(first, last) {
 	});
 };
 
-Presidents.prototype.radioButtonStateSelection = function() {
+Presidents.prototype.radioButtonStateSelection = function() {'use strict';
 	itemNameChoice = $("input[name=itemGroup]:checked").attr('itemName');
 	showDebug(itemNameChoice);
 };
 
-Presidents.prototype.deletePresident = function() {
+Presidents.prototype.deletePresident = function() {'use strict';
 	this.showDebug("Deletion");
 	itemNameChoice = $("input[name=itemGroup]:checked").attr('itemName');
 	deleteRequest = "delete=" + itemNameChoice;
@@ -104,7 +104,7 @@ Presidents.prototype.deletePresident = function() {
 	});
 };
 
-Presidents.prototype.addToList = function(value, itemName, count) {
+Presidents.prototype.addToList = function(value, itemName, count) {'use strict';
 	patId = 'Pat0' + count;
 	$("#items").append(
 			"<li><input itemName='" + itemName + 
@@ -113,6 +113,6 @@ Presidents.prototype.addToList = function(value, itemName, count) {
 			value + "</li>");
 };
 
-Presidents.prototype.showDebug = function(textToDisplay) {
+Presidents.prototype.showDebug = function(textToDisplay) {'use strict';
 	$("#debug").append('<li>' + textToDisplay + '</li>');
 };

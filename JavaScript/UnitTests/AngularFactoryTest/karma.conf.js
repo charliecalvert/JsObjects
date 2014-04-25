@@ -1,92 +1,92 @@
 module.exports = function(config) {
-	'use strict';
-	
-  config.set({
-    // base path, that will be used to resolve files and exclude
-    basePath: '.',
+    'use strict';
 
-    frameworks: ['jasmine', 'commonjs'],
+    config.set({
+        // base path, that will be used to resolve files and exclude
+        basePath: '.',
 
-    // list of files / patterns to load in the browser
-    files: [   
-      'angular.js',
-      'angular-mocks.js',
-      'Circle.js',
-      'MyCircle.js',
-      'Triangle.js',
-      'index.js',
-      'TestAllMods.js',
-      'TestCircle.js',
-      'TestTriangle.js',
-      'TestMyCircle.js'
-    ],
+        frameworks: ['jasmine', 'commonjs'],
 
-    // list of files to exclude
-    exclude: [
-      'client/main.js'
-    ],
+        // list of files / patterns to load in the browser
+        files: [
+            'angular.js',
+            'angular-mocks.js',
+            'Circle.js',
+            'MyCircle.js',
+            'Triangle.js',
+            'index.js',
+            'TestAllMods.js',
+            'TestCircle.js',
+            'TestTriangle.js',
+            'TestMyCircle.js'
+        ],
 
-    preprocessors: {
-      'client/*.js': ['commonjs'],
-      'test/client/*.js': ['commonjs']
-    },
+        // list of files to exclude
+        exclude: [
+            'client/main.js'
+        ],
 
-    // use dots reporter, as travis terminal does not support escaping sequences
-    // possible values: 'dots', 'progress'
-    // CLI --reporters progress
-    reporters: ['progress', 'junit'],
+        preprocessors: {
+            'client/*.js': ['commonjs'],
+            'test/client/*.js': ['commonjs']
+        },
 
-    junitReporter: {
-      // will be resolved to basePath (in the same way as files/exclude patterns)
-      outputFile: 'test-results.xml'
-    },
+        // use dots reporter, as travis terminal does not support escaping sequences
+        // possible values: 'dots', 'progress'
+        // CLI --reporters progress
+        reporters: ['progress', 'junit'],
 
-    // web server port
-    // CLI --port 9876
-    port: 9876,
+        junitReporter: {
+            // will be resolved to basePath (in the same way as files/exclude patterns)
+            outputFile: 'test-results.xml'
+        },
 
-    // enable / disable colors in the output (reporters and logs)
-    // CLI --colors --no-colors
-    colors: true,
+        // web server port
+        // CLI --port 9876
+        port: 9876,
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    // CLI --log-level debug
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        // CLI --colors --no-colors
+        colors: true,
 
-    // enable / disable watching file and executing tests whenever any file changes
-    // CLI --auto-watch --no-auto-watch
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        // CLI --log-level debug
+        logLevel: config.LOG_INFO,
 
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera
-    // - Safari (only Mac)
-    // - PhantomJS
-    // - IE (only Windows)
-    // CLI --browsers Chrome,Firefox,Safari
-    browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        // enable / disable watching file and executing tests whenever any file changes
+        // CLI --auto-watch --no-auto-watch
+        autoWatch: true,
 
-    // If browser does not capture in given timeout [ms], kill it
-    // CLI --capture-timeout 5000
-    captureTimeout: 20000,
+        // Start these browsers, currently available:
+        // - Chrome
+        // - ChromeCanary
+        // - Firefox
+        // - Opera
+        // - Safari (only Mac)
+        // - PhantomJS
+        // - IE (only Windows)
+        // CLI --browsers Chrome,Firefox,Safari
+        browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
 
-    // Auto run tests on start (when browsers are captured) and exit
-    // CLI --single-run --no-single-run
-    singleRun: false,
+        // If browser does not capture in given timeout [ms], kill it
+        // CLI --capture-timeout 5000
+        captureTimeout: 20000,
 
-    // report which specs are slower than 500ms
-    // CLI --report-slower-than 500
-    reportSlowerThan: 500,
+        // Auto run tests on start (when browsers are captured) and exit
+        // CLI --single-run --no-single-run
+        singleRun: false,
 
-    plugins: [      
-      'karma-jasmine',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-junit-reporter',
-      'karma-commonjs'
-    ]
-  });
+        // report which specs are slower than 500ms
+        // CLI --report-slower-than 500
+        reportSlowerThan: 500,
+
+        plugins: [
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-junit-reporter',
+            'karma-commonjs'
+        ]
+    });
 };

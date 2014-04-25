@@ -1,5 +1,5 @@
 var Presidents = (function() {
-
+	'use strict';
 	var display = null;
 	var presidentMode = false;
 	var selectedItem = '';
@@ -170,7 +170,7 @@ var Presidents = (function() {
 
 })();
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
 	var presidents = new Presidents(new Display(), new Utilities());
 	$('button:#getPresidents').click(presidents.getPresidents);
 	$('button:#insertPresident').click(presidents.insertPresident);

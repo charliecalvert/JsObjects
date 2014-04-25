@@ -7,6 +7,7 @@ app.use(express.bodyParser());
 var presidentsFileName = 'data/Presidents.json';
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	res.writeHeader(200, {
 		"Content-Type" : "text/html"
@@ -16,12 +17,14 @@ app.get('/', function(req, res) {
 });
 
 app.get('/getPresidents', function(request, response) {
+	'use strict';
 	console.log("Get Presidents called");
 	var json = fs.readFileSync(presidentsFileName);
 	response.send(json);
 });
 
 function writeToFile(fileName, json) {
+	'use strict';
 	fs.writeFile(fileName, json, function(err) {
 		if (err) {
 			console.log(err);
@@ -36,6 +39,7 @@ function writeToFile(fileName, json) {
 
 // Use post when you want to send large chunks of data
 app.post('/savePresidents', function(request, result) {
+	'use strict';
 	console.log("savePresidents called");
 
 	if ( typeof request.body == 'undefined') {
@@ -52,6 +56,7 @@ app.post('/savePresidents', function(request, result) {
 });
 
 app.get('/putitem', function(request, result) {
+	'use strict';
 	console.log(request.query.presidentName);
 	console.log(request.query.born);
 	console.log(request.query.died);
@@ -60,6 +65,7 @@ app.get('/putitem', function(request, result) {
 });
 
 app.get('/testAzureSimpleDb', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('public/testAzureSimpleDb.html');
 	res.writeHeader(200, {
 		"Content-Type" : "text/html"

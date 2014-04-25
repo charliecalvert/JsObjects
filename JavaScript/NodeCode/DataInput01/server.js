@@ -10,6 +10,7 @@ var port = process.env.PORT || 30025;
 app.use(express.bodyParser());
 
 app.get('/', function(req, res) {
+	'use strict';
 	var html = fs.readFileSync('public/index.html');
 	res.writeHeader(200, {"Content-Type": "text/html"});
 	res.end(html);
@@ -17,6 +18,7 @@ app.get('/', function(req, res) {
 
 
 app.post('/addToFive', function(request, response) {
+	'use strict';
 	console.log("AddToFive called");
 	console.log("request.body: " + JSON.stringify(request.body));
 	console.log("request.body.value: " + request.body.value);
@@ -26,6 +28,7 @@ app.post('/addToFive', function(request, response) {
 });
 
 app.get('/addToNine', function(request, response) {
+	'use strict';
 	console.log('AddToNine request.query: ' + JSON.stringify(request.query));
 	console.log('AddToNine request.query.userNumber: ' + request.query.userNumber);
 	var newValue = null;

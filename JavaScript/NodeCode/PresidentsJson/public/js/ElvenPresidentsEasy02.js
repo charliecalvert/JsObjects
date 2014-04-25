@@ -5,7 +5,7 @@
 /*global ELF:true*/
 
 ELF.EasyPresident = (function() {
-
+	'use strict';
 	function withValue(value) {
 		var d = withValue.d || (withValue.d = {
 			enumerable : false,
