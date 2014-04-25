@@ -3,34 +3,43 @@
  */
 
 ELF.own.BasePerson = (function() {
-	'use strict';
-	
-	var datas = [];
+    'use strict';
+
+    var datas = [];
+
     function BasePerson() {
-    	datas.push(new Elf.own.Data01({ bar: 1 }));    	
-    	datas.push(new Elf.own.Data01({ bar: 2 }));
+        datas.push(new Elf.own.Data01({
+            bar: 1
+        }));
+        datas.push(new Elf.own.Data01({
+            bar: 2
+        }));
     }
-    
-    var bar = function () {};
+
+    var bar = function() {};
     BasePerson.prototype.getSet = function(init) {
-    	var value = init;
+        var value = init;
         return {
-        	set: function() { value = init; },
-        	get: function() { return value; },
-        	foo: bar,
-            enumerable : false,
-            configurable : true,
+            set: function() {
+                value = init;
+            },
+            get: function() {
+                return value;
+            },
+            foo: bar,
+            enumerable: false,
+            configurable: true,
         };
     };
 
-	
+
 
     return BasePerson;
 })();
 
-$(document).ready(function() {"use strict";
+$(document).ready(function() {
+    "use strict";
 
-	// Subclass using module pattern
-	var basePerson = new BasePerson();
+    // Subclass using module pattern
+    var basePerson = new BasePerson();
 });
-

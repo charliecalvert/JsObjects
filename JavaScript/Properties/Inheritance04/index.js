@@ -3,7 +3,8 @@
  */
 
 var SubClass = (function() {
-	'use strict';
+    'use strict';
+
     function SubClass(firstName, lastName) {
         Object.defineProperty(this, 'firstName', this.getSet(firstName));
         Object.defineProperty(this, 'lastName', this.getSet(lastName));
@@ -14,7 +15,7 @@ var SubClass = (function() {
     SubClass.prototype.sayName = function(selector) {
         $(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
     };
-    
+
     SubClass.prototype.getName = function() {
         return this.firstName + ' ' + this.lastName;
     };
@@ -22,7 +23,8 @@ var SubClass = (function() {
     return SubClass;
 })();
 
-$(document).ready(function() {"use strict";
+$(document).ready(function() {
+    "use strict";
 
     // Subclass using module pattern
     var subClass = new SubClass('Sarah', 'Winnemucca');
@@ -34,4 +36,4 @@ $(document).ready(function() {"use strict";
     var instance2 = new SubClass('Abraham', 'Lincoln');
     $("#name04").html("Instance2 Name: " + instance2.firstName + ' ' + instance2.lastName);
     $("#name05").html("Original object's name is unchanged: " + subClass.firstName + ' ' + subClass.lastName);
-}); 
+});

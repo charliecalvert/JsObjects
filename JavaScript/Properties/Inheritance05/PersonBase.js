@@ -3,25 +3,33 @@
  */
 
 var BasePerson = (function() {
-	'use strict';
+    'use strict';
+
     function BasePerson() {
-    	var that = {};
-    	function getThat() { return that; }
+        var that = {};
+
+        function getThat() {
+            return that;
+        }
     }
-    
-    var bar = function () {};
+
+    var bar = function() {};
     BasePerson.prototype.getSet = function(init) {
-    	var value = init;
+        var value = init;
         return {
-        	set: function() { value = init; },
-        	get: function() { return value; },
-        	foo: bar,
-            enumerable : false,
-            configurable : true,
+            set: function() {
+                value = init;
+            },
+            get: function() {
+                return value;
+            },
+            foo: bar,
+            enumerable: false,
+            configurable: true,
         };
     };
 
-	/* BasePerson.prototype.setProperty = function(propName, initValue) {
+    /* BasePerson.prototype.setProperty = function(propName, initValue) {
     	
         Object.defineProperty(this, 'lastName', {
         	set: function() { BasePerson[propName] = initValue; },
@@ -30,7 +38,7 @@ var BasePerson = (function() {
             configurable : true
         });
     }; */
-    
+
     /*BasePerson.prototype.setProperty = function(propName, initValue) {
     	
         Object.defineProperty(this, 'lastName', {
