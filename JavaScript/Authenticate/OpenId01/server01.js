@@ -3,7 +3,7 @@ var querystring = require('querystring');
 var express = require('express');
 var app = express();
 
-var url = require('url');
+// var url = require('url');
 var querystring = require('querystring');
 var relyingParty = new openid.RelyingParty(
 	'http://localhost:30025/go', // Verification URL (yours)
@@ -16,20 +16,20 @@ var relyingParty = new openid.RelyingParty(
 
 var port = process.env.PORT || 30025;
 
-app.get('/', function(reqest, response) {
+app.get('/', function(reqest, response) { 'use strict';
 	// Deliver an OpenID form on all other URLs
 	response.writeHead(200);
 	response.end('<!DOCTYPE html><html><body>' + '<form method="get" action="/authenticate">' + '<p>Login using OpenID</p>' + '<input name="openid_identifier" />' + '<input type="submit" value="Login" />' + '</form></body></html>');
 });
 
-app.get('/go', function(request, response) {
+app.get('/go', function(request, response) {'use strict';
 	relyingParty.verifyAssertion(request, function(error, result) {
 		response.writeHead(200);
 		response.end(!error && result.authenticated ? 'Success :)' : 'Failure :(');
 	});
 });
 
-app.get('/authenticate', function(request, response) {
+app.get('/authenticate', function(request, response) {'use strict';
 	console.log("Authenticate called");
 	console.log(request.query);
 	// User supplied identifier

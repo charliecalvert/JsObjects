@@ -3,7 +3,7 @@ var querystring = require('querystring');
 var express = require('express');
 var app = express();
 
-var url = require('url');
+// var url = require('url');
 var querystring = require('querystring');
 var relyingParty = new openid.RelyingParty(
 	'http://localhost:30025/go', // Verification URL (yours)
@@ -16,19 +16,19 @@ var relyingParty = new openid.RelyingParty(
 
 var port = process.env.PORT || 30025;
 
-app.get('/', function(req, res) {
+app.get('/', function(req, res) {'use strict';
 	// Deliver an OpenID form on all other URLs
 	res.writeHead(200,  {'Content-Type': 'text/html'});
 	res.end('<!DOCTYPE html><html><body>' + '<form method="get" action="/authenticate">' + '<p>Login using OpenID</p>' + '<input name="openid_identifier" />' + '<input type="submit" value="Login" />' + '</form></body></html>');
 });
 
-app.get('/go', function(request, res) {
+app.get('/go', function(request, res) {'use strict';
 	console.log("In Go Callback");
 	var query = request.query;
 	console.log(query);
 	console.log(query['openid.claimed_id']);
 	relyingParty.verifyAssertion(request, function(error, result) {
-		var isGood = !error && result.authenticated ? '<h1>Success!</h1>' : '<h1>Failed</h1>'
+		var isGood = !error && result.authenticated ? '<h1>Success!</h1>' : '<h1>Failed</h1>';
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(isGood);
 		res.write('<p>' + query['openid.assoc_handle'] + '</p>');
@@ -45,7 +45,7 @@ app.get('/go', function(request, res) {
 	});
 });
 
-app.get('/authenticate', function(req, res) {
+app.get('/authenticate', function(req, res) {'use strict';
 	console.log("Authenticate called");
 	console.log(req.query);
 	// User supplied identifier
