@@ -38,7 +38,7 @@ App.Utility = (function() {'use strict';
 	Utility.prototype.changer = function() {
 		var divId = $('#select01 option:selected').attr("data-divIndex");
 		$("#data01").load("data.html #" + divId);
-	}
+	};
 	
 	return Utility;
 })();

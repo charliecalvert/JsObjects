@@ -3,7 +3,7 @@
  * Developed in class, Prog 272, Feb 14, 2013
  */
 
-function changer() {
+function changer() { 'use strict';
     var divId = $('#select01 option:selected').attr("data-divIndex");
     $("#data01").load("data.html #" + divId);
 }

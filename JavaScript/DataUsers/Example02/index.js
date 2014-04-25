@@ -2,7 +2,7 @@
  * @author Charlie
  */
 
-function changer() {
+function changer() {'use strict';
     var divId = $('#select01 option:selected').attr("data-divIndex");
     $("#data01").load("data.html #" + divId);
 }
