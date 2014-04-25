@@ -1,18 +1,19 @@
 /*jshint devel: true, browser: true, jquery: true, strict: true */
 /*global App: false */
 
-App.Main = (function() {'use strict';
+App.Main = (function() {
+    'use strict';
 
     // Application Constructor
-    function Main() {        
+    function Main() {
         console.log("debug: App constructor called");
         bindEvents();
     }
 
     /*     
-     * Bind any events that are required on startup. 
-     * Common events: 'load', 'deviceready', 'offline', and 'online'. 
-    */
+     * Bind any events that are required on startup.
+     * Common events: 'load', 'deviceready', 'offline', and 'online'.
+     */
     var bindEvents = function() {
         console.log("debug: App bindEvents called");
         document.addEventListener('deviceready', onDeviceReady, false);
@@ -20,8 +21,8 @@ App.Main = (function() {'use strict';
 
     // Called when device is fully initialized   
     var onDeviceReady = function() {
-        console.log("debug: App onDeviceReady called");        
-        showProgramState();                
+        console.log("debug: App onDeviceReady called");
+        showProgramState();
         showDate();
     };
 
@@ -31,7 +32,7 @@ App.Main = (function() {'use strict';
         listeningElement.attr('style', 'display:none;');
         receivedElement.attr('style', 'display:block;');
     };
-    
+
     var showDate = function() {
         console.log('debug: showDate called');
         var util = new App.Utility();
@@ -41,6 +42,7 @@ App.Main = (function() {'use strict';
     return Main;
 })();
 
-$(document).ready(function() {"use strict";
+$(document).ready(function() {
+    "use strict";
     new App.Main();
 });

@@ -1,70 +1,71 @@
 /* jshint browser: true, devel: true  */
 
 var DataInput = (function() {
-	'use strict';
-	function DataInput() {
-		$("#buttonAddNine").click(addNine);
-		$("#buttonAddFive").click(addFive);
-	}
+    'use strict';
 
-	function getUserNumber() {
-		return $("#userNumber").val();
-	}
+    function DataInput() {
+        $("#buttonAddNine").click(addNine);
+        $("#buttonAddFive").click(addFive);
+    }
 
-	// This is the best way to POST data to the server
-	function addFive() {
-		var data = {
-			value : getUserNumber()
-		};
+    function getUserNumber() {
+        return $("#userNumber").val();
+    }
 
-		$.ajax({
-			type : "POST",
-			url : '/addToFive',
-			dataType : "json",
-			cache : 'False',
-			data : data,
-			success : function(json) {
-				var result = "<p>Result: " + json.result + "</p>";
-				var value = "<p>Value: " + json.value + "</p>";
-				$("#resultDiv").html(result + value);
-			},
-			error : showError
-		});
-	}
+    // This is the best way to POST data to the server
+    function addFive() {
+        var data = {
+            value: getUserNumber()
+        };
 
-	// This is a okay way to post data to the server
-	// If you need to pass a lot of data, use POST,
-	// as shown above.
-	function addNine() {
-		$.getJSON('/addToNine?userNumber=' + getUserNumber(), function(data) {
-			var result = "<p>Result: " + data.result + "</p>";
-			var value = "<p>Value: " + data.value + "</p>";
-			$("#resultDiv").html(result + value);
-		}).success(function() {
-			console.log("csc: success. Loaded index.json");
-		}).error(function(jqXHR, textStatus, errorThrown) {
-			showError(jqXHR, textStatus, errorThrown);
-		}).complete(function() {
-			console.log("csc: completed call to get index.json");
-		});
-	}
+        $.ajax({
+            type: "POST",
+            url: '/addToFive',
+            dataType: "json",
+            cache: 'False',
+            data: data,
+            success: function(json) {
+                var result = "<p>Result: " + json.result + "</p>";
+                var value = "<p>Value: " + json.value + "</p>";
+                $("#resultDiv").html(result + value);
+            },
+            error: showError
+        });
+    }
 
-	var showError = function(request, ajaxOptions, thrownError) {
-		showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
-		showDebug(request.status);
-		showDebug(request.statusText);
-		showDebug(request.getAllResponseHeaders());
-		showDebug(request.responseText);
-	};
+    // This is a okay way to post data to the server
+    // If you need to pass a lot of data, use POST,
+    // as shown above.
+    function addNine() {
+        $.getJSON('/addToNine?userNumber=' + getUserNumber(), function(data) {
+            var result = "<p>Result: " + data.result + "</p>";
+            var value = "<p>Value: " + data.value + "</p>";
+            $("#resultDiv").html(result + value);
+        }).success(function() {
+            console.log("csc: success. Loaded index.json");
+        }).error(function(jqXHR, textStatus, errorThrown) {
+            showError(jqXHR, textStatus, errorThrown);
+        }).complete(function() {
+            console.log("csc: completed call to get index.json");
+        });
+    }
 
-	var showDebug = function(data) {
-		$("#debugList").append("<li>" + data + "</li>");
-	};
+    var showError = function(request, ajaxOptions, thrownError) {
+        showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
+        showDebug(request.status);
+        showDebug(request.statusText);
+        showDebug(request.getAllResponseHeaders());
+        showDebug(request.responseText);
+    };
 
-	return DataInput;
+    var showDebug = function(data) {
+        $("#debugList").append("<li>" + data + "</li>");
+    };
+
+    return DataInput;
 })();
 
 $(document).ready(function() {
-	'use strict';
-	new DataInput();
+    'use strict';
+    new DataInput();
 });

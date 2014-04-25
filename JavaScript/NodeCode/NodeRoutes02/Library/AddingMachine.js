@@ -1,22 +1,22 @@
 var MyObject = (function() {
-	'use strict';
-	// Private Data
-	var helloString = "MyObject says hello";
+    'use strict';
+    // Private Data
+    var helloString = "MyObject says hello";
 
-	// Constructor
-	function MyObject() {
-		console.log("MyObject.Constructor called");
-	}
+    // Constructor
+    function MyObject() {
+        console.log("MyObject.Constructor called");
+    }
 
-	MyObject.prototype.add = function(operandA, operandB) {
-		return operandA + operandB;
-	};	
+    MyObject.prototype.add = function(operandA, operandB) {
+        return operandA + operandB;
+    };
 
-	MyObject.prototype.sayHello = function() {
-		return helloString;
-	};
-	
-	return MyObject;
+    MyObject.prototype.sayHello = function() {
+        return helloString;
+    };
+
+    return MyObject;
 
 }());
 

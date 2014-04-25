@@ -8,10 +8,10 @@ var staticSite = require('node-static');
 var file = new staticSite.Server('./Site');
 var port = 30025;
 
-require('http').createServer(function (request, response) { 
-	'use strict';
-    request.addListener('end', function () {
+require('http').createServer(function(request, response) {
+    'use strict';
+    request.addListener('end', function() {
         file.serve(request, response);
-    }).resume();	
+    }).resume();
 }).listen(port);
 console.log("Listing on port:", port);

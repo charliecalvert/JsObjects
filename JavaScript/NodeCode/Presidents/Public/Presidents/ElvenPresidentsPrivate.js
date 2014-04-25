@@ -5,42 +5,43 @@
 /*global ELF:true*/
 
 ELF.PresidentPrivate = (function() {
-	'use strict';
-	function President(initName, initStart, initEnd, initBorn, initDied) {
-		var presidentName = initName;
-		var termStart = initStart;
-		var termEnd = initEnd;
-		var born = initBorn;
-		var died = initDied;
+    'use strict';
 
-		this.getPresidentName = function() {
-			return presidentName;
-		};
+    function President(initName, initStart, initEnd, initBorn, initDied) {
+        var presidentName = initName;
+        var termStart = initStart;
+        var termEnd = initEnd;
+        var born = initBorn;
+        var died = initDied;
 
-		this.getTermStart = function() {
-			return termStart;
-		};
+        this.getPresidentName = function() {
+            return presidentName;
+        };
 
-		this.getTermEnd = function() {
-			return termEnd;
-		};
+        this.getTermStart = function() {
+            return termStart;
+        };
 
-		this.getBorn = function() {
-			return born;
-		};
+        this.getTermEnd = function() {
+            return termEnd;
+        };
 
-		this.getDied = function() {
-			return died;
-		};
-	}
+        this.getBorn = function() {
+            return born;
+        };
 
-	President.prototype.init = function(initName, initStart, initEnd, initBorn, initDied) {
-		this.PresidentName = initName;
-		this.TermStart = initStart;
-		this.TermEnd = initEnd;
-		this.Born = initBorn;
-		this.Died = initDied;
-	};
+        this.getDied = function() {
+            return died;
+        };
+    }
 
-	return President;
+    President.prototype.init = function(initName, initStart, initEnd, initBorn, initDied) {
+        this.PresidentName = initName;
+        this.TermStart = initStart;
+        this.TermEnd = initEnd;
+        this.Born = initBorn;
+        this.Died = initDied;
+    };
+
+    return President;
 })();

@@ -25,33 +25,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-	app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 
 
 app.get('/walk', function(request, response) {
-	'use strict';
-	// If you run Node in Eclipse, to access JSOBJECTS, you made need 
-	// to choose Run | Run Configurations | Environment | Select
-	var dirToWalk = process.env.JSOBJECTS;
-	// var dirToWalk = getHomeDir + '/bin';
-	console.log("About to walk: " + dirToWalk);
-	walk(dirToWalk, ['karma.conf.js', 'Gruntfile.js'], ['node_modules', 'JavaScript'], function(err, data) {
-		if (err) {
-			console.log(err);
-			response.send({
-				result : "Error",
-				error : err
-			});
-		} else {
-			console.log(data);
-			response.send({
-				result : "Success",
-				files : data
-			});
-		}
-	});
+    'use strict';
+    // If you run Node in Eclipse, to access JSOBJECTS, you made need 
+    // to choose Run | Run Configurations | Environment | Select
+    var dirToWalk = process.env.JSOBJECTS;
+    // var dirToWalk = getHomeDir + '/bin';
+    console.log("About to walk: " + dirToWalk);
+    walk(dirToWalk, ['karma.conf.js', 'Gruntfile.js'], ['node_modules', 'JavaScript'], function(err, data) {
+        if (err) {
+            console.log(err);
+            response.send({
+                result: "Error",
+                error: err
+            });
+        } else {
+            console.log(data);
+            response.send({
+                result: "Success",
+                files: data
+            });
+        }
+    });
 
 });
 
@@ -59,6 +59,6 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function() {
-	'use strict';
-	console.log('Express server listening on port ' + app.get('port'));
+    'use strict';
+    console.log('Express server listening on port ' + app.get('port'));
 });

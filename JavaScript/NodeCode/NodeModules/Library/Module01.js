@@ -1,5 +1,6 @@
-function getNine() {'use strict';
-	return 9;
+function getNine() {
+    'use strict';
+    return 9;
 }
 
 // Export the getNine method from this module. 

@@ -1,9 +1,10 @@
-
 /*
  * GET home page.
  */
 
-exports.index = function(req, res){
-	'use strict';
-  res.render('index', { title: 'Prog282' });
+exports.index = function(req, res) {
+    'use strict';
+    res.render('index', {
+        title: 'Prog282'
+    });
 };

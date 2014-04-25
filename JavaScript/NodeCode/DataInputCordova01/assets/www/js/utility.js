@@ -6,10 +6,11 @@
 
 var App = {};
 
-App.Utility = (function() {'use strict';
+App.Utility = (function() {
+    'use strict';
 
     function Utility() {}
-    
+
     Utility.prototype.zeroFill = function(number, width) {
         console.log("debug: zeroFill called");
         width -= number.toString().length;
@@ -23,15 +24,15 @@ App.Utility = (function() {'use strict';
     Utility.prototype.getToday = function() {
         console.log("debug: getToday called");
         var today = new Date();
-        var day = today.getDate();        
-        
-        var month = today.getMonth() + 1;        
+        var day = today.getDate();
+
+        var month = today.getMonth() + 1;
         var year = today.getFullYear();
         day = this.zeroFill(day, 2);
         month = this.zeroFill(month, 2);
-        
+
         return month + '/' + day + '/' + year;
     };
-    
-    return Utility;    
+
+    return Utility;
 })();
