@@ -3,7 +3,8 @@
  */
 
 var SubClass = (function() {
-
+	'use strict';
+	
 	function SubClass(firstName, lastName) {
 		var that = {};
 		
@@ -15,7 +16,7 @@ var SubClass = (function() {
 	            enumerable : false,
 	            configurable : true
 	        });
-        }
+        };
         
         var setProperty02 = function(subclass, propName, initValue, setFunc) {	
 			that[propName] = initValue;	
@@ -25,12 +26,12 @@ var SubClass = (function() {
 	            enumerable : false,
 	            configurable : true
 	        });
-        }
+        };
         
         //SubClass.prototype = new BasePerson();
 		var setFunc = function(newValue) {
 			that.middleName = newValue;
-		}
+		};
         
         setProperty(this, 'firstName', firstName);
 		setProperty(this, 'lastName', lastName);
@@ -43,11 +44,11 @@ var SubClass = (function() {
 	
 	SubClass.prototype.sayName = function(selector) {
 		$(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
-	}
+	};
 
 	SubClass.prototype.getName = function() {
 		return this.firstName + ' ' + this.lastName;
-	}
+	};
 
 	return SubClass;
 })();

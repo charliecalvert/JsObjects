@@ -3,7 +3,7 @@
  */
 
 var BasePerson = (function() {
-
+	'use strict';
     function BasePerson() {
     	var that = {};
     	function getThat() { return that; }
@@ -19,7 +19,7 @@ var BasePerson = (function() {
             enumerable : false,
             configurable : true,
         };
-    }
+    };
 
 	/* BasePerson.prototype.setProperty = function(propName, initValue) {
     	

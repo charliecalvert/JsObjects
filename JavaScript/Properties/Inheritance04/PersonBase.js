@@ -3,7 +3,8 @@
  */
 
 var BasePerson = (function() {
-
+	'use strict';
+	
     function BasePerson() {
     }
 
@@ -15,7 +16,7 @@ var BasePerson = (function() {
             enumerable : false,
             configurable : true,
         };
-    }
+    };
 
     return BasePerson;
 })();

@@ -3,9 +3,10 @@
  */
 
 var App = (function() {
-
-	function App(firstName, lastName, middleName) {
-		var middleName = middleName;
+	'use strict';
+	
+	function App(firstName, lastName, middleNameInit) {
+		var middleName = middleNameInit;
 		
 		var setProperty = function(subclass, propName, initValue) {	
 	 		Object.defineProperty(subclass, propName, { 
@@ -26,11 +27,11 @@ var App = (function() {
         //SubClass.prototype = new BasePerson();
 		var setMiddleName = function(newValue) {
 			middleName = newValue;
-		}
+		};
 		
 		var getMiddleName = function() {
 			return middleName;
-		}
+		};
         
         setProperty(this, 'firstName', firstName);
 		setProperty(this, 'lastName', lastName);
@@ -41,7 +42,7 @@ var App = (function() {
 	
 	App.prototype.sayName = function(selector) {
 		$(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
-	}
+	};
 
 	App.prototype.getName = function() {
 		if (this.middleName !== null) {
@@ -49,7 +50,7 @@ var App = (function() {
 		} else {
 			return this.firstName + ' ' + this.lastName;
 		}
-	}
+	};
 
 	return App;
 })();

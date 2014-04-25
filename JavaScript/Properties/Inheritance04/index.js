@@ -3,7 +3,7 @@
  */
 
 var SubClass = (function() {
-
+	'use strict';
     function SubClass(firstName, lastName) {
         Object.defineProperty(this, 'firstName', this.getSet(firstName));
         Object.defineProperty(this, 'lastName', this.getSet(lastName));
@@ -13,11 +13,11 @@ var SubClass = (function() {
 
     SubClass.prototype.sayName = function(selector) {
         $(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
-    }
+    };
     
     SubClass.prototype.getName = function() {
         return this.firstName + ' ' + this.lastName;
-    }
+    };
 
     return SubClass;
 })();

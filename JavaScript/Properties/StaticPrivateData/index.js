@@ -1,11 +1,12 @@
 var MyObject = (function() { 
-	   
+	'use strict';   
     var myProperty01 = 0;
    
    	function MyObject(value01, value02) {
    		myProperty01 = value01;
    		Object.defineProperty(this, "key", {
-  			__proto__: null, // no inheritance 
+   			// 	no inheritance
+  			__proto__: null, // jshint ignore:line  
   			value: value02  
 		});
    		
@@ -19,6 +20,7 @@ var MyObject = (function() {
 })();
 
 $(document).ready(function() {
+	'use strict';
 	var instance01 = new MyObject(1, 11);
 	var instance02 = new MyObject(2, 22);
 	$('#test01').html(instance01.getMyProperty());

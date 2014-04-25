@@ -3,7 +3,8 @@
  */
 
 var BaseObject = (function() {
-
+	'use strict';
+	
     function BaseObject(initHeight, y1, z1) {
     
     	// Define a public variable
@@ -11,7 +12,7 @@ var BaseObject = (function() {
        	
        	// Define a private backing store for use with get and set methods
        	var y = y1;       	
-       	this.getY = function() { return y; }
+       	this.getY = function() { return y; };
        	
 		// Define property to which you can add a backing store later    
        	Object.defineProperty(this, "height", withValue(initHeight));
@@ -34,7 +35,7 @@ var BaseObject = (function() {
 		
 		d.value = value;
 		return d;
-	}
+	};
 	
     BaseObject.prototype.sayName = function(selector) {
   		$(selector).html("I'm the: " + this.constructor.name);  
@@ -42,11 +43,11 @@ var BaseObject = (function() {
     
     BaseObject.prototype.showHeight = function(selector) {
     	$(selector).html("The height property is now: " + this.height);
-    }
+    };
     
     BaseObject.prototype.changeHeight = function(newHeight) {
     	this.height = newHeight;
-    }
+    };
     
     return BaseObject;   
 })();
@@ -60,7 +61,7 @@ $(document).ready(function() {
   baseObject.sayName("#test01");
   
   // Declare subclass of BaseObject with initial values for our propertiers
-  function SubClass01() {};
+  function SubClass01() {}
   SubClass01.prototype = new BaseObject(3, 33, 333);
   
   // Instantiate subclass and exercise it

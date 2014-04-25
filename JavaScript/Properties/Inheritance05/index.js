@@ -3,8 +3,9 @@
  */
 
 var SubClass = (function() {
-
+	'use strict';
 	function SubClass(firstName, lastName) {
+		
 		var that = {};
 		
 		var setProperty = function(subclass, propName, initValue) {	
@@ -15,7 +16,7 @@ var SubClass = (function() {
 	            enumerable : false,
 	            configurable : true
 	        });
-        }
+        };
         
         setProperty(this, 'firstName', firstName);
 		setProperty(this, 'lastName', lastName);
@@ -25,11 +26,11 @@ var SubClass = (function() {
 
 	SubClass.prototype.sayName = function(selector) {
 		$(selector).html("Name inside object: " + this.firstName + ' ' + this.lastName);
-	}
+	};
 
 	SubClass.prototype.getName = function() {
 		return this.firstName + ' ' + this.lastName;
-	}
+	};
 
 	return SubClass;
 })();

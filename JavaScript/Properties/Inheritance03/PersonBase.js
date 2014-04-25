@@ -3,7 +3,8 @@
  */
 
 var BasePerson = (function() {
-
+	'use strict';
+	
     function BasePerson() {
     }
 
@@ -17,7 +18,7 @@ var BasePerson = (function() {
 
         d.value = value;
         return d;
-    }
+    };
 
     return BasePerson;
 })();

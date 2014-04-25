@@ -3,11 +3,12 @@
  */
 
 ELF.own.BasePerson = (function() {
-
+	'use strict';
+	
 	var datas = [];
     function BasePerson() {
-    	datas.push(new Elf.own.Data01({ bar: 1 });
-    	datas.push(new Elf.own.Data01({ bar: 2 });
+    	datas.push(new Elf.own.Data01({ bar: 1 }));    	
+    	datas.push(new Elf.own.Data01({ bar: 2 }));
     }
     
     var bar = function () {};
@@ -20,7 +21,7 @@ ELF.own.BasePerson = (function() {
             enumerable : false,
             configurable : true,
         };
-    }
+    };
 
 	
 

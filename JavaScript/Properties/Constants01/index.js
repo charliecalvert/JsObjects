@@ -1,4 +1,5 @@
 var App = (function() {
+	'use strict';
 	
 	function Constants() {
 		Object.defineProperty(this, "MAIN_BIG", withValue('mainBig'));
@@ -16,12 +17,13 @@ var App = (function() {
 		
 		d.value = value;
 		return d;
-	}
+	};
 	
 	return Constants;
 })();
 
 $(document).ready(function() {
+	'use strict';
 	var app = new App();
 	$('#test01').html(app.MAIN_BIG);
 	$('#test02').html(app.MAIN_SMALL);

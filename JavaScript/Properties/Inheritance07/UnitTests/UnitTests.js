@@ -3,6 +3,7 @@
  */
 
  function myTests() {
+	 'use strict';
  	test('TestConstructor', function() {
  		var subClass = new App('Sue', 'Hill');
  		ok(typeof subClass === 'object', 'typeof subClass = ' + typeof subClass);
@@ -10,7 +11,7 @@
  	
  	test('TestConstructorName', function() {
  		var subClass = new App('Sue', 'Hill');
- 		var expected = 'App'
+ 		var expected = 'App';
  		equal(subClass.constructor.name, expected, 'SubClass.constructor = ' + subClass.constructor);
  	});
  	
@@ -51,5 +52,6 @@
  }
  
  $(document).ready(function() {
+	 'use strict';
  	myTests();
  });
