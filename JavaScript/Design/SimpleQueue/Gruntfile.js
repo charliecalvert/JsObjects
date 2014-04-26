@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-    var zipFile = 'FactorySimple01.zip';
+    var zipFile = 'SimpleQueue.zip';
 
     grunt.initConfig({
         zipFile: zipFile,
@@ -11,9 +11,10 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
+                    '*/**/jquery-?.?.?.min.js',
                     'coverage/**',
                     '**/node_modules/**',
-                    '**/Tests/Jasmine-2.0.0/**'
+                    '**/Tests/Jasmine/**'                    
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',
@@ -54,7 +55,7 @@ module.exports = function(grunt) {
                 captureExceptions: true,
                 junitreport: {
                     report: false,
-                    savePath: "./reports/jasmine/",
+                    savePath: "./reports/",
                     useDotNotation: true,
                     consolidate: true
                 }
@@ -81,10 +82,34 @@ module.exports = function(grunt) {
 
         copy: {
             deploy: {
-                src: ['Server.js', 'Ketch.js', 'Sloop.js', 'Yawl.js',
-                    'Interface.js'
+                src: ['app.js',
+                      'package.json',
+                      'bin/www',
+                      'routes/index.js',
+                      'routes/users.js',
+                      'public/javascripts/SimpleQueue.js', 
+                      'public/javascripts/SimpleStack.js'
                 ],
                 dest: 'Deploy/',
+            },
+            deployTests: {
+                src: ['app.js',
+                      'Gruntfiles.js',
+                      'package.json',
+                      'TestRunner.js',
+                      'bin/www',
+                      'public/javascripts/SimpleQueue.js', 
+                      'public/javascripts/SimpleStack.js',
+                      'routes/index.js',
+                      'routes/users.js',
+                      'tests/QueueSimpleSpec.js',
+                      'tests/QueueSpec.html',
+                      'views/error.jade',
+                      'views/index.jade',
+                      'views/layout.jade'
+                      
+                ],
+                dest: 'DeployTests/',
             },
             main: {
                 src: '<%= zipFile %>',
@@ -115,5 +140,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main', 'jasmine', 'jasmine_node']);
     grunt.registerTask('check', ['jshint', 'jasmine_node']);
+    grunt.registerTask('deploy', ['copy:deploy']);
+    grunt.registerTask('deployTests', ['copy:deployTests']);
     grunt.registerTask('pretty', ['jsbeautifier']);
 };
