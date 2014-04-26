@@ -39,6 +39,8 @@ module.exports = function(grunt) {
             work: {
                 src: [
                     "**/node_modules/**",
+                    "**/Deploy/**",
+                    "**/DeployTests/**",
                     zipFile
                 ]
             }
@@ -98,12 +100,16 @@ module.exports = function(grunt) {
                       'package.json',
                       'TestRunner.js',
                       'bin/www',
+                      'public/javascripts/jquery*.js',
+                      'public/javascripts/QueueMaker.js',
                       'public/javascripts/SimpleQueue.js', 
                       'public/javascripts/SimpleStack.js',
                       'routes/index.js',
                       'routes/users.js',
+                      'tests/QueueMakerSpec.js',
                       'tests/QueueSimpleSpec.js',
                       'tests/QueueSpec.html',
+                      'tests/jasmine/*',
                       'views/error.jade',
                       'views/index.jade',
                       'views/layout.jade'
