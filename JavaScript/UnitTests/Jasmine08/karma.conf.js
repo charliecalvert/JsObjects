@@ -9,8 +9,9 @@ module.exports = function(config) {
         frameworks: ['jasmine', 'requirejs'],
 
         // list of files / patterns to load in the browser
-        files: ['Library/MainKarma.js', 'Library/spec/SimpleTest.js',
-            'Library/spec/GetNumber.js', 'Library/spec/Test02.js'
+        files: ['Library/MainKarma.js', 
+            'Library/spec/TestFunctionObject.js',
+            'Library/spec/GetNumber.js'
         ],
 
         // list of files to exclude

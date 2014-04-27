@@ -22,6 +22,11 @@
     "karma-coverage": "~0.1.4",
     "karma-junit-reporter": "~0.2.1",
     "qunitjs": "~1.12.0",
-    "grunt-bowercopy": "~0.7.0"
+    "grunt-bowercopy": "~0.7.0",
+    "static-favicon": "^1.0.2",
+    "morgan": "^1.0.0"
+  },
+  "dependencies": {
+    "express": "^4.1.0"
   }
 }

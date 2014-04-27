@@ -2,7 +2,7 @@
  * @author charlie
  */
 
-define('testFunctionObject', ['functionObject'], function(functionObject) {
+define('testFunctionObject', ['FunctionObject'], function(functionObject) {
     'use strict';
 
     describe("Test Function Object", function() {

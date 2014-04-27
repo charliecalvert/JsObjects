@@ -7,7 +7,7 @@ require.config({
         jasmineHtml: 'jas/jasmine-html',
         boot: 'jas/boot',
         objectMethod: 'spec/GetNumber',
-        functionObject: 'spec/GetFunction',
+        FunctionObject: 'spec/GetFunction',
         testNumbers: 'spec/TestNumbers',
         testFunctionObject: 'spec/TestFunctionObject'
     },
@@ -31,7 +31,7 @@ require(['boot'], function(jasmine) {
     'use strict';
     console.log('Boot jasmine');
 
-    require(['testNumbers', 'testFunctionObject', 'functionObject'], function(a, b, functionObject) {
+    require(['testNumbers', 'testFunctionObject', 'FunctionObject'], function(a, b, FunctionObject) {
         console.log(typeof functionObject);
         console.log(new FunctionObject().getA());
         window.onload();
