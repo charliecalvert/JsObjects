@@ -3,9 +3,9 @@
  */
 require.config({
     paths: {
-        jasmine: 'jas/jasmine',
-        jasmineHtml: 'jas/jasmine-html',
-        boot: 'jas/boot',
+        jasmine: 'jasmine-2.0.0/jasmine',
+        jasmineHtml: 'jasmine-2.0.0/jasmine-html',
+        boot: 'jasmine-2.0.0/boot',
         objectMethod: 'spec/GetNumber',
         FunctionObject: 'spec/GetFunction',
         testNumbers: 'spec/TestNumbers',

@@ -23,7 +23,8 @@ define('testFunctionObject', ['FunctionObject'], function(functionObject) {
         it("shows you must call new to access a method of the object", function() {
             expect(function() {
                 functionObject().getA();
-            }).toThrow("Cannot set property 'getA' of undefined");
+            }).toThrow(new TypeError("Cannot set property 'getA' of undefined"));                
+            // }).toThrow("TypeError: Cannot set property 'getA' of undefined.");
         });
     });
 

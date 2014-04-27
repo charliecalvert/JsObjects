@@ -1,4 +1,8 @@
-This project shows how to use requirejs, jasmine and karma.
+To run the tests, type:
+
+node TestRunner.js 
+
+Someday this project might show how to use requirejs, jasmine and karma.
 
 To start Karma, type this:
 
