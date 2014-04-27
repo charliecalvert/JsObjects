@@ -9,10 +9,10 @@ describe("A Queue Simple Suite", function() {
 		expect(true).toBe(true);
 	});
 
-	it("Tests simple query", function() {
+	it("Tests simple queue", function() {
 		var value = simpleQueue.shift();
 		expect(value).toBe("Alpha");
-		console.log(value); // displays 2
+		console.log(value); // displays Alpha
 	});
 
 });
