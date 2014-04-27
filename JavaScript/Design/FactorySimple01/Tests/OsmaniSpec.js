@@ -32,7 +32,7 @@ describe("Osmani Factory Suite", function() {
         expect(sloop.color).toBe('yellow');
     });
 
-    it("shows that our sloop has a keel", function() {
+    it("shows that a yawl has a mizzen", function() {
         var boatFactory = new SailBoatFactory();
         var yawl = boatFactory.createBoat({
             boatType: "yawl",

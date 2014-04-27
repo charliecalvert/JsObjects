@@ -12,8 +12,7 @@ BaseObject = function() {
     var name = "BaseObject";
 
     BaseObject.prototype.sayName = function(selector, listSelector) {
-        $(selector).html("In BaseObject.sayName name = " + name);
-        // $(listSelector).append("<li> constructor name = " + this.constructor.name + "</li>");
+        $(selector).html("In BaseObject.sayName");        
         $(listSelector).append("<li> BaseObject.name = " + name + "</li>");
     };
 };
@@ -31,8 +30,7 @@ SubClass02.prototype = new BaseObject();
 
 SubClass02.prototype.sayName = function(selector, listSelector) {
     'use strict';
-    $(selector).html("In SubClass02.sayName1");
-    // $(listSelector).append("<li> constructor name = " + this.constructor.name + "</li>");
+    $(selector).html("In SubClass02.sayName1");    
     $(listSelector).append("<li> Subclass02.name = " + this.name + "</li>");
 };
 
