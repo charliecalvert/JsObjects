@@ -1,5 +1,16 @@
 # FactorySimple01
 
+
+#How to run
+
+- Run application: **node Server.js** and browse to **localhost:30025**
+- Run Tests: **node TestRunner**  and browse to **localhost:30025**
+- Launch **index.html** in a browser
+- Launch **RunJasmineNode.sh**
+    - jasmine-node Tests/KetchSpec.js Tests/YawlSpec.js Tests/SloopSpec.js
+    
+
+
 Using: grunt-jasmine-node
 Using: grunt-jasmine-node-coverage
 

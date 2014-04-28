@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 
 app.get('/', function(request, response) {
     'use strict';
-    var html = fs.readFileSync(__dirname + '/Tests/BoatFactorySpec.html');
+    var html = fs.readFileSync(__dirname + '/index.html');
     response.writeHeader(200, {
         "Content-Type": "text/html"
     });
@@ -49,7 +49,7 @@ app.get('/', function(request, response) {
 });
 
 
-app.use("/", express.static(__dirname + '/Tests'));
+// app.use("/", express.static(__dirname + '/Tests'));
 app.use("/Factory", express.static(__dirname + '/Factory'));
 
 app.listen(port);

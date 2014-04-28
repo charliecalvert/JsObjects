@@ -13,6 +13,8 @@ define(function(require) {
 	console.log(convert.milesToFeet(1));
 	console.log(convert.milesToFeet(2));
 	console.log(convert.milesToFeet(10));
+	var exportMe = require('Exporter');
+	console.log(exportMe());
 });
 
 
