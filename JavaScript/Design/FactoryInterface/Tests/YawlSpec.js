@@ -1,6 +1,6 @@
 /*global describe:true, it:true, expect: true*/
 
-var Yawl = require("../Scripts/Yawl").Yawl;
+var Yawl = require("../public/javascripts/Boats/Yawl");
 
 describe("A Yawl Suite", function() {
     'use strict';
