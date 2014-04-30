@@ -6,7 +6,12 @@ if ( typeof define !== 'function') {
 
 define(["SailBoatFactory", "Sloop", "Yawl"], function(SailBoatFactory, Sloop, Yawl) {'use strict';
 
-    describe("Osmani Factory Suite", function() {
+// define([], function() {'use strict';
+    describe("Simple Factory Suite", function() {
+        
+        //var SailBoatFactory = require('../Factory/SailBoatFactory');
+        //var Sloop = require('../Factory/Sloop');
+        //var Yawl = require('../Factory/Yawl'); 
 
         it("proves we can run a test", function() {
             expect(true).toBe(true);
