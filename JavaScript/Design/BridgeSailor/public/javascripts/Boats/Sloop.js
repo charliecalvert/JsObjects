@@ -39,5 +39,5 @@ define(function(require) {
         }
     };
     
-    return new Sloop;
+    return new Sloop();
 });
