@@ -23,7 +23,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1397685508105</id>
+			<id>1398811456134</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
@@ -32,12 +32,30 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1397685508106</id>
+			<id>1398811456136</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-console.js</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1398811456138</id>
+			<name></name>
+			<type>22</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-jquery-?.?.?.min.js</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1398811456139</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-coverage</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
