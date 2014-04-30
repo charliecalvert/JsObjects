@@ -58,7 +58,11 @@ module.exports = function(grunt) {
                     useDotNotation: true,
                     consolidate: true
                 }
-            }
+            },
+            all: [
+                'Tests/',
+                'Factory/'
+            ]
         },
 
         compress: {
