@@ -16,11 +16,6 @@ define(["Sailor"], function(Sailor) {
         
         ExpertSailor.prototype = new Sailor();
         
-        /* 
-        ExpertSailor.prototype.setBoat = function(boat) {
-            this.boat = boat;                    
-        }; */
-        
         ExpertSailor.prototype.tack = function(index) {
             this.currentTack = tack[index];
             console.log("Tacking to " + this.currentTack);
