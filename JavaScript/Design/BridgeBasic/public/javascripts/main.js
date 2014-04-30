@@ -11,12 +11,9 @@ require.config({
     }
 });
 
-require(['jquery', 'SailorExpert', 'Sloop', 'Ketch', 'Yawl'], function(j, SailorExpert, sloop, ketch, yawl) {
-    // var sailor = new Sailor(sloop);
-    // console.log(sailor.anchor());
-    // SailorExpert.prototype = sloop;
-    // sailor.setBoat(ketch);
-    // console.log(sailor.anchor());
+require(['jquery', 'SailorExpert', 'Sailor', 'Sloop', 'Ketch', 'Yawl'], 
+    function(jq, SailorExpert, Sailor, sloop, ketch, yawl) {
+    
     var show = function(value) {
         console.log(value);
         $("#boatList").append("<li>" + value + "</li>");
@@ -42,4 +39,13 @@ require(['jquery', 'SailorExpert', 'Sloop', 'Ketch', 'Yawl'], function(j, Sailor
     show(sailorExpertB.anchor());
     show(sailorExpertC.anchor());
 
+    show("===============");
+    show("Working with sailor");
+    show("===============");
+    var sailorA = new Sailor(sloop);
+    var sailorB = new Sailor(ketch);
+    var sailorC = new Sailor(yawl);            
+    show(sailorA.tack());
+    show(sailorB.tack());
+    show(sailorC.tack());
 });
