@@ -11,41 +11,18 @@ require.config({
     }
 });
 
-require(['jquery', 'SailorExpert', 'Sailor', 'Sloop', 'Ketch', 'Yawl'], 
-    function(jq, SailorExpert, Sailor, sloop, ketch, yawl) {
+require(['jquery', 'SailorExpert', 'Sailor', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
+    function(jq, SailorExpert, Sailor, SailorDisplay, sloop, ketch, yawl) {
     
-    var show = function(value) {
-        console.log(value);
-        $("#boatList").append("<li>" + value + "</li>");
-    };
-
-    var sailorExpertA = new SailorExpert(sloop);
-    var sailorExpertB = new SailorExpert(ketch);
-    var sailorExpertC = new SailorExpert(yawl);
-    show(sailorExpertA.tackStarboard());
+    var sailorTools = {};
     
-    show(sailorExpertB.tackStarboard());
-    show(sailorExpertC.tackStarboard());
-    show(sailorExpertA.getCurrentTack());
-    show(sailorExpertB.getCurrentTack());
-    show(sailorExpertC.getCurrentTack());
-    show(sailorExpertA.tackPort());
-    show(sailorExpertB.tackPort());
-    show(sailorExpertC.tackPort());
-    show(sailorExpertA.getCurrentTack());
-    show(sailorExpertB.getCurrentTack());
-    show(sailorExpertC.getCurrentTack());
-    show(sailorExpertA.anchor());
-    show(sailorExpertB.anchor());
-    show(sailorExpertC.anchor());
+    sailorTools.sailorSloop = new Sailor(sloop);
+    sailorTools.sailorKetch = new Sailor(ketch);
+    sailorTools.sailorYawl = new Sailor(yawl);    
 
-    show("===============");
-    show("Working with sailor");
-    show("===============");
-    var sailorA = new Sailor(sloop);
-    var sailorB = new Sailor(ketch);
-    var sailorC = new Sailor(yawl);            
-    show(sailorA.tack());
-    show(sailorB.tack());
-    show(sailorC.tack());
+    sailorTools.sailorExpertSloop = new SailorExpert(sloop);
+    sailorTools.sailorExpertKetch = new SailorExpert(ketch);
+    sailorTools.sailorExpertYawl = new SailorExpert(yawl);
+    
+    var display = new SailorDisplay(sailorTools);        
 });
