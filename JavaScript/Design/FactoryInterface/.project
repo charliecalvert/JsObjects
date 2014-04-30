@@ -14,4 +14,24 @@
 	<natures>
 		<nature>com.aptana.ruby.core.rubynature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1398811417048</id>
+			<name></name>
+			<type>10</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1398811417050</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-coverage</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
