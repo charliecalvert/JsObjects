@@ -4,25 +4,30 @@
 
 define(function(require) {'use strict';
 
-    var Sailor = function() {
+    var Sailor = (function() {
     
+        function Sailor(boat) {
+            this.setBoat(boat);
+        }
+        
         Sailor.prototype.setBoat = function(boat) {
             this.boat = boat;
         };
 
-        this.tack = function() {
+        Sailor.prototype.tack = function() {
             return this.boat.tack();
         };
 
-        this.luff = function() {
+        Sailor.prototype.luff = function() {
             return this.boat.luff();
         };
 
-        this.anchor = function(ch) {
+        Sailor.prototype.anchor = function(ch) {
             return this.boat.anchor();
         };
-    };
+        
+        return Sailor;
+    }());
 
-    return new Sailor;
-
+    return Sailor;
 }); 

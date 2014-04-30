@@ -13,6 +13,11 @@ define(function(require) {
     };
 
     Sloop.prototype = {
+    
+        getBoatType: function() {'use strict';
+            return 'Sloop';
+        },
+        
         tack : function() {'use strict';
             return "Sloop tack called.";
         },

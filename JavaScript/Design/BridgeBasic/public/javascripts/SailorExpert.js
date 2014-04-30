@@ -2,39 +2,48 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(['Sailor'], function(sailor) {
+define(["Sailor"], function(Sailor) {
 
-    var ExpertSailor = function() {
+    var ExpertSailor = (function() {
         
         tack = ['port', 'starboard'];
 
-        this.currentTack = tack[0];
-        this.boat = sailor;
+        this.currentTack = tack[0];        
         
+        function ExpertSailor(boat) {                        
+            this.setBoat(boat);
+        }
+        
+        ExpertSailor.prototype = new Sailor();
+        
+        /* 
         ExpertSailor.prototype.setBoat = function(boat) {
-            this.boat = boat;
-        };
+            this.boat = boat;                    
+        }; */
         
-        this.tack = function(index) {
+        ExpertSailor.prototype.tack = function(index) {
             this.currentTack = tack[index];
             console.log("Tacking to " + this.currentTack);
             return this.boat.tack();
         };
 
-        this.tackPort = function() {
+        ExpertSailor.prototype.tackPort = function() {
             return this.tack(0);
         };
 
-        this.tackStarboard = function() {
+        ExpertSailor.prototype.tackStarboard = function() {
             return this.tack(1);
         };
         
         ExpertSailor.prototype.getCurrentTack = function() {
-            return this.currentTack;
+            return "This " + this.boat.getBoatType() + " is on the " + this.currentTack + " tack.";
         };
-    };
+        
+        return ExpertSailor;
+        
+    }());
     
-    ExpertSailor.prototype = sailor;
+    
 
-    return new ExpertSailor();
+    return ExpertSailor;
 }); 

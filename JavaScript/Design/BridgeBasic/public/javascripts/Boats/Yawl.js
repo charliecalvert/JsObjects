@@ -13,6 +13,11 @@ define(function(require) {
     };
 
     Yawl.prototype = {
+    
+        getBoatType: function() {'use strict';
+            return 'Yawl';
+        },
+
         tack : function() {'use strict';
             return "Yawl tack called.";
         },
@@ -34,6 +39,5 @@ define(function(require) {
         }
     };
 
-    // exports.Yawl = Yawl;
-    return Yawl;
+    return new Yawl();
 });

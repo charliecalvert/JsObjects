@@ -13,6 +13,10 @@ define(function(require) {
     };
 
     Ketch.prototype = {
+        getBoatType: function() {'use strict';
+            return 'Ketch';
+        },
+        
         tack : function() {'use strict';
             return "Ketch tack called.";
         },
