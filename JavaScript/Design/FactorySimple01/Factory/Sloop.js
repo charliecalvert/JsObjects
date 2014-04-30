@@ -16,7 +16,7 @@ define(function(require) {
         this.state = options.state || "brand new";
         this.color = options.color || "silver";
         this.keel = options.keel || true;
-        this.mizen = options.mizen || false;
+        this.mizzen = options.mizzen || false;
     }
 
     return Sloop;

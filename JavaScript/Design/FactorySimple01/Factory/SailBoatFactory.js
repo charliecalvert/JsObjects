@@ -14,6 +14,7 @@ if ( typeof define !== 'function') {
 define(function(require) {
 
     var Sloop = require("Sloop");
+    var Yawl = require("Yawl");
     
     // Define a SailBoat factory constructor function
     function SailBoatFactory() {}
