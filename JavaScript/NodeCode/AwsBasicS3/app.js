@@ -51,23 +51,23 @@ app.get('/', function(request, response) {
  * You will need to edit one or more objects in Options.json.
  * They have this general format
 
- var options = {
- pathToConfig: '/home/charlie/config.json',
- reallyWrite: true,
- bucketName: 'bucket01.elvenware.com',
- folderToWalk: "Files",
- s3RootFolder: "FilesTwo",
- createFolderToWalkOnS3: true,
- createIndex: true,
- filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
- };
-
- * Before filling it out, see the README file for this project.
+var options = {
+		pathToConfig: '/home/charlie/config.json',		
+		reallyWrite: true, 
+		bucketName: 'bucket01.elvenware.com',
+		folderToWalk: "Files",
+		s3RootFolder: "FilesTwo",
+		createFolderToWalkOnS3: true,
+		createIndex: true,
+		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
+};
+ 
+ * Before filling it out, see the README file for this project. 
  */
 
 app.get('/getOptions', function(request, response) {
     'use strict';
-    var options = fs.readFileSync("Options.json", 'utf8');
+    var options = fs.readFileSync(__dirname + "/Options.json", 'utf8');
     options = JSON.parse(options);
     response.send(options);
 });
@@ -101,9 +101,7 @@ app.get('/copyToS3', function(request, response) {
 var buildAll = function(response, config, index) {
     'use strict';
     console.log("BuildAll was called");
-    // var config = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
-    // config = JSON.parse(config);
-    var command = config[index].pathToPython + " MarkdownTransform.py -i " + index;
+    var command = config[index].pathToPython + " " + __dirname + "/MarkdownTransform.py -m " + __dirname + "/MarkdownTransformConfig.json" + " -i " + index;
     try {
         exec(command, function callback(error, stdout, stderr) {
             // Read in the HTML send the HTML to the client
@@ -124,12 +122,7 @@ var buildAll = function(response, config, index) {
     }
 };
 
-/*
- app.get('/buildAll', function(request, response) { 'use strict';
- console.log("buildAll called");
- var options = JSON.parse(request.query.options);
- buildAll(response, options, request.query.index);
- }); */
+
 
 app.get('/buildAll', function(request, response) {
     'use strict';
@@ -138,7 +131,7 @@ app.get('/buildAll', function(request, response) {
     console.log(request.query.options);
     // Let's just start writing this out, as we are going to need to do it eventually.
     var options = JSON.parse(request.query.options);
-    fs.writeFile("MarkdownTransformConfig.json", JSON.stringify(options, null, 4), function(err, data) {
+    fs.writeFile(__dirname + "/MarkdownTransformConfig.json", JSON.stringify(options, null, 4), function(err, data) {
         if (err) {
             console.log(data);
             throw err;
@@ -151,7 +144,7 @@ app.get('/buildAll', function(request, response) {
 app.get('/getBuildConfig', function(request, response) {
     'use strict';
     console.log('getBuildConfig called');
-    var options = fs.readFileSync("MarkdownTransformConfig.json", 'utf8');
+    var options = fs.readFileSync(__dirname + "/MarkdownTransformConfig.json", 'utf8');
     options = JSON.parse(options);
     response.send(options);
 });

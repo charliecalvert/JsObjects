@@ -1,7 +1,7 @@
 #! /usr/bin/env python3.3
 
 import os
-import sys, getopt
+import sys, argparse
 import json
 import elfutils.elffiles as elfFiles
 from elfutils.MarkdownToHtml import MarkdownToHtml
@@ -23,11 +23,12 @@ def makeItSo(markdown, folder, files, technique = normalHtml):
 
 
 
-# Prog270
-def prog280(markdown, index):
+# Prog280
+# "MarkdownTransformConfig.json"
+def prog280(markdown, index, markdownTransformConfig):
 	# Read in JSON as a String. Convert the string to a Python List.
 	# The first item in our list is a Python dictionary.	
-	content = elfFiles.getFileContent("MarkdownTransformConfig.json");	
+	content = elfFiles.getFileContent(markdownTransformConfig);	
 	configList = json.loads(content);	
 	configDictionary = configList[index];	
 	
@@ -39,21 +40,16 @@ def prog280(markdown, index):
 
 def main(argv):
    index = 0;   
-   try:
-      opts, args = getopt.getopt(argv,"hi:o:",["index="])
-   except getopt.GetoptError:
-      print('BuildAll.py -i index of item from MarkdownTransformConfig.json') 
-      sys.exit(2)
-   for opt, arg in opts:
-      if opt == '-h':
-         print('BuildAll.py -i <index>') 
-         sys.exit()
-      elif opt in ("-i", "--index"):
-         index = arg
-   print('The Index is', index)
+   parser = argparse.ArgumentParser()
+   parser.add_argument('-i', '--index')
+   parser.add_argument('-m', '--markdownTransformConfig')
+   parser.add_argument('-v', dest='verbose', action='store_true')
+   args = parser.parse_args()   
+   print("The markdownTransformConfig file is: ", args.markdownTransformConfig)
+   print('The Index is', args.index)
    markdown = MarkdownToHtml()
-   prog280(markdown, int(index))	
+   prog280(markdown, int(args.index), args.markdownTransformConfig)
    
 if __name__ == "__main__":
-   main(sys.argv[1:])	
+   main(sys.argv[1:])
    
