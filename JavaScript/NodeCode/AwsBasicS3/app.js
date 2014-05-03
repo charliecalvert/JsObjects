@@ -122,8 +122,6 @@ var buildAll = function(response, config, index) {
     }
 };
 
-
-
 app.get('/buildAll', function(request, response) {
     'use strict';
     console.log("buildAll called");
