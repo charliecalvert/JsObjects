@@ -1,37 +1,53 @@
-var myObject = {
-    myProperty01 : 12,
-    myProperty02 : 4,
-    addProperties : function() {'use strict';
-        return this.myProperty01 + this.myProperty02;
-    },
-    multiplyProperties : function() {'use strict';
-        return this.myProperty01 * this.myProperty02;
-    }
-};
+elf.ShowObjects = (function() {
 
-var display = function(value) {
-    console.log(value);
-    $("#debug").append('<li>' + value + '</li>');
-};
+        function ShowObjects() {
+            $("#showElf").click(this.showElf);
+            $("#showUtilities").click(this.showUtilities);
+            $("#showMyObject").click(this.showMyObject);
+            $("#showPropertyObject").click(this.showPropertyObject);
+        }
+     
+        ShowObjects.prototype.showElf = function() {
+            elf.utilities.clearList();
+            elf.utilities.showKeys(elf);
+        };
+        
+        ShowObjects.prototype.showUtilities = function() {
+            elf.utilities.clearList();
+            elf.utilities.showKeys(elf.utilities);
+        };
 
-var getPropertyIsEnumerable = function(propName) {
-    var isEnumerable = myObject.propertyIsEnumerable(propName) ? "true" : "false";
-    display("enumerable: " + isEnumerable);
-};
+        ShowObjects.prototype.showMyObject = function() {
+            elf.utilities.clearList();
+            elf.utilities.display(elf.myObject.multiplyProperties());
+            elf.utilities.showKeys(elf.myObject);
+        };
+        
+        ShowObjects.prototype.showPropertyObject = function() {
+            elf.utilities.clearList();
+            elf.utilities.showKeys(elf.propertyObject);
+            elf.utilities.drawLine("endEnumeration", 'red');
+            elf.utilities.display("The next two properties could not be enumerated");
+            elf.utilities.display('<strong>Name:</strong> cw');
+            elf.utilities.getPropertyDescriptor(elf.propertyObject, "cw");
+            elf.utilities.getPropertyIsEnumerable(elf.propertyObject, "cw");
+            elf.utilities.display('<strong>Name:</strong> blank');
+            elf.utilities.getPropertyDescriptor(elf.propertyObject, "blank");
+            elf.utilities.getPropertyIsEnumerable(elf.propertyObject, "blank");
+        };
+        
+        ShowObjects.prototype.showPropertyLoops = function() {
+            elf.utilities.clearList();
+            elf.utilities.showPropertyLoop(elf);
+            elf.utilities.showPropertyLoop(elf.utilities);
+            elf.utilities.showPropertyLoop(elf.myObject);
+            elf.utilities.showPropertyLoop(elf.propertyObject);
+        };
 
-var getPropertyDescriptor = function(propName) {
-    var descriptor = Object.getOwnPropertyDescriptor(myObject, propName);
-    var description = JSON.stringify(descriptor);
-    display(description);
-};
+        return ShowObjects;
+    }());
 
 $(document).ready(function() {
-    display(myObject.multiplyProperties());
-    var keys = Object.keys(myObject);
-    for (var i = 0; i < keys.length; i++) {
-        var propName = keys[i];
-        display(propName);
-        getPropertyDescriptor(propName);
-        getPropertyIsEnumerable(propName);
-    }
+    var showObjects = new elf.ShowObjects();
+    showObjects.showPropertyLoops();    
 });
