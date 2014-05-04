@@ -38,6 +38,7 @@ Object.defineProperty(elf.propertyObject, "cw", {
 
 Object.defineProperty(elf.propertyObject, "getter", {   
   get: function() {
+      'use strict';
       return "Configurable, Writable"; 
   },
   enumerable: true,
@@ -46,16 +47,33 @@ Object.defineProperty(elf.propertyObject, "getter", {
 
 Object.defineProperty(elf.propertyObject, "getSetGo", {   
   get: function() {
-      return _getSetGo;
+      'use strict';
+      return this._getSetGo;
   },
-  get: function(valueSetter) {
-      _getSetGo = valueSetter; 
+  set: function(valueSetter) {
+      'use strict';
+      this._getSetGo = valueSetter; 
   },
   enumerable: true,
   configurable: true                      
 });
 
+/* Object.defineProperty(elf.propertyObject, "getSetGoValue", {   
+  get: function() {
+      'use strict';
+      return this.getSetGoValue;
+  },
+  set: function(valueSetter) {
+      'use strict';
+      this.getSetGoValue = valueSetter; 
+  },
+  enumerable: true,
+  configurable: true                      
+}); */
+
+
+// This is here for completeness. Don't do this.
 Object.defineProperty(elf.propertyObject, "blank", {
-  __proto__: null, 
-  value: "My proto is set to null. This is not done very often"                    
+  __proto__: null, // jshint ignore: line
+  value: "My proto is set to null. The proto property is depricated"                    
 });

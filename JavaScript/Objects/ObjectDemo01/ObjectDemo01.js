@@ -1,17 +1,19 @@
-elf.ShowObjects = (function() {
+elf.ShowObjects = ( function() {'use strict';
 
         function ShowObjects() {
             $("#showElf").click(this.showElf);
             $("#showUtilities").click(this.showUtilities);
             $("#showMyObject").click(this.showMyObject);
             $("#showPropertyObject").click(this.showPropertyObject);
+            
         }
-     
+
+
         ShowObjects.prototype.showElf = function() {
             elf.utilities.clearList();
             elf.utilities.showKeys(elf);
         };
-        
+
         ShowObjects.prototype.showUtilities = function() {
             elf.utilities.clearList();
             elf.utilities.showKeys(elf.utilities);
@@ -22,7 +24,7 @@ elf.ShowObjects = (function() {
             elf.utilities.display(elf.myObject.multiplyProperties());
             elf.utilities.showKeys(elf.myObject);
         };
-        
+
         ShowObjects.prototype.showPropertyObject = function() {
             elf.utilities.clearList();
             elf.utilities.showKeys(elf.propertyObject);
@@ -35,7 +37,7 @@ elf.ShowObjects = (function() {
             elf.utilities.getPropertyDescriptor(elf.propertyObject, "blank");
             elf.utilities.getPropertyIsEnumerable(elf.propertyObject, "blank");
         };
-        
+
         ShowObjects.prototype.showPropertyLoops = function() {
             elf.utilities.clearList();
             elf.utilities.showPropertyLoop(elf);
@@ -43,11 +45,12 @@ elf.ShowObjects = (function() {
             elf.utilities.showPropertyLoop(elf.myObject);
             elf.utilities.showPropertyLoop(elf.propertyObject);
         };
+       
 
         return ShowObjects;
     }());
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
     var showObjects = new elf.ShowObjects();
-    showObjects.showPropertyLoops();    
+    showObjects.showPropertyLoops();
 });
