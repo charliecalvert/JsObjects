@@ -22,7 +22,7 @@ elf.SingletonModule = ( function() {
         };
 
         SingletonModule.prototype.display = function(value) {
-            $('#debug').append('<li>' + value + '</li>');
+            $('#debug02').append('<li>' + value + '</li>');
         };
 
         return SingletonModule;
