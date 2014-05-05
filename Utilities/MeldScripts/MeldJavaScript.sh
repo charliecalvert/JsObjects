@@ -1,3 +1,3 @@
 #! /bin/bash
 
-meld /home/charlie/Git/writings/Elvenware/development/web/JavaScript /home/charlie/Dropbox/Elvenware/WebSite/JavaScript &
+meld $HOME/Git/writings/Elvenware/development/web/JavaScript $HOME/Dropbox/Elvenware/WebSite/JavaScript &
