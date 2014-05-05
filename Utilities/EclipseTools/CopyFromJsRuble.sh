@@ -14,7 +14,7 @@ copyFrom ()
 
 copyTo ()
 {
-	cp $JSOBJECTS_RUBLE_DIR/* "$TEMPLATE_DIR"/*
+	cp $JSOBJECTS_RUBLE_DIR/* "$TEMPLATE_DIR"/.
 }
 
 PS3='Please enter your choice: '
