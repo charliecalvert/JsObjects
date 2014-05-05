@@ -1,0 +1,25 @@
+/**
+ * @author ${TM_FULLNAME}
+ */
+
+define(function(require) {'use strict';
+
+    var ${TM_NEW_FILE_BASENAME} = (function() {
+    
+        function ${TM_NEW_FILE_BASENAME}(boat) {
+            this.setBoat(boat);
+        }
+        
+        ${TM_NEW_FILE_BASENAME}.prototype.setBoat = function(boat) {
+            this.boat = boat;
+        };
+
+        ${TM_NEW_FILE_BASENAME}.prototype.tack = function() {
+            return this.boat.tack();
+        };
+        
+        return ${TM_NEW_FILE_BASENAME};
+    }());
+
+    return ${TM_NEW_FILE_BASENAME};
+}); 

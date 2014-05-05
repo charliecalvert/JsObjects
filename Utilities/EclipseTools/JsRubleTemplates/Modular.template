@@ -1,0 +1,12 @@
+/**
+ * @author Charlie Calvert
+ */
+
+var ${TM_NEW_FILE_BASENAME} = (function() {
+	
+	function ${TM_NEW_FILE_BASENAME}() {
+		
+	}
+	
+	return ${TM_NEW_FILE_BASENAME};
+}());
