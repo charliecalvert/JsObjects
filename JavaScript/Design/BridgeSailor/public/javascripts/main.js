@@ -11,18 +11,25 @@ require.config({
     }
 });
 
-require(['jquery', 'SailorExpert', 'Sailor', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
-    function(jq, SailorExpert, Sailor, SailorDisplay, sloop, ketch, yawl) {
+require(['jquery', 'Elf', 'SailorExpert', 'Sailor', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
+    function(jq, elf, SailorExpert, Sailor, SailorDisplay, sloop, ketch, yawl) {
     
-    var sailorTools = {};
+    elf.sloop = sloop;
+    elf.ketch = ketch;
+    elf.yawl = yawl;
     
-    sailorTools.sailorSloop = new Sailor(sloop);
-    sailorTools.sailorKetch = new Sailor(ketch);
-    sailorTools.sailorYawl = new Sailor(yawl);    
+    elf.sailorTools = {};
+    
+    elf.sailorTools.sailorSloop = new Sailor(sloop);
+    elf.sailorTools.sailorKetch = new Sailor(ketch);
+    elf.sailorTools.sailorYawl = new Sailor(yawl);    
 
-    sailorTools.sailorExpertSloop = new SailorExpert(sloop);
-    sailorTools.sailorExpertKetch = new SailorExpert(ketch);
-    sailorTools.sailorExpertYawl = new SailorExpert(yawl);
+    elf.sailorTools.sailorExpertSloop = new SailorExpert(sloop);
+    elf.sailorTools.sailorExpertKetch = new SailorExpert(ketch);
+    elf.sailorTools.sailorExpertYawl = new SailorExpert(yawl);
     
-    var display = new SailorDisplay(sailorTools);        
+    elf.display = new SailorDisplay(elf.sailorTools); 
+    
+    // Make a global we can find.
+    this.AAAElvenwareBridge = elf;       
 });

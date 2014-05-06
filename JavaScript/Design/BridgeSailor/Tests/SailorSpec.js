@@ -11,7 +11,7 @@ define(["Sailor", "SailorExpert", "Sloop", "Yawl", "Ketch"], function(Sailor, Sa
         it("proves we can run a test", function() {
             expect(true).toBe(true);
         });
-
+        
         it("creates a sloop and checks its name", function() {
             var boatType = sloop.getBoatType();
             expect(boatType).toBe("Sloop");
