@@ -11,7 +11,7 @@ require.config({
     }
 });
 
-require(['jquery', 'Elf', 'SailorExpert', 'Sailor', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
+require(['jquery', 'Elf', 'SailorExpertBridge', 'SailorBridge', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
     function(jq, elf, SailorExpert, Sailor, SailorDisplay, sloop, ketch, yawl) {
     
     elf.sloop = sloop;
