@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#paragraph01").html("This sentence added by jQuery");
-	$("input[name=mainGroup]:checkbox").click(displayCheckboxSelection)
+	$("input[name=mainGroup]:checkbox").click(displayCheckboxSelection);
 });
 
 function displayCheckboxSelection()

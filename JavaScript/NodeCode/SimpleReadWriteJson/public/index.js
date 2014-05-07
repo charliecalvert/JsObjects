@@ -8,18 +8,16 @@ function addNames(initFirstName, initLastName, initAge) {
 
 function readJson() {
     'use strict';
-    $.getJSON('/read', function(data) {
+    $.getJSON('/read', function (data) {
         addNames(data.firstName, data.lastName, data.age);
-    })
-        .error(function(jqXHR, textStatus, errorThrown) {
-            alert("error calling JSON. Try JSONLint or JSLint: " + textStatus + errorThrown);
-        })
-        .complete(function() {
-            console.log("csc: completed call to get index.json");
-        });
+    }).error(function (jqXHR, textStatus, errorThrown) {
+        alert("error calling JSON. Try JSONLint or JSLint: " + textStatus + errorThrown);
+    }).complete(function () {
+        console.log("csc: completed call to get index.json");
+    });
 }
 
-var writeJson = function() {
+var writeJson = function () {
     'use strict';
     var userInput = {
         firstName: $('#firstName').val(),
@@ -32,14 +30,14 @@ var writeJson = function() {
         url: '/write',
         dataType: 'json',
         data: userInput,
-        success: function(data) {
+        success: function (data) {
             showDebug(data.result);
         },
         error: showError
     });
 };
 
-var showError = function(request, ajaxOptions, thrownError) {
+var showError = function (request, ajaxOptions, thrownError) {
     'use strict';
     showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
     showDebug(request.status);
@@ -48,13 +46,13 @@ var showError = function(request, ajaxOptions, thrownError) {
     showDebug(request.responseText);
 };
 
-var showDebug = function(textToDisplay) {
+var showDebug = function (textToDisplay) {
     'use strict';
     $("#debug").append('<li>' + textToDisplay + '</li>');
 };
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     'use strict';
     $("#buttonRead").click(readJson);
     $("#buttonWrite").click(writeJson);

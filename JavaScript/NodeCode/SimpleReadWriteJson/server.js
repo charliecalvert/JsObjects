@@ -18,12 +18,13 @@ app.get('/', function(req, res) {
 
 app.get('/read', function(request, response) {
     'use strict';
-    console.log('Read called.');
-    var obj;
+    console.log('Read called.');    
 
     function readData(err, data) {
-        if (err) throw err;
-        obj = JSON.parse(data);
+        if (err) {
+            throw err;
+        }
+        var obj = JSON.parse(data);
         response.send(obj);
     }
 

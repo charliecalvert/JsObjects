@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    'coverage/**',
+                    '**/coverage/**',
                     '**/node_modules/**',
                     '**/Tests/Jasmine-2.0.0/**'
                 ],

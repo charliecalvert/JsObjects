@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
+                    '*/**/jquery-1.11.1.min.js',
                     '**/coverage/**',
                     '**/node_modules/**',
                     '**/Tests/Jasmine-2.0.0/**'
