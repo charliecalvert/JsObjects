@@ -6,10 +6,10 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
     // A constructor for defining new trucks
-    function Yawl(options) {'use strict';
+    function Yawl(options) {
         this.state = options.state || "used";
         this.wheelSize = options.wheelSize || "large";
         this.color = options.color || "blue";

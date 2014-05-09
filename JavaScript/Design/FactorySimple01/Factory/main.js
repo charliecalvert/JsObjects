@@ -3,6 +3,7 @@
  */
 
 define(function(require) {
+	'use strict';
     var jquery = require("jquery-2.1.0.min");
     var SailBoatFactory = require("SailBoatFactory");
     

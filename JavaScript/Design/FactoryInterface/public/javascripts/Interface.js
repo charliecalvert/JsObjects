@@ -4,9 +4,9 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
-    var Interface = function(name, methods) {'use strict';
+    var Interface = function(name, methods) {
         if (arguments.length !== 2) {
             throw new Error("Interface constructor called with " + arguments.length + "arguments, but expected exactly 2.");
         }
@@ -22,7 +22,7 @@ define(function(require) {
     };
 
     // Static class method.
-    Interface.ensureImplements = function(instance, instanceType) {'use strict';
+    Interface.ensureImplements = function(instance, instanceType) {
         console.log("Interface ensureImplements called with: " + instanceType.name);
         for (var prop in instance) {
             /*if (!instance.hasOwnProperty(prop)) {

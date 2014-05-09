@@ -4,7 +4,7 @@
 
 var elf = {};
 
-elf.SingletonModule = ( function() {
+elf.SingletonModule = ( function() { 'use strict';
 
         function SingletonModule() {
             
@@ -29,7 +29,7 @@ elf.SingletonModule = ( function() {
 
     }());
 
-$(document).ready(function() {
+$(document).ready(function() {'use strict';
     var a = new elf.SingletonModule();
     var b = new elf.SingletonModule();
     var c = new elf.SingletonModule();
@@ -40,6 +40,6 @@ $(document).ready(function() {
     a.display(b === c); 
     a.display(c === d); 
     // Sanity Check  
-    var e = new Array();    
+    var e = [];    
     a.display(a === e);
 });
