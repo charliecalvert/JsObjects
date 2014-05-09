@@ -7,37 +7,38 @@ if ( typeof define !== 'function') {
 }
 
 define(function(require) {
+	'use strict';
     
-    var Ketch = function() {'use strict';
+    var Ketch = function() {
 
     };
 
     Ketch.prototype = {
-        getBoatType: function() {'use strict';
+        getBoatType: function() {
             return 'Ketch';
         },
         
-        tack : function() {'use strict';
+        tack : function() {
             return "Ketch tack called.";
         },
 
-        luff : function() {'use strict';
+        luff : function() {
             return "Ketch luff called.";
         },
 
-        reach : function() {'use strict';
+        reach : function() {
             return "Ketch reach called.";
         },
 
-        anchor : function() {'use strict';
+        anchor : function() {
             return "Ketch anchor called.";
         },
 
-        dock : function() {'use strict';
+        dock : function() {
             return "Ketch dock called.";
         },
     };
 
-    return new Ketch;
+    return new Ketch();
 });
 // exports.Ketch = Ketch;

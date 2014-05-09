@@ -7,6 +7,7 @@ if ( typeof define !== 'function') {
 }
 
 define(function(require) {
+	'use strict';
 
     var SailorDisplay = ( function() {
 

@@ -3,7 +3,8 @@ if ( typeof define !== 'function') {
 }
 
 define(["SailorBridge"], function(Sailor) {
-
+	'use strict';
+	
     var ExpertSailor = (function() {
         
         tack = ['port', 'starboard'];
