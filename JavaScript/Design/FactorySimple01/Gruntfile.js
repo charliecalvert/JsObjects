@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                 match: '.',
                 matchall: false,
                 extensions: 'js',
+                runWithRequireJs: 'true',
                 specNameMatcher: 'Spec',
                 captureExceptions: true,
                 junitreport: {
@@ -61,7 +62,7 @@ module.exports = function(grunt) {
             },
             all: [
                 'Tests/',
-                'Factory/'
+                'Factory'
             ]
         },
 

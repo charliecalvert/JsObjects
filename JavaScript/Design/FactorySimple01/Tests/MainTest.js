@@ -1,5 +1,7 @@
 /**
  * @author Charlie Calvert
+ * 
+ * This is the file that is used by BoatFactorySpec.html
  */
 
 require.config({
@@ -34,7 +36,7 @@ require(['boot'], function(boot) {
     'use strict';
     
     // Load the specs with second call to require
-    require(["BoatFactorySpec"], function() {
+    require(["BoatFactoryTests"], function() {
         console.log("Main called.");    
         window.onload();
     });
