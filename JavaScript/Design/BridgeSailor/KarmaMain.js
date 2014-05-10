@@ -12,8 +12,8 @@ for (var file in window.__karma__.files) {
 requirejs.config({
     baseUrl : '/base',
     paths : {        
-        'Sailor' : 'public/javascripts/Sailor',
-        'SailorExpert' : 'public/javascripts/SailorExpert',
+        'SailorBridge' : 'public/javascripts/SailorBridge',
+        'SailorExpertBridge' : 'public/javascripts/SailorExpertBridge',
         'Sloop' : 'public/javascripts/Boats/Sloop',
         'Yawl' : 'public/javascripts/Boats/Yawl',
         'Ketch' : 'public/javascripts/Boats/Ketch'

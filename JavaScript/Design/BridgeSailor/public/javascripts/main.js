@@ -11,7 +11,8 @@ require.config({
 	}
 });
 
-require(['jquery', 'Elf', 'SailorExpertBridge', 'SailorBridge', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], function(jq, elf, SailorExpert, Sailor, SailorDisplay, sloop, ketch, yawl) {'use strict';
+require(['jquery', 'Elf', 'SailorExpertBridge', 'SailorBridge', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
+		function(jq, elf, SailorExpertBridge, SailorBridge, SailorDisplay, sloop, ketch, yawl) {'use strict';
 
 	elf.sloop = sloop;
 	elf.ketch = ketch;
@@ -19,13 +20,13 @@ require(['jquery', 'Elf', 'SailorExpertBridge', 'SailorBridge', 'SailorDisplay',
 
 	elf.sailorTools = {};
 
-	elf.sailorTools.sailorSloop = new Sailor(sloop);
-	elf.sailorTools.sailorKetch = new Sailor(ketch);
-	elf.sailorTools.sailorYawl = new Sailor(yawl);
+	elf.sailorTools.sailorSloop = new SailorBridge(sloop);
+	elf.sailorTools.sailorKetch = new SailorBridge(ketch);
+	elf.sailorTools.sailorYawl = new SailorBridge(yawl);
 
-	elf.sailorTools.sailorExpertSloop = new SailorExpert(sloop);
-	elf.sailorTools.sailorExpertKetch = new SailorExpert(ketch);
-	elf.sailorTools.sailorExpertYawl = new SailorExpert(yawl);
+	elf.sailorTools.sailorExpertSloop = new SailorExpertBridge(sloop);
+	elf.sailorTools.sailorExpertKetch = new SailorExpertBridge(ketch);
+	elf.sailorTools.sailorExpertYawl = new SailorExpertBridge(yawl);
 
 	elf.display = new SailorDisplay(elf.sailorTools);
 

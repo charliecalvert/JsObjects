@@ -7,11 +7,10 @@ define(["SailorBridge"], function(Sailor) {
 	
     var ExpertSailor = (function() {
         
-        tack = ['port', 'starboard'];
-
-        this.currentTack = tack[0];        
+        var tack = ['port', 'starboard'];                
         
-        function ExpertSailor(boat) {                        
+        function ExpertSailor(boat) {    
+        	this.currentTack = tack[0];
             this.setBoat(boat);
         }
         
@@ -37,9 +36,7 @@ define(["SailorBridge"], function(Sailor) {
         
         return ExpertSailor;
         
-    }());
-    
-    
+    }());    
 
     return ExpertSailor;
 }); 
