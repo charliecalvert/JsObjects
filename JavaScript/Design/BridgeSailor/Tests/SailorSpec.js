@@ -4,7 +4,7 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(["Sailor", "SailorExpert", "Sloop", "Yawl", "Ketch"], function(Sailor, SailorExpert, sloop, yawl, ketch) {'use strict';
+define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"], function(Sailor, SailorExpert, sloop, yawl, ketch) {'use strict';
 
     describe("Simple Sailor Suite", function() {
 
