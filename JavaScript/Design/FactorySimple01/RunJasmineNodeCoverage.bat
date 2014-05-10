@@ -1,1 +1,2 @@
-grunt jasmine_node 
+//grunt jasmine_node 
+grunt karma
