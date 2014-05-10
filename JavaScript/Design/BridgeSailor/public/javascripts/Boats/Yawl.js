@@ -7,34 +7,35 @@ if ( typeof define !== 'function') {
 }
 
 define(function(require) {
+	'use strict';
 
-    var Yawl = function() {'use strict';
+    var Yawl = function() {
 
     };
 
     Yawl.prototype = {
     
-        getBoatType: function() {'use strict';
+        getBoatType: function() {
             return 'Yawl';
         },
 
-        tack : function() {'use strict';
+        tack : function() {
             return "Yawl tack called.";
         },
 
-        luff : function() {'use strict';
+        luff : function() {
             return "Yawl luff called.";
         },
 
-        reach : function() {'use strict';
+        reach : function() {
             return "Yawl reach called.";
         },
 
-        anchor : function() {'use strict';
+        anchor : function() {
             return "Yawl anchor called.";
         },
 
-        dock : function() {'use strict';
+        dock : function() {
             return "Yawl dock called.";
         }
     };

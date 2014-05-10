@@ -3,41 +3,41 @@
  */
 
 if ( typeof define !== 'function') {
-    var define = require('amdefine')(module);
+	var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
-    var Sloop = function() {'use strict';
+	var Sloop = function() {
 
-    };
+	};
 
-    Sloop.prototype = {
-    
-        getBoatType: function() {'use strict';
-            return 'Sloop';
-        },
-        
-        tack : function() {'use strict';
-            return "Sloop tack called.";
-        },
+	Sloop.prototype = {
 
-        luff : function() {'use strict';
-            return "Sloop luff called.";
-        },
+		getBoatType : function() {
+			return 'Sloop';
+		},
 
-        reach : function() {'use strict';
-            return "Sloop reach called.";
-        },
+		tack : function() {
+			return "Sloop tack called.";
+		},
 
-        anchor : function() {'use strict';
-            return "Sloop anchor called.";
-        },
+		luff : function() {
+			return "Sloop luff called.";
+		},
 
-        dock : function() {'use strict';
-            return "Sloop dock called.";
-        }
-    };
-    
-    return new Sloop();
+		reach : function() {
+			return "Sloop reach called.";
+		},
+
+		anchor : function() {
+			return "Sloop anchor called.";
+		},
+
+		dock : function() {
+			return "Sloop dock called.";
+		}
+	};
+
+	return new Sloop();
 });

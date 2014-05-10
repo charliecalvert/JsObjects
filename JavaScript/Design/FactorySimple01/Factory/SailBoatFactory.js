@@ -11,7 +11,7 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
     var Sloop = require("Sloop");
     var Yawl = require("Yawl");
@@ -24,7 +24,6 @@ define(function(require) {
     
     // Create a Boat with this function
     SailBoatFactory.prototype.createBoat = function(options) {
-        'use strict';
     
         switch (options.boatType) {
             case "sloop":

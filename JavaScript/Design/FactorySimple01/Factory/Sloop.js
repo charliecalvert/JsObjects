@@ -7,9 +7,9 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
-    function Sloop(options) {'use strict';
+    function Sloop(options) {
 
         // some defaults
         this.sailCount = options.sailCount || 2;

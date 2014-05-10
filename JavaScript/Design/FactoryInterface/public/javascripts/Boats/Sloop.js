@@ -6,30 +6,30 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {
+define(function(require) {'use strict';
 
-    var Sloop = function() {'use strict';
+    var Sloop = function() {
 
     };
 
     Sloop.prototype = {
-        tack : function() {'use strict';
+        tack : function() {
             return "Sloop tack called.";
         },
 
-        luff : function() {'use strict';
+        luff : function() {
             return "Sloop luff called.";
         },
 
-        reach : function() {'use strict';
+        reach : function() {
             return "Sloop reach called.";
         },
 
-        anchor : function() {'use strict';
+        anchor : function() {
             return "Sloop anchor called.";
         },
 
-        dock : function() {'use strict';
+        dock : function() {
             return "Sloop dock called.";
         }
     };
