@@ -1,3 +1,5 @@
+#! /bin/bash
+
 GIT_DIR=~/Git
 JSOBJECTS_DIR=JsObjects
 PRESIDENT_DIR=~/president

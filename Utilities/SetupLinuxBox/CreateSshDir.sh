@@ -1,3 +1,5 @@
+#! /bin/bash
+
 SSH_DIR=~/.ssh
 
 

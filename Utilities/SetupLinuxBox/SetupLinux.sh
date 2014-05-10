@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Before you run this script, set ELF_USER and 
 # ELF_IP=YOUR_REMOTE_MACHINE (Elastic IP)
 # Set up a Linux Box

@@ -1,3 +1,5 @@
+#! /bin/bash
+
 clear
 echo =================
 echo Running uname -a

@@ -1,3 +1,5 @@
+#! /bin/bash
+
 GIT_DIR=~/Git
 HISTORY_CODE_DIR=historycode
 HISTORY_CODE_LINK=~/HistoryCode
