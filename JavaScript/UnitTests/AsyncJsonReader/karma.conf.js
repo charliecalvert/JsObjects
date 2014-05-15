@@ -1,30 +1,39 @@
 // Karma configuration
-// Generated on Wed Apr 30 2014 10:27:22 GMT-0700 (PDT)
+// Generated on Wed Apr 30 2014 10:31:53 GMT-0700 (PDT)
 
-module.exports = function(config) {'use strict';
+module.exports = function(config) {
+	'use strict';
+
 	config.set({
 
-		// base path that will be used to resolve all patterns (eg. files, exclude)
+		// base path that will be used to resolve all patterns (eg. files,
+		// exclude)
 		basePath : '',
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks : ['jasmine', 'requirejs'],
+		frameworks : [ 'jasmine', 'requirejs' ],
 
 		// list of files / patterns to load in the browser
-		files : ['KarmaMain.js', {
-			pattern : 'Tests/*Spec.js',
+		files : [ 'TestMain.js', {
+			pattern : 'Tests/*Tests.js',
 			included : false
 		}, {
 			pattern : 'public/javascripts/**/*.js',
 			included : false
-		}],
+		}, {
+			pattern : 'jasmine-2.0.0/*.js',
+			included : false
+		} ],
 
 		// list of files to exclude
-		exclude : [],
+		exclude : [
+
+		],
 
 		// preprocess matching files before serving them to the browser
-		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+		// available preprocessors:
+		// https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors : {
 
 		},
@@ -32,7 +41,7 @@ module.exports = function(config) {'use strict';
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters : ['progress'],
+		reporters : [ 'progress' ],
 
 		// web server port
 		port : 9876,
@@ -41,15 +50,18 @@ module.exports = function(config) {'use strict';
 		colors : true,
 
 		// level of logging
-		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		// possible values: config.LOG_DISABLE || config.LOG_ERROR ||
+		// config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
 		logLevel : config.LOG_INFO,
 
-		// enable / disable watching file and executing tests whenever any file changes
+		// enable / disable watching file and executing tests whenever any file
+		// changes
 		autoWatch : true,
 
 		// start these browsers
-		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers : ['Chrome'],
+		// available browser launchers:
+		// https://npmjs.org/browse/keyword/karma-launcher
+		browsers : [ 'Chrome' ],
 
 		// Continuous Integration mode
 		// if true, Karma captures browsers, runs the tests and exits
