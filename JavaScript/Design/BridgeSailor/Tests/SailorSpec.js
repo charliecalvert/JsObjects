@@ -4,12 +4,17 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"], function(Sailor, SailorExpert, sloop, yawl, ketch) {'use strict';
+define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"], 
+    function(Sailor, SailorExpert, sloop, yawl, ketch) {'use strict';
 
     describe("Simple Sailor Suite", function() {
 
         it("proves we can run a test", function() {
             expect(true).toBe(true);
+        });
+        
+        it("proves we can load SailorBridge using require", function() {
+            expect(Sailor).toBeTruthy();
         });
         
         it("creates a sloop and checks its name", function() {
