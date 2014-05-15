@@ -4,15 +4,12 @@
 
 require.config({
 	paths : {
-		"jquery" : "jquery-2.1.1"
+		"jquery" : '"jquery-2.1.1.js'
 	}
 });
 
 require(['jquery'], 
-
-	function(jq) {
+		function(jq) {
 		'use strict';
 		console.log("Main called");
-	}
-
-);
+});
