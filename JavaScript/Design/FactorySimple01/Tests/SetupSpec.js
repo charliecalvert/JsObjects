@@ -3,12 +3,13 @@
 
 require.config({
     paths : {
-        'SailBoatFactory' : '../Factory/SailBoatFactory',  
-        'Sloop': '../Factory/Sloop',      
+        'SailBoatFactory' : '../Factory/SailBoatFactory',
+        'Sloop': '../Factory/Sloop',
         'Yawl': '../Factory/Yawl'
     }
 });
 
 require(["SimpleTests", "BoatFactoryTests"], function() {
-  console.log("Main called.");    
+	'use strict';
+	console.log("Main called.");
 });

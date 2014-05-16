@@ -2,6 +2,8 @@
 // Generated on Wed Apr 30 2014 10:31:53 GMT-0700 (PDT)
 
 module.exports = function(config) {
+  'use strict';
+ 
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,7 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'TestMain.js',            
+      'TestMain.js',
       {pattern: 'Tests/*Tests.js', included: false},
       {pattern: 'public/**/*.js', included: false},
       {pattern: 'jasmine-2.0.0/*.js', included: false}

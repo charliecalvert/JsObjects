@@ -1,20 +1,7 @@
-/*globals describe:true, it:true, expect:true, SailBoatFactory: true, Sloop: true */
+/*globals describe:true, it:true, expect:true, SailBoatFactory: true, Sloop: true, define: true */
 
-/* if ( typeof define !== 'function') {
-    var define = require('amdefine')(module);
-} */
-
-/* require.config({
-    paths : {
-        'SailBoatFactory' : '../Factory/SailBoatFactory',  
-        'Sloop': '../Factory/Sloop',      
-        'Yawl': '../Factory/Yawl'
-    }
-}); */ 
-
-
-
-define(["SailBoatFactory", "Sloop"], function(SailBoatFactory, Sloop){
+define(["SailBoatFactory", "Sloop"], function(SailBoatFactory, Sloop) {
+    'use strict';
 
     describe("Simple Suite", function() {
 
@@ -37,4 +24,4 @@ define(["SailBoatFactory", "Sloop"], function(SailBoatFactory, Sloop){
 
     });
 
-}); 
+});
