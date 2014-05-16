@@ -4,7 +4,7 @@
 function Display() {
     'use strict';
     // We have to give it a unique name in this context
-    thisDisplay = this;
+    var thisDisplay = this;
 }
 
 Display.prototype.clearResponse = function() {
@@ -24,7 +24,7 @@ Display.prototype.displayRow = function(row) {
     'use strict';
     // var middle = (!thisDisplay.isValidRow(row)) ? '' : row.MiddleName;
     // var displayMiddle = (!thisDisplay.isValidRow(row)) ? '-' : row.MiddleName;	
-    textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
+    var textToDisplay = row.presidentName + " - born: " + row.born + " died: " + row.died;
     var coreString = '<li><input id=' + row.itemName +
         ' presidentName="' + row.presidentName +
         '" born=' + row.born +

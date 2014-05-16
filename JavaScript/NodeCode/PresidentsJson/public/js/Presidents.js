@@ -13,7 +13,7 @@ var Presidents = (function() {
 
     var radioSelection = function() {
         selectedItem = $("input[name=responseGroup]:checked").attr('id');
-        presidentName = $("input[name=responseGroup]:checked").attr('presidentName');
+        var presidentName = $("input[name=responseGroup]:checked").attr('presidentName');
         var names = presidentName.split(' ');
         var firstName = names[0];
         var lastName = '';
@@ -59,7 +59,7 @@ var Presidents = (function() {
     Presidents.prototype.getPresidents = function(callback) {
         clearResponse("Get Presidents called");
         presidentMode = true;
-        request = $.ajax({
+        var request = $.ajax({
             type: "get",
             url: '/getPresidents',
             cache: false,
@@ -174,7 +174,7 @@ var Presidents = (function() {
 
 $(document).ready(function() {
     'use strict';
-    var presidents = new Presidents(new Display(), new Utilities());
+    var presidents = new Presidents(new Display(), new ELF.Utilities());
     $('button:#getPresidents').click(presidents.getPresidents);
     $('button:#insertPresident').click(presidents.insertPresident);
     $('button:#savePresidents').click(presidents.savePresidents);
