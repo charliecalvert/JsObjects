@@ -3,8 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  
-  button#buttonParseGetJson button
+
+  button#buttonGetJson Parse Json
+  button#buttonGetJsonAjax Get Json with Ajax
+  button#buttonGetMarkdown Parse Markdown
+
   p#debug
 
   div#radioDiv
+  
+  div
+    pre#markdown
