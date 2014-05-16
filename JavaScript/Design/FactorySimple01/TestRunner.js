@@ -1,12 +1,39 @@
 var express = require('express');
-var app = express();
+var path = require('path');
+var favicon = require('static-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var fs = require('fs');
 
-var logger = require('morgan');
-var favicon = require('static-favicon');
+//var routes = require('./routes/index');
+//var users = require('./routes/users');
 
-app.use(logger('dev'));
+var app = express();
+
+//view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname + '/Tests')));
+
+
+app.get('/', function(request, response) {
+    'use strict';
+    var html = fs.readFileSync(__dirname + '/Tests/BoatFactorySpec.html');
+    response.writeHeader(200, {
+        "Content-Type": "text/html"
+    });
+    response.write(html);
+    response.end();
+});
 
 var port = process.env.PORT || 30025;
 
@@ -38,19 +65,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.get('/', function(request, response) {
-    'use strict';
-    var html = fs.readFileSync(__dirname + '/Tests/BoatFactorySpec.html');
-    response.writeHeader(200, {
-        "Content-Type": "text/html"
-    });
-    response.write(html);
-    response.end();
-});
-
-
-app.use("/", express.static(__dirname + '/Tests'));
-app.use("/Factory", express.static(__dirname + '/Factory'));
+console.log("DirName: " + __dirname);
 
 app.listen(port);
 console.log('Listening on port :' + port);

@@ -20,23 +20,23 @@ define(function(require) {'use strict';
     function SailBoatFactory() {}
     
     // By default we create Sloops
-    SailBoatFactory.prototype.boatClass = Sloop;
+    SailBoatFactory.prototype.product = Sloop;
     
     // Create a Boat with this function
     SailBoatFactory.prototype.createBoat = function(options) {
     
         switch (options.boatType) {
             case "sloop":
-                this.boatClass = Sloop;
+                this.product = new Sloop(options);
                 break;
             case "yawl":
-                this.boatClass = Yawl;
+                this.product = new Yawl(options);
                 break;
             default:
-                this.boatClass = Sloop;
+                this.product = new Sloop(options);
         }
     
-        return new this.boatClass(options);
+        return this.product;
     
     };
     

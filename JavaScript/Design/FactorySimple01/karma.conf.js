@@ -17,7 +17,7 @@ module.exports = function(config) {
     files: [
       'TestMain.js',            
       {pattern: 'Tests/*Tests.js', included: false},
-      {pattern: 'Factory/*.js', included: false},
+      {pattern: 'public/**/*.js', included: false},
       {pattern: 'jasmine-2.0.0/*.js', included: false}
     ],
 

@@ -4,19 +4,19 @@
 
 var tests = [];
 for (var file in window.__karma__.files) {
-    //console.log(file);
+    // console.log(file);
     if (/Tests\.js$/.test(file)) {
-        // console.log("Testing: " + file);
+        console.log("Testing: " + file);
         tests.push(file);
     }
 }
 
 requirejs.config({
-    baseUrl : '/base',
+    baseUrl : '/base/public',
     paths : {
-        'SailBoatFactory' : 'Factory/SailBoatFactory',
-        'Sloop' : 'Factory/Sloop',
-        'Yawl' : 'Factory/Yawl'
+        'SailBoatFactory' : 'javascripts/SailBoatFactory',
+        'Sloop' : 'javascripts/Sloop',
+        'Yawl' : 'javascripts/Yawl'
     },
     shim : {
     },
