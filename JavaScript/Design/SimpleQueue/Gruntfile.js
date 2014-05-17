@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                     '*/**/jquery-?.?.?.min.js',
                     '**/coverage/**',
                     '**/node_modules/**',
-                    '**/Tests/Jasmine/**'                    
+                    '**/tests/jasmine/**'
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',
@@ -85,35 +85,35 @@ module.exports = function(grunt) {
         copy: {
             deploy: {
                 src: ['app.js',
-                      'package.json',
-                      'bin/www',
-                      'routes/index.js',
-                      'routes/users.js',
-                      'public/javascripts/SimpleQueue.js', 
-                      'public/javascripts/SimpleStack.js'
+                    'package.json',
+                    'bin/www',
+                    'routes/index.js',
+                    'routes/users.js',
+                    'public/javascripts/SimpleQueue.js',
+                    'public/javascripts/SimpleStack.js'
                 ],
                 dest: 'Deploy/',
             },
             deployTests: {
                 src: ['app.js',
-                      'Gruntfiles.js',
-                      'package.json',
-                      'TestRunner.js',
-                      'bin/www',
-                      'public/javascripts/jquery*.js',
-                      'public/javascripts/QueueMaker.js',
-                      'public/javascripts/SimpleQueue.js', 
-                      'public/javascripts/SimpleStack.js',
-                      'routes/index.js',
-                      'routes/users.js',
-                      'tests/QueueMakerSpec.js',
-                      'tests/QueueSimpleSpec.js',
-                      'tests/QueueSpec.html',
-                      'tests/jasmine/*',
-                      'views/error.jade',
-                      'views/index.jade',
-                      'views/layout.jade'
-                      
+                    'Gruntfiles.js',
+                    'package.json',
+                    'TestRunner.js',
+                    'bin/www',
+                    'public/javascripts/jquery*.js',
+                    'public/javascripts/QueueMaker.js',
+                    'public/javascripts/SimpleQueue.js',
+                    'public/javascripts/SimpleStack.js',
+                    'routes/index.js',
+                    'routes/users.js',
+                    'tests/QueueMakerSpec.js',
+                    'tests/QueueSimpleSpec.js',
+                    'tests/QueueSpec.html',
+                    'tests/jasmine/*',
+                    'views/error.jade',
+                    'views/index.jade',
+                    'views/layout.jade'
+
                 ],
                 dest: 'DeployTests/',
             },
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
         jsbeautifier: {
             files: ["**/*.js", '!**/node_modules/**',
                 '!**/coverage/**',
-                '!**/Tests/Jasmine-2.0.0/**'
+                '!**/tests/jasmine/**'
             ],
             options: {
                 js: {

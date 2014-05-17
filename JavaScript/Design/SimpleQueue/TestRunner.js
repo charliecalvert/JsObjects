@@ -39,12 +39,14 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/', function(request, response) {
-	'use strict';
-	
-	var html = fs.readFileSync(__dirname + '/tests/QueueSpec.html');
-	response.writeHeader(200, {"Content-Type": "text/html"});   
-	response.write(html);
-	response.end();
+    'use strict';
+
+    var html = fs.readFileSync(__dirname + '/tests/QueueSpec.html');
+    response.writeHeader(200, {
+        "Content-Type": "text/html"
+    });
+    response.write(html);
+    response.end();
 });
 
 
@@ -53,5 +55,3 @@ app.use("/", express.static(__dirname + '/public'));
 
 app.listen(port);
 console.log('Listening on port :' + port);
-
-
