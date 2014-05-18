@@ -2,10 +2,18 @@
  * @author Charlie Calvert
  */
 
-define(function(require) {
+
+/*globals define: true */
+
+
+require.config = {
+	"bootstrap": "bootstrap.min.js",
+	"jquery": "jquery-2.1.0.min"
+};
+
+define(["bootstrap", "jquery", "SailBoatFactory"],
+	function(bootstrap, jq, SailBoatFactory) {
 	'use strict';
-    var jquery = require("jquery-2.1.0.min");
-    var SailBoatFactory = require("SailBoatFactory");
     
     var boatFactory = new SailBoatFactory();
     var sloop = boatFactory.createBoat({
@@ -16,5 +24,5 @@ define(function(require) {
     
     $('#boatType').html(sloop.constructor.name);
     $('#sailColor').html(sloop.color);
-    $('#sailCount').html(sloop.sailCount);    
+    $('#sailCount').html(sloop.sailCount);
 });

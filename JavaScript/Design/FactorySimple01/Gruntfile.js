@@ -14,6 +14,7 @@ module.exports = function(grunt) {
 						ignores : [ '**/coverage/**',
 							'**/node_modules/**',
 							'**/Tests/Jasmine-2.0.0/**',
+							'**/bootstrap.min.js',
 							'**/jquery-2.?.?.min.js' ],
 						reporter : 'checkstyle',
 						reporterOutput : 'result.xml',

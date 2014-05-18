@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-//var routes = require('./routes/index');
-//var users = require('./routes/users');
+var routes = require('./routes/index');
 
 var app = express();
 
@@ -22,16 +21,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(request, response) {
-    'use strict';
-    var html = fs.readFileSync(__dirname + '/index.html');
-    response.writeHeader(200, {
-        "Content-Type": "text/html"
-    });
-    response.write(html);
-    response.end();
-});
-
+app.use('/', routes);
 
 var port = process.env.PORT || 30025;
 
@@ -63,10 +53,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-
 // app.use("/", express.static(__dirname + '/Tests'));
-
 
 app.listen(port);
 console.log('Listening on port :' + port);
