@@ -1,5 +1,5 @@
 // Handle Ajax and maintain list of data 
-define('clientMongo', function() {
+define(['PubSub'], function() {
 	'use strict';
 
 	var mongoData = null;

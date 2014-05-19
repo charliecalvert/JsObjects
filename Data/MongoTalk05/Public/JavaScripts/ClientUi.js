@@ -2,13 +2,13 @@
  * @author Charlie Calvert
  */
 
-define('ClientUi', function() {'use strict';
+define(['PubSub'], function() {'use strict';
 
     var itemToShow = null;
 
     function ClientUi() {
-        $('#intro').load("Public/Pieces.html #introTemplate");
-        $('#buttonBasic').load("Public/Pieces.html #buttonTemplate", function() {
+        $('#intro').load("Pieces.html #introTemplate");
+        $('#buttonBasic').load("Pieces.html #buttonTemplate", function() {
             $("#readTwo").click(readTwo);
             $("#newRecord").click(insertNewDocument);
             $("#showData").click(showData);

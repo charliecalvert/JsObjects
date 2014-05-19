@@ -3,99 +3,64 @@
  */
 
 var express = require('express');
+var path = require('path');
+var favicon = require('static-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var routes = require('./Routes/index');
+
 var app = express();
-var format = require('util').format;
-var fs = require('fs');
-var qm = require('./Library/QueryMongo');
-var queryMongo = qm.QueryMongo; 
-var markdownName = "Presidents.md";
 
-// Read the collection
-app.get('/readAll', function(request, response) {'use strict';
-	queryMongo.getAllDocuments(response);
-});
+// view engine setup
+app.set('views', path.join(__dirname, 'Views'));
+app.set('view engine', 'jade');
 
-app.get('/getDocumentCount', function(request, response) {'use strict';
-	queryMongo.getDocumentCount(response);
-});
-
-app.get('/readTwo', function(request, response) { 'use strict';
-	queryMongo.getDocuments(response, 2);
-});
-
-app.get('/readDocuments', function(request, response) { 'use strict';
-	console.log("------------");
-	console.log("Server side request for readRecords route");
-	console.log("------------");
-	console.log(request.query);
-	var numToRead = parseInt(request.query.numRequested);
-	console.log("Num to Read = " + numToRead);
-	queryMongo.getDocuments(response, numToRead);
-});
-
-function message(value) { 'use strict';
-	console.log("------------");
-	console.log(value);
-	console.log("------------");
-}
-
-app.get('/insertJson', function(request, response) { 'use strict';
-	message("Server side request for newDocument route");
-	var fileContent = fs.readFileSync('Presidents.json', 'utf8');
-	queryMongo.insertIntoCollection(response, JSON.parse(fileContent));
-});
-
-app.get('/insertMarkdown', function(request, response) { 'use strict';
-	message('insertMarkdown route called');
-	var jsonObject = queryMongo.readMarkDown("Presidents", markdownName);
-	queryMongo.insertIntoCollection(response, jsonObject);
-});
-
-app.get('/update', function(request, response) { 'use strict';
-	message('update route called');	
-	queryMongo.updateCollection(response, request.query);
-});
-
-app.get('/remove', function(request, response) {'use strict';
-	console.log('/remove Called');
-	queryMongo.removeById();	
-	response.send({ result: "removeAll Called"});
-});
-
-app.get('/removeAll', function(request, response) {'use strict';
-	console.log('/removeAll Called');
-	queryMongo.removeAll(response);	
-});
-
-app.get('/readMarkdown', function(request, response) { 'use strict';
-	console.log("readMarkdown called");
-	var jsonObject = queryMongo.readMarkDown('Presidents', markdownName);
-	response.send(jsonObject);
-});
-
-
-app.get('/readFileOut', function(request, response) { 'use strict';
-	console.log('readFileOut called');
-	queryMongo.readFileOut(response);
-});
-
-// Default.
-app.get('/', function(request, result) {'use strict';
-	var html = fs.readFileSync(__dirname + '/Public/index.html');
-	result.writeHeader(200, { "Content-Type" : "text/html" });
-	result.write(html);
-	result.end();
-});
-
-/*
-app.get('/insertDocument', function(request, result) {
-		
-}); */
+app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", express.static(__dirname + '/Library'));
-app.use("/Public/", express.static(__dirname + '/Public'));
+app.use(express.static(__dirname + '/Public'));
 app.use("/Tests/", express.static(__dirname + '/Tests'));
-app.use("/Library/", express.static(__dirname + '/Library'));
+app.use("/", express.static(__dirname + '/Library'));
+
+app.use('/', routes);
+
+/// catch 404 and forwarding to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+/// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
 app.listen(30025);
 console.log('Listening on port 30025');
