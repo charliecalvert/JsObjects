@@ -9,6 +9,7 @@ var format = require('util').format;
 var fs = require('fs');
 var assert = require('assert');
 var loadConfig = require('./Library/LoadConfig.js').loadConfig;
+var argv = require('minimist')(process.argv.slice(2));
 
 var QueryMongo = (function() {
 	'use strict';
@@ -126,7 +127,7 @@ var QueryMongo = (function() {
 	};
 
 	var removeCollection = function(database) {
-		getDatabase(function(dabase) {
+		getDatabase(function(database) {
 			var collection = database.collection(collectionName);
 			collection.remove(function(err) {
 				if (err) {
@@ -141,8 +142,26 @@ var QueryMongo = (function() {
 
 }());
 
-var q = new QueryMongo();
-q.run('show');
+function run(option) {
+	var q = new QueryMongo();
+	q.run(option);
+}
+
+if (argv.option) {
+	console.log(argv.option);
+	run(argv.option);
+} else {
+	console.log("Please pass in an option");
+	console.log();
+	console.log("  Usage: node CreateData.js --option=[OPTION]");
+	console.log("    Options are: insert, show, remove ");
+	console.log();
+	console.log("  Examples: ");
+	console.log("    node CreateData.js --option=show");
+	console.log("    node CreateData.js --option=insert");
+	console.log("    node CreateData.js --option=remove");
+}
+
 // q.getData('insert');
 // q.getData('remove');
 // q.getData('show');
