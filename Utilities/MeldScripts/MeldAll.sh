@@ -1,12 +1,14 @@
 #! /bin/bash
 
 AWSBASIC="Aws Basic bin to JsObjects"
-AWSBASIC_WRITING="AWS Basic bin to writing tech"
+AWSBASIC_WRITING="AWS Basic JsObject to Writing Tech"
+AWSBASIC_TECH_BIN="AWS Writing Tech to AWS BASIC Bin"
 UNIT_TESTS="Unit Tests writings and dropbox"
 JAVASCRIPT_WD="JavaScript writings and dropbox"
+DATABASE="Database writings and dropbox"
 
 PS3='Please enter your choice: '
-options=("Elvenware Root" "$AWSBASIC" "$AWSBASIC_WRITING" "$UNIT_TESTS" "$JAVASCRIPT_WD" "Quit")
+options=("Elvenware Root" "$AWSBASIC" "$AWSBASIC_WRITING" "$AWSBASIC_TECH_BIN" "$UNIT_TESTS" "$JAVASCRIPT_WD" "$DATABASE" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -22,6 +24,10 @@ do
             echo "$AWSBASIC_WRITING"
             meld $HOME/Git/writings/Tech/AwsS3/AwsS3.JsObj $JSOBJECTS/JavaScript/NodeCode/AwsBasicS3
             ;;
+        "$AWSBASIC_TECH_BIN")
+            echo "Copy from"
+            meld $HOME/Git/writings/Tech/AwsS3/AwsS3.JsObj $HOME/bin/AwsBasic
+            ;;
         "$UNIT_TESTS")
             echo "$UNIT_TESTS"
             meld $HOME/Git/writings/Elvenware/development/web/UnitTests $HOME/Dropbox/Elvenware/WebSite/UnitTests
@@ -29,6 +35,10 @@ do
         "$JAVASCRIPT_WD")
             echo "$JAVASCRIPT_WD"
             meld $HOME/Git/writings/Elvenware/development/web/JavaScript $HOME/Dropbox/Elvenware/WebSite/JavaScript
+            ;;
+        "$DATABASE")
+            echo "$DATABASE"            
+            meld ~/Dropbox/Elvenware/WebSite/Database ~/Git/writings/Elvenware/development/database/ 
             ;;
         "Quit")
             break
