@@ -162,6 +162,3 @@ if (argv.option) {
 	console.log("    node CreateData.js --option=remove");
 }
 
-// q.getData('insert');
-// q.getData('remove');
-// q.getData('show');
