@@ -2,12 +2,12 @@
 
 /**
  * @author Charlie Calvert
+ * 
+ * Version 0.0.1
  */
 
-// http://mongodb.github.io/node-mongodb-native/api-generated/db.html
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-// var mongoServer = mongodb.Server;
 var fs = require('fs');
 var exec = require('child_process').exec;
 var assert = require('assert');
