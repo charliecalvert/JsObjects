@@ -6,15 +6,12 @@ var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
-var fs = require('fs');
 var assert = require('assert');
 var loadConfig = require('./LoadConfig.js').loadConfig;
 var argv = require('minimist')(process.argv.slice(2));
 
 var QueryMongo = (function() {
 	'use strict';
-
-	// var url = 'mongodb://127.0.0.1:27017/test';
 
 	var url = null;
 	var that = null;
@@ -40,7 +37,6 @@ var QueryMongo = (function() {
 		console.log('Called QueryMongo.getDatabase: ');
 		if (database !== null) {
 			console.log('database exists');
-			// showDatabase(database);
 			if (database.openCalled === false) {
 				console.log('calling open database');
 				database.open(function(err, database) {
@@ -57,13 +53,9 @@ var QueryMongo = (function() {
 		} else {
 			console.log('Querying for database: ' + url);
 			MongoClient.connect(url, function(err, databaseResult) {
-				/*
-				 * if (err) { throw err; }
-				 */
 				assert.equal(null, err);
 				assert.ok(databaseResult !== null);
 				database = databaseResult;
-				// showDatabase(database);
 				callback(database);
 			});
 		}
@@ -87,7 +79,7 @@ var QueryMongo = (function() {
 		getDatabase(function(database) {
 			var count, collection = database.collection(collectionName);
 			var records = [];
-			
+
 			for (count = 10000; count < 10005; count++) {
 				var newRecord = {
 					firstName : "Abe" + count,
@@ -104,7 +96,7 @@ var QueryMongo = (function() {
 				if (err) {
 					throw err;
 				} else {
-					console.log('Inserted: ' + JSON.stringify(docs));
+					console.log('Inserted: ' + JSON.stringify(docs, null, 4));
 					database.close();
 				}
 			});
@@ -117,7 +109,6 @@ var QueryMongo = (function() {
 		getDatabase(function(database) {
 			var collection = database.collection(collectionName);
 
-			// Send the collection to the client.
 			collection.find().toArray(function(err, theArray) {
 				console.dir(theArray);
 				database.close();
@@ -161,4 +152,3 @@ if (argv.option) {
 	console.log("    node CreateData.js --option=insert");
 	console.log("    node CreateData.js --option=remove");
 }
-
