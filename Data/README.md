@@ -5,7 +5,7 @@ Here you will find examples of how to use:
 - MongoDb
 - CouchDb
 
-##MondoTalk.json
+##MongoTalk.json
 
 When using the Mongo examples, you have to specify what database
 you want to use. Many of the examples use a file called **MongoTalk.json**
@@ -23,9 +23,9 @@ should be called **Config**. Here is the contents of the file:
         "selectedUrl": 0
     }
 
-## Details
+### Details
 
-Here are more detailed directions on how to proceed. 
+Here are more detailed directions on how to create **MongoTalk.json**. 
 
 Create the directory:
 
