@@ -27,6 +27,7 @@ define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop', 'Ketch', 'Yawl',
 			$("#sailor").click(this.runSailor);
 			$("#sailorExpert").click(runSailExpert);
 			$("#unitTest").click(unitTest);
+			$("#readMe").click(readMe);
 		}
 
 		Control.prototype.runSailor = function(bridge) {
@@ -63,6 +64,10 @@ define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop', 'Ketch', 'Yawl',
 			window.open('/UnitTest');
 		};
 
+		var readMe = function() {
+			window.open('https://github.com/charliecalvert/JsObjects/blob/master/JavaScript/Design/BridgeSailor/README.md');
+		};
+		
 		return Control;
 
 	}());
