@@ -10,13 +10,13 @@ initializing it with different classes:
 	var bridge = new SailorBridge();
 
 	bridge.setBoat(sloop);
-	runBridge(bridge);
+	runBridge(bridge); // Now the bridge runs like a sloop
 
 	bridge.setBoat(yawl);
-	runBridge(bridge);
+	runBridge(bridge); // Now the bridge runs like a yawl
 
 	bridge.setBoat(ketch);
-	runBridge(bridge);
+	runBridge(bridge); // Now the bridge runs like a ketch
 
 **runBridge** will behave differently depending on 
 what kind of bridge we pass in. If you pass in a **sloop** then
