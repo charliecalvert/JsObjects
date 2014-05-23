@@ -1,38 +1,39 @@
 define([ "SailorBridge" ], function(Sailor) {
 	'use strict';
-
-	var ExpertSailor = (function() {
+	
+	var SailorBridgeExpert = (function() {
 
 		var tack = [ 'port', 'starboard' ];
 
-		function ExpertSailor(boat) {
-			this.currentTack = tack[0];
+		function SailorBridgeExpert(boat) {
+			this.index = 0;
+			this.currentTack = tack[this.index];
 			this.setBoat(boat);
 		}
 
-		ExpertSailor.prototype = new Sailor();
+		SailorBridgeExpert.prototype = new Sailor();
 
-		ExpertSailor.prototype.tack = function(index) {
-			this.currentTack = tack[index];
+		SailorBridgeExpert.prototype.tack = function() {
+			this.currentTack = tack[this.index];
 			console.log("Tacking to " + this.currentTack);
-			return this.boat.tack();
+			return "Expert Says that " + this.boat.tack() + " Tacking to " + this.currentTack + ".";
 		};
 
-		ExpertSailor.prototype.tackPort = function() {
+		SailorBridgeExpert.prototype.tackPort = function() {
 			return this.tack(0);
 		};
 
-		ExpertSailor.prototype.tackStarboard = function() {
+		SailorBridgeExpert.prototype.tackStarboard = function() {
 			return this.tack(1);
 		};
 
-		ExpertSailor.prototype.getCurrentTack = function() {
+		SailorBridgeExpert.prototype.getCurrentTack = function() {
 			return "This " + this.boat.getBoatType() + " is on the " + this.currentTack + " tack.";
 		};
 
-		return ExpertSailor;
+		return SailorBridgeExpert;
 
 	}());
 
-	return ExpertSailor;
+	return SailorBridgeExpert;
 });

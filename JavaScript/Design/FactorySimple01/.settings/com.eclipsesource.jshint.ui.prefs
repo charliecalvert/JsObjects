@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-excluded=//*.json\:bower_components//*\:node_lib//*\:node_modules//*
+excluded=**/jasmine-2.0.0//*.js\:.grunt//*\://*.json\://*.min.js\://require.js\:bower_components//*\:node_lib//*\:node_modules//*
 included=//*.jjs\://*.js\://*.jshintrc\://*.mjs\://*.njs\://*.pjs\://*.vjs
 projectSpecificOptions=true

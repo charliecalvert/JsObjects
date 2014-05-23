@@ -1,5 +1,5 @@
 {
   "jquery": true,
   "strict": true,
-  "predef" : define
+  "predef" : ["define"]
 }

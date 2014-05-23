@@ -1,9 +1,5 @@
 /*globals describe:true, it:true, expect:true, SailBoatFactory: true, Sloop: true */
 
-if ( typeof define !== 'function') {
-    var define = require('amdefine')(module);
-}
-
 define(["SailBoatFactory", "Sloop", "Yawl"], function(SailBoatFactory, Sloop, Yawl) {'use strict';
 
 // define([], function() {'use strict';
@@ -51,4 +47,4 @@ define(["SailBoatFactory", "Sloop", "Yawl"], function(SailBoatFactory, Sloop, Ya
 
     });
 
-}); 
+});

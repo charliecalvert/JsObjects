@@ -3,6 +3,8 @@
  * See http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/
  */
 
+/* globals define: true */
+
 if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
@@ -21,4 +23,4 @@ define(function(require) {'use strict';
 
     return Sloop;
 
-}); 
+});
