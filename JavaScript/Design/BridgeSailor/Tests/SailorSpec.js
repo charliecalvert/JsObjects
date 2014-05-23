@@ -4,8 +4,8 @@ if ( typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"], 
-    function(Sailor, SailorExpert, sloop, yawl, ketch) {'use strict';
+define(["SailorBridge", "SailorBridgeExpert", "Sloop", "Yawl", "Ketch"], 
+    function(SailorBridge, SailorBridgeExpert, sloop, yawl, ketch) {'use strict';
 
     describe("Simple Sailor Suite", function() {
 
@@ -14,7 +14,7 @@ define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"],
         });
         
         it("proves we can load SailorBridge using require", function() {
-            expect(Sailor).toBeTruthy();
+            expect(SailorBridge).toBeTruthy();
         });
         
         it("creates a sloop and checks its name", function() {
@@ -33,23 +33,23 @@ define(["SailorBridge", "SailorExpertBridge", "Sloop", "Yawl", "Ketch"],
         });
 
         it("shows that a sailor can tack", function() {
-            var sailor = new Sailor(sloop);
+            var sailor = new SailorBridge(sloop);
             var result = sailor.tack();
             expect(result).toBe('Sloop tack called.');
         });
         
          it("shows that a sailor expert can tack", function() {
-            var sailor = new SailorExpert(sloop);
+            var sailor = new SailorBridgeExpert(sloop);
             var result = sailor.tack();
-            expect(result).toBe('Sloop tack called.');
+            expect(result).toBe('Expert Says that Sloop tack called. Tacking to port.');
         });
         
         
         it("shows that a sailor expert can tack to port", function() {
-            var sailor = new SailorExpert(sloop);
+            var sailor = new SailorBridgeExpert(sloop);
             var tackPort = sailor.tackPort();
             var currentTack = sailor.getCurrentTack();            
-            expect(tackPort).toBe('Sloop tack called.');
+            expect(tackPort).toBe('Expert Says that Sloop tack called. Tacking to port.');
             expect(currentTack).toBe("This Sloop is on the port tack.");
         });
     });

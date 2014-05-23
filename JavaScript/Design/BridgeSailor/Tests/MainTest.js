@@ -3,15 +3,17 @@
  */
 
 require.config({
+	baseUrl: '../',
     paths : {
-        'SailorBridge' : '../public/javascripts/SailorBridge',  
-        'SailorExpertBridge' : '../public/javascripts/SailorExpertBridge',
-        'Sloop': '../public/javascripts/Boats/Sloop',      
-        'Yawl': '../public/javascripts/Boats/Yawl',
-        'Ketch': '../public/javascripts/Boats/Ketch',
-        'jasmine' : 'jasmine-2.0.0/jasmine',
-        'jasmine-html' : 'jasmine-2.0.0/jasmine-html',
-        'boot' : 'jasmine-2.0.0/boot',
+        'SailorBridge' : 'javascripts/SailorBridge',  
+        'SailorBridgeExpert' : 'javascripts/SailorBridgeExpert',
+        'Sloop': 'javascripts/Boats/Sloop',      
+        'Yawl': 'javascripts/Boats/Yawl',
+        'Ketch': 'javascripts/Boats/Ketch',
+        'SailorSpec': 'Tests/SailorSpec',
+        'jasmine' : 'Tests/jasmine-2.0.0/jasmine',
+        'jasmine-html' : 'Tests/jasmine-2.0.0/jasmine-html',
+        'boot' : 'Tests/jasmine-2.0.0/boot',        
     },
     shim : {
         'jasmine' : {

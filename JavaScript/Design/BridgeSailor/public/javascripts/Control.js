@@ -5,8 +5,9 @@
 define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop',
 		'Ketch', 'Yawl', "Utilities" ], function(SailorBridgeExpert,
 		SailorBridge, sloop, ketch, yawl, utilities) {
-
-	var Control = (function() {
+		'use strict';
+		
+	var Control = (function() {		
 
 		var elf;
 
@@ -25,6 +26,7 @@ define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop',
 			
 			$("#sailor").click(this.runSailor);
 			$("#sailorExpert").click(runSailExpert);
+			$("#unitTest").click(unitTest);
 		}
 
 		Control.prototype.runSailor = function(bridge) {
@@ -55,6 +57,10 @@ define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop',
 			elf.utilities.show(bridge.tack());
 			elf.utilities.show(bridge.tack());
 			elf.utilities.show(bridge.tack());
+		};
+
+		var unitTest = function() {
+			window.open('/UnitTest');
 		};
 
 		return Control;

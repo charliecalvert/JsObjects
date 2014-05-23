@@ -13,7 +13,8 @@ module.exports = function(grunt) {
                 ignores: [
                     '**/coverage/**',
                     '**/node_modules/**',
-                    '**/Tests/Jasmine-2.0.0/**'
+                    '**/Tests/Jasmine-2.0.0/**',
+                    '**/jquery*.js'
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',

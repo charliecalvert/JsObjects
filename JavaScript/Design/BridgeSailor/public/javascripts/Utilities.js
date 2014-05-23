@@ -3,6 +3,7 @@
  */
 
 define(["Elf"], function(elf) {
+	'use strict';
 
 	elf.utilities = {
 		clear : function() {

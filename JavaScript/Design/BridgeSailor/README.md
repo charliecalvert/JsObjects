@@ -24,3 +24,13 @@ pattern and show that it can
 - Concrete: Sloop, Ketch, Yawl
  
 [modular]: http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptModules.html
+
+##Emulation
+
+Note that we have:
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+Go to:
+ 
+	Chrome | Developer Tools (Debugger) | Console | Emulation
