@@ -18,8 +18,12 @@ initializing it with different classes:
 	bridge.setBoat(ketch);
 	runBridge(bridge);
 
-The point is that runBridge will behave differently depending on 
-what kind of bridge we pass in. The actual program is a bit more 
+**runBridge** will behave differently depending on 
+what kind of bridge we pass in. If you pass in a **sloop** then
+it behaves like a sloop, if you pass in **yawl** then it behaves
+like a yawl, etc. 
+
+The actual program is a bit more 
 complex because we have two different kinds of bridges: a 
 **sailorBridge** and a **sailorBridgeExpert**. The essence of the
 pattern, however, is caught in the code above.
