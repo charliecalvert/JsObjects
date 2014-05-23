@@ -37,24 +37,24 @@ define([ 'SailorBridgeExpert', 'SailorBridge', 'SailorDisplay', 'Sloop',
 
 		var setBridge = function(bridge) {
 			bridge.setBoat(elf.sloop);
-			runBridge("Sloop", true);
+			runBridge(bridge, "Sloop", true);
 
 			bridge.setBoat(elf.yawl);
-			runBridge("Yawl", false);
+			runBridge(bridge, "Yawl", false);
 
 			bridge.setBoat(elf.ketch);
-			runBridge("Ketch", false);
+			runBridge(bridge, "Ketch", false);
 		};
 
-		var runBridge = function(message, clearList) {
+		var runBridge = function(bridge, message, clearList) {
 			if (clearList) {
 				elf.utilities.clear();
 			}
 
 			elf.utilities.banner(message);
-			elf.utilities.show(elf.sailorBridge.tack());
-			elf.utilities.show(elf.sailorBridge.tack());
-			elf.utilities.show(elf.sailorBridge.tack());
+			elf.utilities.show(bridge.tack());
+			elf.utilities.show(bridge.tack());
+			elf.utilities.show(bridge.tack());
 		};
 
 		return Control;
