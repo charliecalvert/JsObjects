@@ -2,9 +2,9 @@
  * New node file
  */
 
-define([ 'SailorBridgeExpert', 'SailorBridge', 'SailorDisplay', 'Sloop',
+define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop',
 		'Ketch', 'Yawl', "Utilities" ], function(SailorBridgeExpert,
-		SailorBridge, SailorDisplay, sloop, ketch, yawl, utilities) {
+		SailorBridge, sloop, ketch, yawl, utilities) {
 
 	var Control = (function() {
 
