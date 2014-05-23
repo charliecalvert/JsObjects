@@ -7,29 +7,15 @@ require.config({
 		"Sloop" : 'Boats/Sloop',
 		"Ketch" : 'Boats/Ketch',
 		"Yawl" : 'Boats/Yawl',
+		"Control": "Control",
 		"jquery" : 'jquery-2.1.0.min'
 	}
 });
 
-require(['jquery', 'Elf', 'SailorExpertBridge', 'SailorBridge', 'SailorDisplay', 'Sloop', 'Ketch', 'Yawl'], 
-		function(jq, elf, SailorExpertBridge, SailorBridge, SailorDisplay, sloop, ketch, yawl) {'use strict';
+require([ 'jquery', "Elf", "Control" ], function(jq, elf, Control) {
+	'use strict';
 
-	elf.sloop = sloop;
-	elf.ketch = ketch;
-	elf.yawl = yawl;
-
-	elf.sailorTools = {};
-
-	elf.sailorTools.sailorSloop = new SailorBridge(sloop);
-	elf.sailorTools.sailorKetch = new SailorBridge(ketch);
-	elf.sailorTools.sailorYawl = new SailorBridge(yawl);
-
-	elf.sailorTools.sailorExpertSloop = new SailorExpertBridge(sloop);
-	elf.sailorTools.sailorExpertKetch = new SailorExpertBridge(ketch);
-	elf.sailorTools.sailorExpertYawl = new SailorExpertBridge(yawl);
-
-	elf.display = new SailorDisplay(elf.sailorTools);
-
-	// Make a global we can find.
-	this.AAAElvenwareBridge = elf;
+	
+	elf.control = new Control(elf);
+	elf.control.runSailor();
 });

@@ -2,10 +2,6 @@
  * @author Charlie Calvert
  */
 
-if ( typeof define !== 'function') {
-    var define = require('amdefine')(module);
-}
-
 define(function(require) {
 	'use strict';
 
@@ -21,26 +17,9 @@ define(function(require) {
                 });                                    
             }
 
-            var clear = function() {
-                $("#boatList").empty();
-            };
-            
-            var show = function(value) {
-                console.log(value);
-                $("#boatList").append("<li>" + value + "</li>");
-            };
+       
 
-            var runSailor = function(sailorSloop, sailorKetch, sailorYawl) {
-                clear();
-                show("===============");
-                show("Working with sailor");
-                show("===============");
-
-                show(sailorSloop.tack());
-                show(sailorKetch.tack());
-                show(sailorYawl.tack());
-            };
-
+           
             var runSailorExpert = function(sailorExpertSloop, sailorExpertKetch, sailorExpertYawl) {
                 clear();
                 show("===============");
