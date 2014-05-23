@@ -1,0 +1,32 @@
+[
+		{
+			"pathToPython" : "/usr/bin/python3.3",
+			"copyFrom" : "/home/charlie/Dropbox/Elvenware/CloudNotes/Prog282",
+			"copyTo" : "/home/charlie/Documents/CloudNotes/Prog282",
+			"filesToCopy" : [ "Week01", "Week02", "Week03", "Week04", "Week05" ]
+		},
+		{
+			"pathToPython" : "/usr/bin/python3.3",
+			"copyFrom" : "/media/GoogleDrive/Elvenware/CloudNotes/Assignments",
+			"copyTo" : "/var/www/bc/Assignments",
+			"htmlPieces" : [ "StartBackOne.html", "NavBackOne.html",
+					"footer.html", "end.html" ],
+			"filesToCopy" : [ "CodeAcademy01", "CodeAcademy03",
+					"CopyToS3Part01", "CopyToS3Part02", "Cordova01",
+					"Evernote01", "GoogleDriveAndFolders", "GuestAdditions",
+					"InfoManager01", "LampBootstrap", "MongoMark",
+					"NodeExpressMongo01", "NodeModulesAssignment",
+					"NodeRoutes01", "OnlinePresence", "OwnCloudInstall",
+					"Pandoc01", "Prog270-011414", "Prog272Midterm2014",
+					"Prog280Midterm2014", "PubSub01", "PubSubRequire",
+					"StackDropbox", "StackGoogle" ]
+		},
+		{
+			"pathToPython" : "/usr/bin/python3.3",
+			"copyFrom" : "/home/charlie/Dropbox/StackEdit",
+			"copyTo" : "/var/www/bc",
+			"htmlPieces" : [ "StartBackOne.html", "NavBackOne.html",
+					"footer.html", "end.html" ],
+			"filesToCopy" : [ "DropBox", "MongoMark", "Test", "index" ]
+		}
+]

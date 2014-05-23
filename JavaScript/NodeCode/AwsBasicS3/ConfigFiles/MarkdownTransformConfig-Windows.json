@@ -1,0 +1,31 @@
+[
+		{
+			"pathToPython" : "C:\\Python\\Python33\\Python.exe",
+			"copyFrom" : "C:\Users\charlie\Dropbox\Elvenware\CloudNotes\Prog282",
+			"copyTo" : "C:\Src\Web\Elvenware\charlie\books\CloudNotes\Prog282",
+			"filesToCopy" : [ "Week01", "Week02", "Week03", "Week04", "Week05" ]
+		},
+		{
+			"pathToPython" : "C:\\Python\\Python33\\Python.exe",
+			"copyFrom" : "C:\\Users\\Charlie\\DropBox\\StackEdit",
+			"copyTo" : "C:\\Users\\Public\\Documents\\TestSite\\Site",
+			"htmlPieces" : [ "StartLinux.html", "NavLinux.html", "footer.html",
+					"end.html" ],
+			"filesToCopy" : [ "DropBox", "MongoMark", "Test", "index" ]
+		},
+		{
+			"pathToPython" : "C:\\Python\\Python33\\Python.exe",
+			"copyFrom" : "C:\\Src\\GoogleDrive\\Elvenware\\CloudNotes\\Assignments",
+			"copyTo" : "C:\\Users\\Public\\Documents\\TestSite\\Site",
+			"htmlPieces" : [ "StartLinux.html", "NavLinux.html", "footer.html",
+					"end.html" ],
+			"filesToCopy" : [ "CopyToS3Part01", "CopyToS3Part02" ]
+		},
+		{
+			"pathToPython" : "C:\\Python\\Python33\\Python.exe",
+			"copyFrom" : "C:\\Users\\Charlie\\DropBox\\StackEdit",
+			"copyTo" : "C:\\Temp\\Site",
+			"htmlPieces" : [ "StartLinux.html", "NavLinux.html", "footer.html",
+					"end.html" ],
+			"filesToCopy" : [ "DropBox", "MongoMark", "Test", "index" ]
+		} ]

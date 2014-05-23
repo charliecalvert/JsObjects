@@ -43,7 +43,7 @@ define(function(require) {'use strict';
 
             var listClick = function(event) {       
                 removeClasses();         
-                $(intro).html(event.target.innerText);
+                $(intro).html(event.target.innerHTML);
                 $(intro).addClass('blue');
             };
 
