@@ -28,6 +28,12 @@ complex because we have two different kinds of bridges: a
 **sailorBridge** and a **sailorBridgeExpert**. The essence of the
 pattern, however, is caught in the code above.
 
+##Bridges
+
+Why does the bridge pattern exist?
+
+For now, try looking at [this diagram](BridgeSailor.class.violet.html)
+
 ## ELF
 
 The **elf** object is used only to help you debug the program. All the 
