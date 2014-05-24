@@ -32,7 +32,9 @@ pattern, however, is caught in the code above.
 
 Why does the bridge pattern exist?
 
-For now, try looking at [this diagram](BridgeSailor.class.violet.html)
+For now, try looking at [this diagram][bridgeDiagram]
+
+[bridgeDiagram]: http://charliecalvert.github.io/JsObjects/JavaScript/Design/BridgeSailor.class.violet.html
 
 ## ELF
 
