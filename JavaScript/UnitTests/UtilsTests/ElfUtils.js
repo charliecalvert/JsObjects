@@ -69,6 +69,10 @@ var padNumber = function(numberToPad, width, padValue) {
     }
 };
 
+function endsWith(value, suffix) {
+    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+}
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)
