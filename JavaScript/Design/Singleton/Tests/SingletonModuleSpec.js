@@ -5,26 +5,30 @@ define(['SingletonModule'], function(SingletonModule) {
 
 	describe("Singleton Module Suite", function() {
 
-		var a, b, c, d;
+		var a, b, c, d, f;
 		
 		beforeEach(function() {
 			a = new SingletonModule();
 			b = new SingletonModule();
 			c = new SingletonModule();
-			d = new SingletonModule();	
+			d = new SingletonModule();
+			f = [];
 		});
 		
 		it("proves we can run a test", function() {
 			expect(true).toBe(true);
 		});
 
+		it("proves we can run a sanity check that we expect to fail", function() {
+			var e = [];
+			expect(a === e).toBe(false);
+		});
+		
 		it("proves we can create a singletonModule01", function() {		
 			expect(a === b).toBe(true);
 		});
 
 		it("proves we can create a singletonModule02", function() {
-			
-
 			expect(a === c).toBe(true);
 		});
 
@@ -41,9 +45,8 @@ define(['SingletonModule'], function(SingletonModule) {
 			expect(c === d).toBe(true);
 		});
 
-		it("proves we can create a singletonModule06", function() {
-			var e = [];
-			expect(a === e).toBe(false);
+		it("proves we can run another sanity check", function() {
+			expect(a === f).toBe(false);
 		});
 
 	});

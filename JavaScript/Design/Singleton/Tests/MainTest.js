@@ -33,7 +33,7 @@ require(['boot'], function(boot) {
     'use strict';
     
     // Load the specs with second call to require
-    require(["SingletonModuleSpec", "SingletonSpec"], function() {
+    require(["SingletonModuleSpec"], function() {
         console.log("Main called.");    
         window.onload();
     });

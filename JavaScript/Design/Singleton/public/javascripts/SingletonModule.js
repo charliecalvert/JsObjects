@@ -9,13 +9,11 @@ define(function() {
 	elf.SingletonModule = (function() {
 		'use strict';
 
-		var _instance;
-		var that;
+		var _instance = null;
 
 		function SingletonModule() {
-			that = this;
 
-			if (_instance == null) {
+			if (_instance === null) {
 				_instance = this;
 			} else {
 				return _instance;
@@ -27,7 +25,7 @@ define(function() {
 		};
 
 		SingletonModule.prototype.display = function(value) {
-			$('#debug02').append('<li>' + value + '</li>');
+			$('#debug01').append('<li>' + value + '</li>');
 		};
 	
 		return SingletonModule;

@@ -15,8 +15,8 @@ require.config({
 /*
  * Do this two step dance with two requires when you want to load jasmine.
  */ 
-require(['jquery', "Singleton", "SingletonModule"], 
-	function(jq, Singleton, SingletonModule) {
+require(['jquery', "SingletonModule"], 
+	function(jq, SingletonModule) {
     'use strict';
     console.log("Main called.");    
     $(document).ready(function() {
