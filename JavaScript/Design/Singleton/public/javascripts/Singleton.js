@@ -2,16 +2,30 @@
  * @author Charlie Calvert
  */
 
+define(function() {
+
 // From: http://code.google.com/p/jslibs/wiki/JavascriptTips#Singleton_pattern
+
+var isTruthy = function(value) {
+	if (typeof value === 'undefined') {
+		return false
+	} else if (value === false) {
+		return value;
+	} else if (value === null) {
+		return false;
+	} else {
+		return true;
+	}
+};
 
 function MySingletonClass() {'use strict';
 
-    if (arguments.callee._singletonInstance) {
-        return arguments.callee._singletonInstance;
+    if (!isTruthy(this._instance)) {
+    	return this;
     }
 
-    arguments.callee._singletonInstance = this;
-
+    this._instance = this;
+    
     this.foo = function() {
         // ...
     };
@@ -23,24 +37,8 @@ function MySingletonClass() {'use strict';
 
 MySingletonClass.prototype.shared = 35;
 
-$(document).ready(function() { 'use strict';
-    // This example is confusing. We create an instance of the class with 
-    // new, and then even if we don't call new when assigning b, we still get 
-    // back the instance that was created with new. And shared is available 
-    // on all "instances", since each "instance" is really just the first 
-    // instance.
-    var a = new MySingletonClass();
-    var b = MySingletonClass();      // jshint ignore: line
-    var c = new MySingletonClass();
-    var d = MySingletonClass();      // jshint ignore: line
-    a.display(a === b);
-    b.display(a === c);
-    a.display(a === d);
-    a.display(b === c);
-    b.display(c === d);
-    var e = {};
-    a.display(a === e);
-    a.display(a.shared);
-    a.display(b.shared);
-    
+
+
+return MySingletonClass;
+
 });

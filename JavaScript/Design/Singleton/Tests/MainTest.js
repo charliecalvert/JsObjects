@@ -4,7 +4,8 @@
 
 require.config({
     paths : {
-        'Singleton': '../public/javascripts/Singleton',
+        'Singleton': 'javascripts/Singleton',
+        'SingletonModule': 'javascripts/SingletonModule',
         'jasmine' : 'jasmine-2.0.0/jasmine',
         'jasmine-html' : 'jasmine-2.0.0/jasmine-html',
         'boot' : 'jasmine-2.0.0/boot'
@@ -32,7 +33,7 @@ require(['boot'], function(boot) {
     'use strict';
     
     // Load the specs with second call to require
-    require(["SingletonSpec"], function() {
+    require(["SingletonModuleSpec"], function() {
         console.log("Main called.");    
         window.onload();
     });

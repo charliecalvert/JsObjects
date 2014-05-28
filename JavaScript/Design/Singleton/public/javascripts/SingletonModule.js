@@ -2,44 +2,37 @@
  * @author Charlie Calvert
  */
 
-var elf = {};
+define(function() {
 
-elf.SingletonModule = ( function() { 'use strict';
+	var elf = {};
 
-        function SingletonModule() {
-            
-            
-            if (arguments.callee._singletonInstance) {
-                return arguments.callee._singletonInstance;
-            } else {
-                arguments.callee._singletonInstance = this;
-                return this;
-            }
-        }
+	elf.SingletonModule = (function() {
+		'use strict';
 
-        SingletonModule.prototype.publicMethod = function() {
-            return "I'm the SingletonModule.publicMethod.";
-        };
+		var _instance;
+		var that;
 
-        SingletonModule.prototype.display = function(value) {
-            $('#debug02').append('<li>' + value + '</li>');
-        };
+		function SingletonModule() {
+			that = this;
 
-        return SingletonModule;
+			if (_instance == null) {
+				_instance = this;
+			} else {
+				return _instance;
+			}
+		}
 
-    }());
+		SingletonModule.prototype.publicMethod = function() {
+			return "I'm the SingletonModule.publicMethod.";
+		};
 
-$(document).ready(function() {'use strict';
-    var a = new elf.SingletonModule();
-    var b = new elf.SingletonModule();
-    var c = new elf.SingletonModule();
-    var d = new elf.SingletonModule();
-    a.display(a === b);
-    a.display(a === c);
-    a.display(a === d);
-    a.display(b === c); 
-    a.display(c === d); 
-    // Sanity Check  
-    var e = [];    
-    a.display(a === e);
+		SingletonModule.prototype.display = function(value) {
+			$('#debug02').append('<li>' + value + '</li>');
+		};
+	
+		return SingletonModule;
+
+	}());
+
+	return elf.SingletonModule;
 });
