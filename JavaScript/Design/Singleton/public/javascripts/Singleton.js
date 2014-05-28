@@ -37,8 +37,6 @@ function MySingletonClass() {'use strict';
 
 MySingletonClass.prototype.shared = 35;
 
-
-
 return MySingletonClass;
 
 });

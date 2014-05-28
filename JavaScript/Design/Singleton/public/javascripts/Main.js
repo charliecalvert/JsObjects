@@ -21,7 +21,7 @@ require(['jquery', "Singleton", "SingletonModule"],
     console.log("Main called.");    
     $(document).ready(function() {
     	var singleton = new SingletonModule();
-    	singleton.workout();
+    	singleton.display("bar");
     });
 });
 
