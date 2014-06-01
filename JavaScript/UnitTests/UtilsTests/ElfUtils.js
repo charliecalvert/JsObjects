@@ -3,6 +3,7 @@
  */
 var path = require('path');
 var fs = require('fs');
+var os = require('os');
 var mkdirp = require('mkdirp');
 
 /**
@@ -73,6 +74,16 @@ function endsWith(value, suffix) {
     return value.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
+
+// from: http://stackoverflow.com/a/1203361
+function getExtension(fileName) {
+    var a = fileName.split(".");
+    if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
+        return "";
+    }
+    return a.pop().toLowerCase();
+}
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)
@@ -130,6 +141,8 @@ exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin;
 exports.padNumber = padNumber;
+exports.endsWith = endsWith;
+exports.getExtension = getExtension;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;

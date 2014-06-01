@@ -116,6 +116,27 @@ describe("Test01", function() {
         expect(actual).toBe(expected);
     });
 
+    it("shows we can get ends with", function() {
+        var actual = eu.endsWith("This is foo and boo", "boo");
+        expect(actual).toBeTruthy();
+    });
+
+    it ("shows we can get an extension", function () {
+        var actual = eu.getExtension("/tom/sam/adam.md");
+        expect(actual).toBe('md');
+    });
+
+    it ("shows we can get an extension with no extension", function () {
+        var actual = eu.getExtension("/tom/sam/adam");
+        expect(actual).toBe('');
+    });
+    
+});
+
+describe("Test White Space", function() {
+    'use strict';
+
+    
     it("strips white space", function() {
         var stringToStrip = "This string";
         var expected = "Thisstring";
@@ -167,14 +188,14 @@ describe("Test01", function() {
     });
 
 
-    it('encodes html', function() {
+    it('encodes html with escape', function() {
         var html = "<p>Foo</p>";
         var expected = "&lt;p&gt;Foo&lt;/p&gt;";
         var actual = eu.htmlEscape(html);
         expect(actual).toBe(expected);
     });
 
-    it('encodes html', function() {
+    it('encodes html with unescape', function() {
         var expected = "<p>Foo</p>";
         var html = "&lt;p&gt;Foo&lt;/p&gt;";
         var actual = eu.htmlUnescape(html);
@@ -185,5 +206,6 @@ describe("Test01", function() {
         var homeDir = eu.getHomeDir();
         expect(homeDir).not.toBe(null);
     });
-
+    
+   
 });

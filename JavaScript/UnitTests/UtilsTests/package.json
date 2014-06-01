@@ -1,8 +1,17 @@
 {
   "name": "UtilsTest",
-  "version": "0.1.0",
-  "devDependencies": {},
+  "version": "0.1.1",  
+  "description": "Tests basic utilitity functions",
+  "repository" : {
+     "type" : "git", 
+     "url" : "http://github.com/charliecalvert/JsObjects.git"
+  },
+  "scripts": {
+    "start": "jasmine-node --matchall tests"
+  },
   "dependencies": {
-    "mkdirp": "~0.3.5"
-  }
+    "mkdirp": "~0.3.5",
+    "require": "^0.5.0"
+  },
+  "devDependencies": {}
 }
