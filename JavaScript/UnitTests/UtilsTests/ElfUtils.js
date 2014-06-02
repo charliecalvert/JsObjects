@@ -77,11 +77,12 @@ function endsWith(value, suffix) {
 
 // from: http://stackoverflow.com/a/1203361
 function getExtension(fileName) {
-    var a = fileName.split(".");
-    if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
+    fileName = fileName.trim();
+    var array = fileName.split(".");    
+    if( array.length === 1 || ( array[0] === "" && array.length === 2 ) ) {
         return "";
     }
-    return a.pop().toLowerCase();
+    return array.pop().toLowerCase();
 }
 
 function stripWhiteSpace(value) {

@@ -130,6 +130,11 @@ describe("Test01", function() {
         var actual = eu.getExtension("/tom/sam/adam");
         expect(actual).toBe('');
     });
+
+    it ("shows we can get an extension with complex string", function () {
+        var actual = eu.getExtension("/tom/sam/tim.doo/adam.json");
+        expect(actual).toBe('json');
+    });
     
 });
 
