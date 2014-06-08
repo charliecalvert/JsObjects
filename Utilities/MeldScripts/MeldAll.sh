@@ -6,9 +6,10 @@ AWSBASIC_TECH_BIN="AWS Writing Tech to AWS BASIC Bin"
 UNIT_TESTS="Unit Tests writings and dropbox"
 JAVASCRIPT_WD="JavaScript writings and dropbox"
 DATABASE="Database writings and dropbox"
+CLOUD_WRITING="Cloud"
 
 PS3='Please enter your choice: '
-options=("Elvenware Root" "$AWSBASIC" "$AWSBASIC_WRITING" "$AWSBASIC_TECH_BIN" "$UNIT_TESTS" "$JAVASCRIPT_WD" "$DATABASE" "Quit")
+options=("Elvenware Root" "$AWSBASIC" "$AWSBASIC_WRITING" "$AWSBASIC_TECH_BIN" "$UNIT_TESTS" "$JAVASCRIPT_WD" "$DATABASE" "$CLOUD_WRITING" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -39,6 +40,10 @@ do
         "$DATABASE")
             echo "$DATABASE"            
             meld ~/Dropbox/Elvenware/WebSite/Database ~/Git/writings/Elvenware/development/database/ 
+            ;;
+        "$CLOUD_WRITING")
+            echo "$CLOUD_WRITING"            
+            meld ~/Git/writings/Elvenware/development/cloud/ ~/Dropbox/Elvenware/WebSite/Cloud/
             ;;
         "Quit")
             break
