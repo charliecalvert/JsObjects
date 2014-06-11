@@ -14,13 +14,12 @@ revealHtml = 1
 
 
 # process and Copy the files
-def makeItSo(markdown, folder, files, technique = normalHtml):
+def makeItSo(markdown, folder, files, htmlPieces, technique = normalHtml):
 	elfFiles.ensureDir(markdown.destination)
 	if technique == revealHtml:
 		markdown.runReveal(files);
 	else:
-		markdown.runner(files, ['start.html', 'nav.html', 'footer.html', 'end.html']);
-		#markdown.runner(files, ['StartLinux.html', 'NavLinux.html', 'footer.html', 'end.html']);
+		markdown.runner(files, htmlPieces);
 
 
 
@@ -37,7 +36,8 @@ def prog280(markdown, index, markdownTransformConfig):
 	markdown.copyFrom = configDictionary['copyFrom'];
 	markdown.destination = configDictionary['copyTo'];
 	files = configDictionary['filesToCopy'];
-	makeItSo(markdown, "", files);
+	htmlPieces = configDictionary['htmlPieces'];
+	makeItSo(markdown, "", files, htmlPieces);
 
 def main(argv):
    index = 0;   
@@ -52,5 +52,5 @@ def main(argv):
    prog280(markdown, int(args.index), args.markdownTransformConfig)
    
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   main(sys.argv[1:])	
    

@@ -2,53 +2,77 @@
  * Module dependencies.
  */
 
+// Core
 var express = require('express');
-//var routes = require('./routes');
-//var user = require('./routes/user');
-var http = require('http');
 var path = require('path');
-var walkDirs = require("./Source/WalkDirs").walkDirs;
-var s3Code = require("./Source/S3Code");
+var favicon = require('static-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+// Frequent
 var fs = require("fs");
 var exec = require('child_process').exec;
+var http = require('http');
+
+// Custom
+var s3Code = require("./Source/S3Code");
+var walkDirs = require("./Source/WalkDirs").walkDirs;
+
+var routes = require('./routes/index');
+var users = require('./routes/user');
+var awsCopy = require('./routes/AwsCopy');
 
 var app = express();
 
-// all environments
-app.set('port', process.env.PORT || 30025);
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
+// Set up the view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'Source')));
 app.use(express.static(path.join(__dirname, 'Images')));
-app.use(express.favicon('Images/favicon16.ico'));
+
+app.use('/', routes);
+app.use('/users', users);
+app.use('/AwsCopy', awsCopy);
+
+// app.use(express.favicon('Images/favicon16.ico'));
 // app.use(express.favicon(path.join(__dirname, 'favicon16.ico')));
 
-// development only
-if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
+//development error handler
+//will print stacktrace
+if (app.get('env') === 'development') {
+ app.use(function(err, req, res, next) {
+     res.status(err.status || 500);
+     res.render('error', {
+         message: err.message,
+         error: err
+     });
+ });
 }
 
-app.get('/', function(request, response) {
-    'use strict';
-    var html = fs.readFileSync(__dirname + '/public/index.html');
-    response.writeHeader(200, {
-        "Content-Type": "text/html"
-    });
-    response.write(html);
-    response.end();
+//production error handler
+//no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+ res.status(err.status || 500);
+ res.render('error', {
+     message: err.message,
+     error: {}
+ });
 });
 
 //app.get('/', routes.index);
-// app.get('/users', user.list);
+//app.get('/AwsCopy', routes.AwsCopy);
+//app.get('/users', user.list);
 
 /*
- * You will need to edit one or more objects in Options.json.
+ * You will need to edit one or more objects in Options.json. 
  * They have this general format
 
 var options = {
@@ -146,6 +170,8 @@ app.get('/getBuildConfig', function(request, response) {
     options = JSON.parse(options);
     response.send(options);
 });
+
+app.set('port', process.env.PORT || 30025);
 
 http.createServer(app).listen(app.get('port'), function() {
     'use strict';

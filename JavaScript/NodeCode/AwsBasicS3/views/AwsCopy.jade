@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div
+    img(src="Bar02.png", alt="The Bar")
+
+  button#listBuckets Get Buckets
+  button#copyToS3 Copy to S3
+  button#getOptions Get Options
+  button#backButton &lt;&lt;
+  button#forwardButton &gt;&gt;
+
+  div
+    img(src="Bar02.png", alt="The Bar")
+
+  div.displayKing#bucketDiv
+    ul#buckets
+
+  p#copyResult -
+
+  div.displayKing
+    label(for='documentCount') Document Count
+    p#documentCount -
+    label(for='currentDocument') Current Document
+    p#currentDocument -
+    label(for='pathToConfig') pathToConfig
+    input(type="text")#pathToConfig
+    label(for='reallyWrite') reallyWrite
+    input(type="text")#reallyWrite
+    label(for='bucketName') bucketName
+    input(type="text")#bucketName
+    label(for='folderToWalk') folderToWalk
+    input(type="text")#folderToWalk
+    label(for='s3RootFolder') s3RootFolder
+    input(type="text")#s3RootFolder
+    label(for='createFolderToWalkOnS3') createFolderToWalkOnS3
+    input(type="text")#createFolderToWalkOnS3
+    label(for='createIndex') createIndex
+    input(type="text")#createIndex
+    label(for='filesToIgnore') filesToIgnore
+    input(type="text")#filesToIgnore
+
+  div
+    img(src="Bar02.png", alt="The Bar")

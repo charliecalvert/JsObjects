@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET AwsCopy listing. */
 router.get('/', function(req, res) {
 	'use strict';
-	res.render('index', {
-		title : 'Express'
+	res.render('AwsCopy', {
+		title : 'AwsBasicS3'
 	});
 });
 
