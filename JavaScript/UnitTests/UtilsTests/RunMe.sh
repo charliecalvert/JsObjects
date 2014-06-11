@@ -1,1 +1,3 @@
-jasmine-node --matchall tests
+#! /bin/bash
+
+jasmine-node --captureExceptions --matchall --verbose tests
