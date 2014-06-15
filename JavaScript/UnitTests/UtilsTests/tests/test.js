@@ -162,7 +162,7 @@ describe("Test01", function() {
     
     it ("shows we can get a file name from a windows path", function() {
     	var test = "C:\\Sam\\adam.json";
-    	var actual = eu.getFileNameFromPath(test);
+    	var actual = eu.getFileNameFromPath(test, "\\");
     	expect(actual).toBe("adam.json");
     });
 });
