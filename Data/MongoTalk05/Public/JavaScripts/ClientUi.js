@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define(['PubSub'], function() {'use strict';
+define(function() {'use strict';
 
     var itemToShow = null;
 
