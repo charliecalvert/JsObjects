@@ -105,7 +105,7 @@ function swapExtension(fileName, ext) {
  *    var actual = eu.getFileNameFromPath(test);
  */
 function getFileNameFromPath(fileName, pathSeparator) {
-	if (pathSeparator == null) {
+	if (typeof pathSeparator === 'undefined') {
 		pathSeparator = path.sep;
 	}
 	var index = fileName.lastIndexOf(pathSeparator);
