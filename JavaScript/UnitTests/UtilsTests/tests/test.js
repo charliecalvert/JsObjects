@@ -136,6 +136,35 @@ describe("Test01", function() {
         expect(actual).toBe('json');
     });
     
+    it ("shows we can swap extensions for linux", function() {
+    	var test = "/tom/sam/tim.doo/adam.json";
+    	var actual = eu.swapExtension(test, ".md");
+    	expect(actual).toBe("/tom/sam/tim.doo/adam.md");
+    });
+    
+    it ("shows we can swap extensions for windows", function() {
+    	var test = "C:\\Sam\\adam.json";
+    	var actual = eu.swapExtension(test, ".md");
+    	expect(actual).toBe("C:\\Sam\\adam.md");
+    });
+    
+    it ("shows we can get a file name from a linux long path", function() {
+    	var test = "/tom/sam/tim.doo/adam.json";
+    	var actual = eu.getFileNameFromPath(test, '/');
+    	expect(actual).toBe("adam.json");
+    });
+    
+    it ("shows we can get a file name from no path", function() {
+    	var test = "adam.json";
+    	var actual = eu.getFileNameFromPath(test);
+    	expect(actual).toBe("adam.json");
+    });
+    
+    it ("shows we can get a file name from a windows path", function() {
+    	var test = "C:\\Sam\\adam.json";
+    	var actual = eu.getFileNameFromPath(test);
+    	expect(actual).toBe("adam.json");
+    });
 });
 
 describe("Test White Space", function() {

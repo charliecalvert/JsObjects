@@ -85,6 +85,19 @@ function getExtension(fileName) {
     return array.pop().toLowerCase();
 }
 
+function swapExtension(fileName, ext) {
+	return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
+}
+
+function getFileNameFromPath(fileName, pathSeparator) {
+	if (pathSeparator == null) {
+		pathSeparator = path.sep;
+	}
+	var index = fileName.lastIndexOf(pathSeparator);
+	return fileName.substr(index + 1, fileName.length - index -1);
+}
+
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)
@@ -144,6 +157,8 @@ exports.elfJoin = elfJoin;
 exports.padNumber = padNumber;
 exports.endsWith = endsWith;
 exports.getExtension = getExtension;
+exports.swapExtension = swapExtension;
+exports.getFileNameFromPath = getFileNameFromPath;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
