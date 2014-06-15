@@ -6,6 +6,7 @@ var assert = require("assert");
 var eu = require("../ElfUtils");
 var path = require("path");
 var os = require("os");
+var Guid = require("guid");
 
 describe("Test01", function() {
     'use strict';
@@ -165,6 +166,22 @@ describe("Test01", function() {
     	var actual = eu.getFileNameFromPath(test, "\\");
     	expect(actual).toBe("adam.json");
     });
+
+    it ("shows we can create a guid", function() {
+        var guid = eu.getGuid();
+        expect(guid).not.toBeNull();
+    });
+
+    it ("shows we can create a guid and test that it is a guid", function() {
+        var guid = eu.getGuid();
+        expect(Guid.isGuid(guid)).toBe(true);
+    });
+
+    it ("shows we can create a guid and test that it is a string", function() {
+        var guid = eu.getGuid();
+        expect(typeof guid.toString()).toBe('string');
+    });
+
 
 });
 

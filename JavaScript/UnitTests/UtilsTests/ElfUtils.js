@@ -5,6 +5,7 @@ var path = require('path');
 var fs = require('fs');
 var os = require('os');
 var mkdirp = require('mkdirp');
+var Guid = require("guid");
 
 /**
  * Test if a folder exists, if it does not, make it
@@ -112,6 +113,9 @@ function getFileNameFromPath(fileName, pathSeparator) {
 	return fileName.substr(index + 1, fileName.length - index -1);
 }
 
+function getGuid() {
+    return Guid.create();
+}
 
 function stripWhiteSpace(value) {
     'use strict';
@@ -174,6 +178,7 @@ exports.endsWith = endsWith;
 exports.getExtension = getExtension;
 exports.swapExtension = swapExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
+exports.getGuid = getGuid;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
