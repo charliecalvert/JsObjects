@@ -89,6 +89,21 @@ function swapExtension(fileName, ext) {
 	return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
 }
 
+/*
+ * @name: getFileNameFromPath
+ * 
+ * We can't be sure of what the path separator will be since 
+ * we don't know the platform ahead of time. If you need 
+ * to use a pathseparator that may differ from the one for 
+ * the current OS, then you need to specify it:
+ * 
+ *    var actual = eu.getFileNameFromPath(test, "\\");
+ *    
+ * Otherwise just pass in the string and let the function handle 
+ * the separator automatically:
+ * 
+ *    var actual = eu.getFileNameFromPath(test);
+ */
 function getFileNameFromPath(fileName, pathSeparator) {
 	if (pathSeparator == null) {
 		pathSeparator = path.sep;
