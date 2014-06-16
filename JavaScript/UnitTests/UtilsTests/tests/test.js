@@ -182,7 +182,13 @@ describe("Test01", function() {
         expect(typeof guid.toString()).toBe('string');
     });
 
-
+    it ("matches a guid in markdown", function(done) {
+        eu.getGuidFromMarkdown(__dirname + '/Test.md', function(guid) {
+            expect(guid).toBe('NONE');
+            done();
+        });
+        
+    })
 });
 
 describe("Test White Space", function() {

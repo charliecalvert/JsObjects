@@ -117,6 +117,16 @@ function getGuid() {
     return Guid.create();
 }
 
+function getGuidFromMarkdown(fileName, test) {
+	fs.readFile(fileName, 'utf8', function(err, data) {
+		if (err) {
+			throw err;
+		}
+		var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
+		test(result)
+	});
+}
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)
@@ -179,6 +189,7 @@ exports.getExtension = getExtension;
 exports.swapExtension = swapExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
 exports.getGuid = getGuid;
+exports.getGuidFromMarkdown = getGuidFromMarkdown;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
