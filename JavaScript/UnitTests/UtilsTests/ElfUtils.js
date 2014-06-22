@@ -5,6 +5,7 @@ var path = require('path');
 var fs = require('fs');
 var os = require('os');
 var mkdirp = require('mkdirp');
+var Guid = require("guid");
 
 /**
  * Test if a folder exists, if it does not, make it
@@ -85,6 +86,47 @@ function getExtension(fileName) {
     return array.pop().toLowerCase();
 }
 
+function swapExtension(fileName, ext) {
+	return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
+}
+
+/*
+ * @name: getFileNameFromPath
+ * 
+ * We can't be sure of what the path separator will be since 
+ * we don't know the platform ahead of time. If you need 
+ * to use a pathseparator that may differ from the one for 
+ * the current OS, then you need to specify it:
+ * 
+ *    var actual = eu.getFileNameFromPath(test, "\\");
+ *    
+ * Otherwise just pass in the string and let the function handle 
+ * the separator automatically:
+ * 
+ *    var actual = eu.getFileNameFromPath(test);
+ */
+function getFileNameFromPath(fileName, pathSeparator) {
+	if (typeof pathSeparator === 'undefined') {
+		pathSeparator = path.sep;
+	}
+	var index = fileName.lastIndexOf(pathSeparator);
+	return fileName.substr(index + 1, fileName.length - index -1);
+}
+
+function getGuid() {
+    return Guid.create();
+}
+
+function getGuidFromMarkdown(fileName, test) {
+	fs.readFile(fileName, 'utf8', function(err, data) {
+		if (err) {
+			throw err;
+		}
+		var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
+		test(result)
+	});
+}
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)
@@ -144,6 +186,10 @@ exports.elfJoin = elfJoin;
 exports.padNumber = padNumber;
 exports.endsWith = endsWith;
 exports.getExtension = getExtension;
+exports.swapExtension = swapExtension;
+exports.getFileNameFromPath = getFileNameFromPath;
+exports.getGuid = getGuid;
+exports.getGuidFromMarkdown = getGuidFromMarkdown;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;

@@ -1,11 +1,11 @@
 // Handle Ajax and maintain list of data 
-define(['PubSub'], function() {
+define(function() {
 	'use strict';
 
 	var mongoData = null;
 
 	function ClientMongo() {
-		console.log("Client Mongo constructor called");
+		console.log("ClientMongo constructor called");
 		$.subscribe('getDocument', getDocument);
 		$.subscribe('insertNewDocument', insertNewDocument);
 		$.subscribe('readAll', readAll);

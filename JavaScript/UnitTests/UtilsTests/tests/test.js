@@ -6,6 +6,7 @@ var assert = require("assert");
 var eu = require("../ElfUtils");
 var path = require("path");
 var os = require("os");
+var Guid = require("guid");
 
 describe("Test01", function() {
     'use strict';
@@ -136,6 +137,58 @@ describe("Test01", function() {
         expect(actual).toBe('json');
     });
     
+    it ("shows we can swap extensions for linux", function() {
+    	var test = "/tom/sam/tim.doo/adam.json";
+    	var actual = eu.swapExtension(test, ".md");
+    	expect(actual).toBe("/tom/sam/tim.doo/adam.md");
+    });
+    
+    it ("shows we can swap extensions for windows", function() {
+    	var test = "C:\\Sam\\adam.json";
+    	var actual = eu.swapExtension(test, ".md");
+    	expect(actual).toBe("C:\\Sam\\adam.md");
+    });
+    
+    it ("shows we can get a file name from a linux long path", function() {
+    	var test = "/tom/sam/tim.doo/adam.json";
+    	var actual = eu.getFileNameFromPath(test, '/');
+    	expect(actual).toBe("adam.json");
+    });
+    
+    it ("shows we can get a file name from no path", function() {
+    	var test = "adam.json";
+    	var actual = eu.getFileNameFromPath(test);
+    	expect(actual).toBe("adam.json");
+    });    
+    
+    it ("shows we can get a file name from a windows path", function() {
+    	var test = "C:\\Sam\\adam.json";
+    	var actual = eu.getFileNameFromPath(test, "\\");
+    	expect(actual).toBe("adam.json");
+    });
+
+    it ("shows we can create a guid", function() {
+        var guid = eu.getGuid();
+        expect(guid).not.toBeNull();
+    });
+
+    it ("shows we can create a guid and test that it is a guid", function() {
+        var guid = eu.getGuid();
+        expect(Guid.isGuid(guid)).toBe(true);
+    });
+
+    it ("shows we can create a guid and test that it is a string", function() {
+        var guid = eu.getGuid();
+        expect(typeof guid.toString()).toBe('string');
+    });
+
+    it ("matches a guid in markdown", function(done) {
+        eu.getGuidFromMarkdown(__dirname + '/Test.md', function(guid) {
+            expect(guid).toBe('NONE');
+            done();
+        });
+        
+    })
 });
 
 describe("Test White Space", function() {
