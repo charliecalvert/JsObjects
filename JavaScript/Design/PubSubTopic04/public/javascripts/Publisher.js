@@ -3,7 +3,7 @@
  */
 
 // Publisher
-define(['jquery', 'tinyPubSub'], function() {
+define(['TinyPubSub'], function(TinyPubSub) {
 	'use strict';
 	
 	function publisher() {

@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define(['jquery', 'tinyPubSub'], function() {
+define(['TinyPubSub'], function(TinyPubSub) {
 	'use strict';
 	
 	/*
