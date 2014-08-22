@@ -1,13 +1,19 @@
 var request = require('request');
 
-request('http://127.0.0.1:5984/', function (error, response, body) {
+var server = ['http://127.0.0.1:5984/', 'http://192.168.2.30:5984/'];
+var index = 1;
+
+console.log('Using: ' + server[index] + '\n');
+
+request(server[index], function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(body); 
   }
 })
 
+console.log('Available databases:\n');
 
-request('http://127.0.0.1:5984/_all_dbs', function (error, response, body) {
+request(server[index] + '_all_dbs', function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(body);
   }

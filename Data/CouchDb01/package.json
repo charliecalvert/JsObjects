@@ -1,9 +1,12 @@
 {
-  "name": "Couch01",
-  "description": "Learn about Presidents",
-  "version": "0.0.2",
-  "private": true,
-  "dependencies": {
-    "request": "latest"
+    "name": "Couch01",
+    "description": "Learn about Presidents",
+    "version": "0.0.2",
+    "private": true,
+    "scripts": {
+        "start": "node server.js"   
+    },
+    "dependencies": {
+        "request": "~2.40.0"
   }
 }
