@@ -6,36 +6,7 @@
 
 angular.module('elfPlayer', ['elfGameMod'])
 .factory('gameEventService', function($rootScope) { 'use strict';
-	return {
-		message: "",
-
-		towerBroadcast: function(message) {
-			this.message = message;
-			this.broadcastMessage('towerBroadcast');
-			return true;
-		},
-
-		debugBroadcast: function(message) {
-			this.message = message;
-			this.broadcastMessage('debugBroadcast');
-			return true;
-		},
-
-		encounterBroadcast: function(message) {
-			this.message = message;
-			this.broadcastMessage('encounterBroadcast');
-		},
-
-		changeDirectionBroadcast: function(message) {
-			this.message = message;
-			this.broadcastMessage('changeDirectionBroadcast');
-			return true;
-		},
-
-		broadcastMessage: function(broadcastType) {
-			$rootScope.$broadcast(broadcastType);
-		}
-	};
+	return new GameEvent($rootScope);
 })
 .controller('ElfController', function($scope, gameEventService, elfGameService) { 'use strict';
 

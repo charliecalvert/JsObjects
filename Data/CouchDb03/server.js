@@ -1,7 +1,10 @@
 var request = require('request');
 
+var servers = ['http://127.0.0.1:5984/', 'http://192.168.2.30:5984/'];
+var index = 1;
+
 var sayHello = function() {
-	request('http://127.0.0.1:5984/', function (error, response, body) {
+	request(servers[index], function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		console.log(body); 
 	  }
@@ -9,19 +12,25 @@ var sayHello = function() {
 }
 
 var showDatabases = function() {
-	request('http://127.0.0.1:5984/_all_dbs', function (error, response, body) {
-	  if (!error && response.statusCode == 200) {
-	  	console.log(body);
-	  	var bodyString = JSON.parse(body); 
-	  	for (var i = 0; i < bodyString.length; i++) {
-			console.log(bodyString[i]);
+	var command = servers[index] + '_all_dbs';
+	console.log("showDatabases called with: ", command);
+	request(command, function (error, response, body) {
+		if(error) {
+			console.log(error);
+		} else if (response.statusCode == 200) {
+			console.log(body);
+			var bodyString = JSON.parse(body); 
+			for (var i = 0; i < bodyString.length; i++) {
+				console.log(bodyString[i]);
+			}
+		} else {
+			console.log("Error status code: ", response.statusCode);
 		}
-	  }
 	})
 }
 
 var createDatabase = function() {
-	request.put('http://127.0.0.1:5984/prog282', function (error, response, body) {
+	request.put(servers[index] + 'prog282', function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		console.log(body);
 	  }
@@ -36,7 +45,7 @@ var putData = function () {
 		"age": 3
 	};
 
-	request.post('http://localhost:5984/prog282 -d data -H "Content-Type: application/json"' , function (error, response, body) {
+	request.post(servers[1] + 'prog282 -d data -H "Content-Type: application/json"' , function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		console.log(body);
 	  }
@@ -44,7 +53,7 @@ var putData = function () {
 }
 
 var getDoc = function() {
-	var req = 'http://localhost:5984/prog28201/_all_docs';
+	var req = servers[index] + 'prog28201/_all_docs';
 	request.get(req , function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		console.log(body);
@@ -55,7 +64,7 @@ var getDoc = function() {
 }  
 
 var bigName = function() {
-	var req = 'http://localhost:5984/prog28201/bigName';
+	var req = servers[1] + 'prog28201/bigName';
 	request.get(req , function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 		console.log(body);
