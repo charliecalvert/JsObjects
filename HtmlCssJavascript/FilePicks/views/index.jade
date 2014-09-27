@@ -4,5 +4,9 @@ block content
   h1= title
   p Welcome to #{title}
 
-  <input type="file" id="file" name="file" enctype="multipart/form-data" />
-  <p><textarea id="fileData" rows="50" cols="85" name="myTxtArea">data</textarea></p>
+  div
+    input#file(type='file', name='file', enctype='multipart/form-data', multiple='')
+    select#fileList(size='5', name='fileList') foo
+  div
+    p
+      textarea#fileData(rows='50', cols='85', name='myTxtArea') content
