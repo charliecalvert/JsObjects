@@ -1,10 +1,16 @@
 # PubSub Require
 
-This is an example of using the Publish Subscribe 
-pattern in JavaScript. The topic objects are found
-here:
+This is an example of using the Publish Subscribe pattern in JavaScript. The TinyPubSub object was found here:
 
 - [Cowboy](https://github.com/cowboy/jquery-tiny-pubsub)
+
+Here is an explanation of the technology used in this program.
+
+- [Patterns on Elvenware][pelf]
+
+[pelf]: http://www.elvenware.com/charlie/development/web/JavaScript/JavaScriptPatterns.html#publish-and-subscribe
+
+##RequireJs
 
 This example uses requireJs to load in our JavaScript
 files. This means we don't need a series of **script**
