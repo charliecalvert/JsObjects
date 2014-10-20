@@ -12,17 +12,17 @@ define(['TinyPubSub'], function(TinyPubSub) {
 	 */
 	function subscriber() {
 		console.log("Subscriber constructor called.");
-		$.subscribe('debug', function01);
-		$.subscribe('debugDetail', function02);
+		$.subscribe('debug', listenForDebugEvent);
+		$.subscribe('debugDetail', listenForDebugDetailEvent);
 	}
 
-	function function01(event, customMessage) {
+	function listenForDebugEvent(event, customMessage) {
 		console.log("Subscriber function01 called.");
 		console.log(event);
 		$("#message01").html(customMessage.message);
 	}
 
-	function function02(event, customMessage) {
+	function listenForDebugDetailEvent(event, customMessage) {
 		console.log("Subscriber function02 called.");
 		console.log(event);
 		$("#message02").html(customMessage);

@@ -8,15 +8,15 @@ define(['TinyPubSub'], function(TinyPubSub) {
 	
 	function publisher() {
 		console.log("Publisher constructor called.");
-		$("#privateButton").click(privateMethod);
+		$("#privateButton").click(triggerDebugDetailEvent);
 		$.publish('debug', {
 			message : "Publisher Constructor Called"
 		});
 	}
 
-	var privateMethod = function() {
+	var triggerDebugDetailEvent = function() {
 		console.log("Publisher private method called.");
-		$.publish('debugDetail', 'Publisher privateMethod called by Messenger');
+		$.publish('debugDetail', 'Publisher.triggerDebugDetailEvent sent this message');
 	};
 
 	return {publisher: publisher};
