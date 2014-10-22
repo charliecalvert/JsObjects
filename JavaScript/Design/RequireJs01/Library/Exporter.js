@@ -4,8 +4,13 @@
 
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
-define(function exportMe() {
-    return "exportMe";
+define(function() {
+
+	function exportMe() {
+		return "exportMe";
+	}
+
+	return exportMe;
 });
 
 
