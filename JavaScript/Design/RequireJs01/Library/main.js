@@ -2,19 +2,30 @@
  * @author Charlie Calvert
  */
 
+function addToList(list, value) {
+	var listItem = document.createElement("li");
+	var textNode = document.createTextNode(value);
+	listItem.appendChild(textNode);
+	list.appendChild(listItem);
+}
 
-define(function(require) {	
+define(function(require) {
 	console.log('In define');
+
+	var list = document.getElementById("results");
+
 	var getNums = require('GetNine');
-	console.log(getNums.getNine());
-	console.log(getNums.getEight());
+	addToList(list, getNums.getNine());
+	addToList(list, getNums.getEight());
+
 	var convert = require('Convert');
-	console.log(convert.feetInMile);
-	console.log(convert.milesToFeet(1));
-	console.log(convert.milesToFeet(2));
-	console.log(convert.milesToFeet(10));
+	addToList(list, convert.feetInMile);
+	addToList(list, convert.milesToFeet(1));
+	addToList(list, convert.milesToFeet(2));
+	addToList(list, convert.milesToFeet(10));
+
 	var exportMe = require('Exporter');
-	console.log(exportMe());
+	addToList(list, exportMe());
 });
 
 
