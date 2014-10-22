@@ -1,5 +1,6 @@
 /**
  * @author Charlie Calvert
+ * @description Demonstrate how to use require and append items to list without jQuery
  */
 
 function addToList(list, value) {
