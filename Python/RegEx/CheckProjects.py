@@ -69,5 +69,5 @@ p = FindProjects()
 # to check all the projects in this repository 
 searchPath = "."
 # Set checkForStudentDir to False unless you are Charlie
-checkForStudentDir = True
+checkForStudentDir = False
 p.parseAllProjects(searchPath, checkForStudentDir)
