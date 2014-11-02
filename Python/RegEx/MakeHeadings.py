@@ -25,7 +25,7 @@ class FindHeadings():
 			contents = self.openFile(fileName)			
 			results = re.findall(self.regEx[technique], contents, re.DOTALL)
 			fileContent = '<h2>Table of Contents</h2>\n'
-			fileContent += '<ul>\n'
+			fileContent += '<ul class="elfTocHeading">\n'
 			for result in results:				
 				if technique == 0:
 					indexTwo = 1
