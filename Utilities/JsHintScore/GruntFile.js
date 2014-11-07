@@ -19,18 +19,18 @@ module.exports = function(grunt) {
         defaultFiles: [ '**/*.js' ],
         anderson: [ 'isit320_anderson/**/*.js' ],
         jackson: [ 'isit320_jackson/**/*.js' ],
-        kascheev : [ 'isit320_kascheev/**/*.js' ],
+        kashcheev : [ 'isit320_kashcheev/**/*.js' ],
         tania : [ 'isit320_vendrovska/**/*.js' ],
         li : [ 'isit320_li/**/*.js' ],
         pennock : [ 'isit320_pennock/**/*.js' ],
         wadley : [ 'isit320_Wadley/**/*.js' ],
-        waters : [ 'isit320_Waters/**/*.js' ]
+        waters : [ 'isit320_waters/**/*.js' ]
     };
     
 
     grunt.initConfig({
         jshint : {
-            files : folders.jackson,
+            files : folders.waters,
             options : basicOptions
         },
 
