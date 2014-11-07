@@ -1,0 +1,4 @@
+#! /bin/bash
+
+folder=$1
+./findJavaScripts $folder | ./cscore

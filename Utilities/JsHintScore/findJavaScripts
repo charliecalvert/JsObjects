@@ -1,0 +1,41 @@
+#! /bin/bash
+
+#folder=isit320_anderson
+folder=$1
+
+go() {
+    javaScriptFiles=$(find $folder -iname "*.js" -not -path "**/routes/**" -not -path "**/node_modules/**" -not -path "**/.metadata/**" | wc -l)
+    errors=$(grep -wo "<error line" result.xml | wc -l)
+    filesWithErrors=$(grep -wo "file name=" result.xml | wc -l)
+    filesWithoutErrors=$(($javaScriptFiles - $filesWithErrors))
+}
+
+report() {
+    percentClean=$(echo "scale=2; $filesWithoutErrors/$javaScriptFiles" | bc)
+    averageErrorsPerErrorFile=$(echo "scale=2; $errors/$filesWithErrors" | bc)
+    echo number of JavaScript files: $javaScriptFiles
+    echo number of files with errors: $filesWithErrors
+    echo number of errors: $errors
+    echo number of error free files: $filesWithoutErrors
+    echo Percent of files error free: $percentClean
+    echo Average number of errors in files with errors: $averageErrorsPerErrorFile
+    echo Score: $score
+    # echo FinalScore = $((percentClean * 100 - $averageErrorsPerErrorFile))
+}
+
+format() {
+    echo { 
+    echo    '"javaScriptFiles"': $javaScriptFiles,     
+    echo    '"errors"': $errors, 
+    echo    '"filesWithErrors"': $filesWithErrors, 
+    echo    '"filesWithoutErrors"': $filesWithoutErrors 
+    echo }
+}
+
+simple() {
+    echo { '"javaScriptFiles"': $javaScriptFiles, '"filesWithErrors"': $filesWithErrors, '"errors"': $errors, '"filesWithoutErrors"': $filesWithoutErrors }
+}   
+
+go
+format
+

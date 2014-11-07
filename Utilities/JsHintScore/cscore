@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+
+process.stdin.on('data', function(data) {
+    var scores = JSON.parse(data);
+    console.log('JS Files in your repository: ', scores.javaScriptFiles);    
+    console.log('JsHint errors in repository: ', scores.errors);
+    console.log('Number of JS files with errors: ', scores.filesWithErrors);
+    console.log('Number of JS files without errors: ', scores.filesWithoutErrors);
+    var averageErrorsPerFile = scores.errors / scores.filesWithErrors;
+    console.log('Average number of errors per file with errors: ', averageErrorsPerFile);
+    var score = (scores.filesWithoutErrors / scores.javaScriptFiles) * 100;
+    console.log('File Without errors over all JS files: ', score);
+    console.log('FinalScore: ', Math.round(score - averageErrorsPerFile));
+});
+
