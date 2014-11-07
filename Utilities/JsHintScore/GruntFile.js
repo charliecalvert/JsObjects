@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
+    'use strict';
 
-    basicOptions = {
+    var basicOptions = {
         ignores : [ '*/angular-mocks.js', '*/ui-bootstrap-tpls-*.js',
                 '*/knockout-*.js', '*/Ractive.js', '*/**/angular.js',
                 '**/node_modules/**', '**/routes/**', '**/app.js',
@@ -10,39 +11,42 @@ module.exports = function(grunt) {
                 '**/TinyPubSub.js', '**/three.js', '**/qunit*.js' ],
         reporter : 'checkstyle',
         strict : true,
+        laxbreak: true,
         reporterOutput : 'result.xml'
     };
 
-    defaultFiles = [ '**/*.js' ];
-    anderson = [ 'isit320_anderson/**/*.js' ];
-    jackson = [ 'isit320_jackson/Week05_Particles/**/*.js' ];
-    kascheev = [ 'isit320_kascheev/Week05_TinyMapRefactor/**/*.js' ];
-    tania = [ 'isit320_vendrovska/Week04_Particles_taniaLV/**/*.js' ];
-    li = [ 'isit320_li/Week04_Particles_li/**/*.js' ];
-    pennock = [ 'isit320_pennock/Week05_Particles/**/*.js' ];
-    wadley = [ 'isit320_Wadley/Week04_SimpleParticle/**/*.js' ];
-    waters = [ 'isit320_Waters/Week05_Particles/**/*.js' ];
+    var folders = {
+        defaultFiles: [ '**/*.js' ],
+        anderson: [ 'isit320_anderson/**/*.js' ],
+        jackson: [ 'isit320_jackson/**/*.js' ],
+        kascheev : [ 'isit320_kascheev/**/*.js' ],
+        tania : [ 'isit320_vendrovska/**/*.js' ],
+        li : [ 'isit320_li/**/*.js' ],
+        pennock : [ 'isit320_pennock/**/*.js' ],
+        wadley : [ 'isit320_Wadley/**/*.js' ],
+        waters : [ 'isit320_Waters/**/*.js' ]
+    };
     
 
     grunt.initConfig({
         jshint : {
-            files : anderson,
+            files : folders.jackson,
             options : basicOptions
         },
 
         clean : {
             yourTarget : {
-                src : [ "**/node_modules/**", '*/barFooGoo/**' ]
+                src : [ '**/node_modules/**', '*/barFooGoo/**' ]
             }
         },
 
         jsbeautifier : {
-            files : [ "**/*.js", '!**/node_modules/**', '!**/coverage/**',
+            files : [ '**/*.js', '!**/node_modules/**', '!**/coverage/**',
                     '!**/jasmine-2.0.0/**', '!**/jquery-2.1.1.js',
                     '!**/require.js' ],
             options : {
                 js : {
-                    mode : "VERIFY_AND_WRITE"
+                    mode : 'VERIFY_AND_WRITE'
                 }
             }
         }
