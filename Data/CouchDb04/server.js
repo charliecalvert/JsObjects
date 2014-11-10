@@ -1,13 +1,13 @@
 var nano = require('nano')('http://localhost:5984');
 
-var docName = 'bigName';
-var dbName = 'prog28201';
+var docName = 'bigNames';
+var dbName = 'bc_data';
 
 function insert() {
 	nano.db.create(dbName);
 	var prog = nano.db.use(dbName);
 
-	prog.insert({ firstName: 'Suzie' }, docName, function(err, body) {
+	prog.insert({ 'firstName': 'Suzie', 'lastName': 'Higgins'}, docName, function(err, body) {
 	  if (!err)
 		console.log(body);
 	});
