@@ -1,8 +1,9 @@
 var request = require('request');
+require('request-debug')(request);
 
-var servers = ['http://127.0.0.1:5984/', 'http://192.168.2.30:5984/'];
+var servers = ["http://127.0.0.1:5984/", "http://192.168.2.30:5984/"];
 var index = 0;
-var databaseName = 'bcdata';
+var databaseName = "bcdata";
 
 function showJson(json) {
     var data = JSON.parse(json);
@@ -43,13 +44,14 @@ var createDatabase = function() {
     })
 }
 
-
-var putData = function () {
     var data = {
         "first_name": "Sarah",
         "last_name": "Patton", 
         "age": 3
     };
+
+var putData = function () {
+
 
     var postum = servers[index] + databaseName + ' -d "' +  JSON.stringify(data) + '" -H "Content-Type: application/json"';
     console.log(postum);
@@ -63,6 +65,32 @@ var putData = function () {
             }
     });
 }
+
+      
+function putData02() {
+    var req = {
+        "method": "PUT",
+        "uri": servers[0] + databaseName + "/dataone",
+        "headers": { 
+            'content-type': 'application/json', 
+            'accept'      : 'application/json'
+        },
+        "doc": "data",
+        "body": JSON.stringify(data)
+    };
+
+    console.log(req);
+    
+    request(req, function (error, response, body) {
+      if(response.statusCode == 201){
+        console.log('document saved');
+      } else {
+        console.log('error: '+ response.statusCode);
+        console.log(body);
+      }
+    })
+}
+
 
 var getDoc = function() {
     var req = servers[index] + databaseName + '/_all_docs';
@@ -87,9 +115,10 @@ var bigName = function() {
     })
 }  
  
-sayHello();
-showDatabases();
+// sayHello();
 createDatabase();
-putData();
-getDoc();
-bigName();
+showDatabases();
+putData02();
+//putData();
+//getDoc();
+//bigName();
