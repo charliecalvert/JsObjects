@@ -7,10 +7,10 @@ Here you will find examples of how to use:
 
 ## CouchDb
 
-- [Hello CouchDb](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb01)
-- [CouchDb02](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb02)
-- [CouchDb03](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb03)
-- [CouchDb04](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb04)
+- [Hello CouchDb with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb01)
+- [CouchDb02 _alldbs and _stats with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb02)
+- [CouchDb03 insert and get document with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb03)
+- [CouchDb04 insert and get document with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb04)
 - [CouchDb05](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb05)
 - [CouchDb06](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb06)
 - [CouchDb07](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb07)

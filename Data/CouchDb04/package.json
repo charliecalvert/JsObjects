@@ -4,6 +4,7 @@
   "version": "0.0.2",
   "private": true,
   "dependencies": {
-    "nano": "latest"
+    "nano": "latest",
+    "request-debug": "^0.1.1"
   }
 }

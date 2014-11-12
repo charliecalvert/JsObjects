@@ -1,19 +1,19 @@
 {
-    "name": "CouchDb05",
-    "description": "Simple Reading and writing of JSON",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "DEBUG=CouchDb05 node bin/www",
-        "nodebug": "node bin/www"
-    },
-    "dependencies": {
-        "express": "^4.10.2",
-        "static-favicon": "~1.0.0",
-        "morgan": "~1.0.0",
-        "cookie-parser": "~1.0.1",
-        "body-parser": "~1.0.0",
-        "debug": "~0.7.4",
-        "jade": "~1.3.0"
-    }
+  "name": "CouchDb05",
+  "description": "Simple Reading and writing of JSON",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "DEBUG=CouchDb05 node ./bin/www",
+    "nodebug": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "cookie-parser": "^1.3.3",
+    "debug": "^2.1.0",
+    "express": "^4.10.2",
+    "jade": "^1.7.0",
+    "morgan": "^1.5.0",
+    "serve-favicon": "^2.1.3"
+  }
 }
