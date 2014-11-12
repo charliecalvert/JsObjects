@@ -1,10 +1,12 @@
 p {
-	width: 385px;	
+	width: 425px;	
 }
 
 label {
 	display: block;
-	width: 125px;
+	width: 150px;
+	padding-top: 2px;
+	padding-right: 15px;
 	float: left;
 	text-align: right;
 }
@@ -12,7 +14,7 @@ label {
 .dataFields, .buttonList {
 	background-color: #DDDDDD;
 	border: thin solid gray;
-	width: 385px;
+	width: 425px;
 }
 
 .buttonList {

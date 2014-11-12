@@ -13,10 +13,12 @@ Here you will find examples of how to use:
 - [CouchDb04 insert and get document with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb04)
 - [CouchDb05 use express for hello CouchDb](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb05)
 - [CouchDb06 no CouchDb, just read and write JSON](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb06)
-- [CouchDb07](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb07)
-- [CouchDb08](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb08)
-- [CouchDb09](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb09)
+- [CouchDb07 First steps toward reading records with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb07)
+- [CouchDb08 Reading and writing records with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb08)
+- [CouchDb09 Like CouchDb08 but with a View](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb09)
 - [CouchDb10](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb10)
+- [CouchDb11](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb11)
+- [CouchDb12](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb12)
 
 ##MongoTalk.json
 
