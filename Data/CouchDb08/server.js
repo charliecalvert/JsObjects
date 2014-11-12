@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-var dbName = 'bc_fall_2014';
+var dbName = 'couch_db_08';
 var docName = 'doc01';
 
 app.get('/databaseName', function(request, response) {

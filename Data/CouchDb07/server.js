@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-var dbName = 'bc_fall_2014';
+var dbName = 'couch_db_07';
 var docName = 'doc02';
 
 function insert() {

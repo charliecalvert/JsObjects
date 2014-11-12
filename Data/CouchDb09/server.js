@@ -23,7 +23,7 @@ app.get('/', function(req, res) { 'use strict';
     res.end(html);
 });
 
-var dbName = 'bc_fall_2014_01';
+var dbName = 'couch_db_09';
 var docName = 'doc01';
 
 app.get('/databaseName', function(request, response) {
