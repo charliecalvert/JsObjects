@@ -4,6 +4,7 @@ require('request-debug')(request);
 var servers = ["http://127.0.0.1:5984/", "http://192.168.2.30:5984/"];
 var index = 0;
 var databaseName = "bcdata";
+var docName = "dataOne";
 
 function showJson(json) {
     var data = JSON.parse(json);
@@ -45,8 +46,8 @@ var createDatabase = function() {
 }
 
     var data = {
-        "first_name": "Sarah",
-        "last_name": "Patton", 
+        "firstName": "Sarah",
+        "lastName": "Patton", 
         "age": 3
     };
 
@@ -67,10 +68,10 @@ var putData = function () {
 }
 
       
-function putData02() {
+function putDoc() {
     var req = {
         "method": "PUT",
-        "uri": servers[0] + databaseName + "/dataone",
+        "uri": servers[0] + databaseName + "/" + docName,
         "headers": { 
             'content-type': 'application/json', 
             'accept'      : 'application/json'
@@ -103,12 +104,12 @@ var getDoc = function() {
     })
 }  
 
-var bigName = function() {
-    var req = servers[index] + databaseName + '/bigName';
+var getDoc = function() {
+    var req = servers[index] + databaseName + '/' + docName;
     request.get(req , function (error, response, body) {
       if (!error && response.statusCode == 200) {
         console.log(body);
-        console.log('FirstName: ' + JSON.parse(body).firstName);
+        console.log('firstName: ' + JSON.parse(body).firstName);
       } else {
         console.log(error);
       }
@@ -118,7 +119,6 @@ var bigName = function() {
 // sayHello();
 createDatabase();
 showDatabases();
-putData02();
-//putData();
-//getDoc();
-//bigName();
+putDoc();
+getDoc();
+
