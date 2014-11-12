@@ -5,12 +5,22 @@
 		<link href="index.css" type="text/css" rel="stylesheet" />
 		<script src="angular.js"></script>
 		<script src="index.js"></script>
-	</head>
-	<body>
-		<label for="checkbox">Show Picture</label>
-		<input id="checkbox" type="checkbox" ng-model="visible">		
-		<div showpicture="visible">		
-			<img src="IMG_6405.JPG" alt="picture">
+	</head>	      
+	<body ng-controller="Picture as pix">
+		<h1>Directives</h1>
+		
+		<p>Directives allow you to attach attributes to an HTML tag. For instance,
+		you could associated a class, id, name, etc to a DOM element (HTML tag)
+		with a directive. In Angular, there are lots of built in directives, such
+		as np-app, ng-controller, etc. This application shows how to write your
+		own directives. In particular, a directive call showPicture, which takes
+		boolean value.</p>
+		<div id="inputArea">
+			<label for="checkbox">Show Picture</label>
+			<input id="checkbox" type="checkbox" ng-model="visible">
+		</div>		
+		<div id="answerArea" showpicture="visible">		
+			<img ng-src={{pix.src}} alt="picture">
 		</div>
 	</body>
 </html>

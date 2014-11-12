@@ -17,39 +17,17 @@ describe("TestBoats", function() {'use strict';
 		expect(boatController.simple).toEqual("Simple Boat");		
 	});
 	
+	it("Simple Boat2", function() {
+		expect(boatController.boat).toEqual("I'm a simple boat property.");		
+	});
+	
 	it("SailBoat Description", inject(function(sailboat) {
 		expect(sailboat.description).toEqual("I'm a sailboat.");		
 	})); 
 	
 	it("Boat Description", inject(function(boat) {
-		expect(boat.description).toEqual("I'm a boat.");
+		expect(boat.description).toEqual("I'm a simple boat");
 	}));
 
 
 });
-
-(function() {'use strict';
-	var jasmineEnv = jasmine.getEnv();
-	jasmineEnv.updateInterval = 1000;
-
-	var reporter = new jasmine.HtmlReporter();
-
-	jasmineEnv.addReporter(reporter);
-
-	jasmineEnv.specFilter = function(spec) {
-		return reporter.specFilter(spec);
-	};
-
-	var currentWindowOnload = window.onload;
-
-	window.onload = function() {
-		if (currentWindowOnload) {
-			currentWindowOnload();
-		}
-		execJasmine();
-	};
-
-	function execJasmine() {
-		jasmineEnv.execute();
-	}
-})();

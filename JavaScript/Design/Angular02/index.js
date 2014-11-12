@@ -6,14 +6,15 @@
 	var app = angular.module('main', []);
 
 	app.controller('ListControl', function($scope) {
+
 		'use strict';
-		$scope.todoList = [ {
-			text : 'Go to class',
-			done : false
-		}, {
-			text : 'Complete assignments',
-			done : false
-		} ];
+
+		var listData = [ 
+		    { text : 'Attend class at BC', done : false }, 
+		    { text : 'Complete JavaScript programs', done : false } 
+		];
+
+		$scope.todoList = listData;
 
 		$scope.addTodo = function() {
 			$scope.todoList.push({
@@ -39,5 +40,6 @@
 					$scope.todoList.push(todo);
 			});
 		};
+
 	});
 })();
