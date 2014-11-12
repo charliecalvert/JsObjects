@@ -2,16 +2,21 @@
  * @author Charlie Calvert
  */
 
+(function() {
 
-/* Set up a simple controller  */
-var app = angular.module('myApp', [])
-.controller('AddController', function($scope) { 'use strict';
+	/* Set up a simple controller */
+	var app = angular.module('main', [])
 
-	$scope.operandA = 17000;
-	$scope.operandB = 15000;
+	app.controller('AddController', function($scope) {
+		'use strict';
 
-	$scope.func = function() {
-		return $scope.operandA + $scope.operandB;
-	};
-	
-});
+		$scope.operandA = 17000;
+		$scope.operandB = 15000;
+
+		$scope.func = function() {
+			return $scope.operandA + $scope.operandB;
+		};
+
+	});
+
+})();

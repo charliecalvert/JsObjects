@@ -2,8 +2,10 @@
  * @author Charlie Calvert
  */
 
-function AddController($scope) { 'use strict';
-  $scope.operandA = 17000;
-  $scope.operandB = 15000;
-}
+var app = angular.module("main", []);
 
+app.controller("AddController", function() {
+		'use strict';
+		this.operandA = 17000;
+		this.operandB = 15000;
+});
