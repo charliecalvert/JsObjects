@@ -1,1 +1,13 @@
-C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseHg\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Pandoc\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Java\jdk1.7.0_21\bin;C:\Development\ApacheAnt-184\bin;C:\Development\phonegap-2.3.0\lib\android\bin;C:\Users\Charlie\EclipseAndroid\sdk\tools;C:\Users\Charlie\EclipseAndroid\sdk\platform-tools;C:\Program Files (x86)\PuTTY;C:\Program Files (x86)\Notepad++;C:\Users\Charlie\AppData\Roaming\npm\;C:\Users\Charlie\Documents\Mesh\Source\Utilities\BatchFiles;C:\Python27 
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Foo.txt
+#	modified:   Python/RegEx/MakeHeadings.py
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	Utilities/Templates/StartMediaQuery.html
+no changes added to commit (use "git add" and/or "git commit -a")
