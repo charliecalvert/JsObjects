@@ -2,10 +2,13 @@
  * @author Charlie Calvert
  */
 
-function inputArea($scope) { 'use strict';
+var app = angular.module("main", []);
+
+app.controller("InputArea", function($scope) {
+	'use strict';
 	$scope.visible = true;
-	
+
 	$scope.toggle = function() {
 		$scope.visible = !$scope.visible;
 	};
-}
+});

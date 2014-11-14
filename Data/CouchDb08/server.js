@@ -18,8 +18,9 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-var dbName = 'prog28208';
+var dbName = 'couch_db_08';
 var docName = 'doc01';
+
 app.get('/databaseName', function(request, response) {
 	console.log("\/databaseName called.")
 	response.send({ 'Result': dbName} );
@@ -29,6 +30,7 @@ app.get('/couchDbUrl', function(request, response) {
 	console.log("couchDbUrl called.")
 	response.send({ 'Result': nano.config.url} );
 });
+
 function insertAndCreateNew() {
 
 }
@@ -48,14 +50,14 @@ app.get('/create', function(request, response) {
 		}
 	});
 
-	var prog = nano.db.use(dbName);
+	var nanoDb = nano.db.use(dbName);
 
-	prog.insert({
+	nanoDb.insert({
 		firstName : 'Suzie',
 		lastName : 'Fredrick',
 		age : 38
 	}, docName, function(err, body) {
-		if (!err) {
+		if (err) {
 			console.log(body);
 			response.send({
 				'Result' : 'Failure'
@@ -72,8 +74,8 @@ app.get('/create', function(request, response) {
 
 app.get('/read', function(request, response) { 'use strict';
 	console.log('Read called: '	+ JSON.stringify(request.query));
-	var prog = nano.db.use(dbName);
-	prog.get(request.query.docName, { revs_info : true },
+	var nanoDb = nano.db.use(dbName);
+	nanoDb.get(request.query.docName, { revs_info : true },
 		function(err, body) {
 			if (!err) {
 				console.log("No error");
@@ -89,10 +91,9 @@ app.get('/read', function(request, response) { 'use strict';
 
 app.get('/docNames', function(request, response) {
 	'use strict';
-	// var url = 'http://localhost:5984/prog28202/_all_docs';
-	var prog = nano.db.use(dbName);
+	var nanoDb = nano.db.use(dbName);
 	var result = [];
-	prog.list(function(err, body) {
+	nanoDb.list(function(err, body) {
 		if (!err) {
 			body.rows.forEach(function(doc) {
 				console.log(doc);
@@ -115,8 +116,8 @@ app.get('/write', function(request, response) {
 	var personString = JSON.stringify(person, null, 4);
 	console.log('PersonString: ' + personString);
 
-	var prog = nano.db.use(dbName);
-	prog.insert(person, person.docName, function(err, body) {
+	var nanoDb = nano.db.use(dbName);
+	nanoDb.insert(person, person.docName, function(err, body) {
 		if (!err) {
 			console.log(body);
 		} else {

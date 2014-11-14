@@ -3,6 +3,9 @@
   "description": "Simple Reading and writing of JSON",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+	 "start": "nodemon server.js"  
+  },
   "dependencies": {
     "express": "latest",
     "nano": "latest"

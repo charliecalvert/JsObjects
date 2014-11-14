@@ -13,15 +13,15 @@ app.get('/', function(req, res) {
 	res.end(html);
 });
 
-var dbName = 'prog28202';
+var dbName = 'couch_db_07';
 var docName = 'doc02';
 
 function insert() {
 
 	nano.db.create(dbName);
-	var prog = nano.db.use('prog28202');
+	var nanoDb = nano.db.use(dbName);
 
-	prog.insert({ firstName: 'Suzie', lastName: 'Fredrick', age: 38 }, docName, function(err, body) {
+	nanoDb.insert({ firstName: 'Suzie', lastName: 'Fredrick', age: 38 }, docName, function(err, body) {
 	  if (!err)
 		console.log(body);
 	});
@@ -35,10 +35,10 @@ app.get('/create', function(request, response){
 });
 
 app.get('/read', function(request, response) {
-	console.log('Read called: ' + request.query);
+	console.log('Read called: ' + JSON.stringify(request.query, null, 4));
 
-	var prog = nano.db.use(dbName);
-	prog.get(docName, { revs_info: true }, function(err, body) {
+	var nanoDb = nano.db.use(dbName);
+	nanoDb.get(docName, { revs_info: true }, function(err, body) {
 		if (!err) {
 			console.log(body);
 			response.send(body);

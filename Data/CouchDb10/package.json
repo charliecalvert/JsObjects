@@ -3,9 +3,12 @@
   "description": "Simple Couch Db with Some Templating",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
-    "express": "latest",
-    "nano": "latest",
-	"handlebars": "latest"
+    "express": "^4.10.2",
+    "handlebars": "^2.0.0",
+    "nano": "^5.12.2"
   }
 }

@@ -7,16 +7,18 @@ Here you will find examples of how to use:
 
 ## CouchDb
 
-- [Hello CouchDb](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb01)
-- [CouchDb02](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb02)
-- [CouchDb03](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb03)
-- [CouchDb04](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb04)
-- [CouchDb05](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb05)
-- [CouchDb06](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb06)
-- [CouchDb07](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb07)
-- [CouchDb08](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb08)
-- [CouchDb09](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb09)
-- [CouchDb10](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb10)
+- [CouchDb01 Hello CouchDb with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb01)
+- [CouchDb02 _alldbs and _stats with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb02)
+- [CouchDb03 insert and get document with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb03)
+- [CouchDb04 insert and get document with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb04)
+- [CouchDb05 use express for hello CouchDb](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb05)
+- [CouchDb06 no CouchDb, just read and write JSON](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb06)
+- [CouchDb07 First steps toward reading records with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb07)
+- [CouchDb08 Reading and writing records with Nano](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb08)
+- [CouchDb09 Like CouchDb08 but with a View](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb09)
+- [CouchDb10 Like CouchDb09 but with handlebars](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb10)
+- [CouchDb11 Like CouchDb10 but with funky attachments. Delete this example?](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb11)
+- [CouchDb12 Like CouchDb11 but with better attachments](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb12)
 
 ##MongoTalk.json
 

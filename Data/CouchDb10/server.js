@@ -24,10 +24,10 @@ app.get('/', function(req, res) { 'use strict';
     res.end(html);
 });
 
-var dbName = 'prog28210';
+var dbName = 'couch_db_10';
 var docName = 'doc01';
 
-app.get('/databaseName', function(request, response) {
+app.get('/databaseName', function(request, response) {'use strict';
 	console.log("\/databaseName called.")
 	response.send({ 'Result': dbName} );
 });
@@ -50,8 +50,8 @@ var lastOnly = function(doc) {'use strict';
 app.get('/designDoc', function(request, response) { 'use strict';
     console.log("Design Doc Called");
 
-    var prog = nano.db.use(dbName);
-    prog.insert({
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.insert({
         "views" : {
             "firstAndLast" : {
                 "map" : firstAndLast
@@ -78,8 +78,8 @@ app.get('/designDoc', function(request, response) { 'use strict';
 app.get('/view01', function(request, response) { 'use strict';
     console.log("view Called");
 
-    var prog = nano.db.use(dbName);
-    prog.view('people', 'firstAndLast', function(err, body) {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.view('people', 'firstAndLast', function(err, body) {
         if (!err) {
             var result = [];
             body.rows.forEach(function(doc) {
@@ -111,9 +111,9 @@ app.get('/create', function(request, response) { 'use strict';
     });
     
     console.log('use database');
-    var prog = nano.db.use(dbName);
+    var nanoDb = nano.db.use(dbName);
 
-    prog.insert({
+    nanoDb.insert({
         firstName : 'Suzie',
         lastName : 'Fredrick',
         age : 38
@@ -135,8 +135,8 @@ app.get('/create', function(request, response) { 'use strict';
 app.get('/read', function(request, response) { 'use strict';
     console.log('Read called: ' + JSON.stringify(request.query));
 
-    var prog = nano.db.use(dbName);
-    prog.get(request.query.docName, {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.get(request.query.docName, {
         revs_info : true
     }, function(err, body) {
         if (!err) {
@@ -153,9 +153,9 @@ app.get('/read', function(request, response) { 'use strict';
 
 app.get('/docNames', function(request, response) { 'use strict';
     // var url = 'http://localhost:5984/prog28202/_all_docs';
-    var prog = nano.db.use(dbName);
+    var nanoDb = nano.db.use(dbName);
     var result = [];
-    prog.list(function(err, body) {
+    nanoDb.list(function(err, body) {
         if (!err) {
             body.rows.forEach(function(doc) {
                 console.log(doc);
@@ -165,7 +165,7 @@ app.get('/docNames', function(request, response) { 'use strict';
             response.send(result);
         } else {
             console.log(err);
-            response.send(err);
+            response.send(500, err);
             return;
         }
     });
@@ -177,8 +177,8 @@ app.get('/write', function(request, response) { 'use strict';
     var personString = JSON.stringify(person, null, 4);
     console.log('PersonString: ' + personString);
 
-    var prog = nano.db.use(dbName);
-    prog.insert(person, person.docName, function(err, body) {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.insert(person, person.docName, function(err, body) {
         if (!err) {
             console.log(body);
         } else {

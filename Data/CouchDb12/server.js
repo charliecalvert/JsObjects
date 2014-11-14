@@ -16,7 +16,7 @@ var nano = require('nano')('http://127.0.0.1:5984');
 
 var port = process.env.PORT || 30025;
 
-var dbName = 'prog28212';
+var dbName = 'couch_db_12';
 var docName = 'doc01';
 
 app.get('/', function(req, res) { 'use strict';
@@ -50,8 +50,8 @@ var lastOnly = function(doc) {'use strict';
 app.get('/designDoc', function(request, response) { 'use strict';
     console.log("Design Doc Called");
 
-    var prog = nano.db.use(dbName);
-    prog.insert({
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.insert({
         "views" : {
             "firstAndLast" : {
                 "map" : firstAndLast
@@ -78,8 +78,8 @@ app.get('/designDoc', function(request, response) { 'use strict';
 app.get('/view01', function(request, response) { 'use strict';
     console.log("view Called");
 
-    var prog = nano.db.use(dbName);
-    prog.view('people', 'firstAndLast', function(err, body) {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.view('people', 'firstAndLast', function(err, body) {
         if (!err) {
             var result = [];
             body.rows.forEach(function(doc) {
@@ -109,9 +109,9 @@ app.get('/create', function(request, response) { 'use strict';
     });
     
     console.log('use database');
-    var prog = nano.db.use(dbName);
+    var nanoDb = nano.db.use(dbName);
 
-    prog.insert({
+    nanoDb.insert({
         firstName : 'Suzie',
         lastName : 'Fredrick',
         age : 38
@@ -133,8 +133,8 @@ app.get('/create', function(request, response) { 'use strict';
 app.get('/read', function(request, response) { 'use strict';
     console.log('Read called: ' + JSON.stringify(request.query));
 
-    var prog = nano.db.use(dbName);
-    prog.get(request.query.docName, {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.get(request.query.docName, {
         revs_info : true
     }, function(err, body) {
         if (!err) {
@@ -153,9 +153,9 @@ app.get('/read', function(request, response) { 'use strict';
 
 app.get('/docNames', function(request, response) { 'use strict';
     // var url = 'http://localhost:5984/prog28202/_all_docs';
-    var prog = nano.db.use(dbName);
+    var nanoDb = nano.db.use(dbName);
     var result = [];
-    prog.list(function(err, body) {
+    nanoDb.list(function(err, body) {
         if (!err) {
             body.rows.forEach(function(doc) {
                 console.log(doc);
@@ -177,8 +177,8 @@ app.get('/write', function(request, response) { 'use strict';
     var personString = JSON.stringify(person, null, 4);
     console.log('PersonString: ' + personString);
 
-    var prog = nano.db.use(dbName);
-    prog.insert(person, person.docName, function(err, body) {
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.insert(person, person.docName, function(err, body) {
         if (!err) {
             console.log(body);
         } else {
@@ -198,8 +198,8 @@ app.get("/attachPng", function(request, response) {'use strict';
 
     fs.readFile('Images/rabbit.png', function(err, data) {
         if (!err) {
-            var prog = nano.db.use(dbName);
-            prog.attachment.insert('rabbit', 'rabbit.png', data, 'image/png',
+            var nanoDb = nano.db.use(dbName);
+            nanoDb.attachment.insert('rabbit', 'rabbit.png', data, 'image/png',
                 { rev: '12-150985a725ec88be471921a54ce91452' }, function(err, body) {
                 if (!err) {
                     console.log(body);
@@ -220,8 +220,8 @@ var doInsert = function(rev, response, key, docName) {
 
     fs.readFile(__dirname + '/Templates/' + docName, function(err, data) {
         if (!err) {
-            var prog = nano.db.use(dbName);
-            prog.attachment.insert(key, docName, data, 'text/html', rev,
+            var nanoDb = nano.db.use(dbName);
+            nanoDb.attachment.insert(key, docName, data, 'text/html', rev,
                 function(err1, body) {
                 if (!err1) {
                     console.log(body);
@@ -256,8 +256,8 @@ app.get("/getAttachedHtml", function(request, response) {'use strict';
    console.log('/getAttachedHtml called');
    console.log(request.query);
    
-   var prog = nano.db.use(dbName);
-    prog.attachment.get(request.query.key, 
+   var nanoDb = nano.db.use(dbName);
+    nanoDb.attachment.get(request.query.key, 
         request.query.doc, function(err, body) {
         if (!err) {
             console.log(body);
@@ -274,8 +274,8 @@ app.get("/attachUpdateHtml", function(request, response) {'use strict';
     var key = request.query.key;
     var doc = request.query.doc;    
     
-    var prog = nano.db.use(dbName);
-    prog.get('attachMe', function(error, existing) { 
+    var nanoDb = nano.db.use(dbName);
+    nanoDb.get('attachMe', function(error, existing) { 
         if(!error) { 
             console.log(existing);
             console.log(existing._rev);

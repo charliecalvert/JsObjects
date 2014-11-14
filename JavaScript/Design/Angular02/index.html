@@ -1,18 +1,20 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="main">
   <head>
     <title>Angular02</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script -->
+    <!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script -->
     <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <h2>Check List</h2>
-    <div ng-controller="ListControl">
+    <div ng-controller="ListControl as list">
       <span>{{remaining()}} of {{todos.length}} remaining</span>
-      [ <a href="" ng-click="archive()">Save to Server</a> ]
+      [ <a href="" ng-click="archive()">Archive</a> ]
       <ul class="unstyled">
-        <li ng-repeat="todo in todos">
+        <li ng-repeat="todo in todoList">
           <input type="checkbox" ng-model="todo.done">
           <span class="done-{{todo.done}}">{{todo.text}}</span>
         </li>

@@ -4,6 +4,10 @@
 
 var app = angular.module('ElvenApp', []);
 
+app.controller("Picture", function() {
+	this.src="IMG_6405.JPG";	
+});
+
 app.directive('showpicture', function() { 'use strict';
 	return {
 		link: function(scope, element, attributes) {

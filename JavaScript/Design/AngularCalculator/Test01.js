@@ -2,7 +2,7 @@
 describe("calculator", function() {'use strict';
 	var addController = null;
 
-	beforeEach(module('myApp'));
+	beforeEach(module('main'));
 	
 	beforeEach(inject(function($rootScope, $controller) {
 		addController = $rootScope.$new();
