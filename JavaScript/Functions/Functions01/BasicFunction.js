@@ -1,4 +1,5 @@
 var variable00 = 'variable00';
+
 var func01 = function() {
     'use strict';
 };

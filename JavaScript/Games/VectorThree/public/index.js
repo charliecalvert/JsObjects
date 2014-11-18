@@ -51,4 +51,11 @@ window.onload = function() {
 	a = 12;
 	assert(a !== m.x, 'Expected success');
 	showVector(m);
+	
+	var m = new THREE.Vector3(1, 2, 3);
+	var a = new THREE.Vector3(m.x, m.y, m.z);
+	m.x = 12;
+	show(m, a);
+	showEqual(m, a, "Should Blow up");
+
 }

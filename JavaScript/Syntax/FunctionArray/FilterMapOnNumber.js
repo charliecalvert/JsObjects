@@ -1,6 +1,7 @@
 //From here: http://jhusain.github.io/learnrx/
 
-/* Array.prototype.filter = function(predicateFunction) {
+/*
+Array.prototype.filter = function(predicateFunction) {
 	var results = [];
 	this.forEach(function(itemInArray) {
 		if (predicateFunction(itemInArray)) {
@@ -9,7 +10,7 @@
 	});
 
 	return results;
-}; */
+}; */ 
 
 var result = [1,2,3].filter(function(x) { 
 	return x > 2
