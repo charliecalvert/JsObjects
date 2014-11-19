@@ -6,31 +6,32 @@ var myModule = angular.module("myModule", [ 'ngRoute' ]);
 myModule.config(function($routeProvider) {
 	$routeProvider.when("/", {
 		templateUrl : "partials/View02.html",
-		controller : "MyController",
-		resolve: {
-			customer: myController.customer
-		}
-
+		controller : "MyController"/*
+									 * , resolve: { customer:
+									 * myController.customer }
+									 */
 	}).when('/view02', {
 		templateUrl : "partials/View02.html",
 		controller : "MyController"
-		//resolve : "MyController.resolve"
+	// resolve : "MyController.resolve"
 	}).otherwise({
 		redirectTo : '/'
 	});
 });
 
-myModule.factory("simpleFactory", function() {
+myModule.factory("simpleFactory", function($q) {
 	"use strict";
 	var factory = {};
-	var customers;
-
-	$.getJSON("../javascript/Customer.json", function(json) {
-		customers = json;
-	});
 
 	factory.getCustomers = function() {
-		return customers;
+		var defers = $q.defer();
+		$.getJSON("../javascript/Presidents.json", function(json) {
+			defers.resolve(json);
+		}).fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ", " + error;
+			throw ("Request Failed: " + err);
+		});
+		return defers.promise;
 	};
 
 	return factory;
@@ -38,37 +39,30 @@ myModule.factory("simpleFactory", function() {
 });
 
 var myController = myModule.controller("MyController", function($scope,
-		simpleFactory, customer) {
+		simpleFactory) {
 	"use strict";
-	$scope.customers = simpleFactory.getCustomers();
 
-	$scope.addCustomer = function() {
-		$scope.customers.push({
-			name : {
-				firstName : $scope.newCustomer.name.substr(0,
-						$scope.newCustomer.name.indexOf(" ")),
-				lastName : $scope.newCustomer.name
-						.substr($scope.newCustomer.name.indexOf(' ') + 1),
-			},
-			city : $scope.newCustomer.city
-		});
-		$scope.newCustomer.name = "";
-		$scope.newCustomer.city = "";
-	};
+	var promise = simpleFactory.getCustomers();
+	promise.then(function(greeting) {
+		$scope.customers = greeting;
+	});
 
 	function displayFullname(i) {
-		return $scope.customers[i].name.firstName + " " +
-            $scope.customers[i].name.lastName;
+		return $scope.customers[i].firstName +
+			" "	+ $scope.customers[i].lastName;
 	}
 
 });
 
 myController.customer = function($q) {
-		// see:
-		// https://groups.google.com/forum/?fromgroups=#!topic/angular/DGf7yyD4Oc4
-		var defers = $q.defer();
-		$.getJSON("../javascript/Customer.json", function(json) {
-			defers.resolve(json);
-		});
-		return defers.promise;
+	// see:
+	// https://groups.google.com/forum/?fromgroups=#!topic/angular/DGf7yyD4Oc4
+	var defers = $q.defer();
+	$.getJSON("../javascript/Presidents.json", function(json) {
+		defers.resolve(json);
+	}).fail(function(jqxhr, textStatus, error) {
+		var err = textStatus + ", " + error;
+		throw ("Request Failed: " + err);
+	});
+	return defers.promise;
 };
