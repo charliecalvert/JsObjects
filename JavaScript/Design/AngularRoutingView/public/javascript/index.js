@@ -5,15 +5,11 @@ var myModule = angular.module("myModule", [ 'ngRoute' ]);
 
 myModule.config(function($routeProvider) {
 	$routeProvider.when("/", {
-		templateUrl : "partials/View02.html",
-		controller : "MyController"/*
-									 * , resolve: { customer:
-									 * myController.customer }
-									 */
-	}).when('/view02', {
-		templateUrl : "partials/View02.html",
+		templateUrl : "templates/View01.html",
 		controller : "MyController"
-	// resolve : "MyController.resolve"
+	}).when('/view02', {
+		templateUrl : "templates/View02.html",
+		controller : "MyController"
 	}).otherwise({
 		redirectTo : '/'
 	});
@@ -38,31 +34,18 @@ myModule.factory("simpleFactory", function($q) {
 
 });
 
-var myController = myModule.controller("MyController", function($scope,
-		simpleFactory) {
+var myController = myModule.controller("MyController", function($scope,	simpleFactory) {
 	"use strict";
 
-	var promise = simpleFactory.getCustomers();
-	promise.then(function(greeting) {
-		$scope.customers = greeting;
-	});
-
-	function displayFullname(i) {
+	function displayFullName(i) {
 		return $scope.customers[i].firstName +
 			" "	+ $scope.customers[i].lastName;
 	}
 
+	var promise = simpleFactory.getCustomers();
+	promise.then(function(json) {
+		$scope.customers = json;
+		$scope.fullName = displayFullName(0);
+    });
+    
 });
-
-myController.customer = function($q) {
-	// see:
-	// https://groups.google.com/forum/?fromgroups=#!topic/angular/DGf7yyD4Oc4
-	var defers = $q.defer();
-	$.getJSON("../javascript/Presidents.json", function(json) {
-		defers.resolve(json);
-	}).fail(function(jqxhr, textStatus, error) {
-		var err = textStatus + ", " + error;
-		throw ("Request Failed: " + err);
-	});
-	return defers.promise;
-};
