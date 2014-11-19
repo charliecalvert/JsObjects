@@ -1,0 +1,15 @@
+<div class="container">
+
+	<h3><strong>Display customer</strong></h3>
+	
+	<p><a href="#view02">View 02</a></p>
+	
+	<input type="text" data-ng-model="name" placeholder="Filer customer"/> 
+	<p>{{ name }}</p>
+	
+	<h3>Customers</h3>
+	<ul ng-repeat="customer in customers">
+		<li>{{customer}}</li>
+	</ul>
+	
+</div>
