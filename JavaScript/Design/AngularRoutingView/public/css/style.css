@@ -1,0 +1,54 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font: 21px sans; 
+}
+
+.data { 
+    background: #ABA; 
+    padding: 3px; 
+    width: 100%; 
+    border-radius: 12px;
+}
+
+.data input { 
+    border: 0;    
+    padding: 10px; 
+    padding-top: 12px; 
+    width: 90%; 
+    margin-right: .5%; 
+    margin-left: .5%; 
+}
+
+#chatButton { 
+    width: 8.1%; 
+    background: #787; 
+    border: none; 
+    padding: 5px; 
+    color: white;
+    font: 21px sans; 
+}
+
+#messageDiv {
+    background-color: #bdb;
+    border-radius: 12px;
+}
+
+#info { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 1;
+}
+    
+#info li { 
+    border-radius: 12px;
+    padding: 5px 10px; 
+}
+    
+#info li:nth-child(odd) { 
+    background: #bcb; 
+} 

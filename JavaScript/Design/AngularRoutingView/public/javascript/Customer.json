@@ -1,0 +1,35 @@
+[
+    {
+        "name": {
+            "firstName": "Tom",
+            "lastName": "Smith"
+        },
+        "city": "Seattle",
+        "state": "WA"
+    },
+    {
+        "name": {
+            "firstName": "Sarah",
+            "lastName": "Jones"
+        },
+        "city": "Seattle",
+        "state": "WA"
+        	
+    },
+    {
+        "name": {
+            "firstName": "Mark",
+            "lastName": "Bailey"
+        },
+        "city": "Bellevue",
+        "state": "WA"
+    },
+    {
+        "name": {
+            "firstName": "Frank",
+            "lastName": "Least"
+        },
+        "city": "Monroe",
+        "state": "WA"
+    }
+]
