@@ -1,16 +1,8 @@
-
-
-# Week07-SocketTalk-Kashcheev
-
-
+# Angular Routing View
 
 ## Usage
 
-
-
 ## Developing
-
-
 
 ### Tools
 

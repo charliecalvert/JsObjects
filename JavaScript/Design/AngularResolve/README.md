@@ -1,16 +1,8 @@
-
-
-# Week07-SocketTalk-Kashcheev
-
-
+# Week07-AngularResolve
 
 ## Usage
 
-
-
 ## Developing
-
-
 
 ### Tools
 

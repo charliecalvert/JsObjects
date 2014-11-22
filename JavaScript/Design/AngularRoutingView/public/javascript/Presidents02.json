@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "George2",
+        "lastName": "Washington2",
+        "city": "Seattle",
+        "state": "WA"
+    },
+    {
+        "firstName": "John2",
+        "lastName": "Adams2",
+        "city": "Bellevue",
+        "state": "WA"
+    },
+    {
+        "firstName": "Thomas2",
+        "lastName": "Jefferson2",
+        "city": "Monroe",
+        "state": "WA"
+    }
+]
