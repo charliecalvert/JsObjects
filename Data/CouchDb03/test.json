@@ -1,0 +1,7 @@
+{
+  "docs": [
+    {"_id": "0", "integer": 0, "string": "0"},
+    {"_id": "1", "integer": 1, "string": "1"},
+    {"_id": "2", "integer": 2, "string": "2"}
+  ]
+}

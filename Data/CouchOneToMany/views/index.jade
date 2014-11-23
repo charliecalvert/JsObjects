@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p 
+    a(href='/databaseName') Get current Database Name
+  p 
+    a(href='/listDb') Get all Database Names
+  p
+    a(href='/deleteDb') DeleteDb
+  p
+    a(href='/createDb') CreateDb
+  p
+    a(href='/createPhones') Create Phones

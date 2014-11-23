@@ -1,0 +1,18 @@
+{
+    "docs": [
+        {
+            "_id": "425-555-1111",
+            "_rev": "1-c2b53828987d64a6191b27890f9718f5",
+            "type": "phone",
+            "contact_id": "charlie",
+            "phone_type": "work"
+        },
+        {
+            "_id": "425-555-1112",
+            "_rev": "1-c2b53828987d64a6191b27890f9718f5",
+            "type": "phone",
+            "contact_id": "fred",
+            "phone_type": "cell"
+        }
+    ]
+}
