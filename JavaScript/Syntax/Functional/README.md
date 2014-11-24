@@ -1,87 +1,16 @@
 # Funcationl JavaScript
 
-ProjectForEach: Simple projection with ForEach
-ProjectMap:Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
-Add Array.map to array and  use Projection function to change an array
+**ProjectForEach**: Simple projection with ForEach
+**ProjectMap**: Add Array.map to array and  use Projection function to change an array
+**ProjectMapOnRecords**: For each record, use map function to build {id, title} pairs.
 
+**FilterOnRecords**: Use ForEach to filter an array of records
+**FilterMapOnNumber**: Filter an array of numbers to see those > 3.
+ 
 
-Flatten - Take two arrays and merge them into one
-FlattenMergeAll - Merge two arrays into one with custom Array.MergeAll function
-FlattenMergeAllThreeLevels: Use map and merge all to merge two complex arrays
+**Flatten**: Take two arrays and merge them into one
+**FlattenMergeAll**: Merge two arrays into one with custom Array.MergeAll function
+**FlattenMergeAllRecords**: Use **map** and **MergeAll** to merge two complex arrays
+**FlattenMergeAllThreeLevels**: Use **map** and **MergeAll** to merge two nested arrays
+
+**ChainFilterMap**: 

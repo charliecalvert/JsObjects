@@ -45,14 +45,13 @@ function go() {
 		}
 	];
 
-	// ------------ INSERT CODE HERE! -----------------------------------
-	// Use map function to accumulate {id, title} pairs from each video.
-	return newReleases.map(function(item) {
+	// Discover id and title for each item with map
+	var idTitleMap = newReleases.map(function(item) {
 		var newItem = { id: item.id, title: item.title };
 		return newItem;
 	});
-	// ------------ INSERT CODE HERE! -----------------------------------
-
+	
+	return idTitleMap; 
 }
 
 console.log(go());

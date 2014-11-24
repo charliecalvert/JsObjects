@@ -37,15 +37,12 @@ function go() {
 	];
 
 	var videos = [];
-	// ------------ INSERT CODE HERE! -----------------------------------
-	// Use map function to accumulate {id, title} pairs from each video.
 	newReleases.forEach(function(item) { 
 		console.log("iterate: " + item.rating);
 		if (item.rating >= 5.0) {
 			videos.push(item);
 		}
 	});
-	// ------------ INSERT CODE HERE! -----------------------------------
 	return videos;
 
 }
