@@ -1,5 +1,7 @@
-//From here: http://jhusain.github.io/learnrx/
 
+/**
+ *  Map is built into JavaScript, but here is how it looks.
+ */
 Array.prototype.map = function(projectionFunction) {
 	var results = [];
 	this.forEach(function(itemInArray) {
@@ -9,5 +11,13 @@ Array.prototype.map = function(projectionFunction) {
 	return results;
 };
 
-var result = JSON.stringify([1,2,3].map(function(x) { return x + 1; })) === '[2,3,4]'
+var dataMap = ['A','B','C'].map(function(x)	{ 
+	return String.fromCharCode(x.charCodeAt() + 1); 
+});
+
+var stringResult = JSON.stringify(dataMap)
+console.log(stringResult);
+
+// Verify our results
+var result = stringResult === '["B","C","D"]'
 console.log(result);

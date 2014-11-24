@@ -1,46 +1,51 @@
-//See here: http://jhusain.github.io/learnrx/
-
 function go() {
-	var newReleases = [
-		{
-			"id": 70111470,
-			"title": "Die Hard",
-			"uri": "http://api.netflix.com/catalog/titles/movies/70111470",
-			"rating": [4.0],
-			"bookmark": []
-		},
-		{
-			"id": 654356453,
-			"title": "Bad Boys",
-			"uri": "http://api.netflix.com/catalog/titles/movies/70111470",
-			"rating": [5.0],
-			"bookmark": [{ id:432534, time:65876586 }]
-		},
-		{
-			"id": 65432445,
-			"title": "The Chamber",
-			"uri": "http://api.netflix.com/catalog/titles/movies/70111470",
-			"rating": [4.0],
-			"bookmark": []
-		},
-		{
-			"id": 675465,
-			"title": "Fracture",
-			"uri": "http://api.netflix.com/catalog/titles/movies/70111470",
-			"rating": [5.0],
-			"bookmark": [{ id:432534, time:65876586 }]
-		}
-	],
-	videoAndTitlePairs = [];
+	var presidents = [ {
+		"presidentName" : "George Washington",
+		"termStart" : "1789",
+		"termEnd" : "1797",
+		"born" : "1732",
+		"died" : "1799"
+	}, {
+		"presidentName" : "John Adams",
+		"termStart" : "1797",
+		"termEnd" : "1801",
+		"born" : "1735",
+		"died" : "1826"
+	}, {
+		"presidentName" : "Thomas Jefferson",
+		"termStart" : "1801",
+		"termEnd" : "1809",
+		"born" : "1743",
+		"died" : "1826"
+	}, {
+		"presidentName" : "James Madison",
+		"termStart" : "1809",
+		"termEnd" : "1817",
+		"born" : "1751",
+		"died" : "1836"
+	}, {
+		"presidentName" : "James Monroe",
+		"termStart" : "1817",
+		"termEnd" : "1825",
+		"born" : "1758",
+		"died" : "1831"
+	}, {
+		"presidentName" : "John Quincy Adams",
+		"termStart" : "1825",
+		"termEnd" : "1829",
+		"born" : "1767",
+		"died" : "1848"
+	}]; 
+	
+	nameAndBirth = [];
 
-  newReleases.forEach(function(item) {
-		var newItem = {};
-	    newItem.id = item.id;
-	    newItem.title = item.title;
-		videoAndTitlePairs.push(newItem);
-  	});
-	return videoAndTitlePairs;
+	presidents.forEach(function(president) {
+		var presidentRecord = {};
+		presidentRecord.name = president.presidentName;
+		presidentRecord.born = president.born;
+		nameAndBirth.push(presidentRecord);
+	});
+	return nameAndBirth;
 }
-		
 
 console.log(go());
