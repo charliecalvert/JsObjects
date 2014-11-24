@@ -63,10 +63,6 @@ function go() {
 			}
 		];
 
-	// ------------   INSERT CODE HERE!  -----------------------------------
-	// Use map and mergeAll to flatten the movieLists in a list of video ids.
-	// ------------   INSERT CODE HERE!  -----------------------------------
-
 	return movieLists.map(function(movie) {
 		return movie.videos;
 	}).mergeAll().map(function(video) {
