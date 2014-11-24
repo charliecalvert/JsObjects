@@ -1,0 +1,32 @@
+{
+    "docs": [
+        {
+            "_id": "george",
+            "type": "contact",
+            "firstName": "George",
+            "lastName": "Washington",
+            "birth_day": "01/01/1956",
+            "address": "1600 Ampitheater Pkwy",
+            "city": "Mountain View",
+            "state": "CA",
+            "zip": "95005",
+            "company_title": "President",
+            "company_name": "USA",
+            "company_description": "A country in North America"
+        },
+        {
+            "_id": "john",
+            "type": "contact",
+            "firstName": "John",
+            "lastName": "Adams",
+            "birth_day": "01/02/1956",
+            "address": "1400 Skyview Ave",
+            "city": "Bellevue",
+            "state": "WA",
+            "zip": "95005",
+            "company_title": "President",
+            "company_name": "USA",
+            "company_description": "A country in North America"
+        }
+    ]
+}

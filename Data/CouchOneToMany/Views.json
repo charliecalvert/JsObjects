@@ -1,0 +1,9 @@
+{
+  "map":function(doc) {
+     if (doc.type == 'contact') {
+        emit([doc._id, 0], doc);
+     } else if (doc.type == 'phone') {
+        emit([doc.contact_id, 1, doc.phone_type], doc);
+     }
+  }
+}

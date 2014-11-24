@@ -3,6 +3,8 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  
+  p The simplest way to run the demo is to select each item in turn.
 
   p 
     a(href='/databaseName') Get current Database Name
@@ -13,4 +15,11 @@ block content
   p
     a(href='/createDb') CreateDb
   p
-    a(href='/createPhones') Create Phones
+    a(href='/insertBulk?fileName=Phones.json') Insert Phones
+  p
+    a(href="/insertBulk?fileName=People.json") Insert Contacts
+  p
+    a(href="/insertFile?fileName=Design.json") Insert Design Document
+  p
+    a(href="/view01?designDoc=articles&view=relate") View One
+    
