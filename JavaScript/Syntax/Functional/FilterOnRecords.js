@@ -39,14 +39,14 @@ function go() {
 		"died" : "1848"
 	}];
 
-	var videos = [];
+	var presidentsArray = [];
 	presidents.forEach(function(item) {
 		console.log("birth year: " + item.born);
 		if (item.born >= "1750") {
-			videos.push(item);
+			presidentsArray.push(item);
 		}
 	});
-	return videos;
+	return presidentsArray;
 
 }
 

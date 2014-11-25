@@ -2,6 +2,7 @@
 /**
  *  Map is built into JavaScript, but here is how it looks.
  */
+/*
 Array.prototype.map = function(projectionFunction) {
 	var results = [];
 	this.forEach(function(itemInArray) {
@@ -9,10 +10,10 @@ Array.prototype.map = function(projectionFunction) {
 		results.push(result);
   	});
 	return results;
-};
+}; */
 
 var dataMap = ['A','B','C'].map(function(x)	{ 
-	return String.fromCharCode(x.charCodeAt() + 1); 
+	return String.fromCharCode(x.charCodeAt() + 1);
 });
 
 var stringResult = JSON.stringify(dataMap)

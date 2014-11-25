@@ -44,7 +44,7 @@ function go() {
 		presidentRecord.name = president.presidentName;
 		presidentRecord.born = president.born;
 		nameAndBirth.push(presidentRecord);
-	});
+	});	
 	return nameAndBirth;
 }
 

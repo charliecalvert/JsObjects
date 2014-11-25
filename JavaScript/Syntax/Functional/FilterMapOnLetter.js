@@ -2,6 +2,7 @@
 /** 
  * Filter is built into JavaScript, but here is how it looks.
  */
+/*
 Array.prototype.filter = function(predicateFunction) {
 	var results = [];
 	this.forEach(function(itemInArray) {
@@ -11,7 +12,7 @@ Array.prototype.filter = function(predicateFunction) {
 	});
 
 	return results;
-};  
+};*/  
 
 var result = ['A','B','C','D','E','F'].filter(function(x) { 
 	return x > 'C'
