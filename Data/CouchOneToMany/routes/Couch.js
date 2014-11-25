@@ -68,6 +68,15 @@ router.get('/designDoc', function(request, response) {
 
 });
 
+
+function foo(doc) {
+	if (doc.type == 'contact') {
+		emit([ doc._id, 0 ], doc);
+	} else if (doc.type == 'phone') {
+		emit([ doc.contact_id, 1, doc.phone_type ], doc);
+	}
+}
+
 /**
  * @memberOf Couch
  * @name View01
@@ -82,7 +91,7 @@ router.get('/view01', function(request, response) {
 	var endKey = "['george', {}]";
 
 	var nanoDb = nano.db.use(dbName);
-	nanoDb.view(request.query.designDoc, request.query.view,
+	nanoDb.view(request.query.designDoc, request.query.view, keys,
 			function(err, body) {
 				if (!err) {
 					console.log(body);
@@ -115,7 +124,8 @@ router.get('/deleteDb', function(request, response) {
 	nano.db.destroy(dbName, function(err, body) {
 		if (err) {
 			response.send({
-				'Result' : 'Failure'
+				'Result' : 'Failure',
+				"Error" : err
 			});
 		} else {
 			response.send({
@@ -153,9 +163,9 @@ router.get('/read', function(request, response) {
 			console.log(body);
 			response.send(body);
 		} else {
-			var cscMessage = "No such record as: " + request.query.docName +
-					". Use a the Get Doc Names button to find " +
-					"the name of an existing document.";
+			var cscMessage = "No such record as: " + request.query.docName
+					+ ". Use a the Get Doc Names button to find "
+					+ "the name of an existing document.";
 			err.p282special = cscMessage;
 			response.send(500, err);
 		}
@@ -231,6 +241,8 @@ router.get('/insertFile', function(request, response) {
 		insert(pjson._id, pjson, response);
 	});
 });
+
+
 
 var putBulkData = function(bulkData, response) {
 	'use strict';

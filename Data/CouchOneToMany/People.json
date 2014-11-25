@@ -15,6 +15,20 @@
             "company_description": "A country in North America"
         },
         {
+            "_id": "thomas",
+            "type": "contact",
+            "firstName": "Thomas",
+            "lastName": "Jefferson",
+            "birth_day": "01/01/1956",
+            "address": "1600 Ampitheater Pkwy",
+            "city": "Mountain View",
+            "state": "CA",
+            "zip": "95005",
+            "company_title": "President",
+            "company_name": "USA",
+            "company_description": "A country in North America"
+        },
+        {
             "_id": "john",
             "type": "contact",
             "firstName": "John",
