@@ -1,5 +1,7 @@
-//From here: http://jhusain.github.io/learnrx/
 
+/** 
+ * Filter is built into JavaScript, but here is how it looks.
+ */
 /*
 Array.prototype.filter = function(predicateFunction) {
 	var results = [];
@@ -10,12 +12,14 @@ Array.prototype.filter = function(predicateFunction) {
 	});
 
 	return results;
-}; */ 
+};*/  
 
-var result = [1,2,3].filter(function(x) { 
-	return x > 2
+var result = ['A','B','C','D','E','F'].filter(function(x) { 
+	return x > 'C'
 });
 
 console.log(result);
-var testOutCome = JSON.stringify(result) === "[3]";
+var outcome = JSON.stringify(result);
+console.log(outcome);
+var testOutCome = outcome === '["D","E","F"]';
 console.log(testOutCome);

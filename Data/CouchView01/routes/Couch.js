@@ -12,7 +12,7 @@ var servers = [ 'http://127.0.0.1:5984', 'http://192.168.2.21:5984' ];
 // var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
 var nano = require('nano')(servers[0]);
 
-var dbName = 'one_to_many';
+var dbName = 'couch_views';
 var docName = 'phones';
 var templater = require('../Library/Templater');
 
@@ -40,6 +40,18 @@ var lastOnly = function(doc) {
 	}
 };
 
+var docIdDoc = function(doc) {
+	emit(doc._id, doc);
+}
+
+var docId = function(doc) {
+	emit(doc._id, doc.name);
+}
+
+var docStateCapital = function(doc) {
+	emit(doc.abbreviation, { "name": doc.name, "capital": doc.capital });
+}
+
 router.get('/designDoc', function(request, response) {
 	'use strict';
 	console.log("Design Doc Called");
@@ -47,17 +59,20 @@ router.get('/designDoc', function(request, response) {
 	var nanoDb = nano.db.use(dbName);
 	nanoDb.insert({
 		"views" : {
-			"firstAndLast" : {
-				"map" : firstAndLast
+			"docId" : {
+				"map" : docId
+			},
+			"docIdDoc" : {
+				"map" : docIdDoc
+			},
+			"docStateCapital" : {
+				"map" : docStateCapital
 			}
 		}
-	}, '_design/people', function(error, body) {
+	}, '_design/states', function(error, body) {
 		if (!error) {
 			console.log(body);
-			response.send({
-				'Result' : 'Success',
-				'body' : body
-			});
+			response.send(body);
 		} else {
 			console.log("error: " + error);
 			response.send({
@@ -80,18 +95,14 @@ function foo(doc) {
 /**
  * @memberOf Couch
  * @name View01
+ * http://localhost:5984/couch_views/_design/people/_view/docId
  */
 router.get('/view01', function(request, response) {
 	'use strict';
 	console.log("view Called: " + request.query);
-	var keys = {
-		"startkey" : [ "['george']", "endkey", "['george', {}]" ]
-	};
-	var startKey = "['george']";
-	var endKey = "['george', {}]";
 
 	var nanoDb = nano.db.use(dbName);
-	nanoDb.view(request.query.designDoc, request.query.view, keys,
+	nanoDb.view(request.query.designDoc, request.query.view,
 			function(err, body) {
 				if (!err) {
 					console.log(body);
@@ -103,6 +114,31 @@ router.get('/view01', function(request, response) {
 					});
 					var html = templater.template.addNames(
 							'Templates/Basic.html', result);
+					response.send(html);
+				} else {
+					console.log(err);
+					response.send(500, err);
+				}
+			});
+});
+
+router.get('/view02', function(request, response) {
+	'use strict';
+	console.log("view Called: " + request.query);
+
+	var nanoDb = nano.db.use(dbName);
+	nanoDb.view(request.query.designDoc, request.query.view,
+			function(err, body) {
+				if (!err) {
+					console.log(body);
+
+					var result = [];
+					body.rows.forEach(function(doc) {
+						result.push(doc.value);
+						console.log(doc.value);
+					});
+					var html = templater.template.addNames(
+							'Templates/StateCapital.html', result);
 					response.send(html);
 				} else {
 					console.log(err);
@@ -128,9 +164,7 @@ router.get('/deleteDb', function(request, response) {
 				"Error" : err
 			});
 		} else {
-			response.send({
-				'Result' : 'Success'
-			});
+			response.send(body);
 		}
 	});
 });
@@ -141,11 +175,11 @@ router.get('/createDb', function(request, response) {
 	nano.db.create(dbName, function(err, body) {
 		if (!err) {
 			console.log(body);
-			response.send(200, body);
+			response.status(200).send(body);
 		} else {
 			console.log('Could not create database');
 			console.log(err);
-			response.send(500, err);
+			response.status(err.statusCode).send(err);
 			return;
 		}
 	});
@@ -232,6 +266,7 @@ function insert(documentName, data, response) {
 	});
 }
 
+// http://localhost:30025/insertFile?fileName=foo.json
 router.get('/insertFile', function(request, response) {
 	'use strict';
 	console.log('Write called: ' + JSON.stringify(request.query));
