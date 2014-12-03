@@ -1,11 +1,11 @@
 #! /bin/bash
-
+BABASE=~
 # Commands
 alias go="npm install && npm start"
 
 
 # General
-alias awsb="cd ~/bin/AwsBasicS3"
+alias awsb="cd $BABASE/bin/AwsBasicS3"
 alias gitdir="cd ~/Git"
 alias isit="cd ~/Git/Isit3202014"
 
@@ -20,6 +20,7 @@ alias nt="cd $WRITE/Tech/Network"
 
 # JsObjects
 export JSOBJECTS=$HOME/Git/JsObjects
-alias jsj="cd $JSOBJECTS/JavaScript"
 alias jo="cd $JSOBJECTS"
+alias joj="cd $JSOBJECTS/JavaScript"
+alias jop="cd $JSOBJECTS/Python"
 alias jou="cd $JSOBJECTS/Utilities"
