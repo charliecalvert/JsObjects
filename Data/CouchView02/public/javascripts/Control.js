@@ -53,7 +53,7 @@ queryController.readOne = function($q) {
 }
 
 queryController.viewOneDoc = function($q) {
-	return runQuery("viewOneDoc?designDoc=states&view=docStatesDoc", $q);
+	return runQuery("/viewOneDoc?designDoc=states&view=docStatesDoc", $q);
 }
 
 var nameController = myModule.controller("NameController", function($scope, databaseName, allDbs) {
@@ -110,17 +110,17 @@ myModule.config(function($routeProvider) {
 		resolve : {
 			result : queryController.design
 		}
-	}).when('/viewBulk', {
-		templateUrl : "templates/QueryView.html",
-		controller : "QueryController",
-		resolve : {
-			result : queryController.viewBulk
-		}
 	}).when('/readOne', {
 		templateUrl : "templates/QueryView.html",
 		controller : "QueryController",
 		resolve : {
 			result : queryController.readOne
+		}
+	}).when('/viewBulk', {
+		templateUrl : "templates/QueryView.html",
+		controller : "QueryController",
+		resolve : {
+			result : queryController.viewBulk
 		}
 	}).when('/viewOneDoc', {
 		templateUrl : "templates/QueryView.html",
