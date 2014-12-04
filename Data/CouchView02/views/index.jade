@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p 
+    a(href='/#/databaseName') Get current Database Name and all names
+  p
+    a(href='/#/deleteDb') DeleteDb
+  p
+    a(href='/#/createDb') CreateDb
+  p
+    a(href='/#/insertStatesBulk') Insert States in Bulk
+  p
+    a(href='/#/insertStatesOneDoc') Insert States as one document
+  p
+    a(href="/#/designDoc") Design Doc
+  p
+    a(href="/#/readOne") Read One Doc
+  p
+    a(href="/#/viewBulk?designDoc=states&view=docBulk") View Bulk Doc
+  p
+    a(href="/viewBulkTemplate?designDoc=states&view=docBulk") View States Bulk
+  p
+    a(href="/#/viewOneDoc?designDoc=states&view=docStatesDoc") View States from one document
+  p
+    a(href="/viewStateCapitalTemplate?designDoc=states&view=docStateCapital") View State Capital
+
+
+  p {{debug}}
+
+  div
+    div(data-ng-view='')

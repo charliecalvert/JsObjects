@@ -1,0 +1,18 @@
+<div class="container">
+	<h1><strong>Angular Routing View 02</strong></h1>
+	
+	<p>Go to: <a href="/">View 01</a></p>
+	<hr />
+	<p>Notice the hash tag in the URL. This is a <a href="http://stackoverflow.com/a/14320468/253576">needed</a> 
+	to support routing in old browsers. If you don't want it, try "$locationProvider.html5Mode(true)".</p> 
+	
+	
+	<p>See a list of customers</p>
+	
+	<h2>Customers</h2>
+	
+	<ul ng-repeat="customer in customers">
+		<li>{{customer}}</li>
+	</ul>
+	
+</div>
