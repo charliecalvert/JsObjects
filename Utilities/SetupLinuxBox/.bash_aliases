@@ -9,11 +9,13 @@ alias sshadd="ssh-add ~/.ssh/rsa-key-git.pem"
 alias chrome="/usr/bin/chromium-browser"
 
 # General
+export GEN=$BABASE/Src
 alias awsb="cd $BABASE/bin/AwsBasicS3"
-alias gitdir="cd ~/Git"
-alias isit="cd ~/Git/Isit3202014"
+alias gitdir="cd $GEN/Git"
+alias batch="cd $GEN/Batch"
+alias isit="cd $GEN/Git/Isit3202014"
 alias chr="/usr/bin/chromium-browser"
-alias nm="ln -s ~/tmp/node_modules/ node_modules"
+alias nm="ln -s ~/tmp/node_modules/
 alias p28='cd ~/Git/Prog282'
 alias p2='cd ~/Git/Prog270-2014'
 

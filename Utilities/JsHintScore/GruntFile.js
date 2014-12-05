@@ -34,23 +34,23 @@ module.exports = function(grunt) {
             options : basicOptions
         },
 
-        clean : {
-            yourTarget : {
-                src : [ '**/node_modules/**', '*/barFooGoo/**' ]
-            }
-        },
+		clean : {
+			yourTarget : {
+				src : [ "**/node_modules/**", '*/barFooGoo/**' ]
+			}
+		},
 
-        jsbeautifier : {
-            files : [ '**/*.js', '!**/node_modules/**', '!**/coverage/**',
-                    '!**/jasmine-2.0.0/**', '!**/jquery-2.1.1.js',
-                    '!**/require.js' ],
-            options : {
-                js : {
-                    mode : 'VERIFY_AND_WRITE'
-                }
-            }
-        }
-    });
+		jsbeautifier : {
+			files : [ "**/*.js", '!**/node_modules/**', '!**/coverage/**',
+					'!**/jasmine-2.0.0/**', '!**/jquery-2.1.1.js',
+					'!**/require.js' ],
+			options : {
+				js : {
+					mode : "VERIFY_AND_WRITE"
+				}
+			}
+		}
+	});
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
