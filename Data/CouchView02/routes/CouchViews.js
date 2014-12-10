@@ -32,21 +32,6 @@ function views(router, nano, dbName) {
 		runTemplateView('Templates/Basic.html', request, response);
 	});
 	
-	router.get('/viewStateCapitalAngular', function(request, response) {
-		console.log("viewStateCapitalAngular called.")
-		var doc = request.query.designDoc;
-		var view = request.query.view;
-		var nanoDb = nano.db.use(dbName);
-		nanoDb.view(doc, view, function(err,	body) {
-			if (!err) {
-				console.log(body);
-				response.send(body);
-			} else {
-				console.log(err);
-				response.send(500, err);
-			}
-		});
-	});
 
 	/**
 	 * @memberOf CouchViews
@@ -70,6 +55,22 @@ function views(router, nano, dbName) {
 		});
 	});
 	
+	router.get('/viewStateCapitalAngular', function(request, response) {
+		console.log("viewStateCapitalAngular called.")
+		var doc = request.query.designDoc;
+		var view = request.query.view;
+		var nanoDb = nano.db.use(dbName);
+		nanoDb.view(doc, view, function(err,	body) {
+			if (!err) {
+				console.log(body);
+				response.send(body);
+			} else {
+				console.log(err);
+				response.send(500, err);
+			}
+		});
+	});
+
 	router.get('/viewOneDoc', function(request, response) {
 		var nanoDb = nano.db.use(dbName);
 		nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
