@@ -2,30 +2,49 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-
   p 
-    a(href='/#/databaseName') Get current Database Name and all names
+    | Welcome to #{title}. Click the options below, and if necessary 
+    | scroll down to see the results.
+
+  ul 
+    li 
+      a(href='/#/databaseName') Get current Database Name and all names
+    li
+      a(href='/#/deleteDb') DeleteDb
+    li
+      a(href='/#/createDb') CreateDb
+    li
+      a(href='/#/insertStatesBulk') Insert States in Bulk
+    li
+      a(href='/#/insertStatesOneDoc') Insert States as one document
+    li
+      a(href="/#/designDoc") Design Doc
+    li
+      a(href="/#/readOne") Read One Doc
+    li
+      a(href="/#/viewOneDoc") View States from one document
+    li
+      a(href="/#/viewBulk") Angular View Bulk Doc
+    li
+      a(href="/#/viewBulkStatesCampital") Angular View States Capital Bulk
+    
+  h1 Don't Template on both ends.
+  
   p
-    a(href='/#/deleteDb') DeleteDb
-  p
-    a(href='/#/createDb') CreateDb
-  p
-    a(href='/#/insertStatesBulk') Insert States in Bulk
-  p
-    a(href='/#/insertStatesOneDoc') Insert States as one document
-  p
-    a(href="/#/designDoc") Design Doc
-  p
-    a(href="/#/readOne") Read One Doc
-  p
-    a(href="/#/viewOneDoc") View States from one document
-  p
-    a(href="/#/viewBulk") View Bulk Doc
-  p
-    a(href="/viewBulkTemplate?designDoc=states&view=docBulk") Template States Bulk
-  p
-    a(href="/viewStateCapitalTemplate?designDoc=states&view=docStateCapital") Template State Capital
+    | In the examples below we use templating on the server side with Handlebars.
+    | Handlebars is a great library, but we should not mix it with Angular as I 
+    | do below. When we do, the app will appear to hang after these calls. Instead,  
+    | use the technique shown in "Angular View Bulk Doc" and "Angular View States Capital" 
+    | above. Decide whether you want to template on the server or on the client, and the
+    | stick with that technique. Once you have picked Angular, you are kind of committing
+    | to templating on the client. In the past, this was not a good idea, because
+    | the client was not powerful enough, but now we can do these kinds of things on
+    | on the client. The popularity of Angular shows that it is working.
+  ul 
+    li
+      a(href="/viewBulkTemplate?designDoc=states&view=docBulk") Template States Bulk
+    li
+      a(href="/viewStateCapitalTemplate?designDoc=states&view=docStateCapital") Template State Capital
 
 
   p {{debug}}

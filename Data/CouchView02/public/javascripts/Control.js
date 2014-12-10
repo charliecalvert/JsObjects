@@ -56,6 +56,10 @@ queryController.viewOneDoc = function($q) {
 	return runQuery("/viewOneDoc?designDoc=states&view=docStatesDoc", $q);
 }
 
+queryController.viewBulkAngular = function($q) {
+	return runQuery("/viewStateCapitalAngular?designDoc=states&view=docStateCapital", $q);
+}
+
 var nameController = myModule.controller("NameController", function($scope, databaseName, allDbs) {
 	"use strict";
 	$scope.databaseName = databaseName;
@@ -127,6 +131,12 @@ myModule.config(function($routeProvider) {
 		controller : "QueryController",
 		resolve : {
 			result : queryController.viewOneDoc
+		}	
+	}).when('/viewBulkStatesCampital', {
+		templateUrl : "templates/QueryView.html",
+		controller : "QueryController",
+		resolve : {
+			result : queryController.viewBulkAngular
 		}
 	}).otherwise({
 		redirectTo : '/'
