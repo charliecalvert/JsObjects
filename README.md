@@ -17,11 +17,9 @@ All the code in JsObjects is released under the MIT license.
 	sudo apt-get update
 	sudo apt-get install nodejs
 	
-See also:
+See also Node on Elvenware:
 
-	[Node on Elvenware][nodeElf]
-	
-[nodeElf]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
+- <http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node>
 
 
 ## Global installs
