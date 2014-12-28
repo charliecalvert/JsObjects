@@ -34,7 +34,7 @@ Then add this to your .bashrc:
 
 	export PATH="$PATH:$HOME/npm/bin"
 	
-To install karma globally:
+To install express, karma, etc globally:
 
 	npm install -g karma-cli
 	npm install -g grunt-cli
