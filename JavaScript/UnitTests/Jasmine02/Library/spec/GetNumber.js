@@ -1,4 +1,4 @@
-define('getEight', function() {
+define('GetNumber', function() {
     'use strict';
     return {
         getEight: function() {

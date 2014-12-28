@@ -6,9 +6,9 @@ require.config({
         jasmine: 'jas/jasmine',
         jasmineHtml: 'jas/jasmine-html',
         boot: 'jas/boot',
-        getEight: 'spec/GetNumber',
+        GetNumber: 'spec/GetNumber',
         SimpleTest: 'spec/SimpleTest',
-        Test02: 'spec/Test02'
+        NumberTest: 'spec/NumberTest'
     },
     shim: {
         jasmine: {
@@ -30,7 +30,7 @@ require(['boot'], function(jasmine) {
     'use strict';
     console.log('Boot jasmine');
 
-    require(['Test02', 'SimpleTest'], function() {
+    require(['NumberTest', 'SimpleTest'], function() {
         window.onload();
     });
 });

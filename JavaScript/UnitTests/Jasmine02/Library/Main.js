@@ -4,18 +4,18 @@
 require.config({
     paths: {
         jquery: 'jquery-2.0.3',
-        getEight: 'spec/GetNumber'
+        GetNumber: 'spec/GetNumber'
 
     }
 });
 
-require(['jquery', 'getEight'], function($, getEight) {
+require(['jquery', 'GetNumber'], function($, getNumber) {
     'use strict';
 
     console.log('jQuery');
 
     $("#getEightClick").click(function() {
-        getEight.displayGetEight();
+        getNumber.displayGetEight();
     });
 
 

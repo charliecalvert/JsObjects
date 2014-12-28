@@ -1,6 +1,6 @@
 // var getEight = require('./getEight');
 
-define('Test02', ['getEight'], function(getEight) {
+define('NumberTest', ['GetNumber'], function(getNumber) {
     'use strict';
 
     describe("Elvenware Get Number Suite", function() {
@@ -14,11 +14,11 @@ define('Test02', ['getEight'], function(getEight) {
         });
 
         it("Call module that returns 8", function() {
-            expect(getEight.getEight()).toBe(8);
+            expect(getNumber.getEight()).toBe(8);
         });
 
         it("Calls a module that returns 7", function() {
-            expect(getEight.getSeven()).toBe(7);
+            expect(getNumber.getSeven()).toBe(7);
         });
     });
 });

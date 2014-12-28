@@ -1,17 +1,18 @@
 {
-  "name": "AngularCalculator",
-  "version": "0.1.0",
+  "name": "Jasmine03",
+  "version": "0.2.0",
+  "repository": {
+    "type": "git",	  
+    "url": "git@github.com:charliecalvert/JsObjects.git"
+  },
+
   "devDependencies": {
-    "karma-script-launcher": "~0.1.0",
-    "karma-firefox-launcher": "~0.1.0",
-    "karma-chrome-launcher": "~0.1.0",
+    "karma": "~0.12.28",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-chrome-launcher": "~0.1.2",
     "karma-html2js-preprocessor": "~0.1.0",
-    "karma-requirejs": "~0.1.0",
-    "karma-jasmine": "~0.1.3",
-    "karma-coffee-preprocessor": "~0.1.0",
-    "karma-phantomjs-launcher": "~0.1.0",
-    "karma": "~0.10.4",
-    "karma-commonjs": "0.0.2",
-    "karma-junit-reporter": "~0.1.0"
+    "karma-jasmine": "~0.3.3",
+    "karma-commonjs": "0.0.13",
+    "karma-phantomjs-launcher": "~0.1.1"    
   }
 }
