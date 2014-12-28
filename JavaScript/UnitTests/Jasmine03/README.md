@@ -7,6 +7,9 @@ stop thinking about it, and then I saw the line in the readme. They made some
 changes and so we now need to include **boot.js**. I have done that, and this 
 example has started working.
 
+## Start a web server
+
+	python3 -m http.server 30025
 
 ## Karma
 

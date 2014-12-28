@@ -1,5 +1,9 @@
 This project shows how to use requirejs, jasmine and karma.
 
+## Start a web server
+
+	python3 -m http.server 30025
+
 ## Global installs
 
 You will want to install karma, grunt and jasmine-node globally.
