@@ -1,14 +1,16 @@
 /**
  * @author Charlie Calvert
  */
+
 require.config({
+	baseUrl: '../',
     paths: {
         jasmine: 'Library/jas/jasmine',
         jasmineHtml: 'Library/jas/jasmine-html',
         boot: 'Library/jas/boot',
-        GetNumber: 'spec/GetNumber',
-        SimpleTest: 'spec/SimpleTest',
-        NumberTest: 'spec/NumberTest'
+        GetNumber: 'Source/GetNumber',
+        SimpleTest: 'Spec/SimpleTest',
+        NumberTest: 'Spec/NumberTest'
     },
     shim: {
         jasmine: {
@@ -30,7 +32,7 @@ require(['boot'], function(jasmine) {
     'use strict';
     console.log('Boot jasmine');
 
-    require(['NumberTest', 'SimpleTest'], function() {
+    require(['NumberTest', 'SimpleTest', 'SimpleTestSpec'], function() {
         window.onload();
     });
 });

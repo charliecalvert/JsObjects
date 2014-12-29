@@ -1,0 +1,8 @@
+#! /bin/bash
+
+
+#node node_modules/jasmine-node/lib/jasmine-node/cli.js --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/
+
+jasmine-node --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/
+
+

@@ -1,9 +1,7 @@
-// var getEight = require('./getEight');
-
-define('NumberTest', ['GetNumber'], function(getNumber) {
+define('NumberTest', ['../Source/GetNumber'], function(getNumber) {
     'use strict';
 
-    describe("Elvenware Get Number Suite", function() {
+    describe("Elvenware Get Plain Number Suite", function() {
         // what is being tested
         function getNine() {
             return 9;
