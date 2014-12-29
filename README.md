@@ -24,19 +24,20 @@ See also Node on Elvenware:
 
 ## Global installs
 
-You will want to install express, karma, grunt and jasmine-node globally.
+You will want to install express, karma, grunt, nodemon and jasmine-node globally.
 
 If on Linux, first do this so that you don't have to use sudo:
 
 	npm config set prefix ~/npm
-	
-Then add this to your .bashrc:
+
+Then add this to the bottom of your .bashrc:
 
 	export PATH="$PATH:$HOME/npm/bin"
-	
+
 To install express, karma, etc globally:
 
 	npm install -g karma-cli
 	npm install -g grunt-cli
 	npm install -g jasmine-node
 	npm install -g express-generator
+	npm install -g nodemon

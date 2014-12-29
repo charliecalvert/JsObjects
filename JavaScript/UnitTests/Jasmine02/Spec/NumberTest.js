@@ -1,12 +1,13 @@
-define('NumberTest', ['../Source/GetNumber'], function(getNumber) {
+define('NumberTest', ['GetNumber'], function(getNumber) {
     'use strict';
 
     describe("Elvenware Get Plain Number Suite", function() {
-        // what is being tested
+    	
+        // Let's test one local method. The other methods to be tested are in GetNumber
         function getNine() {
             return 9;
         }
-
+        
         it("Call local getNine", function() {
             expect(getNine()).toBe(9);
         });

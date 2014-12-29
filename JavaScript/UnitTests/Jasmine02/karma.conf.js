@@ -9,23 +9,23 @@ module.exports = function(config) {
         frameworks: ['jasmine', 'requirejs'],
 
         // list of files / patterns to load in the browser
-        files: [
-            'Library/MainKarma.js',
-            'Library/spec/SimpleTest.js',
-            'Library/spec/GetNumber.js',
-            'Library/spec/Test02.js'
+        files: [        
+            'Source/GetNumber.js',
+            'Spec/SimpleTest.js',
+            'Spec/NumberTest.js',            
+            'Source/MainKarma.js'
         ],
 
         // list of files to exclude
         exclude: [
-            'Library/Main.js',
+            'Source/Main.js',
             'Library/MainTest.js',
             'Library/jas/*.js',
             'Library/require.js'
         ],
 
         preprocessors: {
-            'Source/**/*.js': ['coverage', 'junit']
+            'Source/**/*.js': ['coverage']
         },
 
         // use dots reporter, as travis terminal does not support escaping sequences
@@ -64,7 +64,7 @@ module.exports = function(config) {
         // - PhantomJS
         // - IE (only Windows)
         // CLI --browsers Chrome,Firefox,Safari
-        browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        browsers: ['Chrome'],
         // browsers: ['PhantomJS'],
 
         // If browser does not capture in given timeout [ms], kill it
@@ -77,15 +77,6 @@ module.exports = function(config) {
 
         // report which specs are slower than 500ms
         // CLI --report-slower-than 500
-        reportSlowerThan: 500,
-
-        /* plugins : [
-			'karma-jasmine', 
-			'karma-coverage', 
-			'karma-chrome-launcher', 
-			'karma-firefox-launcher', 
-			'karma-junit-reporter',			
-			'karma-requirejs'
-		] */
+        reportSlowerThan: 500
     });
 };

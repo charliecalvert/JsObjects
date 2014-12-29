@@ -2,14 +2,14 @@
  * @author Charlie Calvert
  */
 
-var tests = ['SimpleTest', 'Test02'];
+var tests = ['SimpleTest', 'NumberTest'];
 for (var file in window.__karma__.files) {
     console.log(file);
 }
 
 requirejs.config({
     // Karma serves files     
-    baseUrl: '',
+    baseUrl: './',
 
     // ask Require.js to load these files (all our tests)
     deps: tests,
