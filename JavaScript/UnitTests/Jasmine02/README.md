@@ -1,6 +1,16 @@
 # Title
 
-This project shows how to use requirejs, jasmine and karma.
+This project shows how to use requirejs, jasmine-node and karma. 
+
+To run this project, do one of the three things:
+
+- Use karma: ./RunKarma.sh
+- Use jasmine-node with requirejs support: /RunWithRequireJs
+- Use the Jasmine library and display in an HTML file
+
+When using Karma, requirejs uses Source/MainKarma.js
+When using jasmine node, requirejs uses Spec/LoadTests.spec.js
+When using HTML files, requirejs uses Main.js
 
 ## Start a web server
 
