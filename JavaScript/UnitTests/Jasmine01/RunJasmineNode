@@ -1,1 +1,3 @@
-jasmine-node --matchall Tests/
+#! /bin/bash
+
+jasmine-node --verbose --matchall Spec/

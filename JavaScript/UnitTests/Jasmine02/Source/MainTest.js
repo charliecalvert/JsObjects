@@ -32,7 +32,7 @@ require(['boot'], function(jasmine) {
     'use strict';
     console.log('Boot jasmine');
 
-    require(['NumberTest', 'SimpleTest', 'SimpleTestSpec'], function() {
+    require(['NumberTest', 'SimpleTest'], function() {
         window.onload();
     });
 });
