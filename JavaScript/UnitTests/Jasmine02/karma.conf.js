@@ -24,14 +24,10 @@ module.exports = function(config) {
             'Library/require.js'
         ],
 
-        preprocessors: {
-            'Source/**/*.js': ['coverage']
-        },
-
         // use dots reporter, as travis terminal does not support escaping sequences
         // possible values: 'dots', 'progress'
         // CLI --reporters progress
-        reporters: ['progress', 'coverage'],
+        reporters: ['spec'],
 
         junitReporter: {
             // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -75,6 +71,8 @@ module.exports = function(config) {
         // CLI --single-run --no-single-run
         singleRun: false,
 
+        plugins: ["karma-jasmine", "karma-requirejs", "karma-chrome-launcher", "karma-spec-reporter"],
+        
         // report which specs are slower than 500ms
         // CLI --report-slower-than 500
         reportSlowerThan: 500
