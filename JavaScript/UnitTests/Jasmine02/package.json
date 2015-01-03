@@ -19,12 +19,10 @@
     "karma-requirejs": "~0.2.1",
     "karma-script-launcher": "~0.1.0",
     "grunt": "~0.4.2",
-    "grunt-bowercopy": "~1.2.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-compress": "~0.13.0",
     "grunt-contrib-copy": "~0.7.0",
-    "requirejs": "~2.1.15",
-    "qunitjs": "~1.16.0"    
+    "requirejs": "~2.1.15",    
   }
 }
