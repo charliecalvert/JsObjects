@@ -17,15 +17,19 @@ module.exports = function(grunt) {
 		},
 
 		jshint : {
-			files : [ '*/*.js' ],
+			files : [ '**/*.js' ],
 
 			options : {
-				ignores : [ '**/node_modules/**', '**/jquery-2.0.3.js',
-						'**/requirejs-wrapper*.js', '**/requirejs-setup*.js' ],
+				ignores : [ 
+				     '**/node_modules/**', 
+				     '**/Library/jas/**',
+				     '**/jquery-2.0.3.js',
+					 '**/requirejs-wrapper*.js', 
+					 '**/requirejs-setup*.js' 
+				],
 				reporter : 'checkstyle',
 				reporterOutput : 'result.xml',
 				strict : true,
-				newcap : false,
 				globals : {
 					describe : true,
 					afterEach : true,
@@ -34,9 +38,7 @@ module.exports = function(grunt) {
 					it : true,
 					jasmine : true,
 					expect : true,
-					angular : true,
 					module : true,
-					Crafty : true
 				}
 			}
 		},
@@ -62,21 +64,19 @@ module.exports = function(grunt) {
 				}, {
 					src : './*.js*'
 				}, {
-					src : './*.css'
+					src : './*.sh'
 				}, {
-					src : './Assets/**'
+					src : './RunJasmineNode'
 				}, {
 					src : './Library/**'
 				}, {
 					src : './Source/**'
 				}, {
-					src : './Style/**'
+					src : './Spec/**'
 				}, {
-					src : './Tests/**'
+					src : './.project'
 				}, {
-					src : './LICENSE'
-				}, {
-					src : './README.md'
+					src : './README.md' 
 				} ]
 			}
 		},

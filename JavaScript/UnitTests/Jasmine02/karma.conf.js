@@ -12,7 +12,7 @@ module.exports = function(config) {
         files: [        
             'Source/GetNumber.js',
             'Spec/SimpleTest.js',
-            'Spec/NumberTest.js',            
+            'Spec/NumberTest.js',
             'Source/MainKarma.js'
         ],
 
