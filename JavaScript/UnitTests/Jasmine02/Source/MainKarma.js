@@ -3,9 +3,9 @@
  */
 
 var tests = ['SimpleTest', 'NumberTest'];
-for (var file in window.__karma__.files) {
+/* for (var file in window.__karma__.files) {
     console.log(file);
-}
+}*/
 
 requirejs.config({
     // Karma serves files     

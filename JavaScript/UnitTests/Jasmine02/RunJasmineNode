@@ -1,0 +1,15 @@
+#! /bin/bash
+
+echo "===================================================="
+echo "This code loads only files with .spec in their name." 
+echo "That is, it loads LoadTests.spec.js"
+echo "That file loads our actual tests"
+echo "===================================================="
+
+# Run once:
+ 
+jasmine-node --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/
+
+# For interactive mode, do *npm install node-jasmine* and then this:
+
+# nodemon node_modules/jasmine-node/lib/jasmine-node/cli.js --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/

@@ -1,95 +1,122 @@
 module.exports = function(grunt) {
-    'use strict';
+	'use strict';
 
-    var zipFile = 'Jasmine02.zip';
+	var zipFile = 'Jasmine02.zip';
 
-    grunt.initConfig({
-        zipFile: zipFile,
+	grunt.initConfig({
+		zipFile : zipFile,
 
-        jshint: {
-            files: ['*/*.js'],
+		pkg : '<json:package.json>',
 
-            options: {
-                ignores: [                    
-                    '**/node_modules/**',
-                    '**/jquery-2.0.3.js',
-                    '**/requirejs-wrapper*.js',
-                    '**/requirejs-setup*.js'
-                ],
-                reporter: 'checkstyle',
-                reporterOutput: 'result.xml',
-                strict: true,
-                newcap: false,
-                globals: {
-                    describe: true,
-                    afterEach: true,
-                    beforeEach: true,
-                    inject: true,
-                    it: true,
-                    jasmine: true,
-                    expect: true,
-                    angular: true,
-                    module: true,
-                    Crafty: true
-                }
-            }
-        },
+		karma : {
+			unit : {
+				configFile : 'karma.conf.js',
+				browsers : [ 'PhantomJS' ],
+				singleRun : true
+			}
+		},
 
-        clean: {
-            work: {
-                src: [
-                    "**/node_modules/**",
-                ]
-            },
+		jshint : {
+			files : [ '*/*.js' ],
 
-            zip: {
-                src: []
-            }
-        },
+			options : {
+				ignores : [ '**/node_modules/**', '**/jquery-2.0.3.js',
+						'**/requirejs-wrapper*.js', '**/requirejs-setup*.js' ],
+				reporter : 'checkstyle',
+				reporterOutput : 'result.xml',
+				strict : true,
+				newcap : false,
+				globals : {
+					describe : true,
+					afterEach : true,
+					beforeEach : true,
+					inject : true,
+					it : true,
+					jasmine : true,
+					expect : true,
+					angular : true,
+					module : true,
+					Crafty : true
+				}
+			}
+		},
 
-        compress: {
-            jasmine02: {
-                options: {
-                    archive: '<%= zipFile %>',
-                    mode: 'zip'
-                },
-                files: [{
-                    src: './*.html'
-                }, {
-                    src: './*.js*'
-                }, {
-                    src: './*.css'
-                }, {
-                    src: './Assets/**'
-                }, {
-                    src: './Library/**'
-                }, {
-                    src: './Source/**'
-                }, {
-                    src: './Style/**'
-                }, {
-                    src: './Tests/**'
-                }, {
-                    src: './LICENSE'
-                }, {
-                    src: './README.md'
-                }]
-            }
-        },
+		clean : {
+			work : {
+				src : [ "**/node_modules/**", ]
+			},
 
-        copy: {
-            main: {
-                src: '<%= zipFile %>',
-                dest: process.env.HOME + '/temp/'
-            }   
-     
-        }
-    });
+			zip : {
+				src : []
+			}
+		},
 
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-contrib-copy');    
+		compress : {
+			jasmine02 : {
+				options : {
+					archive : '<%= zipFile %>',
+					mode : 'zip'
+				},
+				files : [ {
+					src : './*.html'
+				}, {
+					src : './*.js*'
+				}, {
+					src : './*.css'
+				}, {
+					src : './Assets/**'
+				}, {
+					src : './Library/**'
+				}, {
+					src : './Source/**'
+				}, {
+					src : './Style/**'
+				}, {
+					src : './Tests/**'
+				}, {
+					src : './LICENSE'
+				}, {
+					src : './README.md'
+				} ]
+			}
+		},
 
-    grunt.registerTask('dist', ['clean:zip', 'compress:jasmine02', 'copy:main']);
+		copy : {
+			main : {
+				src : '<%= zipFile %>',
+				dest : process.env.HOME + '/temp/'
+			}
+
+		}
+	});
+
+	var path = require('path');
+	
+	var runner = require('karma').runner;
+	var server = require('karma').server;
+	var _ = grunt.util._;
+	grunt.registerMultiTask('karma', 'run karma.', function() {
+		var done = this.async();
+		var options = this.options({
+			background : false,
+			colors : !grunt.option("no-color")
+		});
+		var data = this.data;
+		// merge options onto data, with data taking precedence
+		data = _.merge(options, data);
+		data.configFile = path.resolve(data.configFile);
+		if (data.configFile) {
+			data.configFile = grunt.template.process(data.configFile);
+		}
+		server.start(data, function(code) {
+			done(!code);
+		});
+	});
+	
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.registerTask('test', [ 'jshint', 'karma' ]);
+	grunt.registerTask('dist', [ 'clean:zip', 'compress:jasmine02', 'copy:main' ]);
 };

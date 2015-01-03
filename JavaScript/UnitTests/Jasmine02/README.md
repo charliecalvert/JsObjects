@@ -15,6 +15,17 @@ Here are the various requirejs files:
 - When using HTML files, requirejs uses **MainTest.js**
 - There is an index.html file that has nothing to do with the tests. It uses **Main.js**.
 
+There are numerous ways to run karma and grunt.
+
+- Run both jshint and karma: **grunt test**
+- Just jshint: **grunt jshint**
+- Just karma in interactive mode: **karma start** or **RunKarma.sh**
+- Just karma tests and exit: **grunt karma**
+
+If you run karma in interactive mode you can edit your files and
+see the results of each change. If you run and exit, you see
+if your tests and code, in the current state, all pass.  
+
 ## Start a web server
 
 	python3 -m http.server 30025

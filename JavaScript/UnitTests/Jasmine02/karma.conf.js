@@ -71,7 +71,7 @@ module.exports = function(config) {
         // CLI --single-run --no-single-run
         singleRun: false,
 
-        plugins: ["karma-jasmine", "karma-requirejs", "karma-chrome-launcher", "karma-spec-reporter"],
+        plugins: ["karma-jasmine", "karma-requirejs", "karma-chrome-launcher", "karma-spec-reporter", 'karma-phantomjs-launcher'],
         
         // report which specs are slower than 500ms
         // CLI --report-slower-than 500
