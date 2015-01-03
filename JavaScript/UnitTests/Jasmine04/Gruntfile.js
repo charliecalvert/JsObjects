@@ -1,21 +1,19 @@
 module.exports = function(grunt) {
     'use strict';
 
-    var zipFile = 'Jasmine08.zip';
+    var zipFile = 'Jasmine03.zip';
 
     grunt.initConfig({
         zipFile: zipFile,
 
         jshint: {
-            files: [
-                '**/*.js'                
-            ],
+            files: ['**/*.js'],
 
             options: {
                 ignores: [                    
                     '**/node_modules/**',
-                    'Library/jquery-2.0.3.js',                    
-                    'Library/jas/**'
+                    '**/jquery-2.0.3.js',
+                    '**/Library/**'
                 ],
                 reporter: 'checkstyle',
                 reporterOutput: 'result.xml',
@@ -49,7 +47,7 @@ module.exports = function(grunt) {
         },
 
         compress: {
-            angularCalculator: {
+            jasmine02: {
                 options: {
                     archive: '<%= zipFile %>',
                     mode: 'zip'
@@ -81,34 +79,16 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 src: '<%= zipFile %>',
-                dest: process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
-            }
-        },
-
-        bowercopy: {
-            options: {
-                clean: true
-            },
-            jasmine: {
-                options: {
-                    srcPrefix: 'bower_components',
-                    destPrefix: 'Library/jas'
-                },
-                files: {
-                    'jasmine.js': 'jasmine/lib/jasmine-core/jasmine.js',
-                    'jasmine.css': 'jasmine/lib/jasmine-core/jasmine.css',
-                    'jasmine-html.js': 'jasmine/lib/jasmine-core/jasmine-html.js',
-                    'jasmine_favicon.png': 'jasmine/images/jasmine_favicon.png',
-                }
-            }            
+                dest: process.env.HOME + '/temp/'
+            }   
+     
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-bowercopy');
+    grunt.loadNpmTasks('grunt-contrib-copy');    
 
-    grunt.registerTask('dist', ['clean:zip', 'compress:jasmine08', 'copy:main']);
+    grunt.registerTask('dist', ['clean:zip', 'compress:jasmine03', 'copy:main']);
 };

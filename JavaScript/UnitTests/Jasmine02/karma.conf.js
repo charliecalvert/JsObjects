@@ -19,7 +19,7 @@ module.exports = function(config) {
         // list of files to exclude
         exclude: [
             'Source/Main.js',
-            'Library/MainTest.js',
+            'Source/MainTest.js',
             'Library/jas/*.js',
             'Library/require.js'
         ],

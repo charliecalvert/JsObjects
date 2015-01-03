@@ -1,7 +1,10 @@
 describe("MyObject", function() {
 	'use strict';
+	var obj;
 
-	var obj = new MyObject("clean"); // sets initial state
+	beforeEach(function() {
+		obj = new MyObject("clean"); // sets initial state
+	});
 
 	afterEach(function() {
 		obj.setState("clean");
@@ -9,7 +12,6 @@ describe("MyObject", function() {
 
 	it("changes state", function() {
 		obj.setState("dirty");
-		console.log(obj);
 		expect(obj.getState()).toEqual("dirty");
 	});
 
@@ -41,6 +43,7 @@ describe("MyObject", function() {
 
 var customMatchers = {
 	toBeBetween : function() {
+		'use strict';
 		return {
 			compare : function(actual, rangeFloor, rangeCeiling) {
 				if (rangeFloor > rangeCeiling) {
@@ -52,22 +55,21 @@ var customMatchers = {
 				var result = {
 					// Jasmine fills in actual for us and handles this object
 					pass : actual > rangeFloor && actual < rangeCeiling,
-					message : actual + ' is not so between ' + rangeFloor
-							+ " and " + rangeCeiling
+					message : actual + ' is not so between ' + rangeFloor +
+							" and " + rangeCeiling
 				};
 
 				if (!result.pass) {
-					console.log("Compare called: ", actual)
-					result.message = actual + ' is not at all between '
-							+ rangeFloor + " and " + rangeCeiling
+					console.log("Compare called: ", actual);
+					result.message = actual + ' is not at all between ' +
+							rangeFloor + " and " + rangeCeiling;
 				}
-				;
 
 				return result;
 			}
 		};
 	}
-}
+};
 
 describe("Test Custom Matcher called toBeBetween", function() {
 	'use strict';
@@ -99,6 +101,7 @@ describe("Test Custom Matcher called toBeBetween", function() {
 });
 
 describe("custom equality", function() {
+	'use strict';
 
 	var myCustomEquality = function(first, second) {
 
@@ -123,6 +126,7 @@ describe("custom equality", function() {
 
 var customMatchers2 = {
 	toBeGoofy : function(util, customEqualityTesters) {
+		'use strict';
 
 		return {
 
@@ -139,12 +143,12 @@ var customMatchers2 = {
 
 				if (result.pass) {
 
-					result.message = "Expected " + actual
-							+ " not to be quite so goofy";
+					result.message = "Expected " + actual +
+							" not to be quite so goofy";
 				} else {
 
-					result.message = "Expected " + actual
-							+ " to be goofy, but it was not very goofy";
+					result.message = "Expected " + actual +
+							" to be goofy, but it was not very goofy";
 				}
 
 				return result;
@@ -154,6 +158,7 @@ var customMatchers2 = {
 };
 
 describe("Custom matcher: 'toBeGoofy'", function() {
+	'use strict';
 
 	beforeEach(function() {
 		jasmine.addMatchers(customMatchers2);
