@@ -1,5 +1,6 @@
 define('GetNumber', function() {
     'use strict';
+    
     return {
         getEight: function() {
             return 8;
