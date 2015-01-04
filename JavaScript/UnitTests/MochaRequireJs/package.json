@@ -1,0 +1,29 @@
+{
+  "name": "MochaRequireJs",
+  "version": "1.0.0",
+  "description": "Mocha and RequireJs",
+  "main": "Test01.js",
+  "scripts": {
+    "test": "mocha -u tdd MyObjectSpec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "mocha",
+    "requirejs"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "dependencies": {
+    "requirejs": "^2.1.15"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}

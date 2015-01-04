@@ -7,7 +7,7 @@ describe("Test01", function() {
         assert.equal(3, 3);
     });
 
-    it("so", function() {
+    it("Is 2 equal to 2", function() {
         assert.equal(2, 2);
     });
 

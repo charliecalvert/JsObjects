@@ -1,0 +1,5 @@
+#! /bin/bash
+
+npm test
+
+# mocha -u tdd MyObjectSpec.js

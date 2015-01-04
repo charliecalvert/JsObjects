@@ -8,8 +8,8 @@ echo "===================================================="
 
 # Run once:
  
-jasmine-node --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/
+jasmine-node --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Library/requirejs-setup.js ./Spec/
 
 # For interactive mode, do *npm install jasmine-node* and then this:
 
-# nodemon node_modules/jasmine-node/lib/jasmine-node/cli.js --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Spec/requirejs-setup.js ./Spec/
+# nodemon node_modules/jasmine-node/lib/jasmine-node/cli.js --captureExceptions --verbose --runWithRequireJs --requireJsSetup ./Library/requirejs-setup.js ./Spec/
