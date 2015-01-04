@@ -14,7 +14,7 @@ describe('Require Js Test Suites', function() {
 	before(function(done) {		
 		// This saves the modules for use in tests. You have to use
 		// the done callback because this is asynchronous.
-		requirejs(['MyObject'], function(mo) {
+		requirejs(['Source/MyObject'], function(mo) {
 			myObject = mo;		
 			done();
 		});
