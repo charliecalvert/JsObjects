@@ -1,8 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 
-# Install NodeJs
-
-sudo apt-get -y install python-software-properties python g++ make
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get -y update
-sudo apt-get -y install nodejs
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install -y nodejs
