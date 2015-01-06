@@ -4,6 +4,7 @@ Thumbs.db
 *.dex
 *.bak
 foo.sh
+foo.txt
 resources.ap_
 jarlist.cache
 geany_run_script.bat
@@ -17,3 +18,4 @@ npm-debug.log
 foo.bat
 __pycache__
 result.xml
+*.pyc

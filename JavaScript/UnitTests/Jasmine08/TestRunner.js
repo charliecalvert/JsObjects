@@ -53,7 +53,8 @@ app.get('/', function(request, response) {
 
 
 app.use("/Library", express.static(__dirname + '/Library'));
-//app.use("/", express.static(__dirname + '/public'));
+app.use("/Source", express.static(__dirname + '/Source'));
+app.use("/Spec", express.static(__dirname + '/Spec'));
 
 app.listen(port);
 console.log('Listening on port :' + port);

@@ -1,0 +1,4 @@
+#! /bin/bash
+
+JASMINE_CONFIG_PATH=./jasmine.json 
+jasmine

@@ -1,0 +1,3 @@
+#! /bin/bash
+
+mocha -u tdd my_object_spec.js
