@@ -9,7 +9,7 @@
 ## Filter
 
 - **FilterOnRecords**: Use ForEach to filter an array of records
-- **FilterMapOnNumber**: Filter an array of numbers to see those > 3.
+- **FilterMapOnLetter**: Filter an array of letters to see those > 'C'.
  
 ## Flatten
 
