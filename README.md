@@ -12,7 +12,7 @@ All the code in JsObjects is released under the MIT license.
 
 ## Node Install
 
-    sudo apt-get isntall curl
+    sudo apt-get install curl
     curl -sL https://deb.nodesource.com/setup | sudo bash -
     sudo apt-get install -y nodejs
 
@@ -27,13 +27,14 @@ You will want to install express, karma, grunt, nodemon and jasmine-node globall
 
 If on Linux, first do this so that you don't have to use sudo:
 
+    mkdir ~/npm
     npm config set prefix ~/npm
 
-Then add this to the bottom of your .bashrc:
+Then add this to the bottom of your .bashrc and restart or source bash:
 
     export PATH="$PATH:$HOME/npm/bin"
 
-To install express, karma, etc globally:
+You can now install express, karma, etc globally without using sudo:
 
     npm install -g karma-cli
     npm install -g grunt-cli
@@ -41,3 +42,6 @@ To install express, karma, etc globally:
     npm install -g express-generator
     npm install -g nodemon
     npm install -g mocha
+
+If on Windows, you can issue the above commands without worrying about
+**sudo**. 
