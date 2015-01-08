@@ -19,3 +19,4 @@ foo.bat
 __pycache__
 result.xml
 *.pyc
+*.idea
