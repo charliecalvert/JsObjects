@@ -1,6 +1,8 @@
 JsObjects
 ========
 
+Code by Charlie Calvert for Elvenware under the MIT License.
+
 Various JavaScript, HTML, CSS, Node, and Python Projects covering 
 basic programming issues. To install a readonly copy:
 
