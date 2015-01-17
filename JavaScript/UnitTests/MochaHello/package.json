@@ -1,5 +1,5 @@
 {
-  "name": "Hello Mocha",
+  "name": "MochaHello",
   "version": "1.0.0",
   "description": "Simplest possible Mocha test",
   "dependencies": {
