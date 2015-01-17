@@ -1,0 +1,29 @@
+{
+  "name": "Hello Mocha",
+  "version": "1.0.0",
+  "description": "Simplest possible Mocha test",
+  "dependencies": {
+    "chai": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "mocha",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "unit",
+    "test",
+    "mocha",
+    "simple"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects"
+}

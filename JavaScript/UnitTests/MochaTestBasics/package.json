@@ -1,0 +1,30 @@
+{
+  "name": "TestBasicDemos",
+  "version": "1.0.0",
+  "description": "Demos for the UnitTestingBasics Slide Deck",
+  "dependencies": {
+    "chai": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "mocha Test",
+    "test": "mocha Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "unit",
+    "test",
+    "mocha",
+    "function",
+    "object"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects"
+}
