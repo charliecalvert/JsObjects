@@ -1,17 +1,15 @@
 var chai = require('chai');
 var expect = chai.expect;
 
+var objectGetOne = require('../Source/ObjectGetOne.js');
+var objectNumbers = require('../Source/ObjectNumbers.js');
+var functionUtilities = require('../Source/FunctionUtilities.js');
+var functionNumbers = require('../Source/FunctionNumbers.js');
 
-describe("Module-Tests", function () {
+describe("Alternate Module Tests", function () {
 
-    describe("Unit Test ObjectGetOne", function () {
+    describe("Unit Test Alt-ObjectGetOne", function () {
         'use strict';
-
-        var objectGetOne;
-
-        before(function() {
-            objectGetOne = require('../Source/ObjectGetOne.js');
-        });
 
         it("proves true is true", function () {
             expect(true).to.equal(true);
@@ -23,13 +21,7 @@ describe("Module-Tests", function () {
 
     });
 
-    describe("Unit Test ObjectNumbers", function () {
-
-        var objectNumbers;
-
-            before(function() {
-            objectNumbers= require('../Source/ObjectNumbers.js');
-            });
+    describe("Unit Test Alt-ObjectNumbers", function () {
 
         it("proves ObjectNumbers getOne returns 1", function () {
             expect(objectNumbers.getOne()).to.equal(1);
@@ -41,15 +33,9 @@ describe("Module-Tests", function () {
 
     });
 
-    describe("Unit test functionNumbers", function() {
+    describe("Unit test Alt-FunctionUtilities", function() {
 
-        var functionUtilities;
-
-        before(function() {
-            functionUtilities = require('../Source/FunctionUtilities.js');
-        });
-
-        it("proves functionUtilities getOne returns 1", function () {
+        it.only("proves functionUtilities getOne returns 1", function () {
             expect(functionUtilities.getOne()).to.equal(1);
         });
 
@@ -59,13 +45,7 @@ describe("Module-Tests", function () {
 
     });
 
-    describe("Unit test functionNumbers", function() {
-
-        var functionNumbers;
-
-        before(function() {
-            functionNumbers = require('../Source/FunctionNumbers.js');
-        });
+    describe("Unit test Alt-FunctionNumbers", function() {
 
         it("proves functionNumbers getOne returns 1", function () {
             expect(functionNumbers.getOne()).to.equal(1);
