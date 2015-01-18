@@ -1,4 +1,8 @@
-exports.getOne = function() {
-    'use strict';
-    return 1;
+exports.numbers = {
+
+    getOne: function() {
+        'use strict';
+        return 1;
+    }
+
 };

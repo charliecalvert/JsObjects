@@ -13,7 +13,7 @@ describe("Unit Test Object Demo", function () { 'use strict';
 	});
 
 	it("proves ObjectGetOne getOne returns 1", function() {
-		expect(objectGetOne.getOne()).to.equal(1);
+		expect(objectGetOne.numbers.getOne()).to.equal(1);
 	});
 
 	it("proves ObjectNumbers getOne returns 1", function() {
