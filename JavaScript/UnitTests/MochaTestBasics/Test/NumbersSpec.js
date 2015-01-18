@@ -1,7 +1,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var objectGetOne = require('../Source/ObjectGetOne.js');
+var numbers = require('../Source/ObjectGetOne.js');
 var objectNumbers = require('../Source/ObjectNumbers.js');
 var functionGetOne = require('../Source/FunctionGetOne.js');
 var functionNumbers = require('../Source/FunctionNumbers.js');
@@ -13,19 +13,24 @@ describe("Unit Test Object Demo", function () { 'use strict';
 	});
 
 	it("proves ObjectGetOne getOne returns 1", function() {
-		expect(objectGetOne.numbers.getOne()).to.equal(1);
+		expect(numbers.getOne()).to.equal(1);
 	});
 
 	it("proves ObjectNumbers getOne returns 1", function() {
-		expect(objectNumbers.numbers.getOne()).to.equal(1);
+		expect(objectNumbers.getOne()).to.equal(1);
+	});
+
+	it("proves ObjectNumbers getTwo returns 2", function() {
+		expect(objectNumbers.getTwo()).to.equal(2);
 	});
 
 	it("proves functionGetOne getOne returns 1", function() {
 		expect(functionGetOne.getOne()).to.equal(1);
 	});
 
+
 	it("proves functionNumbers getOne returns 1", function() {
-		expect(functionNumbers.numbers.getOne()).to.equal(1);
+		expect(functionNumbers.getOne()).to.equal(1);
 	});
 
 });

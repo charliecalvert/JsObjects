@@ -1,14 +1,16 @@
 function Numbers() { }
 
-Numbers.prototype.getOne = function() { 'use strict';
+Numbers.prototype.getOne = function() {
+	'use strict';
 	return 1;
 };
 
-Numbers.prototype.getTwo = function() { 'use strict';
+Numbers.prototype.getTwo = function() {
+	'use strict';
 	return 2;
 };
 
-exports.numbers = new Numbers();
+module.exports = new Numbers();
 
 /** 
  * This will also work with the same test. To prove it,
@@ -30,5 +32,5 @@ function Numbers() {
 	}
 } 
 
-exports.numbers = new Numbers
-*/
+exports.numbers = new Numbers; */
+

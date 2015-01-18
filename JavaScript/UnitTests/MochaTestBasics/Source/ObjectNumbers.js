@@ -1,4 +1,4 @@
-exports.numbers = {
+module.exports = {
 
 	getOne: function() {
 		'use strict';
