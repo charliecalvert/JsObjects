@@ -35,7 +35,7 @@ describe("Alternate Module Tests", function () {
 
     describe("Unit test Alt-FunctionUtilities", function() {
 
-        it.only("proves functionUtilities getOne returns 1", function () {
+        it("proves functionUtilities getOne returns 1", function () {
             expect(functionUtilities.getOne()).to.equal(1);
         });
 

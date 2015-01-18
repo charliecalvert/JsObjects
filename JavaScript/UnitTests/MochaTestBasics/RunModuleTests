@@ -1,1 +1,3 @@
+#! /bin/bash
+
 mocha Test --grep Module-Tests

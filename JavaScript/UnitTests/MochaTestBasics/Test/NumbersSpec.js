@@ -1,7 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-
 describe("Module-Tests", function () {
 
     describe("Unit Test ObjectGetOne", function () {
@@ -41,7 +40,7 @@ describe("Module-Tests", function () {
 
     });
 
-    describe("Unit test functionNumbers", function() {
+    describe("Unit test functionUtilities", function() {
 
         var functionUtilities;
 

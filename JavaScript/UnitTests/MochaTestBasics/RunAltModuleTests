@@ -1,0 +1,3 @@
+#! /bin/bash
+
+mocha Test --grep 'Alternate Module Tests'
