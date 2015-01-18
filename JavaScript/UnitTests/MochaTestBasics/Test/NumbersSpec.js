@@ -2,9 +2,10 @@ var chai = require('chai');
 var expect = chai.expect;
 
 describe("Module-Tests", function () {
-
+	'use strict';
+        
     describe("Unit Test ObjectGetOne", function () {
-        'use strict';
+
 
         var objectGetOne;
 
