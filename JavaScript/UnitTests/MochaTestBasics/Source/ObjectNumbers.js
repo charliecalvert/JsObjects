@@ -1,8 +1,13 @@
 exports.numbers = {
-	getOne: function() { 
+
+	getOne: function() {
+		'use strict';
 		return 1;
 	},
+
 	getTwo: function() {
+		'use strict';
 		return 2;
 	}
-}
+
+};

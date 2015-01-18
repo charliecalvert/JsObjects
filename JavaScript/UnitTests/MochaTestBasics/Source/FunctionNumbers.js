@@ -1,14 +1,14 @@
 function Numbers() { }
 
-Numbers.prototype.getOne = function() { 
+Numbers.prototype.getOne = function() { 'use strict';
 	return 1;
-}
+};
 
-Numbers.prototype.getTwo = function() {
+Numbers.prototype.getTwo = function() { 'use strict';
 	return 2;
-}
+};
 
-exports.numbers = new Numbers;
+exports.numbers = new Numbers();
 
 /** 
  * This will also work with the same test. To prove it,

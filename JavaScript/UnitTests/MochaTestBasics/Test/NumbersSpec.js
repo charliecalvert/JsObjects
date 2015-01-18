@@ -6,7 +6,7 @@ var objectNumbers = require('../Source/ObjectNumbers.js');
 var functionGetOne = require('../Source/FunctionGetOne.js');
 var functionNumbers = require('../Source/FunctionNumbers.js');
 
-describe("Unit Test Object Demo", function () {
+describe("Unit Test Object Demo", function () { 'use strict';
 
 	it("proves true is true", function () {
 		expect(true).to.equal(true);

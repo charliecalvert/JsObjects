@@ -1,4 +1,4 @@
-function getOne() { 
+function getOne() {  'use strict';
     return 1;
 }
 

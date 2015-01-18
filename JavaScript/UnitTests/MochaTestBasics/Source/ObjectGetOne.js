@@ -1,3 +1,4 @@
-exports.getOne = function() { 
+exports.getOne = function() {
+    'use strict';
     return 1;
-}
+};
