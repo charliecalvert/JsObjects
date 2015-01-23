@@ -16,6 +16,8 @@ npm install -g grunt-cli
 npm install -g jasmine-node
 npm install -g express-generator
 npm install -g nodemon
+npm install -g mocha
+npm install -g cordova
 
 echo "Add this to the bottom of your .bashrc file:"
 echo 'export PATH="$PATH:$HOME/npm/bin"'

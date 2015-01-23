@@ -7,9 +7,9 @@ var functionUtilities = require('../Source/FunctionUtilities.js');
 var functionNumbers = require('../Source/FunctionNumbers.js');
 
 describe("Alternate Module Tests", function () {
-
+    'use strict';
+    
     describe("Unit Test Alt-ObjectGetOne", function () {
-        'use strict';
 
         it("proves true is true", function () {
             expect(true).to.equal(true);
