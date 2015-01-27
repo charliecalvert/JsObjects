@@ -36,7 +36,10 @@ from the app chooser:
 
 ![Image](https://drive.google.com/uc?export=view&id=0B25UTAlOfPRGWEpYazZTdkJMUE0)
 
-And here is the main screen of the program. The icon shown here is the one 
-from the **www/img** folder:
+Contrast the **HelloCordova** icon with the default icon shown for the
+**CordovaStates** app.
+
+Below you can see the main screen of the **HelloCordova** program. The 
+icon shown here is the one from the **www/img** folder:
 
 ![Icon](https://drive.google.com/uc?export=view&id=0B25UTAlOfPRGemRlOVB4SnBnRHc)
