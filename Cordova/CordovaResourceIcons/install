@@ -1,0 +1,5 @@
+#! /bin/bash
+
+cordova build android
+adb uninstall io.cordova.hellocordova
+adb install platforms/android/ant-build/CordovaApp-debug.apk
