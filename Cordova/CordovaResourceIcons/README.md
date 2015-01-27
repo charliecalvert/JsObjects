@@ -31,5 +31,12 @@ blog post:
 To install the project on your device, you might like to use the 
 **install** script in the root of the project.
 
+Notice the **HelloCordova** icon on the bottom right from this excerpt
+of the app chooser:
+
 ![Image](https://drive.google.com/uc?export=view&id=0B25UTAlOfPRGWEpYazZTdkJMUE0)
+
+And here is the main screen of the program. The icon shown here is the one 
+from the **www/img** folder:
+
 ![Icon](https://drive.google.com/uc?export=view&id=0B25UTAlOfPRGemRlOVB4SnBnRHc)
