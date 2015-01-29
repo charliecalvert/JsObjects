@@ -1,0 +1,28 @@
+{
+  "name": "JadeRender",
+  "version": "1.0.0",
+  "description": "How to create HTML from Jade",
+  "main": "Render.js",
+  "scripts": {
+	"start": "node Render.js",
+    "test": "mocha Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "jade",
+    "express",
+    "nodejs"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "dependencies": {
+    "jade": "^1.9.1"
+  }
+}
