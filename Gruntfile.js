@@ -5,11 +5,11 @@ module.exports = function(grunt) {
 			files: ['**/*.js'],
 
 			options: {
-				ignores: ['*/angular-mocks.js', 
+				ignores: ['*/angular-mocks.js',
 					'*/ui-bootstrap-tpls-*.js',
-					'*/knockout-*.js', 
-					'*/Ractive.js', 
-					'*/**/angular.js', 
+					'*/knockout-*.js',
+					'*/Ractive.js',
+					'*/**/angular.js',
 					'**/node_modules/**',
 					'**/handlebars.js',
 					'**/jquery*.js',
@@ -19,11 +19,11 @@ module.exports = function(grunt) {
 				reporterOutput: 'result.xml'
 			}
 		},
-		
-		clean :	{			
-			yourTarget : {				
-				src : [ "**/node_modules/**" , '*/barFooGoo/**'
-				]				
+
+		clean :	{
+			yourTarget : {
+				src : [ "**/node_modules/**"
+				]
 			}
 		}
 	});
