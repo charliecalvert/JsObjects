@@ -10,6 +10,7 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
         
         files: [
+            'Source/Elf.js',
             'Source/*.js',
             'Spec/*Test.js'
         ],

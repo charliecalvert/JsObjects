@@ -2,7 +2,7 @@
  * Created by charliecalvert on 2/8/15.
  */
 
-var NumberModule = (function() {
+elf.NumberModule = (function() {
 
     'use strict';
 
@@ -23,7 +23,6 @@ var NumberModule = (function() {
     NumberModule.prototype.getFive = function() {
         return five;
     };
-
 
     return NumberModule;
 

@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
 			options : {
 				ignores : [ 
-				     '**/node_modules/**'
+				     '**/node_modules/**', 
 				],
 				reporter : 'checkstyle',
 				reporterOutput : 'result.xml',
