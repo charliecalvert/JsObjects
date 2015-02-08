@@ -2,6 +2,8 @@
 
 This project shows how to use requirejs, jasmine-node and karma. 
 
+The [video](http://youtu.be/IJaI8jUkOZY)
+
 To run this project, do one of the three things:
 
 - Use grunt to run karma: grunt test
