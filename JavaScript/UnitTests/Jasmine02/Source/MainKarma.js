@@ -2,14 +2,34 @@
  * @author Charlie Calvert
  */
 
-var tests = ['SimpleTest', 'NumberTest'];
-/* for (var file in window.__karma__.files) {
-    console.log(file);
-}*/
+var tests = [];
 
+
+
+// console.log(window.__karma__.files);
+
+
+for (var file in window.__karma__.files) {
+	if (window.__karma__.files.hasOwnProperty(file)) {
+		if (/Spec/.test(file)) {
+			console.log("The test: " + file);
+			file = file.substring(0, file.length-3);
+			var files = file.split('/');
+			tests.push(files[files.length-1]);
+		}
+	}
+} 
+
+// tests = ['SimpleTest', 'NumberTest'];
+console.log(tests);
 requirejs.config({
+	
     // Karma serves files     
-    baseUrl: './',
+    baseUrl: '/base/Spec',
+    
+    paths: {
+        'GetNumber': '../Source/GetNumber'
+    },
 
     // ask Require.js to load these files (all our tests)
     deps: tests,

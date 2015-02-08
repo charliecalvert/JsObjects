@@ -4,14 +4,13 @@ This project shows how to use requirejs, jasmine-node and karma.
 
 To run this project, do one of the three things:
 
-- Use karma: **./RunKarma.sh**
-- Use jasmine-node with requirejs support: **./RunWithRequireJs**
-- Use the Jasmine library and display in an HTML file
+- Use grunt to run karma: grunt test
+- Use karma without grunt: **./RunKarma.sh**
+- Use the Jasmine library and display in an HTML file: node TestRunner.js
 
 Here are the various requirejs files:
 
 - When using Karma, requirejs uses **Source/MainKarma.js**
-- When using jasmine node, requirejs uses **Spec/LoadTests.spec.js**
 - When using HTML files, requirejs uses **MainTest.js**
 - There is an index.html file that has nothing to do with the tests. It uses **Main.js**.
 
@@ -48,6 +47,5 @@ To install karma globally:
 
 	npm install -g karma-cli
 	npm install -g grunt-cli
-	npm install -g jasmine-node
 	npm install -g nodemon
 	

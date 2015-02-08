@@ -7,14 +7,15 @@ module.exports = function(config) {
         basePath: './',
 
         frameworks: ['jasmine', 'requirejs'],
-
-        // list of files / patterns to load in the browser
-        files: [        
-            'Source/GetNumber.js',
-            'Spec/SimpleTest.js',
-            'Spec/NumberTest.js',
-            'Source/MainKarma.js'
-        ],
+        
+        files: [
+            'Source/MainKarma.js', {
+            pattern : 'Source/*.js',
+            included : false
+        }, {
+            pattern : 'Spec/*.js',
+            included: false
+        }], 
 
         // list of files to exclude
         exclude: [
@@ -28,11 +29,6 @@ module.exports = function(config) {
         // possible values: 'dots', 'progress'
         // CLI --reporters progress
         reporters: ['spec'],
-
-        junitReporter: {
-            // will be resolved to basePath (in the same way as files/exclude patterns)
-            outputFile: 'test-results.xml'
-        },
 
         // web server port
         // CLI --port 9876
@@ -60,8 +56,8 @@ module.exports = function(config) {
         // - PhantomJS
         // - IE (only Windows)
         // CLI --browsers Chrome,Firefox,Safari
-        browsers: ['Chrome'],
-        // browsers: ['PhantomJS'],
+        // browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
         // If browser does not capture in given timeout [ms], kill it
         // CLI --capture-timeout 5000
