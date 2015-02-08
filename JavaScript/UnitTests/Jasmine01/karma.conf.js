@@ -10,11 +10,11 @@ module.exports = function(config) {
         frameworks: ['jasmine', 'requirejs'],
         
         files: [
-            'Source/MainKarma.js', {
+            'Spec/MainKarma.js', {
             pattern : 'Source/*.js',
             included : false
         }, {
-            pattern : 'Spec/*.js',
+            pattern : 'Spec/*Test.js',
             included: false
         }], 
 

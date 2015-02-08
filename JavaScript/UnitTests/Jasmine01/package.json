@@ -15,8 +15,5 @@
     "karma-requirejs": "~0.2.1",
     "karma-spec-reporter": "0.0.16",
     "requirejs": "~2.1.15"
-  },
-  "dependencies": {
-    "serve-favicon": "^2.2.0"
   }
 }
