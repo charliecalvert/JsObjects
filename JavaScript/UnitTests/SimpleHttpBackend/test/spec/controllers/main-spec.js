@@ -1,6 +1,5 @@
-'use strict';
-
 describe('Controller: MainCtrl', function () {
+  'use strict';
 
   // load the controller's module
   beforeEach(module('simpleHttpBackendApp'));
@@ -14,6 +13,11 @@ describe('Controller: MainCtrl', function () {
     $http = _$http_;
     $httpBackend = _$httpBackend_;
   }));
+
+  afterEach(function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
@@ -31,19 +35,15 @@ describe('Controller: MainCtrl', function () {
 
     var response = [{"firstName":"Isaac","lastName":"Newton","address":"101 June Street","city":"New York","state":"NY"},{"firstName":"Albert","lastName":"Einstein","address":"101 June Street","city":"Bellevue","state":"WA"},{"firstName":"Neils","lastName":"Bohr","address":"101 June Street","city":"Bellevue","state":"WA"},{"firstName":"Charles","lastName":"Darwin","address":"101 June Street","city":"Bellevue","state":"WA"}];
 
-    $httpBackend
-      .whenGET(scope.url)
-      .respond(response);
+    $httpBackend.whenGET(scope.url).respond(response);
 
-    //invoke code under test
-    scope.getJson();
+    scope.getJson(); // Method to test
 
-    //simulate response
-    $httpBackend.flush();
+    $httpBackend.flush(); // Simulates response from server
 
-    //verify results
     expect(scope.values[0]).toEqual('Isaac Newton');
     expect(scope.values[1]).toEqual('Albert Einstein');
+    expect(scope.values[2]).toEqual('Neils Bohr');
   });
 
 });
