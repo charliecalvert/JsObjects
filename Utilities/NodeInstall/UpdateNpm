@@ -1,6 +1,6 @@
 #! /bin/bash
 
 which npm
-npm update -g npm
+npm install -g npm
 sudo rm /usr/bin/npm
 sudo ln -s ~/npm/bin/npm /usr/bin/npm

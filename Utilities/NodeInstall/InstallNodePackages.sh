@@ -21,6 +21,11 @@ npm install -g cordova
 npm install -g yo
 npm install -g bower
 
+# Yeoman
+npm install -g generator-express
+npm install -g generator-angular
+npm install -g generator-bootstrap
+
 # Add ~/npm/bin to your path for the life of your bash session:
 PATH="$PATH:$HOME/npm/bin"
 
