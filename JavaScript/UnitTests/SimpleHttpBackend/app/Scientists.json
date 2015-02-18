@@ -1,0 +1,30 @@
+[
+  {
+    "firstName": "Isaac",
+    "lastName": "Newton",
+    "address": "101 June Street",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "firstName": "Albert",
+    "lastName": "Einstein",
+    "address": "101 June Street",
+    "city": "Bellevue",
+    "state": "WA"
+  },
+  {
+    "firstName": "Neils",
+    "lastName": "Bohr",
+    "address": "101 June Street",
+    "city": "Bellevue",
+    "state": "WA"
+  },
+  {
+    "firstName": "Charles",
+    "lastName": "Darwin",
+    "address": "101 June Street",
+    "city": "Bellevue",
+    "state": "WA"
+  }
+]
