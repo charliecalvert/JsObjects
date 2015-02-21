@@ -1,16 +1,18 @@
 //
    Created by charlie on 2/17/15.
 
-mixin jumbo(titles)
+mixin jumbo(title, name)
     .jumbotron
-        h1 About
-        p <em>by Charles Calvert</em>
+        h1= title
         p
-            | This is my bio where I like to walk.
-            | And then I just keep typing.
+            em= name
+        p
+            | This is my bio. I like to code and write.
+            | I also like to walk.
+        img(src="http://www.gravatar.com/avatar/b7b972e6d8e9d877abaee3f91b74b4a8.png", alt="Charlie")
 
 
-mixin attribution()
+mixin attribution(afr)
     p.well by Charles Prog272 Calvert
 
 
@@ -40,6 +42,7 @@ mixin nav(name, id, style)
             .collapse.navbar-collapse( id=id )
                 ul.nav.navbar-nav
                     block
+
 mixin nav_item(href, idName, active)
     li(class=active, id=idName): a( href=href )
         block
