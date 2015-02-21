@@ -1,9 +1,32 @@
 extends menu-mixin
 
 block append content
-  h1= title
-  p You have arrived at #{title}
 
-  +attribution
+    .container
 
-  +bio
+        +jumbo("About")
+
+        +listGroup("list")
+            +listItem("active") Cras justo odio
+            +listItem Dapibus ac facilisis in
+            +listItem Morbi leo risus
+            +listItem Dapibus ac facilisis in
+            +listItem Morbi leo risus
+            +listItem Dapibus ac facilisis in
+        +listGroup("links")
+            +listItem("link1.html", "active")
+                +listHeading List group item heading
+                +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+            +listItem("link2.html")
+                +listHeading List group item heading
+                +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+            +listItem("link3.html")
+                +listHeading List group item heading
+                +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+        .row
+            .col-md-4.col-sm-6.col-xs-12
+                +panel("Panel Heading", "primary") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
+            .col-md-4.col-sm-6.col-xs-12
+                +panel("Panel Heading", "success") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
+            .col-md-4.col-sm-6.col-xs-12
+                +panel("Panel Heading", "default") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
