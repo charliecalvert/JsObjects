@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.blueParagraph {
+    background-color: #AAAAFF;
+    border: solid black 2px;
+    padding: 2px;
+    width: 300px;
+}
