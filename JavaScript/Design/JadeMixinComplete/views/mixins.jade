@@ -1,5 +1,4 @@
-//
-   Created by charlie on 2/17/15.
+// Created by charlie on 2/17/15.
 
 mixin jumbo(title, name)
     .jumbotron
@@ -95,14 +94,14 @@ mixin button(style, href, size)
 
 //- List group mixins
 - var groupType
-mixin listGroup(type)
+mixin listGroup(type, id)
     - groupType = type
     case groupType
         when 'list'
-            ul.list-group
+            ul.list-group(id=id)
                 block
         default
-            .list-group
+            .list-group(id=id)
                 block
 
 mixin listItem(arg1, arg2)
