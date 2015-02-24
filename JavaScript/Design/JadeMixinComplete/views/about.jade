@@ -1,4 +1,4 @@
-extends menu-mixin
+extend menu-mixin
 
 block append content
 
@@ -15,8 +15,8 @@ block append content
                 a(href="http://getbootstrap.com/components/") Bootstrap Components
 
         h2 Various Bootstrap Mixins
-
-        +listGroup("list")
+        
+        +listGroup("list", 'tempId')
             +listItem("active") Cras justo odio
             +listItem Dapibus ac facilisis in
             +listItem Morbi leo risus
