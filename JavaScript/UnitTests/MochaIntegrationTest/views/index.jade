@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+
+
+    <button id="getFive">Get Five</button>
+
+    p#five
+
+    h2 JSON Area
+
+    p
+        | Note that in our tests we never click the <strong>Get Scientists</strong> button
+        | because we have not provided a way to know when it returns. We can however,
+        | call <strong>getScientists</strong>, because we factored it out into a public
+        | method of <strong>Control.js</strong>.
+
+    <button id="getScientists">Get Scientists</button>
+
+    ul#jsonDisplay
