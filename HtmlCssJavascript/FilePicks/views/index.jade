@@ -1,12 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
 
-  div
-    input#file(type='file', name='file', enctype='multipart/form-data', multiple='')
-    select#fileList(size='5', name='fileList') foo
-  div
-    p
-      textarea#fileData(rows='50', cols='85', name='myTxtArea') content
+    ul#debug
+
+    div
+        button#wham wham
+        button#bam bam
+
+    div#showData
+
+    div
+        input#file(type='file', name='file', enctype='multipart/form-data', multiple='')
+        select#fileList(size='5', name='fileList') foo
+    div
+        p
+            textarea#fileData(rows='50', cols='85', name='myTxtArea') contents
+

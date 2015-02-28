@@ -4,7 +4,7 @@
   "description": "Mocha and RequireJs",
   "main": "Test01.js",
   "scripts": {
-    "test": "mocha -u tdd MyObjectSpec.js"
+    "test": "mocha -w Spec/MyObjectSpec.js"
   },
   "repository": {
     "type": "git",

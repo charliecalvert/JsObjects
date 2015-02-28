@@ -2,4 +2,4 @@
 
 npm test
 
-# mocha -u tdd MyObjectSpec.js
+# mocha -u tdd Spec/MyObjectSpec.js
