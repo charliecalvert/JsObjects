@@ -2,7 +2,7 @@
 
 BABASE=$HOME
 GIT_HOME=$BABASE/Git
-GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
+export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 
 # Commands
 alias go="npm install && npm start"
