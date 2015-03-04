@@ -1,6 +1,8 @@
 #! /bin/bash
 
 BABASE=$HOME
+GIT_HOME=$BABASE/Git
+GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 
 # Commands
 alias go="npm install && npm start"
@@ -11,7 +13,8 @@ alias chrome="/usr/bin/chromium-browser"
 # General
 export GEN=$BABASE/Src
 alias awsb="cd $BABASE/bin/AwsBasicS3"
-alias gitdir="cd $GEN/Git"
+alias gitdir="cd $GIT_HOME"
+alias gitio="cd $GIT_HUB_IO"
 alias batch="cd $GEN/Batch"
 alias isit="cd $GEN/Git/Isit3202014"
 alias chr="/usr/bin/chromium-browser"
@@ -26,12 +29,18 @@ alias cn='cd $BABASE/Dropbox/Elvenware/CloudNotes'
 export WRITE=$BABASE/Git/writings
 alias writing='cd $WRITE'
 alias tech="cd $WRITE/Tech"
-alias games="cd $WRITE/Tech/Games"
-alias ds='cd $WRITE/Tech/DataStructures/'
+alias wt="cd $WRITE/Tech"
+alias wta="cd $WRITE/Tech/AaCode"
+alias wtg="cd $WRITE/Tech/Games"
+alias wtds='cd $WRITE/Tech/DataStructures/'
 alias wtjs='cd $WRITE/Tech/JsSyntax/'
-alias tpl="cd $WRITE/Tech/Games/ThreePointerLock"
-alias gl="cd $WRITE/Tech/Games/GameListener"
-alias aa="cd $WRITE/Tech/AaCode"
+alias wtpl="cd $WRITE/Tech/Games/ThreePointerLock"
+alias wtgl="cd $WRITE/Tech/Games/GameListener"
+alias wtp="cd $WRITE/Tech/Programmable"
+alias wtu="cd $WRITE/UnitTests/Js"
+
+
+
 alias nt="cd $WRITE/Tech/Network"
 
 # JsObjects
@@ -42,5 +51,6 @@ alias jodes="cd $JSOBJECTS/JavaScript/Design"
 alias joj="cd $JSOBJECTS/JavaScript"
 alias jop="cd $JSOBJECTS/Python"
 alias jos="cd $JSOBJECTS/JavaScript/Syntax"
+alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
 
