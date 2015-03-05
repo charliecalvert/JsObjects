@@ -1,6 +1,8 @@
 #! /bin/bash
 
 BABASE=$HOME
+GIT_HOME=$BABASE/Git
+export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 
 # Commands
 alias go="npm install && npm start"
@@ -11,7 +13,8 @@ alias chrome="/usr/bin/chromium-browser"
 # General
 export GEN=$BABASE/Src
 alias awsb="cd $BABASE/bin/AwsBasicS3"
-alias gitdir="cd $GEN/Git"
+alias gitdir="cd $GIT_HOME"
+alias gitio="cd $GIT_HUB_IO"
 alias batch="cd $GEN/Batch"
 alias isit="cd $GEN/Git/Isit3202014"
 alias chr="/usr/bin/chromium-browser"
@@ -27,6 +30,7 @@ export WRITE=$BABASE/Git/writings
 alias writing='cd $WRITE'
 alias wt='cd $WRITE'
 alias wtt="cd $WRITE/Tech"
+alias wta="cd $WRITE/Tech/AaCode"
 alias wtg="cd $WRITE/Tech/Games"
 alias wtds='cd $WRITE/Tech/DataStructures/'
 alias wtjs='cd $WRITE/Tech/JsSyntax/'
@@ -35,6 +39,8 @@ alias wtgl="cd $WRITE/Tech/Games/GameListener"
 alias wtaa="cd $WRITE/Tech/AaCode"
 alias wtnt="cd $WRITE/Tech/Network"
 alias wtp="cd $WRITE/Tech/Programmable"
+alias nt="cd $WRITE/Tech/Network"
+
 
 # JsObjects
 export JSOBJECTS=$BABASE/Git/JsObjects
