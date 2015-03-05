@@ -33,16 +33,21 @@ class MarkdownToHtml:
 		sourceName = "{0}{1}".format(sourceFolder, fileName);
 		return makeHeadings.parseReplaceHtml(sourceName, technique)
 
+	# The JadeOptions.json file looks like this: { "basedir": "/home/charlie" }
 	def runPandoc(self, sourceFolder, fileName):
-		cmd = 'pandoc -t HTML5 --output={0}{1}{2}.htm {0}{1}{2}.md'
+		#cmd = 'pandoc -t HTML5 --output={0}{1}{2}.htm {0}{1}{2}.md'
+		cmd = 'jade --pretty --obj /home/charlie/Documents/JadeOptions.json --out {0} {0}{1}{2}.jade'
+		
+		
 		cmd = cmd.format(sourceFolder, os.sep, fileName)
+		print("Command:" + cmd);
 		return subprocess.check_call(cmd, shell=True)
 
 	def concatFiles(self, baseName, headings):
 		data = self.getTemplateFile(self.templateNames[0])
 		data += self.getTemplateFile(self.templateNames[1])
 		data += headings;
-		data += elfFiles.getFileContent(baseName + '.htm')
+		data += elfFiles.getFileContent(baseName + '.html')
 		data += self.getTemplateFile(self.templateNames[2])
 		data += self.getTemplateFile(self.templateNames[3])
 		return data;
@@ -50,7 +55,7 @@ class MarkdownToHtml:
 	def createFullHtml(self, sourceFolder, fileName, targetFolder, technique):
 		sourceFolder = elfFiles.ensureFinalSlash(sourceFolder)
 		self.runPandoc(sourceFolder, fileName)
-		headings = self.makeHeadings(sourceFolder, fileName + '.htm', technique)
+		headings = self.makeHeadings(sourceFolder, fileName + '.html', technique)
 		baseName = sourceFolder + fileName;
 		data = self.concatFiles(baseName, headings)
 		tempName = sourceFolder + "Temp.html"
