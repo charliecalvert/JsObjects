@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.send({ 'result': 'Default response from routes/Garply.js' });
+    res.send({ 'result': 'Default response from routes/Garply.js' });
 });
 
 router.get('/readQux', function(request, response) {

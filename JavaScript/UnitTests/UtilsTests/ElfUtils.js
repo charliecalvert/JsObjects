@@ -177,6 +177,11 @@ function getHomeDir() {
     return homeDir;
 }
 
+function insertString(fileName, itemToInsert, index) {
+    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
+    return output;
+}
+
 
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
@@ -195,3 +200,4 @@ exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.getHomeDir = getHomeDir;
+exports.insertString(baseString, itemToInsert, index);

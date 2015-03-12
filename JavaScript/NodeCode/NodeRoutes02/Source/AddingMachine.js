@@ -5,7 +5,7 @@ var MyObject = (function() {
 
     // Constructor
     function MyObject() {
-        console.log("MyObject.Constructor called");
+        console.log("Source/MyObject.Constructor called");
     }
 
     MyObject.prototype.add = function(operandA, operandB) {
