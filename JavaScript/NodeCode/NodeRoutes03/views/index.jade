@@ -1,16 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
 
-  button#buttonGetJson Parse Json
-  button#buttonGetJsonAjax Get Json with Ajax
-  button#buttonGetMarkdown Parse Markdown
+    button#buttonGetJson Parse Json
+    button#buttonGetJsonAjax Get Json with Ajax
+    button#buttonGetMarkdown Parse Markdown
 
-  p#debug
+    p#debug
 
-  div#radioDiv
-  
-  div
-    pre#markdown
+    div#radioDiv
+
+    div
+        pre#markdown
+
+    p Look in routes/users.js to see why these urls response as they do.
+
+    ul
+        li
+            a(href="/users") /users
+        li
+            a(href="/users/a") /users/a
+        li
+            a(href="/users/acat") /users/acat
+        li
+            a(href="/users/bar") /users/bar
+
+    :markdown
+        Docs on routing found [here](http://expressjs.com/guide/routing.html).
+

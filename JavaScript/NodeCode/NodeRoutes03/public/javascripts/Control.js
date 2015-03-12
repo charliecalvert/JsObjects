@@ -1,4 +1,4 @@
-var Main = (function() {
+var Control = (function() {
 
 	var objectToSendFromClientToServer = {
 		"firstName" : "Qux",
@@ -6,7 +6,7 @@ var Main = (function() {
 	};
 
 	// Constructor
-	function Main() {
+	function Control() {
 		$("#buttonGetJson").click(parseJson);
 		$("#buttonGetJsonAjax").click(parseWithAjax);
 		$("#buttonGetMarkdown").click(parseMarkdown);
@@ -86,11 +86,11 @@ var Main = (function() {
 		$("#debug").append('<li>' + textToDisplay + '</li>');
 	};
 
-	return Main;
+	return Control;
 
 }());
 
 $(document).ready(function() {
 	'use strict';
-	var main = new Main();
+	var control = new Control();
 });
