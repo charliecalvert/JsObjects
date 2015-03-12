@@ -6,6 +6,7 @@ options = {
 	
 	/* Used in exceptions, and required for relative includes and extends */
 "filename": "Render.js",
+"title": "My Title"
 
 /* If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes. 
 // doctype:string

@@ -1,0 +1,27 @@
+{
+  "name": "PythonCall",
+  "version": "1.0.0",
+  "description": "Python calls from node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "python",
+    "system",
+    "call"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "dependencies": {
+    "node-python": "0.0.4"
+  }
+}
