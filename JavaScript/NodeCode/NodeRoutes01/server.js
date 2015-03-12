@@ -1,15 +1,17 @@
 var express = require('express');
-var connect = require('connect');
 var app = express();
 var fs = require('fs');
 
-// app.use(express.bodyParser());
-app.use(connect.urlencoded());
-app.use(connect.json());
+// For posts
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var port = process.env.PORT || 30025;
+// Middleware
+var router = express.Router();
+app.use('/', router);
 
-app.get('/getNine', function(request, response) {
+router.get('/getNine', function(request, response) {
     'use strict';
     console.log('getNine called');
     response.send({
@@ -18,21 +20,21 @@ app.get('/getNine', function(request, response) {
 });
 
 // With a get, the parameters are passed in request.query
-app.get('/add', function(request, response) {
+router.get('/add', function(request, response) {
     'use strict';
-    console.log('add called');
+    console.log('add get called');
     console.log(request.query);
-    var result = parseInt(request.query.operandA) + parseInt(request.query.operandB);
+    // var result = parseInt(request.query.operandA) + parseInt(request.query.operandB);
     response.send({
-        "result": result
+        "result": "bar"
     });
 });
 
-/* To handle a post, we have to add express.bodyParser, shown above
-   Now our parameters come in on request.body */
-app.post('/add', function(request, response) {
+/* To handle a post, we have to add bodyParser, shown above
+   Now our parameters come in request.body */
+router.post('/add', function(request, response) {
     'use strict';
-    console.log('add called');
+    console.log('add post called');
     console.log(request.body);
     var result = parseInt(request.body.operandA) + parseInt(request.body.operandB);
     response.send({
@@ -40,7 +42,7 @@ app.post('/add', function(request, response) {
     });
 });
 
-app.get('/', function(request, response) {
+router.get('/', function(request, response) {
     'use strict';
     var html = fs.readFileSync(__dirname + '/Public/index.html');
     response.writeHeader(200, {
@@ -51,5 +53,7 @@ app.get('/', function(request, response) {
 });
 
 app.use("/", express.static(__dirname + '/Public'));
+
+var port = process.env.PORT || 30025;
 app.listen(port);
 console.log('Listening on port :' + port);
