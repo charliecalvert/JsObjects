@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p
+        | Look in routes/users.js to see why these urls respond as they do.
+        | Note that we are using <a href="https://www.npmjs.com/package/page">pagejs</a>,
+        | which allows us to do routing on
+        | the client side. So we have two levels of routes, one on the
+        | client, and the other on the server. The point here is not that
+        | the combination is so powerful, though it can be, but simply that
+        | this demo covers routing on both the client and the server. Note
+        | that angularjs can also use client side routing.
+
+
+  ul
+        li.button
+            a(href="/") /root
+        li.button
+            a(href="/users/") /users
+        li.button
+            a(href="/users/a") /users/a
+        li.button
+            a(href="/users/acat") /users/acat
+        li.button
+            a(href="/users/bar") /users/bar
+
+ div.response
+     p#response
+     p#route
+     p#result
+     p#request
+     p#params
+
+ div.debug
+        h2 Debug Area
+        p#debug

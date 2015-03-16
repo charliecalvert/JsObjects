@@ -4,8 +4,21 @@ var Control = (function() {
 
 	// Constructor
 	function Control() {
-        var ajax = new elf.Ajax();
-        runPage();
+        $("button").click(function(event) {
+            var id = event.target.id;
+            var route = '/routeParams/' + id
+            $("#clientRoute").html('ClientRoute: ' + route);
+            $.getJSON(route, function(response) {
+                // $('#response').html(JSON.stringify(response));
+                $('#route').html("ROUTE: " + response.route);
+                $('#result').html("RESULT: " + response.result);
+                $('#query').html("QUERY: " + JSON.stringify(response.query));
+                $('#params').html("PARAMS: " + JSON.stringify(response.params));
+                $('#id').html("ID: " + response.id);
+
+                // elf.utilities.showMessage(choice, true);
+            });
+        });
 	}
 
     function clear() {

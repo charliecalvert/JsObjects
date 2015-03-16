@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+
+    p
+        | Look in routes/RouteParams.js to see why these urls respond as they do.
+        | The point is that you don't need to have a route for every URL. There
+        | are parameters wild cards you can use to handle multiple URLs on a single
+        | route.
+
+    h2 Response Area
+    div.response
+        p.compact#clientRoute clientRoute
+        p.compact#route route
+        p.compact#result
+        p.compact#query
+        p.compact#params
+        p.compact#id
+
+    div
+        h2 Normal
+        button#root root
+        button#routeParams /routeParams
+        button#able /routeParams/able
+        button#bravo /routeParams/bravo
+        button#charlie /routeParams/charlie
+
+    div
+        h2 Cats
+        button#acat /routeParams/acat
+        button#a /routeParams/a
+
+
+
+    h2 Debug Area
+    div.debug
+        p#debug
