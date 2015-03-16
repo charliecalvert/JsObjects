@@ -9,4 +9,5 @@ then
 fi
 
 echo $UserTemp/$Project com.elvenware.$ProjectSmall $Project
-create $UserTemp/$Project com.elvenware.$ProjectSmall $Project
+cordova create $UserTemp/$Project com.elvenware.$ProjectSmall $Project
+
