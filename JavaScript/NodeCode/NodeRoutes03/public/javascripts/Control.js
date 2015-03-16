@@ -11,6 +11,18 @@ var Control = (function() {
 		$("#buttonGetJsonAjax").click(parseWithAjax);
 		$("#buttonGetMarkdown").click(parseMarkdown);
 		$("#buttonParseAjax").click(parseWithAjax);
+        /* page.base('/users');
+
+        page('/', function() {
+            console.log("users");
+        });
+
+        page('/users/users', function() {
+            console.log('about');
+        });
+
+        page();
+        */
 	}
 
 	function addNames(initFirstName, initLastName) {
