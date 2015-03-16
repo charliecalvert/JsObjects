@@ -18,16 +18,24 @@ block content
     p Look in routes/users.js to see why these urls response as they do.
 
     ul
-        li
+        li.button
             a(href="/") /root
-        li
-            a(href="/users") /users
-        li
+        li.button
+            a(href="/users/") /users
+        li.button
             a(href="/users/a") /users/a
-        li
+        li.button
             a(href="/users/acat") /users/acat
-        li
+        li.button
             a(href="/users/bar") /users/bar
+
+    p#response
+    p#route
+    p#result
+    p#request
+    p#params
+
+    ul#display
 
     :markdown
         Docs on routing found [here](http://expressjs.com/guide/routing.html).

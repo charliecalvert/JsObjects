@@ -3,6 +3,7 @@
  */
 
 var utilities = {
+
 	createRadio : function(displayString, id) {
 		var objDiv = document.getElementById("radioDiv");
 		var radioItem = document.createElement("input");
@@ -18,6 +19,13 @@ var utilities = {
 		objDiv.appendChild(objLabel);
 		var newSpan = document.createElement('hr');
 		objDiv.appendChild(newSpan);
-	}
+	},
 
-}
+    showMessage: function(message) {
+        $('#display').append('<li>' + message + '<li>');
+    },
+
+    showDebug:  function(textToDisplay) {
+        $("#debug").append('<li>' + textToDisplay + '</li>');
+    }
+};

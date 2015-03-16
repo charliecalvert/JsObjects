@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Copy charlie's default Cordova icons into the current project.
+# Now replace his icons with your own.
+# JSOBJECTS is set in .bash_alias and is usually ~/Git/JsObjects
+
+RES_ICONS=$JSOBJECTS/Cordova/CordovaResourceIcons
+
+cp -r $RES_ICONS/config .
+cp -r $RES_ICONS/hooks/after_platform_add/ hooks/.
+cp -r $RES_ICONS/hooks/after_platform_ls/ hooks/.

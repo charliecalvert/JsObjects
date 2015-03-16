@@ -1,0 +1,15 @@
+{
+  "name": "Foo",
+  "version": "0.0.0",
+  "authors": [
+    "Charlie Ubuntu Calvert <charlie@elvenware.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

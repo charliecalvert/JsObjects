@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.buttona {
+    border: solid 2px #AA22FF;
+    border-radius: 8px;
+    margin: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 100px;
+}
+
+.button {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none; font: menu; color: ButtonText;
+    display: inline-block; padding: 2px 8px;
+}

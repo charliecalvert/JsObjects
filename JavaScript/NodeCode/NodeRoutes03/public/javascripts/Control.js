@@ -11,18 +11,31 @@ var Control = (function() {
 		$("#buttonGetJsonAjax").click(parseWithAjax);
 		$("#buttonGetMarkdown").click(parseMarkdown);
 		$("#buttonParseAjax").click(parseWithAjax);
-        /* page.base('/users');
+        // page.base('/');
 
         page('/', function() {
-            console.log("users");
+            console.log("root");
         });
 
-        page('/users/users', function() {
-            console.log('about');
+        page('/users/', function() {
+            console.log('Simple user');
+        });
+
+        page('/users/:id', function(request) {
+            var id = request.params.id
+            var choice = ('Param: ' + id);
+            $.getJSON('/users/' + id, function(response) {
+                $('#response').html(JSON.stringify(response));
+                $('#route').html(response.route);
+                $('#result').html(response.result);
+                $('#request').html(response.request);
+                $('#params').html(response.params);
+                utilities.showMessage(choice + ': ' + JSON.stringify(response));
+            });
         });
 
         page();
-        */
+
 	}
 
 	function addNames(initFirstName, initLastName) {
@@ -81,22 +94,19 @@ var Control = (function() {
 			dataType : 'json',
 			success : function(data) {
 				clear();
-				showDebug(JSON.stringify(data));
+                utilities.showDebug(JSON.stringify(data));
 			},
 			error : function(request, ajaxOptions, thrownError) {
-				showDebug("Error occurred: = " + ajaxOptions + " "
+				utilities.showDebug("Error occurred: = " + ajaxOptions + " "
 						+ thrownError);
-				showDebug(request.status);
-				showDebug(request.statusText);
-				showDebug(request.getAllResponseHeaders());
-				showDebug(request.responseText);
+                utilities.showDebug(request.status);
+                utilities.showDebug(request.statusText);
+                utilities.showDebug(request.getAllResponseHeaders());
+                utilities.showDebug(request.responseText);
 			}
 		});
 	}
 
-	var showDebug = function(textToDisplay) {
-		$("#debug").append('<li>' + textToDisplay + '</li>');
-	};
 
 	return Control;
 
