@@ -28,6 +28,7 @@ alias cn='cd $BABASE/Dropbox/Elvenware/CloudNotes'
 # Writing
 export WRITE=$BABASE/Git/writings
 alias writing='cd $WRITE'
+alias tech="cd $WRITE/Tech"
 alias wt='cd $WRITE'
 alias wtt="cd $WRITE/Tech"
 alias wta="cd $WRITE/Tech/AaCode"
@@ -36,11 +37,14 @@ alias wtds='cd $WRITE/Tech/DataStructures/'
 alias wtjs='cd $WRITE/Tech/JsSyntax/'
 alias wtpl="cd $WRITE/Tech/Games/ThreePointerLock"
 alias wtgl="cd $WRITE/Tech/Games/GameListener"
-alias wtaa="cd $WRITE/Tech/AaCode"
-alias wtnt="cd $WRITE/Tech/Network"
 alias wtp="cd $WRITE/Tech/Programmable"
+alias wtu="cd $WRITE/UnitTests/Js"
 alias nt="cd $WRITE/Tech/Network"
 
+# Elvenware
+alias ec="cd $WRITE/Elvenware"
+alias ecc="cd $WRITE/Elvenware/development/cloud/"
+alias ecj="cd $WRITE/Elvenware/development/web/JavaScript"
 
 # JsObjects
 export JSOBJECTS=$BABASE/Git/JsObjects
@@ -50,6 +54,7 @@ alias jodes="cd $JSOBJECTS/JavaScript/Design"
 alias joj="cd $JSOBJECTS/JavaScript"
 alias jop="cd $JSOBJECTS/Python"
 alias jos="cd $JSOBJECTS/JavaScript/Syntax"
+alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
-alias jot="cd $JSOBJECTS/JavaScript/UnitTest"
+
 
