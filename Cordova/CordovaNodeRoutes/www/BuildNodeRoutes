@@ -1,0 +1,16 @@
+#! /bin/bash
+
+ROUTE_PARAMS=$JSOBJECTS/JavaScript/NodeCode/NodeRoutesParams
+
+mv index.html index.html.old
+
+LINK_DIR=platforms/android
+
+mkdir -p javascripts
+cp $ROUTE_PARAMS/public/javascripts/Control.js javascripts/.
+cp $ROUTE_PARAMS/public/html/index.html .
+cp $ROUTE_PARAMS/public/css/style.css css/.
+# cp $ROUTE_PARAMS/.bowerrc .
+cp $ROUTE_PARAMS/bower.json .
+bower install
+
