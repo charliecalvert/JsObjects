@@ -6,6 +6,6 @@ Demonstrates:
 
 - Loading JSON with getJSON and Ajax
 - Parsing JSON once you have loaded it
-- Loading Jade HTML templates and passing in template parameters 
+- Loading Jade HTML templates from an Express route and passing in template parameters 
 - Loading text
-- Loading markdown
+- Loading markdown from an Express route and parsing and display markdown with Jade
