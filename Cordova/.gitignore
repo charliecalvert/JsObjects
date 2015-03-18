@@ -7,3 +7,4 @@ lib
 Cordova
 proguard*
 *-CordovaLib*
+plugins

@@ -1,0 +1,6 @@
+#! /bin/bash
+
+cordova build android
+adb uninstall com.elvenware.elven_phone
+adb install platforms/android/ant-build/CordovaApp-debug.apk
+
