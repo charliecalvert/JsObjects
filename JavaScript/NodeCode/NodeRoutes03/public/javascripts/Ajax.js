@@ -13,21 +13,16 @@ elf.Ajax = (function() {
     }];
 
     function Ajax() {
-        $("#buttonGetJson").click(parseJson);
-        $("#buttonGetJsonAjax").click(parseWithAjax);
-        $("#buttonGetMarkdown").click(parseMarkdown);
+        $("#getJson").click(parseJson);
+        $("#getJsonAjax").click(parseWithAjax);
     }
 
-    function clear() {
-        $("#debug").empty();
-        $("#radioDiv").empty();
-        $("#markdown").empty();
-    }
 
     function displayFullName(data) {
-        clear();
+        elf.utilities.clear();
         elf.utilities.showDebug(data.fullName);
-        elf.utilities.showDebug(data.lastName);
+        elf.utilities.showDebug(data.original.firstName);
+        elf.utilities.showDebug(data.original.lastName);
         elf.utilities.createRadio(data.original.firstName, 'firstName');
         elf.utilities.createRadio(data.original.lastName, 'lastName');
         console.log(data);
@@ -39,7 +34,7 @@ elf.Ajax = (function() {
         $.getJSON('/getFullName',
             objectToSendFromClientToServer[0],
             function(data) {
-                clear();
+                elf.utilities.clear();
                 displayFullName(data);
             })
             .success(function() {
@@ -62,7 +57,7 @@ elf.Ajax = (function() {
             url : '/getFullName',
             dataType : 'json',
             success : function(data) {
-                clear();
+                elf.utilities.clear();
                 displayFullName(data);
             },
             error : function(request, ajaxOptions, thrownError) {
@@ -74,11 +69,6 @@ elf.Ajax = (function() {
                 elf.utilities.showDebug(request.responseText);
             }
         });
-    }
-
-    function parseMarkdown() {
-        clear();
-        $("#markdown").load("MarkdownSample.md");
     }
 
     return Ajax;

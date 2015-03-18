@@ -24,4 +24,21 @@ router.get('/getFullName', function(request, response) {
 	});
 });
 
+router.get('/pageInsert', function(request, response) {
+    response.render('PageInsert', {
+        param01 : 'PageInsert'
+    });
+});
+
+router.get('/pageWithDivs', function(request, response) {
+    response.render('PageWithDivs', {
+        param01 : 'PageWithDivs01',
+        param02 : 'PageWithDivs02'
+    });
+});
+
+router.get('/jadeWithMarkdown', function(request, response) {
+    response.render('JadeWithMarkdown');
+});
+
 module.exports = router;

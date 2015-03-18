@@ -4,19 +4,25 @@ block content
     h1= title
     p Welcome to #{title}
 
-    button#buttonGetJson Parse Json
-    button#buttonGetJsonAjax Get Json with Ajax
-    button#buttonGetMarkdown Parse Markdown
+    button#getJson Parse Json
+    button#getJsonAjax Get Json with Ajax
+    hr
+    button#getHtml Load HTML I
+    button#getHtmlWithDivs Load HTML with Divs
+    button#getHtmlSecondDiv Load HTML only second div
+    hr
+    button#getMarkdown Get Markdown Text
+    button#getJadeWithMarkdown Load HTML Jade with Markdown
+    hr
 
-    div#radioDiv
+    div#displayArea
 
     div
         pre#markdown
 
-   
-  
-
     ul#display
+
+    hr
 
     :markdown
         Docs on routing found [here](http://expressjs.com/guide/routing.html).
