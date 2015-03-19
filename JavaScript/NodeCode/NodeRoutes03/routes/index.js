@@ -41,4 +41,10 @@ router.get('/jadeWithMarkdown', function(request, response) {
     response.render('JadeWithMarkdown');
 });
 
+router.get('/:id', function(request, response) {
+    var id = request.params.id;
+    response.render(id);
+});
+
+
 module.exports = router;
