@@ -4,7 +4,7 @@ var Control = (function() {
 	function Control() {
         $("button").click(function(event) {
             var id = event.target.id;
-            var route = 'http://52.11.190.176:30025/routeParams/' + id;
+            var route = '/routeParams/' + id;
             $("#clientRoute").html('ClientRoute: ' + route);
             $.getJSON(route, function(response) {
                 // $('#response').html(JSON.stringify(response));
