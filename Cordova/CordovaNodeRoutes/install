@@ -1,6 +1,6 @@
 #! /bin/bash
 
 cordova build android
-adb uninstall com.elvenware.node_routes
+adb uninstall com.elvenware.elven_node_routes
 adb install platforms/android/ant-build/CordovaApp-debug.apk
 
