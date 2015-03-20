@@ -10,8 +10,6 @@ elf.Control=(function() {
         elf.utilities.showMessage('Control loaded');
         $('#phoneCall').click(phoneCall);
         $('#phoneCallWeb').click(phoneCallWeb);
-
-
     }
 
     function phoneCallWeb() {
