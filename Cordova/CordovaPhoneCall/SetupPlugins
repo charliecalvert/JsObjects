@@ -1,2 +1,3 @@
+#! /bin/bash
 
 cordova plugin add https://github.com/anemitoff/PhoneGap-PhoneDialer
