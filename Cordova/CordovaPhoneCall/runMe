@@ -1,4 +1,2 @@
 
-cordova plugin add org.apache.cordova.camera
-cordova plugin add org.apache.cordova.vibration
 cordova plugin add https://github.com/anemitoff/PhoneGap-PhoneDialer
