@@ -16,13 +16,13 @@ elf.Control=(function() {
 
     function phoneCallWeb() {
         elf.utilities.showMessage('You called phone');
-        window.location.href = "tel:555555555";
+        window.location.href = "tel:+1-800-555-1234";
     }
 
     function phoneCall() {
         elf.utilities.showMessage('You called phone plugin');
         phonedialer.dial(
-            "5555555555",
+            "18005551234",
             function(err) {
                 if (err == "empty") elf.utilities.showMessage("Unknown phone number");
                 else elf.utilities.showMessage("Dialer Error:" + err);
