@@ -39,7 +39,8 @@ If you are not connected, the connect your phone, a phone emulator,
 or connect to an instance of VirtualBox running AndroidX86:
 
 ```
-adb connect 192.168.2.27
+$ adb connect 192.168.2.27
+connected to 192.168.2.27:5555
 ```
 
 # Bower
