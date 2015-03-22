@@ -1,13 +1,11 @@
-//
-   Created by charlie on 2/19/15.
-
 extends layout
 
 include mixins
     
 block content
-    body
-        +nav("Prog272 Midterm", "dropdown_menu", "navbar-default navbar-fixed-top")
+
+    .header
+        +nav("Prog272 Midterm", "navigationbar", "navbar-default navbar-fixed-top")
             +nav_item( "/", "home", "active" ) Home
             +nav_item( "json-ajax", "json-ajax") JsonAjax
             +nav_item( "about", "about" ) About
