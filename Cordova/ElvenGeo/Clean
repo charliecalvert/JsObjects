@@ -1,5 +1,19 @@
 #! /bin/bash
 
-rm -r platforms
-rm -r plugins/org.apache.cordova.geolocation
-rm -r www/bower_components
+PLATFORMS=platforms
+PLUGINS=plugins/org.apache.cordova.geolocation
+BOWER=www/bower_components
+
+if [ -d "$PLATFORMS" ] ; then
+    rm -r $PLATFORMS
+fi
+
+if [ -d "$PLUGINS" ] ; then
+    rm -r $PLUGINS
+fi
+
+if [ -d "$BOWER" ] ; then
+    rm -r $BOWER
+fi
+
+
