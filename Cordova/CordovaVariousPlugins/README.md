@@ -1,4 +1,4 @@
-# Cordova Various Plugins
+# Cordova Vibrations Plugins
 
 There are two plugins in this program as of March 20, 2015. One causes
 the phone to vibrate, the other brings up the camera so you can take a
