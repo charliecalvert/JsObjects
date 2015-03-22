@@ -1,7 +1,7 @@
 #! /bin/bash
 
 PLATFORMS=platforms
-PLUGINS=plugins/org.apache.cordova.geolocation
+PLUGINS=plugins/com.teamnemitoff.phonedialer
 BOWER=www/bower_components
 
 if [ -d "$PLATFORMS" ] ; then

@@ -1,3 +1,15 @@
 #! /bin/bash
 
-cordova plugin add https://github.com/anemitoff/PhoneGap-PhoneDialer
+if [ ! -d "platforms" ] ; then
+    cordova platform add android
+fi
+
+if [ ! -d "plugins/com.teamnemitoff.phonedialer" ] ; then
+    cordova plugin add https://github.com/anemitoff/PhoneGap-PhoneDialer
+    #cordova plugin add https://github.com/apache/cordova-plugin-vibration
+    #cordova plugin add https://github.com/apache/cordova-plugin-camera
+fi
+
+if [ ! -d "www/bower_components" ] ; then
+    bower install
+fi

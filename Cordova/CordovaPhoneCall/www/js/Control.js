@@ -20,12 +20,18 @@ elf.Control=(function() {
     function phoneCall() {
         elf.utilities.showMessage('You called phone plugin');
         phonedialer.dial(
-            "18005551234",
+            "14252420899",
             function(err) {
-                if (err == "empty") elf.utilities.showMessage("Unknown phone number");
-                else elf.utilities.showMessage("Dialer Error:" + err);
+                if (err == "empty") {
+                    elf.utilities.showMessage("Unknown phone number");
+                }
+                else {
+                    elf.utilities.showMessage("Dialer Error:" + err);
+                }
             },
-            function(success) { elf.utilities.showMessage('Dialing succeeded'); }
+            function(success) {
+                elf.utilities.showMessage('Dialing succeeded');
+            }
         );
     }
 
