@@ -52,6 +52,7 @@ alias ecj="cd $WRITE/Elvenware/development/web/JavaScript"
 # JsObjects
 export JSOBJECTS=$BABASE/Git/JsObjects
 alias jo="cd $JSOBJECTS"
+alias joc="cd $JSOBJECTS/Cordova"
 alias jod="cd $JSOBJECTS/Data"
 alias jodes="cd $JSOBJECTS/JavaScript/Design"
 alias joj="cd $JSOBJECTS/JavaScript"
