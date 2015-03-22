@@ -1,7 +1,7 @@
 #! /bin/bash
 
 BABASE=$HOME
-GIT_HOME=$BABASE/Git
+export GIT_HOME=$BABASE/Git
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 
 # Commands
@@ -44,6 +44,7 @@ alias wtp="cd $WRITE/Tech/Programmable"
 alias wtu="cd $WRITE/UnitTests/Js"
 
 # Elvenware
+export WRITE_ELF=$WRITE/Elvenware
 alias ec="cd $WRITE/Elvenware"
 alias ecc="cd $WRITE/Elvenware/development/cloud/"
 alias ecj="cd $WRITE/Elvenware/development/web/JavaScript"
