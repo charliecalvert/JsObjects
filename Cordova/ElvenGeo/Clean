@@ -1,0 +1,5 @@
+#! /bin/bash
+
+rm -r platforms
+rm -r plugins/org.apache.cordova.geolocation
+rm -r www/bower_components
