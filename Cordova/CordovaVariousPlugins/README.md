@@ -11,7 +11,13 @@ the script called **SetupPlugins**:
     cordova plugin add org.apache.cordova.vibration
 ```
 
-# Steps
+## Videos
+
+- [Cordova Vibrations Camera](https://youtu.be/_BU4h-Oe3-A)
+- [Cordova Phone](https://youtu.be/figWUktn_2I)
+- [Cordova Node Routes](https://youtu.be/ft_ih30yqIY)
+
+## Steps
 
 If starting from scratch, here are the commands to compile and install
 this android application on a phone or emulator:
@@ -24,7 +30,7 @@ this android application on a phone or emulator:
 Remember that **SetupPlugins** contains the commands for
 install the the camera and vibration plugins.
 
-# ADB
+## ADB
 
 Don't forget to run to run the following to be sure you are
 connected to an android device of some kind:
@@ -43,7 +49,7 @@ $ adb connect 192.168.2.27
 connected to 192.168.2.27:5555
 ```
 
-# Bower
+## Bower
 
 Note that **.bowerrc** causes the bower packages to be placed in the
 **www**folder. Here is the contents of **.bowerrc**:
