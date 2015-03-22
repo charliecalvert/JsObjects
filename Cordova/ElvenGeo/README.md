@@ -29,6 +29,10 @@ The command to clone the repository is is:
 
 Command to install:
 
+    cordova plugin add http://github.com/apache/cordova-plugin-geolocation
+    
+or
+    
     cordova plugin add cordova-plugin-geolocation
 
 - <https://github.com/apache/cordova-plugin-geolocation>
