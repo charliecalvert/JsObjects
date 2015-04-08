@@ -1,17 +1,19 @@
 @ECHO OFF
 
+set HOME=%USERPROFILE%
+set GIT_HUB_IO=%USERPROFILE%\Git\charliecalvert.github.io
 
-call doskey.exe gt=cd C:\Src\Git\Writing\Tech\Games\ThreePointerLock
-call doskey.exe jo=cd C:\Src\Git\JsObjects
-call doskey.exe jod=cd C:\Src\Git\JsObjects\Data
-call doskey.exe joj=cd C:\Src\Git\JsObjects\JavaScript
-call doskey.exe jou=cd C:\Src\Git\JsObjects\Utilities
-call doskey.exe jot=cd C:\Src\Git\JsObjects\JavaScript\UnitTests
-call doskey.exe batch=cd C:\Src\Batch
-call doskey.exe gitgo=cd C:\Src\Git
-call doskey.exe home=cd c:\Users\Charlie
-call doskey.exe hist=cd C:\Src\Git\historycode
-call doskey.exe sp=cd C:\Src\Git\Writing\Tech\Games\SpiritPath
+
+call doskey.exe home=cd %USERPROFILE%
+call doskey.exe jo=cd %USERPROFILE%\Git\JsObjects
+call doskey.exe jod=cd %USERPROFILE%\Git\JsObjects\Data
+call doskey.exe joj=cd %USERPROFILE%\Git\JsObjects\JavaScript
+call doskey.exe jou=cd %USERPROFILE%\Git\JsObjects\Utilities
+call doskey.exe jot=cd %USERPROFILE%\Git\JsObjects\JavaScript\UnitTests
+call doskey.exe gitdir=cd %USERPROFILE%\Git
+call doskey.exe elfsite=cd %USERPROFILE%\Git\ElfSite\Code
+call doskey.exe cn=cd %USERPROFILE%\Git\CloudNotes
+call doskey.exe gitio=cd %USERPROFILE%\Git\charliecalvert.github.io
 call doskey.exe isit=cd C:\Src\Git\Isit3202014
 call doskey.exe jackson=cd \Src\Git\Isit3202014\isit320_jackson
 call doskey.exe anderson=cd \Src\Git\Isit3202014\isit320_anderson
