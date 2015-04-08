@@ -1,0 +1,4 @@
+# http://stackoverflow.com/a/13154031
+
+git config --global core.autocrlf false
+git config --global core.eol lf
