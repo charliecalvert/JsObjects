@@ -7,6 +7,6 @@
         "start": "node server.js"   
     },
     "dependencies": {
-        "request": "~2.40.0"
+        "request": "~2.55.0"
     }
 }
