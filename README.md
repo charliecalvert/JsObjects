@@ -8,7 +8,7 @@ basic programming issues. To install a readonly copy:
 
     git clone http://github.com/charliecalvert/JsObjects.git
 
-I have many different examplec: programs stored in this 
+I have many different example programs stored in this 
 repository. Note especially the Utilities and JavaScript/Objects
 directories. And many other things as well.
 
