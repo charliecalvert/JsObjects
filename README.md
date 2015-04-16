@@ -8,13 +8,17 @@ basic programming issues. To install a readonly copy:
 
     git clone http://github.com/charliecalvert/JsObjects.git
 
-I have many different example programs stored in this 
+I have many different examplec: programs stored in this 
 repository. Note especially the Utilities and JavaScript/Objects
 directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license. 
 
 ## Node Install
+
+On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
+
+On Linux:
 
     sudo apt-get install curl
     curl -sL https://deb.nodesource.com/setup | sudo bash -
