@@ -1,0 +1,5 @@
+/usr/bin/git
+/usr/bin/node
+/usr/bin/npm
+/usr/bin/geany
+/usr/bin/ssh
