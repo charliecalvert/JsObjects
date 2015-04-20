@@ -1,0 +1,24 @@
+{
+  "name": "Angular01",
+  "version": "0.0.0",
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "authors": [
+    "Charlie CedarIsle Calvert <charlie@elvenware.com>"
+  ],
+  "description": "Simple Angular Example Adding Numbers",
+  "main": "index.html",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}

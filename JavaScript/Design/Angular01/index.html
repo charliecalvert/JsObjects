@@ -1,19 +1,24 @@
 <!doctype html>
 <html ng-app>
   <head>
+    <meta charset="utf-8">        
     <title>Angular Getting Started</title>
     <link href="index.css" type="text/css" rel="stylesheet" />
-    <script src="angular.js"></script>
+    <script src="bower_components\angular\angular.js"></script>
   </head>
   <body>
     <h1>Angular v1.0 Calvert</h1>
-    <div id='inputArea'>
-      <label>Add two numbers:</label>
-      <input type="text" ng-model="answer" placeholder="Put your answer here">
+    <div class='answerArea'>
+        <div class='inputArea'>
+          <label>Add two numbers:</label>
+          <input type="text" ng-model="answer" placeholder="Put your answer here">
+        </div>
+        
+        <div class='inputArea'>
+          <p>2 + 2 = {{answer}}</p>          
+        </div>    
+        <p>The answer is: {{answer}}</p>
     </div>
-    <div id='answerArea'>
-      <p>2 + 2 = {{answer}}</p>
-    </div>
-    <p>The answer is: {{answer}}</p>
+    
   </body>
 </html>
