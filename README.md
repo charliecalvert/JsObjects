@@ -6,7 +6,7 @@ Code by Charlie Calvert for Elvenware under the MIT License.
 Various JavaScript, HTML, CSS, Node, and Python Projects covering 
 basic programming issues. To install a readonly copy:
 
-    git clone git://github.com/charliecalvert/JsObjects.git
+    git clone http://github.com/charliecalvert/JsObjects.git
 
 I have many different example programs stored in this 
 repository. Note especially the Utilities and JavaScript/Objects
@@ -15,6 +15,10 @@ directories. And many other things as well.
 All the code in JsObjects is released under the MIT license. 
 
 ## Node Install
+
+On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
+
+On Linux:
 
     sudo apt-get install curl
     curl -sL https://deb.nodesource.com/setup | sudo bash -

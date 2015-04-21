@@ -23,7 +23,24 @@
         <input type="text" ng-model="todoText"  size="30"
                placeholder="add new item here">
         <input class="btn-primary" type="submit" value="add">
-      </form>
+      </form>      
+      
+      <h2>All Archived</h2>
+      <ul class="unstyled">
+        <li ng-repeat="todo in oldTodos">
+          <input type="checkbox" ng-model="todo.done">
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul>
+      <h2>Archived Done</h2>
+      <ul class="unstyled">
+        <li ng-repeat="todo in archiveDone">
+          <input type="checkbox" ng-model="todo.done">
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul>
+
+      <button ng-click="showTodos()">Show TODOs in Console</button>
     </div>
   </body>
 </html>

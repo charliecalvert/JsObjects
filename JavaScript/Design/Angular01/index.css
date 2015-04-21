@@ -1,13 +1,30 @@
-#inputArea {	
-	background-color: #555599;
-	font-size: x-large;
-	width: 255px;
-	height: 50px;
+body {
+    background-color: #88DD88
 }
 
-#answerArea {
-	background-color: #009900;
+p {
+    padding-left: 10px;
+    padding-top: 10px;    
+}
+
+input {
+    background-color: #88FF88
+}
+
+.inputArea {
+	background-color: #33BB33;
 	font-size: x-large;
 	width: 255px;
-	height: 50px;
+	height: 70px;
+    padding-left: 10px;
+    border-radius: 8px;
 }
+
+.answerArea {
+	background-color: #009900;
+	font-size: x-large;
+	width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
