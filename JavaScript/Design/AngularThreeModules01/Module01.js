@@ -1,5 +1,10 @@
 /**
  * @author Charlie Calvert
+ * @see AngularModules01
+ * @description: Here we create three modules:
+ * 		One module has a controller and depends on two factories
+ * 	    One module has a boat factory
+ * 	    One module has a sailboat factory
  */
 
 (function() {
