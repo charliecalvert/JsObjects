@@ -18,11 +18,11 @@ html
 			a:hover { color: #F76F76; }
 
 	body
-		h1 Jade Intro and the title is #{title} 
+		h1 Jade Variable: #{title}
 
-		p Clean and Classy!
+		p Parts of this file are taken from the Jade documentation.
 
-		h2 Text and Comments
+		h2 Text in Jade Files
 		p Text inside <em>paragraph</em> tag
 		p
 			| Multi
@@ -31,16 +31,21 @@ html
 			Another way for large
 			bodies of text!
 
+		h2 Jade Comments
+
 		// HTML Comments visible in HTML source
 		//- Invisible comments - Jade specific
 		// block comments
 			| this piece of text won't be visible.
 			| as this is part of the HTML block comments.
 
-		h2 IDs and Classes
+		h2 Using IDs and Classes in Jade
 
 		#content
-			p.description 'p' with a class of description inside a 'div' with an id of content. You can simply omit the div btw.
+			p.description
+				| 'p' with a class of description. The #content syntax
+				| starts a DIV with an id of <strong>content</strong>.
+				| Note that you don't actually have to write DIV.
 
 		h2 Attributes
 		// for boolean attributes you can pass true/false or omit them
@@ -48,11 +53,32 @@ html
 		// No commas ?
 		input(type="checkbox" name="terms" checked)
 
-		h2 Nesting
-		// We will do some nesting now
-			| Lesser nesting ? ok .. cool!
+		h2 List Items in Jade
 
 		ul#menu
-			li: a(href="#target1", title="Home") Home
-			li: a(href="#target2", title="Contact") Contact
+			li: a(href="#target1", title="Home") Item One
+			li: a(href="#target2", title="Contact") Item Two
 
+
+		:markdown
+			## Markdown in Jade
+
+			I use the NPM packaged called **marked** to add Markdown to
+			Jade. As you can see, I started this block by adding this
+			tag to my Jade file: **:markdown**.
+
+			Here is a markdown list:
+
+			- Item 1
+			- Item 2
+
+		h2 Jade and Markdown include
+
+		p
+			| The text below here is from the README for this
+			| project. It was written in markdown and included in the
+			| Jade file with <strong>include:md README.md</strong>
+
+		hr
+
+		include:md README.md
