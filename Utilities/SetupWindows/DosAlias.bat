@@ -3,6 +3,7 @@
 set HOME=%USERPROFILE%
 set GIT_HUB_IO=%USERPROFILE%\Git\charliecalvert.github.io
 
+call doskey.exe sshadd=pageant c:\Users\charles.calvert\Documents\Data\rsa-key-git\rsa-key-git.ppk
 
 call doskey.exe home=cd %USERPROFILE%
 call doskey.exe jo=cd %USERPROFILE%\Git\JsObjects
