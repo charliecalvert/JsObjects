@@ -13,6 +13,7 @@ class FindFiles():
                        'Assignments': '/books/CloudNotes/Assignments/',
                        'cloud': '/development/cloud/',
                        'css': '/development/web/CssGuide/',
+                       'Database': '/database/',
                        'DemoPages': '/demo_pages/',
                        'Prog219': '/books/CloudNotes/Prog219/',
                        'Prog272': '/books/CloudNotes/Prog272/',
