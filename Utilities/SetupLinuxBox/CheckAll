@@ -1,0 +1,23 @@
+echo "================"
+cd JsObjects
+pwd
+git status
+cd ..
+
+echo "================"
+cd writings
+pwd
+git status
+cd ..
+
+echo "================"
+cd CloudNotes
+pwd
+git status
+cd ..
+
+echo "================"
+cd ElfSite
+pwd
+git status
+cd ..
