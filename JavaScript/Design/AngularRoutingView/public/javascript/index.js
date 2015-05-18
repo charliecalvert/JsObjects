@@ -3,11 +3,14 @@
  */
 var myModule = angular.module("myModule", [ 'ngRoute' ]);
 
-myModule.config(function($routeProvider) {
+myModule.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when("/", {
+		templateUrl : "templates/View00.html",
+		controller : "MyController"
+	}).when('/view01/:id', {
 		templateUrl : "templates/View01.html",
 		controller : "MyController"
-	}).when('/view02', {
+	}).when('/view02/:id', {
 		templateUrl : "templates/View02.html",
 		controller : "MyController"
 	}).otherwise({
@@ -19,9 +22,9 @@ myModule.factory("simpleFactory", function($q) {
 	"use strict";
 	var factory = {};
 
-	factory.getCustomers = function() {
+	factory.getPresidents = function(fileName) {
 		var defers = $q.defer();
-		$.getJSON("../javascript/Presidents.json", function(json) {
+		$.getJSON(fileName, function(json) {
 			defers.resolve(json);
 		}).fail(function(jqxhr, textStatus, error) {
 			var err = textStatus + ", " + error;
@@ -31,21 +34,21 @@ myModule.factory("simpleFactory", function($q) {
 	};
 
 	return factory;
-
 });
 
-var myController = myModule.controller("MyController", function($scope,	simpleFactory) {
+var myController = myModule.controller("MyController", function($scope, $routeParams, simpleFactory) {
 	"use strict";
 
 	function displayFullName(i) {
-		return $scope.customers[i].firstName +
-			" "	+ $scope.customers[i].lastName;
+		return $scope.presidents[i].firstName +
+			" "	+ $scope.presidents[i].lastName;
 	}
 
-	var promise = simpleFactory.getCustomers();
-	promise.then(function(json) {
-		$scope.customers = json;
-		$scope.fullName = displayFullName(0);
-    });
-    
+	if($routeParams.id) {
+		var promise = simpleFactory.getPresidents($routeParams.id);
+		promise.then(function(json) {
+			$scope.presidents = json;
+			$scope.fullName = displayFullName(0);
+		});
+	}
 });
