@@ -5,13 +5,13 @@ var myModule = angular.module("myModule", [ 'ngRoute' ]);
 
 myModule.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when("/", {
-		templateUrl : "templates/View00.html",
+		templateUrl : "templates/Home.html",
 		controller : "MyController"
-	}).when('/view01/:id', {
-		templateUrl : "templates/View01.html",
+	}).when('/presidents/:id', {
+		templateUrl : "templates/Presidents.html",
 		controller : "MyController"
-	}).when('/view02/:id', {
-		templateUrl : "templates/View02.html",
+	}).when('/scientists/:id', {
+		templateUrl : "templates/Scientists.html",
 		controller : "MyController"
 	}).otherwise({
 		redirectTo : '/'
