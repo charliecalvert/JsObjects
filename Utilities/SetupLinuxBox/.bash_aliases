@@ -9,6 +9,8 @@ alias go="npm install && npm start"
 alias ba="less ~/.bash_aliases"
 alias sshadd="ssh-add ~/.ssh/rsa-key-git.pem"
 alias chrome="/usr/bin/chromium-browser"
+alias platform="cordova platform add android"
+alias run="nm && bower install && grunt serve"
 
 # General
 export GEN=$BABASE
