@@ -31,6 +31,40 @@ npm config set prefix ~/npm
 echo npm home directory is now:
 npm get prefix
 
+function testOne {
+    if [ -d "$DIRECTORY/lib/node_modules/$1" ]; then
+	echo -e "\e[92m$1 installed\e[0m"
+    else
+	echo -e "\e[91m$1 not installed\e[0m"
+    fi 
+}
+
+function test {
+	echo
+        echo "========================================"
+	echo "Unit Tests"
+	testOne mocha
+	testOne jasmine-node
+	echo "Yeoman"
+	testOne yo
+	testOne generator-express
+	testOne generator-angular 
+	testOne generator-bootstrap
+	testOne generator-mocha
+	echo "Essential"
+	testOne karma-cli
+	testOne grunt-cli
+	testOne express-generator
+	testOne nodemon
+	testOne bower
+	echo "Optional"
+	testOne jade
+	testOne cordova
+	echo "========================================"
+    	echo
+	read -n 1 -s
+}
+
 function essentials() {
     message "Installing Essentials"
     npm install -g karma-cli
@@ -65,14 +99,16 @@ while true; do
     message "Menu"
     echo "e) Essentials"
     echo "o) Optional"
+    echo "t) Test"
     echo "u) Unit Tests"
     echo "y) Yeoman"
     echo "x) Exit"
     echo
-    read -p "Please make a selection: " eouyx
-    case $eouyx in
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
         [Ee]* ) essentials; continue;;
         [Oo]* ) optional; continue;;
+	[Tt]* ) test grunt-cli; continue;;
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
