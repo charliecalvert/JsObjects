@@ -65,6 +65,7 @@ while true; do
     message "Menu"
     echo "e) Essentials"
     echo "o) Optional"
+    echo "u) Unit Tests"
     echo "y) Yeoman"
     echo "x) Exit"
     echo
