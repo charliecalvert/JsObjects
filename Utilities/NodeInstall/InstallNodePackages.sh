@@ -70,7 +70,7 @@ while true; do
     echo "x) Exit"
     echo
     read -p "Please made a selection: " eouyx
-    case $eoyx in
+    case $eouyx in
         [Ee]* ) essentials; continue;;
         [Oo]* ) optional; continue;;
         [Uu]* ) unitTests; continue;;
