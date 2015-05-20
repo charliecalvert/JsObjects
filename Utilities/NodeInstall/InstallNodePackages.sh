@@ -76,7 +76,7 @@ while true; do
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
-        * ) echo "Please answer yes or no.";;
+        * ) echo "Please answer with e, o, u y or x.";;
     esac
 done
 
