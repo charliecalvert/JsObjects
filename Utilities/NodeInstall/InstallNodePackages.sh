@@ -68,7 +68,7 @@ while true; do
     echo "y) Yeoman"
     echo "x) Exit"
     echo
-    read -p "Please made a selection: " eyx
+    read -p "Please made a selection: " eoyx
     case $eoyx in
         [Ee]* ) essentials; continue;;
         [Oo]* ) optional; continue;;
