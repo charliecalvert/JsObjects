@@ -84,6 +84,11 @@ done
 # Add ~/npm/bin to your path for the life of your bash session:
 PATH="$PATH:$HOME/npm/bin"
 
+echo
+echo "========================================"
+echo "If you have not done so already, please" 
 echo "Add this to the bottom of your .bashrc file:"
+echo
 echo 'export PATH="$PATH:$HOME/npm/bin"'
+echo "========================================"
 
