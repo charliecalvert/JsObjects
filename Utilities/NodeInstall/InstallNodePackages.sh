@@ -72,6 +72,7 @@ while true; do
     case $eoyx in
         [Ee]* ) essentials; continue;;
         [Oo]* ) optional; continue;;
+        [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
         * ) echo "Please answer yes or no.";;
