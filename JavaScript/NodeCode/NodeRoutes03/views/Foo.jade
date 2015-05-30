@@ -1,4 +1,12 @@
 //
    Created by charlie on 3/18/15.
 
-h2 Foo
+h1 Foo
+
+p The Foo example uses request.params in the route:
+pre router.get('/:id', function(request, response) {
+   |  var id = request.params.id;
+   |  response.render(id);
+   | });
+
+p It works because there is a jade file called Foo.jade.

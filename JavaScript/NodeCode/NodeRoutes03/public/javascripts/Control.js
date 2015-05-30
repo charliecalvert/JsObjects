@@ -5,6 +5,7 @@ var Control = (function() {
         var ajax = new elf.Ajax();
         var getHtml = new elf.GetHtml();
         var getMarkdown = new elf.GetMarkdown();
+		var getBarFoo = new elf.GetBarFoo();
 	}
 
 	return Control;
