@@ -4,7 +4,7 @@ var Control = (function() {
 
 	// Constructor
 	function Control() {
-        var ajax = new elf.Ajax();
+        //var ajax = new elf.Ajax();
         runPage();
 	}
 
@@ -19,11 +19,17 @@ var Control = (function() {
     function runPage() {
         page('/', function() {
             clear();
-            $('#response').html("root");
+            $('#response').html("You clicked the root link.");
+        });
+
+        page('/simple', function() {
+            clear();
+            $('#response').html("You clicked the simple link.");
         });
 
         page('/users/', function() {
             clear();
+            $('#response').load('/SimpleUser');
             $('#response').html('Simple user');
         });
 
