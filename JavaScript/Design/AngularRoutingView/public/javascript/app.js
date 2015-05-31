@@ -5,6 +5,7 @@
 
 var myModule = angular.module("myModule", [ 'ngRoute' ]);
 
+// To understand :id, see index.js and search for routeParams
 myModule.config(function($routeProvider, $locationProvider) {
     $routeProvider.when("/", {
         templateUrl : "templates/Home.html",
