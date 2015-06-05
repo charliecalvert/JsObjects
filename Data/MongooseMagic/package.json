@@ -1,0 +1,19 @@
+{
+  "name": "ParseMagic",
+  "version": "1.0.0",
+  "description": "Parse Magic Cards",
+  "main": "ParseMagic.js",
+  "dependencies": {
+    "mongoose": "^4.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magic",
+    "mongoose"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT"
+}
