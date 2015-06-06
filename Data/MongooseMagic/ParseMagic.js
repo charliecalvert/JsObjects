@@ -1,7 +1,23 @@
 var fs = require('fs');
 var mongoose = require('mongoose');
 
+// Download magic the gathering sets of cards.
 // wget http://mtgjson.com/json/AllSets.json
+
+/* 
+ * This program parses sets of MTG cards and stores the mongolab.
+ * AllSets is structured like
+ * {
+ *    SetOne: {
+ *          metaDataHere: ...
+ *          allCards: [...]
+ *    },
+ *    SetTwo: {
+ *          metaDataHere: ...
+ *          allCards: [...]
+ *    }, etc
+ * }
+ */
 
 var setSchema = mongoose.Schema({
 	"name": String,
@@ -56,6 +72,8 @@ function insertSet(setName, data) {
 }
 
 function writeSetToFile(setName, data) {
+    // Windows does not like the name CON so we rename it.
+    if (setName === 'CON') { setName = 'CONOT'; }
 	fs.writeFile(setName  + '.json', JSON.stringify(data, null, 4), function(err, data) {
 		if (err) {
 			console.log(err);
@@ -76,7 +94,7 @@ function writeData(setName, data, writeToDisk, writeSets) {
 
 fs.readFile('AllSets.json', function(err, allSets) {
 	if (err) throw err;
-	allSets = JSON.parse(allSets);
+	var allSets = JSON.parse(allSets);
 	for(var set in allSets) {
 		 if (allSets.hasOwnProperty(set)) {
 			setNames.push(set);
