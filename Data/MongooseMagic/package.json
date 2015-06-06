@@ -14,6 +14,9 @@
     "magic",
     "mongoose"
   ],
+  "scripts": {
+        "start": "node ParseMagic.js"
+  },
   "author": "Charlie Calvert",
   "license": "MIT"
 }
