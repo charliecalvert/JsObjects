@@ -58,6 +58,44 @@ module.exports = function(grunt) {
 			},
 		},
 		
+        gitpush: {            
+			charlieGit: {
+				options: {
+					cwd: "charliecalvert.github.io",
+                    tags: true,
+					verbose: true
+				}
+			},
+			cn: {
+				options: {
+					cwd: "CloudNotes",
+                    tags: true,
+					verbose: true
+				}
+			},
+			elfsite: {
+				options: {
+					cwd: "elfsite",
+                    tags: true,
+					verbose: true
+				}
+			},
+			js: {
+				options: {
+					cwd: "JsObjects",
+                    tags: true,
+					verbose: true
+				}
+			},
+			wt: {
+				options: {
+					cwd: "Writing",
+                    tags: true,
+					verbose: true
+				}
+			},
+		},
+        
 		gittag: {            
 			charlieGit: {
 				options: {
