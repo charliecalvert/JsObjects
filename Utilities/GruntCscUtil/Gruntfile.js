@@ -4,6 +4,8 @@ module.exports = function(grunt) {
         
         currentTag: 'v0.512',
         
+        useTags: false,
+        
         currentTagMessage: 'Test before school year end',
         
 		jshint: {
@@ -62,35 +64,35 @@ module.exports = function(grunt) {
 			charlieGit: {
 				options: {
 					cwd: "charliecalvert.github.io",
-                    tags: true,
+                    tags: '<% useTags %>',
 					verbose: true
 				}
 			},
 			cn: {
 				options: {
 					cwd: "CloudNotes",
-                    tags: true,
+                    tags: '<% useTags %>',
 					verbose: true
 				}
 			},
 			elfsite: {
 				options: {
 					cwd: "elfsite",
-                    tags: true,
+                    tags: '<% useTags %>',
 					verbose: true
 				}
 			},
 			js: {
 				options: {
 					cwd: "JsObjects",
-                    tags: true,
+                    tags: '<% useTags %>',
 					verbose: true
 				}
 			},
 			wt: {
 				options: {
 					cwd: "Writing",
-                    tags: true,
+                    tags: '<% useTags %>',
 					verbose: true
 				}
 			},
