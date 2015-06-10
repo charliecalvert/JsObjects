@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 			},
 			elfsite: {
 				options: {
-					cwd: "elfsite",
+					cwd: "ElfSite",
 					verbose: true
 				}
 			},
@@ -52,9 +52,15 @@ module.exports = function(grunt) {
 					verbose: true
 				}
 			},
+			p2c: {
+				options: {
+					cwd: "prog219-calvert",                    
+					verbose: true
+				}
+			},
 			wt: {
 				options: {
-					cwd: "Writing",
+					cwd: "writings",
 					verbose: true
 				}
 			},
@@ -98,7 +104,7 @@ module.exports = function(grunt) {
 			},
 			wt: {
 				options: {
-					cwd: "Writing",
+					cwd: "writings",
                     tags: '<% useTags %>',
 					verbose: true
 				}
@@ -144,7 +150,7 @@ module.exports = function(grunt) {
 			},
 			wt: {
 				options: {
-					cwd: "Writing",
+					cwd: "writings",
                     tag: '<%= currentTag %>',
 					annotated: true,
 					message: '<%= currentTagMessage %>',
