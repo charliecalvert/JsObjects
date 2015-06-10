@@ -89,6 +89,13 @@ module.exports = function(grunt) {
 					verbose: true
 				}
 			},
+			p2c: {
+				options: {
+					cwd: "prog219-calvert",
+                    tags: '<% useTags %>',
+					verbose: true
+				}
+			},
 			wt: {
 				options: {
 					cwd: "Writing",
