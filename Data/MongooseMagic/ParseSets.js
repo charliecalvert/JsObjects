@@ -19,6 +19,15 @@ var mongoose = require('mongoose');
  * }
  */
 
+/* The code:
+ *    - First ensures that the MongoDb collection, if it exists, is empty
+ *    - Then it opens AllSets.json
+ *    - In **writeSetToFile** it writes each set to disk as a JSON file
+ *    - In **insertSet** it inserts each set into a MongoDb collection.
+ *        - The cards are shown as sub-documents of the set
+ *    - Then in **Search** it retrieves one set and displays one card.
+ */
+
 var cardSchema = mongoose.Schema({
 	"layout": String,
 	"type": String,
@@ -56,6 +65,7 @@ var totalSetsSaved = 0;
 var setNames = [];
 
 function doConnection() {
+	connected = true;
 	var userName = 'csc';
 	var password = 'Re*lD*t*22#';
 	var siteAndPort = 'ds049848.mongolab.com:49848';
@@ -65,13 +75,25 @@ function doConnection() {
 	mongoose.connect(url);
 }
 
-function insertSet(setName, data) {
-
-
+function search() {
+	console.log('In search');
 	if (!connected) {
-		connected = true;
 		doConnection();
 	}
+	MagicSet.findOne({'code': 'LEA'}, function(err, arrayOfLea) {
+		console.log('In array');
+		console.log(err);
+		console.log(arrayOfLea.cards[0]);
+		mongoose.disconnect();
+	});
+}
+
+function insertSet(setName, data) {
+
+	if (!connected) {
+		doConnection();
+	}
+
 	var set = new MagicSet({
 		name: data.name,
 		code: data.code,
@@ -90,11 +112,12 @@ function insertSet(setName, data) {
 		console.log('saved: ', set.name);
 		totalSetsSaved++;
 		if (totalSetsSaved === setNames.length) {
-			mongoose.disconnect();
 			console.log(setNames.length);
+			search();
 		}
 	});
 }
+
 
 function writeSetToFile(setName, data) {
 	// Windows does not like the name CON so we rename it.
@@ -138,18 +161,17 @@ function insertData() {
 	});
 }
 
-function search() {
-	console.log('In search');
+function run() {
 	if (!connected) {
 		doConnection();
 	}
-	MagicSet.findOne({ 'code': 'LEA'}, function(err, arrayOfLea) {
-		console.log('In array');
-		console.log(err);
-		console.log(arrayOfLea.cards[0]);
-		mongoose.disconnect();
+
+	MagicSet.remove({}, function(err) {
+		console.log('called remove');
+		if (err) throw(err);
+		console.log('Ensured that collection is empty at start.');
+		insertData()
 	});
 }
 
-insertData();
-search();
+run();
