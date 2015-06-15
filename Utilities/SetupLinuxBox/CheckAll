@@ -21,3 +21,9 @@ cd ElfSite
 pwd
 git status
 cd ..
+
+echo "================"
+cd prog219-calvert
+pwd
+git status
+cd ..
