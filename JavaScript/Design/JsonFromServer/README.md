@@ -18,29 +18,11 @@ Use httpBackend
 ----------------
 
 Jasmine wants you to mock up methods that access other services, 
-such as HTTP or database requests. Here are some examples of how 
-to do it with $HttpBackend. When checking whether you load a JSon file, you write code like this:
+such as HTTP or database requests. Here some limited discussion:
 
-	var $httpBackend = null;
+- [httpBackend on Elvenware][hbe]
 
-	beforeEach(inject(function(_$httpBackend_) {
-		$httpBackend = _$httpBackend_;
-	}));
-
-	afterEach(function() {
-		$httpBackend.verifyNoOutstandingExpectation();
-		$httpBackend.verifyNoOutstandingRequest();
-	});
-
-	it("Test load json hitPoints", function() {
-		$httpBackend.expectGET('data.json').respond({
-			"name": "NPC01",
-			"hitPoints": 37,
-			"damage": 5});
-		myController.loadJson();
-		$httpBackend.flush();
-		expect(myController.data.hitPoints).toEqual(37);
-	});
+[hbe]:http://www.elvenware.com/charlie/development/web/JavaScript/Angular.html#mocking-objects-with-httpbackend
 
 Start Karma
 -----------
