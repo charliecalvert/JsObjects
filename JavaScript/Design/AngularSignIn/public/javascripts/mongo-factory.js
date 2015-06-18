@@ -18,7 +18,7 @@
 				$http.get('/all-data').success(function(data) {
 					if (data.allData.length > 0) {
 						mongoFactory.allData = data.allData;
-						allDataNames = data.allData.map(function(scientist) {
+						var allDataNames = data.allData.map(function(scientist) {
 							return {id: scientist._id, name: scientist.firstName + ' ' + scientist.lastName};
 						});
 						allDataNames.sort(function(scientistA, scientistB) {
@@ -33,6 +33,9 @@
 						});
 						controller.scientists = allDataNames;
 						mongoFactory.getScientistById(allDataNames[0].id, controller);
+					} else {
+						controller.scientists = null;
+						controller.scientist = null;
 					}
 				}).error(function() {
 					console.log("error");
@@ -54,19 +57,23 @@
 				return controller.scientist;
 			},
 
-			insertValidCollection: function() {
+			insertValidCollection: function(controller) {
 				$http.post('/insertValidCollection', {}).success(function(result) {
 					console.log(result);
+					mongoFactory.getScientists(controller);
 				}).error(function() {
 					console.log(err);
+					controller.error = err;
 				});
 			},
 
-			emptyCollection: function() {
+			emptyCollection: function(controller) {
 				$http.post('/emptyCollection', {}).success(function(result) {
 					console.log(result);
+					mongoFactory.getScientists(controller);
 				}).error(function(err) {
 					console.log(err);
+					controller.error = err;
 				});
 			}
 		};

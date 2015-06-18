@@ -9,17 +9,18 @@
 	app.controller('MainController', function(mongoFactory) {
 		
 		var mainController = this;
+		mainController.error = '';
 
 		mainController.selectScientist = function(scientist) {
 			mongoFactory.getScientistById(scientist.id, mainController)
 		};
 
 		mainController.insertValidCollection = function() {
-			mongoFactory.insertValidCollection();
+			mongoFactory.insertValidCollection(mainController);
 		};
 
 		mainController.emptyCollection = function() {
-			mongoFactory.emptyCollection();
+			mongoFactory.emptyCollection(mainController);
 		};
 
 		mongoFactory.getScientists(mainController);

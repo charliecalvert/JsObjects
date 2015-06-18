@@ -31,8 +31,9 @@ function insertScientist(scientist, response) {
 		console.log('saved: ', newScientist.lastName);
 		totalScientistsSaved++;
 		if (totalScientistsSaved === numberOfScientists) {
-			//mongoose.disconnect();
-			response.send({result: 'Success'});
+			totalScientistsSaved = 0;
+			console.log('Sent all scientists');
+			response.sendStatus(200);
 		}
 	});
 }
@@ -48,8 +49,8 @@ function writeData(fileName, data) {
 function readDataAndInsert(response) {
 	fs.readFile('ValidScientists.json', function(err, scientists) {
 		if (err) throw (err);
-		numberOfScientists = scientists.length;
 		scientists = JSON.parse(scientists);
+		numberOfScientists = scientists.length;
 		for (var i = 0; i < scientists.length; i++) {
 			insertScientist(scientists[i], response);
 		}

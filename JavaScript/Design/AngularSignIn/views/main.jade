@@ -5,6 +5,7 @@ div.names
     div.btn-group
         button.btn.btn-default(ng-click='mainController.emptyCollection()') Empty Collection
         button.btn.btn-default(ng-click='mainController.insertValidCollection()') Insert Valid Collection
+    div {{mainController.error}}
 div.names
     ul
        li(ng-repeat='scientist in mainController.scientists')
