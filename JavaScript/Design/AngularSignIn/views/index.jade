@@ -1,0 +1,31 @@
+extends layout
+block content
+	nav.navbar-default.navbar-fixed-top
+		.container-fluid
+			.navbar-header
+				button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myTarget")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href="#/") Final
+			#myTarget.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li(ng-class="{ active: isActive('/')}")
+						a(ng-href='#/') Home
+					li(ng-class="{ active: isActive('/about')}")
+						a(ng-href='#/about') About
+					li(ng-class="{ active: isActive('/signin')}")
+						a(ng-href='#/{{themeController.signinMenuItem}}') {{themeController.signinMenuText}}
+					li(ng-switch="themeController.loggedIn" ng-class="{ active: isActive('/login')}")
+						a(ng-switch-when="true" ng-href='#/logout') Logout
+						a(ng-switch-default ng-href='#/login') Login
+
+	h1= title
+	p
+		| Welcome to #{title}. The about page is only available when you are
+		| signed in. If you go to the about page without being signed in you
+		| will be taken to the Sign In page.
+
+	div(data-ng-view="")
+

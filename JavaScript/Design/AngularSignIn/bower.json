@@ -1,0 +1,27 @@
+{
+  "name": "MongooseBasics",
+  "version": "0.0.0",
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "authors": [
+    "Charlie Calvert"
+  ],
+  "keywords": [
+    "MongoDb",
+    "Mongoose"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "angular-route": "~1.4.0",
+    "bootswatch": "~3.3.4"
+  }
+}
