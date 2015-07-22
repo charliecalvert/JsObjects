@@ -8,16 +8,22 @@
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
 	init : function() {'use strict';
-		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation').fourway(4).stopOnSolids().onHit('Village', this.visitVillage).onHit('Food', this.visitFood)
+		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation')
+
+		.fourway(4).stopOnSolids().onHit('Village', this.visitVillage).onHit('Food', this.visitFood)
 		// These next lines define our four animations
 		// each call to .animate specifies:
 		// - the name of the animation
 		// - the x and y coordinates within the sprite
 		// map at which the animation set begins
 		// - the number of animation frames *in addition to* the first one
-		.animate('PlayerMovingUp', 0, 0, 4).animate('PlayerMovingRight', 0, 0, 4)
+		.reel('PlayerMovingUp', 25, 0, 0, 4)
+		.reel('PlayerMovingRight', 25, 0, 0, 4)
+		.reel('PlayerMovingDown', 25, 0, 0, 4)
+		.reel('PlayerMovingLeft', 25, 0, 1, 4)
+		.animate('PlayerMovingUp', 4).animate('PlayerMovingRight', 4)
 		// .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
-		.animate('PlayerMovingDown', 0, 0, 4).animate('PlayerMovingLeft', 0, 1, 4);
+		.animate('PlayerMovingDown', 4).animate('PlayerMovingLeft', 4);
 
 		// Watch for a change of direction and switch animations accordingly
 		var animation_speed = 8;

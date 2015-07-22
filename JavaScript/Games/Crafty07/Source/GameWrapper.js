@@ -13,7 +13,7 @@ angular.module('gameWrapMod', [])
 			Crafty.game = elfGameService;
 			Crafty.background('rgb(0, 109, 20)');
 			// Load the game
-			Crafty.scene('Loading');
+			Crafty.enterScene('Loading');
 		},
 
 		trigger: function() {

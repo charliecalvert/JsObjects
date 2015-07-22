@@ -5,7 +5,8 @@
 /* jshint browser: true */
 
 // Draw the initial game state
-Crafty.scene('Game', function() { 'use strict';
+Crafty.scene('Game', function() {
+	'use strict';
 
 	// A 2D array to keep track of all gameBoard tiles
 	this.gameBoard = new Array(Crafty.game.map_grid.width);
@@ -40,8 +41,7 @@ Crafty.scene('Game', function() { 'use strict';
 		}
 	}
 
-    
-    
+
 	// Generate up to five villages on the map in random locations
 	var max_villages = 5;
 	for (var col = 0; col < Crafty.game.map_grid.width; col++) {
@@ -55,8 +55,7 @@ Crafty.scene('Game', function() { 'use strict';
 			}
 		}
 	}
-	
-	
+
 
 	// Show the victory screen once all villages are visisted
 	this.show_victory = this.bind('VillageVisited', function() {
@@ -65,7 +64,8 @@ Crafty.scene('Game', function() { 'use strict';
 			Crafty.scene('Victory');
 		}
 	});
-}, function() { 'use strict';
+}, function() {
+	'use strict';
 	// Remove our event binding from above so that we don't
 	//  end up having multiple redundant event watchers after
 	//  multiple restarts of the game
@@ -74,10 +74,11 @@ Crafty.scene('Game', function() { 'use strict';
 
 
 // Victory scene : Announce victory, set up a new game
-Crafty.scene('Victory', function() { 'use strict';
+Crafty.scene('Victory', function() {
+	'use strict';
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
-		.attr({ x: 0, y: 0 })
+		.attr({x: 0, y: 0})
 		.text('You are victorious!');
 
 	// restart the game when a key is pressed
@@ -87,7 +88,8 @@ Crafty.scene('Victory', function() { 'use strict';
 
 	// Bind keydown event. This was done wrong in the demo
 	this.bind('KeyDown', this.restart);
-}, function() { 'use strict';
+}, function() {
+	'use strict';
 	// Remove key binding to prevent multiple restarts
 	if (!this.unbind('KeyDown', this.restart)) {
 		window.alert("Could not unbind");
@@ -95,13 +97,14 @@ Crafty.scene('Victory', function() { 'use strict';
 
 });
 
-Crafty.scene('Failure', function() { 'use strict';
+Crafty.scene('Failure', function() {
+	'use strict';
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
-		.attr({ x: 0, y: 0 })
+		.attr({x: 0, y: 0})
 		.text('You Lose!')
-        .textColor('#FFFFFF')
-        .textFont({ size: '48px', weight: 'bold' });
+		.textColor('#FFFFFF')
+		.textFont({size: '48px', weight: 'bold'});
 
 
 	// restart the game when a key is pressed
@@ -111,7 +114,8 @@ Crafty.scene('Failure', function() { 'use strict';
 
 	// Bind keydown event. This was done wrong in the demo
 	this.bind('KeyDown', this.restart);
-}, function() { 'use strict';
+}, function() {
+	'use strict';
 	// Remove key binding to prevent multiple restarts
 	if (!this.unbind('KeyDown', this.restart)) {
 		window.alert("Could not unbind");
@@ -120,36 +124,59 @@ Crafty.scene('Failure', function() { 'use strict';
 });
 
 // Load binary assets such as images and audio files
-Crafty.scene('Loading', function(){ 'use strict';
+Crafty.defineScene('Loading', function() {
+	'use strict';
 
-	var assets = ['Assets/cscGarden01-32X32.png',
-		'Assets/BoyWalk.png',
-		'Assets/door_knock_3x.mp3',
-		'Assets/People256.png'
-		];
+	var assets = {
+		"audio": {
+			"knock": 'Assets/door_knock_3x.mp3'
+		},
+		"images": [
+			'Assets/BoyWalk.png'
+		],
+		"sprites": {
+			'Assets/cscGarden01-32X32.png': {
+				"tile": 32,
+				"tileh": 32,
+				"map": {"spr_tree": [0, 3], "spr_bush": [1, 3], "spr_village": [0, 1], "spr_food": [0, 0]},
+				"paddingX": 0,
+				"paddingY": 0,
+				"paddingAroundBorder": 0
+			},
+			'Assets/People256.png': {
+				"tile": 32,
+				"tileh": 32,
+				"map": {"spr_mainCharacter": [0, 0]},
+				"paddingX": 0,
+				"paddingY": 0,
+				"paddingAroundBorder": 0
+			}
+		}
+		};
 
 	// Load our sprite map image
-	Crafty.load(assets, function(){
+	Crafty.load(assets, function() {
+		/*
 		Crafty.sprite(32, assets[0], {
-			spr_tree:    [0, 3],
-			spr_bush:    [1, 3],
+			spr_tree: [0, 3],
+			spr_bush: [1, 3],
 			spr_village: [0, 1],
-			spr_food: [0, 0]			
+			spr_food: [0, 0]
 		});
 
 		//  The main character
 		Crafty.sprite(32, 32, assets[3], {
-			spr_mainCharacter:  [0, 0],
+			spr_mainCharacter: [0, 0],
 		}, 0, 0);
 
 		// Define our sounds for later use
 		Crafty.audio.add({
 			knock: ['http://desolate-caverns-4829.herokuapp.com/assets/door_knock_3x.mp3']
-		});
+		}); */
 
 		// Display text while loading
 		Crafty.e('2D, DOM, Text')
-			.attr({ x: 0, y: Crafty.viewport.height / 2 - 24, w: Crafty.viewport.width })
+			.attr({x: 0, y: Crafty.viewport.height / 2 - 24, w: Crafty.viewport.width})
 			.text('Loading...');
 
 		// Now that our sprites are ready to draw, start the game
