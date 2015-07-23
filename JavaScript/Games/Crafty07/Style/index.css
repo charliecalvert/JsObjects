@@ -19,3 +19,7 @@ body {
 	padding: 5px;
 	border: solid black 2px; 
 }
+
+.message {
+	width: 250px;
+}

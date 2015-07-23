@@ -4,48 +4,19 @@
 
 /* global angular:true */
 
-angular.module('characterMod', ['heroMod'])
-.factory('people', function(hero) {'use strict';
+angular.module('characterMod', [])
+.factory('people', function(hero, classes) {'use strict';
 
-	return {
+	var People = (function()  {
 
-		classes : [{
-			name : 'Cleric',
-			armor : 'any',
-			hitDie : 6,
-			shield : true,
-			spells : ['none'],
-			weapons : ['club', 'mace', 'maul', 'quarterstaff', 'sling', 'warhammer'],
-			xpForLevelTwo : 1500
-		}, {
-			name : 'Fighter',
-			armor : 'any',
-			hitDie : 8,
-			shield : true,
-			spells : ['none'],
-			weapons : ['Any'],
-			xpForLevelTwo : 2000
-		}, {
-			name : 'Magic-User',
-			armor : 'none',
-			hitDie : 4,
-			shield : false,
-			spells : ['Charm Person', 'Detect Magic', 'Floating Disc', 'Hold Portal', 'Light', 'Magic Missile', 'Magic Mouth', 'Protection from Evil', 'Read Languages', 'Read Magic', 'Shield', 'Sleep', 'Ventriloquism'],
-			weapons : ['cudgel', 'dagger', 'walking staff'],
-			xpForLevelTwo : 2500
-		}, {
-			name : 'Thief',
-			armor : 'leather',
-			hitDie : 4,
-			shield : false,
-			spells : ['none'],
-			weapons : ['any'],
-			xpForLevelTwo : 1250
-		}],
+		People.prototype.heroMain = hero;
 
-		hero: hero,
+		function People() {
+
+		}
+
 		
-		tower : function() {
+		People.prototype.tower = function() {
 			return {
 				hitPoints : 4,
 				damage : 1,
@@ -57,5 +28,9 @@ angular.module('characterMod', ['heroMod'])
 				}
 			};
 		}
-	};
+
+		return People;
+	})();
+
+	return new People();
 });

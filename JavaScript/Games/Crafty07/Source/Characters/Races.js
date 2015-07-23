@@ -3,7 +3,7 @@
  */
 
 
-angular.module('raceMod', [])
+angular.module('characterMod')
 .factory('races', function() {
 	'use strict';
 	return [{

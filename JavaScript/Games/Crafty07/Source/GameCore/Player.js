@@ -8,39 +8,42 @@
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
 	init : function() {'use strict';
+		var DURATION = 25;
+		var FRAME_COUNT = 4;
 		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation')
 
-		.fourway(4).stopOnSolids().onHit('Village', this.visitVillage).onHit('Food', this.visitFood)
+		.fourway(4).stopOnSolids()
+		.onHit('Village', this.visitVillage)
+		.onHit('Food', this.visitFood)
+		.onHit('Tree', this.visitTree)
+		.onHit('Bush', this.visitBush)
 		// These next lines define our four animations
 		// each call to .animate specifies:
 		// - the name of the animation
 		// - the x and y coordinates within the sprite
 		// map at which the animation set begins
 		// - the number of animation frames *in addition to* the first one
-		.reel('PlayerMovingUp', 25, 0, 0, 4)
-		.reel('PlayerMovingRight', 25, 0, 0, 4)
-		.reel('PlayerMovingDown', 25, 0, 0, 4)
-		.reel('PlayerMovingLeft', 25, 0, 1, 4)
-		.animate('PlayerMovingUp', 4).animate('PlayerMovingRight', 4)
-		// .animate('PlayerMovingRight', [[0,0], [1,0], [2,0], [3, 0], [4,0], [5, 0]])
-		.animate('PlayerMovingDown', 4).animate('PlayerMovingLeft', 4);
+		.reel('PlayerMovingUp', DURATION, 0, 0, FRAME_COUNT)
+		.reel('PlayerMovingRight', DURATION, 0, 0, FRAME_COUNT)
+		.reel('PlayerMovingDown', DURATION, 0, 0, FRAME_COUNT)
+		.reel('PlayerMovingLeft', DURATION, 0, 0, FRAME_COUNT);
 
 		// Watch for a change of direction and switch animations accordingly
-		var animation_speed = 8;
+		var LOOP_COUNT = 4;
 		this.bind('NewDirection', function(data) {
 			this.encounterMode = false;
 			if (data.x > 0) {
 				Crafty.game.changeDirectionMessage("Going Right");
-				this.playAnimation('PlayerMovingRight', animation_speed, -1);
+				this.animate('PlayerMovingRight', LOOP_COUNT);
 			} else if (data.x < 0) {
 				Crafty.game.changeDirectionMessage("Going Left");
-				this.playAnimation('PlayerMovingLeft', animation_speed, -1);
+				this.animate('PlayerMovingLeft', LOOP_COUNT);
 			} else if (data.y > 0) {
 				Crafty.game.changeDirectionMessage("Going Down");
-				this.playAnimation('PlayerMovingDown', animation_speed, -1);
+				this.animate('PlayerMovingDown', LOOP_COUNT);
 			} else if (data.y < 0) {
 				Crafty.game.changeDirectionMessage("Going Up");
-				this.playAnimation('PlayerMovingUp', animation_speed, -1);
+				this.animate('PlayerMovingUp', LOOP_COUNT);
 			} else {
 				this.resetAnimation();
 			}
@@ -94,8 +97,8 @@ Crafty.c('PlayerCharacter', {
 
 		Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
 		if (Crafty.game.encounter(data[0].obj)) {
-			var villlage = data[0].obj;
-			villlage.visit();
+			var village = data[0].obj;
+			village.visit();
 		} else {
 			this.encounterMode = true;
 		}
@@ -112,5 +115,22 @@ Crafty.c('PlayerCharacter', {
 		// food.sprite(0,2);
 		food.visit();
 		this.encounterMode = true;
+	},
+
+	visitTree: function(data) {'use strict';
+		this.stopMovement();
+		var tree = data[0].obj;
+		tree.visit();
+	},
+
+	visitBush: function(data) {'use strict';
+		this.pauseAnimation();
+		this.stopMovement();
+
+		if (this.encounterMode) {
+			return;
+		}
+		var bush = data[0].obj;
+		bush.visit();
 	}
 });

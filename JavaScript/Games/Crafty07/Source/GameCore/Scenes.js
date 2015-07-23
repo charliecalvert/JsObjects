@@ -32,7 +32,8 @@ Crafty.scene('Game', function() {
 				this.gameBoard[x][y] = true;
 			} else if (Math.random() < 0.06 && !this.gameBoard[x][y]) {
 				// Place a bush entity at the current tile
-				Crafty.e('Bush').at(x, y);
+				var bush = Crafty.e('Bush').at(x, y);
+				// bush.setName(bush._entityName.replace('Entity', 'Bush'));
 				this.gameBoard[x][y] = true;
 			} else if (Math.random() < 0.05 && !this.gameBoard[x][y]) {
 				Crafty.e('Food').at(x, y);

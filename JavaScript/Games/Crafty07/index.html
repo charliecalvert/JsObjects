@@ -15,7 +15,9 @@
 	<script src="Source/GameEvent.js"></script>
 	<script src="Source/GameWrapper.js"></script>
 	<script src="Source/Characters/Characters.js"></script>
-	<script src="Source/Characters/Hero.js"></script>	
+	<script src="Source/Characters/Hero.js"></script>
+    <script src="Source/Characters/Classes.js"></script>
+    <script src="Source/Characters/Races.js"></script>
 	<script src="Source/ElfGame.js"></script>
 	<script src="Source/ElfPlayer.js"></script>	
 			      
@@ -33,9 +35,9 @@
         <button ng-click="goLeft()">Left</button>
         <button ng-click="stopMove()">Stop</button>
         <p>Move Messages</p>
-        <select size=3 ng-model="crazyFoo" ng-options="msg for msg in moveMessages"> </select><br>
+        <select class="message" size = 3 ng-model="crazyFoo" ng-options="msg for msg in moveMessages"> </select><br>
         <p>Debug Messages</p>
-        	<select size=3 ng-model="crazyBar" ng-options="message for message in debugMessages"> </select><br>
+        	<select class="message" size=3 ng-model="crazyBar" ng-options="message for message in debugMessages"> </select><br>
             <!-- ul ng-repeat="debugMessage in debugMessages track by $index">			
                 <li>{{debugMessage}}</li>
             </ul -->                

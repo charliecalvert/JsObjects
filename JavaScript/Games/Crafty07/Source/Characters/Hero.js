@@ -2,12 +2,12 @@
  * @author Charlie Calvert
  */
 
-angular.module('heroMod', [])
-.factory('hero', function() {
+angular.module('characterMod')
+.factory('hero', function(classes, races) {
 	'use strict';
 	return {
-		// race: this.races[2],
-		// "class": this.classes[2],
+		race: races[2],
+		"class": classes[2],
 		name : 'Sam',
 		hitPoints : 12,
 		damage : 2,

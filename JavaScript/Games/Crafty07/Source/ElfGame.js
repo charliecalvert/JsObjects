@@ -1,13 +1,15 @@
 /* jshint browser: true */
 
 angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
-.factory('elfGameService', function(gameEventService, people, gameWrap) {
+.factory('elfGameService', function(gameEventService, people, gameWrap, utility) {
 	'use strict';
 	return {
 
 		map_grid : null,
 
 		misses: 0,
+
+		bushHits: 0,
 
 		defaultMapGrid : {
 			width : 18,
@@ -37,8 +39,26 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 		},
 
 		encounterFood : function(food, count) {
-			gameEventService.debugBroadcast("food");
-			gameEventService.encounterBroadcast('Food success');
+			var foodDetails = "Food: {0} (X:{2} Y:{4}) ({1}px - {3}px)";
+			var debug = foodDetails.format(count, food.x, food.x / food.w, food.y, food.y / food.h);
+			gameEventService.debugBroadcast(debug);
+			if (count === 4) {
+				gameEventService.encounterBroadcast('Food success');
+			} else {
+				gameEventService.encounterBroadcast('Food progress');
+			}
+			return true;
+		},
+
+		encounterBush : function(bush, count) {
+			var name = 'Tree';
+			if (bush.__c.Bush) {
+				name = 'Bush'
+			}
+			var foodDetails = "{5}) {6}: {0} (X:{2} Y:{4}) ({1}px - {3}px)";
+			var debug = foodDetails.format(count, bush.x, bush.x / bush.w, bush.y, bush.y / bush.h, this.bushHits++, name);
+			gameEventService.debugBroadcast(debug);
+			gameEventService.encounterBroadcast('Bush success');
 			return true;
 		},
 
@@ -91,6 +111,7 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 
 		// Initialize and start our game
 		start : function(mapGrid) {
+			utility.addStringFormat();
 			// Start crafty
 			var gameDiv = document.getElementById("gameBoard");
 			if (mapGrid) {
