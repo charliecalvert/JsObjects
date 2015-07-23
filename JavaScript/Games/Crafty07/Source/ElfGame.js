@@ -64,7 +64,7 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 
 		encounter : function(village) {
 			village.tower.hitPoints -= this.rollD3(village);
-			gameEventService.debugBroadcast(people.hero.name);
+			gameEventService.debugBroadcast(people.heroMain.name);
 
 			gameEventService.debugBroadcast('Tower hit points: ' + village.tower.hitPoints);
 			if (village.tower.hitPoints <= 0) {
