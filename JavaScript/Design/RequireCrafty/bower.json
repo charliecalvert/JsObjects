@@ -1,0 +1,20 @@
+{
+  "name": "RequireCrafty",
+  "version": "0.0.0",
+  "authors": [
+    "Charlie Calvert"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crafty": "~0.6.3",
+    "requirejs": "~2.1.19"
+  }
+}
