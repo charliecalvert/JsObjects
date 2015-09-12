@@ -1,0 +1,24 @@
+{
+  "name": "CraftedRpg",
+  "version": "0.0.0",
+  "authors": [
+    "Charlie Calvert"
+  ],
+  "description": "Game",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "Game"
+  ],
+  "license": "MIT",
+  "homepage": "www.elvenware.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
