@@ -1,11 +1,44 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  
-  button#walk Walk (fs only)
-  button#walker Walker (walk npm)
-  button#clearList Clear List
-  
-  ul#walkList
+	h1= title
+	p Welcome to #{title}
+
+	form
+
+	hr
+
+	div.register
+		form
+			div.register-switch
+				input#r1.register-switch-input(type='radio', name='radio', value='radio1', checked='checked')
+				label.register-switch-label(for='r1') radio1
+				input#r2.register-switch-input(type='radio', name='radio', value='radio2')
+				label.register-switch-label(for='r2') radio2
+				input#r3.register-switch-input(type='radio', name='radio', value='radio3')
+				label.register-switch-label(for='r3') radio3
+
+			select(name='single')
+				option Single
+				option Single2
+			br
+			select(name='multiple', multiple='multiple')
+				option(selected='selected') Multiple
+				option Multiple2
+				option(selected='selected') Multiple3
+			br
+			input#ch1(type='checkbox', name='check', value='check1')
+			label(for='ch1') check1
+			input#ch2(type='checkbox', name='check', value='check2', checked='checked')
+			label(for='ch2') check2
+			br
+			label.inputLabel(for='i1') Env Variable
+			input.inputText#i1(type='text', name='environmentVariable')
+			br
+			label.inputLabel(for='i2') Folder
+			input.inputText#i2(type='text', name='folder')
+	button#walk Walk (fs only)
+	button#walker Walker (walk npm)
+	button#clearList Clear List
+
+	ul#walkList
