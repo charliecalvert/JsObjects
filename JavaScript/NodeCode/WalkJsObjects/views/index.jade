@@ -8,35 +8,48 @@ block content
 
 	hr
 
-	div.register
+	div.panel.panel-default
 		form
-			div.register-switch
-				input#r1.register-switch-input(type='radio', name='radio', value='radio1', checked='checked')
-				label.register-switch-label(for='r1') radio1
-				input#r2.register-switch-input(type='radio', name='radio', value='radio2')
-				label.register-switch-label(for='r2') radio2
-				input#r3.register-switch-input(type='radio', name='radio', value='radio3')
-				label.register-switch-label(for='r3') radio3
+			div.panel.panel-default
+				div.panel-heading Radios
+				div.panel-body
+					div.btn-group(role="group" aria-label="...")
+						button.btn.btn-default(type="button") radio01
+						button.btn.btn-default(type="button") radio02
+						button.btn.btn-default(type="button") radio03
 
-			select(name='single')
-				option Single
-				option Single2
-			br
-			select(name='multiple', multiple='multiple')
-				option(selected='selected') Multiple
-				option Multiple2
-				option(selected='selected') Multiple3
-			br
-			input#ch1(type='checkbox', name='check', value='check1')
-			label(for='ch1') check1
-			input#ch2(type='checkbox', name='check', value='check2', checked='checked')
-			label(for='ch2') check2
-			br
-			label.inputLabel(for='i1') Env Variable
-			input.inputText#i1(type='text', name='environmentVariable')
-			br
-			label.inputLabel(for='i2') Folder
-			input.inputText#i2(type='text', name='folder')
+			div.panel.panel-default
+				div.panel-heading CheckBoxes
+				div.panel-body
+					div
+						input#ch1(type='checkbox', name='check', value='check1' aria-label="...")
+						label(for='ch1') check1
+					div
+						input#ch2(type='checkbox', name='check', value='check2', checked='checked' aria-label="...")
+						label(for='ch2') check2
+
+			div.panel.panel-default
+				div.panel-heading Text Input
+				div.panel-body
+					div.form-group
+						label(for='i1') Env Variable
+						input#i1.form-control(type='text', name='environmentVariable', placeholder="Environment Variable" aria-describedby="EnvVar")
+					div.form-group
+						label(for='i2') Folder
+						input#i2.form-control(type='text', name='folder', placeholder="Folder")
+
+			div.panel.panel-default
+				div.panel-heading Select
+				div.panel-body
+					select(name='single')
+						option Single
+						option Single2
+				div.panel-body
+					select(name='multiple', multiple='multiple')
+						option(selected='selected') Multiple
+						option Multiple2
+						option(selected='selected') Multiple3
+
 	button#walk Walk (fs only)
 	button#walker Walker (walk npm)
 	button#clearList Clear List
