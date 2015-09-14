@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><title></title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.theme.min.css">
+	<link rel="stylesheet" href="components/bootstrap/dist/js/bootstrap.min.js">
+	<script src="components/jquery/dist/jquery.min.js"></script>
+	<script src="javascripts/WalkClient.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+	<h1>Walker Demos</h1>
+	<p>Welcome to Walker Demos</p>
+</div>
+<form>
+	<div class="panel panel-default">
+		<div class="panel-heading">Radios</div>
+		<div class="panel-body">
+			<div role="group" aria-label="..." class="btn-group">
+				<button type="button" class="btn btn-default">radio01</button>
+				<button type="button" class="btn btn-default">radio02</button>
+				<button type="button" class="btn btn-default">radio03</button>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">CheckBoxes</div>
+		<div class="panel-body">
+			<div><input id="ch1" type="checkbox" name="check" value="check1" aria-label="..."><label
+					for="ch1">check1</label></div>
+			<div><input id="ch2" type="checkbox" name="check" value="check2" checked="checked" aria-label="..."><label
+					for="ch2">check2</label></div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">Text Input</div>
+		<div class="panel-body">
+			<div class="form-group"><label for="i1">Env Variable</label><input id="i1" type="text"
+																			   name="environmentVariable"
+																			   placeholder="Environment Variable"
+																			   aria-describedby="EnvVar"
+																			   class="form-control"></div>
+			<div class="form-group"><label for="i2">Folder</label><input id="i2" type="text" name="folder"
+																		 placeholder="Folder" class="form-control">
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">Select</div>
+		<div class="panel-body"><select name="single">
+			<option>Single</option>
+			<option>Single2</option>
+		</select></div>
+		<div class="panel-body"><select name="multiple" multiple="multiple">
+			<option selected="selected">Multiple</option>
+			<option>Multiple2</option>
+			<option selected="selected">Multiple3</option>
+		</select></div>
+	</div>
+</form>
+<button id="walk">Walk (fs only)</button>
+<button id="walker">Walker (walk npm)</button>
+<button id="clearList">Clear List</button>
+<ul id="walkList"></ul>
+</body>
+</html>
