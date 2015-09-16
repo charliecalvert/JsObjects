@@ -1,0 +1,138 @@
+.inputLabel {
+	display:inline-block;
+	margin-left: 25px;
+	margin-right: 10px;
+	width: 200px;
+	border: solid thin #00B7FF;
+	text-align: right;
+	margin: 10px
+}
+
+.inputText {
+	width: 65%;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+	padding: 5px;
+	font-size: 0.9em;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.07);
+}
+
+.register {
+	width: 500px;
+	margin: 10px auto;
+	padding: 10px;
+	border: 7px solid #72B372;
+	border-radius: 10px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #444;
+	background-color: #F0F0F0;
+	box-shadow: 0 0 20px 0 #000000;
+}
+.register h3 {
+	margin: 0 15px 20px;
+	border-bottom: 2px solid #72B372;
+	padding: 5px 10px 5px 0;
+	font-size: 1.1em;
+}
+.register div {
+	margin: 0 0 15px 0;
+	border: none;
+}
+
+
+.register label {
+	display: inline-block;
+	width: 25%;
+	text-align: right;
+	margin: 10px;
+}
+
+.register input[type=text], .register input[type=password] {
+	width: 65%;
+	font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,Sans-Serif;
+	padding: 5px;
+	font-size: 0.9em;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.07);
+}
+.register input[type=text]:focus, .register input[type=password]:focus {
+	background: #FFFFFF;
+}
+.register .button {
+	font-size: 1em;
+	border-radius: 8px;
+	padding: 10px;
+	border: 1px solid #59B969;
+	box-shadow: 0 1px 0 0 #60BD49 inset;
+	background: #63E651;
+	background: -webkit-linear-gradient(#63E651, #42753E);
+	background: -moz-linear-gradient(#63E651, #42753E);
+	background: -o-linear-gradient(#63E651, #42753E);
+	background: linear-gradient(#63e651, #42753e);
+}
+.register .button:hover {
+	background: #51DB1C;
+	background: -webkit-linear-gradient(#51DB1C, #6BA061);
+	background: -moz-linear-gradient(#51DB1C, #6BA061);
+	background: -o-linear-gradient(#51DB1C, #6BA061);
+	background: linear-gradient(#51db1c, #6ba061);
+}
+.register .sep {
+	border: 1px solid #72B372;
+	position: relative;
+	margin: 35px 20px;
+}
+.register .or {
+	position: absolute;
+	width: 50px;
+	left: 50%;
+	background: #F0F0F0;
+	text-align: center;
+	margin: -10px 0 0 -25px;
+	line-height: 20px;
+}
+.register .connect {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+label.radio {
+	cursor: pointer;
+	text-indent: 35px;
+	overflow: visible;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 15px;
+}
+
+label.radio:before {
+	background: #3a57af;
+	content:'';
+	position: absolute;
+	top:2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+}
+
+label.radio:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 0.5em;
+	height: 0.25em;
+	background: transparent;
+	top: 7.5px;
+	left: 4.5px;
+	border: 3px solid #ffffff;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
