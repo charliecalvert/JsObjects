@@ -1,39 +1,64 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
 
-  p
-        | Look in routes/users.js to see why these urls respond as they do.
-        | Note that we are using <a href="https://www.npmjs.com/package/page">pagejs</a>,
-        | which allows us to do routing on
-        | the client side. So we have two levels of routes, one on the
-        | client, and the other on the server. The point here is not that
-        | the combination is so powerful, though it can be, but simply that
-        | this demo covers routing on both the client and the server. Note
-        | that angularjs can also use client side routing.
+	p Start this program by typing Grunt
+
+	p
+		| Look in routes/users.js to see why these urls respond as they do.
+		| Note that we are using <a href="https://www.npmjs.com/package/page">pagejs</a>,
+		| which allows us to do routing on
+		| the client side. So we have two levels of routes, one on the
+		| client, and the other on the server. The point here is not that
+		| the combination is so powerful, though it can be, but simply that
+		| this demo covers routing on both the client and the server. Note
+		| that angularjs can also use client side routing.
+
+	h2 Client Side Routes with Page
+
+	p
+		| Clicks on the two links shown below are handled on
+		| on the client side using Page. No calls are made to
+		| the server. Look in the **Response Area** shown
+		| below to see the results of clicks on these links.
 
 
-  ul
-        li.button
-            a(href="/") /root
-        li.button
-            a(href="/users/") /users
-        li.button
-            a(href="/users/a") /users/a
-        li.button
-            a(href="/users/acat") /users/acat
-        li.button
-            a(href="/users/bar") /users/bar
+	ul
+		li.button
+			a(href="/") /root
+		li.button
+			a(href="/simple") /simple
 
- div.response
-     p#response
-     p#route
-     p#result
-     p#request
-     p#params
+	h2 Page Routes and Express Routes
+	p Let's combine client side and serving side routing.
+	p
+		| Clicks on the links shown below are handled by page on
+		| the client side. In response to the click, code found in
+		| in <strong>Control.js</strong> sends an ajax call to the server. The
+		| response sent back from the server is then displayed to
+		| to the user. Thus they show routing on both the client
+		| and the server side.
 
- div.debug
-        h2 Debug Area
-        p#debug
+	ul
+		li.button
+			a(href="/users/") /users
+		li.button
+			a(href="/users/a") /users/a
+		li.button
+			a(href="/users/acat") /users/acat
+		li.button
+			a(href="/users/bar") /users/bar
+
+	div.response
+		h2 Response area
+		p#response Response
+		p#route Route
+		p#result
+		p#request
+		p#params
+
+	div.debug
+		h2 Debug Area
+		p#debug

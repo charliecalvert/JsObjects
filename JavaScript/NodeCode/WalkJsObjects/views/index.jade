@@ -1,10 +1,54 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  
-  button#walk Walk
-  button#clearList Clear List
-  
-  ul#walkList
+
+	div.jumbotron
+		h1= title
+		p Welcome to #{title}
+
+	form
+		div.panel.panel-default
+			div.panel-heading Radios
+			div.panel-body
+				div.btn-group(role="group" aria-label="...")
+					button.btn.btn-default(type="button") radio01
+					button.btn.btn-default(type="button") radio02
+					button.btn.btn-default(type="button") radio03
+
+		div.panel.panel-default
+			div.panel-heading CheckBoxes
+			div.panel-body
+				div
+					input#ch1(type='checkbox', name='check', value='check1' aria-label="...")
+					label(for='ch1') check1
+				div
+					input#ch2(type='checkbox', name='check', value='check2', checked='checked' aria-label="...")
+					label(for='ch2') check2
+
+		div.panel.panel-default
+			div.panel-heading Text Input
+			div.panel-body
+				div.form-group
+					label(for='i1') Env Variable
+					input#i1.form-control(type='text', name='environmentVariable', placeholder="Environment Variable" aria-describedby="EnvVar")
+				div.form-group
+					label(for='i2') Folder
+					input#i2.form-control(type='text', name='folder', placeholder="Folder")
+
+		div.panel.panel-default
+			div.panel-heading Select
+			div.panel-body
+				select(name='single')
+					option Single
+					option Single2
+			div.panel-body
+				select(name='multiple', multiple='multiple')
+					option(selected='selected') Multiple
+					option Multiple2
+					option(selected='selected') Multiple3
+
+	button#walk Walk (fs only)
+	button#walker Walker (walk npm)
+	button#clearList Clear List
+
+	ul#walkList

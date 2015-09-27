@@ -5,5 +5,9 @@
     "**/.*",
     "node_modules",
     "components"
-  ]
+  ],
+  "dependencies": {
+    "page": "visionmedia/page.js#~1.6.3",
+    "jquery": "~2.1.4"
+  }
 }

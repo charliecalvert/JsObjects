@@ -1,0 +1,19 @@
+//
+   Created by charlie on 6/1/2015.
+
+h1 About
+
+p hint: {{aboutController.hint}}
+
+h2 Options
+
+.option-container
+   p Pick a Bootstrap CSS theme:
+
+   select#themeSelect(ng-model='themeController.bootStrapCss', ng-options='bootStrapThemes.url as bootStrapThemes.name for bootStrapThemes in themeController.bootStrapThemes')
+
+div.names
+   div.btn-group
+      button.btn.btn-default(ng-click='aboutController.isLoggedIn()') Is user logged in?
+
+p logged in: {{aboutController.loggedInStatus}}

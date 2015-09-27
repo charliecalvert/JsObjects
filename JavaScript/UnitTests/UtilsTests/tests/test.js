@@ -191,6 +191,22 @@ describe("Test01", function() {
     })
 });
 
+
+describe("Test Type Checks", function() {
+    'use strict';
+
+    it("proves it is an array", function() {
+        var myArray = [];
+        expect(eu.isArray(myArray)).toBe(true);
+    });
+
+    it("proves it is not an array", function() {
+        var myArray = {};
+        expect(eu.isArray(myArray)).toBe(false);
+    });
+});
+
+
 describe("Test White Space", function() {
     'use strict';
 

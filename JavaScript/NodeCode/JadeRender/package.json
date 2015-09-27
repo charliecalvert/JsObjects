@@ -4,7 +4,7 @@
   "description": "How to create HTML from Jade",
   "main": "Render.js",
   "scripts": {
-	"start": "node Render.js",
+    "start": "node Render.js",
     "test": "mocha Test"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "jade": "^1.9.1"
+    "jade": "^1.9.1",
+    "marked": "^0.3.3"
   }
 }

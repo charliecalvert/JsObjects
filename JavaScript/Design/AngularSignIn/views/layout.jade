@@ -1,0 +1,23 @@
+doctype html
+html(data-ng-app="elvenApp" ng-controller="ThemeController as themeController")
+	head
+		meta(charset='utf-8')
+		meta(name='description', content='Final by Charlie Calvert for Prog 219 Spring 2015')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		// link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+		link(rel="stylesheet", ng-href="components/bootswatch/{{themeController.bootStrapCss}}/bootstrap.css")
+		script(src="components/jquery/dist/jquery.js")
+		script(src="components/bootstrap/dist/js/bootstrap.js")
+		script(src="components/angular/angular.js")
+		script(src="components/angular-route/angular-route.js")
+		script(src="javascripts/app.js")
+		script(src="javascripts/control.js")
+		script(src="javascripts/mongo-factory.js")
+		script(src="javascripts/about.js")
+		script(src="javascripts/theme.js")
+		script(src="javascripts/login.js")
+		script(src="javascripts/logout.js")
+	body
+		block content

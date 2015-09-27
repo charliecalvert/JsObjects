@@ -1,0 +1,17 @@
+<div class="container">
+	<h1>Angular Routing View</h1>
+	
+	<p>Go to: <a href="#presidents/Presidents.json">Presidents</a></p>
+
+	<h2>Scientists</h2>
+	
+	<ul ng-repeat="president in presidents">
+		<li>{{president}}</li>
+	</ul>
+
+	<hr />
+
+	<p>Notice the hash tag in the URL. This is a <a href="http://stackoverflow.com/a/14320468/253576">needed</a>
+		to support routing in old browsers. If you don't want it, try "$locationProvider.html5Mode(true)".</p>
+
+</div>

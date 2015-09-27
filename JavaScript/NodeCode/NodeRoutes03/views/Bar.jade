@@ -1,4 +1,16 @@
 //
    Created by charlie on 3/18/15.
 
-h2 Bar
+h1 Bar
+
+p The Bar example uses request.params in the route:
+
+pre router.get('/:id', function(request, response) {
+   |  var id = request.params.id;
+   |  response.render(id);
+   | });
+
+p It works because there is a jade file called Bar.jade.
+
+p This is similar to sending this request:
+   a(href="/bar") /bar

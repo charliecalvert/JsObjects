@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width')
+		title= title
+		block css
+			link(rel='stylesheet', href='/css/style.css')
+		block js
+			script(src='/components/jquery/dist/jquery.js')
+			script(src='http://localhost:35729/livereload.js')
+			script(src="/components/angular/angular.js")
+			script(src="/components/angular-route/angular-route.js")
+			script(src='javascripts/app.js')
+			script(src='javascripts/clear.js')
+			script(src='javascripts/control.js')
+			script(src='javascripts/param-id.js')
+			script(src='javascripts/simple.js')
+			script(src='javascripts/simple-user.js')
+			script(src='javascripts/Utilities.js')
+	body(ng-app="elvenApp")
+		block content

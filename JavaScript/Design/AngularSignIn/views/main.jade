@@ -1,0 +1,35 @@
+//
+   Created by charlie on 6/11/2015.
+
+div.names
+    div.btn-group
+        button.btn.btn-default(ng-click='mainController.emptyCollection()') Empty Collection
+        button.btn.btn-default(ng-click='mainController.insertValidCollection()') Insert Valid Collection
+    div {{mainController.error}}
+div.names
+    ul
+       li(ng-repeat='scientist in mainController.scientists')
+           a(ng-click="mainController.selectScientist(scientist)") {{scientist.name}}
+div.names
+    div
+        label(class='col-sm-2, control-label') First:
+        span {{mainController.scientist.firstName}}
+    div
+        label(class='col-sm-2, control-label') Last:
+        span {{mainController.scientist.lastName}}
+    div
+        label(class='col-sm-2, control-label') Subject:
+        span {{mainController.scientist.subject}}
+
+div.names
+    h1 Subjects
+    ul
+        li(ng-repeat='subject in mainController.scientist.subjects')
+            span {{subject}}
+
+div.names
+    h1 Comments
+    ul
+       li(ng-repeat='comment in mainController.scientist.comments')
+           span {{comment.commentText}}
+

@@ -165,6 +165,9 @@ function htmlUnescape(str) {
         .replace(/&gt;/g, '>');
 }
 
+function isArray(itemToCheck) {
+    return Object.prototype.toString.call(itemToCheck) === '[object Array]';
+}
 
 function getHomeDir() {
     'use strict';
@@ -200,4 +203,5 @@ exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.getHomeDir = getHomeDir;
-exports.insertString(baseString, itemToInsert, index);
+exports.isArray = isArray;
+exports.insertString = insertString;
