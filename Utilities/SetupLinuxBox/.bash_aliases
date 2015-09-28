@@ -2,6 +2,7 @@
 
 # General
 export GIT_HOME=$HOME/Git
+export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 alias gd="cd $GIT_HOME"
 alias batch="cd $HOME/Batch"
 alias chr="/usr/bin/chromium-browser"
