@@ -15,21 +15,21 @@ block content
 						label(for='i2') Folder
 						input#i2.form-control(type='text', name='folder', placeholder="Folder")
 			div.panel.panel-default
-				div.panel-heading Radios
+				div.panel-heading Radios: <span id=rb01></span>
 				div.panel-body
-					div.btn-group(role="group" aria-label="...")
+					div.btn-group.elves(role="group")
 						button.btn.btn-default(type="button") radio01
 						button.btn.btn-default(type="button") radio02
 						button.btn.btn-default(type="button") radio03
 			div.panel.panel-default
-				div.panel-heading CheckBoxes
+				div.panel-heading CheckBoxes <span id=cb01></span> <span id=cb02></span> <span id=cb03></span>
 				div.panel-body
 					div
-						input#ch1(type='checkbox', name='check', value='check1' aria-label="...")
-						label(for='ch1') check1
+						input#checkBox01(type='checkbox', name='check', value='check1' )
+						label(for='checkBox01') CheckBox 01
 					div
-						input#ch2(type='checkbox', name='check', value='check2', checked='checked' aria-label="...")
-						label(for='ch2') check2
+						input#checkBox02(type='checkbox', name='check', value='check2', checked='checked' )
+						label(for='checkBox02') CheckBox 02
 			div.panel.panel-default
 				div.panel-heading Select
 				div.panel-body

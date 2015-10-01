@@ -5,4 +5,6 @@ cd $1
 npm install
 cp $ELF_TEMPLATES/bower.json .
 cp $ELF_TEMPLATES/.bowerrc .
-bower install jquery --save
+bower install bootstrap --save
+sed -i -- 's/3000/30025/g' bin/www
+sed -i -- 's/node\s/nodemon /g' package.json
