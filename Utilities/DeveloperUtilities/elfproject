@@ -1,0 +1,8 @@
+#!/bin/bash
+
+express $1
+cd $1
+npm install
+cp $ELF_TEMPLATES/bower.json .
+cp $ELF_TEMPLATES/.bowerrc .
+bower install jquery --save
