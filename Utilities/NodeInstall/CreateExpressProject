@@ -1,0 +1,12 @@
+#! /bin/bash
+
+express $1
+cd $1
+npm install
+cp $ELF_TEMPLATES/bower.json .
+cp $ELF_TEMPLATES/.bowerrc .
+bower install bootstrap --save
+sed -i -- 's/3000/30025/g' bin/www
+sed -i -- 's/node\s/nodemon /g' package.json
+cp ~/Git/JsObjects/Data/MongoLab03/favicon.png public/.
+sed -i -- 's/Express/'$1'/g' routes/index.js
