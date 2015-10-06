@@ -108,7 +108,7 @@ while true; do
     case $eotuyx in
         [Ee]* ) essentials; continue;;
         [Oo]* ) optional; continue;;
-	[Tt]* ) test grunt-cli; continue;;
+        [Tt]* ) test grunt-cli; continue;;
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
