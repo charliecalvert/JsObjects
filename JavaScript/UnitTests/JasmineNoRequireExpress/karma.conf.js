@@ -10,8 +10,9 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
         
         files: [
-            'Source/*.js',
-            'Spec/*Test.js'
+            'public/components/jquery/dist/jquery.min.js',
+            'public/javascripts/*.js',
+            'spec/test*.js'
         ],
 
         // list of files to exclude
