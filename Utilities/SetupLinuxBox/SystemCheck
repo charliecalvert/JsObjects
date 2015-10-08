@@ -1,0 +1,93 @@
+function message {
+    echo
+    echo =======================
+    echo $1
+    echo =======================
+    echo
+}
+
+function spacer {
+    echo
+    echo === $1 ===
+    echo 
+}
+
+function checkDirectory {
+    if [ -d $1 ]
+    then
+        echo -e "\tOK: $1"
+    else
+        echo -e "\tNOT OK: $1"
+    fi
+}
+
+function checkFileExists {
+    if [ -e $1 ]
+    then
+        echo -e "\tOK: $1"
+    else
+        echo -e "\tNOT OK: $1"
+    fi
+}
+
+function checkEnvironmentVariable {
+    if [ -n "$2" ] 
+    then
+        echo -e "\tOK: \$$1 = $2"
+    else
+        echo -e "\tNOT OK: \$$1"
+    fi
+}
+
+function basics {
+    message "Basic System Check"    
+    
+    spacer "Environment Variables"
+    checkEnvironmentVariable JAVA_HOME $JAVA_HOME
+    checkEnvironmentVariable CHROME_BIN $CHROME_BIN
+
+    spacer "Directories"    
+    checkDirectory $HOME/Git
+    checkDirectory $HOME/bin
+    
+    spacer "Files"    
+    checkFileExists $HOME/.bash_aliases
+}
+
+function node {
+    message "Node Check"
+
+    spacer "Environment Variables"
+    checkEnvironmentVariable JSOBJECTS $JSOBJECTS
+    checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
+    checkEnvironmentVariable NODE_PATH $NODE_PATH
+    
+    spacer "Directories"    
+    checkDirectory $HOME/npm    
+}
+
+function phoneGap {
+    message "PhoneGap"
+    
+    spacer "Environment Variables"
+    checkEnvironmentVariable ANT_HOME $ANT_HOME
+    checkEnvironmentVariable PHONEGAP_HOME $PHONEGAP_HOME
+    checkEnvironmentVariable ANDROID_SDK_HOME $ANDROID_SDK_HOME
+}
+
+while true; do
+    message "Menu"
+    echo "b) Basic System Check"
+    echo "n) Node"
+    echo "p) PhoneGap"
+    echo "x) Exit"
+    echo
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+        [Bb]* ) basics; continue;;
+        [Nn]* ) node; continue;;
+        [Pp]* ) phoneGap; continue;;
+        [Xx]* ) break;;
+        * ) echo "Please answer with n, p or x.";;
+    esac
+done
