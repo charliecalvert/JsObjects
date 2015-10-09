@@ -1,0 +1,20 @@
+#! /bin/bash
+
+
+shopt -s expand_aliases
+source ~/.bash_aliases
+
+alias
+
+echo gitio
+gitio && git pull
+echo CloudNotes
+cn && git pull
+echo JsObjects
+jo && git pull
+echo Writing
+wt && git pull
+echo ElfSite
+elfsite && git pull
+echo isit320-calvert-201?
+i3c && git pull

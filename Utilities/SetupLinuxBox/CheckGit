@@ -1,0 +1,14 @@
+#! /bin/bash
+
+
+shopt -s expand_aliases
+source ~/.bash_aliases
+
+alias
+
+gitio && git status
+cn && git status
+jo && git status
+wt && git status
+elfsite && git status
+i3c && git status
