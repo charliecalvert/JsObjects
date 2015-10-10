@@ -35,7 +35,7 @@ module.exports = function(config) {
         autoWatch: true,
 
         // Start these browsers, currently available:
-        // browsers: ['PhantomJS'],
+        //browsers: ['PhantomJS'],
         browsers: ['Chrome'],
 
         // If browser does not capture in given timeout [ms], kill it

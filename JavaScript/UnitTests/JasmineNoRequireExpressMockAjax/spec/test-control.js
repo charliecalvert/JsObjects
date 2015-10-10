@@ -16,8 +16,6 @@ describe("Elvenware Object Number Suite", function () {
 
     'use strict';
 
-
-
     it("Call a function in getNumber that returns 9", function () {
         expect(getNine()).toBe(9);
     });
@@ -25,24 +23,27 @@ describe("Elvenware Object Number Suite", function () {
 
     it("Test that we can parse the value expected to be returned from getJSON call", function() {
         var response = {nine: 10};
-        bar.parseSimpleJson(response);
-        expect(bar.value).toBe(10);
+        queryServer.parseSimpleJson(response);
+        expect(queryServer.queryResult).toBe(10);
     });
 
     it("tests ajax call", function() {
-        spyOn($, 'ajax').and.callFake(function (methods) {
-            methods.success({"nine": 9});
+        spyOn($, 'ajax').and.callFake(function (ajaxConfig) {
+            ajaxConfig.success({"nine": 9});
         });
-        bar.getAjaxServerNine();
-        expect(bar.value).toBe(9);
+        queryServer.getAjaxServerNine();
+        expect(queryServer.queryResult).toBe(9);
     });
 
     it("tests getJSON call", function() {
-        spyOn($, 'getJSON').and.callFake(function (url, success) {
-            success({"nine": 9});
+        // getJSON is wrapper around ajax, so spyOn it, as it is more flexible
+        spyOn($, 'ajax').and.callFake(function (ajaxConfig) {
+            ajaxConfig.success({
+                "nine": 9
+            });
         });
-        bar.getJsonServerNine();
-        expect(bar.value).toBe(9);
+        queryServer.getJsonServerNine();
+        expect(queryServer.queryResult).toBe(9);
     });
 });
 

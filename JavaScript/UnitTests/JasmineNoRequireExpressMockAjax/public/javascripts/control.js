@@ -7,24 +7,24 @@ function getNine() {
     return 9;
 }
 
-var bar = {
+var queryServer = {
 
-    url: './simple.json',
+    url: './simples.json',
 
-    value: null,
+    queryResult: null,
 
     parseSimpleJson: function (simpleJson) { 'use strict';
-        bar.value = simpleJson.nine;
+        queryServer.queryResult = simpleJson.nine;
     },
 
     getAjaxServerNine: function () {
         'use strict';
 
         $.ajax({
-            url: bar.url,
+            url: queryServer.url,
             success: function (simpleJson) {
-                bar.parseSimpleJson(simpleJson);
-                console.log(bar.value);
+                queryServer.parseSimpleJson(simpleJson);
+                console.log(queryServer.queryResult);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus + "incoming Text " + jqXHR.responseText);
@@ -35,17 +35,18 @@ var bar = {
     getJsonServerNine: function () {
         'use strict';
 
-        $.getJSON(bar.url,function (simpleJson) {
-                bar.parseSimpleJson(simpleJson);
-                console.log(bar.value);
-        });/*.fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus + "incoming Text " + jqXHR.responseText);
-        });*/
+        $.getJSON(queryServer.url,function(simpleJson) {
+                queryServer.parseSimpleJson(simpleJson);
+                console.log(queryServer.queryResult);
+                $('#serverResult').html(queryServer.queryResult);
+        });
+
     }
 
 };
 
 $(document).ready(function () {
     'use strict';
-    // bar.getAjaxServerNine();
+    queryServer.getAjaxServerNine();
+    queryServer.getJsonServerNine();
 });
