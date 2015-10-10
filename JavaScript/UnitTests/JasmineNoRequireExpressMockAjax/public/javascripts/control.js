@@ -38,7 +38,7 @@ var bar = {
         $.getJSON(bar.url,function (simpleJson) {
                 bar.parseSimpleJson(simpleJson);
                 console.log(bar.value);
-        }); /*.fail(function (jqXHR, textStatus, errorThrown) {
+        });/*.fail(function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + "incoming Text " + jqXHR.responseText);
         });*/
     }
@@ -47,5 +47,5 @@ var bar = {
 
 $(document).ready(function () {
     'use strict';
-    bar.getAjaxServerNine();
+    // bar.getAjaxServerNine();
 });

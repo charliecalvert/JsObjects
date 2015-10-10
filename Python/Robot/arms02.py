@@ -1,5 +1,7 @@
 # -*- encoding: UTF-8 -*-
 
+# SDK https://community.aldebaran.com/en/resources/software?sort_by=weight&sort_order=ASC&page=1
+
 '''Cartesian control: Arm trajectory example'''
 ''' This example is only compatible with NAO '''
 
