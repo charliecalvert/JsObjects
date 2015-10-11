@@ -13,7 +13,8 @@ var queryServer = {
 
     queryResult: null,
 
-    parseSimpleJson: function (simpleJson) { 'use strict';
+    parseSimpleJson: function (simpleJson) {
+        'use strict';
         queryServer.queryResult = simpleJson.nine;
     },
 
@@ -35,19 +36,25 @@ var queryServer = {
     getJsonServerNine: function () {
         'use strict';
 
-        $.getJSON(queryServer.url,function(simpleJson) {
-                queryServer.parseSimpleJson(simpleJson);
-                console.log(queryServer.queryResult);
-                $('#serverResult').html(queryServer.queryResult);
-        })/*
-        This is the part that doesn't work with Jasmine spyOn. So I have
-        switched to sinon, as shown in JasmineMockAjaxSinon
-        .fail(function(error) {
+        $.getJSON(queryServer.url, function (simpleJson) {
+            queryServer.parseSimpleJson(simpleJson);
+            console.log(queryServer.queryResult);
+            $('#serverResult').html(queryServer.queryResult);
+        });
+    },
+
+    getJsonServerNineWithFail: function () {
+        'use strict';
+        console.log(queryServer.url);
+        $.getJSON(queryServer.url, function (simpleJson) {
+            queryServer.parseSimpleJson(simpleJson);
+            console.log(queryServer.queryResult);
+            $('#serverResult').html(queryServer.queryResult);
+        }).fail(function (error) {
             console.log(error);
-        }); */
+        });
 
     }
-
 };
 
 $(document).ready(function () {
