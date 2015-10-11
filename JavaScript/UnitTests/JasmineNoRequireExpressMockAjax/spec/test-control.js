@@ -37,10 +37,8 @@ describe("Elvenware Object Number Suite", function () {
 
     it("tests getJSON call", function() {
         // getJSON is wrapper around ajax, so spyOn it, as it is more flexible
-        spyOn($, 'ajax').and.callFake(function (ajaxConfig) {
-            ajaxConfig.success({
-                "nine": 9
-            });
+        spyOn($, 'getJSON').and.callFake(function (url, success) {
+            success({"nine": 9});
         });
         queryServer.getJsonServerNine();
         expect(queryServer.queryResult).toBe(9);
