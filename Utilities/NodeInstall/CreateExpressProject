@@ -1,17 +1,46 @@
 #! /bin/bash
 
+function checkEnvironmentVariable {
+    if [ -n "$2" ] 
+    then
+        echo -e "\tOK: \$$1 = $2"
+    else
+        echo "======================================"
+        echo -e " You are missing the \$$1" environment variable
+        echo -e " Do you define it in $HOME/.bash_aliases?"
+        echo -e " A sample .bash_aliases file is found in:"
+        echo -e "\t$JSOBJECTS/Utilities/SetupLinuxBox"
+        echo "======================================"
+        exit
+    fi
+}
+
+checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
+
+# Create an express app and run npm install
 express $1
 cd $1
 npm install
+
+# Setup bower and bootstrap
 cp $ELF_TEMPLATES/bower.json .
 cp $ELF_TEMPLATES/.bowerrc .
 bower install bootstrap --save
+
+# Set port, start command and favicon
 sed -i -- 's/3000/30025/g' bin/www
 sed -i -- 's/node\s/nodemon /g' package.json
 cp ~/Git/JsObjects/Data/MongoLab03/favicon.png public/.
+
+# Set title, create README and control.js
 sed -i -- 's/Express/'$1'/g' routes/index.js
 echo -e "# $1\nby Charlie Calvert" >> README.md
 echo -e "\$(document).ready(function() { 'use strict'; \n});" >> public/javascripts/control.js
+
+# Add use strict
 sed -i "s/{$/{ 'use strict';/" routes/index.js
 sed -i "s/{$/{ 'use strict';/" routes/users.js
 sed -i "s/next) {/next) { 'use strict';/" app.js
+
+# Link in Bootstrap with layout.jade
+sed -i "/style.css')/ "$ELF_TEMPLATES"/BoostrapLayout.json" views/layout.jade
