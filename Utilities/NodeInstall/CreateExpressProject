@@ -43,4 +43,4 @@ sed -i "s/{$/{ 'use strict';/" routes/users.js
 sed -i "s/next) {/next) { 'use strict';/" app.js
 
 # Link in Bootstrap with layout.jade
-sed -i "/style.css')/ "$ELF_TEMPLATES"/BoostrapLayout.json" views/layout.jade
+sed -i "/style.css')/r "$ELF_TEMPLATES"/BootstrapLayout.json" views/layout.jade
