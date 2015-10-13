@@ -41,7 +41,7 @@ module.exports = function(config) {
         captureTimeout: 20000,
 
         // Set to false to watch files for changes
-        singleRun: true,
+        singleRun: false,
 
         plugins: ["karma-jasmine",
             "karma-spec-reporter",
