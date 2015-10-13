@@ -6,9 +6,11 @@ cp $UNIT_TEST/Gruntfile.js .
 cp $UNIT_TEST/karma.conf.js .
 sed -i '/\s\s}$/r '$UNIT_TEST'/DevDependencies.json' package.json
 js-beautify -r package.json 
-sed -i "s/{$/{ 'use strict';/" routes/index.js
-sed -i "s/{$/{ 'use strict';/" routes/users.js
-sed -i "s/next) {/next) { 'use strict';/" app.js
-npm install
 mkdir spec
 cp $UNIT_TEST/test-basic.js spec/.
+npm install
+echo "============================================="
+echo "Run the following command to test your tests:"
+echo -e "\ngrunt test"
+echo "============================================="
+

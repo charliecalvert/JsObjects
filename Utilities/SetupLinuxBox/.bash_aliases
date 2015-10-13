@@ -29,7 +29,7 @@ alias jop="cd $JSOBJECTS/Python"
 alias jos="cd $JSOBJECTS/JavaScript/Syntax"
 alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
-
+alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
 
 ####################################################
 # Begin Charlie Specific aliases and exports
@@ -61,8 +61,11 @@ alias ecj="cd $WRITE/Elvenware/development/web/JavaScript"
 # My Courses
 alias isit="cd $GEN/Git/Isit322-2015"
 alias p28='cd ~/Git/Prog282'
-alias p2='cd ~/Git/prog219-2015'
-alias p2c='cd ~/Git/prog219-calvert'
+alias p2='cd ~/Git/isit320-2015'
+alias p2c='cd $GIT_HOME/isit320-calvert-2015'
+alias i3='cd ~/Git/isit320-2015'
+alias i3c='cd $GIT_HOME/isit320-calvert-2015'
+
 alias www='cd /var/www/html'
 
 # My Programs
