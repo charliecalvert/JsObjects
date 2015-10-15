@@ -1,9 +1,7 @@
 function message {
-    echo
     echo =======================
     echo $1
     echo =======================
-    echo
 }
 
 function spacer {
@@ -42,16 +40,13 @@ function checkEnvironmentVariable {
 function basics {
     message "Basic System Check"    
     
-    spacer "Environment Variables"
-    checkEnvironmentVariable JAVA_HOME $JAVA_HOME
-    checkEnvironmentVariable CHROME_BIN $CHROME_BIN
-
     spacer "Directories"    
     checkDirectory $HOME/Git
     checkDirectory $HOME/bin
     
     spacer "Files"    
     checkFileExists $HOME/.bash_aliases
+    echo
 }
 
 function node {
@@ -63,7 +58,16 @@ function node {
     checkEnvironmentVariable NODE_PATH $NODE_PATH
     
     spacer "Directories"    
-    checkDirectory $HOME/npm    
+    checkDirectory $HOME/npm
+    echo    
+}
+
+function common {
+	message "Common"
+	spacer "Environment Variables"
+	checkEnvironmentVariable JAVA_HOME $JAVA_HOME
+ 	checkEnvironmentVariable CHROME_BIN $CHROME_BIN
+	echo
 }
 
 function phoneGap {
@@ -73,19 +77,23 @@ function phoneGap {
     checkEnvironmentVariable ANT_HOME $ANT_HOME
     checkEnvironmentVariable PHONEGAP_HOME $PHONEGAP_HOME
     checkEnvironmentVariable ANDROID_SDK_HOME $ANDROID_SDK_HOME
+    echo
 }
 
 while true; do
     message "Menu"
     echo "b) Basic System Check"
     echo "n) Node"
+    echo "c) Common (Java, Chrome)"
     echo "p) PhoneGap"
     echo "x) Exit"
     echo
-    read -p "Please make a selection: " eotuyx
+    read -p "Please make a selection and press enter: " eotuyx
+    clear
     case $eotuyx in
         [Bb]* ) basics; continue;;
         [Nn]* ) node; continue;;
+	[Cc]* ) common; continue;;
         [Pp]* ) phoneGap; continue;;
         [Xx]* ) break;;
         * ) echo "Please answer with n, p or x.";;
