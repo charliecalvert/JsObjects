@@ -22,7 +22,8 @@ def main(robotIP, PORT=9559):
     # Send robot to Stand Init
     postureProxy.goToPosture("StandInit", 0.5)
 
-    tts = ALProxy("ALTextToSpeech", "192.168.2.17", 9559)
+    #tts = ALProxy("ALTextToSpeech", "192.168.2.17", 9559)
+    tts = ALProxy("ALTextToSpeech", "168.156.34.195", 9559)
     tts.say("Hello, I'm going to move my left arm.")
     tts.say("Then I will go back to the rest position!")
     
@@ -70,8 +71,11 @@ def main(robotIP, PORT=9559):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="192.168.2.17",
+    #parser.add_argument("--ip", type=str, default="192.168.2.17",
+    ##                    help="Robot ip address")
+    parser.add_argument("--ip", type=str, default="168.156.34.195",
                         help="Robot ip address")
+    
     parser.add_argument("--port", type=int, default=9559,
                         help="Robot port number")
 
