@@ -1,0 +1,20 @@
+{
+  "name": "Week04-DeliciousQuery",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.11.3",
+    "grunt-karma": "^0.12.1",
+    "jasmine-core": "^2.3.4",
+    "jshint-stylish": "^2.0.1",
+    "karma": "~0.13.10",
+    "karma-jasmine": "~0.3.3",
+    "karma-phantomjs-launcher": "~0.2.1",
+    "karma-spec-reporter": "0.0.20",
+    "phantomjs": "^1.9.18"
+  }
+}

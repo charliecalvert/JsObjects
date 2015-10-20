@@ -5,6 +5,7 @@ Thumbs.db
 *.apk
 *.dex
 *.bak
+*.geany
 foo.sh
 foo.txt
 resources.ap_
