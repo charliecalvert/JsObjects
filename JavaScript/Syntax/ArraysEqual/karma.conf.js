@@ -10,7 +10,7 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
         
         files: [
-            'public/components/jquery/dist/jquery.min.js',
+            'node_modules/jquery/dist/jquery.min.js',
             'source/*.js',
             'spec/test*.js'
         ],
