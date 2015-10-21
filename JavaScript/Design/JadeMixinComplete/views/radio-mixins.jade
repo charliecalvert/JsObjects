@@ -1,4 +1,14 @@
 
+// *************
+// Panels
+// *************
+
+mixin elfPanel(headingText)
+	div.panel.panel-default
+		div.panel-heading= headingText
+		div.panel-body
+			block
+
 // **********
 // Radio Buttons
 // **********
@@ -20,13 +30,16 @@ mixin elfRadio(labelText, valueId)
 // CheckBoxes
 // **********
 
-mixin checkBoxPanel(headingText)
-	div.panel.panel-default
-		div.panel-heading= headingText
-		div.panel-body
-			block
-
 mixin elfCheckBox(labelText, name, value)
 	div
 		input(type='checkbox', name=name value=value)&attributes(attributes)
 		label(for='#{name}') &nbsp; #{labelText}
+
+// **************
+// Input Controls
+// **************
+
+mixin elfInput
+	div.form-group
+		label(for='subject') Enter a subject (key) such as javascript
+		input#subject.form-control(type='text', placeholder="subject")
