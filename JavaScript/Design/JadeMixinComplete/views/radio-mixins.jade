@@ -1,0 +1,31 @@
+
+// **********
+// Radio Buttons
+// **********
+
+mixin radioPanel(headingText)
+	div.panel.panel-default
+		div.panel-heading= headingText
+		div.panel-body
+			div(role="group", id="btn-group.elves")
+				block
+
+mixin elfRadio(labelText, valueId)
+	.radio
+		label(for=valueId) 
+			input(type='radio', name='radio', value=valueId, id=valueId) 
+			strong #{labelText}
+// **********
+// CheckBoxes
+// **********
+
+mixin checkBoxPanel(headingText)
+	div.panel.panel-default
+		div.panel-heading= headingText
+		div.panel-body
+			block
+
+mixin elfCheckBox(labelText, name, value)
+	div
+		input(type='checkbox', name=name value=value)&attributes(attributes)
+		label(for='#{name}') &nbsp; #{labelText}

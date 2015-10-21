@@ -1,0 +1,15 @@
+extends menu-mixin
+include radio-mixins
+
+block append content
+
+    h1 Json Ajax
+
+    +radioPanel("Radio Buttons")
+        +elfRadio("Radio1", "option1")
+        +elfRadio("Radio2", "option2")
+
+    +checkBoxPanel("CheckBoxes")
+        +elfCheckBox("CheckBox 01", "checkBox01", "checkBox01")#checkBox01
+        +elfCheckBox("CheckBox 02", "checkBox02", "checkBox02")#checkBox02
+
