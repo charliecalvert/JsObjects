@@ -3,6 +3,14 @@
 // Panels
 // *************
 
+mixin elfFormPanel(title)
+
+	form&attributes(attributes)
+		div.panel.panel-default
+			div.panel-heading= title
+			div.panel-body
+				block
+
 mixin elfPanel(headingText)
 	div.panel.panel-default
 		div.panel-heading= headingText
@@ -13,7 +21,7 @@ mixin elfPanel(headingText)
 // Radio Buttons
 // **********
 
-mixin radioPanel(headingText)
+mixin elfRadioPanel(headingText)
 	div.panel.panel-default
 		div.panel-heading= headingText
 		div.panel-body
@@ -39,7 +47,7 @@ mixin elfCheckBox(labelText, name, value)
 // Input Controls
 // **************
 
-mixin elfInput
-	div.form-group
-		label(for='subject') Enter a subject (key) such as javascript
-		input#subject.form-control(type='text', placeholder="subject")
+mixin elfInput(labelText, name, placeHolder)
+	div
+		label(for='subject') #{labelText}
+		input(type='text', name=name, placeholder=placeHolder)&attributes(attributes)
