@@ -27,7 +27,7 @@ function displayRadioButtonSelection(event) { 'use strict';
 	$("#rb01").html("You clicked " + id);
 }
 
-function buttonHandler(message) {
+function buttonHandler(message) { 'use strict';
 	$('#formResults').html(message);
 }
 
