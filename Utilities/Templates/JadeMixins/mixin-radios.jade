@@ -21,11 +21,11 @@ mixin elfPanel(headingText)
 // Radio Buttons
 // **********
 
-mixin elfRadioPanel(headingText)
+mixin elfRadioPanel(headingText, panelId)
 	div.panel.panel-default
 		div.panel-heading= headingText
 		div.panel-body
-			div(role="group", id="btn-group.elves")
+			div(role="group", id= panelId)
 				block
 
 mixin elfRadio(labelText, valueId)
@@ -51,3 +51,16 @@ mixin elfInput(labelText, name, placeHolder)
 	div
 		label(for='subject') #{labelText}
 		input(type='text', name=name, placeholder=placeHolder)&attributes(attributes)
+
+mixin elfInputA(labelText, name, placeHolder)
+	div.row
+		label.col-md-2.control-label(for='textinput') #{labelText}
+		.col-md-8
+			input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
+
+mixin elfInputB(labelText, name, placeHolder)
+	div.row
+		h4
+			span.col-md-2.label.label-success #{labelText}
+		.col-md-10
+			input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
