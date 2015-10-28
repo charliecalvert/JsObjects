@@ -38,14 +38,6 @@ mixin bootswatch(theme)
     link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/" + theme + "/bootstrap.min.css", rel="stylesheet")
 
 
-mixin formPanel(title)
-
-    form&attributes(attributes)
-        div.panel.panel-default
-            div.panel-heading= title
-            div.panel-body
-                block
-
 //- Panel mixin
 mixin panel(heading, style)
     - var style = (typeof style === 'undefined') ? "default" : style

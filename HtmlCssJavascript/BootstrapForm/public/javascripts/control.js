@@ -2,8 +2,7 @@
  * Created by charlie on 10/1/15.
  */
 
-function displayCheckboxSelection()
-{
+function displayCheckboxSelection() {  'use strict';
 	if ($("#checkBox01").is(':checked')) {
 		$("#cb01").html("You checked CheckBox01");
 	} else {
@@ -23,13 +22,22 @@ function displayCheckboxSelection()
 	}
 }
 
-function displayRadioButtonSelection() {
-	var id = $(this).text();
+function displayRadioButtonSelection(event) { 'use strict';
+	var id = event.target.textContent;
 	$("#rb01").html("You clicked " + id);
 }
 
-$(document).ready(function() {
+function buttonHandler(message) { 'use strict';
+	$('#formResults').html(message);
+}
+
+$(document).ready(function() { 'use strict';
+	$("#target").submit(function(event) {
+		event.preventDefault();
+		var userFormData = $(this).serialize();
+		$('#formResults').html(userFormData);
+	});
+
 	$("input[name=check]:checkbox").click(displayCheckboxSelection);
-	//$('#radioJavaScript').click(displayRadioButtonSelection);
 	$('.elves .btn').click(displayRadioButtonSelection);
 });

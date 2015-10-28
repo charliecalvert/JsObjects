@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cp $ELF_TEMPLATES/JadeMixins/mixin-radios.jade views/.
+cp $ELF_TEMPLATES/JadeMixins/mixins.jade views/.
