@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
 		clean :	{
 			yourTarget : {
-				src : [ "**/node_modules/**"
+				src : [ "**/node_modules/**", "**/components/**"
 				]
 			}
 		}
