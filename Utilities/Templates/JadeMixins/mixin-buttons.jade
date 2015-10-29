@@ -1,0 +1,18 @@
+//
+   Created by charlie on 10/29/15.
+
+mixin forwardBack(leftFunction, rightFunction)
+    button.btn.btn-success.btn-large(type='button', onclick= leftFunction)
+       span.glyphicon.glyphicon-arrow-left
+       | &nbsp; Left
+    span &nbsp;
+    button.btn.btn-success.btn-large(type='button', onclick= rightFunction)
+       | Right &nbsp;
+       span.glyphicon.glyphicon-arrow-right
+
+mixin downloadButton(title, downloadFunction)
+    button.btn.btn-primary(type='button', onclick= downloadFunction)
+        | #{title} &nbsp;&nbsp;
+        span.glyphicon.glyphicon-download
+
+

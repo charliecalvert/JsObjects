@@ -4,3 +4,6 @@ export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOM
 
 $ ls ~/bin/pynaoqi/libqipython.so 
 /home/charlie/bin/pynaoqi/libqipython.so
+
+
+https://community.aldebaran.com/en/forum/nao-school-network-7764

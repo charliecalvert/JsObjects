@@ -1,10 +1,12 @@
 
+mixin elfForm(title)
+	p Foo
+
 // *************
 // Panels
 // *************
 
 mixin elfFormPanel(title)
-
 	form&attributes(attributes)
 		div.panel.panel-default
 			div.panel-heading= title
@@ -12,7 +14,16 @@ mixin elfFormPanel(title)
 				block
 
 mixin elfPanel(headingText)
-	div.panel.panel-default
+	div.panel.panel-default&attributes(attributes)
+		div.panel-heading= headingText
+		div.panel-body
+			block
+
+mixin elfPanelType(headingText, panelType)
+	- if (typeof panelType === 'undefined') {
+	-		panelType="panel-default";
+	- }
+	div.panel(class= panelType)&attributes(attributes)
 		div.panel-heading= headingText
 		div.panel-body
 			block
@@ -22,7 +33,7 @@ mixin elfPanel(headingText)
 // **********
 
 mixin elfRadioPanel(headingText, panelId)
-	div.panel.panel-default
+	div.panel.panel-default&attributes(attributes)
 		div.panel-heading= headingText
 		div.panel-body
 			div(role="group", id= panelId)
@@ -43,24 +54,3 @@ mixin elfCheckBox(labelText, name, value)
 		input(type='checkbox', name=name value=value)&attributes(attributes)
 		label(for='#{name}') &nbsp; #{labelText}
 
-// **************
-// Input Controls
-// **************
-
-mixin elfInput(labelText, name, placeHolder)
-	div
-		label(for='subject') #{labelText}
-		input(type='text', name=name, placeholder=placeHolder)&attributes(attributes)
-
-mixin elfInputA(labelText, name, placeHolder)
-	div.row
-		label.col-md-2.control-label(for='textinput') #{labelText}
-		.col-md-8
-			input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
-
-mixin elfInputB(labelText, name, placeHolder)
-	div.row
-		h4
-			span.col-md-2.label.label-success #{labelText}
-		.col-md-10
-			input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
