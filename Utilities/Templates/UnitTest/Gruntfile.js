@@ -1,42 +1,57 @@
 module.exports = function(grunt) {
-	'use strict';
+    'use strict';
 
-	grunt.initConfig({
+    grunt.initConfig({
 
-		pkg : '<json:package.json>',
+        pkg: '<json:package.json>',
 
-		karma : {
-			karma : {
-				configFile : 'karma.conf.js'
-			}
-		},
+        jshint: {
+            files: ['**/*.js'],
 
-		jshint : {
-			files : [ '**/*.js' ],
+            options: {
+                ignores: [
+                    '**/node_modules/**', '**/components/**'
+                ],
+                reporter: require('jshint-stylish'),
+                strict: true,
+                jasmine: true
+            }
+        },
 
-			options : {
-				ignores : [ 
-				     '**/node_modules/**', '**/components/**'
-				],
-				reporter : 'checkstyle',
-				reporterOutput : 'result.xml',
-				strict : true,
-				globals : {
-					describe : true,
-					afterEach : true,
-					beforeEach : true,
-					inject : true,
-					it : true,
-					jasmine : true,
-					expect : true
-				}
-			}
-		},
+        clean: {
+            yourTarget: {
+                src: ['**/node_modules/**', '**/components/**']
+            }
+        },
 
-	});
+        jscs: {
+            src: '**/*.js',
+            options: {
+                config: '.jscsrc'
+            }
+        },
 
-	grunt.loadNpmTasks('grunt-karma');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.registerTask('test', [ 'jshint', 'karma' ]);
+        'jsbeautifier': {
+            files: ['**/*.js', '!**/node_modules/**'],
+            options: {
+                'indentSize': 4
+            }
+        },
 
+        karma: {
+            karma: {
+                configFile: 'karma.conf.js'
+            }
+        }
+
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.registerTask('beautify', ['jsbeautifier']);
+    grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
+    grunt.registerTask('test', ['jshint', 'karma']);
 };
