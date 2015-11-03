@@ -1,0 +1,5 @@
+#! /bin/bash
+
+grep -A1 . $1 | grep -v "^--$" > temp
+cat temp > $1
+rm temp
