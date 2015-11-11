@@ -31,8 +31,9 @@ describe('Test Local Cloud Options Suite', function() {
     it('checks for local data selection', function() {
         document.getElementById('localData').checked = true;
         // $('#localData').prop('checked', true);
-        var result = elfDownloads.dataType === elfDownloads.dataTypes.dtLocal;
         elfDownloads.dataTypeSelection();
+        var result = elfDownloads.dataType === elfDownloads.dataTypes.dtLocal;
+        
         expect(result).toBeTruthy();
     });
 
