@@ -2,21 +2,20 @@
  * Created by charlie on 11/10/15.
  */
 
-
 describe('Test Local Cloud Options Suite', function() {
     'use strict';
 
-    beforeEach(function () {
+    beforeEach(function() {
         var fixture = '<div id="fixture"><div role="group" id="dataSource">' +
             '<div class="radio">' +
-                '<label for="localData">' +
-                '<input type="radio" name="radio" value="localData" id="localData">' +
-                '<strong>Local Data</strong></label>' +
+            '<label for="localData">' +
+            '<input type="radio" name="radio" value="localData" id="localData">' +
+            '<strong>Local Data</strong></label>' +
             '</div>' +
             '<div class="radio">' +
-                '<label for="cloudData">' +
-                '<input type="radio" name="radio" value="cloudData" id="cloudData">' +
-                '<strong>Cloud Data</strong></label>' +
+            '<label for="cloudData">' +
+            '<input type="radio" name="radio" value="cloudData" id="cloudData">' +
+            '<strong>Cloud Data</strong></label>' +
             '</div></div></div>';
         //console.log(fixture);
         document.body.insertAdjacentHTML('afterbegin', fixture);
@@ -27,13 +26,12 @@ describe('Test Local Cloud Options Suite', function() {
         document.body.removeChild(document.getElementById('fixture'));
     });
 
-
     it('checks for local data selection', function() {
         document.getElementById('localData').checked = true;
         // $('#localData').prop('checked', true);
         elfDownloads.dataTypeSelection();
         var result = elfDownloads.dataType === elfDownloads.dataTypes.dtLocal;
-        
+
         expect(result).toBeTruthy();
     });
 
@@ -53,7 +51,6 @@ describe('Test Local Cloud Options Suite', function() {
             };
         });
     }
-
 
     it('checks for local data selection triggering local URL', function() {
         doSpy(elfBitly.localUrl);

@@ -2,7 +2,6 @@
  * Created by charlie on 11/10/15.
  */
 
-
 describe('Downloads Suite', function() {
     'use strict';
 
@@ -59,6 +58,10 @@ describe('Downloads Suite', function() {
         expect(keys.length).toBe(2);
     });
 
+    it('Expects elfDownloads.dataType to be defined', function() {
+        expect(elfDownloads.dataType).toBeDefined();
+    });
+
     it('Expects elfDownloads.dataType to be of type string', function() {
         expect(typeof elfDownloads.dataType).toBe('number');
     });
@@ -76,4 +79,3 @@ describe('Downloads Suite', function() {
     });
 
 });
-

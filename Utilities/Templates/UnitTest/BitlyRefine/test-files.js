@@ -2,7 +2,6 @@
  * Created by charlie on 11/9/15.
  */
 
-
 describe('File Suite', function() {
     'use strict';
 
@@ -26,4 +25,3 @@ describe('File Suite', function() {
         expect(isDefined).toBe(true);
     });
 });
-

@@ -96,6 +96,18 @@ describe('Test Bitly Links', function() {
         expect(elfBitly.bitlyLinks.data.result_count).toBe(165);
     });
 
+    it('shows we can call getLinkHistoryArray', function() {
+        elfBitly.getBitlyLinks();
+        var historyArray = elfBitly.getLinkHistoryArray();
+        expect(historyArray.length).toBe(50);
+    });
+
+    it('shows getLinkHistoryItem sets elfBitly.linkIndex', function() {
+        elfBitly.getBitlyLinks();
+        var historyArray = elfBitly.getLinkHistoryItem(12, true);
+        expect(elfBitly.linkIndex).toBe(12);
+    });
+
     it('show we can get the title of the first element', function() {
         elfBitly.getBitlyLinks();
         var firstLink = elfBitly.bitlyLinks.data.link_history[0];

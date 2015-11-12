@@ -32,11 +32,11 @@ describe('Test ElfBitly Suite', function() {
         expect(elfBitlyKeys.indexOf('localUrl')).toBeGreaterThan(-1);
     });
 
-    it('checks for the value of elfBitly baseUrl', function () {
+    it('checks for the value of elfBitly baseUrl', function() {
         expect(elfBitly.baseUrl).toContain('https://api-ssl.bitly.com/v3/user/link_history');
     });
 
-    it('checks for the value of elfBitly localUrl', function () {
+    it('checks for the value of elfBitly localUrl', function() {
         expect(elfBitly.localUrl).toContain('data/bitly-links.json');
     });
 
@@ -64,4 +64,3 @@ describe('Test ElfBitly Suite', function() {
         expect(elfBitlyKeys.indexOf('getStatusCode')).toBeGreaterThan(-1);
     });
 });
-
