@@ -2,7 +2,7 @@
  * Created by charlie on 11/10/15.
  */
 
-fdescribe('Test Jasmine-JQuery Fixture Loading', function() {
+describe('Test Jasmine-JQuery Fixture Loading', function() {
     'use strict';
 
     beforeEach(function() {

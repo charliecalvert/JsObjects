@@ -2,7 +2,7 @@
  * Created by charlie on 11/11/15.
  */
 
-fdescribe('Test Jade Interface for Program Interface', function() {
+describe('Test Jade Interface for Program Interface', function() {
     'use strict';
 
     beforeEach(function() {
