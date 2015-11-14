@@ -83,4 +83,9 @@ fdescribe('Downloads Suite', function() {
         expect(typeof elfDownloads.clearControls).toBe('function');
     });
 
+    it('shows that we call to get more links on last line of radio button select', function() {
+        spyOn(elfDownloads, 'getLinkData');
+        elfDownloads.dataTypeSelection();
+        expect(elfDownloads.getLinkData).toHaveBeenCalled();
+    });
 });
