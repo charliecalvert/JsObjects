@@ -29,7 +29,7 @@ var utils = {
         console.log('Keys:', Object.keys(inputElements));
         $.each(inputElements, function(index, inputElement) {
             console.log(Object.keys($(inputElement)));
-            console.log($(inputElement)['context']);
+            console.log($(inputElement).context);
         });
     }
 };
