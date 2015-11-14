@@ -26,6 +26,22 @@ describe('Test Local Cloud Options Suite', function() {
         document.body.removeChild(document.getElementById('fixture'));
     });
 
+    it('checks for local data selection triggering call to getUrl', function() {
+        spyOn(elfBitly, 'getUrl');
+        document.getElementById('localData').checked = true;
+        elfDownloads.dataTypeSelection();
+        elfDownloads.getBitlyData();
+        expect(elfBitly.getUrl).toHaveBeenCalled();
+    });
+
+    it('checks for local data selection triggering call to getBitlyLinks', function() {
+        spyOn(elfBitly, 'getBitlyLinks');
+        document.getElementById('localData').checked = true;
+        elfDownloads.dataTypeSelection();
+        elfDownloads.getBitlyData();
+        expect(elfBitly.getBitlyLinks).toHaveBeenCalled();
+    });
+
     it('checks for local data selection', function() {
         document.getElementById('localData').checked = true;
         // $('#localData').prop('checked', true);
