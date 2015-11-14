@@ -33,29 +33,5 @@ describe('Test TwitterRefine Core Object Suite', function() {
         expect(twitterKeys.length).toBeGreaterThan(5);
     });
 
-    it('that twitterRefine to have a method called search', function() {
-        expect(twitterKeys).toContain('search');
-    });
-
-    it('that twitterRefine to have a method called appendUrl', function() {
-        expect(twitterKeys).toContain('appendUrl');
-    });
-
-    it('that twitterRefine to have a method called renderTable', function() {
-        expect(twitterKeys).toContain('renderTable');
-    });
-
-    it('that twitterRefine to have a method called clearControls', function() {
-        expect(twitterKeys).toContain('clearControls');
-    });
-
-    it('that twitterRefine to have a method called getTimeline', function() {
-        expect(twitterKeys).toContain('getTimeline');
-    });
-
-    it('that twitterRefine to have a method called init', function() {
-        expect(twitterKeys).toContain('init');
-    });
-
 });
 
