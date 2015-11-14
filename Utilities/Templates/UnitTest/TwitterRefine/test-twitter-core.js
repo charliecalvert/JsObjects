@@ -29,8 +29,12 @@ describe('Test TwitterRefine Core Object Suite', function() {
         expect(tweets.search_metadata).toBeDefined();
     });
 
-    it('that twitterRefine to have 6 methods', function() {
-        expect(twitterKeys.length).toBeGreaterThan(5);
+    it('that twitterRefine to have at least 1 method', function() {
+        expect(twitterKeys.length).toBeGreaterThan(0);
+    });
+
+    it('that twitterRefine to have a method called init', function() {
+        expect(twitterKeys).toContain('init');
     });
 
 });
