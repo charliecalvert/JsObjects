@@ -2,8 +2,9 @@
  * Created by charlie on 11/14/15.
  */
 
+describe('Test the html produced by compiling index.jade ', function() {
 
-describe("Test the html produced by compiling index.jade ", function() {
+    'use strict';
 
     beforeEach(function() {
         jasmine.getFixtures().fixturesPath = 'base/spec/fixtures/';

@@ -28,15 +28,13 @@ describe('Test Jade', function() {
         var n = atts.length;
         var arr = [];
 
-
-
         for (var i = 0; i < n; i++) {
             arr.push(atts[i].nodeName);
         }
 
         if (false) {
             console.log(arr);
-            $.each(arr, function (index, value) {
+            $.each(arr, function(index, value) {
                 console.log(value + ': ' + $(el).attr(value));
             });
         }

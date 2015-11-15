@@ -4,6 +4,8 @@
 
 describe('Test the midterm version of ElfBitly', function() {
 
+    'use strict';
+
     var elfBitlyKeys;
 
     beforeEach(function() {
