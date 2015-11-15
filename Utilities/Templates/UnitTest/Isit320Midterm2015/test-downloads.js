@@ -2,7 +2,7 @@
  * Created by charlie on 11/10/15.
  */
 
-fdescribe('Downloads Suite', function() {
+describe('Downloads Suite', function() {
     'use strict';
 
     var downloadKeys;
