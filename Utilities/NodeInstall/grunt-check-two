@@ -1,0 +1,45 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+NC='\033[0m' # No Color
+
+function command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+function search() {
+	if grep --quiet $2; then
+	  printf "$LIGHT_GREEN$1 ${NC}mentioned\n"
+	else
+	  printf "$LIGHT_RED$1 not found $NC\n"
+	fi
+}
+
+function find_task() {
+	search $1' loadNpmTask' 'loadNpmTasks.*'$1' Gruntfile.js'
+}
+
+function find_registered_task() {
+	search $1' registered task' 'registerTask.*'$1' Gruntfile.js'
+}
+
+printf '\n*** setup ***\n\n'
+
+if command_exists js-beautify ; then
+    echo js-beautify exists
+else
+	printf "${LIGHT_RED}Install js-beautify globally and try again $NC\n"
+	printf "Like this: ${LIGHT_GREEN}npm install -g js-beautify $NC\n"
+	exit
+fi
+
+js-beautify -r karma.conf.js
+js-beautify -r Gruntfile.js
+
+printf '\n*** These tests are meant to help you find problems in\n'
+printf '*** karma.conf and Gruntfile. They are not definitive\n\n'
+
+search suppressSkipped 'suppressSkipped karma.conf.js'
+search 'package.json test script with karma-start' '"karma[[:space:]]start" package.json'
