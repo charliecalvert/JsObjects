@@ -128,4 +128,5 @@ describe('Test Bitly Links', function() {
         // console.log(JSON.stringify(map[0], null, 4));
         expect(map.length).toBe(50);
     });
+
 });

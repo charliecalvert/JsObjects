@@ -43,7 +43,7 @@ printf '*** karma.conf and Gruntfile. They are not definitive\n\n'
 
 search preprocessor 'preprocessors\:[[:space:]]{[[:space:]]*$ karma.conf.js'
 search 'jasmine-jquery' 'jasmine-jquery karma.conf.js'
-search 'load html files in karma config' 'spec/\*\*/\*\.html karma.conf.js'
+search 'load html files in karma config files section' 'spec/\*\*/\*\.html karma.conf.js'
 search 'exec task config' 'stripExtends Gruntfile.js'
 search 'jade task config' 'spec/fixtures/fixture.html Gruntfile.js'
 find_task grunt-contrib-clean
