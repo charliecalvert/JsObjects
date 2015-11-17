@@ -43,3 +43,4 @@ printf '*** karma.conf and Gruntfile. They are not definitive\n\n'
 
 search suppressSkipped 'suppressSkipped karma.conf.js'
 search 'package.json test script with karma-start' '"karma[[:space:]]start" package.json'
+search 'error handler in app.js' 'About[[:space:]]to[[:space:]]render[[:space:]]error app.js'
