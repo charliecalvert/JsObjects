@@ -20,7 +20,8 @@ alias runnpm="npm install && npm start"
 
 # JsObjects
 export JSOBJECTS=$GIT_HOME/JsObjects
-export ELF_TEMPLATES=$JSOBJECTS/Utilities/Templates
+export ELF_UTILS=$JSOBJECTS/Utilities
+export ELF_TEMPLATES=$ELF_UTILS/Templates
 alias jo="cd $JSOBJECTS"
 alias joc="cd $JSOBJECTS/Cordova"
 alias jod="cd $JSOBJECTS/Data"
@@ -77,4 +78,5 @@ alias gitio="cd $GIT_HUB_IO"
 alias elfsite="cd $GIT_HOME/ElfSite/Code"
 alias nm="ln -s ~/tmp/node_modules/"
 alias components="ln -s ~/tmp/components/ public/components"
+alias slb="cd $ELF_UTILS/SetupLinuxBox"
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
