@@ -25,6 +25,14 @@ function find_registered_task() {
 	search $1' registered task' 'registerTask.*'$1' Gruntfile.js'
 }
 
+function look-for-text-in-spec-html() {
+	if grep -Erilw $1 --include='*.html' spec; then 
+		printf "${LIGHT_RED} '$1' exists in your html\n"
+	else
+		printf "${LIGHT_GREEN}No '$1' exists in your spec html\n"
+	fi
+}
+
 printf '\n*** setup ***\n\n'
 
 if command_exists js-beautify ; then
@@ -57,3 +65,5 @@ find_registered_task fixture
 find_registered_task beautify
 find_registered_task check
 find_registered_task test
+
+look-for-text-in-spec-html '<head'
