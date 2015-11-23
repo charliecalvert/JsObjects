@@ -18,6 +18,11 @@ describe('Test the html produced by compiling index.jade ', function() {
         expect(dataSource.length).toBe(1);
     });
 
+    it('shows that we have one DIV with an ID of displayContainer', function() {
+        var displayContainer = $('#displayContainer');
+        expect(displayContainer.length).toBe(1);
+    });
+
     it('shows a div of dataSource has radio with id of localData', function() {
         var dataSource = $('#dataSource #localData');
         // elfTestUtils.showHtmlElements(dataSource);

@@ -16,11 +16,11 @@ describe('Test Jade Interface for Program Interface', function() {
         expect(name).toBe('keywordLink');
     });
 
-    it('shows we can get all the attributes of the text input keywordLink', function() {
+    it('shows we can get some of the attributes of the text input keywordLink', function() {
         var element = document.getElementById('keywordLink');
         var arr = elfTestUtils.getAttributesFromElement(element);
         // elfTestUtils.showAttributes(element, arr);
-        expect(arr.length).toBe(6);
+        expect(arr.length).toBeGreaterThan(4);
     });
 
     it('shows we can get at least 8 text inputs', function() {
@@ -35,13 +35,13 @@ describe('Test Jade Interface for Program Interface', function() {
         expect(inputs.length).toBeGreaterThan(1);
     });
 
-    it('shows we can get 1 table', function() {
+    it('shows we can get at least 1 table', function() {
         var table = $('table');
-        expect(table.length).toBe(1);
+        expect(table.length).toBeGreaterThan(0);
     });
 
-    it('shows we can get 1 scroller', function() {
+    it('shows we can get at least 1 scroller', function() {
         var table = $('.scroller');
-        expect(table.length).toBe(1);
+        expect(table.length).toBeGreaterThan(0);
     });
 });

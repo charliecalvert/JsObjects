@@ -88,4 +88,5 @@ describe('Downloads Suite', function() {
         elfDownloads.dataTypeSelection();
         expect(elfDownloads.getLinkData).toHaveBeenCalled();
     });
+
 });
