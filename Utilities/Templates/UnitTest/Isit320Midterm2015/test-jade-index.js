@@ -23,6 +23,12 @@ describe('Test the html produced by compiling index.jade ', function() {
         expect(displayContainer.length).toBe(1);
     });
 
+    it('shows we can get at least 2 radio inputs', function() {
+        var inputs = $('input:radio');
+        //elfTestUtils.showHtmlElements(inputs);
+        expect(inputs.length).toBeGreaterThan(1);
+    });
+
     it('shows a div of dataSource has radio with id of localData', function() {
         var dataSource = $('#dataSource #localData');
         // elfTestUtils.showHtmlElements(dataSource);

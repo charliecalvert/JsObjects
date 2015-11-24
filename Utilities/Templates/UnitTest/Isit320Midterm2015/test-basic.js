@@ -34,10 +34,40 @@ describe('Test Basic Original Bitly Link Checks', function() {
         expect(statusText).toBe('OK');
     });
 
+    it('checks that elfBitly.getLinks calls elfDisplay.renderTable', function() {
+        spyOn(elfDisplay, 'renderTable');
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        expect(elfDisplay.renderTable).toHaveBeenCalled();
+    });
+
+    it('checks elfBitly.getLinks calls elfDisplay.render', function() {
+        spyOn(elfDisplay, 'render');
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        expect(elfDisplay.render).toHaveBeenCalled();
+    });
+
+    it('checks elfBitly.getLinks calls elfBitly.getUrl', function() {
+        spyOn(elfBitly, 'getUrl');
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        expect(elfBitly.getUrl).toHaveBeenCalled();
+    });
+
     it('shows we have a count of 165 links', function() {
 
         elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
         expect(elfBitly.bitlyLinks.data.result_count).toBe(165);
+    });
+
+    it('shows we can call getLinkHistoryArray', function() {
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        var historyArray = elfBitly.getLinkHistoryArray();
+        expect(historyArray.length).toBe(50);
+    });
+
+    it('shows getLinkHistoryItem sets elfBitly.linkIndex', function() {
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        var historyArray = elfBitly.getLinkHistoryItem(12, true);
+        expect(elfBitly.linkIndex).toBe(12);
     });
 
     it('show we can get the title of the first element', function() {
@@ -60,4 +90,5 @@ describe('Test Basic Original Bitly Link Checks', function() {
         // console.log(JSON.stringify(map[0], null, 4));
         expect(map.length).toBe(50);
     });
+
 });

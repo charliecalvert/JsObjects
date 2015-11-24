@@ -90,6 +90,24 @@ describe('Test Bitly Links', function() {
         expect(statusText).toBe('OK');
     });
 
+    it('checks getBitlyLinks calls elfDisplay.renderTable', function() {
+        spyOn(elfDisplay, 'renderTable');
+        elfBitly.getBitlyLinks();
+        expect(elfDisplay.renderTable).toHaveBeenCalled();
+    });
+
+    it('checks getBitlyLinks calls elfDisplay.render', function() {
+        spyOn(elfDisplay, 'render');
+        elfBitly.getBitlyLinks();
+        expect(elfDisplay.render).toHaveBeenCalled();
+    });
+
+    it('checks getBitlyLinks calls elfBitly.getUrl', function() {
+        spyOn(elfBitly, 'getUrl');
+        elfBitly.getBitlyLinks();
+        expect(elfBitly.getUrl).toHaveBeenCalled();
+    });
+
     it('shows we have a count of 165 links', function() {
 
         elfBitly.getBitlyLinks();

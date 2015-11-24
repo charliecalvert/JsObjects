@@ -16,19 +16,19 @@ describe('Test ElfBitly Suite', function() {
         expect(elfBitlyKeys.length).toBeGreaterThan(10);
     });
 
-    it('Expects elfDownloads to contain linkIndex', function() {
+    it('Expects elfBitly to contain linkIndex', function() {
         expect(elfBitlyKeys.indexOf('linkIndex')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain bitlyLinks', function() {
+    it('Expects elfBitly to contain bitlyLinks', function() {
         expect(elfBitlyKeys.indexOf('bitlyLinks')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain baseUrl', function() {
+    it('Expects elfBitly to contain baseUrl', function() {
         expect(elfBitlyKeys.indexOf('baseUrl')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain localUrl', function() {
+    it('Expects elfBitly to contain localUrl', function() {
         expect(elfBitlyKeys.indexOf('localUrl')).toBeGreaterThan(-1);
     });
 
@@ -40,27 +40,28 @@ describe('Test ElfBitly Suite', function() {
         expect(elfBitly.localUrl).toContain('data/bitly-links.json');
     });
 
-    it('Expects elfDownloads to contain getLinkHistoryArray', function() {
+    it('Expects elfBitly to contain getLinkHistoryArray', function() {
         expect(elfBitlyKeys.indexOf('getLinkHistoryArray')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain getLinkHistoryItem', function() {
+    it('Expects elfBitly to contain getLinkHistoryItem', function() {
         expect(elfBitlyKeys.indexOf('getLinkHistoryItem')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain getBitlyLinks', function() {
+    it('Expects elfBitly to contain getBitlyLinks', function() {
         expect(elfBitlyKeys.indexOf('getBitlyLinks')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain getUrl', function() {
+    it('Expects elfBitly to contain getUrl', function() {
         expect(elfBitlyKeys.indexOf('getUrl')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain getStatusText', function() {
+    it('Expects elfBitly to contain getStatusText', function() {
         expect(elfBitlyKeys.indexOf('getStatusText')).toBeGreaterThan(-1);
     });
 
-    it('Expects elfDownloads to contain getStatusCode', function() {
+    it('Expects elfBitly to contain getStatusCode', function() {
         expect(elfBitlyKeys.indexOf('getStatusCode')).toBeGreaterThan(-1);
     });
+
 });
