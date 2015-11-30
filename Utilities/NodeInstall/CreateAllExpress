@@ -1,0 +1,10 @@
+#! /bin/bash
+
+NODE_INSTALL=${JSOBJECTS}/Utilities/NodeInstall/
+
+$NODE_INSTALL/CreateExpressProject $1
+cd $1
+$NODE_INSTALL/TestReady
+$ELF_TEMPLATES/UnitTest/FixtureReady
+python $JSOBJECTS/Python/Utils/InsertJadeExecGrunt.py
+
