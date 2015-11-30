@@ -1,0 +1,39 @@
+#! /bin/bash
+
+# Insert RegisterTasks
+awk -i inplace '/registerTask/ && !x {
+    print "    grunt.loadNpmTasks('\''grunt-contrib-jade'\'');"
+    print "    grunt.loadNpmTasks('\''grunt-exec'\'');"
+    print "    grunt.registerTask('\''fixture'\'', ['\''exec:stripExtends'\'', '\''jade'\'', '\''karma'\'']);"
+    x=1;
+}1' Gruntfile.js
+
+# Insert preprocessor
+awk -i inplace '/port:/ {
+    print;
+    print "\n\tpreprocessors: { '\''**/*.html'\'': [] },";
+    next;
+}1' karma.conf.js
+
+# Insert jasmine-jquery
+awk -i inplace '/dist\/jquery./ {
+    print;
+    print "            '\''public/components/jquery/dist/jasmine-jquery.js'\'',";
+    next;
+}1' karma.conf.js
+
+# Insert HTML
+awk -i inplace '/public\/javascripts/ {
+    print;
+    print "            '\''spec/**/*.html'\'',";
+    next;
+}1' karma.conf.js
+
+# Install NPM packages
+function npm_install() {
+    npm install $1 --save-dev
+}
+
+npm_install grunt-exec
+npm_install grunt-contrib-jade
+npm_install jasmine-jquery
