@@ -2,7 +2,6 @@
  * Created by charlie on 11/24/15.
  */
 
-
 describe('Test Result Parser Suite', function() {
 
     'use strict';
@@ -40,12 +39,9 @@ describe('Test Result Parser Suite', function() {
         expect(elfArm.messagingSession).toContain('qimessaging.session');
     });
 
-
     it('shows that the infoCount is larger than 2', function() {
         $('#leftArm').trigger('click');
         expect(elfArm.infoCount).toBeGreaterThan(2);
     });
 
 });
-
-

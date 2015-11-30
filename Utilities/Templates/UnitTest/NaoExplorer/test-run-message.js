@@ -2,8 +2,6 @@
  * Created by charlie on 11/23/15.
  */
 
-
-
 describe('Test Run Message Suite', function() {
 
     'use strict';

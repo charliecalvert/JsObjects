@@ -38,6 +38,4 @@ var elfTestUtils = {
         'use strict';
         return Object.getOwnPropertyNames(obj).sort();
     }
-
-
 };

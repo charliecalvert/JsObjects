@@ -17,14 +17,14 @@ describe('Test Fixture Suite', function() {
     });
 
     it('expects a button with an id of #leftArm', function() {
-        var button = document.getElementById('leftArm')
+        var button = document.getElementById('leftArm');
         var id = $(button).attr('id');
         expect(id).toBe('leftArm');
     });
 
     it('expects a button with a caption of Left Arm', function() {
         var button = document.getElementById('leftArm');
-        var caption = button.innerHTML
+        var caption = button.innerHTML;
         expect(caption).toBe('Left Arm');
     });
 
@@ -39,26 +39,26 @@ describe('Test Fixture Suite', function() {
     });
 
     it('expects a button with an id of #parse', function() {
-        var button = document.getElementById('parse')
+        var button = document.getElementById('parse');
         var id = $(button).attr('id');
         expect(id).toBe('parse');
     });
 
     it('expects a button with a caption of Parse', function() {
         var button = document.getElementById('parse');
-        var caption = button.innerHTML
+        var caption = button.innerHTML;
         expect(caption).toBe('Parse');
     });
 
     it('expects a button with an id of #network', function() {
-        var button = document.getElementById('network')
+        var button = document.getElementById('network');
         var id = $(button).attr('id');
         expect(id).toBe('network');
     });
 
     it('expects a button with a caption of Network', function() {
         var button = document.getElementById('network');
-        var caption = button.innerHTML
+        var caption = button.innerHTML;
         expect(caption).toBe('Network');
     });
 

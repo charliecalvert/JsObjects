@@ -2,7 +2,6 @@
  * Created by charlie on 11/24/15.
  */
 
-
 describe('Sanity Suite', function() {
 
     'use strict';
@@ -12,4 +11,3 @@ describe('Sanity Suite', function() {
     });
 
 });
-
