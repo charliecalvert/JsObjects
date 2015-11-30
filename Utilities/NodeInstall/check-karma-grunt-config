@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 
 function write_caption() {
 	CAPTION_LENGTH=${#1}	
-	echo -e "\n"$1
+	echo -e "\n$NC"$1
 	COUNTER=0
 	while [ $COUNTER -lt $CAPTION_LENGTH ]; do
 		printf "="
@@ -70,9 +70,11 @@ js-beautify -r Gruntfile.js
 printf '\n*** These tests are meant to help you find problems in\n'
 printf '*** karma.conf and Gruntfile. They are not definitive\n\n'
 
+write_caption "Checking configuration of karma.conf.js"
 search preprocessor 'preprocessors\:[[:space:]]{[[:space:]]*$ karma.conf.js'
 search 'jasmine-jquery' 'jasmine-jquery karma.conf.js'
 search 'load html files in karma config files section' 'spec/\*\*/\*\.html karma.conf.js'
+search suppressSkipped 'suppressSkipped karma.conf.js'
 
 write_caption "Checking for tasks in Gruntfile.js"
 search 'exec task config' 'stripExtends\: Gruntfile.js'
@@ -99,9 +101,15 @@ write_caption "Checking package.json"
 find_npm_package jasmine-jquery
 find_npm_package grunt-contrib-jade
 find_npm_package grunt-exec
+search 'package.json test script with karma-start' '"karma[[:space:]]start" package.json'
 
 write_caption "Checking HTML"
 look-for-text-in-spec-html '<head'
 
-echo -e "$YELLOW \n\nRun this command with less. Like this:"
-echo -e "$BLUE\n\tcheck-karma-grunt-config | less -R\n"
+write_caption "Other Checks"
+search 'error handler in app.js' 'About[[:space:]]to[[:space:]]render[[:space:]]error app.js'
+
+write_caption "Notes"
+echo -e "\n${YELLOW}Run this command with less. Like this:"
+echo -e "\n\t${BLUE}check-karma-grunt-config | less -R\n"
+echo -e "${YELLOW}While in less, press the letter h to get help"

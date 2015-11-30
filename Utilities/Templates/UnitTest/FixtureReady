@@ -39,7 +39,7 @@ awk -i inplace '/reporters:/ {
 # Add test script to package.json
 awk -i inplace '/\"scripts\":/ {
     print;
-    print "    \"test\": \"grunt test\",";
+    print "    \"test\": \"karma start\",";
     next;
 }1' package.json
 
