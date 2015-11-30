@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Insert RegisterTasks
+# Insert necessary loadNpmTasks and registerTasks into Gruntfile.js
 awk -i inplace '/registerTask/ && !x {
     print "    grunt.loadNpmTasks('\''grunt-contrib-jade'\'');"
     print "    grunt.loadNpmTasks('\''grunt-exec'\'');"
@@ -8,26 +8,40 @@ awk -i inplace '/registerTask/ && !x {
     x=1;
 }1' Gruntfile.js
 
-# Insert preprocessor
+# Insert preprocessor object into karma.conf.js
 awk -i inplace '/port:/ {
     print;
     print "\n\tpreprocessors: { '\''**/*.html'\'': [] },";
     next;
 }1' karma.conf.js
 
-# Insert jasmine-jquery
+# Insert code to load jasmine-jquery
 awk -i inplace '/dist\/jquery./ {
     print;
     print "            '\''public/components/jquery/dist/jasmine-jquery.js'\'',";
     next;
 }1' karma.conf.js
 
-# Insert HTML
+# Insert code to load any HTML files in the spec directories
 awk -i inplace '/public\/javascripts/ {
     print;
     print "            '\''spec/**/*.html'\'',";
     next;
 }1' karma.conf.js
+
+# Insert spectReporter suppressed skipped
+awk -i inplace '/reporters:/ {
+    print;
+    print "\n        specReporter: { suppressSkipped: true },";
+    next;
+}1' karma.conf.js
+
+# Add test script to package.json
+awk -i inplace '/\"scripts\":/ {
+    print;
+    print "    \"test\": \"grunt test\",";
+    next;
+}1' package.json
 
 # Install NPM packages
 function npm_install() {
