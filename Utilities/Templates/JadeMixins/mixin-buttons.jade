@@ -2,11 +2,11 @@
    Created by charlie on 10/29/15.
 
 mixin forwardBack(leftFunction, rightFunction)
-    button.btn.btn-success.btn-large(type='button', onclick= leftFunction)
+    button.btn.btn-success.btn-large#leftButton(type='button', onclick= leftFunction)
        span.glyphicon.glyphicon-arrow-left
        | &nbsp; Left
     span &nbsp;
-    button.btn.btn-success.btn-large(type='button', onclick= rightFunction)
+    button.btn.btn-success.btn-large#rightButton(type='button', onclick= rightFunction)
        | Right &nbsp;
        span.glyphicon.glyphicon-arrow-right
 

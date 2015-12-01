@@ -40,6 +40,13 @@ mixin elfInputB(labelText, name, placeHolder)
       .col-md-10
          input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
 
+mixin elfInputValue(labelText, name, placeHolder, value)
+   div.row
+      h4
+         span.col-md-2.label.label-success #{labelText}
+      .col-md-10
+         input.form-control.input-md(name=name, type='text', placeholder=placeholder, value=value)&attributes(attributes)
+
 mixin elfInputHorizontal(labelText, name, placeHolder)
    .form-group
       span.col-xs-2.label.label-success #{labelText}
