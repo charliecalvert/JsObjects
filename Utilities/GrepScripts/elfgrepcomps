@@ -1,4 +1,6 @@
 #! /bin/bash
 
-grep -r --include=*.js --exclude-dir=node_modules --exclude-dir=components $1
+PARAM=\'$1\'
+echo ${PARAM}
+grep -r --include=*.js --exclude-dir=node_modules --exclude-dir=components ${PARAM}
 
