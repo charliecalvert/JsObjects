@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# Alias definitions.
+# You may want to put all your custom additions into a separate file 
+# called ~/.my_bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.my_bash_aliases ]; then
+    . ~/.my_bash_aliases
+fi
+
 # General
 export GIT_HOME=$HOME/Git
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
@@ -9,7 +18,7 @@ alias chr="/usr/bin/chromium-browser"
 alias runexpress='npm install && bower install && grunt'
 
 # Commands
-alias sshadd="ssh-add ~/.ssh/rsa-key-git.pem"
+alias sshadd="ssh-add ~/.ssh/main-key"
 alias go="npm install && npm start"
 alias ba="less ~/.bash_aliases"
 alias chrome="/usr/bin/chromium-browser"
