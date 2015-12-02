@@ -1,47 +1,47 @@
 #! /bin/bash
 
 # Insert necessary loadNpmTasks and registerTasks into Gruntfile.js
-awk -i inplace '/registerTask/ && !x {
+awk '/registerTask/ && !x {
     print "    grunt.loadNpmTasks('\''grunt-contrib-jade'\'');"
     print "    grunt.loadNpmTasks('\''grunt-exec'\'');"
     print "    grunt.registerTask('\''fixture'\'', ['\''exec:stripExtends'\'', '\''jade'\'', '\''karma'\'']);"
     x=1;
-}1' Gruntfile.js
+}1' Gruntfile.js > tmp && mv tmp Gruntfile.js
 
 # Insert preprocessor object into karma.conf.js
-awk -i inplace '/port:/ {
+awk '/port:/ {
     print;
     print "\n\tpreprocessors: { '\''**/*.html'\'': [] },";
     next;
-}1' karma.conf.js
+}1' karma.conf.js > tmp && mv tmp karma.conf.js
 
 # Insert code to load jasmine-jquery
-awk -i inplace '/dist\/jquery./ {
+awk '/dist\/jquery./ {
     print;
     print "            '\''public/components/jquery/dist/jasmine-jquery.js'\'',";
     next;
-}1' karma.conf.js
+}1' karma.conf.js > tmp && mv tmp karma.conf.js
 
 # Insert code to load any HTML files in the spec directories
-awk -i inplace '/public\/javascripts/ {
+awk '/public\/javascripts/ {
     print;
     print "            '\''spec/**/*.html'\'',";
     next;
-}1' karma.conf.js
+}1' karma.conf.js > tmp && mv tmp karma.conf.js
 
 # Insert spectReporter suppressed skipped
-awk -i inplace '/reporters:/ {
+awk '/reporters:/ {
     print;
     print "\n        specReporter: { suppressSkipped: true },";
     next;
-}1' karma.conf.js
+}1' karma.conf.js > tmp && mv tmp karma.conf.js
 
 # Add test script to package.json
-awk -i inplace '/\"scripts\":/ {
+awk '/\"scripts\":/ {
     print;
     print "    \"test\": \"karma start\",";
     next;
-}1' package.json
+}1' package.json > tmp && mv tmp package.json
 
 # Install NPM packages
 function npm_install() {
