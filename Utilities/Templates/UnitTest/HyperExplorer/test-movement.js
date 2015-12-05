@@ -2,7 +2,7 @@
  * Created by charlie on 12/1/15.
  */
 
-fdescribe('Test Movement', function() {
+describe('Test Movement', function() {
 
     'use strict';
 
