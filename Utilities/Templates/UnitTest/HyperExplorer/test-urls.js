@@ -5,7 +5,7 @@
 describe('Test Url Suite', function() {
     'use strict';
 
-    var accessToken = elfDownloads.accesstoken;
+    var accessToken = elfDownloads.accessToken;
 
     it('gets a local url', function() {
         var url = elfBitly.getUrl(elfDownloads.dataTypes.dtLocal);

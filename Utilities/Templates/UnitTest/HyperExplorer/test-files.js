@@ -5,8 +5,8 @@
 describe('File Suite', function() {
     'use strict';
 
-    it('expects elfMidterm to be defined', function() {
-        var isDefined = typeof elfMidterm !== 'undefined';
+    it('expects elfHyperExplorer to be defined', function() {
+        var isDefined = typeof elfHyperExplorer !== 'undefined';
         expect(isDefined).toBe(true);
     });
 
