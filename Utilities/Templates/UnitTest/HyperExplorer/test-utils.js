@@ -32,5 +32,10 @@ var elfTestUtils = {
             console.log(Object.keys($(inputElement)));
             console.log($(inputElement).context);
         });
+    },
+
+    getObjectPropertyNamesArray: function(obj) {
+        'use strict';
+        return Object.getOwnPropertyNames(obj).sort();
     }
 };
