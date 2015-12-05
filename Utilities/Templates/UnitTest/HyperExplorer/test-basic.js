@@ -3,6 +3,7 @@
  */
 
 describe('Test Basic Original Bitly Link Checks', function() {
+
     'use strict';
 
     beforeEach(function() {
@@ -91,4 +92,9 @@ describe('Test Basic Original Bitly Link Checks', function() {
         expect(map.length).toBe(50);
     });
 
+    it('proves that getting new data also resets the link index', function() {
+        elfBitly.linkIndex = 500;
+        elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
+        expect(elfBitly.linkIndex).toBe(0);
+    });
 });
