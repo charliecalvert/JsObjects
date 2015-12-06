@@ -2,15 +2,14 @@
  * Created by charlie on 11/9/15.
  */
 
-fdescribe('Midterm Delicious Suite', function() {
+describe('Delicious Basics Suite', function() {
     'use strict';
 
-    beforeEach(function () {
-        spyOn($, 'ajax').and.callFake(function (ajaxObject) {
+    beforeEach(function() {
+        spyOn($, 'ajax').and.callFake(function(ajaxObject) {
             ajaxObject.success(deliciousLinks);
             return {
-                fail: function () {
-                }
+                fail: function() {}
             };
         });
     });
@@ -27,7 +26,7 @@ fdescribe('Midterm Delicious Suite', function() {
         expect(elfDelicious).toBeDefined();
     });
 
-    it("shows we can get our deliciousLink array", function() {
+    it('shows we can get our deliciousLink array', function() {
         elfDelicious.callDelicious('javascript');
         var linkObject = elfDelicious.deliciousLinks;
         expect(linkObject).toBeTruthy();
