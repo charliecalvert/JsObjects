@@ -12,12 +12,11 @@ describe('Test Movement', function() {
         loadFixtures('bitly.html');
     });
 
-    beforeEach(function () {
-        spyOn($, 'getJSON').and.callFake(function (url, success) {
+    beforeEach(function() {
+        spyOn($, 'getJSON').and.callFake(function(url, success) {
             success(bitlyLinks);
             return {
-                fail: function () {
-                }
+                fail: function() {}
             };
         });
     });
@@ -126,7 +125,6 @@ describe('Test Movement', function() {
         $('#rightButton').trigger('click');
         expect(elfDisplay.render).not.toHaveBeenCalled();
     });
-
 
     it('shows that the right boundary condition gets valid data', function() {
         elfBitly.getLinks(elfDownloads.dataTypes.dtBitly);
