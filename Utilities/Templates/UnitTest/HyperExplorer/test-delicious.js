@@ -32,4 +32,10 @@ describe('Delicious Basics Suite', function() {
         expect(linkObject).toBeTruthy();
     });
 
+    it('shows we can call deliciousSetup and that it is calls displayCheckBoxSelection', function() {
+        spyOn(elfDelicious, 'displayCheckboxSelection');
+        elfDelicious.deliciousSetup();
+        expect(elfDelicious.displayCheckboxSelection).toHaveBeenCalled();
+    });
+
 });
