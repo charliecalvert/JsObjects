@@ -10,13 +10,7 @@ describe('Test Jade Interface for Program Interface', function() {
         loadFixtures('bitly.html');
     });
 
-    it('shows we can get the attributes of keywordLink', function() {
-        var klink = $('#keywordLink');
-        var name = $(klink).attr('name');
-        expect(name).toBe('keywordLink');
-    });
-
-    it('shows we can get all the attributes of the text input keywordLink', function() {
+    it('shows we can get at least 3 attributes for the text input with an ID of keywordLink', function() {
         var element = document.getElementById('keywordLink');
         var arr = elfTestUtils.getAttributesFromElement(element);
         // elfTestUtils.showAttributes(element, arr);

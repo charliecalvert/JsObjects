@@ -14,9 +14,40 @@ Some tests are optional (extra credit) and begin with **opt**. These are mostly 
 
 When included these tests in my project, I had about 126 total tests.
 
-You may also see some tests that begin **charlie-test-**. You can ignore these tests. Of course, if you did want to use them, you should add the following to the **files** configuration object in **karma.conf.js**:
+## Test Directories
+
+In **$ELF_TEMPLATES/UnitTest/HyperExplorer** there are two directories called **data** and **fixtures**. Your data directory should hold files like:
+
+- bitly-links.js
+- delicious-javascript-links.js
+- tweets.js
+- tweets-timeline.js
+
+There is also a fixture directory. Your fixture directory should hold files like this:
+
+- bitly.html
+- delicious.html
+- fixture.html
+- test-local-cloud.html
+- twitter.html
+
+To create some of the fixture code, expand the code in the files directory for **karma.conf.js**:
 
 ```javascript
-'spec/charlie-test*.js'
-```
+jade: {
+    compile: {
+        options: {
+            pretty: true,
+            data: {
+                debug: false
+            }
+        },
+        files: {
+            'spec/fixtures/delicious.html': ['views/delicious.jade', '$ELF_TEMPLATES/JadeMixins/*.jade'],
+            'spec/fixtures/fixture.html': ['views/fixture.jade', '$ELF_TEMPLATES/JadeMixins/*.jade'],
+            'spec/fixtures/twitter.html': ['views/twitter.jade', '$ELF_TEMPLATES/JadeMixins/*.jade']
 
+        }
+    }
+},
+```
