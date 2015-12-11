@@ -27,7 +27,7 @@ describe('Test the midterm version of ElfBitly', function() {
     /*
     it('Check that initialize calls getLinks, not getBitlyLinks', function() {
         spyOn(elfBitly, 'getLinks');
-        elfMidterm.initialize();
+        elfHyperExplorer.initialize();
         expect(elfBitly.getLinks).toHaveBeenCalled();
     }); */
 
