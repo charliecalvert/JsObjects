@@ -6,7 +6,7 @@
   <title>App.use in Node and Express</title>
 </head>
 <body>
-<h1>I'm the File in the Public Folder</h1>
+<h1>I'm the File in the <em>public</em> Folder</h1>
 <p>This program is designed to help you understand our calls to <strong>app.use</strong> in node programs
 that use express. You'll need to right click and choose view source to fully understand what 
 is happening. Also, be sure to watch the address bar.</p>
@@ -17,7 +17,7 @@ how to process static pages.</p>
 <p>Here are the two <strong>app.use</strong> statements in our node server.js file for this program:</p>
 
 <pre>
-app.use("/", express.static(__dirname + '/Public'));
+app.use("/", express.static(__dirname + '/public'));
 app.use("/FakeRoute", express.static(__dirname + '/Folder02'));
 </pre>
 
