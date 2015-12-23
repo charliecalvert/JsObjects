@@ -1,0 +1,4 @@
+cat /proc/cpuinfo
+cat /proc/cpuinfo | grep -i -m 1 'model name'
+
+

@@ -37,7 +37,7 @@ shown in the first case, or variants of that syntax.</p>
 
 <p>Get <a href="/FakeRoute/Other.html">other.html</a>  from the fake route. Don't forget to watch the address bar! You might also want to look at the html, or the pseudo code shown below.</p>
 
-<p><a href="/Folder02/Other.html">This will fail,</a> but click to see what happens when you try to 
+<p><a href="/folder02/Other.html">This will fail,</a> but click to see what happens when you try to 
 get other.html from Folder02. The point is that <strong>Other.html</strong> really is in Folder02, but the call fails, because
 of the way we set up the routes with <strong>app.use</strong>. </p>
 <p><a href="/dirName">DirName</a> Click the DirName link to see what <strong>__dirname</strong> is set to on your system.</p>
@@ -45,21 +45,21 @@ of the way we set up the routes with <strong>app.use</strong>. </p>
  <p>Here is pseudo code for the hrefs in our HTML. They can be used in lieu of viewing the HTML for this page: </p>
  <pre>
 Get &lt;a href="/FakeRoute/Other.html">other.html&lt;/a&gt;
-&lt;a href="/Folder02/Other.html"&gt;This will fail,&lt;/a&gt;
+&lt;a href="/folder02/Other.html"&gt;This will fail,&lt;/a&gt;
 &lt;a href="/dirName"&gt;DirName&lt;/a&gt;
  </pre>
 <hr>
 
 
 <p>As you can see, they are set up so requests to localhost:30025/index.html will get the copy of index.html found
-in the /Public directory. They also are set up to send requests to /FakeRoute to the /Folder02 directory.</p>
+in the /public directory. They also are set up to send requests to /FakeRoute to the /folder02 directory.</p>
 
 <h2>What Does the Disk Structure Look Like?</h2>
 <p>Our real, on disk directory structure looks something like this:</p>
 
 <pre>
-05/10/2013  01:46 AM  &lt;DIR&gt;  Folder02
-05/10/2013  01:36 AM  &lt;DIR&gt;  Public
+05/10/2013  01:46 AM  &lt;DIR&gt;  folder02
+05/10/2013  01:36 AM  &lt;DIR&gt;  public
 </pre>
 
 <p>In other words, there is no <strong>FakeRoute</strong> directory. It is fiction we created with the <strong>app.use</strong> statement.</p>
