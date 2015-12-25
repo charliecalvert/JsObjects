@@ -1,0 +1,16 @@
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent` 
+fi
+
+export NODE_PATH=:$HOME/npm/lib/node_modules
+export PATH="$PATH:$HOME/npm/bin:$HOME/bin/pynaoqi"
+export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOME/bin/pynao
+
+# Java Path Support
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+# Android Path Support
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_PLATFORM_TOOLS="$HOME/Android/Sdk/platform-tools"
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS:
+

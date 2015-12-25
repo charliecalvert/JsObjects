@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Folder02 - FakeRoute</title>
+</head>
+<body>
+<h1>I'm the File From Folder02</h1>
+
+<p>Look at the address bar. It says I'm in the directory <strong>FakeRoute</strong>. But I'm not. 
+I live in <strong>Folder02</strong>: </p>
+<pre>
+../Folder02/Other.html
+</pre>
+
+<p>Our call to <strong>app.use</strong> reroutes the call to FakeRoute to the real directory, but no one
+on the client side would have a way to know it is happening.</p>
+
+<p><a href="/index.html">Now load index.html,</a>  but don't include Public in its path. We would
+think this call should fail, since index.html is in this directory:</p>
+
+<pre>
+../public/index.html
+</pre>
+
+<p>But the call succeeds because of the way we employed <strong>app.use</strong>.
+
+
+<div id='nameDiv'>
+  </div> 
+ 
+</body>
+</html>

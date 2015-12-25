@@ -1,0 +1,56 @@
+
+mixin elfForm(title)
+	p Foo
+
+// *************
+// Panels
+// *************
+
+mixin elfFormPanel(title)
+	form&attributes(attributes)
+		div.panel.panel-default
+			div.panel-heading= title
+			div.panel-body
+				block
+
+mixin elfPanel(headingText)
+	div.panel.panel-default&attributes(attributes)
+		div.panel-heading= headingText
+		div.panel-body
+			block
+
+mixin elfPanelType(headingText, panelType)
+	- if (typeof panelType === 'undefined') {
+	-		panelType="panel-default";
+	- }
+	div.panel(class= panelType)&attributes(attributes)
+		div.panel-heading= headingText
+		div.panel-body
+			block
+
+// **********
+// Radio Buttons
+// **********
+
+mixin elfRadioPanel(headingText, panelId)
+	div.panel.panel-default&attributes(attributes)
+		div.panel-heading= headingText
+		div.panel-body
+			div(role="group", id= panelId)
+				block
+
+mixin elfRadio(labelText, valueId)
+	.radio
+		label(for=valueId) 
+			input(type='radio', name='radio', value=valueId, id=valueId) 
+			strong #{labelText}
+
+// **********
+// CheckBoxes
+// **********
+
+mixin elfCheckBox(labelText, name, value)
+	div
+		input(type='checkbox', name=name value=value)&attributes(attributes)
+		label(for='#{name}') &nbsp; #{labelText}
+

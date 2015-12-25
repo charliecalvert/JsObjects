@@ -21,3 +21,7 @@
 ## Special
 
 - **ChainFilterMap**: 
+
+## Map
+
+The JavaScript **map** function takes an array of one sort, and converts it into a modified array of a similar type. You pass it to a callback, and each element in the array will be passed to it. Inside that callback, you can transform the objects in the array. After map returns, you have a new array, one in which each element of your array has been transformed by your callback.

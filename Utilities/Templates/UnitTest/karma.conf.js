@@ -2,13 +2,13 @@
 
 module.exports = function(config) {
     'use strict';
-    
+
     config.set({
         // base path, that will be used to resolve files and exclude
         basePath: './',
 
         frameworks: ['jasmine'],
-        
+
         files: [
             'public/components/jquery/dist/jquery.min.js',
             'public/javascripts/*.js',
@@ -16,8 +16,7 @@ module.exports = function(config) {
         ],
 
         // list of files to exclude
-        exclude: [
-        ],
+        exclude: [],
 
         reporters: ['spec'],
 
@@ -43,9 +42,10 @@ module.exports = function(config) {
         // Set to false to watch files for changes
         singleRun: false,
 
-        plugins: ["karma-jasmine",
-            "karma-spec-reporter",
-            'karma-phantomjs-launcher']
-        
+        plugins: ['karma-jasmine',
+            'karma-spec-reporter',
+            'karma-phantomjs-launcher'
+        ]
+
     });
 };

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#  Based on work by Aleksandar Gotev (github: alexbbb)
+
+ifconfig eth0 | grep inet | awk '{print $2}' | awk -F: '{print $2}'
+
+function get_address {
+    ELEM=($(echo $1 | tr ":" "\n"))
+    echo ${ELEM[1]}
+}
+
+PLATFORM=$(uname)
+
+IFACE="$1"
+IFCFG=$(ifconfig "$IFACE")
+
+if [ $PLATFORM == "Linux" ]; then
+
+    IFACE_DATA=($(echo "$IFCFG" | grep "inet addr" | awk '{print $2"\n"$3"\n"$4}'))
+    MACADDR=$(echo "$IFCFG" | grep HWaddr | awk '{print $5}')
+    ADDRESS=$(get_address ${IFACE_DATA[0]})
+    BROADCAST=$(get_address ${IFACE_DATA[1]})
+    NETMASK=$(get_address ${IFACE_DATA[2]})
+
+else #On OS X ($PLATFORM == "Darwin")
+
+    IFACE_DATA=($(echo "$IFCFG" | grep "inet " | awk '{print $2"\n"$4"\n"$6}'))
+    MACADDR=$(echo "$IFCFG" | grep ether | awk '{print $2}')
+    ADDRESS=${IFACE_DATA[0]}
+    BROADCAST=${IFACE_DATA[2]}
+    NETMASK=${IFACE_DATA[1]}
+
+fi
+
+echo "{"
+echo "  \"dev\": \"$IFACE\","
+echo "  \"mac_address\": \"${MACADDR}\","
+echo "  \"ip_address\": \"${ADDRESS}\","
+echo "  \"broadcast\": \"${BROADCAST}\","
+echo "  \"netmask\": \"${NETMASK}\""
+echo "}"
+

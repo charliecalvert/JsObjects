@@ -1,0 +1,23 @@
+        jade: {
+            compile: {
+                options: {
+                    pretty: true,
+                    data: {
+                        debug: false
+                    }
+                },
+                files: {
+                    'spec/fixtures/fixture.html': ['views/fixture.jade', '$ELF_TEMPLATES/JadeMixins/*.jade']
+                }
+            }
+        },
+
+        exec: {
+
+            stripExtends: {
+                cmd: function() {
+                    return 'sed "/extend/d" views/index.jade > views/fixture.jade';
+                }
+            }
+        },
+ 

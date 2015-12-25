@@ -1,0 +1,11 @@
+#! /bin/bash
+
+GREP='grep -r --include=*.js --exclude-dir=node_modules --exclude-dir=components'
+C=''
+for i in "$@"; do 
+    C="$C \"${i//\"/\\\"}\""
+done
+echo -e '\n'Running:'\n'${GREP} ${C}'\n\nResults:'
+bash -c "${GREP} ${C}"
+
+echo -e '\nExit Code:' $?

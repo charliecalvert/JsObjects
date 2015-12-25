@@ -4,13 +4,16 @@ UNIT_TEST=$ELF_TEMPLATES/UnitTest
 
 cp $UNIT_TEST/Gruntfile.js .
 cp $UNIT_TEST/karma.conf.js .
+cp $UNIT_TEST/.jscsrc .
 sed -i '/\s\s}$/r '$UNIT_TEST'/DevDependencies.json' package.json
 js-beautify -r package.json 
 mkdir spec
 cp $UNIT_TEST/test-basic.js spec/.
+strip-triple-spaces app.js
 npm install
 echo "============================================="
 echo "Run the following command to test your tests:"
+echo -e "\ngrunt check"
 echo -e "\ngrunt test"
 echo "============================================="
 

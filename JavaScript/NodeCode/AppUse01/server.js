@@ -20,8 +20,8 @@ app.get('/dirName', function(request, response) {
     response.send(__dirname);
 });
 
-app.use("/", express.static(__dirname + '/Public'));
-app.use("/FakeRoute", express.static(__dirname + '/Folder02'));
+app.use("/", express.static(__dirname + '/public'));
+app.use("/FakeRoute", express.static(__dirname + '/folder02'));
 
 app.listen(port);
 console.log('Listening on port :' + port);

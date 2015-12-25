@@ -1,15 +1,27 @@
 extends menu-mixin
-include radio-mixins
+include mixin-radios
+include mixins
 
 block append content
 
-    h1 Json Ajax
+    .container
+        h1 #{pageTitle}
+        p You are in the <strong>#{programTitle}</strong> program. Select some controls and press the Go button.
 
-    +radioPanel("Radio Buttons")
-        +elfRadio("Radio1", "option1")
-        +elfRadio("Radio2", "option2")
+        +formPanel("Main Form")#target
 
-    +checkBoxPanel("CheckBoxes")
-        +elfCheckBox("CheckBox 01", "checkBox01", "checkBox01")#checkBox01
-        +elfCheckBox("CheckBox 02", "checkBox02", "checkBox02")#checkBox02
+            +radioPanel("Radio Buttons")
+                +elfRadio("Radio1", "option1")
+                +elfRadio("Radio2", "option2")
+                +elfRadio("Radio3", "option3")
+
+            +elfPanel("CheckBoxes")
+                +elfCheckBox("CheckBox 01", "checkBox01", "checkBox01")#checkBox01
+                +elfCheckBox("CheckBox 02", "checkBox02", "checkBox02")#checkBox02
+
+            +elfPanel("Actions")
+                input.btn.btn-primary(type="submit", value="Go")
+
+        div
+            pre#formResults
 

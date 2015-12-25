@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# Alias definitions.
+# You may want to put all your custom additions into a separate file 
+# called ~/.my_bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.my_bash_aliases ]; then
+    . ~/.my_bash_aliases
+fi
+
 # General
 export GIT_HOME=$HOME/Git
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
@@ -9,16 +18,19 @@ alias chr="/usr/bin/chromium-browser"
 alias runexpress='npm install && bower install && grunt'
 
 # Commands
-alias sshadd="ssh-add ~/.ssh/rsa-key-git.pem"
+alias sshadd="ssh-add ~/.ssh/main-key"
 alias go="npm install && npm start"
 alias ba="less ~/.bash_aliases"
 alias chrome="/usr/bin/chromium-browser"
 alias platform="cordova platform add android"
-alias run="nm && bower install && grunt serve"
+#alias run="npm install && bower install && npm start"
+alias run="nm && components && npm start"
+alias runnpm="npm install && npm start"
 
 # JsObjects
 export JSOBJECTS=$GIT_HOME/JsObjects
-export ELF_TEMPLATES=$JSOBJECTS/Utilities/Templates
+export ELF_UTILS=$JSOBJECTS/Utilities
+export ELF_TEMPLATES=$ELF_UTILS/Templates
 alias jo="cd $JSOBJECTS"
 alias joc="cd $JSOBJECTS/Cordova"
 alias jod="cd $JSOBJECTS/Data"
@@ -37,27 +49,26 @@ alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
 #####################################################
 
 # Writing
-export WRITE=$GIT_HOME/writings
-alias writing='cd $WRITE'
-alias wt='cd $WRITE'
-alias wtt="cd $WRITE/Tech"
-alias wta="cd $WRITE/Tech/AaCode"
-alias wtg="cd $WRITE/Tech/Games"
-alias wtds='cd $WRITE/Tech/DataStructures/'
-alias wtjs='cd $WRITE/Tech/JsSyntax/'
-alias wtpl="cd $WRITE/Tech/Games/ThreePointerLock"
-alias wtgl="cd $WRITE/Tech/Games/GameListener"
-alias wtaa="cd $WRITE/Tech/AaCode"
-alias wtnt="cd $WRITE/Tech/Network"
-alias wtp="cd $WRITE/Tech/Programmable"
-alias wtu="cd $WRITE/UnitTests/Js"
-alias nt="cd $WRITE/Tech/Network"
+export ELF_WRITE=$GIT_HOME/Writings
+alias writing='cd $ELF_WRITE'
+alias wt='cd $ELF_WRITE'
+alias wtt="cd $ELF_WRITE/Tech"
+alias wta="cd $ELF_WRITE/Tech/AaCode"
+alias wtg="cd $ELF_WRITE/Tech/Games"
+alias wtds='cd $ELF_WRITE/Tech/DataStructures/'
+alias wtjs='cd $ELF_WRITE/Tech/JsSyntax/'
+alias wtpl="cd $ELF_WRITE/Tech/Games/ThreePointerLock"
+alias wtgl="cd $ELF_WRITE/Tech/Games/GameListener"
+alias wtaa="cd $ELF_WRITE/Tech/AaCode"
+alias wtnt="cd $ELF_WRITE/Tech/Network"
+alias wtp="cd $ELF_WRITE/Tech/Programmable"
+alias wtu="cd $ELF_WRITE/UnitTests/Js"
 
 # Elvenware
-export WRITE_ELF=$WRITE/Elvenware
-alias ec="cd $WRITE/Elvenware"
-alias ecc="cd $WRITE/Elvenware/development/cloud/"
-alias ecj="cd $WRITE/Elvenware/development/web/JavaScript"
+export WRITE_ELF=$ELF_WRITE/Elvenware
+alias ec="cd $ELF_WRITE/Elvenware"
+alias ecc="cd $ELF_WRITE/Elvenware/development/cloud/"
+alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
 
 # My Courses
 alias isit="cd $GEN/Git/Isit322-2015"
@@ -75,4 +86,6 @@ alias awsb="cd $HOME/bin/AwsBasicS3"
 alias gitio="cd $GIT_HUB_IO"
 alias elfsite="cd $GIT_HOME/ElfSite/Code"
 alias nm="ln -s ~/tmp/node_modules/"
+alias components="ln -s ~/tmp/components/ public/components"
+alias slb="cd $ELF_UTILS/SetupLinuxBox"
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io

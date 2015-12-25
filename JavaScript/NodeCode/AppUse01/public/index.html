@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>App.use in Node and Express</title>
+</head>
+<body>
+<h1>I'm the File in the <em>public</em> Folder</h1>
+<p>This program is designed to help you understand our calls to <strong>app.use</strong> in node programs
+that use express. You'll need to right click and choose view source to fully understand what 
+is happening. Also, be sure to watch the address bar.</p>
+<p>We call <strong>app.use</strong> when serving up static pages, that is, when serving whole pages 
+that don't need to be assembled. That is why there is a call to express.static: it is telling express 
+how to process static pages.</p>
+
+<p>Here are the two <strong>app.use</strong> statements in our node server.js file for this program:</p>
+
+<pre>
+app.use("/", express.static(__dirname + '/public'));
+app.use("/FakeRoute", express.static(__dirname + '/Folder02'));
+</pre>
+
+<h2>The First Parameter Defaults to the Root</h2>
+<p>By default, app.use assumes the first parameter is a slash : '/'. Thus these 
+statements are identical:</p>
+
+<pre>
+app.use("/", express.static(__dirname + '/public');
+app.use(express.static(__dirname + '/public');
+</pre>
+<p>But we tend not to use the second case that uses the default. Instead, we use the syntax
+shown in the first case, or variants of that syntax.</p>
+<hr>
+<h2>The Links</h2>
+<p>Let's try some real links to see first hand how it works.</p>
+
+<p>Get <a href="/FakeRoute/Other.html">other.html</a>  from the fake route. Don't forget to watch the address bar! You might also want to look at the html, or the pseudo code shown below.</p>
+
+<p><a href="/folder02/Other.html">This will fail,</a> but click to see what happens when you try to 
+get other.html from Folder02. The point is that <strong>Other.html</strong> really is in Folder02, but the call fails, because
+of the way we set up the routes with <strong>app.use</strong>. </p>
+<p><a href="/dirName">DirName</a> Click the DirName link to see what <strong>__dirname</strong> is set to on your system.</p>
+<h2>The Pseudo Code</h2>
+ <p>Here is pseudo code for the hrefs in our HTML. They can be used in lieu of viewing the HTML for this page: </p>
+ <pre>
+Get &lt;a href="/FakeRoute/Other.html">other.html&lt;/a&gt;
+&lt;a href="/folder02/Other.html"&gt;This will fail,&lt;/a&gt;
+&lt;a href="/dirName"&gt;DirName&lt;/a&gt;
+ </pre>
+<hr>
+
+
+<p>As you can see, they are set up so requests to localhost:30025/index.html will get the copy of index.html found
+in the /public directory. They also are set up to send requests to /FakeRoute to the /folder02 directory.</p>
+
+<h2>What Does the Disk Structure Look Like?</h2>
+<p>Our real, on disk directory structure looks something like this:</p>
+
+<pre>
+05/10/2013  01:46 AM  &lt;DIR&gt;  folder02
+05/10/2013  01:36 AM  &lt;DIR&gt;  public
+</pre>
+
+<p>In other words, there is no <strong>FakeRoute</strong> directory. It is fiction we created with the <strong>app.use</strong> statement.</p>
+
+<h2>What is __dirname?</h2>
+<p>__dirname is the directory where our server is running. Click the dirname link to see that directory.</p>
+<hr>
+
+ 
+ 
+</body>
+</html>

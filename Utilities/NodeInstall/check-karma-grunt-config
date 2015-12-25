@@ -1,0 +1,115 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+function write_caption() {
+	CAPTION_LENGTH=${#1}	
+	echo -e "\n$NC"$1
+	COUNTER=0
+	while [ $COUNTER -lt $CAPTION_LENGTH ]; do
+		printf "="
+		let COUNTER=COUNTER+1
+	done
+	echo ""
+}
+
+function wait_for_key() {
+	read -rsp $'\nPress any key to continue... \n' -n1 
+}
+
+function command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+function search() {
+	if grep --quiet $2; then
+	  printf "$LIGHT_GREEN$1 ${NC}mentioned\n"
+	else
+	  printf "$LIGHT_RED$1 not found $NC\n"
+	fi
+}
+
+function find_task() {
+	search $1' loadNpmTask' 'loadNpmTasks.*'$1' Gruntfile.js'
+}
+
+function find_registered_task() {
+	search $1' registered task' 'registerTask.*'$1' Gruntfile.js'
+}
+
+function find_npm_package() {
+	search $1 $1' package.json'
+}
+
+function look-for-text-in-spec-html() {
+	if grep -Erilw $1 --include='*.html' spec; then 
+		printf "${LIGHT_RED} '$1' exists in your html\n"
+	else
+		printf "${LIGHT_GREEN}No '$1' exists in your spec html\n"
+	fi
+}
+
+printf '\n*** setup ***\n\n'
+
+if command_exists js-beautify ; then
+    echo js-beautify exists
+else
+	printf "${LIGHT_RED}Install js-beautify globally and try again $NC\n"
+	printf "Like this: ${LIGHT_GREEN}npm install -g js-beautify $NC\n"
+	exit
+fi
+
+js-beautify -r karma.conf.js
+js-beautify -r Gruntfile.js
+
+printf '\n*** These tests are meant to help you find problems in\n'
+printf '*** karma.conf and Gruntfile. They are not definitive\n\n'
+
+write_caption "Checking configuration of karma.conf.js"
+search preprocessor 'preprocessors\:[[:space:]]{[[:space:]]*$ karma.conf.js'
+search 'jasmine-jquery' 'jasmine-jquery karma.conf.js'
+search 'load html files in karma config files section' 'spec/\*\*/\*\.html karma.conf.js'
+search suppressSkipped 'suppressSkipped karma.conf.js'
+
+write_caption "Checking for tasks in Gruntfile.js"
+search 'exec task config' 'stripExtends\: Gruntfile.js'
+search 'jade task config' 'spec/fixtures/fixture.html Gruntfile.js'
+
+write_caption "Checking for loaded tasks in Gruntfile.js"
+find_task grunt-contrib-clean
+find_task grunt-contrib-jshint
+find_task grunt-jscs
+find_task grunt-jsbeautifier
+find_task grunt-karma
+find_task grunt-contrib-jade
+find_task grunt-exec
+
+# wait_for_key
+
+write_caption "Checking for registered tasks in Gruntfile.js"
+find_registered_task fixture
+find_registered_task beautify
+find_registered_task check
+find_registered_task test
+
+write_caption "Checking package.json"
+find_npm_package jasmine-jquery
+find_npm_package grunt-contrib-jade
+find_npm_package grunt-exec
+search 'package.json test script with karma-start' '"karma[[:space:]]start" package.json'
+
+write_caption "Checking HTML"
+look-for-text-in-spec-html '<head'
+
+write_caption "Other Checks"
+search 'error handler in app.js' 'About[[:space:]]to[[:space:]]render[[:space:]]error app.js'
+
+write_caption "Notes"
+echo -e "\n${YELLOW}Run this command with less. Like this:"
+echo -e "\n\t${BLUE}check-karma-grunt-config | less -R\n"
+echo -e "${YELLOW}While in less, press the letter h to get help"

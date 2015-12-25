@@ -3,26 +3,48 @@ mixin jumbo(title, name)
         h1= title
         p
             em= name
-        p
-            | This is my bio. I like to code and write.
-            | I also like to walk.
-        img(src="http://www.gravatar.com/avatar/b7b972e6d8e9d877abaee3f91b74b4a8.png", alt="Charlie")
-
 
 mixin attribution(afr)
-    p.well by Charles Prog272 Calvert
+    p.well by Charles Calvert
 
 
 mixin bio
     div
+        img(src="http://www.gravatar.com/avatar/b7b972e6d8e9d877abaee3f91b74b4a8.png", alt="Charlie")
+
         p.well
-            | This is my bio where I like to walk.
-            | And then I just keep typing.
+            | I've been working with computers and writing code in one form or
+            | another for about 25 years. I started out with Turbo Pascal and Delphi,
+            | spent time with Java, C++, Python and Perl, and then spent a number of
+            | years working in C#.
+        p.well
+            | I've spent most of my career in industry, working first for Borland,
+            | then for a start up in Silicon Valley, and until a few years ago I
+            | was at Microsoft on the C# team. Over the last few years I've been
+            | interested primarily in Agile Development, the cloud and various mobile devices.
+        p.well
+            | I'm always looking for ways to learn more about how we write web
+            | and mobile applications that use Cloud services. I also look for
+            | ways to learn more about virtual machines, cloud resources and mobile devices.
+        p.well
+            | I enjoy hiking, snow-shoeing, swimming, reading and watching movies.
+            | I also like to write. I'm known in the computer world primarily as a book author:
+
+        a(href="http://elvenware.com/charlie/books/index.html", target="_blank") My Books
+
 
 
 mixin bootswatch(theme)
     link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/" + theme + "/bootstrap.min.css", rel="stylesheet")
 
+
+mixin formPanel(title)
+
+    form&attributes(attributes)
+        div.panel.panel-default
+            div.panel-heading= title
+            div.panel-body
+                block
 
 //- Panel mixin
 mixin panel(heading, style)

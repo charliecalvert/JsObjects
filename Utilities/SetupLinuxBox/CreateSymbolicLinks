@@ -1,0 +1,9 @@
+export ELF_UTILS=$JSOBJECTS/Utilities
+ln -s $ELF_UTILS/NodeInstall/CreateExpressProject ~/bin/.
+ln -s $ELF_UTILS/NodeInstall/CreateAllExpress ~/bin/.
+ln -s $ELF_UTILS/NodeInstall/check-karma-grunt-config ~/bin/.
+ln -s $ELF_UTILS/SetupLinuxBox/strip-triple-spaces ~/bin/.
+ln -s $ELF_UTILS/NodeInstall/TestReady ~/bin/.
+ln -s $ELF_UTILS/GrepScripts/elfgrepcomps ~/bin/.
+ln -s $ELF_TEMPLATES/UnitTest/FixtureReady ~/bin/.
+ln -s $JSOBJECTS/Python/Utils/InsertJadeExecGrunt.py ~/bin/.

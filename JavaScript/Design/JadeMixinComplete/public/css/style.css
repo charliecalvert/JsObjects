@@ -13,3 +13,9 @@ a {
     padding: 2px;
     width: 300px;
 }
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 800px; /* or 950px */
+}
