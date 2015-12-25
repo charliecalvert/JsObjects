@@ -51,6 +51,7 @@ alias wtaa="cd $WRITE/Tech/AaCode"
 alias wtnt="cd $WRITE/Tech/Network"
 alias wtp="cd $WRITE/Tech/Programmable"
 alias wtu="cd $WRITE/UnitTests/Js"
+alias nt="cd $WRITE/Tech/Network"
 
 # Elvenware
 export WRITE_ELF=$WRITE/Elvenware

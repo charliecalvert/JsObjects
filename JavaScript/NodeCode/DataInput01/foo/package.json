@@ -1,9 +1,9 @@
 {
-  "name": "express-link",
-  "version": "0.0.1",
+  "name": "foo",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.10.2",

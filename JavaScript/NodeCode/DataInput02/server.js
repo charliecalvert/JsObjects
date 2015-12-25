@@ -1,12 +1,15 @@
 var express = require('express');
-var app = express();
+var path = require('path');
+var bodyParser = require('body-parser');
 var fs = require('fs');
+var app = express();
+
 
 var port = process.env.PORT || 30025;
 
-// We must include this near the top of the file
-// if we want to handle POST
-app.use(express.bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
     'use strict';

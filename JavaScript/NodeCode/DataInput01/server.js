@@ -1,13 +1,17 @@
 /* jshint devel: true, node: true, unused: true */
 
 var express = require('express');
-var app = express();
+var path = require('path');
+var bodyParser = require('body-parser');
 var fs = require('fs');
+var app = express();
+
 
 var port = process.env.PORT || 30025;
 
-// We need this here to make POST call work
-app.use(express.bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
     'use strict';
