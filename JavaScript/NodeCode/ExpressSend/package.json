@@ -3,7 +3,10 @@
   "description": "Work with express and sending information",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
-    "express": "3.1"
+    "express": "~4.11.1"
   }
 }
