@@ -14,7 +14,10 @@ sudo apt-get install curl
 # curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 
 # The new setup script for Node.js v4.X
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+
+# The new setup script for Node.js v5.X
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
 
 # Install node

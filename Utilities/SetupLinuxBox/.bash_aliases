@@ -49,7 +49,7 @@ alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
 #####################################################
 
 # Writing
-export ELF_WRITE=$GIT_HOME/Writings
+export ELF_WRITE=$GIT_HOME/writings
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
 alias wtt="cd $ELF_WRITE/Tech"
