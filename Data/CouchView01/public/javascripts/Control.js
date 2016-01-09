@@ -33,7 +33,7 @@ queryController.create = function($q) {
 }
 
 queryController.states = function($q) {
-	return runQuery("/insertBulk?fileName=States.json", $q);
+	return runQuery("/insertBulk?fileName=states.json", $q);
 }
 
 queryController.design = function($q) {

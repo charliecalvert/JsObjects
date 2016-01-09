@@ -1,0 +1,34 @@
+#! /bin/bash
+
+UNIT_TEST=$ELF_TEMPLATES/UnitTest
+CHECK_TEST=$UNIT_TEST/TestCheck
+
+cp $CHECK_TEST/Gruntfile.js .
+cp $CHECK_TEST/karma.conf.js .
+cp $UNIT_TEST/.jscsrc .
+sed -i '/\s\s}$/r '$CHECK_TEST'/DevDependencies.json' package.json
+js-beautify -r package.json 
+mkdir spec
+cp $UNIT_TEST/test-basic.js spec/.
+strip-triple-spaces app.js
+
+# Add test script to package.json
+awk '/\"scripts\":/ {
+    print;
+    print "    \"test\": \"karma start\",";
+    next;
+}1' package.json > tmp && mv tmp package.json
+
+awk '/err.status/ && ++n==2 {    
+    print;
+    print "\t\tconsole.log(\'About to render error\', err);";
+    next;
+}1' app.js > tmp && mv tmp app.js
+
+npm install
+echo "============================================="
+echo "Run the following command to test your tests:"
+echo -e "\ngrunt check"
+echo -e "\ngrunt test"
+echo "============================================="
+

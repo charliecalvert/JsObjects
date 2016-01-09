@@ -43,6 +43,12 @@ awk '/\"scripts\":/ {
     next;
 }1' package.json > tmp && mv tmp package.json
 
+awk '/err.status/ && ++n==2 {    
+    print;
+    print "\t\tconsole.log(err);";
+    next;
+}1' app.js > tmp && mv tmp app.js
+
 # Install NPM packages
 function npm_install() {
     npm install $1 --save-dev

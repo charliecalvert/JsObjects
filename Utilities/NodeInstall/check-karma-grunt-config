@@ -107,7 +107,8 @@ write_caption "Checking HTML"
 look-for-text-in-spec-html '<head'
 
 write_caption "Other Checks"
-search 'error handler in app.js' 'About[[:space:]]to[[:space:]]render[[:space:]]error app.js'
+#search 'error handler in app.js' 'About[[:space:]]to[[:space:]]render[[:space:]]error app.js'
+search 'error handler in app.js' 'console.log(err) app.js'
 
 write_caption "Notes"
 echo -e "\n${YELLOW}Run this command with less. Like this:"

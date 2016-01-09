@@ -1,6 +1,5 @@
 {
-"docs": [
-    {
+    "docs": [{
         "name": "ALABAMA",
         "abbreviation": "AL",
         "capital": "Montgomery",
@@ -10,8 +9,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "EST (UTC-5)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "ALASKA",
         "abbreviation": "AK",
         "capital": "Juneau",
@@ -21,8 +19,7 @@
         "timeZone01": "AKST (UTC-09)",
         "timeZone02": "HST (UTC-10)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "ARIZONA",
         "abbreviation": "AZ",
         "capital": "Phoenix",
@@ -32,8 +29,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "NO"
-    },
-    {
+    }, {
         "name": "ARKANSAS",
         "abbreviation": "AR",
         "capital": "Little Rock",
@@ -43,8 +39,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "CALIFORNIA",
         "abbreviation": "CA",
         "capital": "Sacramento",
@@ -54,8 +49,7 @@
         "timeZone01": "PT (UTC-8)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "COLORADO",
         "abbreviation": "CO",
         "capital": "Denver",
@@ -65,8 +59,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "CONNECTICUT",
         "abbreviation": "CT",
         "capital": "Hartford",
@@ -76,8 +69,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "DELAWARE",
         "abbreviation": "DE",
         "capital": "Dover",
@@ -87,8 +79,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "FLORIDA",
         "abbreviation": "FL",
         "capital": "Tallahassee",
@@ -98,8 +89,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "CST (UTC-6)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "GEORGIA",
         "abbreviation": "GA",
         "capital": "Atlanta",
@@ -109,8 +99,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "HAWAII",
         "abbreviation": "HI",
         "capital": "Honolulu",
@@ -120,8 +109,7 @@
         "timeZone01": "HST (UTC-10)",
         "timeZone02": "",
         "dst": "NO"
-    },
-    {
+    }, {
         "name": "IDAHO",
         "abbreviation": "ID",
         "capital": "Boise",
@@ -131,8 +119,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "PT (UTC-8)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "ILLINOIS",
         "abbreviation": "IL",
         "capital": "Springfield",
@@ -142,8 +129,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "INDIANA",
         "abbreviation": "IN",
         "capital": "Indianapolis",
@@ -153,8 +139,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "CST (UTC-6)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "IOWA",
         "abbreviation": "IA",
         "capital": "Des Moines",
@@ -164,8 +149,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "KANSAS",
         "abbreviation": "KS",
         "capital": "Topeka",
@@ -175,8 +159,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "KENTUCKY",
         "abbreviation": "KY",
         "capital": "Frankfort",
@@ -186,8 +169,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "CST (UTC-6)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "LOUISIANA",
         "abbreviation": "LA",
         "capital": "Baton Rouge",
@@ -197,8 +179,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MAINE",
         "abbreviation": "ME",
         "capital": "Augusta",
@@ -208,8 +189,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MARYLAND",
         "abbreviation": "MD",
         "capital": "Annapolis",
@@ -219,8 +199,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MASSACHUSETTS",
         "abbreviation": "MA",
         "capital": "Boston",
@@ -230,8 +209,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MICHIGAN",
         "abbreviation": "MI",
         "capital": "Lansing",
@@ -241,8 +219,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "CST (UTC-6)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MINNESOTA",
         "abbreviation": "MN",
         "capital": "Saint Paul",
@@ -252,8 +229,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MISSISSIPPI",
         "abbreviation": "MS",
         "capital": "Jackson",
@@ -263,8 +239,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MISSOURI",
         "abbreviation": "MO",
         "capital": "Jefferson City",
@@ -274,8 +249,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "MONTANA",
         "abbreviation": "MT",
         "capital": "Helena",
@@ -285,8 +259,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEBRASKA",
         "abbreviation": "NE",
         "capital": "Lincoln",
@@ -296,8 +269,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEVADA",
         "abbreviation": "NV",
         "capital": "Carson City",
@@ -307,8 +279,7 @@
         "timeZone01": "PT (UTC-8)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEW HAMPSHIRE",
         "abbreviation": "NH",
         "capital": "Concord",
@@ -318,8 +289,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEW JERSEY",
         "abbreviation": "NJ",
         "capital": "Trenton",
@@ -329,8 +299,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEW MEXICO",
         "abbreviation": "NM",
         "capital": "Santa Fe",
@@ -340,8 +309,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NEW YORK",
         "abbreviation": "NY",
         "capital": "Albany",
@@ -351,8 +319,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NORTH CAROLINA",
         "abbreviation": "NC",
         "capital": "Raleigh",
@@ -362,8 +329,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "NORTH DAKOTA",
         "abbreviation": "ND",
         "capital": "Bismarck",
@@ -373,8 +339,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "OHIO",
         "abbreviation": "OH",
         "capital": "Columbus",
@@ -384,8 +349,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "OKLAHOMA",
         "abbreviation": "OK",
         "capital": "Oklahoma City",
@@ -395,8 +359,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "OREGON",
         "abbreviation": "OR",
         "capital": "Salem",
@@ -406,8 +369,7 @@
         "timeZone01": "PT (UTC-8)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "PENNSYLVANIA",
         "abbreviation": "PA",
         "capital": "Harrisburg",
@@ -417,8 +379,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "RHODE ISLAND",
         "abbreviation": "RI",
         "capital": "Providence",
@@ -428,8 +389,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "SOUTH CAROLINA",
         "abbreviation": "SC",
         "capital": "Columbia",
@@ -439,8 +399,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "SOUTH DAKOTA",
         "abbreviation": "SD",
         "capital": "Pierre",
@@ -450,8 +409,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "TENNESSEE",
         "abbreviation": "TN",
         "capital": "Nashville",
@@ -461,8 +419,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "EST (UTC-5)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "TEXAS",
         "abbreviation": "TX",
         "capital": "Austin",
@@ -472,8 +429,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "MT (UTC-07)",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "UTAH",
         "abbreviation": "UT",
         "capital": "Salt Lake City",
@@ -483,8 +439,7 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "VERMONT",
         "abbreviation": "VT",
         "capital": "Montpelier",
@@ -494,8 +449,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "VIRGINIA",
         "abbreviation": "VA",
         "capital": "Richmond",
@@ -505,8 +459,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "WASHINGTON",
         "abbreviation": "WA",
         "capital": "Olympia",
@@ -516,8 +469,7 @@
         "timeZone01": "PT (UTC-8)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "WEST VIRGINIA",
         "abbreviation": "WV",
         "capital": "Charleston",
@@ -527,8 +479,7 @@
         "timeZone01": "EST (UTC-5)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "WISCONSIN",
         "abbreviation": "WI",
         "capital": "Madison",
@@ -538,8 +489,7 @@
         "timeZone01": "CST (UTC-6)",
         "timeZone02": "",
         "dst": "YES"
-    },
-    {
+    }, {
         "name": "WYOMING",
         "abbreviation": "WY",
         "capital": "Cheyenne",
@@ -549,6 +499,5 @@
         "timeZone01": "MT (UTC-07)",
         "timeZone02": "",
         "dst": "YES"
-    }
-]
+    }]
 }
