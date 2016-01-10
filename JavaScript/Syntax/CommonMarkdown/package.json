@@ -1,0 +1,22 @@
+{
+  "name": "common-markdown",
+  "version": "1.0.0",
+  "description": "Test CommonMarkdown API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://githbub.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "markdown"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "dependencies": {
+    "commonmark": "^0.23.0"
+  }
+}
