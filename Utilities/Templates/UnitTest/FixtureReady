@@ -18,7 +18,7 @@ awk '/port:/ {
 # Insert code to load jasmine-jquery
 awk '/dist\/jquery./ {
     print;
-    print "            '\''public/components/jquery/dist/jasmine-jquery.js'\'',";
+    print "            '\''node_modules/jasmine-jquery/lib/*.js'\'',";
     next;
 }1' karma.conf.js > tmp && mv tmp karma.conf.js
 
@@ -42,6 +42,12 @@ awk '/\"scripts\":/ {
     print "    \"test\": \"karma start\",";
     next;
 }1' package.json > tmp && mv tmp package.json
+
+awk '/err.status/ && ++n==2 {    
+    print;
+    print "\t\tconsole.log(err);";
+    next;
+}1' app.js > tmp && mv tmp app.js
 
 # Install NPM packages
 function npm_install() {
