@@ -1,0 +1,18 @@
+{
+  "name": "make-html",
+  "version": "1.0.0",
+  "description": "Make html from markdown recursively",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markdown"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "dependencies": {
+    "walk": "^2.3.9"
+  }
+}

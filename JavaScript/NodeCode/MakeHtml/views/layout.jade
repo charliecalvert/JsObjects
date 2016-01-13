@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		script(src="components/jquery/dist/jquery.js")
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		script(src="components/angular/angular.js")
+		script(src="components/angular-route/angular-route.js")
+		script(src="javascripts/app.js")
+		script(src="javascripts/control.js")
+		script(src="javascripts/about.js")
+		script(src="javascripts/directives.js")
+		script(src="javascripts/comments.js")
+		script(src="javascripts/subjects.js")
+		script(src="javascripts/comment-factory.js")
+		script(src="javascripts/mongo-factory.js")
+		script(src="javascripts/file-report.js")
+		script(src="javascripts/edit.js")
+	body(ng-app="elvenApp")
+		block content
