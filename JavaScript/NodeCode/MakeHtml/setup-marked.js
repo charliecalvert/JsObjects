@@ -150,6 +150,7 @@ setupMarked.getSingleFile = function (fileRequested, url) {
     jadeToRender += '\t\tinclude:md ' + fileName.slice(process.env.HOME.length, fileName.length) + '\n';
 
     var tempName = 'views/temp.jade';
+    // console.log(jadeToRender);
     fs.writeFileSync(tempName, jadeToRender);
 
     var html = jade.renderFile(tempName, options);
@@ -157,8 +158,9 @@ setupMarked.getSingleFile = function (fileRequested, url) {
 
     // fs.writeFileSync(process.env.HOME + '/Content' + setupMarked.swapExtension(fileName, '.html'), html);
 
-    fs.writeFile(setupMarked.swapExtension(fileName, '.html'), html, function(err) {
-        console.log("Wrote: ", fileName);
+    var htmlName = setupMarked.swapExtension(fileName, '.html');
+    fs.writeFile(htmlName, html, function(err) {
+        console.log("in setupMarked.getSingleFile Wrote: \n", htmlName);
     });
 
 };

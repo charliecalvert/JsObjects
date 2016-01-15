@@ -10,6 +10,6 @@ function walk() {
         var directories = walker.getDirectories(report);
         walker.makePage(directoryToWalk, directories, report, null);
     });
-};
+}
 
 walk();

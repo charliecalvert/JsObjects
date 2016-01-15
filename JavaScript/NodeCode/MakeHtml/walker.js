@@ -111,44 +111,46 @@ walker.getFileNames = function(element, report) {
 	}).join('\n');
 };
 
-walker.makePage = function(directoryToWalk, directories, report) {
-	console.log("directories in makepage:", directories);
-
-	var allFileNames = [];
-	var masterFileName = directoryToWalk + '/master-list.md';
-	directories.forEach(function(element, index, ar) {
-		var fileNames = walker.getFileNames(element, report);
-		var fileName = element + '/AllFiles.md';
-		var relativeName = fileName.substr(directoryToWalk.length + 1, fileName.length);
-		allFileNames.push(utils.makeMarkdownLink(utils.swapExtension(relativeName, '.html')));
-		fs.writeFile(fileName, fileNames + '\n', function(err) {
-			if (err) {
-				throw(err);
-				console.log({result:'failure'});
-				return;
-			} else {
-				if (index === ar.length - 1) {
-					console.log({ result: 'success', masterName: masterFileName, allNames: allFileNames.join() });
-				}
-			}
-			// setupMarked.getSingleFile(fileName, fileName);
-		});
-		walker.fileReport.forEach(function(item) {
-			var htmlName = item.root + '/' + item.fileStats.name;
-			console.log(htmlName);
-			setupMarked.getSingleFile(item.fileStats.name, htmlName);
-		});
-
-	});
-
-
-	fs.writeFile(masterFileName, allFileNames.join('\n'), function(err) {
+function writeMasterFile(masterFileName, allFileNames) {
+	fs.writeFile(masterFileName, allFileNames.join('\n'), function (err) {
 		if (err) {
 			throw(err);
 		} else {
 			console.log('wrote master file in: ', masterFileName);
 		}
 	})
+}
+
+function writeAllFiles(curDir, index, report, directoryToWalk, directories) {
+	var allFileNames = [];
+	var fileNames = walker.getFileNames(curDir, report);
+	var fileName = curDir + '/AllFiles.md';
+	var relativeName = fileName.substr(directoryToWalk.length + 1, fileName.length);
+	allFileNames.push(utils.makeMarkdownLink(utils.swapExtension(relativeName, '.html')));
+	fs.writeFile(fileName, fileNames + '\n', function (err) {
+            if (err) {
+                throw(err);
+            } else {
+                if (index === directories.length - 1) {
+                    console.log({ result: 'success', masterName: masterFileName, allNames: allFileNames.join() });
+					walker.fileReport.forEach(function(item) {
+						var markdownName = item.root + '/' + item.fileStats.name;
+						setupMarked.getSingleFile(item.fileStats.name, markdownName);
+					});
+					var masterFileName = directoryToWalk + '/master-list.md';
+					writeMasterFile(masterFileName, allFileNames);
+				}
+            }
+        });
+}
+
+walker.makePage = function(directoryToWalk, directories, report) {
+	console.log("directories in makepage:", directories);
+
+	directories.forEach(function(directory, index) {
+		writeAllFiles(directory, index, report, directoryToWalk, directories);
+	});
+
 };
 
 module.exports = walker;
