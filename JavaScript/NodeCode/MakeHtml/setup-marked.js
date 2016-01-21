@@ -6,8 +6,9 @@ var marked = require('marked');
 var renderer = new marked.Renderer();
 var jade = require('jade');
 var fs = require('fs');
+var utils = require('./utils');
 
-var setupMarked = function (toc) {
+var setupMarked = function(toc) {
 
     function getAnchor(prefix, anchor, raw) {
         'use strict';
@@ -21,11 +22,12 @@ var setupMarked = function (toc) {
         return anchor;
     }
 
-    renderer.code = function (code, lang, escaped) {
-        if (lang === 'nohighlighting') {
+    renderer.code = function(code, lang, escaped) {
+       // console.log('render code');
+        if (lang==='nohighlighting') {
             return '<pre>'
                 + code
-                    //+ (escaped ? code : escape(code, true))
+                //+ (escaped ? code : escape(code, true))
                 + '\n</pre>\n';
 
         }
@@ -37,7 +39,6 @@ var setupMarked = function (toc) {
                 code = out;
             }
         }
-
 
         if (!lang) {
             return '<pre><code>'
@@ -53,9 +54,9 @@ var setupMarked = function (toc) {
             + '\n</code></pre>\n';
     };
 
-    renderer.heading = function (text, level, raw) {
+    renderer.heading = function(text, level, raw) {
         'use strict';
-        // console.log("heading called: " + text + " : " + level + " : " + raw);
+        //console.log("heading called: " + text + " : " + level + " : " + raw);
 
         var anchor = getAnchor(this.options.headerPrefix, anchor, raw);
 
@@ -75,24 +76,17 @@ var setupMarked = function (toc) {
         toc.push(details);
 
         toc[0].toc.push(details.element);
-        return '<h'
-            + level
-            + ' id="'
-            + anchor
-            + '">'
-            + text
-            + '</h'
-            + level
-            + '>\n';
+        return '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>\n';
     };
 
     marked.setOptions({
         renderer: renderer,
         gfm: true,
         tables: true,
-        highlight: function (code) {
+        highlight: function(codeToHighlight) {
             'use strict';
-            return require('highlight.js').highlightAuto(code).value;
+            //console.log("calling highlight");
+            return require('highlight.js').highlightAuto(codeToHighlight).value;
         }
     });
 
@@ -107,62 +101,35 @@ var setupMarked = function (toc) {
 
 };
 
-setupMarked.insertToc = function (source, itemToInsert) {
+setupMarked.insertToc = function(source, itemToInsert) {
     'use strict';
     var index = source.indexOf('<!--TOC_End-->');
     var output = [source.slice(0, index), itemToInsert, source.slice(index)].join('');
     return output;
 };
 
-setupMarked.swapExtension = function (fileName, ext) {
-    'use strict';
-    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
-};
-
-setupMarked.stripExtension = function (fileName) {
-    'use strict';
-    return fileName.substr(0, fileName.lastIndexOf('.'));
-};
-
-setupMarked.getExtension = function (fileName) {
-    'use strict';
-    fileName = fileName.trim();
-    var array = fileName.split(".");
-    if (array.length === 1 || ( array[0] === "" && array.length === 2 )) {
-        return "";
-    }
-    return array.pop().toLowerCase();
-};
-
-setupMarked.getSingleFile = function (fileRequested, url) {
+setupMarked.getSingleFile = function(fileRequested, url, callback) {
     'use strict';
 
-
-    var toc = [{toc: []}];
+    var toc = [ { toc: [] } ];
     var options = setupMarked(toc);
 
-    options.title = setupMarked.stripExtension(fileRequested);
-    // options.title = options.title.slice(0, options.title.indexOf('.html'));
+    options.title = utils.stripExtension(fileRequested);
+
+    var data = fs.readFileSync(url, 'utf8');
+    fs.writeFileSync('views/temp.html', marked(data));
 
     var jadeToRender = 'extends standard-base\nblock append content\n';
-    var fileName = url; // setupMarked.stripExtension(url);
+    var fileName = url;
     jadeToRender += '\tdiv.container\n';
-    jadeToRender += '\t\tinclude:md ' + fileName.slice(process.env.HOME.length, fileName.length) + '\n';
+    jadeToRender += '\t\tinclude temp.html';
 
     var tempName = 'views/temp.jade';
-    // console.log(jadeToRender);
     fs.writeFileSync(tempName, jadeToRender);
 
     var html = jade.renderFile(tempName, options);
     html = setupMarked.insertToc(html, toc[0].toc.join('\n'));
-
-    // fs.writeFileSync(process.env.HOME + '/Content' + setupMarked.swapExtension(fileName, '.html'), html);
-
-    var htmlName = setupMarked.swapExtension(fileName, '.html');
-    fs.writeFile(htmlName, html, function(err) {
-        console.log("in setupMarked.getSingleFile Wrote: \n", htmlName);
-    });
-
+    return html;
 };
 
 module.exports = setupMarked;

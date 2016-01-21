@@ -4,19 +4,9 @@
 
 var walk = require('walk');
 var fs = require('fs');
-var path = require('path')
-var setupMarked = require('./setup-marked');
-
-function utils() {}
-
-utils.makeMarkdownLink = function(fileName) {
-	return '* [' + fileName + '](' + fileName + ')'
-};
-
-utils.swapExtension = function(fileName, ext) {
-	'use strict';
-	return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
-};
+var path = require('path');
+var makePage = require('./make-page');
+// var utils = require('./utils');
 
 function walker() {
 
@@ -60,18 +50,6 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
 
 };
 
-walker.writeFile = function(fileName, report, response) {
-	fs.writeFile(fileName, JSON.stringify(report, null, 4), function(err) {
-		if (err) {
-			throw(err);
-			response.send({result:'failure'});
-		} else {
-			console.log('wrote file');
-			response.send({result:'success'});
-		}
-	});
-};
-
 // for more on mtime: https://nodejs.org/api/fs.html#fs_class_fs_stats
 walker.buildFileReport = function(directoryToWalk, extensionFilter, callback) {
 	walker.walkDirs(directoryToWalk, extensionFilter, function(fileReport) {
@@ -102,53 +80,11 @@ walker.getDirectories = function(report) {
 	return directories;
 };
 
-walker.getFileNames = function(element, report) {
-	return report.filter(function(item, i) {
-		return item.root === element;
-	}).map(function(item) {
-		var fileName = utils.swapExtension(item.fileName, '.html');
-		return utils.makeMarkdownLink(fileName);
-	}).join('\n');
-};
-
-function writeMasterFile(masterFileName, allFileNames) {
-	fs.writeFile(masterFileName, allFileNames.join('\n'), function (err) {
-		if (err) {
-			throw(err);
-		} else {
-			console.log('wrote master file in: ', masterFileName);
-		}
-	})
-}
-
-function writeAllFiles(curDir, index, report, directoryToWalk, directories) {
-	var allFileNames = [];
-	var fileNames = walker.getFileNames(curDir, report);
-	var fileName = curDir + '/AllFiles.md';
-	var relativeName = fileName.substr(directoryToWalk.length + 1, fileName.length);
-	allFileNames.push(utils.makeMarkdownLink(utils.swapExtension(relativeName, '.html')));
-	fs.writeFile(fileName, fileNames + '\n', function (err) {
-            if (err) {
-                throw(err);
-            } else {
-                if (index === directories.length - 1) {
-                    console.log({ result: 'success', masterName: masterFileName, allNames: allFileNames.join() });
-					walker.fileReport.forEach(function(item) {
-						var markdownName = item.root + '/' + item.fileStats.name;
-						setupMarked.getSingleFile(item.fileStats.name, markdownName);
-					});
-					var masterFileName = directoryToWalk + '/master-list.md';
-					writeMasterFile(masterFileName, allFileNames);
-				}
-            }
-        });
-}
-
 walker.makePage = function(directoryToWalk, directories, report) {
-	console.log("directories in makepage:", directories);
+	console.log("Directories found:", JSON.stringify(directories, null, 4));
 
 	directories.forEach(function(directory, index) {
-		writeAllFiles(directory, index, report, directoryToWalk, directories);
+		makePage(directory, index, report, directoryToWalk, directories);
 	});
 
 };
