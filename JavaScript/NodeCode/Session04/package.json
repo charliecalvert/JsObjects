@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "3.1.0",
+    "handlebars": "^4.0.5",
     "jade": "*",
     "stylus": "*"
   }
