@@ -16,9 +16,9 @@ var dataMap = ['A','B','C'].map(function(x)	{
 	return String.fromCharCode(x.charCodeAt() + 1);
 });
 
-var stringResult = JSON.stringify(dataMap)
+var stringResult = JSON.stringify(dataMap);
 console.log(stringResult);
 
 // Verify our results
-var result = stringResult === '["B","C","D"]'
+var result = stringResult === '["B","C","D"]';
 console.log(result);

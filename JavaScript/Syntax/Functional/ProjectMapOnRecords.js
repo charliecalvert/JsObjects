@@ -50,11 +50,10 @@ function go() {
 
 	// Discover id and title for each item with map
 	var idTitleMap = presidents.map(function(item) {
-		var newItem = {
+		return {
 			name : item.presidentName,
 			birthYear : item.born
 		};
-		return newItem;
 	});
 
 	return idTitleMap;

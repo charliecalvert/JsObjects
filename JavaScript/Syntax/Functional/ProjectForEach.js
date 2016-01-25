@@ -36,8 +36,10 @@ function go() {
 		"born" : "1767",
 		"died" : "1848"
 	}]; 
-	
-	nameAndBirth = [];
+
+	// console.log(presidents);
+
+	var nameAndBirth = [];
 
 	presidents.forEach(function(president) {
 		var presidentRecord = {};
