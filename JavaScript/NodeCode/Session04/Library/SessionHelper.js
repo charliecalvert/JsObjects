@@ -35,18 +35,18 @@ var SessionHelper = (function() {
             sessionId: request.sessionID,
             referer: request.headers.referer,
             cookie: request.headers.cookie,
-            /*connection: request.headers['connection'],
-			userAgent: request.headers['user-agent'],
-			cacheControl: request.headers['cache-control'],
-			cookieName01: request.cookies['cookieName01'],
-			cookieName02: request.cookies['cookieName02'],
-			cookieName03: request.cookies['cookieName03'], */
-            connection: request.headers.connection,
-            userAgent: request.headers.user - agent,
-            cacheControl: request.headers.cache - control,
+            connection: request.headers['connection'],
+            userAgent: request.headers['user-agent'],
+            cacheControl: request.headers['cache-control'],
+            cookieName01: request.cookies['cookieName01'],
+            cookieName02: request.cookies['cookieName02'],
+            cookieName03: request.cookies['cookieName03'],
+            /*connection: request.headers.connection,
+            userAgent: request.headers.user-agent,
+            cacheControl: request.headers.cache-control,
             cookieName01: request.cookies.cookieName01,
             cookieName02: request.cookies.cookieName02,
-            cookieName03: request.cookies.cookieName03,
+            cookieName03: request.cookies.cookieName03, */
             secret: request.secret,
             httpVersion: request.httpVersion
         });
