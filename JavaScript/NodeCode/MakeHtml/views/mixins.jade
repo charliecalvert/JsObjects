@@ -1,0 +1,62 @@
+//
+   Created by charlie on 3/1/15.
+
+mixin mainMenu()
+    .navbar.navbar-inverse
+        .container
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/') Elvenware
+            .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='/index.html') Home
+                    li
+                        a(href='/about') About
+                    li.dropdown
+                        a.dropdown-toggle(href='#/', data-toggle='dropdown')
+                            | Dropdown
+                            b.caret
+                        ul.dropdown-menu
+                            li.dropdown-header Core Code
+                            li
+                                a(href='/development/index.html') Strongly Typed
+                            li
+                                a(href='/development/web/index.html') Web & Scripts
+                            li
+                                a(href='/development/cloud/index.shtml') Cloud
+                            li.divider
+                            li.dropdown-header OS and Tools
+                            li
+                                a(href='/os/index.html') OS
+                            li
+                                a(href='/development/database/index.html') Database
+                            li
+                                a(href='/books/index.html') My Writing
+                            li.divider
+                            li.dropdown-header Art
+                            li
+                                a(href='/charlie/Art/index.html') Poems & Photos
+                            li
+                                a(href='/books/reading/index.html') Book Reviews
+                            li
+                                a(href='/spirit/index.html') Spiritual
+                            li.divider
+                            li.dropdown-header Links
+                            li
+                                a(href='/charlie/links.html') My Links
+                            li
+                                a(href='http://www.github.com/charliecalvert') GitHub
+                            li
+                                a(href='http://sourceforge.net/projects/elvenware/') Sourceforge
+            // /.nav-collapse
+
+mixin logo()
+    figure
+        img(alt='Elvenware', src='/images/elvenwarelogo.png')
+
+
+

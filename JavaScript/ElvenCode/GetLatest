@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cp ../UnitTests/UtilsTests/ElfUtils.js elf-utils.js
+cp ~/Git/writings/Tech/Database/AllAssignments/routes/walker.js .

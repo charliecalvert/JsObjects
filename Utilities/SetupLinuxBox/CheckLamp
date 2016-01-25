@@ -1,0 +1,72 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+function write_caption() {
+	CAPTION_LENGTH=${#1}	
+	echo -e "\n$NC"$1
+	COUNTER=0
+	while [ $COUNTER -lt $CAPTION_LENGTH ]; do
+		printf "="
+		let COUNTER=COUNTER+1
+	done
+	echo ""
+}
+
+function success() {
+	printf "${LIGHT_GREEN}'$1' is installed.$NC\n"
+}
+
+function writeError() {
+	printf "${LIGHT_RED}'$1' not found. Have you installed Lamp? $NC\n"
+	printf "Like this: ${LIGHT_GREEN}sudo apt-get install tasksel$NC\n"
+	printf "Then this: ${LIGHT_GREEN}sudo tasksel install lamp-server$NC\n"
+}
+
+function wait_for_key() {
+	read -rsp $'\nPress any key to continue... \n' -n1 
+}
+
+function command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+function search() {
+	if grep --quiet $2; then
+	  printf "$LIGHT_GREEN$1 ${NC}mentioned\n"
+	else
+	  printf "$LIGHT_RED$1 not found $NC\n"
+	fi
+}
+
+if command_exists perl ; then
+    success Perl
+else
+	writeError Perl
+	exit
+fi
+
+if command_exists php ; then
+    success PHP
+else
+	writeError PHP
+	exit
+fi
+
+if command_exists mysql ; then
+    success mysql
+else
+	writeError PHP
+	exit
+fi
+
+if [ -d "/var/www" ]; then
+	printf "$LIGHT_GREEN/var/www exists so Apache is probably installed$NC\n"
+else
+	printf "$LIGHT_RED/var/www does not exist so Apache is probably not installed$NC\n"
+fi
