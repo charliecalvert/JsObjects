@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: '1234567890QWERTY',
     resave:true,
-    resaveUninitialized: true
+    saveUninitialized: true
 }));
 
 

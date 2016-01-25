@@ -2,28 +2,48 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-    routes = require('./routes/base01'),
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var port = process.env.PORT || 30025;
+var sessionHelp = require('./library/SessionHelper');
+var routes = require('./routes/base01'),
     user = require('./routes/user'),
     http = require('http'),
-    fs = require('fs'),
-    sessionHelp = require('./Library/SessionHelper'),
-    path = require('path');
+    fs = require('fs');
 
 var app = express();
 var previous = 'Previously you visited: ';
 
-app.configure(function() {
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(session({
+    secret: '1234567890QWERTY',
+    resave:true,
+    saveUninitialized: true
+}));
+
+/* app.configure(function() {
     'use strict';
     app.set('port', process.env.PORT || 30025);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
-    app.use(express.bodyParser());
+    app.use(bodyParser());
     app.use(express.methodOverride());
-    app.use(express.cookieParser('1234567ASDFG'));
-    app.use(express.session());
+    app.use(cookieParser('1234567ASDFG'));
+    app.use(session());
     app.use(app.router);
     app.use(require('stylus').middleware(__dirname + '/public'));
     app.use(express.static(path.join(__dirname, 'public')));
@@ -32,7 +52,7 @@ app.configure(function() {
 app.configure('development', function() {
     'use strict';
     app.use(express.errorHandler());
-});
+}); */
 
 app.get('/', function(request, response) {
     'use strict';
@@ -120,6 +140,9 @@ app.post('/addUser', function(request, response) {
         'Result': JSON.stringify(request.session)
     });
 });
+
+var port = process.env.PORT || 30025;
+app.set('port', port);
 
 http.createServer(app).listen(app.get('port'), function() {
     'use strict';
