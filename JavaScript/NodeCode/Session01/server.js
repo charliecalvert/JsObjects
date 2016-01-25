@@ -1,12 +1,36 @@
 // http://blog.modulus.io/nodejs-and-express-sessions
 var express = require('express');
+var path=require('path');
 var app = express();
 var fs = require('fs');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+
 var port = process.env.PORT || 30025;
 
-app.use(express.cookieParser());
-app.use(express.session({
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+/* app.use(session({
     secret: '1234567890QWERTY'
+})); */
+
+var uuid = require('uuid');
+
+app.use(session({
+    genid: function(req) {
+        return uuid.v4(); // use UUIDs for session IDs
+    },
+    secret: process.env.SESSION_SECRET || 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
 }));
 
 var previous = 'Previously you visited: ';
