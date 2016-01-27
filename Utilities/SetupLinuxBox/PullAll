@@ -18,3 +18,5 @@ echo ElfSite
 elfsite && git pull
 echo isit320-calvert-201?
 i3c && git pull
+echo elven-assignments
+elfa && git pull

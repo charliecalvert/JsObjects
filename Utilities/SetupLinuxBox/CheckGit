@@ -12,3 +12,4 @@ jo && git status
 wt && git status
 elfsite && git status
 i3c && git status
+elfa && git status

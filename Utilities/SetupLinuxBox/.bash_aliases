@@ -82,6 +82,7 @@ alias www='cd /var/www/html'
 
 # My Programs
 alias cn='cd $GIT_HOME/CloudNotes'
+alias elfa='cd $GIT_HOME/elven-assignments'
 alias awsb="cd $HOME/bin/AwsBasicS3"
 alias gitio="cd $GIT_HUB_IO"
 alias elfsite="cd $GIT_HOME/ElfSite/Code"
