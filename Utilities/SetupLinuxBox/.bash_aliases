@@ -31,6 +31,7 @@ alias runnpm="npm install && npm start"
 export JSOBJECTS=$GIT_HOME/JsObjects
 export ELF_UTILS=$JSOBJECTS/Utilities
 export ELF_TEMPLATES=$ELF_UTILS/Templates
+export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 alias jo="cd $JSOBJECTS"
 alias joc="cd $JSOBJECTS/Cordova"
 alias jod="cd $JSOBJECTS/Data"

@@ -16,7 +16,7 @@ echo Writing
 wt && git pull
 echo ElfSite
 elfsite && git pull
-echo isit320-calvert-201?
+echo isit322-calvert-2016
 i3c && git pull
 echo elven-assignments
 elfa && git pull
