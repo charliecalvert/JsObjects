@@ -54,6 +54,6 @@ function npm_install() {
     npm install $1 --save-dev
 }
 
-npm_install grunt-exec
-npm_install grunt-contrib-jade
-npm_install jasmine-jquery
+# npm_install grunt-exec
+# npm_install grunt-contrib-jade
+# npm_install jasmine-jquery

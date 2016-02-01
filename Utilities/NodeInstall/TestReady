@@ -10,8 +10,9 @@ js-beautify -r package.json
 mkdir spec
 cp $UNIT_TEST/test-basic.js spec/.
 strip-triple-spaces app.js
-npm install
+# npm install
 echo "============================================="
+echo "Set up node_modules and public/components (npm, bower)."
 echo "Run the following command to test your tests:"
 echo -e "\ngrunt check"
 echo -e "\ngrunt test"
