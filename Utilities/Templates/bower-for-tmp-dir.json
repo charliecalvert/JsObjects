@@ -1,0 +1,27 @@
+{
+  "name": "bower-default",
+  "description": "Default bower settings for typical charlie project",
+  "main": "",
+  "authors": [
+    "charlie calvert"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bower",
+    "prog",
+    "isit",
+    "tmp"
+  ],
+  "moduleType": [],
+  "homepage": "http://www.elvenware.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
