@@ -20,12 +20,12 @@ checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
 # Create an express app and run npm install
 express $1
 cd $1
-npm install
+# npm install
 
 # Setup bower and bootstrap
 cp $ELF_TEMPLATES/bower.json .
 cp $ELF_TEMPLATES/.bowerrc .
-bower install bootstrap --save
+# bower install bootstrap --save
 
 # Set port, start command and favicon
 sed -i -- 's/3000/30025/g' bin/www

@@ -1,0 +1,14 @@
+//
+   Created by charlie on 6/1/2015.
+
+h1 Logout
+
+p hint: {{logoutController.hint}}
+
+p logged in: {{logoutController.loggedInStatus}}
+
+div.names
+   div.btn-group
+      button.btn.btn-default(ng-click='logoutController.isLoggedIn()') Is user logged in?
+
+#document(ng-bind-html="logoutController.error")
