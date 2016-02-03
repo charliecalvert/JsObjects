@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.14.2",
+    "config": "^1.19.0",
     "cookie-parser": "~1.4.1",
     "debug": "~2.2.0",
     "elven-site-tools": "0.0.6",
