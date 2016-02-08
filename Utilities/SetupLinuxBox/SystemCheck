@@ -28,6 +28,15 @@ function checkFileExists {
     fi
 }
 
+function checkSymbolicLinkExists {
+    if [ -L $1 ]
+    then
+        echo -e "\tOK: $1"
+    else
+        echo -e "\tNOT OK: $1"
+    fi
+}
+
 function checkEnvironmentVariable {
     if [ -n "$2" ] 
     then
@@ -70,6 +79,26 @@ function common {
 	echo
 }
 
+function lamp {
+	message "LAMP"
+	spacer "Lamp Setup"
+	checkFileExists /usr/bin/mysql
+	checkFileExists /usr/bin/php
+	checkFileExists /usr/bin/perl
+	checkFileExists /usr/bin/python
+	checkDirectory /var/www
+	checkDirectory /etc/apache2
+}
+
+function sshCheck {
+    message "SSH"
+    spacer "SSH Setup"
+    checkDirectory $HOME/.ssh
+    checkFileExists $HOME/.ssh/authorized_keys
+    checkSymbolicLinkExists $HOME/.ssh/main-key
+    checkEnvironmentVariable SSH_AUTH_SOCK $SSH_AUTH_SOCK
+}
+
 function phoneGap {
     message "PhoneGap"
     
@@ -85,6 +114,8 @@ while true; do
     echo "b) Basic System Check"
     echo "n) Node"
     echo "c) Common (Java, Chrome)"
+    echo "l) LAMP"
+    echo "s) SSH"
     echo "p) PhoneGap"
     echo "x) Exit"
     echo
@@ -93,7 +124,9 @@ while true; do
     case $eotuyx in
         [Bb]* ) basics; continue;;
         [Nn]* ) node; continue;;
-	[Cc]* ) common; continue;;
+        [Cc]* ) common; continue;;
+        [Ll]* ) lamp; continue;;
+        [Ss]* ) sshCheck; continue;;
         [Pp]* ) phoneGap; continue;;
         [Xx]* ) break;;
         * ) echo "Please answer with n, p or x.";;
