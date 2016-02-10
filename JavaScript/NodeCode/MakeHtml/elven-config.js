@@ -13,9 +13,15 @@ function getConfigName() { 'use strict';
 		configName = process.env.HOME + '/.config/' + configFileName;
 	} else if (os.platform() === 'linux') {
 		configName = process.env.HOME + '/.config/' + configFileName;
-	} else if (os.platform() === 'win32') {		
+	} else if (os.platform() === 'win32') {
 		configName = process.env.USERPROFILE + "\\Config\\" + configFileName;
 	}
+	return configName;
+}
+
+function getConfigName2() { 'use strict';
+	var configFileName = "ElvenConfig.json";
+	var configName = './config/' + configFileName;
 	return configName;
 }
 
@@ -40,7 +46,7 @@ elvenConfig.loaded = false;
 
 elvenConfig.load = function(callback) {
 	'use strict';
-	var configName = getConfigName();
+	var configName = getConfigName2();
 	try {
     	console.log(configName);
         utils.readFile(configName, function(result) {
