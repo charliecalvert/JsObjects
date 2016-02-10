@@ -2,6 +2,7 @@
   "name": "make-html",
   "version": "1.0.0",
   "description": "Make html from markdown recursively",
+  "repository": "http://github.com/charliecalvert/JsObjects",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,7 +14,7 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-site-tools": "^1.0.3",
+    "elven-site-tools": "^1.0.4",
     "highlight.js": "^9.1.0",
     "isit322-calvert": "^1.1.5",
     "jstransformer-marked": "^1.0.1",
