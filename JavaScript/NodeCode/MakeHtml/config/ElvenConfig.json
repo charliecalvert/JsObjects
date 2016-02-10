@@ -1,0 +1,13 @@
+{
+  "calvert": {
+    "base-dir": "/home/charlie/",
+    "site-dirs": [
+      "Documents/AllTest",
+      "Documents/AllSite"
+    ],
+    "destination-dirs": [
+      "/var/www/html/",
+      "/home/charlie/temp/test-site/"
+    ]
+  }
+}
