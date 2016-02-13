@@ -17,8 +17,17 @@ function walk(directoryToWalk, destinationDir) {
             walker.buildFileReport(directoryToWalk, '.md', function(report) {
                 console.log('build');
                 var directories = walker.getDirectories(report);
+                var settings = {
+                    report: report,
+                    directoryToWalk: directoryToWalk,
+                    destinationDir: destinationDir,
+                    directories: directories,
+                    highlight: false,
+                    testRun: false
+                };
+
                 try {
-                    walker.makePage(directoryToWalk, destinationDir, directories, report, function (masterListOfNames, htmlFilesWritten) {
+                    walker.makePage(settings, function (masterListOfNames, htmlFilesWritten) {
                         var report = {
                             result: 'success',
                             destinationDir: destinationDir,
