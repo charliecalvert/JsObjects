@@ -22,7 +22,7 @@ function walk(directoryToWalk, destinationDir) {
                     directoryToWalk: directoryToWalk,
                     destinationDir: destinationDir,
                     directories: directories,
-                    highlight: false,
+                    highlight: true,
                     testRun: false
                 };
 
