@@ -75,9 +75,10 @@ alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
 alias isit="cd $GEN/Git/Isit322-2015"
 alias p28='cd ~/Git/Prog282'
 alias p2='cd ~/Git/prog270-2016'
-alias p2c='cd $GIT_HOME/isit320-calvert-2015'
+alias p2c='cd $GIT_HOME/prog270-calvert-2016'
 alias i3='cd ~/Git/isit322-2016'
 alias i3c='cd $GIT_HOME/isit322-calvert-2016'
+
 
 alias www='cd /var/www/html'
 
