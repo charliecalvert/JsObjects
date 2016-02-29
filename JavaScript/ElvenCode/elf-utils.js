@@ -24,7 +24,7 @@ var ensureDir = function(folder) {
  */
 var prettyPrintGrid = function(grid) {
     'use strict';
-    data = JSON.stringify(grid);
+    var data = JSON.stringify(grid);
     var result = data.replace(/\[\"/g, '\n\t[');
     return result.replace(']]', ']\n]');
 };
@@ -185,6 +185,9 @@ function insertString(fileName, itemToInsert, index) {
     return output;
 }
 
+function removeFromEndAtCharacter(value, char) {
+    return value.substring(0, value.lastIndexOf(char));
+}
 
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
@@ -205,3 +208,4 @@ exports.htmlUnescape = htmlUnescape;
 exports.getHomeDir = getHomeDir;
 exports.isArray = isArray;
 exports.insertString = insertString;
+exports.removeFromEndAtCharacter = removeFromEndAtCharacter;

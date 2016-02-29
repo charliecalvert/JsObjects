@@ -1,0 +1,31 @@
+{
+    "name": "elven-images",
+    "version": "1.0.0",
+    "description": "images",
+    "main": "index.js",
+    "scripts": {
+        "start": "node image-size.js",
+        "test": "jasmine"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "elven-code": "^1.3.4",
+        "lwip": "0.0.8"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-clean": "^0.7.0",
+        "grunt-contrib-jshint": "~0.12.0",
+        "grunt-jscs": "^2.3.0",
+        "grunt-jsbeautifier": "^0.2.10",
+        "grunt-karma": "^0.12.1",
+        "jasmine-core": "^2.3.4",
+        "jshint-stylish": "^2.0.1",
+        "karma": "~0.13.10",
+        "karma-jasmine": "~0.3.3",
+        "karma-phantomjs-launcher": "~0.2.1",
+        "karma-spec-reporter": "~0.0.23",
+        "phantomjs": "^2.1.2"
+    }
+}
