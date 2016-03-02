@@ -7,11 +7,11 @@ var walker = require('../index').walker;
 var path = require('path');
 
 function getRoot() {
+    'use strict';
     return elfUtils.removeFromEndAtCharacter(__dirname, path.sep);
 }
 
 describe('Elvenware Simple Plain Suite', function() {
-
     'use strict';
 
     beforeEach(function() {
@@ -24,7 +24,7 @@ describe('Elvenware Simple Plain Suite', function() {
 
     it('expects ensure path sep', function() {
         var result = elfUtils.ensureEndsWithPathSep('/foo/bar');
-        expect(result).toBe('/foo/bar/')
+        expect(result).toBe('/foo/bar/');
     });
 
     it('removes from end of a string at character', function() {
@@ -39,7 +39,7 @@ describe('Elvenware Simple Plain Suite', function() {
             report = walker.getFileNames(report);
             expect(report.length).toBeGreaterThan(3);
             done();
-        })
+        });
     });
 
     it('expects to walk and find Gruntfile', function(done) {
@@ -47,7 +47,7 @@ describe('Elvenware Simple Plain Suite', function() {
             report = walker.getFileNames(report);
             expect(report).toContain('Gruntfile.js');
             done();
-        })
+        });
     });
 
     it('expects to walk and find Gruntfile full path', function(done) {
@@ -56,7 +56,7 @@ describe('Elvenware Simple Plain Suite', function() {
             var home = elfUtils.ensureEndsWithPathSep(process.env.HOME);
             expect(report[0]).toContain(home + 'Git/JsObjects/JavaScript/ElvenCode/Gruntfile.js');
             done();
-        })
+        });
     });
 
     it('expects to walk and find Gruntfile', function(done) {
@@ -64,7 +64,7 @@ describe('Elvenware Simple Plain Suite', function() {
             report = walker.getBasics(report);
             expect(report[0].fileName).toBe('Gruntfile.js');
             done();
-        })
+        });
     });
 
 });

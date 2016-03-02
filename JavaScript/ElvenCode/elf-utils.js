@@ -5,7 +5,7 @@ var path = require('path');
 var fs = require('fs');
 var os = require('os');
 var mkdirp = require('mkdirp');
-var Guid = require("guid");
+var Guid = require('guid');
 
 /**
  * Test if a folder exists, if it does not, make it
@@ -72,59 +72,64 @@ var padNumber = function(numberToPad, width, padValue) {
 };
 
 function endsWith(value, suffix) {
+    'use strict';
     return value.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
-
 // from: http://stackoverflow.com/a/1203361
 function getExtension(fileName) {
+    'use strict';
     fileName = fileName.trim();
-    var array = fileName.split(".");    
-    if( array.length === 1 || ( array[0] === "" && array.length === 2 ) ) {
-        return "";
+    var array = fileName.split('.');
+    if (array.length === 1 || (array[0] === '' && array.length === 2)) {
+        return '';
     }
     return array.pop().toLowerCase();
 }
 
 function swapExtension(fileName, ext) {
-	return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
 }
 
 /*
  * @name: getFileNameFromPath
- * 
- * We can't be sure of what the path separator will be since 
- * we don't know the platform ahead of time. If you need 
- * to use a pathseparator that may differ from the one for 
+ *
+ * We can't be sure of what the path separator will be since
+ * we don't know the platform ahead of time. If you need
+ * to use a pathseparator that may differ from the one for
  * the current OS, then you need to specify it:
- * 
+ *
  *    var actual = eu.getFileNameFromPath(test, "\\");
- *    
- * Otherwise just pass in the string and let the function handle 
+ *
+ * Otherwise just pass in the string and let the function handle
  * the separator automatically:
- * 
+ *
  *    var actual = eu.getFileNameFromPath(test);
  */
 function getFileNameFromPath(fileName, pathSeparator) {
-	if (typeof pathSeparator === 'undefined') {
-		pathSeparator = path.sep;
-	}
-	var index = fileName.lastIndexOf(pathSeparator);
-	return fileName.substr(index + 1, fileName.length - index -1);
+    'use strict';
+    if (typeof pathSeparator === 'undefined') {
+        pathSeparator = path.sep;
+    }
+    var index = fileName.lastIndexOf(pathSeparator);
+    return fileName.substr(index + 1, fileName.length - index - 1);
 }
 
 function getGuid() {
+    'use strict';
     return Guid.create();
 }
 
 function getGuidFromMarkdown(fileName, test) {
-	fs.readFile(fileName, 'utf8', function(err, data) {
-		if (err) {
-			throw err;
-		}
-		var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
-		test(result)
-	});
+    'use strict';
+    fs.readFile(fileName, 'utf8', function(err, data) {
+        if (err) {
+            throw err;
+        }
+        var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
+        test(result);
+    });
 }
 
 function stripWhiteSpace(value) {
@@ -155,6 +160,7 @@ function htmlEscape(str) {
         .replace(/>/g, '&gt;');
 }
 
+// jscs:disable validateQuoteMarks
 function htmlUnescape(str) {
     'use strict';
     return String(str)
@@ -164,8 +170,10 @@ function htmlUnescape(str) {
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>');
 }
+// jscs:enable validateQuoteMarks
 
 function isArray(itemToCheck) {
+    'use strict';
     return Object.prototype.toString.call(itemToCheck) === '[object Array]';
 }
 
@@ -181,12 +189,35 @@ function getHomeDir() {
 }
 
 function insertString(fileName, itemToInsert, index) {
+    'use strict';
     var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
     return output;
 }
 
 function removeFromEndAtCharacter(value, char) {
+    'use strict';
     return value.substring(0, value.lastIndexOf(char));
+}
+
+function writeFile(fileName, contents, callback) {
+    'use strict';
+    fs.writeFile(fileName, contents, function(err) {
+        callback({
+            result: 'success'
+        });
+    });
+}
+
+function readFile(fileName, callback) {
+    'use strict';
+    fs.readFile(fileName, 'utf8', function(err, fileContents) {
+        if (err) {
+            throw (err);
+        }
+        callback({
+            'result': fileContents
+        });
+    });
 }
 
 exports.ensureDir = ensureDir;
@@ -209,3 +240,5 @@ exports.getHomeDir = getHomeDir;
 exports.isArray = isArray;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.writeFile = writeFile;
+exports.readFile = readFile;
