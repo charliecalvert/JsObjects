@@ -1,86 +1,111 @@
-var lwip = require('lwip');
-var elfUtils = require('elven-code').elfUtils;
-var walker = require('elven-code').walker;
-var fs = require('fs');
-var path = require('path');
-var extension = '.jpg';
-var smallEnding = '-small' + extension;
-var markdown = '# Image Report';
-
-function getPixsPathHome() {
+var ImageSize = (function() {
     'use strict';
-    var base = process.env.HOME;
-    base = elfUtils.ensureEndsWithPathSep(base);
-    var path = base + 'pixs';
-    return elfUtils.ensureEndsWithPathSep(path);
-}
 
-function getPixsPath() {
-    'use strict';
-    return '/var/www/html/images/canada/';
-}
+    var lwip = require('lwip');
+    var elfUtils = require('elven-code').elfUtils;
+    var walker = require('elven-code').walker;
+    var elfConfig = require('elven-code').elfConfig;
+    var elfLog = require('elven-code').elfLog;
+    var fs = require('fs');
+    var path = require('path');
 
-function getPathToImage() {
-    'use strict';
-    return getPixsPath() + '2016-02-25 09.31.50.jpg';
-}
+    var extension = '.jpg';
+    var smallEnding = '-small' + extension;
+    var markdown = '# Image Report';
+    var allImages = [];
+    var base = '/var/www/html/';
+    var imageDir = '/images/canada/';
 
-function getSmallName(pathToImage) {
-    'use strict';
-    var withoutExtension = pathToImage.replace(/\.[^/.]+$/, '');
-    return withoutExtension + smallEnding;
-}
+    function ImageSize() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+    }
 
-function makeMarkDown(pathToImage) {
-    'use strict';
-    pathToImage = path.normalize(pathToImage);
-    var smallImage = getSmallName(pathToImage);
-    markdown += '\n[![' + smallImage + '](' + smallImage + ')](' + pathToImage + ')\n';
-}
+    function getPixsPathHome() {
+        var base = process.env.HOME;
+        base = elfUtils.ensureEndsWithPathSep(base);
+        var path = base + 'pixs';
+        return elfUtils.ensureEndsWithPathSep(path);
+    }
 
-function convertImage(pathToImage) {
-    'use strict';
-    lwip.open(pathToImage, function(err, image) {
-        // check 'err'. use 'image'.
-        if (err) {
-            throw err;
-        }
-        // image.resize(...), etc.
+    function getPixsPath() {
+        return path.normalize(base + imageDir);
+    }
+
+    function getSmallName(pathToImage) {
+        var withoutExtension = pathToImage.replace(/\.[^/.]+$/, '');
+        return withoutExtension + smallEnding;
+    }
+
+    function makeMarkDown(pathToImage) {
+        pathToImage = path.normalize(pathToImage);
+        pathToImage = pathToImage.slice(base.length, pathToImage.length);
+        pathToImage = elfUtils.ensureStartsWithPathSep(pathToImage);
         var smallImage = getSmallName(pathToImage);
+        //markdown += '\n![' + smallImage + '](' + smallImage + ')\n';
+        markdown += '\n[![' + smallImage + '](' + smallImage + ')](' + pathToImage + ')\n';
+        allImages.push(pathToImage);
+        allImages.push(smallImage);
+    }
 
-        image.batch()
-            .scale(0.10) // scale to 75%
-            .writeFile(smallImage, function(err) {
-                if (err) {
-                    throw err;
-                }
-                // done.
-            });
-    });
-}
-
-function getReport() {
-    'use strict';
-    var pather = getPixsPath();
-    console.log('Pixspath:', pather);
-    walker.walkDirs(pather, extension, function(fileReport) {
-        console.log(fileReport);
-        var report = walker.getFullFileNames(fileReport);
-        var pathToImage = report[0];
-        report.forEach(function(pathToImage) {
-            if (!pathToImage.endsWith(smallEnding)) {
-                makeMarkDown(pathToImage);
-                convertImage(pathToImage);
-            }
-        });
-        fs.writeFile('images.md', markdown, function(err) {
+    function convertImage(pathToImage) {
+        lwip.open(pathToImage, function(err, image) {
+            // check 'err'. use 'image'.
             if (err) {
                 throw err;
             }
-            console.log('Wrote markdown to images.md');
+            // image.resize(...), etc.
+            var smallImage = getSmallName(pathToImage);
+
+            image.batch()
+                .scale(0.20) // scale to 20%
+                .writeFile(smallImage, function(err) {
+                    if (err) {
+                        throw err;
+                    }
+                    // done.
+                });
         });
+    }
 
-    });
-}
+    function writeToFile(fileName, content) {
+        fs.writeFile(fileName, content, function(err) {
+            if (err) {
+                throw err;
+            }
+            console.log('Wrote content to', fileName);
+        });
+    }
 
-getReport();
+    function getReport(allImagesJsonFile) {
+        var pather = getPixsPath();
+        walker.walkDirs(pather, extension, function(fileReport) {
+            var report = walker.getFullFileNames(fileReport);
+            var pathToImage = report[0];
+            report.forEach(function(pathToImage) {
+                if (!pathToImage.endsWith(smallEnding)) {
+                    makeMarkDown(pathToImage);
+                    convertImage(pathToImage);
+                }
+            });
+            writeToFile('images.md', markdown);
+            writeToFile(allImagesJsonFile, JSON.stringify(allImages, null, 4) + '\n');
+        });
+    }
+
+    ImageSize.prototype.loadAndRun = function() {
+        elfConfig.useLocalConfig = true;
+        elfConfig.load(function() {
+            base = elfConfig.get('elvenImages', 'baseDir');
+            imageDir = elfConfig.get('elvenImages', 'imageDir');
+            var allImagesJsonFile = elfConfig.get('elvenImages', 'allImagesJsonFile');
+
+            elfLog.log(elfLog.logLevelDetails, allImagesJsonFile + ' ' + imageDir);
+            getReport(allImagesJsonFile);
+        });
+    };
+
+    return ImageSize;
+})();
+
+var imageSize = new ImageSize();
+imageSize.loadAndRun();

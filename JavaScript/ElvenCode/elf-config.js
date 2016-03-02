@@ -1,5 +1,5 @@
 /**
- * @author Charlie
+ * @author Charlie Calvert
  */
 
 var fs = require('fs');
@@ -7,7 +7,7 @@ var os = require('os');
 var utils = require('./elf-utils');
 var elfLog = require('./elf-log');
 
-function getConfigName() {
+function getConfigNameGlobal() {
     'use strict';
     var configFileName = 'ElvenConfig.json';
     var configName = '';
@@ -19,6 +19,21 @@ function getConfigName() {
         configName = process.env.USERPROFILE + '\\Config\\' + configFileName;
     }
     return configName;
+}
+
+function getConfigNameLocal() {
+    'use strict';
+    var configFileName = 'ElvenConfig.json';
+    var configName = '';
+    if (os.platform() === 'darwin') {
+        configName = 'config/' + configFileName;
+    } else if (os.platform() === 'linux') {
+        configName = 'config/' + configFileName;
+    } else if (os.platform() === 'win32') {
+        configName = 'Config\\' + configFileName;
+    }
+    return configName;
+
 }
 
 function reportError(err) {
@@ -40,16 +55,25 @@ function elvenConfig() {
 
 elvenConfig.configData = {};
 elvenConfig.loaded = false;
+elvenConfig.useLocalConfig = false;
+
+var getConfigName = function() {
+    if (elvenConfig.useLocalConfig) {
+        return getConfigNameLocal();
+    } else {
+        return getConfigNameGlobal();
+    }
+};
 
 elvenConfig.load = function(callback) {
     'use strict';
     var configName = getConfigName();
     try {
-        elfLog.log(elfLog.logLevelDetails, 'Configuration Name: ' + configName);
+        elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.readFile(configName, function(result) {
             elvenConfig.loaded = true;
             elvenConfig.configData = JSON.parse(result.result);
-            elfLog.log(elfLog.logLevelDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
+            elfLog.log(elfLog.logLevelMinorDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
             if (callback) {
                 callback(elvenConfig.configData);
             }

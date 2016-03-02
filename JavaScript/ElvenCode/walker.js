@@ -60,9 +60,6 @@ walker.writeFile = function(fileName, report, response) {
     'use strict';
     fs.writeFile(fileName, JSON.stringify(report, null, 4), function(err) {
         if (err) {
-            response.send({
-                result: 'failure'
-            });
             throw (err);
         } else {
             console.log('wrote file');

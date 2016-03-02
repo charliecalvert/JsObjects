@@ -1,0 +1,6 @@
+rm -r ~/Source/ElvenImages
+cd ~/Source
+cp -r $JSOBJECTS/JavaScript/NodeCode/ElvenImages/ .
+cd ElvenImages
+npm install
+

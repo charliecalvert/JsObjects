@@ -1,0 +1,105 @@
+{
+	"calvert": {
+		"base-dir": "/home/charlie/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Git/CloudNotes/Assignments",
+			"Git/CloudNotes/Prog270",
+			"Git/CloudNotes/Isit322"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/var/www/html/Assignments/",
+			"/var/www/html/Prog270/",
+			"/var/www/html/Isit322/"
+		],
+		"destination-dirs-extra": [{
+			"base": "/var/www/html/",
+			"extra": ""
+		}, {
+			"base": "/var/www/html/Assignments/",
+			"extra": "Assignments"
+		}]
+	},
+
+	"elvenImages": {
+		"baseDir": "/var/www/html",
+		"markdownFileWithImages": "/home/charlie/Documents/AllTest/canada02.md",
+		"allImagesJsonFile": "all-images.json",
+		"imageDir": "/images/canada/",
+		"notUsedDir": "/home/charlie/temp/not-used/"
+	},
+
+	"balaji": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	},
+
+	"enochs": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	},
+
+	"evans": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	},
+
+	"gankhuyag": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	},
+
+	"kariungi": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	},
+
+	"thygesen": {
+		"base-dir": "/home/bcuser/",
+		"site-dirs": [
+			"Documents/AllTest",
+			"Documents/AllSite"
+		],
+		"destination-dirs": [
+			"/var/www/html/",
+			"/home/bcuser/temp/test-site/"
+		]
+	}
+
+}
