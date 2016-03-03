@@ -80,7 +80,7 @@ elvenConfig.load = function(callback) {
             }
             elfLog.log(elfLog.logLevelMinorDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
             if (callback) {
-                callback(elvenConfig.configData);
+                callback(null, elvenConfig.configData);
             }
         });
     } catch (e) {
