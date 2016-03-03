@@ -16,6 +16,7 @@
     "express": "~4.13.1",
     "express-session": "^1.13.0",
     "jade": "~1.11.0",
+    "jasmine-spec-reporter": "^2.4.0",
     "kerberos": "0.0.18",
     "mongoose": "^4.4.4",
     "morgan": "^1.7.0",
