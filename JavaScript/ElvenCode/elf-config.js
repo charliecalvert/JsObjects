@@ -71,8 +71,13 @@ elvenConfig.load = function(callback) {
     try {
         elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.readFile(configName, function(result) {
-            elvenConfig.loaded = true;
-            elvenConfig.configData = JSON.parse(result.result);
+            elvenConfig.loaded = true;            
+            try {
+                elvenConfig.configData = JSON.parse(result.result);
+            } catch(e) {
+                console.log('Could not parse config file', e);
+                callback(e);
+            }
             elfLog.log(elfLog.logLevelMinorDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
             if (callback) {
                 callback(elvenConfig.configData);

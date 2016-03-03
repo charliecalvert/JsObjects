@@ -98,7 +98,6 @@ var ImagesNotUsed = (function() {
                 commands += 'mv ' + path.normalize(base + imageName) + ' ' + notUsedDir + '.\n';
             });
 
-
             mkdirp(notUsedDir, function (err) {
                 if (err) {
                     console.error(err);

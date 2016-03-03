@@ -8,15 +8,30 @@ alias
 
 echo gitio
 gitio && git pull
+
 echo CloudNotes
 cn && git pull
+
 echo JsObjects
 jo && git pull
+
 echo Writing
 wt && git pull
+
 echo ElfSite
 elfsite && git pull
+
 echo isit322-calvert-2016
 i3c && git pull
+
 echo elven-assignments
 elfa && git pull
+
+echo prog270-calvert-2016
+cd ~/Git/prog270-calvert-2016
+git pull
+
+echo elven-tools
+elventools
+pwd
+git pull
