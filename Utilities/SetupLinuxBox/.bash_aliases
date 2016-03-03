@@ -91,4 +91,4 @@ alias elfsite="cd $GIT_HOME/ElfSite/Code"
 alias nm="ln -s ~/tmp/node_modules/"
 alias components="ln -s ~/tmp/components/ public/components"
 alias slb="cd $ELF_UTILS/SetupLinuxBox"
-export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
+alias elventools="cd $GIT_HOME/elven-tools"

@@ -6,10 +6,35 @@ source ~/.bash_aliases
 
 alias
 
+function title() {
+	echo -e "\n==============="
+	echo $1
+	echo "==============="
+}
+
+title 'Git IO (charlie calvert)'
 gitio && git status
+
+title 'Cloud Notes'
 cn && git status
+
+title 'JsObjects'
 jo && git status
+
+title 'Writing'
 wt && git status
+
+title 'Elf Site'
 elfsite && git status
+
+title 'i3c Working Site'
 i3c && git status
+
+title 'Elven Assignments'
 elfa && git status
+
+title 'Prog270Calvert'
+p2c && git status
+
+title 'Elven Tools'
+elventools && git status
