@@ -15,7 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "elven-code": "^1.5.0",
-    "lwip": "0.0.8"
+    "lwip": "0.0.8",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

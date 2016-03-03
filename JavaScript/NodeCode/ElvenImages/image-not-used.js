@@ -5,12 +5,12 @@ var ImagesNotUsed = (function() {
     var path = require('path');
     var elfConfig = require('elven-code').elfConfig;
     var elfLog = require('elven-code').elfLog;
-
+	var mkdirp = require('mkdirp');
     var imagesUsed = [];
     var base = '/var/www/html/';
 
     function ImagesNotUsed() {
-        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.setLevel(elfLog.logLevelMinorDetails);
     }
 
     function arrayContains(needle, haystack) {
@@ -98,11 +98,12 @@ var ImagesNotUsed = (function() {
                 commands += 'mv ' + path.normalize(base + imageName) + ' ' + notUsedDir + '.\n';
             });
 
+
             mkdirp(notUsedDir, function (err) {
                 if (err) {
                     console.error(err);
                 } else {
-                    elfLog.log(elfLog.logLevelDetails, 'Directory confirmed:' + destinationDir);
+                    elfLog.log(elfLog.logLevelDetails, 'Directory confirmed:' + notUsedDir);
                     fs.writeFile('moveNotUsed.sh', commands, function(err) {
                         if (err) {
                             throw err;
@@ -116,13 +117,14 @@ var ImagesNotUsed = (function() {
     }
 
     ImagesNotUsed.prototype.loadConfig = function() {
-        elfConfig.load(function() {
+		elfConfig.useLocalConfig = true;
+        elfConfig.load(function() {			
             base = elfConfig.get('elvenImages', 'baseDir');
             var markdownFileWithImages = elfConfig.get('elvenImages', 'markdownFileWithImages');
             var allImagesJsonFile = elfConfig.get('elvenImages', 'allImagesJsonFile');
             var notUsedDir = elfConfig.get('elvenImages', 'notUsedDir');
-            elfLog.log(elfLog.logLevelMinorDetails, base + ' ' + markdownFileWithImages + ' ' + allImagesJsonFile);
-            processNotUsed(markdownFileWithImages, allImagesJsonFile);
+            elfLog.log(elfLog.logLevelMinorDetails, base + ' ' + markdownFileWithImages + ' ' + allImagesJsonFile + ' ' + notUsedDir);
+            processNotUsed(markdownFileWithImages, allImagesJsonFile, notUsedDir);
         });
     };
 
