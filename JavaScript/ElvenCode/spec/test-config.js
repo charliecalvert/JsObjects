@@ -3,12 +3,15 @@
  */
 
 var elfConfig = require('../index').elfConfig;
+var elfLog = require('../index').elfLog;
+elfLog.setLevel(elfLog.logLevelSilent);
 
 describe('test elven-config suite', function() {
     'use strict';
 
     it('shows we can create the elf config', function(done) {
-        elfConfig.load(function(data) {
+        elfConfig.useLocalConfig = false;
+        elfConfig.load(function(err, data) {
             expect(data.calvert['base-dir']).toBe('/home/charlie/');
             done();
         });

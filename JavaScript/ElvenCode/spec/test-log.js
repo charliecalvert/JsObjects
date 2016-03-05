@@ -42,4 +42,16 @@ describe('test log suite', function() {
         expect(result).toBe('');
     });
 
+    it('expects to handle two parameter logs', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        var result = elfLog.setMessage(elfLog.logLevelDetails, 'Ok', 'Yes');
+        expect(result).toBe('Details: Ok Yes');
+    });
+
+    it('expects to handle three parameter logs', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        var result = elfLog.setMessage(elfLog.logLevelDetails, 'Ok', 'Yes', 'Sir');
+        expect(result).toBe('Details: Ok Yes Sir');
+    });
+
 });

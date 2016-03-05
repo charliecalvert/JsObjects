@@ -40,9 +40,14 @@ var ensureStartsWithPathSep = function(fileName) {
     return fileName;
 };
 
+var getLastCharacterOfString = function(value) {
+    return value.substring(value.length - 1);
+};
+
 var ensureEndsWithPathSep = function(fileName) {
     'use strict';
-    if (fileName.substring(fileName.length, 1) !== path.sep) {
+
+    if (getLastCharacterOfString(fileName) !== path.sep) {
         fileName = fileName + path.sep;
     }
     return fileName;
@@ -177,6 +182,46 @@ function isArray(itemToCheck) {
     return Object.prototype.toString.call(itemToCheck) === '[object Array]';
 }
 
+function arrayDifference(firstArray, secondArray) {
+    return firstArray.filter(function(item) {
+        return secondArray.indexOf(item) < 0;
+    });
+}
+
+// Flawed solution. Read comments: http://stackoverflow.com/a/1187628
+function arraySymmetricDifference (firstArray, secondArray) {
+
+    var temp = [];
+    var difference = [];
+
+    for (var i = 0; i < firstArray.length; i++) {
+        console.log(firstArray[i]);
+        temp[firstArray[i]] = true;
+        console.log(temp[firstArray[i]]);
+    }
+
+    console.log('temp:', temp);
+    console.log(firstArray);
+
+    for (i = 0; i < secondArray.length; i++) {
+        if (temp[secondArray[i]]) {
+            delete temp[secondArray[i]];
+        } else {
+            temp[secondArray[i]] = true;
+        }
+    }
+
+    console.log(temp);
+    console.log(firstArray);
+
+    for (var item in temp) {
+        console.log(item);
+        difference.push(item);
+    }
+
+    return difference;
+}
+
 function getHomeDir() {
     'use strict';
     var homeDir = null;
@@ -222,6 +267,7 @@ function readFile(fileName, callback) {
 
 exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
+exports.getLastCharacterOfString = getLastCharacterOfString;
 exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin;
@@ -238,6 +284,7 @@ exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.getHomeDir = getHomeDir;
 exports.isArray = isArray;
+exports.arrayDifference = arrayDifference;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
 exports.writeFile = writeFile;
