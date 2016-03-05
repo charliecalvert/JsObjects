@@ -8,13 +8,14 @@ var ImageSize = (function() {
     var elfLog = require('elven-code').elfLog;
     var fs = require('fs');
     var path = require('path');
+    var utils = require('./utilities');
 
     var extension = '.jpg';
     var smallEnding = '-small' + extension;
     var markdown = '# Image Report';
     var allImages = [];
     var base = '/var/www/html/';
-    var imageDir = '/images/canada/';
+    // var imageDir = '/images/canada/';
 
     function ImageSize() {
         elfLog.setLevel(elfLog.logLevelDetails);
@@ -27,7 +28,7 @@ var ImageSize = (function() {
         return elfUtils.ensureEndsWithPathSep(path);
     }
 
-    function getPixsPath() {
+    function getPixsPath(imageDir) {
         return path.normalize(base + imageDir);
     }
 
@@ -76,18 +77,29 @@ var ImageSize = (function() {
         });
     }
 
-    function getReport(allImagesJsonFile) {
-        var pather = getPixsPath();
-        walker.walkDirs(pather, extension, function(fileReport) {
+    function getReport(allImagesJsonFile, markdownFileWithImages, imageDir) {
+        var picturePath = getPixsPath(imageDir);
+        walker.walkDirs(picturePath, extension, function(fileReport) {
+            var error = false;
             var report = walker.getFullFileNames(fileReport);
             var pathToImage = report[0];
             report.forEach(function(pathToImage) {
+                if (error) { return; }
+                if (pathToImage.indexOf(' ') !== -1) {
+                    console.log('You have spaces in one or more file names:\n\n', pathToImage, '\n');
+                    console.log('This is not a good idea.');
+                    console.log('Fix with this command and then restart:');
+                    console.log('find -name "* *" -type f | rename "s/ /_/g"');
+                    error = true;
+                    return;
+                }
                 if (!pathToImage.endsWith(smallEnding)) {
                     makeMarkDown(pathToImage);
                     convertImage(pathToImage);
                 }
             });
-            writeToFile('images.md', markdown);
+
+            writeToFile(markdownFileWithImages, markdown);
             writeToFile(allImagesJsonFile, JSON.stringify(allImages, null, 4) + '\n');
         });
     }
@@ -95,12 +107,12 @@ var ImageSize = (function() {
     ImageSize.prototype.loadAndRun = function() {
         elfConfig.useLocalConfig = true;
         elfConfig.load(function() {
-            base = elfConfig.get('elvenImages', 'baseDir');
-            imageDir = elfConfig.get('elvenImages', 'imageDir');
-            var allImagesJsonFile = elfConfig.get('elvenImages', 'allImagesJsonFile');
-
-            elfLog.log(elfLog.logLevelDetails, allImagesJsonFile + ' ' + imageDir);
-            getReport(allImagesJsonFile);
+            var configSettings = utils.getConfigurationSettings(elfConfig);
+            if (!elfUtils.fileExists(configSettings.markdownFileWithImages)) {
+                getReport(configSettings.allImagesJsonFile, configSettings.markdownFileWithImages, configSettings.imageDir);
+            } else {
+                elfLog.log(elfLog.logLevelError, 'The destination file already exists:\n', configSettings.markdownFileWithImages);
+            }
         });
     };
 

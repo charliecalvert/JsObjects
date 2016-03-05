@@ -244,6 +244,9 @@ function removeFromEndAtCharacter(value, char) {
     return value.substring(0, value.lastIndexOf(char));
 }
 
+/*******************
+ * File Related
+ ******************/
 function writeFile(fileName, contents, callback) {
     'use strict';
     fs.writeFile(fileName, contents, function(err) {
@@ -263,6 +266,15 @@ function readFile(fileName, callback) {
             'result': fileContents
         });
     });
+}
+
+function fileExists(filePath) {
+    try {
+        return fs.statSync(filePath).isFile();
+    }
+    catch (err) {
+        return false;
+    }
 }
 
 exports.ensureDir = ensureDir;
@@ -289,3 +301,4 @@ exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
 exports.writeFile = writeFile;
 exports.readFile = readFile;
+exports.fileExists = fileExists;

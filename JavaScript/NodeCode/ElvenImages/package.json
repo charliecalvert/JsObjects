@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node image-size.js",
-    "test": "node jasmine-runner.js"
+    "test": "nodemon jasmine-runner.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-code": "1.5.0",
+    "elven-code": "^2.3.0",
     "lwip": "0.0.8",
     "mkdirp": "^0.5.1"
   },
@@ -22,10 +22,11 @@
     "grunt": "~0.4.2",
     "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-jshint": "~0.12.0",
-    "grunt-jscs": "^2.3.0",
     "grunt-jsbeautifier": "^0.2.10",
+    "grunt-jscs": "^2.3.0",
     "grunt-karma": "^0.12.1",
     "jasmine-core": "^2.3.4",
+    "jasmine-spec-reporter": "^2.4.0",
     "jshint-stylish": "^2.0.1",
     "karma": "~0.13.10",
     "karma-jasmine": "~0.3.3",

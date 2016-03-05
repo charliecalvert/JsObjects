@@ -105,4 +105,16 @@ describe('Elvenware Simple Plain Suite', function () {
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual([1, 4, 5, 6]);
     });
+
+    it('expects bashrc to exist', function() {
+        var bash = elfUtils.ensureEndsWithPathSep(process.env.HOME) + '.bashrc';
+        var result = elfUtils.fileExists(bash);
+        expect(result).toBe(true);
+    });
+
+    it('expects bashrc-foo not to exist', function() {
+        var bash = elfUtils.ensureEndsWithPathSep(process.env.HOME) + '.bashrc-foo';
+        var result = elfUtils.fileExists(bash);
+        expect(result).toBe(false);
+    });
 });

@@ -24,82 +24,9 @@
 
 	"elvenImages": {
 		"baseDir": "/var/www/html",
-		"markdownFileWithImages": "/home/charlie/Documents/AllTest/canada02.md",
+		"markdownFileWithImages": "/home/charlie/Documents/AllTest/california.md",
 		"allImagesJsonFile": "all-images.json",
-		"imageDir": "/images/canada/",
-		"notUsedDir": "/home/charlie/temp/not-used/"
-	},
-
-	"balaji": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
-	},
-
-	"enochs": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
-	},
-
-	"evans": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
-	},
-
-	"gankhuyag": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
-	},
-
-	"kariungi": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
-	},
-
-	"thygesen": {
-		"base-dir": "/home/bcuser/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Documents/AllSite"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/home/bcuser/temp/test-site/"
-		]
+		"imageDir": "/images/california/",
+		"notUsedDir": "/home/charlie/temp/not-used/california"
 	}
-
 }
