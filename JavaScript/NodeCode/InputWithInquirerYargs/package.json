@@ -1,0 +1,17 @@
+{
+  "name": "yargs-test",
+  "version": "1.0.0",
+  "description": "Learn to use yargs",
+  "main": "yarg-test.js",
+  "scripts": {
+    "start": "node yarg-test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "terminal-menu": "^2.1.1",
+    "yargs": "^4.2.0"
+  }
+}

@@ -7,16 +7,6 @@ var os = require('os');
 var mkdirp = require('mkdirp');
 var Guid = require('guid');
 
-/**
- * Test if a folder exists, if it does not, make it
- */
-var ensureDir = function(folder) {
-    'use strict';
-    if (!fs.existsSync(folder)) {
-        mkdirp(folder);
-    }
-    return folder;
-};
 
 /**
  * Format the JSON that holds a two dimensional array of
@@ -29,29 +19,6 @@ var prettyPrintGrid = function(grid) {
     return result.replace(']]', ']\n]');
 };
 
-/**
- * Be sure we start with a path separator.
- */
-var ensureStartsWithPathSep = function(fileName) {
-    'use strict';
-    if (fileName.substring(0, 1) !== path.sep) {
-        fileName = path.sep + fileName;
-    }
-    return fileName;
-};
-
-var getLastCharacterOfString = function(value) {
-    return value.substring(value.length - 1);
-};
-
-var ensureEndsWithPathSep = function(fileName) {
-    'use strict';
-
-    if (getLastCharacterOfString(fileName) !== path.sep) {
-        fileName = fileName + path.sep;
-    }
-    return fileName;
-};
 
 /**
  * All I'm really doing here is reminding myself that path.join
@@ -76,49 +43,15 @@ var padNumber = function(numberToPad, width, padValue) {
     }
 };
 
-function endsWith(value, suffix) {
+function getHomeDir() {
     'use strict';
-    return value.indexOf(suffix, this.length - suffix.length) !== -1;
-}
-
-// from: http://stackoverflow.com/a/1203361
-function getExtension(fileName) {
-    'use strict';
-    fileName = fileName.trim();
-    var array = fileName.split('.');
-    if (array.length === 1 || (array[0] === '' && array.length === 2)) {
-        return '';
+    var homeDir = null;
+    if (os.platform() === 'linux') {
+        homeDir = process.env.HOME;
+    } else if (os.platform() === 'win32') {
+        homeDir = process.env.USERPROFILE;
     }
-    return array.pop().toLowerCase();
-}
-
-function swapExtension(fileName, ext) {
-    'use strict';
-    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
-}
-
-/*
- * @name: getFileNameFromPath
- *
- * We can't be sure of what the path separator will be since
- * we don't know the platform ahead of time. If you need
- * to use a pathseparator that may differ from the one for
- * the current OS, then you need to specify it:
- *
- *    var actual = eu.getFileNameFromPath(test, "\\");
- *
- * Otherwise just pass in the string and let the function handle
- * the separator automatically:
- *
- *    var actual = eu.getFileNameFromPath(test);
- */
-function getFileNameFromPath(fileName, pathSeparator) {
-    'use strict';
-    if (typeof pathSeparator === 'undefined') {
-        pathSeparator = path.sep;
-    }
-    var index = fileName.lastIndexOf(pathSeparator);
-    return fileName.substr(index + 1, fileName.length - index - 1);
+    return homeDir;
 }
 
 function getGuid() {
@@ -137,45 +70,9 @@ function getGuidFromMarkdown(fileName, test) {
     });
 }
 
-function stripWhiteSpace(value) {
-    'use strict';
-    return String(value)
-        .replace(/ /g, '')
-        .replace(/\t/g, '')
-        .replace(/\r/g, '')
-        .replace(/\n/g, '');
-}
-
-function stripPunctuation(value) {
-    'use strict';
-    return String(value)
-        .replace(/\./g, '')
-        .replace(/!/g, '')
-        .replace(/\?/g, '')
-        .replace(/,/g, '');
-}
-
-function htmlEscape(str) {
-    'use strict';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-}
-
-// jscs:disable validateQuoteMarks
-function htmlUnescape(str) {
-    'use strict';
-    return String(str)
-        .replace(/&amp;/g, '&')
-        .replace(/&quot;/g, '"')
-        .replace(/&#39;/g, "'")
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>');
-}
-// jscs:enable validateQuoteMarks
+/*******************
+ * Arrays
+ ******************/
 
 function isArray(itemToCheck) {
     'use strict';
@@ -222,15 +119,12 @@ function arraySymmetricDifference (firstArray, secondArray) {
     return difference;
 }
 
-function getHomeDir() {
-    'use strict';
-    var homeDir = null;
-    if (os.platform() === 'linux') {
-        homeDir = process.env.HOME;
-    } else if (os.platform() === 'win32') {
-        homeDir = process.env.USERPROFILE;
-    }
-    return homeDir;
+/*******************
+ * Strings
+ ******************/
+
+function getFirstWord(value) {
+    return value.split(' ')[0];
 }
 
 function insertString(fileName, itemToInsert, index) {
@@ -244,9 +138,60 @@ function removeFromEndAtCharacter(value, char) {
     return value.substring(0, value.lastIndexOf(char));
 }
 
+function endsWith(value, suffix) {
+    'use strict';
+    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+}
+
+var getLastCharacterOfString = function(value) {
+    return value.substring(value.length - 1);
+};
+
+function stripWhiteSpace(value) {
+    'use strict';
+    return String(value)
+        .replace(/ /g, '')
+        .replace(/\t/g, '')
+        .replace(/\r/g, '')
+        .replace(/\n/g, '');
+}
+
+function stripPunctuation(value) {
+    'use strict';
+    return String(value)
+        .replace(/\./g, '')
+        .replace(/!/g, '')
+        .replace(/\?/g, '')
+        .replace(/,/g, '');
+}
+
+function htmlEscape(str) {
+    'use strict';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+// jscs:disable validateQuoteMarks
+function htmlUnescape(str) {
+    'use strict';
+    return String(str)
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>');
+}
+// jscs:enable validateQuoteMarks
+
+
 /*******************
  * File Related
  ******************/
+
 function writeFile(fileName, contents, callback) {
     'use strict';
     fs.writeFile(fileName, contents, function(err) {
@@ -277,28 +222,109 @@ function fileExists(filePath) {
     }
 }
 
-exports.ensureDir = ensureDir;
+/**
+ * Test if a folder exists, if it does not, make it
+ */
+var ensureDir = function(folder) {
+    'use strict';
+    if (!fs.existsSync(folder)) {
+        mkdirp(folder);
+    }
+    return folder;
+};
+
+/**
+ * Be sure we start with a path separator.
+ */
+var ensureStartsWithPathSep = function(fileName) {
+    'use strict';
+    if (fileName.substring(0, 1) !== path.sep) {
+        fileName = path.sep + fileName;
+    }
+    return fileName;
+};
+
+var ensureEndsWithPathSep = function(fileName) {
+    'use strict';
+
+    if (getLastCharacterOfString(fileName) !== path.sep) {
+        fileName = fileName + path.sep;
+    }
+    return fileName;
+};
+
+// from: http://stackoverflow.com/a/1203361
+function getExtension(fileName) {
+    'use strict';
+    fileName = fileName.trim();
+    var array = fileName.split('.');
+    if (array.length === 1 || (array[0] === '' && array.length === 2)) {
+        return '';
+    }
+    return array.pop().toLowerCase();
+}
+
+function swapExtension(fileName, ext) {
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
+}
+
+/*
+ * @name: getFileNameFromPath
+ *
+ * We can't be sure of what the path separator will be since
+ * we don't know the platform ahead of time. If you need
+ * to use a pathseparator that may differ from the one for
+ * the current OS, then you need to specify it:
+ *
+ *    var actual = eu.getFileNameFromPath(test, "\\");
+ *
+ * Otherwise just pass in the string and let the function handle
+ * the separator automatically:
+ *
+ *    var actual = eu.getFileNameFromPath(test);
+ */
+function getFileNameFromPath(fileName, pathSeparator) {
+    'use strict';
+    if (typeof pathSeparator === 'undefined') {
+        pathSeparator = path.sep;
+    }
+    var index = fileName.lastIndexOf(pathSeparator);
+    return fileName.substr(index + 1, fileName.length - index - 1);
+}
+
 exports.prettyPrintGrid = prettyPrintGrid;
-exports.getLastCharacterOfString = getLastCharacterOfString;
-exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
-exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin;
 exports.padNumber = padNumber;
-exports.endsWith = endsWith;
-exports.getExtension = getExtension;
-exports.swapExtension = swapExtension;
-exports.getFileNameFromPath = getFileNameFromPath;
 exports.getGuid = getGuid;
 exports.getGuidFromMarkdown = getGuidFromMarkdown;
+exports.getHomeDir = getHomeDir;
+
+// Array
+exports.isArray = isArray;
+exports.arrayDifference = arrayDifference;
+exports.arraySymetricDifference = arraySymmetricDifference;
+
+// Strings
+exports.getFirstWord = getFirstWord;
+exports.endsWith = endsWith;
+exports.insertString = insertString;
+exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.getLastCharacterOfString = getLastCharacterOfString;
+
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
-exports.getHomeDir = getHomeDir;
-exports.isArray = isArray;
-exports.arrayDifference = arrayDifference;
-exports.insertString = insertString;
-exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+
+// Files
 exports.writeFile = writeFile;
 exports.readFile = readFile;
 exports.fileExists = fileExists;
+
+exports.ensureDir = ensureDir;
+exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
+exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
+exports.getExtension = getExtension;
+exports.swapExtension = swapExtension;
+exports.getFileNameFromPath = getFileNameFromPath;

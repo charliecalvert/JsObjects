@@ -75,12 +75,28 @@ elfLog.log = function(level, message01, message02, message03) {
     }
 };
 
+elfLog.emptyLine = function() {
+    console.log('');
+};
+
+elfLog.nano = function(message01, message02, message03) {
+    this.log(elfLog.logLevelNanoDetails, message01, message02, message03);
+};
+
 elfLog.minorDetails = function(message01, message02, message03) {
     this.log(elfLog.logLevelMinorDetails, message01, message02, message03);
 };
 
 elfLog.details = function(message01, message02, message03) {
     this.log(elfLog.logLevelDetails, message01, message02, message03);
+};
+
+elfLog.error = function(message01, message02, message03) {
+    this.log(elfLog.logLevelError, message01, message02, message03);
+};
+
+elfLog.warning = function(message01, message02, message03) {
+    this.log(elfLog.logLevelWarn, message01, message02, message03);
 };
 
 elfLog.init();

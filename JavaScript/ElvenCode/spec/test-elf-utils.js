@@ -22,11 +22,6 @@ describe('Elvenware Simple Plain Suite', function () {
         expect(true).toBe(true);
     });
 
-    it('expects to get last character of string', function () {
-        var result = elfUtils.getLastCharacterOfString('12345');
-        expect(result).toBe('5');
-    });
-
     it('expects ensure path sep when path does not end with path sep', function () {
         var result = elfUtils.ensureEndsWithPathSep('/foo/bar');
         expect(result).toBe('/foo/bar/');
@@ -37,12 +32,6 @@ describe('Elvenware Simple Plain Suite', function () {
         expect(result).toBe('/foo/bar/');
     });
 
-
-    it('removes from end of a string at character', function () {
-        var testString = '/home/charlie/ElvenCode/spec';
-        var result = elfUtils.removeFromEndAtCharacter(testString, path.sep);
-        expect(result).toBe('/home/charlie/ElvenCode');
-    });
 
     it('expects to walk to find at least three files', function (done) {
         var root = getRoot();
