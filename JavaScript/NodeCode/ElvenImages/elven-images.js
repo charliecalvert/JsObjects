@@ -51,10 +51,16 @@ var ElvenImages = (function() {
         var makeMarkdown = new imageHelp.MakeMarkdown();
         makeMarkdown.loadAndRun(function(report) {
             if (report.spacesInFileNames) {
-                console.log('You have spaces in one or more file names:\n\n', pathToImage, '\n');
-                console.log('This is not a good idea.');
-                console.log('Fix with this command and then restart:');
+                console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
+                console.log('You have spaces in one or more file names.');
+                console.log('The problem is probably in your images directory.');
+                console.log('FileNames or Directories with spaces in their ');
+                console.log('names is not a good idea. Run this command in ');
+                console.log('the offending directory and then restart:');
+                console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
                 console.log('find -name "* *" -type f | rename "s/ /_/g"');
+                console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
+                return;
             }
             if (report.markdownFileExists) {
                 console.log('Markdown file exists: ', report.markdownFileWithImages)
