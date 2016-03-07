@@ -11,7 +11,6 @@ function walk(directoryToWalk, destinationDir) {
     fs.access(directoryToWalk, fs.F_OK | fs.R_OK, function(err) {
         if (err) {
             console.log('Could not find', directoryToWalk);
-            response.sendStatus(401);
         } else {
             console.log('start', directoryToWalk);
             walker.buildFileReport(directoryToWalk, '.md', function(report) {
