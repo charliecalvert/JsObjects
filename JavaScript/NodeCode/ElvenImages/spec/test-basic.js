@@ -2,7 +2,7 @@
  * Created by charlie on 10/7/15.
  */
 
-var utils = require('../utilities.js');
+var utils = require('../image-help/utilities.js');
 var elfConfig = require('elven-code').elfConfig;
 var elfLog = require('elven-code').elfLog;
 elfLog.setLevel(elfLog.logLevelDetails);

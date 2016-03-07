@@ -2,18 +2,21 @@
  * Created by charlie on 3/4/16.
  */
 
-var NotUsed = require('../not-used/get-not-used');
-var GetImagesUsed = require('../not-used/get-images-used');
-var FindNotUsedCommands = require('../not-used/find-not-used-commands');
-var utils = require('../utilities');
+var NotUsed = require('../image-help/find-used-images/get-not-used');
+//var GetImagesUsed = require('../image-help/find-used-images/get-images-used');
+//var FindNotUsedCommands = require('../image-help/find-used-images/find-not-used-commands');
+var imageHelp = require('../image-help/index');
+var utils = require('../image-help/utilities');
 var elfConfig = require('elven-code').elfConfig;
 
 describe('Test Not Used Suite', function() {
+    'use strict';
 
     var notUsed;
     var getImagesUsed;
     var findNotUsedCommands;
 
+    // jscs:disable maximumLineLength
     var imagesOne = [
         '[![/images/california/2015-12-19 09.35.14-small.jpg](/images/california/2015-12-19 09.35.14-small.jpg)](/images/california/2015-12-19 09.35.14.jpg)'
     ];
@@ -25,12 +28,12 @@ describe('Test Not Used Suite', function() {
         '[![/images/california/2015-12-19 09.52.14-small.jpg](/images/california/2015-12-19 09.52.14-small.jpg)](/images/california/2015-12-19 09.52.14.jpg)',
         '[![/images/california/2015-12-19 09.52.17-small.jpg](/images/california/2015-12-19 09.52.17-small.jpg)](/images/california/2015-12-19 09.52.17.jpg)'
     ];
-
+    // jscs:enable
 
     beforeEach(function() {
         notUsed = new NotUsed();
-        getImagesUsed = new GetImagesUsed();
-        findNotUsedCommands = new FindNotUsedCommands();
+        getImagesUsed = new imageHelp.GetImagesUsed();
+        findNotUsedCommands = new imageHelp.FindNotUsedCommands();
     });
 
     it('gets images used for one line', function() {
@@ -46,7 +49,7 @@ describe('Test Not Used Suite', function() {
         expect(getImagesUsed.imagesUsed[0]).toBe('/images/california/2015-12-19 09.35.14-small.jpg');
         expect(getImagesUsed.imagesUsed[1]).toBe('/images/california/2015-12-19 09.35.14.jpg');
 
-        lines = getImagesUsed.findMatches(images[1]);
+        var lines = getImagesUsed.findMatches(images[1]);
         expect(getImagesUsed.imagesUsed[2]).toBe('/images/california/2015-12-19 09.35.26-small.jpg');
         expect(getImagesUsed.imagesUsed[3]).toBe('/images/california/2015-12-19 09.35.26.jpg');
 
@@ -66,10 +69,10 @@ describe('Test Not Used Suite', function() {
     it('gets image difference', function(done) {
         var images = imagesOne;
         var allImages = [
-            "/images/california/2015-12-19 09.35.14.jpg",
-            "/images/california/2015-12-19 09.35.14-small.jpg",
-            "/images/california/2015-12-19 09.35.18.jpg",
-            "/images/california/2015-12-19 09.35.18-small.jpg"
+            '/images/california/2015-12-19 09.35.14.jpg',
+            '/images/california/2015-12-19 09.35.14-small.jpg',
+            '/images/california/2015-12-19 09.35.18.jpg',
+            '/images/california/2015-12-19 09.35.18-small.jpg'
         ];
 
         elfConfig.useLocalConfig = true;
@@ -82,8 +85,9 @@ describe('Test Not Used Suite', function() {
                 for (var i = 0; i < images.length; i++) {
                     getImagesUsed.findMatches(images[i]);
                 }
-                var commands = findNotUsedCommands.getCommands(settings.notUsedDir, allImages, getImagesUsed.imagesUsed);
-                console.log(commands);
+                var commands = findNotUsedCommands.getCommands(settings.notUsedDir,
+                    allImages, getImagesUsed.imagesUsed);
+                //console.log(commands);
                 expect(commands).toContain('09.35.18');
                 expect(commands).toContain('09.35.18-small.jpg');
                 expect(commands).not.toContain('09.35.14.jpg');
@@ -96,28 +100,28 @@ describe('Test Not Used Suite', function() {
     it('gets image difference bigger', function(done) {
         var images = imagesFive;
         var allImages = [
-            "/images/california/2015-12-19 09.35.14.jpg",
-            "/images/california/2015-12-19 09.35.14-small.jpg",
-            "/images/california/2015-12-19 09.35.18.jpg",
-            "/images/california/2015-12-19 09.35.18-small.jpg",
-            "/images/california/2015-12-19 09.35.26.jpg",
-            "/images/california/2015-12-19 09.35.26-small.jpg",
-            "/images/california/2015-12-19 09.52.08.jpg",
-            "/images/california/2015-12-19 09.52.08-small.jpg",
-            "/images/california/2015-12-19 09.52.14.jpg",
-            "/images/california/2015-12-19 09.52.14-small.jpg",
-            "/images/california/2015-12-19 09.52.17.jpg",
-            "/images/california/2015-12-19 09.52.17-small.jpg",
-            "/images/california/2015-12-19 09.52.45.jpg",
-            "/images/california/2015-12-19 09.52.45-small.jpg",
-            "/images/california/2015-12-19 09.52.49.jpg",
-            "/images/california/2015-12-19 09.52.49-small.jpg",
-            "/images/california/2015-12-19 09.52.53.jpg",
-            "/images/california/2015-12-19 09.52.53-small.jpg",
-            "/images/california/2015-12-19 12.10.18.jpg",
-            "/images/california/2015-12-19 12.10.18-small.jpg",
-            "/images/california/2015-12-19 13.09.50.jpg",
-            "/images/california/2015-12-19 13.09.50-small.jpg",
+            '/images/california/2015-12-19 09.35.14.jpg',
+            '/images/california/2015-12-19 09.35.14-small.jpg',
+            '/images/california/2015-12-19 09.35.18.jpg',
+            '/images/california/2015-12-19 09.35.18-small.jpg',
+            '/images/california/2015-12-19 09.35.26.jpg',
+            '/images/california/2015-12-19 09.35.26-small.jpg',
+            '/images/california/2015-12-19 09.52.08.jpg',
+            '/images/california/2015-12-19 09.52.08-small.jpg',
+            '/images/california/2015-12-19 09.52.14.jpg',
+            '/images/california/2015-12-19 09.52.14-small.jpg',
+            '/images/california/2015-12-19 09.52.17.jpg',
+            '/images/california/2015-12-19 09.52.17-small.jpg',
+            '/images/california/2015-12-19 09.52.45.jpg',
+            '/images/california/2015-12-19 09.52.45-small.jpg',
+            '/images/california/2015-12-19 09.52.49.jpg',
+            '/images/california/2015-12-19 09.52.49-small.jpg',
+            '/images/california/2015-12-19 09.52.53.jpg',
+            '/images/california/2015-12-19 09.52.53-small.jpg',
+            '/images/california/2015-12-19 12.10.18.jpg',
+            '/images/california/2015-12-19 12.10.18-small.jpg',
+            '/images/california/2015-12-19 13.09.50.jpg',
+            '/images/california/2015-12-19 13.09.50-small.jpg'
         ];
 
         elfConfig.useLocalConfig = true;
@@ -130,7 +134,8 @@ describe('Test Not Used Suite', function() {
                 for (var i = 0; i < images.length; i++) {
                     getImagesUsed.findMatches(images[i]);
                 }
-                var commands = findNotUsedCommands.getCommands(settings.notUsedDir, allImages, getImagesUsed.imagesUsed);
+                var commands = findNotUsedCommands.getCommands(settings.notUsedDir,
+                    allImages, getImagesUsed.imagesUsed);
                 expect(commands).toContain('09.35.18');
                 expect(commands).toContain('09.35.18-small.jpg');
                 expect(commands).not.toContain('09.35.14.jpg');

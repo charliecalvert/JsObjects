@@ -1,11 +1,13 @@
 {
   "name": "elven-images",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "images",
   "main": "index.js",
   "scripts": {
-    "start": "node image-size.js",
-    "test": "nodemon jasmine-runner.js"
+    "start": "node elven-images.js",
+    "test": "nodemon jasmine-runner.js",
+    "startv": "node elven-images -V",
+    "lint": "jshint '*.js'"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,9 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-code": "^2.3.0",
+    "elven-site-tools": "^3.0.4",
+    "inquirer": "^0.12.0",
+    "isit322-calvert": "^2.0.3",
     "lwip": "0.0.8",
     "mkdirp": "^0.5.1"
   },
@@ -24,14 +28,8 @@
     "grunt-contrib-jshint": "~0.12.0",
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-jscs": "^2.3.0",
-    "grunt-karma": "^0.12.1",
     "jasmine-core": "^2.3.4",
     "jasmine-spec-reporter": "^2.4.0",
-    "jshint-stylish": "^2.0.1",
-    "karma": "~0.13.10",
-    "karma-jasmine": "~0.3.3",
-    "karma-phantomjs-launcher": "~0.2.1",
-    "karma-spec-reporter": "~0.0.23",
-    "phantomjs": "^2.1.2"
+    "jshint-stylish": "^2.0.1"
   }
 }
