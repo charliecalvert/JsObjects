@@ -32,16 +32,16 @@ var elfJoin = function(pathName, fileName) {
     return path.join(pathName, fileName);
 };
 
-var padNumber = function(numberToPad, width, padValue) {
+function padNumber(numberToPad, width, padValue) {
     'use strict';
     padValue = padValue || '0';
-    numberToPad = numberToPad + '';
+    numberToPad = numberToPad.toString();
     if (numberToPad.length >= width) {
         return numberToPad;
     } else {
         return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
     }
-};
+}
 
 function getHomeDir() {
     'use strict';
@@ -225,7 +225,7 @@ function fileExists(filePath) {
 /**
  * Test if a folder exists, if it does not, make it
  */
-var ensureDir = function(folder) {
+function ensureDir(folder) {
     'use strict';
     if (!fs.existsSync(folder)) {
         mkdirp(folder);
@@ -236,22 +236,22 @@ var ensureDir = function(folder) {
 /**
  * Be sure we start with a path separator.
  */
-var ensureStartsWithPathSep = function(fileName) {
+function ensureStartsWithPathSep(fileName) {
     'use strict';
     if (fileName.substring(0, 1) !== path.sep) {
         fileName = path.sep + fileName;
     }
     return fileName;
-};
+}
 
-var ensureEndsWithPathSep = function(fileName) {
+function ensureEndsWithPathSep(fileName) {
     'use strict';
 
     if (getLastCharacterOfString(fileName) !== path.sep) {
         fileName = fileName + path.sep;
     }
     return fileName;
-};
+}
 
 // from: http://stackoverflow.com/a/1203361
 function getExtension(fileName) {

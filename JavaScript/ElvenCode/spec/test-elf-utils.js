@@ -11,7 +11,7 @@ function getRoot() {
     return elfUtils.removeFromEndAtCharacter(__dirname, path.sep);
 }
 
-describe('Elvenware Simple Plain Suite', function () {
+describe('Elvenware Elf Utils Suite', function () {
     'use strict';
 
     beforeEach(function () {
