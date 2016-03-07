@@ -24,9 +24,9 @@
 
 	"elvenImages": {
 		"baseDir": "/var/www/html",
-		"markdownFileWithImages": "/home/charlie/Documents/AllTest/california.md",
+		"markdownFileWithImages": "/home/bcuser/Documents/AllTest/california.md",
 		"allImagesJsonFile": "all-images.json",
 		"imageDir": "/images/california/",
-		"notUsedDir": "/home/charlie/temp/not-used/california"
+		"notUsedDir": "/home/bcuser/temp/not-used/california"
 	}
 }
