@@ -6,13 +6,14 @@ var walker = require('elven-site-tools').walker;
 var fs = require('fs');
 var config = require('./elven-config');
 
-function walk(directoryToWalk, destinationDir) {
+function walk(directoryToWalk, destinationDir, bootswatch) {
 
     fs.access(directoryToWalk, fs.F_OK | fs.R_OK, function(err) {
         if (err) {
             console.log('Could not find', directoryToWalk);
         } else {
             console.log('start', directoryToWalk);
+            console.log('bootswatch', bootswatch);
             walker.buildFileReport(directoryToWalk, '.md', function(report) {
                 console.log('build');
                 var directories = walker.getDirectories(report);
@@ -22,7 +23,8 @@ function walk(directoryToWalk, destinationDir) {
                     destinationDir: destinationDir,
                     directories: directories,
                     highlight: true,
-                    testRun: false
+                    testRun: false,
+                    bootswatch: bootswatch
                 };
 
                 try {
@@ -48,15 +50,21 @@ function run(configSummary) {
     //var directoryToWalk = process.env.HOME + '/Documents/AllTest';
     var directoryToWalk = configSummary.baseDir + configSummary.siteDirs[0];
     var destinationDir = configSummary.destinationDirs[0];
-    walk(directoryToWalk, destinationDir);
+    walk(directoryToWalk, destinationDir, configSummary.bootswatch);
 }
 
 function runConfig() {
     config.load(function() {
         var baseDir = config.get('base-dir');
+        var bootswatch = config.get('bootswatch');
         var siteDirs = config.get('site-dirs');
         var destinationDirs = config.get('destination-dirs');
-        var configSummary = {"baseDir": baseDir, 'siteDirs': siteDirs, "destinationDirs": destinationDirs};
+        var configSummary = {
+            "baseDir": baseDir, 
+            'bootswatch': bootswatch, 
+            'siteDirs': siteDirs, 
+            "destinationDirs": destinationDirs
+        };
         console.log("ConfigSummary:", configSummary);
         run(configSummary);
     });

@@ -1,6 +1,7 @@
 {
   "calvert": {
     "base-dir": "/home/bcuser/",
+    "bootswatch": "cosmos",
     "site-dirs": [
       "Documents/AllTest",
       "Documents/AllSite"
