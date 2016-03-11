@@ -14,6 +14,7 @@ function setupKey() {
 	# -t: Type of key
 	# -P: Passphrase which is initially empty
 	# -f: The file name of the key to create
+	# -v: Describe what you are doing
 	ssh-keygen -v -t rsa -P '' -f $FULL_PATH 
 	cat $PUBLIC_KEY >> $AUTHORIZED_KEY_FILE
 
