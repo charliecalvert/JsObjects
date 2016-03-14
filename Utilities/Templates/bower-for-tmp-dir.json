@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "elven-tools": "^0.0.1"
+    "elven-tools": "^0.0.1",
+    "balaji-tools": "^0.0.1"
   }
 }
