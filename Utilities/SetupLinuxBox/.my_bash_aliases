@@ -39,7 +39,6 @@ alias gitio="cd $GIT_HUB_IO"
 alias elfsite="cd $GIT_HOME/ElfSite/Code"
 alias nm="ln -s ~/tmp/node_modules/"
 alias components="ln -s ~/tmp/components/ public/components"
-alias slb="cd $ELF_UTILS/SetupLinuxBox"
 alias elventools="cd $GIT_HOME/elven-tools"
 
 # My Courses

@@ -43,4 +43,4 @@ alias jos="cd $JSOBJECTS/JavaScript/Syntax"
 alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
 alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
-
+alias slb="cd $ELF_UTILS/SetupLinuxBox"
