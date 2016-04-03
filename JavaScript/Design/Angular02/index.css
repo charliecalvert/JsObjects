@@ -1,8 +1,11 @@
 body {
-	background-color: #8888FF;
 }
 
 .done-true {
   text-decoration: line-through;
   color: #5555FF;
+}
+
+.entry-area {
+    padding: 0px 0px 0px 0px;
 }
