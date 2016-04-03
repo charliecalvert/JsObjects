@@ -5,18 +5,18 @@
 (function() {
 
 	/* Set up a simple controller */
-	var app = angular.module('main', [])
+	var app = angular.module('main', []);
 
-	app.controller('AddController', function($scope) {
+	app.controller('AddController', function() {
 		'use strict';
 
-		$scope.operandA = 17000;
-		$scope.operandB = 15000;
+		var addController = this;
+		addController.operandA = 17000;
+		addController.operandB = 15000;
 
-		$scope.func = function() {
-			return $scope.operandA + $scope.operandB;
+		addController.func = function() {
+			return addController.operandA + addController.operandB;
 		};
-
 	});
 
 })();

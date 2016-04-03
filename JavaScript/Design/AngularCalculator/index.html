@@ -1,22 +1,25 @@
 <!doctype html>
 <html ng-app="main">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elven Angular Calculator</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
-    <script src="angular.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="index.js"></script>
   </head>
   <body>
-    <div ng-controller="AddController">
+    <div ng-controller="AddController as addController">
       <h1>Angular Calculator</h1>
       <div id=result>
-      {{operandA}} + {{operandB}} = {{func()}}
+      {{addController.operandA}} + {{addController.operandB}} = {{addController.func()}}
       </div>
       <p>Enter two numbers that you want to add together in the input controls below.</p>
       <table>
        <tr><td>OperandA</td><td>OperandB</td></tr>
        <tr>
-         <td><input type="number" ng-pattern="/\d+/" step="1" min="0" ng-model="operandA" required ></td>
-         <td><input type="number" ng-pattern="/\d+/" ng-model="operandB" required ></td>
+         <td><input type="number" ng-pattern="/\d+/" step="1" min="0" ng-model="addController.operandA" required ></td>
+         <td><input type="number" ng-pattern="/\d+/" ng-model="addController.operandB" required ></td>
        </tr>
       </table>
       

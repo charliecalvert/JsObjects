@@ -7,8 +7,8 @@ module.exports = function(config) { 'use strict';
 
     // list of files / patterns to load in the browser
     files: [   
-      'angular.js',
-      'angular-mocks.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       'index.js',
       'Test01.js'
     ],
