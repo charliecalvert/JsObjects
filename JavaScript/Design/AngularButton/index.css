@@ -1,13 +1,23 @@
-#inputArea {	
-	background-color: #555599;
-	font-size: x-large;
-	width: 255px;
-	height: 50px;
+body {
+	background-color: #008855;
 }
 
-#answerArea {
-	background-color: #009900;
-	font-size: x-large;
+.inputArea {
+	background-color: #00DDAA;
 	width: 255px;
-	height: 50px;
+	padding: 5px 0px 7px 5px;
+	margin: 5px 0px 5px 5px;
 }
+
+.answerArea {
+	font-size: x-large;
+}
+
+.reportArea {
+	background-color: #005522;
+	color: #FFFFFF;
+	font-size: large;
+	padding: 7px 0px 0px 0px;
+}
+
+

@@ -1,26 +1,50 @@
 <!doctype html>
 <html ng-app="main">
-	<head>
-		<title>Angular Getting Started</title>
-		<link href="index.css" type="text/css" rel="stylesheet" />
-		<script src="angular.js"></script>
-		<script src="index.js"></script>
-	</head>
-	<body>
-		<div ng-controller='InputArea'>
-			<div>
-				<button ng-click="toggle()">
-					Toggle Visible Button
-				</button>
-			</div>
-			<label>What is the sum of 2 + 2:</label>
-			<input type="text" ng-model="answer" placeholder="Put your answer here">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-			<div ng-show="visible">
-				<p>
-					2 + 2 = {{answer}}
-				</p>
-			</div>
-		</div>
-	</body>
+    <title>Angular Getting Started</title>
+    <link href="index.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<form name="myForm" ng-controller='InputView as view'>
+    <h1>Angular Respond to Button Click</h1>
+
+    <p>Click the button to toggle the visibility of the area shown below.</p>
+
+    <p>Try this example in both Chrome and Firefox to see differences in the way browsers handle errors.</p>
+
+    <div class="inputArea">
+        <button ng-click="view.toggle()">
+            Toggle Visible Button
+        </button>
+        <p>What is the sum of 2 + 2:</p>
+        <input type="number" name="numberInput" ng-model="answer" placeholder="Put your answer here" required>
+        <div role="alert">
+            <span class="error" ng-show="myForm.numberInput.$error.required">Required!</span>
+            <span class="error" ng-show="myForm.numberInput.$error.number">Not valid number!</span>
+        </div>
+    </div>
+
+
+    <div class="inputArea answerArea" ng-show="view.visible">
+        <div>
+            <p>2 + 2 = {{answer}}</p>
+        </div>
+    </div>
+
+    <div class="reportArea">
+        <pre>
+    myForm.input.$valid = {{myForm.numberInput.$valid}}
+    myForm.input.$error = {{myForm.numberInput.$error}}
+    myForm.$valid = {{myForm.$valid}}
+    myForm.$error.required = {{!!myForm.$error.required}}
+        </pre>
+    </div>
+
+</form>
+</body>
 </html>

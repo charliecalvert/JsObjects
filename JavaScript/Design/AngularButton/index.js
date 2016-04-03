@@ -4,11 +4,15 @@
 
 var app = angular.module("main", []);
 
-app.controller("InputArea", function($scope) {
+app.controller("InputView", function($scope) {
 	'use strict';
-	$scope.visible = true;
 
-	$scope.toggle = function() {
-		$scope.visible = !$scope.visible;
+	// ControllerAs
+	var view = this;
+
+	view.visible = true;
+
+	view.toggle = function() {
+		view.visible = !view.visible;
 	};
 });
