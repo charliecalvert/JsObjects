@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>_pasted_code_</name>
+	<name>Angular Calculator</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.aptana.projects.webnature</nature>
+		<nature>com.aptana.ruby.core.rubynature</nature>
 	</natures>
 </projectDescription>
