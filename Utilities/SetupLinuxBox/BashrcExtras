@@ -5,7 +5,7 @@ fi
 export CHROME_BIN=/usr/bin/chromium-browser
 
 export NODE_PATH=:$HOME/npm/lib/node_modules
-export PATH="$PATH:$HOME/npm/bin:$HOME/bin/pynaoqi"
+export PATH="$PATH:$HOME/npm/bin"
 export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOME/bin/pynao
 
 # Java Path Support
