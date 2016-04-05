@@ -6,6 +6,18 @@ source ~/.bash_aliases
 
 alias
 
+function other() {
+	echo isit322-calvert-2016
+	i3c && git pull
+
+	echo elven-assignments
+	elfa && git pull
+
+	echo prog270-calvert-2016
+	cd ~/Git/prog270-calvert-2016
+	git pull
+}
+
 echo gitio
 gitio && git pull
 
@@ -20,16 +32,6 @@ wt && git pull
 
 echo ElfSite
 elfsite && git pull
-
-echo isit322-calvert-2016
-i3c && git pull
-
-echo elven-assignments
-elfa && git pull
-
-echo prog270-calvert-2016
-cd ~/Git/prog270-calvert-2016
-git pull
 
 echo elven-tools
 elventools

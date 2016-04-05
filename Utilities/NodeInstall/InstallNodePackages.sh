@@ -98,7 +98,7 @@ function yeoman {
 while true; do
     message "Menu"
     echo "e) Essentials"
-    echo "o) Optional"
+    echo "j) Jade and Cordova"
     echo "t) Test"
     echo "u) Unit Tests"
     echo "y) Yeoman"
@@ -107,12 +107,12 @@ while true; do
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Ee]* ) essentials; continue;;
-        [Oo]* ) optional; continue;;
+        [Jj]* ) optional; continue;;
         [Tt]* ) test grunt-cli; continue;;
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
-        * ) echo "Please answer with e, o, u y or x.";;
+        * ) echo "Please answer with e, j, u y or x.";;
     esac
 done
 
