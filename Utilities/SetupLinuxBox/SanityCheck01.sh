@@ -8,8 +8,6 @@ which npm >> $RESULTS
 which geany >> $RESULTS 
 which ssh >> $RESULTS
 
-@ECHO OFF
-
 echo -----------------------------------------
 echo We are now going to examine $RESULTS
 echo Here is the contents of $RESULTS
