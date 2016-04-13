@@ -15,3 +15,5 @@ bower install
 python3 http.server 30025
 http://localhost:30025/TestBoats.html
 </pre>
+
+Get the [latest Jasmine CDN](https://cdnjs.com/libraries/jasmine).
