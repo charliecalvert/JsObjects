@@ -9,7 +9,7 @@
 
 (function() {
 	
-	var app = angular.module('elvenApp', [ 'boat', 'sailboat' ])
+	var app = angular.module('elvenApp', [ 'boat', 'sailboat' ]);
 
 	app.controller('BoatController', function($scope, boat, sailboat) {
 		'use strict';
