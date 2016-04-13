@@ -93,6 +93,7 @@ function yeoman {
     npm install -g generator-angular
     npm install -g generator-bootstrap
     npm install -g generator-mocha
+    npm install -g generator-karma
 }
 
 while true; do
