@@ -5,10 +5,12 @@
 var elvenApp = angular.module('elvenApp', ['boat', 'sailboat']);
 
 elvenApp.controller('BoatController', function($scope, boat, sailboat) { 'use strict';
-	$scope.simple = "Simple Boat";
-	$scope.boatType = boat.description;
-	$scope.sailBoat = sailboat.description;
+	var vm = this;
+	vm.controllerBoat = "Controller Boat";
+	vm.boat = boat.description;
+	vm.sailboat = sailboat.description;
 	$scope.getNine = function() {
 		return sailboat.getNine();
 	};
+	$scope.test = "My Test";
 });
