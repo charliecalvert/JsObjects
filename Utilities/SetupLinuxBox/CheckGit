@@ -13,8 +13,8 @@ function title() {
 }
 
 function other() {
-	title 'i3c Working Site'
-	i3c && git status
+	title 'p9c Working Site'
+	p9c && git status
 
 	title 'Elven Assignments'
 	elfa && git status
