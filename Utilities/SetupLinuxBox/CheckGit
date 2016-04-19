@@ -13,13 +13,10 @@ function title() {
 }
 
 function other() {
-	title 'p9c Working Site'
+	title 'prog219-calvert'
 	p9c && git status
 
-	title 'Elven Assignments'
-	elfa && git status
-
-	title 'Prog270Calvert'
+	title 'Prog272Calvert'
 	p2c && git status
 }
 
@@ -40,3 +37,8 @@ elfsite && git status
 
 title 'Elven Tools'
 elventools && git status
+
+title 'Elven Assignments'
+elfa && git status
+
+other
