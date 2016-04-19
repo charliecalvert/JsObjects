@@ -12,7 +12,12 @@ function title() {
 	echo "==============="
 }
 
-function other() {
+function winter() {
+	title 'i3c Working Site'
+	i3c && git status
+}
+
+function spring() {
 	title 'prog219-calvert'
 	p9c && git status
 
@@ -41,4 +46,4 @@ elventools && git status
 title 'Elven Assignments'
 elfa && git status
 
-other
+spring
