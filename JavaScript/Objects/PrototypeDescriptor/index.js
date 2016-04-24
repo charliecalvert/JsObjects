@@ -8,19 +8,22 @@ $(document).ready(function() {
     function Foo() {}  // constructor
     Foo.prototype = { name: "Foo" };
     Foo.bar = 333;
-    var foo = new Foo(); 
+    var foo = new Foo();
+    console.log(foo.name);
 
-    var s = new elf.ShowPrototype();
-    s.bar = 3;
+    var showPrototype = new elf.ShowPrototype();
+    showPrototype.showPrototype(foo);
+
+    showPrototype.bar = 3;
     Array.prototype.foo = "Goober";    
     var a = new Array();
-    s.showPrototype(a);    
-    s.display(a.foo);
+    showPrototype.showPrototype(a);
+    showPrototype.display(a.foo);
     a.bar = 5;
-    s.showKeys(a);  //jshint ignore: line
-    s.showKeys(new Object()); //jshint ignore: line
-    s.showKeys(s);
-    s.showKeys(foo);
-    s.showKeys(Foo);
-    s.showPrototype(new Object());
+    showPrototype.showKeys(a);  //jshint ignore: line
+    showPrototype.showKeys(new Object()); //jshint ignore: line
+    showPrototype.showKeys(showPrototype);
+    showPrototype.showKeys(foo);
+    showPrototype.showKeys(Foo);
+    showPrototype.showPrototype(new Object());
 });
