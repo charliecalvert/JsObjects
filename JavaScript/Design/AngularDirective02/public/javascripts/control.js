@@ -2,32 +2,27 @@
  * Created by charlie on 4/24/16.
  */
 
-var elfApp = angular.module("elfApp", []);
+var elfApp = angular.module('elfApp', []);
 
 elfApp.controller('MainController', function($scope) {
     'use strict';
     var mainController = this;
-    mainController.mainData = "Main Data";
-    $scope.scopeData = "Scope Data";
-});
-
-elfApp.directive('truck', function() {
-    'use strict';
-    return {
-        template: '<h1>Truck Luck</h1>'
-    };
+    mainController.mainData = 'Main Data';
+    $scope.scopeData = 'Scope Data';
 });
 
 elfApp.directive('car', function() {
     'use strict';
     return {
-        templateUrl: 'car'
+        templateUrl: 'car',
+        controller: 'MainController',
+        controllerAs: 'mainController'
     };
 });
 
-elfApp.directive('firstDirective', function() {
+elfApp.directive('spanDirective', function() {
     'use strict';
     return function(scope, elem) {
-        elem.append('<span>This span is appended from directive.</span>');
+        elem.append('<span>There is a span in this directive.</span>');
     };
 });

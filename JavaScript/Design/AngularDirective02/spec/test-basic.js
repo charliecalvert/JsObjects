@@ -2,19 +2,15 @@
  * Created by charlie on 10/7/15.
  */
 
-describe('Elvenware Simple Plain Suite', function() {
+describe('Test Basic Suite', function() {
 
     'use strict';
+    var scope;
+    var $compile;
+    var mainController;
+    var $templateCache;
 
-
-
-    var $compile,
-        $rootScope,
-        mainController,
-        directiveElem,
-        $templateCache;
-
-
+    // Load the myApp module, which contains the directive
     beforeEach(module('elfApp'));
 
     beforeEach(function() {
@@ -23,50 +19,62 @@ describe('Elvenware Simple Plain Suite', function() {
     });
 
     beforeEach(inject(function(_$compile_, _$rootScope_, _$templateCache_, _$controller_) {
-        // The injector unwraps the underscores (_) from around the parameter names when matching
+        scope = _$rootScope_.$new();
         $compile = _$compile_;
-        $rootScope = _$rootScope_.$new();
         $templateCache = _$templateCache_;
+        // instantiate the controller stand-alone, without the directive
         mainController = _$controller_('MainController', {
-            $scope: $rootScope,
-            $element: null
+            $scope: scope
         });
-        directiveElem = getCompiledElement();
     }));
-
-    function getCompiledElement() {
-        var element = angular.element('<div first-directive></div>');
-        var compiledElement = $compile(element)($rootScope);
-        $rootScope.$digest();
-        return compiledElement;
-    }
 
     it('expects true to be true', function() {
         expect(true).toBe(true);
     });
 
-    it('should have span element', function() {
-        var spanElement = directiveElem.find('span');
+    it('should be possible to access the car fixture', function() {
+        var spanElement = document.getElementById('cart');
         expect(spanElement).toBeDefined();
-        expect(spanElement.text()).toEqual('This span is appended from directive.');
+        expect(spanElement.innerHTML).toContain('Cart');
     });
 
-    it('test basic example', function() {
-        // Compile a piece of HTML containing the directive
-        // $templateCache.put(templateUrl, jasmine.getFixtures().getFixtureHtml_(templateUrl));
-        var el = document.getElementById('cart');
+    it('can access controllerAs variable', function() {
+        expect(mainController.mainData).toBe('Main Data');
+    });
 
-        //$templateCache.put('car', '<h3 id="car">CarFoo {{scopeData}}</h3>');
+    it('can not access scope variables', function() {
+        expect(scope.scopeData).toBe('Scope Data');
+    });
 
-        $templateCache.put('car', el);
+    it('tests scope variable access in template loaded through raw text', function() {
+        $templateCache.put('car', '<h3 id="car">CarFoo {{scopeData}}</h3>');
 
-        //console.log('el.innerHTML', el.innerHTML);
-        var element = $compile('<car></car>')($rootScope);
-        // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
-        $rootScope.$digest();
+        var element = $compile('<car></car>')(scope);
+        scope.$digest();
+
         // Check that the compiled element contains the templated content
-        //console.log(element.html());
-        expect(element.text()).toContain("CarFoo Scope Data");
+        expect(element.text()).toContain('CarFoo Scope Data');
+    });
+
+    it('tests scope variable access in template loaded through fixture', function() {
+        // Get element from fixture
+        var el = document.getElementById('cart');
+        $templateCache.put('car', el);
+        var element = $compile('<car></car>')(scope);
+        scope.$digest();
+        // Check that the compiled element contains the templated content
+        expect(element.text()).toContain('Cart Scope Data');
+    });
+
+    it('test controllerAs variable accessed in template loaded through fixture', function() {
+        // Get element from fixture
+        var el = document.getElementById('bart');
+        $templateCache.put('car', el);
+        var element = $compile('<car></car>')(scope);
+        scope.$digest();
+
+        // Check that the compiled element contains the templated content
+        expect(element.text()).toContain('Bart Main Data');
     });
 
 });
