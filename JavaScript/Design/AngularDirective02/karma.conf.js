@@ -22,13 +22,13 @@ module.exports = function(config) {
         preprocessors: {
             '**/*.html': ['html2js']
         },
-/*
-        ngHtml2JsPreprocessor: {
+        /*
+                ngHtml2JsPreprocessor: {
 
 
-            // the name of the Angular module to create
-            moduleName: "my.templates"
-        }, */
+                    // the name of the Angular module to create
+                    moduleName: "my.templates"
+                }, */
 
         // list of files to exclude
         exclude: [],

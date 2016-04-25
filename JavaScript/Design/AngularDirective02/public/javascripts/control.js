@@ -27,7 +27,7 @@ elfApp.directive('car', function() {
 
 elfApp.directive('firstDirective', function() {
     'use strict';
-    return function(scope, elem){
+    return function(scope, elem) {
         elem.append('<span>This span is appended from directive.</span>');
     };
 });
