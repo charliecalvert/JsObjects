@@ -2,7 +2,7 @@
  * Created by charlie on 10/7/15.
  */
 
-describe('Test Basic Suite', function() {
+describe('Test Directive Fixture Suite', function() {
 
     'use strict';
     var scope;
@@ -42,7 +42,7 @@ describe('Test Basic Suite', function() {
         expect(mainController.mainData).toBe('Main Data');
     });
 
-    it('can not access scope variables', function() {
+    it('can access scope variables', function() {
         expect(scope.scopeData).toBe('Scope Data');
     });
 
