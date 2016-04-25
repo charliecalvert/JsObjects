@@ -31,7 +31,7 @@ describe('Http back End Simple Plain Suite', function() {
     }));
 
 
-    beforeEach(inject(function (_$httpBackend_) {
+    beforeEach(inject(function(_$httpBackend_) {
         $httpBackend = _$httpBackend_;
         directiveCar = getCompiledElementCar();
     }));
@@ -43,7 +43,7 @@ describe('Http back End Simple Plain Suite', function() {
         $httpBackend.whenGET("car").respond('<h1>Cars {{scopeData}}</h1>');
         var template = $templateCache.get('car');
         console.log('template', template);
-        $templateCache.put('car',template);
+        $templateCache.put('car', template);
 
         var element = angular.element('<car></car>');
         console.log('element', element);
