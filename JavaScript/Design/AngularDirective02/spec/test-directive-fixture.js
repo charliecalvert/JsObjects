@@ -72,7 +72,6 @@ describe('Test Basic Suite', function() {
         $templateCache.put('car', el);
         var element = $compile('<car></car>')(scope);
         scope.$digest();
-
         // Check that the compiled element contains the templated content
         expect(element.text()).toContain('Bart Main Data');
     });

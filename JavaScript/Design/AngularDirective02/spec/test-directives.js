@@ -31,12 +31,6 @@ describe('Test Directives Suite', function() {
         expect(true).toBe(true);
     });
 
-    it('should be possible to access the car fixture', function() {
-        var spanElement = document.getElementById('cart');
-        expect(spanElement).toBeDefined();
-        expect(spanElement.innerHTML).toContain('Cart');
-    });
-
     it('replace angular expression with scope data', function() {
         // Get element from fixture
         var el = document.getElementById('cart');
