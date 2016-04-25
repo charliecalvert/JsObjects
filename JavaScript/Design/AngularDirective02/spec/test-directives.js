@@ -29,7 +29,7 @@ describe('Unit testing great quotes', function() {
         });
     }));
 
-    fit('should have car element', function() {
+    it('should have car element', function() {
         //var spanElement = directiveCar.html();
         var spanElement = document.getElementById('cart');
         //console.log(spanElement.innerHTML);
@@ -37,7 +37,7 @@ describe('Unit testing great quotes', function() {
         expect(spanElement.innerHTML).toContain('Car');
     });
 
-    fit('Replaces the element with the appropriate content', function() {
+    it('Replaces the element with the appropriate content', function() {
         // Get fixture
         var el = document.getElementById('cart');
         $templateCache.put('car', el);
