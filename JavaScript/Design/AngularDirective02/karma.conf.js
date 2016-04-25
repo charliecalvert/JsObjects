@@ -20,7 +20,7 @@ module.exports = function(config) {
         ],
 
         preprocessors: {
-            '**/*.html': []
+            '**/*.html': ['html2js']
         },
 /*
         ngHtml2JsPreprocessor: {

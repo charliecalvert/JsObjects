@@ -4,10 +4,11 @@
 
 var elfApp = angular.module("elfApp", []);
 
-elfApp.controller('MainController', function() {
+elfApp.controller('MainController', function($scope) {
     'use strict';
     var mainController = this;
     mainController.mainData = "Main Data";
+    $scope.scopeData = "Scope Data";
 });
 
 elfApp.directive('truck', function() {
