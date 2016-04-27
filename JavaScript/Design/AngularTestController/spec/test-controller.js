@@ -2,7 +2,6 @@
  * Created by charlie on 4/25/16.
  */
 
-
 describe('Test MainController Suite', function() {
 
     'use strict';

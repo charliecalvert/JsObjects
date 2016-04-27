@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    '**/node_modules/**', '**/components/**'
+                    '**/node_modules/**', '**/components/**',
+                    '**/bower_components/**'
                 ],
                 reporter: require('jshint-stylish'),
                 strict: true,
@@ -32,7 +33,9 @@ module.exports = function(grunt) {
         },
 
         'jsbeautifier': {
-            files: ['**/*.js', '!**/node_modules/**', '!**/components/**'],
+            files: ['**/*.js', '!**/node_modules/**', '!**/components/**',
+                '!**/bower_components/**'
+            ],
             options: {
                 'indentSize': 4
             }

@@ -4,5 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
 
-  div(data-ng-controller="MainController as mainController")
-    p {{mainController.mainData}}
+  div(data-ng-controller="MainController")
+    h2 Main Controller
+    p {{scopeData}}
+    p {{getNine()}}
