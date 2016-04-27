@@ -11,7 +11,7 @@ awk '/registerTask/ && !x {
 # Insert preprocessor object into karma.conf.js
 awk '/port:/ {
     print;
-    print "\n\tpreprocessors: { '\''**/*.html'\'': [] },";
+    print "        preprocessors: { '\''**/*.html'\'': [] },";
     next;
 }1' karma.conf.js > tmp && mv tmp karma.conf.js
 
