@@ -27,7 +27,6 @@
     "karma": "~0.13.10",
     "karma-jasmine": "~0.3.3",
     "karma-phantomjs-launcher": "~1.0.0",
-    "karma-spec-reporter": "~0.0.23",
-    "phantomjs-prebuilt": "^2.1.7"
+    "karma-spec-reporter": "~0.0.23"
   }
 }
