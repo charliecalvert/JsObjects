@@ -1,9 +1,0 @@
-<NotepadPlus>
-    <Session activeView="0">
-        <mainView activeIndex="1">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="1261" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="C:\Src\Git\JsObjects\JavaScript\UnitTests\JasmineSpyOn\Server.js" />
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="1105" startPos="1422" endPos="203" selMode="0" lang="Javascript" encoding="-1" filename="C:\Src\Git\JsObjects\JavaScript\UnitTests\JasmineSpyOn\Source\LoadJson.js" />
-        </mainView>
-        <subView activeIndex="0" />
-    </Session>
-</NotepadPlus>

@@ -6,13 +6,13 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: '',
 
-        frameworks: ['jasmine', 'commonjs'],
+        frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: [
-            'Library/angular.js',
-            'Library/angular-mocks.js',
-            'Source/index.js',
+            'bower_components/jquery/dist/jquery.js',
+            'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
+            'Source/LoadJson.js',
             'Test/TestJsonLoader.js'
         ],
 
@@ -20,13 +20,15 @@ module.exports = function(config) {
         exclude: [],
 
         preprocessors: {
-            'Source/*.js': ['commonjs', 'coverage']
+            // 'Source/*.js': ['commonjs', 'coverage']
         },
 
         // use dots reporter, as travis terminal does not support escaping sequences
         // possible values: 'dots', 'progress'
         // CLI --reporters progress
-        reporters: ['progress', 'coverage'],
+        //reporters: ['progress', 'coverage'],
+        // reporters: ['junit', 'coverage'],
+        reporters: ['spec'],
 
         junitReporter: {
             // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -59,7 +61,8 @@ module.exports = function(config) {
         // - PhantomJS
         // - IE (only Windows)
         // CLI --browsers Chrome,Firefox,Safari
-        browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        // browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+        browsers: ['Chrome'],
         // browsers: ['PhantomJS'],
 
         // If browser does not capture in given timeout [ms], kill it
@@ -78,9 +81,9 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-coverage',
             'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-junit-reporter',
-            'karma-commonjs'
+            // 'karma-firefox-launcher',
+            // 'karma-junit-reporter'
+            'karma-spec-reporter'
         ]
     });
 };
