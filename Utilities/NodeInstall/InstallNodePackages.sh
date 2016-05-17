@@ -44,7 +44,8 @@ function test {
         echo "========================================"
 	echo "Unit Tests"
 	testOne mocha
-	testOne jasmine-node
+	testOne karma-cli
+	testOne phantomjs-prebuilt
 	echo "Yeoman"
 	testOne yo
 	testOne generator-express
@@ -52,7 +53,6 @@ function test {
 	testOne generator-bootstrap
 	testOne generator-mocha
 	echo "Essential"
-	testOne karma-cli
 	testOne grunt-cli
 	testOne express-generator
 	testOne nodemon
@@ -66,24 +66,25 @@ function test {
 }
 
 function essentials() {
-    message "Installing Essentials"
-    npm install -g karma-cli
+    message "Installing Essentials"    
     npm install -g grunt-cli
     npm install -g express-generator
     npm install -g nodemon
     npm install -g bower
+    npm install -g jade
 }
 
 function unitTests {
-    message "Installing Unit Test related code"
-    npm install -g jasmine-node
+    message "Installing Unit Test related code"    
     npm install -g mocha
+    npm install -g karma-cli
+    npm install -g phantomjs-prebuilt
 }
 
-function optional {
+function cordova {
     message "Installing Optional packages"
     npm install -g cordova
-    npm install -g jade
+    
 }
 
 function yeoman {
@@ -98,11 +99,11 @@ function yeoman {
 
 while true; do
     message "Menu"
-    echo "e) Essentials"
-    echo "j) Jade and Cordova"
+    echo "e) Essentials (Grunt, Express, Nodemon, Bower, Jade)"
+    echo "j) Cordova"
     echo "t) Test"
-    echo "u) Unit Tests"
-    echo "y) Yeoman"
+    echo "u) Unit Tests (Karma, PhantomJS, Mocha)"
+    echo "y) Yeoman and common generators"
     echo "x) Exit"
     echo
     read -p "Please make a selection: " eotuyx
