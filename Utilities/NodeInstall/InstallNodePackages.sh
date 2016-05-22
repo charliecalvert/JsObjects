@@ -109,7 +109,7 @@ while true; do
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Ee]* ) essentials; continue;;
-        [Jj]* ) optional; continue;;
+        [Jj]* ) cordova; continue;;
         [Tt]* ) test grunt-cli; continue;;
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
