@@ -7,8 +7,7 @@ describe('Simple Format Fixture Suite', function() {
     'use strict';
 
     var scope;
-    var element;
-    var mainController;
+    //var element;
     var $templateCache;
     var $compile;
 
@@ -23,7 +22,7 @@ describe('Simple Format Fixture Suite', function() {
         $compile = _$compile_;
         $templateCache = _$templateCache_;
 
-        mainController = _$controller_('MainController', {
+        _$controller_('SimpleFormatController', {
             $scope: scope
         });
     }));

@@ -8,7 +8,6 @@ describe('Simple Format HttpBackend Suite', function() {
 
     var scope;
     var $httpBackend;
-    var mainController;
     var $templateCache;
     var $compile;
 
@@ -23,7 +22,7 @@ describe('Simple Format HttpBackend Suite', function() {
         $compile = _$compile_;
         $templateCache = _$templateCache_;
         $httpBackend = _$httpBackend_;
-        mainController = _$controller_('MainController', {
+        _$controller_('SimpleFormatController', {
             $scope: scope
         });
     }));
