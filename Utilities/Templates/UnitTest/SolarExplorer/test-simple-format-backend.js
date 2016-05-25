@@ -2,7 +2,7 @@
  * Created by charlie on 5/10/16.
  */
 
-describe('Simple Format HttpBack Suite', function() {
+describe('Simple Format HttpBackend Suite', function() {
 
     'use strict';
 
@@ -29,7 +29,6 @@ describe('Simple Format HttpBack Suite', function() {
     }));
 
     beforeEach(function() {
-        scope.index = 5;
         var requestHandler = $httpBackend
             .when('GET', 'data/Renewable.json')
             .respond(renewables);
@@ -57,7 +56,7 @@ describe('Simple Format HttpBack Suite', function() {
 
         var el = document.getElementById('simpleFormat');
 
-        $templateCache.put('simple-format', el);
+        $templateCache.put('renewables/simple-format', el);
         var element = $compile('<elf-simple-format></elf-simple-format>')(scope);
         scope.$digest();
 
@@ -67,11 +66,11 @@ describe('Simple Format HttpBack Suite', function() {
         expect(element.text()).toContain('2.2');
     });
 
-    it('tests that we can index through simple-format directive', function() {
+    it('tests that we can index to the fifth element', function() {
 
         var el = document.getElementById('simpleFormat');
         //console.log(el);
-        $templateCache.put('simple-format', el);
+        $templateCache.put('renewables/simple-format', el);
         var element = $compile('<elf-simple-format></elf-simple-format>')(scope);
         scope.$digest();
         scope.index = 5;

@@ -1,3 +1,7 @@
+/**
+ * Created by charlie on 5/10/16.
+ */
+
 describe('Simple Format Fixture Suite', function() {
 
     'use strict';
@@ -39,7 +43,7 @@ describe('Simple Format Fixture Suite', function() {
 
     it('should be possible to access the fixture', function() {
         var simpleFormatHtml = document.getElementById('simpleFormat');
-        console.log(simpleFormatHtml);
+        //console.log(simpleFormatHtml);
         expect(simpleFormatHtml.innerHTML).toContain('Solar:');
         expect(simpleFormatHtml.innerHTML).toContain('Geo:');
         expect(simpleFormatHtml.innerHTML).toContain('Wind:');
@@ -53,14 +57,13 @@ describe('Simple Format Fixture Suite', function() {
         }];
 
         var simpleFormatHtml = document.getElementById('simpleFormat');
-        $templateCache.put('simple-format', simpleFormatHtml);
+        $templateCache.put('renewables/simple-format', simpleFormatHtml);
         var element = $compile('<elf-simple-format></elf-simple-format>')(scope);
         scope.$digest();
 
-        console.log(simpleFormatHtml);
+        //console.log(simpleFormatHtml);
         expect(simpleFormatHtml.innerHTML).toContain('Solar: 2');
         expect(simpleFormatHtml.innerHTML).toContain('Geo: 1');
         expect(simpleFormatHtml.innerHTML).toContain('Wind: 3');
     });
-
 });

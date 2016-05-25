@@ -1,4 +1,4 @@
-fdescribe('Elvenware Fixture and Template Cache Suite', function() {
+describe('Elvenware Fixture and Template Cache Suite', function() {
 
     'use strict';
 
@@ -52,7 +52,7 @@ fdescribe('Elvenware Fixture and Template Cache Suite', function() {
         expect(spanElement).toBeDefined();
     });
 
-    fit('tests template loaded through simple raw text', function() {
+    it('tests template loaded through simple raw text', function() {
 
         scope.renewable = [{
             'Year': '2017',
@@ -75,7 +75,7 @@ fdescribe('Elvenware Fixture and Template Cache Suite', function() {
         expect(element.text()).toContain('2017');
     });
 
-    fit('tests template loaded through more complex raw text', function() {
+    it('tests template loaded through more complex raw text', function() {
         scope.renewable = [{
             'Year': '2017',
             'Solar (quadrillion Btu)': '0.8045307',
@@ -105,7 +105,7 @@ fdescribe('Elvenware Fixture and Template Cache Suite', function() {
         expect(element.text()).toContain('2017');
     });
 
-    fit('tests scope variable access in template loaded through fixture', function() {
+    it('tests scope variable access in template loaded through fixture', function() {
         // Get element from fixture
         scope.renewable = [{
             'Year': '2017',

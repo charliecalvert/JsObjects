@@ -7,7 +7,6 @@ describe('Renewables Suite', function() {
 
     var $httpBackend;
     var scope;
-    var mainController;
 
     // Set up the module
     beforeEach(module('elfApp'));
@@ -16,7 +15,7 @@ describe('Renewables Suite', function() {
         scope = _$rootScope_.$new();
         var $compile = _$compile_;
         $httpBackend = _$httpBackend_;
-        mainController = _$controller_('MainController', {
+        _$controller_('MainController', {
             $scope: scope
         });
     }));
@@ -56,15 +55,15 @@ describe('Renewables Suite', function() {
 
     it('proves we can transform our json into a new array consisting only of years', function() {
         var years = scope.renewableUtils.getYears();
-    //    console.log(years);
         expect(years.length).toBe(12);
     });
 
     it('proves we can get our wood map', function() {
         var woods = scope.renewableUtils.getWood();
-    //    console.log(woods);
         expect(woods.length).toBe(12);
-        expect(woods[11]).toEqual({ wood: '2.099319235' });
+        expect(woods[11]).toEqual({
+            wood: '2.869035197'
+        });
     });
 
     it('proves our array of years contains the expected data', function() {
@@ -76,7 +75,6 @@ describe('Renewables Suite', function() {
 
     it('proves we can transform our json into an array with three properties: geo, solar, and wind', function() {
         var simpleFormat = scope.renewableUtils.getSimpleFormat();
-        //console.log(JSON.stringify(simpleFormat, null, 4));
         var keys = Object.keys(simpleFormat[0]);
         keys.sort();
         expect(keys).toEqual(['geo', 'solar', 'wind']);
