@@ -4,7 +4,7 @@ define(['jquery', 'home'],
 
         var control = {
             init: function() {
-                $('.homeMenu').click(home.init);
+                $('#homeMenu').click(home.init);
                 home.init();
             }
         };
