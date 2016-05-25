@@ -19,7 +19,7 @@ describe('Elvenware Fixture and Template Cache Suite', function() {
         $compile = _$compile_;
         $templateCache = _$templateCache_;
 
-        mainController = _$controller_('MainController', {
+        mainController = _$controller_('RenewablesController', {
             $scope: scope
         });
     }));

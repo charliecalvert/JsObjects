@@ -15,7 +15,7 @@ describe('Renewables Suite', function() {
         scope = _$rootScope_.$new();
         var $compile = _$compile_;
         $httpBackend = _$httpBackend_;
-        _$controller_('MainController', {
+        _$controller_('RenewablesController', {
             $scope: scope
         });
     }));

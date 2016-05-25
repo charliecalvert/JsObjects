@@ -17,7 +17,7 @@ describe('Elvenware Simple Mocks with HttpBackend Suite', function() {
         scope = _$rootScope_.$new();
         var $compile = _$compile_;
         $httpBackend = _$httpBackend_;
-        mainController = _$controller_('MainController', {
+        mainController = _$controller_('RenewablesController', {
             $scope: scope
         });
     }));
