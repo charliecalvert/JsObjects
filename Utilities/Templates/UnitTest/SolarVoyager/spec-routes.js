@@ -7,7 +7,7 @@ var app = require('../app');
 
 fdescribe('Elvenware Spec Routes Suite', function() {
     'use strict';
-    
+
     it('shows we can test', function() {
         expect(true).toBe(true);
     });
@@ -18,7 +18,9 @@ fdescribe('Elvenware Spec Routes Suite', function() {
             .expect(200)
             .expect('Content-Type', /json/)
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                    throw err;
+                }
                 done();
             });
     });
@@ -34,7 +36,9 @@ fdescribe('Elvenware Spec Routes Suite', function() {
                 expect(response.body.renewables[0].Year).toBe('2017');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                    throw err;
+                }
                 done();
             });
     });
@@ -50,7 +54,9 @@ fdescribe('Elvenware Spec Routes Suite', function() {
                 expect(response.body.renewables.Year).toBe('2017');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                    throw err;
+                }
                 done();
             });
     });
@@ -67,7 +73,9 @@ fdescribe('Elvenware Spec Routes Suite', function() {
                 expect(response.body.renewables['Solar (quadrillion Btu)']).toBe('0.227349746');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                    throw err;
+                }
                 done();
             });
     });
