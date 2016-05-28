@@ -1,7 +1,7 @@
 JsObjects
 ========
 
-Code by Charlie Calvert for Elvenware under the MIT License.
+Code by Charlie Calvert for Elvenware.
 
 Various JavaScript, HTML, CSS, Node, and Python Projects covering 
 basic programming issues. To install a readonly copy:
@@ -9,7 +9,7 @@ basic programming issues. To install a readonly copy:
     git clone http://github.com/charliecalvert/JsObjects.git
 
 I have many different example programs stored in this 
-repository. Note especially the Utilities and JavaScript/Objects
+repository. Note especially the Utilities and JavaScript
 directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license. 
