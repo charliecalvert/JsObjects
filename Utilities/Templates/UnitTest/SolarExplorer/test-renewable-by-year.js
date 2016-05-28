@@ -42,6 +42,19 @@ describe('Renewable By Year Suite', function() {
         expect(true).toBe(true);
     });
 
+    it('proves RenewablesByYear.userYearInput exists', function() {
+       expect(scope.userYearInput).toBeDefined();
+    });
+
+    it('proves RenewablesByYear.userYearInput was initialized to a number', function() {
+        expect(typeof scope.userYearInput).toBe('number');
+    });
+
+    it('proves RenewablesByYear.userYearInput to be within an expected range', function() {
+        expect(scope.userYearInput).toBeGreaterThan(2005);
+        expect(scope.userYearInput).toBeLessThan(2018);
+    });
+
     it('proves renewables.getByYear returns index & expected object with string year', function() {
         var renewableByYear = {
             'Year': '2015',

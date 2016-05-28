@@ -62,7 +62,7 @@ describe('Renewables Suite', function() {
         var woods = scope.renewableUtils.getWood();
         expect(woods.length).toBe(12);
         expect(woods[11]).toEqual({
-            wood: '2.869035197'
+            wood: '2.099319235'
         });
     });
 
