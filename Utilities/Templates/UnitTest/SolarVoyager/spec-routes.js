@@ -5,7 +5,7 @@
 var request = require('supertest');
 var app = require('../app');
 
-fdescribe('Elvenware Spec Routes Suite', function() {
+describe('Elvenware Spec Routes Suite', function() {
     'use strict';
 
     it('shows we can test', function() {
