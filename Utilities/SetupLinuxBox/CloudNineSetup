@@ -1,0 +1,52 @@
+#! /bin/bash
+
+BASH_ALIAS=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/.bash_aliases
+BASH_ALIAS_LINK=$HOME/.bash_aliases
+GIT_HOME=$HOME/Git
+JSOBJECTS=$GIT_HOME/JsObjects
+
+function gitSetup() {
+    if [ ! -d "$GIT_HOME" ]; then
+        echo "=> Creating Git directory"
+        mkdir ~/Git
+    else
+        echo "=> Git directory already exists"
+    fi
+    cd ~/Git
+    if [ ! -d "$JSOBJECTS" ]; then
+        echo "=> Cloning JsObjects"
+        git clone https://github.com/charliecalvert/JsObjects.git
+    else
+        echo "=> JsObjects already exists"
+    fi
+}
+
+function setBashAlias() {
+    if [ ! -L $BASH_ALIAS_LINK ]; then
+        echo "=> ~/.bash_aliases will be created"
+        ln -s $BASH_ALIAS $BASH_ALIAS_LINK
+    else
+        echo "=> ~/.bash_aliases already exists"
+    fi
+    shopt -s expand_aliases
+    source $HOME/.bash_aliases
+}
+
+function clean() {
+    if [ -d "$GIT_HOME" ]; then
+        rm -rf $GIT_HOME
+    fi
+    rm ~/.bash_aliases
+}
+
+function run() {
+    gitSetup
+    setBashAlias
+}
+
+#clean
+
+run
+jo
+pwd
+
