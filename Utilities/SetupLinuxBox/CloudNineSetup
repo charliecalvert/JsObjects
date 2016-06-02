@@ -1,6 +1,7 @@
 #! /bin/bash
 
-BASH_ALIAS=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/.bash_aliases
+SETUP_LINUXBOX=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/
+BASH_ALIAS=$SETUP_LINUXBOX/.bash_aliases
 BASHRC=$HOME/.bashrc
 BASH_ALIAS_LINK=$HOME/.bash_aliases
 GIT_HOME=$HOME/Git
@@ -49,7 +50,6 @@ function setBashAliasAndSymbolicLinks() {
         echo "=> ~/.bash_aliases already exists"
     fi
     shopt -s expand_aliases
-    source $BASH_ALIAS_LINK
     sh $SETUP_LINUXBOX/CreateSymbolicLinks
 }
 
@@ -148,4 +148,3 @@ while true; do
         * ) echo "Please answer with c, r or x.";;
     esac
 done
-
