@@ -6,7 +6,6 @@ BASH_ALIAS_LINK=$HOME/.bash_aliases
 GIT_HOME=$HOME/Git
 JSOBJECTS=$GIT_HOME/JsObjects
 BIN_DIR=$HOME/bin
-
 CNBRE=$SETUP_LINUXBOX/CloudNineBashRcExtras.txt
 
 function message {
