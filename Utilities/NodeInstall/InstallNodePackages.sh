@@ -33,52 +33,54 @@ npm get prefix
 
 function testOne {
     if [ -d "$DIRECTORY/lib/node_modules/$1" ]; then
-	echo -e "\e[92m$1 installed\e[0m"
+    echo -e "\e[92m$1 installed\e[0m"
     else
-	echo -e "\e[91m$1 not installed\e[0m"
+    echo -e "\e[91m$1 not installed\e[0m"
     fi 
 }
 
 function test {
-	echo
+    echo
         echo "========================================"
-	echo "Unit Tests"
-	testOne mocha
-	testOne karma-cli
-	testOne phantomjs-prebuilt
-	echo "Yeoman"
-	testOne yo
-	testOne generator-express
-	testOne generator-angular 
-	testOne generator-bootstrap
-	testOne generator-mocha
-	echo "Essential"
-	testOne grunt-cli
-	testOne express-generator
-	testOne nodemon
-	testOne bower
-	echo "Optional"
-	testOne jade
-	testOne cordova
-	echo "========================================"
-    	echo
-	read -n 1 -s
+    echo "Unit Tests"
+    testOne mocha
+    testOne karma-cli
+    testOne phantomjs-prebuilt
+    echo "Yeoman"
+    testOne yo
+    testOne generator-express
+    testOne generator-angular 
+    testOne generator-bootstrap
+    testOne generator-mocha
+    echo "Essential"
+    testOne grunt-cli
+    testOne express-generator
+    testOne nodemon
+    testOne bower
+    echo "Optional"
+    testOne jade
+    testOne cordova
+    echo "========================================"
+        echo
+    read -n 1 -s
 }
 
 function essentials() {
-    message "Installing Essentials"    
-    npm install -g grunt-cli
-    npm install -g express-generator
-    npm install -g nodemon
-    npm install -g bower
-    npm install -g jade
+    $NODE_UTILS/NpmHelper e
+    #message "Installing Essentials"    
+    #npm install -g grunt-cli
+    #npm install -g express-generator
+    #npm install -g nodemon
+    #npm install -g bower
+    #npm install -g jade
 }
 
 function unitTests {
-    message "Installing Unit Test related code"    
-    npm install -g mocha
-    npm install -g karma-cli
-    npm install -g phantomjs-prebuilt
+    $NODE_UTILS/NpmHelper u
+    #message "Installing Unit Test related code"    
+    #npm install -g mocha
+    #npm install -g karma-cli
+    #npm install -g phantomjs-prebuilt
 }
 
 function cordova {
