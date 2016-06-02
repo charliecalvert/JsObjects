@@ -103,10 +103,16 @@ function clean() {
     fi
 }
 
+function nodeSetup() {
+	$NODE_UTILS/InstallNode.sh
+	$NODE_UTILS/NpmHelper e u
+}
+
 function run() {
     gitSetup
     setBashAliasAndSymbolicLinks
     setupBashRc
+    nodeSetup()
 }
 
 
@@ -124,3 +130,4 @@ while true; do
         * ) echo "Please answer with c, r or x.";;
     esac
 done
+

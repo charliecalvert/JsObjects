@@ -6,6 +6,7 @@ export GIT_HOME=$HOME/Git
 export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 export JSOBJECTS=$GIT_HOME/JsObjects
 export ELF_UTILS=$JSOBJECTS/Utilities
+export NODE_UTILS=$JSOBJECTS/Utilities/NodeInstall
 export ELF_TEMPLATES=$ELF_UTILS/Templates
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
