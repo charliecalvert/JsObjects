@@ -31,6 +31,14 @@ function gitSetup() {
 }
 
 function setBashAliasAndSymbolicLinks() {
+    if [ -f $BASH_ALIAS_LINK ]; then
+        echo "=> Moving old ~/.bash_aliases to ~/.bash_aliases.old"
+        mv $BASH_ALIAS_LINK $BASH_ALIAS_LINK.old
+        echo "=> Done"
+    else
+        echo "=> The ~/.bash_aliases does not exist"
+    fi
+    
     if [ ! -L $BASH_ALIAS_LINK ]; then
         echo "=> Creating ~/.bash_aliases symbolic link"
         ln -s $BASH_ALIAS $BASH_ALIAS_LINK
@@ -40,9 +48,14 @@ function setBashAliasAndSymbolicLinks() {
     fi
     shopt -s expand_aliases
     source $BASH_ALIAS_LINK
-    sh /home/ubuntu/Git/JsObjects/Utilities/SetupLinuxBox/CreateSymbolicLinks
+    sh $SETUP_LINUXBOX/CreateSymbolicLinks
 }
 
+function setupBashRc() {
+    cat $SETUP_LINUXBOX/CloudNineBashRcExtras.txt >> $HOME/.bashrc
+}
+
+}
 function clean() {
     if [ -d "$GIT_HOME" ]; then
         echo "=> Deleting Git Directory and all contents"
@@ -52,8 +65,9 @@ function clean() {
         echo "=> Not deleting Git Directory because it does not exist"
     fi
     if [ -L "$BASH_ALIAS_LINK" ]; then
-        echo "=> Deleting bash alias link"
+        echo "=> Deleting bash alias link and restoring original .bash_aliases"
         rm ~/.bash_aliases
+        mv $BASH_ALIAS_LINK.old $BASH_ALIAS_LINK
         echo "=> Done"
     else
         echo "=> Not deleting bash alias link because it does not exist"
@@ -101,3 +115,4 @@ while true; do
         * ) echo "Please answer with c, r or x.";;
     esac
 done
+
