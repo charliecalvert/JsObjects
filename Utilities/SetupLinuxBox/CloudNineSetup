@@ -1,6 +1,7 @@
 #! /bin/bash
 
 SETUP_LINUXBOX=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/
+NODE_UTILS=$HOME/Git/JsObjects/Utilities/NodeInstall/
 BASH_ALIAS=$SETUP_LINUXBOX/.bash_aliases
 BASHRC=$HOME/.bashrc
 BASH_ALIAS_LINK=$HOME/.bash_aliases
@@ -120,9 +121,7 @@ function runBasics() {
 }
 
 function runAll() {
-    gitSetup
-    setBashAliasAndSymbolicLinks
-    setupBashRc
+	runBasics
     nodeSetup
     nodePackages
 }
