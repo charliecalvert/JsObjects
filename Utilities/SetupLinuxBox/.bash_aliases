@@ -8,6 +8,7 @@ export JSOBJECTS=$GIT_HOME/JsObjects
 export ELF_UTILS=$JSOBJECTS/Utilities
 export ELF_TEMPLATES=$ELF_UTILS/Templates
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
+export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
 
 # Alias definitions.
 
@@ -43,4 +44,4 @@ alias jos="cd $JSOBJECTS/JavaScript/Syntax"
 alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
 alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
-alias slb="cd $ELF_UTILS/SetupLinuxBox"
+alias slb="cd $SETUP_LINUXBOX"
