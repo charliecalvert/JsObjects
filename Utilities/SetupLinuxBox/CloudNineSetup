@@ -104,28 +104,48 @@ function clean() {
 }
 
 function nodeSetup() {
-	$NODE_UTILS/InstallNode.sh
+    message "Installing Node"
+	$NODE_UTILS/NodeInstall.sh
+	echo "=> When you exit, run: 'nvm use system'"
+}
+
+function nodePackages() {
+    message "Installing Node Packages"
 	$NODE_UTILS/NpmHelper e u
 }
 
-function run() {
+function runBasics() {
     gitSetup
     setBashAliasAndSymbolicLinks
     setupBashRc
-    nodeSetup()
+    nodeSetup
+}
+
+function runAll() {
+    gitSetup
+    setBashAliasAndSymbolicLinks
+    setupBashRc
+    nodeSetup
+    nodePackages
 }
 
 
 while true; do
     message "Menu"
-    echo "r) Run Setup"
-    echo "c) Delete files created by setup"
+    echo "a) Run All (Basic and Node Related)"
+    echo "b) Run Basic Setup (All but Node Related)"
+    echo "c) Delete files created by Basic setup"
+    echo "n) Install Node"
+    echo "p) Install Node Packages"
     echo "x) Exit"
     echo
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
+        [Aa]* ) runAll; continue;;
+        [Bb]* ) runBasics; continue;;
         [Cc]* ) clean; continue;;
-        [Rr]* ) run; continue;;
+        [Nn]* ) nodeSetup; continue;;
+        [Pp]* ) nodePackages; continue;;
         [Xx]* ) break;;
         * ) echo "Please answer with c, r or x.";;
     esac
