@@ -1,10 +1,13 @@
 #! /bin/bash
 
 BASH_ALIAS=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/.bash_aliases
+BASHRC=$HOME/.bashrc
 BASH_ALIAS_LINK=$HOME/.bash_aliases
 GIT_HOME=$HOME/Git
 JSOBJECTS=$GIT_HOME/JsObjects
 BIN_DIR=$HOME/bin
+
+CNBRE=$SETUP_LINUXBOX/CloudNineBashRcExtras.txt
 
 function message {
     echo
@@ -52,10 +55,16 @@ function setBashAliasAndSymbolicLinks() {
 }
 
 function setupBashRc() {
-    cat $SETUP_LINUXBOX/CloudNineBashRcExtras.txt >> $HOME/.bashrc
+    if grep -Fq "NODE_PATH" $BASHRC
+    then
+        echo "=> Found NODE_PATH in .bashrc. No changes"
+    else
+        echo "=> Did not find NODE_PATH in .bashrc. Adding it."
+        cp $BASHRC $BASHRC.old
+        cat "$CNBRE" >> "$BASHRC"
+    fi
 }
 
-}
 function clean() {
     if [ -d "$GIT_HOME" ]; then
         echo "=> Deleting Git Directory and all contents"
@@ -97,7 +106,7 @@ function clean() {
 function run() {
     gitSetup
     setBashAliasAndSymbolicLinks
-    
+    setupBashRc
 }
 
 
@@ -115,4 +124,3 @@ while true; do
         * ) echo "Please answer with c, r or x.";;
     esac
 done
-
