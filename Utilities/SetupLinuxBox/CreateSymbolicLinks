@@ -1,4 +1,6 @@
-export ELF_UTILS=$JSOBJECTS/Utilities
+JSOBJECTS=$HOME/Git/JsObjects
+ELF_UTILS=$JSOBJECTS/Utilities
+
 ln -s $ELF_UTILS/NodeInstall/CreateExpressProject ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/CreateAllExpress ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/check-karma-grunt-config ~/bin/.
