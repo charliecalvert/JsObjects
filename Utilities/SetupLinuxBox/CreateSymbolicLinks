@@ -1,5 +1,18 @@
-JSOBJECTS=$HOME/Git/JsObjects
-ELF_UTILS=$JSOBJECTS/Utilities
+#! /bin/bash
+
+if [ ! -n "$JSOBJECTS" ]; then 
+    echo "=> Creating JSOBJECTS variable"
+    JSOBJECTS=$HOME/Git/JsObjects
+else
+    echo "=> "JSOBJECTS environment variable already exists
+fi
+
+if [ ! -n "$ELF_UTILS" ]; then 
+    echo "=> Creating ELF_UTILS variable"
+    ELF_UTILS=$JSOBJECTS/Utilities
+else
+    echo "=> "ELF_UTILS environment variable already exists
+fi
 
 ln -s $ELF_UTILS/NodeInstall/CreateExpressProject ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/CreateAllExpress ~/bin/.
