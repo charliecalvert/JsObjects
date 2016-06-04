@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  header.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav(role='banner')
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='.#/') Solar Explorer
+      nav.collapse.navbar-collapse.bs-navbar-collapse(role="navigation")
+        ul.nav.navbar-nav
+          li.trigger-collapse(ng-class="{ active: isActive('/')}")
+            a(ng-href='#/') Home
+          li.trigger-collapse(ng-class="{ active: isActive('/first')}")
+            a(ng-href='#/first') First
+          li.trigger-collapse(ng-class="{ active: isActive('/about')}")
+            a(ng-href='#/about') About
+  .container
+    h1= title
+    p Welcome to #{title}
+    p Author #{author}
+
+    div(data-ng-view="")
