@@ -2,13 +2,14 @@
  * @author Charlie Calvert
  */
 
-angular.module('elvenApp', ['tools']);
+var app = angular.module('elvenApp', ['tools']);
 
-function BoatController($scope, boat, sailboat) { 'use strict';
-	$scope.simple = "Simple Boat";
-	$scope.boatType = boat.getDescription();
-	$scope.sailBoat = sailboat.getDescription();
+app.controller('BoatController', function($scope, boat, sailboat) {
+	'use strict';
+	$scope.controllerBoat = "boat Controller";
+	$scope.simpleBoat = boat.getDescription();
+	$scope.sailboat = sailboat.getDescription();
 	$scope.getNine = function() {
 		return sailboat.getNine();
 	};
-}
+});

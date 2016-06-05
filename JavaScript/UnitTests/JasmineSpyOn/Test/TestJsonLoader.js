@@ -21,10 +21,9 @@ describe("mycontrollertest", function() {
             "damage": 2
         };
         spyOn($, "getJSON").and.returnValue({
-            fail: function(c) {
-                c('This error is expected in a test');
+            fail: function(error) {
+                error('This error is expected in a test');
             }
-            // fail: function(c){ c(data); }
         });
         myController.loadJson({
             data: {
@@ -41,6 +40,7 @@ describe("mycontrollertest", function() {
             "damage": 2
         };
         fix.html(data.name);
+        console.log('ShowJson:', $('#showJson').html());
         expect($('#showJson')).toHaveText('NPC01');
     });
 });

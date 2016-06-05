@@ -1,0 +1,9 @@
+# http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
+
+sudo tcpdump -i eno1  \
+	src port 80 or dst port 80 \
+	-w port-80-recording.pcap
+
+# Then use wireshark to read the results:
+# sudo apt-get install wireshark
+# wireshark port-80-recording.pcap

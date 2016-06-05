@@ -6,32 +6,50 @@ source ~/.bash_aliases
 
 alias
 
-echo gitio
-gitio && git pull
+function title() {
+	echo -e "\n==============="
+	echo $1
+	echo "==============="
+}
 
-echo CloudNotes
-cn && git pull
+function other() {
+	title isit322-calvert-2016
+	i3c && git pull
 
-echo JsObjects
-jo && git pull
+	title prog270-calvert-2016
+	cd ~/Git/prog270-calvert-2016
+	git pull
+}
 
-echo Writing
-wt && git pull
+function spring() {
+    title prog219-calvert-2016
+    p9c && pwd && git pull
 
-echo ElfSite
-elfsite && git pull
+    title prog272-calvert-2016
+    p2c && pwd && git pull
+}
 
-echo isit322-calvert-2016
-i3c && git pull
+title gitio
+gitio && pwd && git pull
 
-echo elven-assignments
-elfa && git pull
+title CloudNotes
+cn && pwd && git pull
 
-echo prog270-calvert-2016
-cd ~/Git/prog270-calvert-2016
-git pull
+title JsObjects
+jo && pwd && git pull
 
-echo elven-tools
+title Writing
+wt && pwd && git pull
+
+title ElfSite
+elfsite && pwd && git pull
+
+title elven-assignments
+elfa && pwd && git pull
+
+title elven-tools
 elventools
 pwd
 git pull
+
+spring

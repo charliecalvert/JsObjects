@@ -12,12 +12,9 @@
             }
         },
 
-        exec: {
-
-            stripExtends: {
-                cmd: function() {
-                    return 'sed "/extend/d" views/index.jade > views/fixture.jade';
-                }
+        shell: {
+            fixture: {
+                command: 'sed "/extend/d" views/index.jade > views/fixture.jade'
             }
-        },
- 
+        }, 
+

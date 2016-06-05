@@ -14,7 +14,9 @@ app.get('/dir', function(req, res) {
   res.send({ "dirName": __dirname });
 });
 
-http.listen(30025, function(){
+var port = process.env.PORT || 30025;
+
+http.listen(port, function(){
   "use strict";
-  console.log('listening on *:30025');
+  console.log('listening on ', port);
 });

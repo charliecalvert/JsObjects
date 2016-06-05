@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Modules v05</title>
-        <script src="angular.js"></script>             
+        <script src="bower_components/angular/angular.js"></script>
         <script src="Boats\Main.js"></script>
         <script src="Boats\Boat.js"></script>
         <script src="Boats\SailBoat.js"></script>
@@ -13,9 +13,9 @@
         <h1>Angular Two Modules v05</h1>
         
         <div ng-controller="BoatController">
-        	<p ng-model="simple">{{simple}} </p>
-        	<p ng-model="boatType">{{boatType}} </p>
-        	<p ng-model="sailBoat">{{sailBoat}} </p>
+        	<p>{{controllerBoat}} </p>
+        	<p>{{simpleBoat}} </p>
+        	<p>{{sailboat}} </p>
         	<p>{{getNine()}} </p>
         </div>
         

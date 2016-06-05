@@ -1,0 +1,3 @@
+sudo tcpdump -i wlan0  \
+>                src port 80 or dst port 80 \
+>                -w port-80-recording.pcap

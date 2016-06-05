@@ -1,0 +1,25 @@
+{
+  "name": "angular-three-modules-02",
+  "version": "1.0.0",
+  "description": "Angular",
+  "main": "TestBoats.js",
+  "scripts": {
+    "test": "node TestBoats.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.com:charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "Angular"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jsbeautifier": "^0.2.12",
+    "grunt-jscs": "^2.8.0"
+  }
+}

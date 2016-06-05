@@ -103,9 +103,8 @@ function phoneGap {
     message "PhoneGap"
     
     spacer "Environment Variables"
-    checkEnvironmentVariable ANT_HOME $ANT_HOME
-    checkEnvironmentVariable PHONEGAP_HOME $PHONEGAP_HOME
-    checkEnvironmentVariable ANDROID_SDK_HOME $ANDROID_SDK_HOME
+    checkEnvironmentVariable ANDROID_HOME $ANDROID_HOME
+    checkEnvironmentVariable ANDROID_PLATFORM_TOOLS $ANDROID_PLATFORM_TOOLS
     echo
 }
 

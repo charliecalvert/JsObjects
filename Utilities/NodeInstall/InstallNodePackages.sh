@@ -33,57 +33,60 @@ npm get prefix
 
 function testOne {
     if [ -d "$DIRECTORY/lib/node_modules/$1" ]; then
-	echo -e "\e[92m$1 installed\e[0m"
+    echo -e "\e[92m$1 installed\e[0m"
     else
-	echo -e "\e[91m$1 not installed\e[0m"
+    echo -e "\e[91m$1 not installed\e[0m"
     fi 
 }
 
 function test {
-	echo
+    echo
         echo "========================================"
-	echo "Unit Tests"
-	testOne mocha
-	testOne jasmine-node
-	echo "Yeoman"
-	testOne yo
-	testOne generator-express
-	testOne generator-angular 
-	testOne generator-bootstrap
-	testOne generator-mocha
-	echo "Essential"
-	testOne karma-cli
-	testOne grunt-cli
-	testOne express-generator
-	testOne nodemon
-	testOne bower
-	echo "Optional"
-	testOne jade
-	testOne cordova
-	echo "========================================"
-    	echo
-	read -n 1 -s
+    echo "Unit Tests"
+    testOne mocha
+    testOne karma-cli
+    testOne phantomjs-prebuilt
+    echo "Yeoman"
+    testOne yo
+    testOne generator-express
+    testOne generator-angular 
+    testOne generator-bootstrap
+    testOne generator-mocha
+    echo "Essential"
+    testOne grunt-cli
+    testOne express-generator
+    testOne nodemon
+    testOne bower
+    echo "Optional"
+    testOne jade
+    testOne cordova
+    echo "========================================"
+        echo
+    read -n 1 -s
 }
 
 function essentials() {
-    message "Installing Essentials"
-    npm install -g karma-cli
-    npm install -g grunt-cli
-    npm install -g express-generator
-    npm install -g nodemon
-    npm install -g bower
+    $NODE_UTILS/NpmHelper e
+    #message "Installing Essentials"    
+    #npm install -g grunt-cli
+    #npm install -g express-generator
+    #npm install -g nodemon
+    #npm install -g bower
+    #npm install -g jade
 }
 
 function unitTests {
-    message "Installing Unit Test related code"
-    npm install -g jasmine-node
-    npm install -g mocha
+    $NODE_UTILS/NpmHelper u
+    #message "Installing Unit Test related code"    
+    #npm install -g mocha
+    #npm install -g karma-cli
+    #npm install -g phantomjs-prebuilt
 }
 
-function optional {
+function cordova {
     message "Installing Optional packages"
     npm install -g cordova
-    npm install -g jade
+    
 }
 
 function yeoman {
@@ -93,26 +96,27 @@ function yeoman {
     npm install -g generator-angular
     npm install -g generator-bootstrap
     npm install -g generator-mocha
+    npm install -g generator-karma
 }
 
 while true; do
     message "Menu"
-    echo "e) Essentials"
-    echo "o) Optional"
+    echo "e) Essentials (Grunt, Express, Nodemon, Bower, Jade)"
+    echo "j) Cordova"
     echo "t) Test"
-    echo "u) Unit Tests"
-    echo "y) Yeoman"
+    echo "u) Unit Tests (Karma, PhantomJS, Mocha)"
+    echo "y) Yeoman and common generators"
     echo "x) Exit"
     echo
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Ee]* ) essentials; continue;;
-        [Oo]* ) optional; continue;;
+        [Jj]* ) cordova; continue;;
         [Tt]* ) test grunt-cli; continue;;
         [Uu]* ) unitTests; continue;;
         [Yy]* ) yeoman; continue;;
         [Xx]* ) break;;
-        * ) echo "Please answer with e, o, u y or x.";;
+        * ) echo "Please answer with e, j, u y or x.";;
     esac
 done
 

@@ -1,0 +1,25 @@
+{
+  "name": "angular-three-modules",
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "authors": [
+    "Charlie Calvert"
+  ],
+  "description": "Demo modules in angular",
+  "main": "index.html",
+  "keywords": [
+    "angular",
+    "demo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-mocks": "^1.5.3"
+  }
+}

@@ -2,7 +2,7 @@ Calculator
 ==========
 
 The primary goal of this project is to help you understand
-how to write unit tests for AngularJS using Jasmine.
+how to write unit tests for AngularJS using Jasmine and ControllerAs.
 
 Suppose we want to test this object:
 
@@ -50,41 +50,7 @@ There are two steps:
 
 ###Add the boilerplate
 
-In a separate file, called JasmineStart.js, add the following boilerplate code that initializes 
-Jasmine and that rarely changes:
-
-```
-(function() {'use strict';
-	var jasmineEnv = jasmine.getEnv();
-	jasmineEnv.updateInterval = 1000;
-
-	var reporter = new jasmine.HtmlReporter();
-
-	jasmineEnv.addReporter(reporter);
-
-	jasmineEnv.specFilter = function(spec) {
-		return reporter.specFilter(spec);
-	};
-
-	var currentWindowOnload = window.onload;
-
-	window.onload = function() {
-		if (currentWindowOnload) {
-			currentWindowOnload();
-		}
-		execJasmine();
-	};
-
-	function execJasmine() {
-		jasmineEnv.execute();
-	}
-
-})();
-```
-
-You can also put the boilerplate in a Script tag in your HTML,
-but that breaks our rule about separating JavaScript from HTML
-from CSS.
+We used to a have boilerplate JasmineStart.js file, but that has been replaced by boot.js.
 
 ###Write your tests.
 

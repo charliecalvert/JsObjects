@@ -1,0 +1,25 @@
+{
+  "name": "angular-directive-02",
+  "description": "Angular Directive example",
+  "main": "bin/www",
+  "authors": [
+    "Charlie Calvert"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Angular"
+  ],
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "angular-mocks": "^1.5.5"
+  }
+}

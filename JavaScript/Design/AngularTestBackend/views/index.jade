@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div(data-ng-controller="MainController as mainController")
+    p {{mainController.mainData}}
+
+    h2 Directive
+    #myDiv
+      p Here is the directive:
+      <car></car>

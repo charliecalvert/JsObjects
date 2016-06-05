@@ -1,0 +1,149 @@
+#! /bin/bash
+
+SETUP_LINUXBOX=$HOME/Git/JsObjects/Utilities/SetupLinuxBox/
+NODE_UTILS=$HOME/Git/JsObjects/Utilities/NodeInstall/
+BASH_ALIAS=$SETUP_LINUXBOX/.bash_aliases
+BASHRC=$HOME/.bashrc
+BASH_ALIAS_LINK=$HOME/.bash_aliases
+GIT_HOME=$HOME/Git
+JSOBJECTS=$GIT_HOME/JsObjects
+BIN_DIR=$HOME/bin
+CNBRE=$SETUP_LINUXBOX/CloudNineBashRcExtras.txt
+
+function message {
+    echo
+    echo =======================
+    echo $1
+    echo =======================
+    echo
+}
+
+function gitSetup() {
+    if [ ! -d "$GIT_HOME" ]; then
+        echo "=> Creating Git directory"
+        mkdir ~/Git
+    else
+        echo "=> Git directory already exists"
+    fi
+    cd ~/Git
+    if [ ! -d "$JSOBJECTS" ]; then
+        echo "=> Cloning JsObjects"
+        git clone https://github.com/charliecalvert/JsObjects.git
+    else
+        echo "=> JsObjects already exists"
+    fi
+}
+
+function setBashAliasAndSymbolicLinks() {
+    if [ -f $BASH_ALIAS_LINK ]; then
+        echo "=> Moving old ~/.bash_aliases to ~/.bash_aliases.old"
+        mv $BASH_ALIAS_LINK $BASH_ALIAS_LINK.old
+        echo "=> Done"
+    else
+        echo "=> The ~/.bash_aliases does not exist"
+    fi
+    
+    if [ ! -L $BASH_ALIAS_LINK ]; then
+        echo "=> Creating ~/.bash_aliases symbolic link"
+        ln -s $BASH_ALIAS $BASH_ALIAS_LINK
+        echo "=> Done"
+    else
+        echo "=> ~/.bash_aliases already exists"
+    fi
+    shopt -s expand_aliases
+    sh $SETUP_LINUXBOX/CreateSymbolicLinks
+}
+
+function setupBashRc() {
+    if grep -Fq "NODE_PATH" $BASHRC
+    then
+        echo "=> Found NODE_PATH in .bashrc. No changes"
+    else
+        echo "=> Did not find NODE_PATH in .bashrc. Adding it."
+        cp $BASHRC $BASHRC.old
+        cat "$CNBRE" >> "$BASHRC"
+    fi
+}
+
+function clean() {
+    if [ -d "$GIT_HOME" ]; then
+        echo "=> Deleting Git Directory and all contents"
+        rm -rf $GIT_HOME
+        echo "=> Done"
+    else
+        echo "=> Not deleting Git Directory because it does not exist"
+    fi
+    if [ -L "$BASH_ALIAS_LINK" ]; then
+        echo "=> Deleting bash alias link and restoring original .bash_aliases"
+        rm ~/.bash_aliases
+        mv $BASH_ALIAS_LINK.old $BASH_ALIAS_LINK
+        echo "=> Done"
+    else
+        echo "=> Not deleting bash alias link because it does not exist"
+    fi
+    
+    if  [ -L "$BIN_DIR/CreateExpressProject" ]; then
+        echo "=> Deleting symbolic links in bin directory"
+        rm $BIN_DIR/CreateExpressProject
+        rm $BIN_DIR/CreateAllExpress
+        rm $BIN_DIR/check-karma-grunt-config
+        rm $BIN_DIR/strip-triple-spaces
+        rm $BIN_DIR/StartPythonWebServer
+        rm $BIN_DIR/TestReady
+        rm $BIN_DIR/TestCheck
+        rm $BIN_DIR/elfgrepcomps
+        rm $BIN_DIR/FixtureReady
+        rm $BIN_DIR/InsertJadeExecGrunt.py
+        echo "=> Done"
+    else
+        echo "=> -----------"
+        echo "=> Not deleting symbolic links in bin directory "
+        echo "=> because we think they don't exist "
+        echo "=> -----------"
+    fi
+}
+
+function nodeSetup() {
+    message "Installing Node"
+	$NODE_UTILS/NodeInstall.sh
+	echo "=> When you exit, run: 'nvm use system'"
+}
+
+function nodePackages() {
+    message "Installing Node Packages"
+	$NODE_UTILS/NpmHelper e u
+}
+
+function runBasics() {
+    gitSetup
+    setBashAliasAndSymbolicLinks
+    setupBashRc
+}
+
+function runAll() {
+	runBasics
+    nodeSetup
+    nodePackages
+}
+
+
+while true; do
+    message "Menu"
+    echo "a) Run All (Basic and Node Related)"
+    echo "b) Run Basic Setup (All but Node Related)"
+    echo "c) Delete files created by Basic setup"
+    echo "n) Install Node"
+    echo "p) Install Node Packages"
+    echo "x) Exit"
+    echo
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+        [Aa]* ) runAll; continue;;
+        [Bb]* ) runBasics; continue;;
+        [Cc]* ) clean; continue;;
+        [Nn]* ) nodeSetup; continue;;
+        [Pp]* ) nodePackages; continue;;
+        [Xx]* ) break;;
+        * ) echo "Please answer with c, r or x.";;
+    esac
+done

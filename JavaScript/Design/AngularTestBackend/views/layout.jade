@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='components/bootstrap/dist/css/bootstrap.css')
+        link(rel='stylesheet', href='components/bootstrap/dist/css/bootstrap-theme.css')
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        script(src="components/jquery/dist/jquery.js")
+        script(src="components/bootstrap/dist/js/bootstrap.js")
+        script(src="components/angular/angular.js")
+        script(src="javascripts/control.js")
+    body(data-ng-app='elfApp')
+        block content

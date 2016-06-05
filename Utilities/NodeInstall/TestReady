@@ -1,14 +1,12 @@
 #! /bin/bash
 
-UNIT_TEST=$ELF_TEMPLATES/UnitTest
-
-cp $UNIT_TEST/Gruntfile.js .
-cp $UNIT_TEST/karma.conf.js .
-cp $UNIT_TEST/.jscsrc .
-sed -i '/\s\s}$/r '$UNIT_TEST'/DevDependencies.json' package.json
+cp $ELF_UNIT_TEST/Gruntfile.js .
+cp $ELF_UNIT_TEST/karma.conf.js .
+cp $ELF_UNIT_TEST/.jscsrc .
+sed -i '/\s\s}$/r '$ELF_UNIT_TEST'/DevDependencies.json' package.json
 js-beautify -r package.json 
 mkdir spec
-cp $UNIT_TEST/test-basic.js spec/.
+cp $ELF_UNIT_TEST/test-basic.js spec/.
 strip-triple-spaces app.js
 # npm install
 echo "============================================="

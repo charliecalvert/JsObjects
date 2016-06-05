@@ -1,0 +1,25 @@
+{
+  "name": "json-from-server",
+  "description": "Test Loading Json from Server",
+  "main": "",
+  "authors": [
+    "Charlie"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "unit",
+    "test"
+  ],
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

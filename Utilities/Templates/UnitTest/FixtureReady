@@ -3,7 +3,7 @@
 # Insert necessary loadNpmTasks and registerTasks into Gruntfile.js
 awk '/registerTask/ && !x {
     print "    grunt.loadNpmTasks('\''grunt-contrib-jade'\'');"
-    print "    grunt.loadNpmTasks('\''grunt-exec'\'');"
+    print "    grunt.loadNpmTasks('\''grunt-shell'\'');"
     print "    grunt.registerTask('\''fixture'\'', ['\''exec:stripExtends'\'', '\''jade'\'', '\''karma'\'']);"
     x=1;
 }1' Gruntfile.js > tmp && mv tmp Gruntfile.js
@@ -11,7 +11,7 @@ awk '/registerTask/ && !x {
 # Insert preprocessor object into karma.conf.js
 awk '/port:/ {
     print;
-    print "\n\tpreprocessors: { '\''**/*.html'\'': [] },";
+    print "        preprocessors: { '\''**/*.html'\'': [] },";
     next;
 }1' karma.conf.js > tmp && mv tmp karma.conf.js
 

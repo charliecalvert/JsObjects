@@ -57,7 +57,7 @@ var LoadJson = (function() {
             // buttons.removeAttr("disabled");
             buttons.prop('disabled', false);
         }).fail(function(jqxhr, textStatus, error) {
-            console.log("error: " + jqxhr);
+            console.log("\nLoadJson.prototype.loadJson\nError Message:\n " + jqxhr);
         });
     };
 

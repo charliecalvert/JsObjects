@@ -12,6 +12,19 @@ function title() {
 	echo "==============="
 }
 
+function winter() {
+	title 'i3c Working Site'
+	i3c && git status
+}
+
+function spring() {
+	title 'prog219-calvert'
+	p9c && git status
+
+	title 'Prog272Calvert'
+	p2c && git status
+}
+
 title 'Git IO (charlie calvert)'
 gitio && git status
 
@@ -27,14 +40,10 @@ wt && git status
 title 'Elf Site'
 elfsite && git status
 
-title 'i3c Working Site'
-i3c && git status
+title 'Elven Tools'
+elventools && git status
 
 title 'Elven Assignments'
 elfa && git status
 
-title 'Prog270Calvert'
-p2c && git status
-
-title 'Elven Tools'
-elventools && git status
+spring
