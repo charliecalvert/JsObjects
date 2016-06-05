@@ -16,10 +16,10 @@ var QueryMongo = (function() {
 	var url = null;
 	var that = null;
 	var database = null;
-	var collectionName = 'test_insert';
+	var collectionName = 'lincoln';
 
 	function QueryMongo() {
-		console.log("Constructor called.")
+		console.log("Constructor called.");
 		that = this;
 	}
 
@@ -31,7 +31,7 @@ var QueryMongo = (function() {
 			that.getData(option);
 			console.log("Leaving loadConfig");
 		});
-	}
+	};
 
 	var getDatabase = function(callback) {
 		console.log('Called QueryMongo.getDatabase: ');
