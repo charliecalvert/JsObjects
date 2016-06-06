@@ -37,6 +37,25 @@ should be called **Config**. Here is the contents of the file:
         ],
         "selectedUrl": 0
     }
+    
+Here is how it might look on Cloud Nine:
+
+```javascript
+    {
+        "urls": [
+            "mongodb://0.0.0.0:27017/test",
+            "mongodb://USERNAME:PASSWORD@dsXXX.mongolab.som:XXXX/DATABASE"
+        ],
+        "selectedUrl": 0
+    }
+```
+    
+You might double check the IP against the Cloud 9 environment variable $IP. It should be 0.0.0.0, but type this at the Cloud 9 bash shell to confirm:
+
+<pre>
+echo $IP
+</pre>
+    
 
 ### Details
 
