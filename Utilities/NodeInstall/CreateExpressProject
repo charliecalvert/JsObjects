@@ -25,6 +25,7 @@ cd $1
 # Setup bower and bootstrap
 cp $ELF_TEMPLATES/bower.json .
 cp $ELF_TEMPLATES/.bowerrc .
+cp $ELF_TEMPLATES/nodemon.json .
 bower install bootstrap --save
 
 # Set port, start command and favicon
