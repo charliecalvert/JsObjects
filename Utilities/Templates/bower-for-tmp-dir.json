@@ -22,7 +22,11 @@
     "tests"
   ],
   "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7"
+    "angular-mocks": "^1.5.5",
     "bootstrap": "^3.3.6",
+    "bootswatch": "^3.3.6",
     "elven-tools": "^0.0.1"
   }
 }

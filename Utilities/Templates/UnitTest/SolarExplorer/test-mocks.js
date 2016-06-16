@@ -9,6 +9,7 @@ describe('Elvenware Simple Mocks with HttpBackend Suite', function() {
     var $httpBackend;
     var scope;
     var mainController;
+    var settings = { useDatabase: false };
 
     // Set up the module
     beforeEach(module('elfApp'));
@@ -18,7 +19,8 @@ describe('Elvenware Simple Mocks with HttpBackend Suite', function() {
         var $compile = _$compile_;
         $httpBackend = _$httpBackend_;
         mainController = _$controller_('RenewablesController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 

@@ -8,6 +8,7 @@ describe('Energy Types Suite', function() {
 
     var $httpBackend;
     var scope;
+    var settings = { useDatabase: false };
 
     // Set up the module
     beforeEach(module('elfApp'));
@@ -17,12 +18,13 @@ describe('Energy Types Suite', function() {
         var $compile = _$compile_;
         $httpBackend = _$httpBackend_;
         _$controller_('EnergyTypesController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 
     beforeEach(function() {
-        //scope.renewableUtils.init(renewables);
+        // console.log("Settings useDatabase", JSON.stringify(settings, null, 4));
         var requestHandler = $httpBackend
             .when('GET', 'data/EnergyTypes.json')
             .respond(energyTypes);
