@@ -10,6 +10,7 @@ describe('Simple Format Fixture Suite', function() {
     //var element;
     var $templateCache;
     var $compile;
+    var settings = { useDatabase: false };
 
     beforeEach(module('elfApp'));
 
@@ -23,7 +24,8 @@ describe('Simple Format Fixture Suite', function() {
         $templateCache = _$templateCache_;
 
         _$controller_('SimpleFormatController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 

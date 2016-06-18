@@ -10,6 +10,7 @@ describe('Simple Format HttpBackend Suite', function() {
     var $httpBackend;
     var $templateCache;
     var $compile;
+    var settings = { useDatabase: false };
 
     beforeEach(module('elfApp'));
 
@@ -23,7 +24,8 @@ describe('Simple Format HttpBackend Suite', function() {
         $templateCache = _$templateCache_;
         $httpBackend = _$httpBackend_;
         _$controller_('SimpleFormatController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 

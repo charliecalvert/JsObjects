@@ -7,6 +7,7 @@ describe('Elvenware Fixture and Template Cache Suite', function() {
     var mainController;
     var $templateCache;
     var $compile;
+    var settings = { useDatabase: false };
 
     beforeEach(module('elfApp'));
 
@@ -20,7 +21,8 @@ describe('Elvenware Fixture and Template Cache Suite', function() {
         $templateCache = _$templateCache_;
 
         mainController = _$controller_('RenewablesController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 

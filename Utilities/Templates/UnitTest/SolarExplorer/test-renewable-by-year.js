@@ -10,6 +10,7 @@ describe('Renewable By Year Suite', function() {
     var $httpBackend;
     var $templateCache;
     var $compile;
+    var settings = { useDatabase: false };
 
     beforeEach(module('elfApp'));
 
@@ -19,7 +20,8 @@ describe('Renewable By Year Suite', function() {
         $templateCache = _$templateCache_;
         $httpBackend = _$httpBackend_;
         _$controller_('RenewableByYearController', {
-            $scope: scope
+            $scope: scope,
+            settings: settings
         });
     }));
 
