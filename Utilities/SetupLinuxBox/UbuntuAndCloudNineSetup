@@ -62,7 +62,7 @@ function setBashAliasAndSymbolicLinks() {
     sh $SETUP_LINUXBOX/CreateSymbolicLinks
 }
 
-function setupBashRc(useCloudNine) {
+function setupBashRc() {
     if grep -Fq "NODE_PATH" $BASHRC
     then
         echo "=> Found NODE_PATH in .bashrc. No changes"
