@@ -150,7 +150,7 @@ while true; do
     echo -e $YELLOW"  n) Install Node"
     echo -e $YELLOW"  p) Install Node Packages"
     echo -e $YELLOW"  r) Remove files created by Basic setup"
-    echo -e $LIGHT_RED"  x) Exit"
+    echo -e $LIGHT_RED"  x) Exit (You should source .bashrc when done)"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
