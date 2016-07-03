@@ -151,7 +151,7 @@ while true; do
     echo -e $YELLOW"  p) Install Node Packages"
     echo -e $YELLOW"  r) Remove files created by Basic setup"
     echo -e $LIGHT_RED"  x) Exit"
-    echo
+    echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Aa]* ) runAll false; continue;;
