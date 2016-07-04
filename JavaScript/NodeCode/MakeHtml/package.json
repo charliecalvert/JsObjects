@@ -14,7 +14,7 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-site-tools": "4.0.6",
+    "elven-site-tools": "4.0.7",
     "highlight.js": "^9.5.0",
     "isit322-calvert": "^2.0.3",
     "jstransformer-marked": "^1.0.1",
