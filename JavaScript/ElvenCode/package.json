@@ -11,7 +11,9 @@
     "url": "git+ssh://git@github.com/charliecalvert/JsObjects.git"
   },
   "keywords": [
-    "Elvenware"
+    "Elvenware",
+    "npm",
+    "test"
   ],
   "author": "Charlie Calvert",
   "license": "MIT",

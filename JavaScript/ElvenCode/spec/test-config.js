@@ -40,4 +40,13 @@ describe('test elven-config suite', function() {
             done();
         });
     });
+
+    it('shows we can get the california elvenImages', function(done) {
+        elfConfig.load(function(data) {
+            var california = elfConfig.get('elvenImages', 'california');
+            expect(california.baseDir).toBe('/var/www/html');
+            done();
+        });
+    });
+
 });

@@ -8,12 +8,12 @@ var ElvenImages = (function() {
     var imageHelp = require('elven-site-tools').imageHelp;
 
     function ElvenImages() {
-        elfLog.setLevel(elfLog.logLevelWarn);
+        elfLog.setLevel(elfLog.logLevelDetails);
         list();
     }
 
     function list() {
-
+        elfLog.details('listing');
         var options = [{
             type: 'list',
             name: 'userChoice',
@@ -29,13 +29,14 @@ var ElvenImages = (function() {
                 new inquirer.Separator()
             ],
             filter: function(value) {
+                elfLog.details('filter');
                 value = elfUtils.getFirstWord(value);
                 return value.toLowerCase();
             }
         }];
 
-        inquirer.prompt(options, function(answer) {
-            handleInput(answer.userChoice);
+        inquirer.prompt(options).then(function(answer) {
+            handleInput(answer.userChoice)
         });
 
     }
@@ -71,6 +72,7 @@ var ElvenImages = (function() {
     }
 
     function findUsedImages() {
+        elfLog.details("findUserImages");
         var getNotUsed = new imageHelp.GetNotUsed();
         getNotUsed.loadConfig(function(report) {
             console.log(report);

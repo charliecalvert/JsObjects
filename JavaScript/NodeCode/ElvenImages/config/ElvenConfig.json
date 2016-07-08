@@ -13,20 +13,34 @@
 			"/var/www/html/Prog270/",
 			"/var/www/html/Isit322/"
 		],
-		"destination-dirs-extra": [{
-			"base": "/var/www/html/",
-			"extra": ""
-		}, {
-			"base": "/var/www/html/Assignments/",
-			"extra": "Assignments"
-		}]
+		"destination-dirs-extra": [
+			{
+				"base": "/var/www/html/",
+				"extra": ""
+			},
+			{
+				"base": "/var/www/html/Assignments/",
+				"extra": "Assignments"
+			}
+		]
 	},
 
 	"elvenImages": {
-		"baseDir": "/var/www/html",
-		"markdownFileWithImages": "/home/bcuser/Documents/AllTest/california.md",
-		"allImagesJsonFile": "all-images.json",
-		"imageDir": "/images/california/",
-		"notUsedDir": "/home/bcuser/temp/not-used/california"
+		"selected": "california",
+
+		"california": {
+			"baseDir": "/var/www/html",
+			"markdownFileWithImages": "/home/charlie/Documents/AllTest/california.md",
+			"allImagesJsonFile": "all-images.json",
+			"imageDir": "/images/california/",
+			"notUsedDir": "/home/charlie/temp/not-used/california"
+		},
+		"spain": {
+			"baseDir": "/var/www/html",
+			"markdownFileWithImages": "/home/charlie/Documents/AllTest/spain-2015-08-16-toledo.md",
+			"allImagesJsonFile": "all-images.json",
+			"imageDir": "/images/spain-2015/08-16-toledo/",
+			"notUsedDir": "/home/charlie/temp/not-used/spain-2015/08-16-toledo/"
+		}
 	}
 }
