@@ -5,6 +5,21 @@ import threading
 import sys
 import boto3 as boto
 from boto3.s3.transfer import S3Transfer
+import json
+from pprint import pprint
+
+
+class GetFileNames(object):
+
+    def run(self):
+        with open('all-images.json') as json_data:
+            print(json_data)
+            d = json.load(json_data)
+            json_data.close()
+            return d
+
+    def __str__(self):
+        return self.run()
 
 
 class ProgressPercentage(object):
@@ -45,6 +60,23 @@ class S3Buckets():
                                       callback=ProgressPercentage(self.localFileName))
         print(result)
 
+    def transferImage(self, fileName):
+        """
+        This method is safest because it handles large and small files,
+        resuming uploads, etc
+        """
+        dirPart = os.path.dirname(fileName)
+        splitDir = dirPart.split(os.path.sep)
+        dir = splitDir[len(splitDir) - 1]
+        keyName = dir + os.path.sep + os.path.basename(fileName)
+        print('Sending: ' + keyName)
+        client = boto.client('s3', 'us-west-2')
+        transfer = S3Transfer(client)
+        result = transfer.upload_file(fileName, self.bucketName, keyName,
+                                      extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
+                                      callback=ProgressPercentage(fileName))
+        print(result)
+
     def CreateBucketAndFile(self):
         s3 = boto.resource('s3')
         # bucket = s3.create_bucket(Bucket=self.bucketName, CreateBucketConfiguration={'LocationConstraint': 'us-west-2'})
@@ -77,10 +109,16 @@ class S3Buckets():
 
 
 s3Buckets = S3Buckets()
+getFileNames = GetFileNames()
+files = getFileNames.run()
+for file in files:
+    s3Buckets.transferImage(file)
 # s3Buckets.CreateBucketAndFile()
 # s3Buckets.transferFile()
 # s3Buckets.GetFile()
-s3Buckets.deleteKey('foo')
+# s3Buckets.deleteKey('foo')
+
+
 
 tag = {
     'ETag': '"57e2095a3ba1d838130370460df86289"',

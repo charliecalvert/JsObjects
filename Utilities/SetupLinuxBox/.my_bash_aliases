@@ -9,6 +9,7 @@
 
 # Writing
 export ELF_WRITE=$GIT_HOME/writings
+export ELF_WRITE_DATA=$ELF_WRITE/Data
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
 alias wtt="cd $ELF_WRITE/Tech"
