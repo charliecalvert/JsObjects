@@ -1,7 +1,7 @@
 var ElvenImages = (function() {
     'use strict';
 
-    var elvenCode = require('isit322-calvert');
+    var elvenCode = require('elven-code');
     var elfUtils = elvenCode.elfUtils;
     var elfLog = elvenCode.elfLog;
     var inquirer = require('inquirer');    

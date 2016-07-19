@@ -3,11 +3,9 @@ exports.elfLog = require('./elf-log');
 exports.elfConfig = require('./elf-config');
 exports.walker = require('./walker');
 
-
-
-
-
-exports.printMsg = function() {
+exports.getPackageDescription = function() {
     'use strict';
-    console.log('ElvenCode');
+    var myDescription = 'This is Charlie Calvert\'s ElvenCode package';
+    console.log(myDescription);
+    return myDescription;
 };

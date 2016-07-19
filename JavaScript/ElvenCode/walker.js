@@ -23,6 +23,16 @@ walker.options = {
     filters: []
 };
 
+function testExtension(extensionFilter, fileExtension) {
+    if (typeof extensionFilter === 'string') {
+        return extensionFilter === fileExtension;
+    } else if (elfUtils.arrayContains(extensionFilter, fileExtension)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
     'use strict';
     walker.directoryToWalk = directoryToWalk;
@@ -33,7 +43,8 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
 
         // console.log('file found', root + path.sep + fileStats.name);
         var fileExtension = path.extname(fileStats.name);
-        if (fileExtension === extensionFilter) {
+
+        if (testExtension(extensionFilter, fileExtension)) {
             walker.fileReport.push({
                 root: root,
                 fileStats: fileStats

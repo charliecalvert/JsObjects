@@ -79,6 +79,17 @@ function isArray(itemToCheck) {
     return Object.prototype.toString.call(itemToCheck) === '[object Array]';
 }
 
+var arrayContains = function (target, value) {
+    // console.log(target, value);
+    var found = false;
+    for (var i = 0; i < target.length && !found; i++) {
+        if (target[i] === value) {
+            found = true;
+        }
+    }
+    return found;
+};
+
 function arrayDifference(firstArray, secondArray) {
     return firstArray.filter(function(item) {
         return secondArray.indexOf(item) < 0;
@@ -302,6 +313,7 @@ exports.getHomeDir = getHomeDir;
 
 // Array
 exports.isArray = isArray;
+exports.arrayContains = arrayContains;
 exports.arrayDifference = arrayDifference;
 exports.arraySymetricDifference = arraySymmetricDifference;
 
