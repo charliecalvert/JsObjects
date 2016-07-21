@@ -13,8 +13,6 @@ function walker() {
 
 }
 
-walker.fileReport = [];
-
 walker.directoryToWalk;
 
 walker.options = {
@@ -35,6 +33,9 @@ function testExtension(extensionFilter, fileExtension) {
 
 walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
     'use strict';
+    
+    var walkerFileReport = [];
+    
     walker.directoryToWalk = directoryToWalk;
 
     var walkInstance = walk.walk(directoryToWalk, walker.options);
@@ -45,7 +46,7 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
         var fileExtension = path.extname(fileStats.name);
 
         if (testExtension(extensionFilter, fileExtension)) {
-            walker.fileReport.push({
+            walkerFileReport.push({
                 root: root,
                 fileStats: fileStats
             });
@@ -62,7 +63,7 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
 
     walkInstance.on('end', function() {
         // console.log('all done');
-        callback(walker.fileReport);
+        callback(walkerFileReport);
     });
 
 };
