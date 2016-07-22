@@ -1,19 +1,5 @@
 import boto3
 
-class glacier_shelve(object):
-    """
-    Context manager for shelve
-    """
-
-    def __enter__(self):
-        self.shelve = shelve.open(SHELVE_FILE)
-
-        return self.shelve
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        self.shelve.close()
-
-
 class glacier(object):
 
     def __init__(self, vault_name, archive_name):
@@ -77,7 +63,7 @@ g = glacier('elf01', 'family.zip')
 g.upload('foo')
 
 # Here is sample response from calling upload
-var foo = {
+foo = {
 	'archiveId': 'Hs6i-mz6msEQ1w4cr4hldZgJjuBiDa8RWQ_hFc0De1Z5c5ZmBGS4FD_pAUZWGIFaAaMl68chKPeWYhk15HdLVQ_QF3SLWpN80emM3X5rCGp9mRJCwQwwZrLQCCDYgT_abR8No0-cYg', 
 	'ResponseMetadata': {
 		'HTTPHeaders': {

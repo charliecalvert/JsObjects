@@ -11,8 +11,8 @@ from pprint import pprint
 
 class GetFileNames(object):
 
-    def run(self):
-        with open('all-images.json') as json_data:
+    def run(self, allImagesFileName):
+        with open(allImagesFileName) as json_data:
             print(json_data)
             d = json.load(json_data)
             json_data.close()
@@ -45,8 +45,16 @@ class ProgressPercentage(object):
 class S3Buckets():
     def __init__(self):
         self.bucketName = 's3bucket01.elvenware.com'
-        self.keyName = 'test/test01.csv'
+        self.keyName = 'https'
         self.localFileName = os.environ['ELF_WRITE_DATA'] + '/Presidents.csv'
+
+    def transfer(self, fileToSend, keyName): 
+        client = boto.client('s3', 'us-west-2')
+        transfer = S3Transfer(client)
+        result = transfer.upload_file(fileToSend, self.bucketName, keyName,
+                                      extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
+                                      callback=ProgressPercentage(fileToSend))
+        pprint(result)
 
     def transferFile(self):
         """
@@ -70,12 +78,40 @@ class S3Buckets():
         dir = splitDir[len(splitDir) - 1]
         keyName = dir + os.path.sep + os.path.basename(fileName)
         print('Sending: ' + keyName)
-        client = boto.client('s3', 'us-west-2')
-        transfer = S3Transfer(client)
-        result = transfer.upload_file(fileName, self.bucketName, keyName,
-                                      extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
-                                      callback=ProgressPercentage(fileName))
-        print(result)
+        transfer(fileName, keyName)
+        #client = boto.client('s3', 'us-west-2')
+        #transfer = S3Transfer(client)
+        #result = transfer.upload_file(fileName, self.bucketName, keyName,
+        #                              extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
+        #                              callback=ProgressPercentage(fileName))
+        #print(result)
+
+
+        
+    def transferS3Image(self, fileName):
+        """
+        This method is safest because it handles large and small files,
+        resuming uploads, etc
+        """
+        
+        
+        dirPart = os.path.dirname(fileName)
+        #print(dirPart)        
+        splitDir = dirPart.split(os.path.sep)
+        print('SplitDir:' + str(splitDir))
+        splitDirLen = len(splitDir)
+        dir = splitDir[splitDirLen - 1]
+        print(dir)
+        if splitDirLen == 6:
+            keyName = splitDir[4] + os.path.sep + dir + os.path.sep + os.path.basename(fileName)
+            fileRoot = '/home/charlie/temp/SeagateFourGig/Pictures/2014-Italy/'
+        elif splitDirLen == 5:
+            keyName = splitDir[4] + os.path.sep + os.path.basename(fileName)
+            fileRoot = '/var/www/html/images/'
+        print('KeyName:' + keyName)
+        fileToSend = fileRoot + dir + os.path.sep + os.path.basename(fileName)
+        print('Sending: ' + fileToSend)
+        self.transfer(fileToSend, keyName)
 
     def CreateBucketAndFile(self):
         s3 = boto.resource('s3')
@@ -110,9 +146,12 @@ class S3Buckets():
 
 s3Buckets = S3Buckets()
 getFileNames = GetFileNames()
-files = getFileNames.run()
+files = getFileNames.run(sys.argv[1])
 for file in files:
-    s3Buckets.transferImage(file)
+    print('------------------')
+    print(file)
+    s3Buckets.transferS3Image(file)
+#    s3Buckets.transferImage(file)
 # s3Buckets.CreateBucketAndFile()
 # s3Buckets.transferFile()
 # s3Buckets.GetFile()

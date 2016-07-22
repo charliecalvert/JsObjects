@@ -1,0 +1,1 @@
+find -name "*.JPG" -type f | rename "s/JPG/jpg/g"
