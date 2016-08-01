@@ -90,8 +90,12 @@ elvenConfig.load = function(callback) {
 };
 
 elvenConfig.get = function(level, property) {
-    'use strict';
-    return elvenConfig.configData[level][property];
+    'use strict';    
+    if (property) {
+        return elvenConfig.configData[level][property];
+    } else {        
+        return elvenConfig.configData[level]
+    }
 };
 
 elvenConfig.keys = function(obj) {
@@ -103,5 +107,22 @@ elvenConfig.keys = function(obj) {
         return Object.keys(elvenConfig.configData);
     }
 };
+
+elvenConfig.getPropertyNamesAsArray = function(propertyName) {
+    var target;
+    if (propertyName) {
+        target = elvenConfig.configData[propertyName];
+    } else {
+        target = elvenConfig.configdata
+    }
+    var result = [];
+    for (var property in target) {
+        if (target.hasOwnProperty(property)) {
+            result.push(property)
+        }
+    }
+    return result;
+}
+
 
 module.exports = elvenConfig;

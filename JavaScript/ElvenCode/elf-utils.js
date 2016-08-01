@@ -233,6 +233,16 @@ function fileExists(filePath) {
     }
 }
 
+function directoryExists(path) {
+    var result = true;
+    try {
+        fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+        result = false;
+    }
+    return result;
+}
+
 /**
  * Test if a folder exists, if it does not, make it
  */
@@ -333,6 +343,7 @@ exports.htmlUnescape = htmlUnescape;
 exports.writeFile = writeFile;
 exports.readFile = readFile;
 exports.fileExists = fileExists;
+exports.directoryExists = directoryExists;
 
 exports.ensureDir = ensureDir;
 exports.ensureStartsWithPathSep = ensureStartsWithPathSep;

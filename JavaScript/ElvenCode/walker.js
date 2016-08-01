@@ -57,7 +57,8 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
 
     walkInstance.on('errors', function(root, nodeStatsArray, next) {
         console.log('Houston, we have an error');
-        // console.log(root, nodeStatsArray);
+        //console.log('Houston, we have an error', nodeStatsArray.Error);
+        console.log(root, nodeStatsArray);
         next();
     });
 

@@ -65,4 +65,14 @@ describe('Elvenware Elf Utils Suite', function () {
         var result = elfUtils.fileExists(bash);
         expect(result).toBe(false);
     });
+
+    it('expects platform neutral HOME directory to exist', function() {
+        var home = elfUtils.getHomeDir();
+        expect(elfUtils.directoryExists(home)).toBe(true);
+    });
+
+    it('expects directory not to exist', function() {
+        var home = elfUtils.getHomeDir();
+        expect(elfUtils.directoryExists(home + 'wahblah23423#$$$234')).toBe(false);
+    });
 });
