@@ -12,7 +12,7 @@ var Guid = require('guid');
  * Format the JSON that holds a two dimensional array of
  * numbers representing a grid.
  */
-var prettyPrintGrid = function(grid) {
+var prettyPrintGrid = function (grid) {
     'use strict';
     var data = JSON.stringify(grid);
     var result = data.replace(/\[\"/g, '\n\t[');
@@ -27,7 +27,7 @@ var prettyPrintGrid = function(grid) {
  * @param {Object} pathName
  * @param {Object} fileName
  */
-var elfJoin = function(pathName, fileName) {
+var elfJoin = function (pathName, fileName) {
     'use strict';
     return path.join(pathName, fileName);
 };
@@ -61,7 +61,7 @@ function getGuid() {
 
 function getGuidFromMarkdown(fileName, test) {
     'use strict';
-    fs.readFile(fileName, 'utf8', function(err, data) {
+    fs.readFile(fileName, 'utf8', function (err, data) {
         if (err) {
             throw err;
         }
@@ -91,13 +91,13 @@ var arrayContains = function (target, value) {
 };
 
 function arrayDifference(firstArray, secondArray) {
-    return firstArray.filter(function(item) {
+    return firstArray.filter(function (item) {
         return secondArray.indexOf(item) < 0;
     });
 }
 
 // Flawed solution. Read comments: http://stackoverflow.com/a/1187628
-function arraySymmetricDifference (firstArray, secondArray) {
+function arraySymmetricDifference(firstArray, secondArray) {
 
     var temp = [];
     var difference = [];
@@ -154,7 +154,7 @@ function endsWith(value, suffix) {
     return value.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
-var getLastCharacterOfString = function(value) {
+var getLastCharacterOfString = function (value) {
     return value.substring(value.length - 1);
 };
 
@@ -203,25 +203,69 @@ function htmlUnescape(str) {
  * File Related
  ******************/
 
+/*
+ * @name: writeFile
+ *
+ * @param: fileName
+ * @param: contents
+ *
+ * To use promise, don't pass a callback
+ */
 function writeFile(fileName, contents, callback) {
     'use strict';
-    fs.writeFile(fileName, contents, function(err) {
-        callback({
-            result: 'success'
+    console.log('writing', fileName);
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.writeFile(fileName, contents, 'utf8', function (err) {
+                if (err) {
+                    reject(err);
+                }
+                resolve({
+                    result: 'success'
+                });
+            });
+        })
+    } else {
+        fs.writeFile(fileName, contents, 'utf8', function (err) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                result: 'success'
+            });
         });
-    });
+    }
 }
 
+
+/*
+ * @name: readFile
+ *
+ * To use promise, don't pass a callback
+ */
 function readFile(fileName, callback) {
     'use strict';
-    fs.readFile(fileName, 'utf8', function(err, fileContents) {
-        if (err) {
-            throw (err);
-        }
-        callback({
-            'result': fileContents
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.readFile(fileName, 'utf8', function (err, fileContents) {
+                if (err) {
+                    reject (err);
+                }
+                resolve({
+                    'result': fileContents
+                });
+            });
+        })
+    } else {
+        fs.readFile(fileName, 'utf8', function (err, fileContents) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                'result': fileContents
+            });
         });
-    });
+    }
 }
 
 function fileExists(filePath) {

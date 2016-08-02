@@ -89,12 +89,48 @@ elvenConfig.load = function(callback) {
     }
 };
 
+elvenConfig.save = function(callback) {
+    'use strict';
+    if (elvenConfig.loaded !== true) {
+        throw "Can't save config file if it is not first loaded";
+    }
+    if (typeof elvenConfig.configData === 'undefined') {
+        throw "Can't save configData as it is empty";
+    }
+    console.log('save', elvenConfig.configData);
+    var configName = getConfigName();
+    elfLog.minorDetails(configName);
+    try {
+        elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
+        utils.writeFile(configName, JSON.stringify(elvenConfig.configData, null, 4), function(result) {
+            if (result.result !== 'success') {
+                throw "Could not write config file";
+            }
+            elfLog.log(elfLog.logLevelNanoDetails, 'In save: ' + result);
+            if (callback) {
+                callback(null, result);
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 elvenConfig.get = function(level, property) {
     'use strict';    
     if (property) {
         return elvenConfig.configData[level][property];
     } else {        
         return elvenConfig.configData[level]
+    }
+};
+
+elvenConfig.set = function(newValue, level, property) {
+    'use strict';    
+    if (property) {
+        elvenConfig.configData[level][property] = newValue;
+    } else {        
+        elvenConfig.configData[level] = newValue;
     }
 };
 

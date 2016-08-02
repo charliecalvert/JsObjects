@@ -11,16 +11,6 @@ describe('Elvenware Elf Utils Suite', function () {
         expect(true).toBe(true);
     });
 
-    it('expects ensure path sep when path does not end with path sep', function () {
-        var result = elfUtils.ensureEndsWithPathSep('/foo/bar');
-        expect(result).toBe('/foo/bar/');
-    });
-
-    it('expects ensure path sep when path does end with path sep', function () {
-        var result = elfUtils.ensureEndsWithPathSep('/foo/bar/');
-        expect(result).toBe('/foo/bar/');
-    });
-
     it('finds difference of two short string arrays. subtract them', function () {
         var one = ['a', 'b', 'c'];
         var two = ['b', 'c'];
@@ -52,27 +42,5 @@ describe('Elvenware Elf Utils Suite', function () {
         var two = [2, 3];
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual([1, 4, 5, 6]);
-    });
-
-    it('expects bashrc to exist', function() {
-        var bash = elfUtils.ensureEndsWithPathSep(process.env.HOME) + '.bashrc';
-        var result = elfUtils.fileExists(bash);
-        expect(result).toBe(true);
-    });
-
-    it('expects bashrc-foo not to exist', function() {
-        var bash = elfUtils.ensureEndsWithPathSep(process.env.HOME) + '.bashrc-foo';
-        var result = elfUtils.fileExists(bash);
-        expect(result).toBe(false);
-    });
-
-    it('expects platform neutral HOME directory to exist', function() {
-        var home = elfUtils.getHomeDir();
-        expect(elfUtils.directoryExists(home)).toBe(true);
-    });
-
-    it('expects directory not to exist', function() {
-        var home = elfUtils.getHomeDir();
-        expect(elfUtils.directoryExists(home + 'wahblah23423#$$$234')).toBe(false);
     });
 });
