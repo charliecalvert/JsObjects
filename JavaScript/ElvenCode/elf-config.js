@@ -97,7 +97,7 @@ elvenConfig.save = function(callback) {
     if (typeof elvenConfig.configData === 'undefined') {
         throw "Can't save configData as it is empty";
     }
-    console.log('save', elvenConfig.configData);
+    // console.log('save', elvenConfig.configData);
     var configName = getConfigName();
     elfLog.minorDetails(configName);
     try {

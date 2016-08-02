@@ -1,46 +1,52 @@
 {
-	"calvert": {
-		"base-dir": "/home/charlie/",
-		"site-dirs": [
-			"Documents/AllTest",
-			"Git/CloudNotes/Assignments",
-			"Git/CloudNotes/Prog270",
-			"Git/CloudNotes/Isit322"
-		],
-		"destination-dirs": [
-			"/var/www/html/",
-			"/var/www/html/Assignments/",
-			"/var/www/html/Prog270/",
-			"/var/www/html/Isit322/"
-		],
-		"destination-dirs-extra": [
-			{
-				"base": "/var/www/html/",
-				"extra": ""
-			},
-			{
-				"base": "/var/www/html/Assignments/",
-				"extra": "Assignments"
-			}
-		]
-	},
-
-	"elvenImages": {
-		"selected": "california",
-
-		"california": {
-			"baseDir": "/var/www/html",
-			"markdownFileWithImages": "/home/charlie/Documents/AllTest/california.md",
-			"allImagesJsonFile": "all-images.json",
-			"imageDir": "/images/california/",
-			"notUsedDir": "/home/charlie/temp/not-used/california"
-		},
-		"spain": {
-			"baseDir": "/var/www/html",
-			"markdownFileWithImages": "/home/charlie/Documents/AllTest/spain-2015-08-16-toledo.md",
-			"allImagesJsonFile": "all-images.json",
-			"imageDir": "/images/spain-2015/08-16-toledo/",
-			"notUsedDir": "/home/charlie/temp/not-used/spain-2015/08-16-toledo/"
-		}
-	}
+    "calvert": {
+        "base-dir": "/home/charlie/",
+        "site-dirs": [
+            "ElvenImages",
+            "Documents/AllTest",
+            "Git/CloudNotes/Assignments",
+            "Git/CloudNotes/Prog270",
+            "Git/CloudNotes/Isit322"
+        ],
+        "destination-dirs": [
+            "/var/www/html/",
+            "/var/www/html/Assignments/",
+            "/var/www/html/Prog270/",
+            "/var/www/html/Isit322/"
+        ],
+        "destination-dirs-extra": [
+            {
+                "base": "/var/www/html/",
+                "extra": ""
+            },
+            {
+                "base": "/var/www/html/Assignments/",
+                "extra": "Assignments"
+            }
+        ]
+    },
+    "selectedElvenImages": [
+        "california1",
+        "california2"
+    ],
+    "elvenImages": [
+        {
+            "name": "doc",
+            "baseDir": "The base directory where the images to be processed are found",
+            "baseMarkdown": "Base string found in markdown files",
+            "createSmallImages": true
+        },
+        {
+            "name": "california1",
+            "baseDir": "/var/www/html/images",
+            "baseMarkdown": "https://s3.amazonaws.com/s3bucket01.elvenware.com",
+            "createSmallImages": true
+        },
+        {
+            "name": "california2",
+            "baseDir": "/var/www/html/images",
+            "baseMarkdown": "/images",
+            "createSmallImages": true
+        }
+    ]
 }
