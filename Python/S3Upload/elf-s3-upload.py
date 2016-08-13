@@ -104,7 +104,8 @@ class S3Buckets():
         print(dir)
         if splitDirLen == 6:
             keyName = splitDir[4] + os.path.sep + dir + os.path.sep + os.path.basename(fileName)
-            fileRoot = '/home/charlie/temp/SeagateFourGig/Pictures/2014-Italy/'
+            # fileRoot = '/home/charlie/temp/lopez-folders/'
+            fileRoot = '/home/charlie/temp/SeagateFourGig/Pictures/2016-Ohio/'
         elif splitDirLen == 5:
             keyName = splitDir[4] + os.path.sep + os.path.basename(fileName)
             fileRoot = '/var/www/html/images/'
@@ -131,9 +132,10 @@ class S3Buckets():
 
     def deleteKey(self, keyName):
         s3 = boto.resource('s3')
-        key = s3.Object(self.bucketName, self.keyName)
+        key = s3.Object(self.bucketName, keyName)
         print(key)
-        key.delete()
+        result = key.delete()
+        pprint(result)
         # bucket = s3.Bucket(self.bucketName)
         # print(bucket)
         # for key in bucket:
@@ -143,19 +145,21 @@ class S3Buckets():
         #    print(obj)
         # s3.Object(bucket.name, obj.key).delete()
 
+    def processFiles(self):
+        getFileNames = GetFileNames()
+        files = getFileNames.run(sys.argv[1])
+        for file in files:
+            print('------------------')
+            print(file)
+            self.transferS3Image(file)
+
 
 s3Buckets = S3Buckets()
-getFileNames = GetFileNames()
-files = getFileNames.run(sys.argv[1])
-for file in files:
-    print('------------------')
-    print(file)
-    s3Buckets.transferS3Image(file)
-#    s3Buckets.transferImage(file)
+s3Buckets.processFiles()
 # s3Buckets.CreateBucketAndFile()
 # s3Buckets.transferFile()
 # s3Buckets.GetFile()
-# s3Buckets.deleteKey('foo')
+# s3Buckets.deleteKey('italy/2013-06-19')
 
 
 

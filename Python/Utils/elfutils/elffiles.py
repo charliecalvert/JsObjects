@@ -8,7 +8,7 @@ import sys
 import os
 import shutil
 import configparser
-
+from os.path import expanduser
 
 def getFileContent(fileName):
 	f = open(fileName, 'r', encoding="utf8")
@@ -22,7 +22,8 @@ def saveTextFile(fileName, content):
 	f.close()
 	
 def getHomeDir():
-	return os.environ['HOME']
+	# return os.environ['HOME']
+	return expanduser("~")
 	
 def copyFile(srcFile, destFile):
 	if os.path.exists(srcFile):

@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# python elf-s3-upload.py all-images-italy-2014-09-10a.json
+# python elf-s3-upload.py all-images-italy-2014-09-10b.json
+# python elf-s3-upload.py all-images-italy-2014-09-11.json 
+# python elf-s3-upload.py all-images-italy-2014-09-12a.json 
+# python elf-s3-upload.py all-images-italy-2014-09-12b.json
+# python elf-s3-upload.py all-images-japan-2013-06-21.json
+# python elf-s3-upload.py all-images-japan-2013-06-22.json
+
+#python elf-s3-upload.py all-images-idaho-2016-07-23.json 
+#python elf-s3-upload.py all-images-idaho-2016-07-24.json 
+#python elf-s3-upload.py all-images-idaho-2016-07-25.json 
+#python elf-s3-upload.py all-images-idaho-2016-07-26.json
+
+# python elf-s3-upload.py all-images-suiattle-2016-07.json
+
+#python elf-s3-upload.py ~/ElvenImages/all-images-lopez-2016-03-30.json
+#python elf-s3-upload.py ~/ElvenImages/all-images-lopez-2016-03-31.json
+#python elf-s3-upload.py ~/ElvenImages/all-images-lopez-2016-04-01.json
+
+python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-05.json
+python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-06.json
+python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-07.json
+python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-08.json
