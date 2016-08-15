@@ -19,7 +19,9 @@
 #python elf-s3-upload.py ~/ElvenImages/all-images-lopez-2016-03-31.json
 #python elf-s3-upload.py ~/ElvenImages/all-images-lopez-2016-04-01.json
 
-python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-05.json
-python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-06.json
-python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-07.json
-python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-08.json
+# python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-05.json
+# python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-06.json
+# python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-07.json
+# python elf-s3-upload.py ~/ElvenImages/all-images-Ohio-2016-08-08.json
+
+python elf-s3-upload.py ~/ElvenImages/all-images-california1.json /var/www/html/images/

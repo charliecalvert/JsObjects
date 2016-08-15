@@ -7,15 +7,15 @@ Created on May 2, 2016
 '''
 
 import unittest
-import read_config
+import elf_config_manager
 
 class TestReadConfig(unittest.TestCase):
 
     def setUp(self):
-        self.readConfig = read_config.ReadConfig()
-        self.config = self.readConfig.readConfig()
-        self.calvert = self.readConfig.getCalvert()
-        self.elvenImages = self.readConfig.getElvenImages()
+        self.configManager = elf_config_manager.ConfigManager()
+        self.config = self.configManager.readConfig()
+        self.calvert = self.configManager.getCalvert()
+        self.elvenImages = self.configManager.getElvenImages()
 
     def testType(self):        
         self.assertEqual(type(self.config), dict, "Not equal")
@@ -31,11 +31,24 @@ class TestReadConfig(unittest.TestCase):
         self.assertEqual(type(self.elvenImages), list, "Not equal")
 
     def testCalifornia1(self):
-        california1 = self.readConfig.getSelectedObject('california1')
+        california1 = self.configManager.getSelectedObject('california1')
         name = california1['name']
         baseDir = california1['baseDir']
+        allimagesJson = california1['allImagesJsonFile']
         self.assertEqual(name, 'california1')
         self.assertEqual(baseDir, "/var/www/html/images")
+        self.assertEqual(allimagesJson, "/home/charlie/ElvenImages/all-images-california1.json")
+
+    def testGetSelectedObjectNames(self):
+        names = ['california1', "california23"]
+        self.configManager.setSelectedObjectNames(names)
+        names = self.configManager.getSelectedObjectNames()
+        self.assertEqual(type(names), list, "Not equal")
+        self.assertEqual(names, ['california1', "california23"])
+
+    def testGetElvenHome(self):
+        home = self.configManager.getElvenHome()
+        self.assertEqual(home, '/home/charlie/ElvenImages/', 'not equal')
 
 def runTest():
     suite = unittest.TestLoader().loadTestsFromTestCase(TestReadConfig)

@@ -23,7 +23,7 @@ def saveTextFile(fileName, content):
 	
 def getHomeDir():
 	# return os.environ['HOME']
-	return expanduser("~")
+	return ensureFinalSlash(expanduser("~"))
 	
 def copyFile(srcFile, destFile):
 	if os.path.exists(srcFile):

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import os
 import threading
@@ -7,9 +7,10 @@ import boto3 as boto
 from boto3.s3.transfer import S3Transfer
 import json
 from pprint import pprint
+import elf_config_manager
+import elfutils.elffiles as elffiles
 
-
-class GetFileNames(object):
+class Utilities(object):
 
     def run(self, allImagesFileName):
         with open(allImagesFileName) as json_data:
@@ -17,6 +18,11 @@ class GetFileNames(object):
             d = json.load(json_data)
             json_data.close()
             return d
+
+    def printMessage(self, message):
+        print('\n=================')
+        print('>>' + message)
+        print('=================\n')
 
     def __str__(self):
         return self.run()
@@ -36,8 +42,8 @@ class ProgressPercentage(object):
             self._seen_so_far += bytes_amount
             percentage = (self._seen_so_far / self._size) * 100
             sys.stdout.write(
-                "\r%s  %s / %s  (%.2f%%)" % (
-                    self._filename, self._seen_so_far, self._size,
+                "\r%s / %s  (%.2f%%)" % (
+                    self._seen_so_far, self._size,
                     percentage))
             sys.stdout.flush()
 
@@ -54,7 +60,7 @@ class S3Buckets():
         result = transfer.upload_file(fileToSend, self.bucketName, keyName,
                                       extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
                                       callback=ProgressPercentage(fileToSend))
-        pprint(result)
+        #pprint(result)
 
     def transferFile(self):
         """
@@ -68,47 +74,28 @@ class S3Buckets():
                                       callback=ProgressPercentage(self.localFileName))
         print(result)
 
-    def transferImage(self, fileName):
-        """
-        This method is safest because it handles large and small files,
-        resuming uploads, etc
-        """
-        dirPart = os.path.dirname(fileName)
-        splitDir = dirPart.split(os.path.sep)
-        dir = splitDir[len(splitDir) - 1]
-        keyName = dir + os.path.sep + os.path.basename(fileName)
-        print('Sending: ' + keyName)
-        transfer(fileName, keyName)
-        #client = boto.client('s3', 'us-west-2')
-        #transfer = S3Transfer(client)
-        #result = transfer.upload_file(fileName, self.bucketName, keyName,
-        #                              extra_args={'ACL': 'public-read', 'ContentType': "image/jpeg"},
-        #                              callback=ProgressPercentage(fileName))
-        #print(result)
-
-
-        
-    def transferS3Image(self, fileName):
+    def transferS3Image(self, fileName, fileRoot):
         """
         This method is safest because it handles large and small files,
         resuming uploads, etc
         """
         
-        
         dirPart = os.path.dirname(fileName)
-        #print(dirPart)        
+        print(dirPart)
         splitDir = dirPart.split(os.path.sep)
-        print('SplitDir:' + str(splitDir))
         splitDirLen = len(splitDir)
+        print('SplitDir: ' + str(splitDir) + ' SplitDirLen: ' + str(splitDirLen))
         dir = splitDir[splitDirLen - 1]
         print(dir)
-        if splitDirLen == 6:
+        if splitDir[0] != 'https:':
+          raise ValueError('Your all-images-XXX.json file should contain S3 addresses beginning with https')
+        elif splitDirLen == 6:
             keyName = splitDir[4] + os.path.sep + dir + os.path.sep + os.path.basename(fileName)
             # fileRoot = '/home/charlie/temp/lopez-folders/'
-            fileRoot = '/home/charlie/temp/SeagateFourGig/Pictures/2016-Ohio/'
+            # fileRoot = '/home/charlie/temp/SeagateFourGig/Pictures/2016-Ohio/'
         elif splitDirLen == 5:
             keyName = splitDir[4] + os.path.sep + os.path.basename(fileName)
-            fileRoot = '/var/www/html/images/'
+            # fileRoot = '/var/www/html/images/'
         print('KeyName:' + keyName)
         fileToSend = fileRoot + dir + os.path.sep + os.path.basename(fileName)
         print('Sending: ' + fileToSend)
@@ -145,37 +132,47 @@ class S3Buckets():
         #    print(obj)
         # s3.Object(bucket.name, obj.key).delete()
 
-    def processFiles(self):
-        getFileNames = GetFileNames()
-        files = getFileNames.run(sys.argv[1])
+    def processFiles(self, allImagesFile, baseDir):
+        utilities = Utilities()
+        files = utilities.run(allImagesFile)
         for file in files:
-            print('------------------')
-            print(file)
-            self.transferS3Image(file)
+            utilities.printMessage(file)
+            self.transferS3Image(file, baseDir)
 
+class GetConfigData(object):
+    def __init__(self):
+        self.configManager = elf_config_manager.ConfigManager()
+        self.config = self.configManager.readConfig()
+        self.names = self.configManager.getSelectedObjectNames()
+        print(self.names)
 
-s3Buckets = S3Buckets()
-s3Buckets.processFiles()
+    def transferToS3(self, allImagesJsonFile, baseDir):
+        print(allImagesJsonFile)
+        print(baseDir)
+        s3Buckets = S3Buckets()
+        s3Buckets.processFiles(allImagesJsonFile, baseDir)
+
+    def processSelectObjects(self):
+        utilities = Utilities()
+        for name in self.names:
+            utilities.printMessage('NextName: ' + name)
+            california1 = self.configManager.getSelectedObject(name)
+            pprint(california1)
+            allImagesJsonFile = california1['allImagesJsonFile']
+            baseDir = elffiles.ensureFinalSlash(california1['baseDir'])
+            self.transferToS3(allImagesJsonFile, baseDir)
+
+def baseRun():
+    allImagesFile = sys.argv[1]
+    baseDir = sys.argv[2]
+    s3Buckets = S3Buckets()
+    s3Buckets.processFiles(allImagesFile, baseDir)
 # s3Buckets.CreateBucketAndFile()
 # s3Buckets.transferFile()
 # s3Buckets.GetFile()
 # s3Buckets.deleteKey('italy/2013-06-19')
 
-
-
-tag = {
-    'ETag': '"57e2095a3ba1d838130370460df86289"',
-    'ResponseMetadata': {
-        'HTTPHeaders': {
-            'x-amz-request-id': '75812B436CDCD026',
-            'date': 'Tue, 19 Jul 2016 15:34:08 GMT',
-            'content-length': '0',
-            'etag': '"57e2095a3ba1d838130370460df86289"',
-            'server': 'AmazonS3',
-            'x-amz-id-2': 'mMxPQvkrtDg1Vpt41voJdXyKIhYW14APTlZLE9njyMAtHaxjM24nDkynJEMbHcKJdMZLeMK3rls='
-        },
-        'HTTPStatusCode': 200,
-        'RequestId': '75812B436CDCD026',
-        'HostId': 'mMxPQvkrtDg1Vpt41voJdXyKIhYW14APTlZLE9njyMAtHaxjM24nDkynJEMbHcKJdMZLeMK3rls='
-    }
-}
+if __name__ == '__main__':
+    getConfigData = GetConfigData()
+    getConfigData.processSelectObjects()
+    #baseRun()

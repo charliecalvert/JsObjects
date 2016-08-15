@@ -1,4 +1,5 @@
 import boto3
+import pprint
 
 class glacier(object):
 
@@ -31,7 +32,7 @@ class glacier(object):
             archiveDescription='family',
             body=self.archive
         )
-        print(response)
+        pprint(response)
 
 # Retrieving an archive
 # =====================
@@ -57,7 +58,7 @@ class glacier(object):
         
         
         
-g = glacier('elf01', 'family.zip')
+g = glacier('elf-japan', '/home/charlie/temp/SeagateFourGig/Pictures/2013-Japan/2013-06-japan.tar.gz')
 #g.run()
 # g.test_can_list_vaults_without_account_id()
 g.upload('foo')
