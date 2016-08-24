@@ -4,7 +4,7 @@
 
 var fs = require('fs');
 var os = require('os');
-var utils = require('isit322-calvert').elfUtils;
+var utils = require('elven-code').elfUtils;
 
 function getConfigName() { 'use strict';
 	var configFileName = "ElvenConfig.json";
