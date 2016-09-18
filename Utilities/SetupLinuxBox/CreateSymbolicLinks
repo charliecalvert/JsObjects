@@ -14,6 +14,13 @@ else
     echo "=> "ELF_UTILS environment variable already exists
 fi
 
+if [ ! -n "$ELF_TEMPLATES" ]; then 
+    echo "=> Creating ELF_TEMPLATES variable"
+    ELF_TEMPLATES=$ELF_UTILS/Templates
+else
+    echo "=> "ELF_TEMPLATES environment variable already exists
+fi
+
 ln -s $ELF_UTILS/NodeInstall/CreateExpressProject ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/CreateAllExpress ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/check-karma-grunt-config ~/bin/.
