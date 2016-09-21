@@ -20,7 +20,7 @@ checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
 # Create an express app and run npm install
 express $1
 cd $1
-# npm install
+npm install
 
 # Setup bower and bootstrap
 cp $ELF_TEMPLATES/bower.json .
