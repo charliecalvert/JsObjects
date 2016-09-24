@@ -54,11 +54,12 @@ function run(configSummary) {
 }
 
 function runConfig() {
+    config.useLocalConfig = true;
     config.load(function() {
-        var baseDir = config.get('base-dir');
-        var bootswatch = config.get('bootswatch');
-        var siteDirs = config.get('site-dirs');
-        var destinationDirs = config.get('destination-dirs');
+        var baseDir = config.get('calvert', 'base-dir');
+        var bootswatch = config.get('calvert', 'bootswatch');
+        var siteDirs = config.get('calvert', 'site-dirs');
+        var destinationDirs = config.get('calvert', 'destination-dirs');
         var configSummary = {
             "baseDir": baseDir, 
             'bootswatch': bootswatch, 
