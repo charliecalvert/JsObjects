@@ -1,6 +1,26 @@
 #! /bin/bash
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+# echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
 sudo apt-get update
 sudo apt-get install mongodb-org
+
+
+echo '[Unit]' >> mongod.service
+echo 'Description=High-performance, schema-free document-oriented database'  >> mongod.service
+echo 'After=network.target'  >> mongod.service
+echo 'Documentation=https://docs.mongodb.org/manual' >> mongod.service
+echo '' >>  mongod.service
+echo '[Service]' >> mongod.service
+echo 'User=mongodb' >> mongod.service
+echo 'Group=mongodb' >> mongod.service
+echo 'ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf' >> mongod.service
+echo '' >>  mongod.service
+echo '[Install]' >> mongod.service
+echo 'WantedBy=multi-user.target' >> mongod.service
+
+sudo cp -v ./mongod.service /lib/systemd/system/mongod.service 
