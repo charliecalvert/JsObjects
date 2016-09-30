@@ -10,7 +10,7 @@ sudo apt-get update
 sudo apt-get install mongodb-org
 
 
-echo '[Unit]' >> mongod.service
+echo '[Unit]' > mongod.service
 echo 'Description=High-performance, schema-free document-oriented database'  >> mongod.service
 echo 'After=network.target'  >> mongod.service
 echo 'Documentation=https://docs.mongodb.org/manual' >> mongod.service

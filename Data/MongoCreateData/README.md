@@ -136,3 +136,29 @@ Then call show again:
         city: 'Bellevue',
         state: 'WA',
         zip: 98002 } ]
+
+## Create User
+
+db.createUser({
+		user: "bcuser",
+		pwd: "bcuser",
+		roles: [ "readWrite", "dbAdmin" ]
+	}
+)
+
+## Accept remote Connections
+
+In **/etc/mongod.conf:
+
+```.code
+	# network interfaces
+	net:
+	  port: 27017
+	  bindIp: 127.0.0.1,192.168.2.17
+```
+
+And then restart it:
+
+```bash
+sudo service mongod restart
+```
