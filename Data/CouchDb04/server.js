@@ -1,4 +1,5 @@
 var nano = require('nano')('http://localhost:5984');
+// var nano = require('nano')('http://192.168.2.21:5984');
 
 var docName = 'bigNames';
 var dbName = 'bc_data';
