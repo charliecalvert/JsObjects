@@ -7,8 +7,8 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-var servers = [ 'http://127.0.0.1:5984', 'http://192.168.2.21:5984' ];
-var serverIndex = 0;
+var servers = [ 'http://127.0.0.1:5984', 'http://192.168.2.19:5984' ];
+var serverIndex = 1;
 var nano = require('nano')(servers[serverIndex]);
 
 var dbName = 'couch_views';
@@ -84,7 +84,7 @@ router.get('/read', function(request, response) {
 					+ ". Use a the Get Doc Names button to find "
 					+ "the name of an existing document.";
 			err.p282special = cscMessage;
-			response.send(500, err);
+			response.status(500).send(err);
 		}
 
 	});

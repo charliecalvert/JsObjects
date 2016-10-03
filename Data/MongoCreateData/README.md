@@ -162,3 +162,5 @@ And then restart it:
 ```bash
 sudo service mongod restart
 ```
+
+More info here: <https://www.mongodb.com/download-center#community>
