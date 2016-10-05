@@ -242,7 +242,8 @@ function list() {
 
 }
 
-list();
+expand();
+// list();
 
 /*
  var argv = require('yargs')
