@@ -8,6 +8,7 @@
     "grunt-jscs": "^2.3.0",
     "grunt-jsbeautifier": "^0.2.10",
     "grunt-karma": "^0.12.1",
+    "grunt-shell": "^2.0.0",
     "jasmine-core": "^2.3.4",
     "jshint-stylish": "^2.0.1",
     "karma": "~0.13.10",
