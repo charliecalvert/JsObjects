@@ -12,12 +12,12 @@ function title() {
 	echo "==============="
 }
 
-function other() {
-	title isit322-calvert-2016
+function fall() {
+	title isit320-calvert-2016
 	i3c && git pull
 
 	title prog270-calvert-2016
-	cd ~/Git/prog270-calvert-2016
+	p2c && git pull
 	git pull
 }
 
@@ -52,4 +52,4 @@ elventools
 pwd
 git pull
 
-spring
+fall
