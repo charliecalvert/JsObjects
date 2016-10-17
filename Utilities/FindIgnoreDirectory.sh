@@ -1,1 +1,1 @@
-find . -iname *.js -not -path **/node_modules/**
+find . -iname *.js -not -path "**/node_modules/**"
