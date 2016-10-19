@@ -6,19 +6,21 @@ block content
     | Welcome to #{title}. Click the options below, and if necessary 
     | scroll down to see the results.
 
-  ul 
+  ul
     li 
       a(href='/#/databaseName') Get current Database Name and all names
     li
-      a(href='/#/deleteDb') DeleteDb
-    li
       a(href='/#/createDb') CreateDb
+    li
+      a(href='/#/deleteDb') DeleteDb
+  ul
     li
       a(href='/#/insertStatesBulk') Insert States in Bulk
     li
       a(href='/#/insertStatesOneDoc') Insert States as one document
     li
-      a(href="/#/designDoc") Design Doc
+      a(href="/#/insertDesignDoc") Insert Design Doc
+  ul
     li
       a(href="/#/readOne") Read One Doc
     li

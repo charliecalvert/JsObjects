@@ -3,65 +3,64 @@
  ******************************************************************************/
 
 function insert(router, nano, dbName) {
-	var fs = require('fs');
-	
-	/**
-	 * This route assumes request contains the data to insert See insertFile if
-	 * you want to insert a file
-	 */
-	router.get('/insert', function(request, response) {
-		'use strict';
-		var queryString = JSON.stringify(request.query, null, 4);
-		console.log('Insert called: ' + queryString);
-		var query = request.query;
+    'use strict';
+    var fs = require('fs');
 
-		var nanoDb = nano.db.use(dbName);
-		nanoDb.insert(query, query.docName, function(err, body) {
-			if (!err) {
-				console.log(body);
-				response.send(body);
+    /**
+     * This route assumes request contains the data to insert See insertFile if
+     * you want to insert a file
+     */
+    router.get('/insert', function(request, response) {
+        var queryString = JSON.stringify(request.query, null, 4);
+        console.log('Insert called: ' + queryString);
+        var query = request.query;
 
-			} else {
-				console.log(err);
-				response.send(err);
-				return;
-			}
-		});
-	});
+        var nanoDb = nano.db.use(dbName);
+        nanoDb.insert(query, query.docName, function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send(body);
 
-	function insertFile(documentName, data, response) {
-		console.log("insert file called");
-		var nanoDb = nano.db.use(dbName);
-		nanoDb.insert(data, documentName, function(err, body) {
-			if (!err) {
-				console.log(body);
-				response.send({
-					'Result' : 'Success'
-				});
-			} else {
-				console.log(err);
-				response.send(err);
-				return;
-			}
-		});
-	}
+            } else {
+                console.log(err);
+                response.send(err);
+                return;
+            }
+        });
+    });
 
-	// http://localhost:30025/insertFile?fileName=foo.json
-	router.get('/insertFile', function(request, response) {
-		'use strict';
-		console.log('Write called: ' + JSON.stringify(request.query));
-		var query = request.query;
-		var record = fs.readFile(query.fileName, 'utf8', function(err, json) {
-			if (err) {
-				console.log(err);
-				response.send(err);
-			} else {
-				console.log("Read file: ", json)
-				var pjson = JSON.parse(json);
-				insertFile(pjson._id, pjson, response);
-			}
-		});
-	});
+    function insertFile(documentName, data, response) {
+        console.log('insert file called');
+        var nanoDb = nano.db.use(dbName);
+        nanoDb.insert(data, documentName, function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send({
+                    'Result': 'Success'
+                });
+            } else {
+                console.log(err);
+                response.send(err);
+                return;
+            }
+        });
+    }
+
+    // http://localhost:30025/insertFile?fileName=foo.json
+    router.get('/insertFile', function(request, response) {
+        console.log('Write called: ' + JSON.stringify(request.query));
+        var query = request.query;
+        var record = fs.readFile(query.fileName, 'utf8', function(err, json) {
+            if (err) {
+                console.log(err);
+                response.send(err);
+            } else {
+                console.log('Read file: ', json);
+                var pjson = JSON.parse(json);
+                insertFile(pjson._id, pjson, response);
+            }
+        });
+    });
 
 }
 
