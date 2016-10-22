@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <style>
+        #blocker {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .Grid {
+            display: flex;
+            height: 33%;
+            border: solid 1px black;
+        }
+        
+        .Grid-cell {
+            flex: 1;
+             align-self: center;
+        }
+        
+        .Centered-text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="blocker">
+        <div class="Grid">
+            <div class="Grid-cell">Basic Grid</div>
+            <div class="Grid-cell">Basic Grid</div>
+            <div class="Grid-cell">Basic Grid</div>
+        </div>
+
+        <div class="Grid">
+            <div class="Grid-cell Centered-text">Center Grid</div>
+        </div>
+        <div class="Grid">
+            <div class="Grid-cell Centered-text">Center Grid</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
