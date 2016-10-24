@@ -40,7 +40,7 @@ alias gitio="cd $GIT_HUB_IO"
 alias elfsite="cd $GIT_HOME/ElfSite/Code"
 alias nm="ln -s ~/tmp/node_modules/"
 alias components="ln -s ~/tmp/components/ public/components"
-alias nmc=nm && components
+alias nmc="nm && components"
 alias elventools="cd $GIT_HOME/elven-tools"
 
 # My Courses
