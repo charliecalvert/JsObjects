@@ -1,5 +1,4 @@
-JsObjects
-========
+# JsObjects
 
 Code by Charlie Calvert for Elvenware.
 
@@ -14,17 +13,19 @@ directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license. 
 
+## Core Setup
+
+Learn about it here: [Core Setup](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup)
+
 ## Node Install
 
 On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
 
 On Linux:
 
-    sudo apt-get install curl
-    curl -sL https://deb.nodesource.com/setup | sudo bash -
-    sudo apt-get install -y nodejs
+Learn about it here: [Node Install](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node)
 
-See also Node on Elvenware:
+More information:
 
 - <http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node>
 
