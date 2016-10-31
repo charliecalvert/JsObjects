@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('CouchView02');
+var debug = require('debug')('couch-view-02');
 var app = require('../app');
 
 app.set('port', process.env.PORT || 30025);

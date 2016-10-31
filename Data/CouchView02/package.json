@@ -1,10 +1,10 @@
 {
-    "name": "CouchDbViews",
+    "name": "couch-view-02",
     "version": "0.0.1",
     "description": "Learning CouchViews",
     "private": true,
     "scripts": {
-        "start": "nodemon ./bin/www"
+        "start": "DEBUG=couch-view-02 nodemon ./bin/www"
     },
     "dependencies": {
         "body-parser": "~1.15.1",
