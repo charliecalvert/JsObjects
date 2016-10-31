@@ -92,9 +92,9 @@ function couchAttach(router, nano, dbName) {
             if (!error) {
                 console.log(existing);
                 console.log(existing._rev);
-                doInsert({
-                    'rev': existing._rev
-                }, response);
+                /* doInsert({
+                	"rev" : existing._rev
+                }, response); */
             } else {
                 console.log(error);
                 response.send(500, error);

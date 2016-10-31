@@ -36,7 +36,9 @@ function insert(router, nano, dbName) {
             if (!err) {
                 console.log(body);
                 response.send({
-                    'Result': 'Success'
+                    'ok': true,
+                    'Result': 'Success',
+                    'data': body
                 });
             } else {
                 console.log(err);

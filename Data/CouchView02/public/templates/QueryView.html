@@ -1,7 +1,10 @@
 <div class="container">
 
-    <h1>Angular Query</h1>
-    
-    <pre>{{ result }}</pre>
+    <h1>Create Query</h1>
+
+    <p>{{result}}</p>
+    <ul data-ng-repeat="state in stateList">
+        <li><pre>{{ state | json }}</pre></li>
+    </ul>
 
 </div>

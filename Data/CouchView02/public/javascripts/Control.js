@@ -4,26 +4,33 @@
 
 var myModule = angular.module('myModule', ['ngRoute']);
 
-var queryController = myModule.controller('QueryController',    
-    function($scope, result) {
+var queryController = myModule.controller('QueryController',
+    function ($scope, result) {
         'use strict';
         if (result.ok) {
             $scope.result = "It worked";
+            $scope.stateList = result.data;
         } else if (result.requestFailed) {
             $scope.result = JSON.stringify(result.requestFailed, null, 4);
+        } else if (result.error) {
+            $scope.result = result.error + ': ' + result.message;
+        } else if (result.docs) {
+            $scope.stateList = result.docs;
+        } else if (result.rows) {
+            $scope.stateList = result.rows;
         } else {
             $scope.result = result;
         }
 
-        $scope.docs = result.docs;
+        $scope.docs = JSON.stringify(result.docs, null, 4);
     });
 
 function runQuery(query, $q) {
     'use strict';
     var defers = $q.defer();
-    $.getJSON(query, function(json) {
+    $.getJSON(query, function (json) {
         defers.resolve(json);
-    }).fail(function(jqxhr, textStatus, error) {
+    }).fail(function (jqxhr, textStatus, error) {
         var response = JSON.parse(jqxhr.responseText);
         response.genericError = error;
         response.statusText = textStatus;
@@ -34,68 +41,68 @@ function runQuery(query, $q) {
     return defers.promise;
 }
 
-queryController.delete = function($q) {
+queryController.delete = function ($q) {
     'use strict';
     return runQuery('/deleteDb', $q);
 };
 
-queryController.create = function($q) {
+queryController.create = function ($q) {
     'use strict';
     return runQuery('/createDb', $q);
 };
 
-queryController.statesBulk = function($q) {
+queryController.statesBulk = function ($q) {
     'use strict';
     return runQuery('/insertBulk?fileName=States.json', $q);
 };
 
-queryController.statesOneDoc = function($q) {
+queryController.statesOneDoc = function ($q) {
     'use strict';
     return runQuery('/insertFile?fileName=States.json&id=oneDoc', $q);
 };
 
-queryController.design = function($q) {
+queryController.design = function ($q) {
     'use strict';
     return runQuery('/designDoc', $q);
 };
 
-queryController.viewBulk = function($q) {
+queryController.viewBulk = function ($q) {
     'use strict';
     return runQuery('/viewBulk?designDoc=states&view=docBulk', $q);
 };
 
-queryController.readOne = function($q) {
+queryController.readOne = function ($q) {
     'use strict';
     return runQuery('/read?docName=statesDoc', $q);
 };
 
-queryController.viewOneDoc = function($q) {
+queryController.viewOneDoc = function ($q) {
     'use strict';
     return runQuery('/viewOneDoc?designDoc=states&view=docStatesDoc', $q);
 };
 
-queryController.viewBulkAngular = function($q) {
+queryController.viewBulkAngular = function ($q) {
     'use strict';
     return runQuery('/viewStateCapitalAngular?designDoc=states&view=docStateCapital', $q);
 };
 
-var nameController = myModule.controller('NameController', function($scope, databaseName, allDbs) {
+var nameController = myModule.controller('NameController', function ($scope, databaseName, allDbs) {
     'use strict';
     $scope.databaseName = databaseName;
     $scope.allDbs = allDbs;
 });
 
-nameController.databaseName = function($q) {
+nameController.databaseName = function ($q) {
     'use strict';
     return runQuery('/databaseName', $q);
 };
 
-nameController.allDbs = function($q) {
+nameController.allDbs = function ($q) {
     'use strict';
     return runQuery('/listDb', $q);
 };
 
-myModule.config(function($routeProvider) {
+myModule.config(function ($routeProvider) {
     'use strict';
     $routeProvider.when('/databaseName', {
         templateUrl: 'templates/DatabaseNames.html',
@@ -164,8 +171,8 @@ myModule.config(function($routeProvider) {
 });
 
 /*
-window.onload = function() {
-   $.getJSON("/read?docName=3e82f91797ece19dcfa2285dde098e8e", function(result) {
-       console.log(result);
-   });
-} */
+ window.onload = function() {
+ $.getJSON("/read?docName=3e82f91797ece19dcfa2285dde098e8e", function(result) {
+ console.log(result);
+ });
+ } */

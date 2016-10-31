@@ -25,6 +25,7 @@ function couchBulk(router, dbName, server) {
                 console.log('Insert Data');
                 console.log(body);
                 response.send({
+                    'ok': true,
                     'result': 'success',
                     'data': body
                 });
