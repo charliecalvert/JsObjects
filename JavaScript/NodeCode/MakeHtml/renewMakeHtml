@@ -1,6 +1,68 @@
-rm -r ~/Source/MakeHtml
-cd ~/Source
-cp -r $JSOBJECTS/JavaScript/NodeCode/MakeHtml/ .
-cd MakeHtml
-npm install
-npm start
+#! /bin/bash
+
+TEMP_DIR=$HOME/temp
+MAKE_HTML=$PWD/MakeHtml
+CONFIG_NAME=ElvenConfig.json
+CONFIG_FILE=$MAKE_HTML/config/$CONFIG_NAME
+TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
+
+TODAY=`date +%Y-%m-%d.%H:%M:%S`
+TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
+
+function checkTempDir() {
+    if [ -d "$TEMP_DIR" ]; then
+        echo "$TEMP_DIR exists"
+    else
+        echo "$TEMP_DIR does not exist. Creating it."
+        mkdir $TEMP_DIR
+    fi
+}
+
+function backupConfig() {
+    if [ -f "$CONFIG_FILE" ]; then
+        echo "$CONFIG_FILE exists."
+        echo "Copying it to $TEMP_DIR"
+        cp -v $CONFIG_FILE $TEMP_DIR/.
+        cp -v $CONFIG_FILE $TEMP_CONFIG_DATE_FILE
+    else
+        echo "$CONFIG_FILE" does not exist
+    fi
+}
+
+function restoreConfig() {
+    if [ -f "$TEMP_CONFIG_DATE_FILE" ]; then
+        echo "The Config file ($TEMP_CONFIG_DATE_FILE) exists."
+        echo "Copying it to $CONFIG_FILE"
+        cp -v $TEMP_CONFIG_DATE_FILE $CONFIG_FILE
+    else
+        echo "$TEMP_CONFIG_DATE_FILE" does not exist.
+    fi
+}
+
+function deleteMakeHtml() {
+    if [ -d "$MAKE_HTML" ]; then
+        echo "Deleting $MAKE_HTML"
+        rm -r "$MAKE_HTML"
+    else
+        echo "$MAKE_HTML does not exist. Exiting."
+        exit
+    fi
+}
+
+function buildMakeHtml() {    
+    cp -r $JSOBJECTS/JavaScript/NodeCode/MakeHtml/ .
+    cd MakeHtml
+    npm install
+    npm start
+}
+
+function run() {
+    checkTempDir
+    backupConfig
+    deleteMakeHtml
+    buildMakeHtml
+    restoreConfig
+}
+
+run
+echo "All done"
