@@ -9,12 +9,12 @@ TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
 TODAY=`date +%Y-%m-%d.%H:%M:%S`
 TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
 
-function checkTempDir() {
-    if [ -d "$TEMP_DIR" ]; then
-        echo "$TEMP_DIR exists"
+function checkDir() {
+    if [ -d "$1" ]; then
+        echo "$1 exists"
     else
-        echo "$TEMP_DIR does not exist. Creating it."
-        mkdir $TEMP_DIR
+        echo "$1 does not exist. Creating it."
+        mkdir $1
     fi
 }
 
@@ -57,7 +57,10 @@ function buildMakeHtml() {
 }
 
 function run() {
-    checkTempDir
+    checkDir $HOME'/temp'
+    checkDir $HOME'/Documents'
+    checkDir $HOME'/Documents/AllTest'
+    checkDir $HOME'/Documents/Markdown'
     backupConfig
     deleteMakeHtml
     buildMakeHtml
