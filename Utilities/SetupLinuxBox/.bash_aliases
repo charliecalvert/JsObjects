@@ -32,6 +32,8 @@ alias runnpm="npm install && npm start"
 alias runexpress='npm install && bower install && grunt'
 alias run="nm && components && npm start"
 alias mh="cd ~/Source/MakeHtml"
+alias vwh="cd /var/www/html"
+
 #alias run="npm install && bower install && npm start"
 
 # JsObjects
