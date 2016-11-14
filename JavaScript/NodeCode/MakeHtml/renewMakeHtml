@@ -1,10 +1,12 @@
 #! /bin/bash
 
-TEMP_DIR=$HOME/temp
-MAKE_HTML=$PWD/MakeHtml
+INSTALL_DIR=$HOME/Source
+MAKE_HTML=$INSTALL_DIR/MakeHtml
 CONFIG_NAME=ElvenConfig.json
 CONFIG_FILE=$MAKE_HTML/config/$CONFIG_NAME
+TEMP_DIR=$HOME/temp
 TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
+
 
 TODAY=`date +%Y-%m-%d.%H:%M:%S`
 TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
@@ -44,8 +46,7 @@ function deleteMakeHtml() {
         echo "Deleting $MAKE_HTML"
         rm -r "$MAKE_HTML"
     else
-        echo "$MAKE_HTML does not exist. Exiting."
-        exit
+        echo "Not deleting $MAKE_HTML because it does not exist. "        
     fi
 }
 
@@ -57,10 +58,14 @@ function buildMakeHtml() {
 }
 
 function run() {
+    checkDir $INSTALL_DIR
     checkDir $HOME'/temp'
     checkDir $HOME'/Documents'
     checkDir $HOME'/Documents/AllTest'
     checkDir $HOME'/Documents/Markdown'
+    
+    cd $INSTALL_DIR
+    pwd
     backupConfig
     deleteMakeHtml
     buildMakeHtml
