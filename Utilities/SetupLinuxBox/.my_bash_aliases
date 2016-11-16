@@ -58,3 +58,5 @@ alias p2c='cd $GIT_HOME/prog270-calvert-2016-fall'
 alias p9='cd $GIT_HOME/prog219-2016'
 alias p9c='cd $GIT_HOME/prog219-calvert-2016'
 
+# Apps
+alias fbd='cd ~/Source/firebase-database/'
