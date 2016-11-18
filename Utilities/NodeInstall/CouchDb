@@ -1,0 +1,29 @@
+
+# In Oct, 2016, the standard install got me version 1.60 of CouchDb. 
+# The following got me 1.6.1 of CouchDb:
+
+function setup() {
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install software-properties-common
+	sudo add-apt-repository ppa:couchdb/stable
+	sudo apt-get update
+}
+
+function standard() {
+	sudo apt-get install couchdb
+}
+
+function setPermissions() {
+	sudo chown -R couchdb:couchdb /usr/bin/couchdb /etc/couchdb /usr/share/couchdb
+	sudo chmod -R 0770 /usr/bin/couchdb /etc/couchdb /usr/share/couchdb
+	sudo systemctl restart couchdb
+}
+
+
+setup
+standard
+setPermissions;
+
+## Check if it worked
+curl localhost:5984
