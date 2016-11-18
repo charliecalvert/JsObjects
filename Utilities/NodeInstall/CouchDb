@@ -27,3 +27,9 @@ setPermissions;
 
 ## Check if it worked
 curl localhost:5984
+
+echo 'Set up a tunnel like this'
+echo 'On your remote machine, type this but with your name and address at end:
+echo 'ssh -L5984:127.0.0.1:5984 charlie@192.168.2.27'
+echo 'No on the remote browser, put this in your browser address bar:'
+echo 'localhost:5984'
