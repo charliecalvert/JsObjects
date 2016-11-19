@@ -1,0 +1,2 @@
+# SessionStore
+by Charlie Calvert
