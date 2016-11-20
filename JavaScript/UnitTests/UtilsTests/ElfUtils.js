@@ -199,6 +199,11 @@ function removeFromEndAtCharacter(value, char) {
     return value.substring(0, value.lastIndexOf(char));
 }
 
+function removeCharactersFromStartOfString(value, numberToDelete) {
+    'use strict';
+    return value.slice(numberToDelete, value.length);
+}
+
 function writeFile(fileName, contents, callback) {
     'use strict';
     fs.writeFile(fileName, contents, function(err) {
@@ -240,5 +245,6 @@ exports.getHomeDir = getHomeDir;
 exports.isArray = isArray;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
 exports.writeFile = writeFile;
 exports.readFile = readFile;
