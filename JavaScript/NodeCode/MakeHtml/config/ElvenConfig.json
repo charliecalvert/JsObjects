@@ -2,8 +2,10 @@
   "calvert": {
     "base-dir": "/home/bcuser/",
     "bootswatch": "cosmos",
+    "most-recent-date": "1980-01-01",
     "site-dirs": [
       "Documents/AllTest",
+      "Documents/Markdown",
       "Documents/AllSite"
     ],
     "destination-dirs": [

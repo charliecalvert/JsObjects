@@ -206,11 +206,25 @@ describe("Test Type Checks", function() {
     });
 });
 
+describe("Test Strings", function() {
+    'use strict';
+
+    it("removes characters from string", function() {
+        var testString = '/basics$to';
+        var result = eu.removeFromEndAtCharacter(testString, '$');
+        expect(result).toBe('/basics');
+    });
+
+    it("removes X characters from start of string string", function() {
+        var testString = '/basics';
+        var result = eu.removeCharactersFromStartOfString(testString, 1);
+        expect(result).toBe('basics');
+    });
+});
 
 describe("Test White Space", function() {
     'use strict';
 
-    
     it("strips white space", function() {
         var stringToStrip = "This string";
         var expected = "Thisstring";

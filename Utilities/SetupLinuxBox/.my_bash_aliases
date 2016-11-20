@@ -42,6 +42,7 @@ alias nm="ln -s ~/tmp/node_modules/"
 alias components="ln -s ~/tmp/components/ public/components"
 alias nmc="nm && components"
 alias elventools="cd $GIT_HOME/elven-tools"
+alias npmstarter="cd ~/Source/MakeHtml && npm start && cd -"
 
 # My Courses
 
@@ -57,3 +58,5 @@ alias p2c='cd $GIT_HOME/prog270-calvert-2016-fall'
 alias p9='cd $GIT_HOME/prog219-2016'
 alias p9c='cd $GIT_HOME/prog219-calvert-2016'
 
+# Apps
+alias fbd='cd ~/Source/firebase-database/'
