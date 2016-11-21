@@ -5,6 +5,7 @@ WORDPRESS_DIR=wordpress
 WORDPRESS_DATA_OWNER=foo
 $WORDPRESS_DATA_PASSWORD=bar
 
+# getScriptDirectory was found on StackOverflow. It's not mine.
 # Set $SCRIPT_DIR. Call before you navigate (CD) to another directory
 function getScriptDirectory() {
     SOURCE="${BASH_SOURCE[0]}"
