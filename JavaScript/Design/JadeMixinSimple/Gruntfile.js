@@ -1,81 +1,57 @@
-var request = require('request');
-
 module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        develop: {
-            server: {
-                file: 'bin/www'
+
+        pkg: '<json:package.json>',
+
+        jshint: {
+            files: ['**/*.js'],
+
+            options: {
+                ignores: [
+                    '**/node_modules/**', '**/components/**'
+                ],
+                reporter: require('jshint-stylish'),
+                strict: true,
+                jasmine: true
             }
         },
 
-        watch: {
+        clean: {
+            yourTarget: {
+                src: ['**/node_modules/**', '**/components/**']
+            }
+        },
+
+        jscs: {
+            src: '**/*.js',
             options: {
-                nospawn: true,
-                livereload: reloadPort
-            },
-            server: {
-                files: [
-                    'bin/www',
-                    'app.js',
-                    'routes/*.js'
-                ],
-                tasks: ['develop', 'delayed-livereload']
-            },
-            js: {
-                files: ['public/js/*.js'],
-                options: {
-                    livereload: reloadPort
-                }
-            },
-            css: {
-                files: [
-                    'public/css/*.css'
-                ],
-                options: {
-                    livereload: reloadPort
-                }
-            },
-            views: {
-                files: ['views/*.jade'],
-                options: {
-                    livereload: reloadPort
-                }
+                config: '.jscsrc'
+            }
+        },
+
+        'jsbeautifier': {
+            files: ['**/*.js', '!**/node_modules/**', '!**/components/**'],
+            options: {
+                'indentSize': 4
+            }
+        },
+
+        karma: {
+            karma: {
+                configFile: 'karma.conf.js'
             }
         }
+
     });
 
-    // show elapsed time at the end
-    require('time-grunt')(grunt);
-    // load all grunt tasks
-    require('load-grunt-tasks')(grunt);
-
-    var reloadPort = 35729,
-        files;
-
-    grunt.config.requires('watch.server.files');
-    files = grunt.config('watch.server.files');
-    files = grunt.file.expand(files);
-
-    grunt.registerTask('delayed-livereload', 'Live reload after the node server has restarted.', function() {
-        var done = this.async();
-        setTimeout(function() {
-            request.get('http://localhost:' + reloadPort + '/changed?files=' + files.join(','), function(err, res) {
-                var reloaded = !err && res.statusCode === 200;
-                if (reloaded) {
-                    grunt.log.ok('Delayed live reload successful.');
-                } else {
-                    grunt.log.error('Unable to make a delayed live reload.');
-                }
-                done(reloaded);
-            });
-        }, 500);
-    });
-
-    grunt.registerTask('default', [
-        'develop',
-        'watch'
-    ]);
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.registerTask('beautify', ['jsbeautifier']);
+    grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
+    grunt.registerTask('test', ['jshint', 'karma']);
 };
