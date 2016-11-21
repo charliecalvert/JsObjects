@@ -27,9 +27,13 @@ function tempDir() {
 }
 
 function download() {
-	if [ ! -d $WORDPRESS_DIR ]; then 
+	if [ ! -d $WORDPRESS_DIR ]; then
+		# sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
 		wget https://wordpress.org/latest.tar.gz
 		tar -xzvf latest.tar.gz
+		cd $WORDPRESS_DIR
+		cp wp-config-sample.php wp-config.php
+		# sudo chown -R www-data:www-data wp-content/
 	fi
 }
 
