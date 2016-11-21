@@ -1,6 +1,7 @@
 #! /bin/bash
 
 TEMP=$HOME/temp
+WORDPRESS_DIR=wordpress
 
 function getScriptDirectory() {
 	SOURCE="${BASH_SOURCE[0]}"
@@ -24,9 +25,11 @@ function tempDir() {
 	fi
 }
 
-function download() { 
-	wget https://wordpress.org/latest.tar.gz
-	tar -xzvf latest.tar.gz
+function download() {
+	if [ ! -d $WORDPRESS_DIR ]; then 
+		wget https://wordpress.org/latest.tar.gz
+		tar -xzvf latest.tar.gz
+	fi
 }
 
 function mysqlSetup-Old {
