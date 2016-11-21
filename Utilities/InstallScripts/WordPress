@@ -3,6 +3,7 @@
 TEMP=$HOME/temp
 WORDPRESS_DIR=wordpress
 
+# Set $SCRIPT_DIR. Call before you navigate (CD) to another directory
 function getScriptDirectory() {
 	SOURCE="${BASH_SOURCE[0]}"
 	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -40,12 +41,11 @@ function mysqlSetup-Old {
 }
 
 function mysqlSetup {
-	getScriptDirectory
-	mysql -u root -p -e 'source $SCRIPT_DIR/wordpress.sql;'
+	mysql -u root -p -e 'source '$SCRIPT_DIR'/wordpress.sql;'
 }
 
 
-
+getScriptDirectory
 tempDir
 download
 mysqlSetup
