@@ -33,11 +33,13 @@ function download() {
 		tar -xzvf latest.tar.gz
 		cd $WORDPRESS_DIR
 		cp wp-config-sample.php wp-config.php
-		# sudo chown -R www-data:www-data wp-content/
+		echo 'Updating directory permissions, please supply sudo password'
+		sudo chown -R www-data:www-data wp-content/
 	fi
 }
 
 function mysqlSetup-Old {
+	echo 'Updating MySql. Please supply MYSQL password'
 	mysql -u root -p -e 'create database wordpress;'
 	mysql -u root -p -e 'GRANT ALL PRIVILEGES ON wordpress.* TO "root"@"localhost" IDENTIFIED BY "foobar";'
 	mysql -u root -p -e 'FLUSH PRIVILEGES;'
