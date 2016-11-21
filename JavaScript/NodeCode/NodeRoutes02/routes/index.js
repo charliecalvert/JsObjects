@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-var getNine = require('../Source/GetNine');
-var addingMachine = require('../Source/AddingMachine');
+var getNine = require('../source/GetNine');
+var addingMachine = require('../source/AddingMachine');
 
 
 router.get('/', function(request, response) {
     'use strict';
-    var html = fs.readFileSync(__dirname + '/../Public/index.html');
+    var html = fs.readFileSync(__dirname + '/../public/index.html');
     response.writeHeader(200, {
         "Content-Type": "text/html"
     });
