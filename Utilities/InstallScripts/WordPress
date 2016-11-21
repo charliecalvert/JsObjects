@@ -2,52 +2,68 @@
 
 TEMP=$HOME/temp
 WORDPRESS_DIR=wordpress
+WORDPRESS_DATA_OWNER=foo
+$WORDPRESS_DATA_PASSWORD=bar
 
 # Set $SCRIPT_DIR. Call before you navigate (CD) to another directory
 function getScriptDirectory() {
-	SOURCE="${BASH_SOURCE[0]}"
-	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-		SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-		SOURCE="$(readlink "$SOURCE")"
-		# if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-		[[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" 
-	done
-	SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="${BASH_SOURCE[0]}"
+    while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+        SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+        SOURCE="$(readlink "$SOURCE")"
+        # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+        [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" 
+    done
+    SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
 
 function tempDir() {
-	if [ -d $TEMP ]; then
-	  cd $TEMP
-	  pwd
-	else
-	  mkdir $TEMP
-	  cd $TEMP
-	  pwd
-	fi
+    if [ -d $TEMP ]; then
+      cd $TEMP
+      pwd
+    else
+      mkdir $TEMP
+      cd $TEMP
+      pwd
+    fi
+}
+
+function setupWpContent() {
+    cd $WORDPRESS_DIR
+    cp wp-config-sample.php wp-config.php
+    # These three lines work, but are commented out as they may need to be customized above
+    #sed -i -- 's/database_name_here/'$WORDPRESS_DIR'/' wp-config.php
+    #sed -i -- 's/username_here/'$WORDPRESS_DATA_OWNER'/' wp-config.php
+    #sed -i -- 's/password_here/'$WORDPRESS_DATA_PASSWORD'/' wp-config.php 
+    echo 'Updating, please supply sudo password at first prompt, press enter, then enter the MySQL password'
+    sudo chown -R www-data:www-data wp-content/
+
+    cd ..
 }
 
 function download() {
-	if [ ! -d $WORDPRESS_DIR ]; then
-		# sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
-		wget https://wordpress.org/latest.tar.gz
-		tar -xzvf latest.tar.gz
-		cd $WORDPRESS_DIR
-		cp wp-config-sample.php wp-config.php
-		echo 'Updating directory permissions, please supply sudo password'
-		sudo chown -R www-data:www-data wp-content/
-	fi
+    if [ ! -d $WORDPRESS_DIR ]; then
+        # sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
+        wget https://wordpress.org/latest.tar.gz
+        tar -xzvf latest.tar.gz
+
+        setupWpContent
+        
+        mv $WORDPRESS_DIR /var/www/html/.
+        
+    fi
 }
 
 function mysqlSetup-Old {
-	echo 'Updating MySql. Please supply MYSQL password'
-	mysql -u root -p -e 'create database wordpress;'
-	mysql -u root -p -e 'GRANT ALL PRIVILEGES ON wordpress.* TO "root"@"localhost" IDENTIFIED BY "foobar";'
-	mysql -u root -p -e 'FLUSH PRIVILEGES;'
-	mysql -u root -p -e 'use wordpress; show grants for 'root'@'localhost';'
+    echo 'Updating MySql. Please supply MYSQL password'
+    mysql -u root -p -e 'create database wordpress;'
+    mysql -u root -p -e 'GRANT ALL PRIVILEGES ON wordpress.* TO "root"@"localhost" IDENTIFIED BY "foobar";'
+    mysql -u root -p -e 'FLUSH PRIVILEGES;'
+    mysql -u root -p -e 'use wordpress; show grants for 'root'@'localhost';'
 }
 
 function mysqlSetup {
-	mysql -u root -p -e 'source '$SCRIPT_DIR'/wordpress.sql;'
+    mysql -u root -p -e 'source '$SCRIPT_DIR'/wordpress.sql;'
 }
 
 
