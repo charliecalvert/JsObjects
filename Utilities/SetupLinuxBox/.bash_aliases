@@ -34,6 +34,8 @@ alias gck='npm install && bower install && grunt check'
 alias run="nm && components && npm start"
 alias mh="cd ~/Source/MakeHtml"
 alias vwh="cd /var/www/html"
+alias cpfavi="cp -v $ELF_TEMPLATES/Images/favicon.ico ."
+alias cpfavp="cp -v $ELF_TEMPLATES/Images/favicon.png ."
 
 #alias run="npm install && bower install && npm start"
 
