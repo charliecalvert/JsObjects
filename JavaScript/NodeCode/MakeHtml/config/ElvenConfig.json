@@ -1,7 +1,7 @@
 {
   "calvert": {
     "base-dir": "/home/bcuser/",
-    "bootswatch": "cosmos",
+    "bootswatch": "cosmo",
     "most-recent-date": "1980-01-01",
     "site-dirs": [
       "Documents/AllTest",
@@ -10,6 +10,7 @@
     ],
     "destination-dirs": [
       "/var/www/html/",
+	  "/home/charlie/Source/firebase/public/",
       "/home/bcuser/temp/test-site/"
     ]
   }
