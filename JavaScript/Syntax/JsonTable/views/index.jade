@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  table.table.table-bordered.table-striped
+    tbody#myTable
+
+  #elfJsonTable
+
+  <table id="myTable" class="table table-striped">
+  <tbody>
+  <tr>
+  <th>name</th>
+  <th>age</th>
+  <th>hobby</th>
+  </tr>
+  <tr>
+  <td>abc</td>
+  <td>50</td>
+  <td></td>
+  </tr>
+  <tr>
+  <td></td>
+  <td>25</td>
+  <td>swimming</td>
+  </tr>
+  <tr>
+  <td>xyz</td>
+  <td></td>
+  <td>programming</td>
+  </tr>
+  </tbody>
+  </table>
