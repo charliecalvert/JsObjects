@@ -1,11 +1,11 @@
 /*global describe, it */
-'use strict';
 
-(function () {
+(function() {
 
     'use strict';
 
-    var elvenController, scope;
+    var elvenController;
+    var scope;
 
     describe('Integration Tests', function() {
 
