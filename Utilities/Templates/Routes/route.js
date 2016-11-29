@@ -18,7 +18,7 @@ define(['runQuery'], function(runQuery) {
 
     function root(control) {
         $('#elfContent').load(control.templateUrl, function(result) {
-            that.resolveRequest(control)
+            that.resolveRequest(control);
         });
     }
 
@@ -34,14 +34,14 @@ define(['runQuery'], function(runQuery) {
                 control.resolve[funcName](resolver);
             }
         } else {
-            runQuery(null, resolver)
+            runQuery(null, resolver);
         }
     };
 
     Route.prototype.when = function(route, control) {
         if (route === this.route) {
             if (control.templateUrl) {
-                root(control)
+                root(control);
             } else {
                 this.resolveRequest(control);
             }
