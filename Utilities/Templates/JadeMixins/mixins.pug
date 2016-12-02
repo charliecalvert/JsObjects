@@ -1,0 +1,94 @@
+mixin jumbo(title, name)
+    .jumbotron
+        h1= title
+        p
+            em= name
+
+mixin attribution(afr)
+    p.well by Charles Calvert
+
+
+mixin bio
+    div
+        img(src="http://www.gravatar.com/avatar/b7b972e6d8e9d877abaee3f91b74b4a8.png", alt="Charlie")
+
+        p.well
+            | I've been working with computers and writing code in one form or
+            | another for about 25 years. I started out with Turbo Pascal and Delphi,
+            | spent time with Java, C++, Python and Perl, and then spent a number of
+            | years working in C#.
+        p.well
+            | I've spent most of my career in industry, working first for Borland,
+            | then for a start up in Silicon Valley, and until a few years ago I
+            | was at Microsoft on the C# team. Over the last few years I've been
+            | interested primarily in Agile Development, the cloud and various mobile devices.
+        p.well
+            | I'm always looking for ways to learn more about how we write web
+            | and mobile applications that use Cloud services. I also look for
+            | ways to learn more about virtual machines, cloud resources and mobile devices.
+        p.well
+            | I enjoy hiking, snow-shoeing, swimming, reading and watching movies.
+            | I also like to write. I'm known in the computer world primarily as a book author:
+
+        a(href="http://elvenware.com/charlie/books/index.html", target="_blank") My Books
+
+
+
+mixin bootswatch(theme)
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/" + theme + "/bootstrap.min.css", rel="stylesheet")
+
+
+//- Panel mixin
+mixin panel(heading, style)
+    - var style = (typeof style === 'undefined') ? "default" : style
+    div( class=["panel", "panel-" + style] )
+        .panel-heading= heading
+        .panel-body
+            block
+
+
+//- Button mixin
+mixin button(style, href, size)
+    - var style = (typeof style === 'undefined') ? "default" : style
+    - var href = (typeof href === 'undefined') ? "#" : href
+    case size
+        when "large"
+            - size = "btn-lg"
+        when "small"
+            - size = "btn-sm"
+        when "mini"
+            - size = "btn-xs"
+    a( class=["btn", "btn-" + style, size], href=href )
+        block
+
+//- List group mixins
+- var groupType
+mixin listGroup(type, id)
+    - groupType = type
+    case groupType
+        when 'list'
+            ul.list-group(id=id)
+                block
+        default
+            .list-group(id=id)
+                block
+
+mixin listItem(arg1, arg2)
+    case groupType
+        when 'list'
+            li( class=["list-group-item", arg1] )
+                block
+        when 'links'
+            a( href=arg1, class=["list-group-item", arg2] )
+                block
+        default
+            .list-group-item( class=["list-group-item", arg1] )
+                block
+
+mixin listHeading
+    h4.list-group-item-heading
+        block
+
+mixin listText
+    .list-group-item-text
+        block
