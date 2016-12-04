@@ -46,15 +46,23 @@ function deleteMakeHtml() {
         echo "Deleting $MAKE_HTML"
         rm -r "$MAKE_HTML"
     else
-        echo "Not deleting $MAKE_HTML because it does not exist. "        
+        echo "Not deleting $MAKE_HTML because it does not exist. "
     fi
 }
 
-function buildMakeHtml() {    
+function buildMakeHtml() {
     cp -r $JSOBJECTS/JavaScript/NodeCode/MakeHtml/ .
     cd MakeHtml
     npm install
     npm start
+}
+
+function linkToRenewMakeHtml() {
+    RMH=$HOME/Source/renewMakeHtml
+    if [ -f "$RMH" ]; then
+        rm -v "$RMH"
+    fi
+    ln -s ~/Git/JsObjects/JavaScript/NodeCode/MakeHtml/renewMakeHtml ~/Source/renewMakeHtml
 }
 
 function run() {
@@ -63,13 +71,14 @@ function run() {
     checkDir $HOME'/Documents'
     checkDir $HOME'/Documents/AllTest'
     checkDir $HOME'/Documents/Markdown'
-    
+
     cd $INSTALL_DIR
     pwd
     backupConfig
     deleteMakeHtml
     buildMakeHtml
     restoreConfig
+    linkToRenewMakeHtml
 }
 
 run
