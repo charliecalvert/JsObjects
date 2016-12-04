@@ -1,0 +1,17 @@
+include mixin-radios
+
+block content
+
+    +elfFormPanel("Main Form")#target
+
+        +elfPanel("Input")
+            +elfCheckBox("CheckBox 01", "checkBox01", "checkBox01")#checkBox01
+            +elfInput("Enter a name", "subject", "Enter a name")#subject.form-control
+
+        +elfPanel("Actions")
+            input.btn.btn-primary(type="submit", value="Submit")
+            button.btn.btn-default#help(type="button") Help
+
+    div
+        p#charlie
+        pre#formResults
