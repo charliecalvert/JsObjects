@@ -62,7 +62,7 @@ function linkToRenewMakeHtml() {
     if [ -f "$RMH" ]; then
         rm -v "$RMH"
     fi
-    ln -s ~/Git/JsObjects/JavaScript/NodeCode/MakeHtml/renewMakeHtml ~/Source/renewMakeHtml
+    ln -s $HOME/Git/JsObjects/JavaScript/NodeCode/MakeHtml/renewMakeHtml $HOME/Source/renewMakeHtml
 }
 
 function run() {
