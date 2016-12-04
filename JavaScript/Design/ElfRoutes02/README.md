@@ -62,7 +62,7 @@ var findRoutes = (function($routeProvider) {
 });
 ```
 
-Notice that we now have a route that leads to a new controller called **aboutController**.
+Notice that we now have a route that leads to a new controller called **aboutController**. It is called when the user selects a menuitem with an anchor that has the route "/about" in it and also fits a selector specified in **main.js**.
 
 ## Controllers
 
