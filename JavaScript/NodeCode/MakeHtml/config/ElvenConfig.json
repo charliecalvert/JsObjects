@@ -10,7 +10,7 @@
     ],
     "destination-dirs": [
       "/var/www/html/",
-      "/home/charlie/Source/firebase/public/",
+      "/home/bcuser/Source/firebase/public/",
       "/home/bcuser/temp/test-site/"
     ]
   }
