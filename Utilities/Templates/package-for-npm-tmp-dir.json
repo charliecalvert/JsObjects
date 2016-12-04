@@ -28,6 +28,8 @@
     "pug": "^2.0.0-beta6",
     "request": "^2.79.0",
     "serve-favicon": "^2.3.2",
+    "session-file-store": "^1.0.0",
+    "sessionstore": "^1.2.16",
     "static-favicon": "^2.0.0-alpha",
     "stylus": "^0.54.5",
     "uuid": "^3.0.1"
