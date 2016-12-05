@@ -4,8 +4,9 @@ var router = require('./Couch');
 router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {
+        title: 'ElfRoutes',
         pageTitle: 'Main Page',
-        programTitle: 'ElfRoutes01'
+        programTitle: 'ElfRoutesReadController'
     });
 });
 
