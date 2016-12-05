@@ -1,0 +1,65 @@
+{
+    "_id": "npcsDoc",
+    "docs": [
+        {
+            "id": "AA",
+            "npc_id": 1,
+            "npc_name": "Suzie One",
+            "description": "NPC AA",
+            "color": "#00FFFF",
+            "value": 15,
+            "question": "Is 1 + 2 equal to 3?",
+            "answer": true
+        },
+        {
+            "id": "BB",
+            "npc_id": 2,
+            "npc_name": "Tom Two",
+            "description": "NPC BB",
+            "color": "#0000FF",
+            "value": 15,
+            "question": "Is 1 + 2 equal to 5?",
+            "answer": false
+        },
+        {
+            "id": "CC",
+            "npc_id": 3,
+            "npc_name": "Fred Three",
+            "description": "NPC CC",
+            "color": "#0000FF",
+            "value": 30,
+            "question": "Is 2 + 2 equal to 5?",
+            "answer": false
+        },
+        {
+            "id": "DD",
+            "npc_id": 4,
+            "npc_name": "Anne Four",
+            "description": "NPC DD",
+            "color": "#00FFFF",
+            "value": 30,
+            "question": "Is 2 + 2 equal to 4?",
+            "answer": true
+        },
+        {
+            "id": "EE",
+            "npc_id": 5,
+            "npc_name": "Lucy Five",
+            "description": "NPC EE",
+            "color": "#0000FF",
+            "value": 45,
+            "question": "Is 3 + 3 equal to 6?",
+            "answer": true
+        },
+        {
+            "id": "FF ",
+            "npc_id": 6,
+            "npc_name": "David Six",
+            "description": "NPC FF",
+            "color": "#0000FF",
+            "value": 45,
+            "question": "Is 2 + 3 equal to 4?",
+            "answer": false
+        }
+    ]
+}
