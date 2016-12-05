@@ -1,5 +1,19 @@
 # ElfRoutes01
 
+Programs in this series:
+
+- [ElfRoutes01 is the simplest project][elfroutes01]
+- [ElfRoutes02 adds an about page to elfRoutes01][elfroutes02]
+- [ElfRoutesNameController with CouchDB][elfroutes-name-controller]
+- [ElfRoutesReadController with CouchDB][elfroutes-read-controller]
+
+[elfroutes01]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes01
+[elfroutes02]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes02
+[elfroutes-name-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesNameController
+[elfroutes-read-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesReadController
+
+## Overview
+
 This program is much like **ElfRoutes02**, except that it has no **About** page. If you compare this program with **ElfRoutes02** you will see why this architecture is:
 
 - Open to extension but closed to change

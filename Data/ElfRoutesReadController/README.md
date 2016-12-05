@@ -1,11 +1,21 @@
-# ElfRoutes01
+# ElfRoutesRead Controller
 
-This program is much like **ElfRoutes02**, except that it has no **About** page and instead has:
+This program is much like **ElfRoutesNameController**, except that it:
 
-- An example of how to call database routines
-- A controller called name-controller
+- An example of how to call database create and delete methods
+- A controller called read-controller that reads in a "one doc" file from the database
 
-If you compare this program with **ElfRoutes02** you will see why this architecture is:
+By now you should see how this architecture makes it easy to add new features to earlier programs in this series such as:
+
+- [ElfRoutes01 is the simplest project][elfroutes01]
+- [ElfRoutes02 adds an about page to elfRoutes01][elfroutes02]
+- [ElfRoutesNameController with CouchDB][elfroutes-name-controller]
+
+[elfroutes01]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes01
+[elfroutes02]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes02
+[elfroutes-name-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesNameController
+
+It works so easily because it is:
 
 - Open to extension but closed to change
 - An example of loose coupling

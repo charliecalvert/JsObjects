@@ -3,6 +3,20 @@
 _by [Charlie Calvert](http://www.elvenware.com)_
 
 
+Programs in this series:
+
+- [ElfRoutes01 is the simplest project][elfroutes01]
+- [ElfRoutes02 adds an about page to elfRoutes01][elfroutes02]
+- [ElfRoutesNameController with CouchDB][elfroutes-name-controller]
+- [ElfRoutesReadController with CouchDB][elfroutes-read-controller]
+
+[elfroutes01]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes01
+[elfroutes02]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes02
+[elfroutes-name-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesNameController
+[elfroutes-read-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesReadController
+
+## Overview
+
 This program is much like ElfRoutes01, except that it has an About page.
 
 ## Flow
