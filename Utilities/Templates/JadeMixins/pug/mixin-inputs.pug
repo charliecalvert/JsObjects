@@ -1,0 +1,55 @@
+// **************
+// Vertical Input Controls
+// **************
+
+mixin elfInput(labelText, name, placeHolder)
+   div
+      label(for='subject') #{labelText}
+      input(type='text', name=name, placeholder=placeHolder)&attributes(attributes)
+
+mixin elfInputVB(labelText, name, placeHolder, labelType)
+   - if (typeof attributes.buttonType === 'undefined') {
+   -        attributes.buttonType="btn-default";
+   - }
+
+   div
+      label.label.label-default(for='subject') #{labelText}
+      input(type='text', name=name, placeholder=placeHolder)&attributes(attributes)
+
+mixin par(text)
+   - if (typeof attributes.buttonType === 'undefined') {
+   -        attributes.buttonType="btn-default";
+   - }
+
+   button.btn(class!=attributes.buttonType)= text
+
+
+// **************
+// Horizontal Input Controls
+// **************
+mixin elfInputA(labelText, name, placeHolder)
+   div.row
+      label.col-md-2.control-label(for='textinput') #{labelText}
+      .col-md-8
+         input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
+
+mixin elfInputB(labelText, name, placeHolder)
+   div.row
+      h4
+         span.col-md-2.label.label-success #{labelText}
+      .col-md-10
+         input.form-control.input-md(name=name, type='text', placeholder=placeholder)&attributes(attributes)
+
+mixin elfInputValue(labelText, name, placeHolder, value)
+   div.row
+      h4
+         span.col-md-2.label.label-success #{labelText}
+      .col-md-10
+         input.form-control.input-md(name=name, type='text', placeholder=placeholder, value=value)&attributes(attributes)
+
+mixin elfInputHorizontal(labelText, name, placeHolder)
+   .form-group
+      span.col-xs-2.label.label-success #{labelText}
+      .col-xs-10
+         input.form-control.input-sm(name=name, type='text', placeholder=placeholder)&attributes(attributes)
+

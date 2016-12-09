@@ -1,0 +1,9 @@
+#! /bin/bash
+
+diff pug/menus.pug jade/menus.jade
+diff pug/mixin-buttons.pug jade/mixin-buttons.jade
+diff pug/mixin-inputs.pug jade/mixin-inputs.jade
+diff pug/mixin-menu.pug jade/mixin-menu.jade
+diff pug/mixin-nav.pug jade/mixin-nav.jade
+diff pug/mixin-radios.pug jade/mixin-radios.jade
+diff pug/mixins.pug jade/mixins.jade
