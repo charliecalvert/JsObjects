@@ -1,36 +1,30 @@
-# ElfRoutesNameController
+# ElfRoutesRead Controller
 
-Programs in this series:
+This program is much like **ElfRoutesReadController**, except that it:
+
+- Works with Bulk Data rather than One Document
+- Provides an example of working with views and design docs
+
+By now you should see how this architecture makes it easy to add new features to earlier programs in this series such as:
 
 - [ElfRoutes01 is the simplest project][elfroutes01]
 - [ElfRoutes02 adds an about page to elfRoutes01][elfroutes02]
 - [ElfRoutesNameController with CouchDB][elfroutes-name-controller]
 - [ElfRoutesReadController with CouchDB][elfroutes-read-controller]
-- [ElfRoutesDesignController with CouchDB][elfroutes-design-controller]
 
 [elfroutes01]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes01
 [elfroutes02]: https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/ElfRoutes02
 [elfroutes-name-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesNameController
 [elfroutes-read-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesReadController
-[elfroutes-design-controller]: https://github.com/charliecalvert/JsObjects/tree/master/Data/ElfRoutesDesignController
 
-![Name Controller Screen](https://s3.amazonaws.com/bucket01.elvenware.com/images/elf-routes-name-controller.png)
-
-## Overview
-
-This program is much like **ElfRoutes02**, except that it has no **About** page and instead has:
-
-- An example of how to call database routines
-- A controller called name-controller
-
-If you compare this program with **ElfRoutes02** you will see why this architecture is:
+It works so easily because it is:
 
 - Open to extension but closed to change
 - An example of loose coupling
 
 The architecture, found mostly in the **route-provider** folder, is based on the **routeProvider** in Angular 1. I'm not trying to supply an alternative to angular or anything of the sort. I'm simply trying to give students code that implements the open/closed principle without having to bring in all of some huge library such as angular or react. I'm not knocking those libraries, in fact, I advocate using them, but I don't to teach those libraries, I want to show whey they are good.
 
-
+![Name Controller Screen](https://s3.amazonaws.com/bucket01.elvenware.com/images/elf-routes-read-controller.png)
 
 ## Flow
 

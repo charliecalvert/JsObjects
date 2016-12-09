@@ -28,6 +28,7 @@
     "elven-tools": "^0.0.1",
     "bootstrap": "^3.3.7",
     "bootswatch": "^3.3.7",
-    "requirejs": "^2.3.2"
+    "requirejs": "^2.3.2",
+    "elf-json-to-table": "elf-json-to-html-table#^0.0.5"
   }
 }
