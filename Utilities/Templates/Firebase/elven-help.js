@@ -64,7 +64,7 @@ function elfFireGetCurrentUser() {
     if (user !== null) {
         userName = user.displayName;
         userEmail = user.email;
-        userPhotoUrl = user.photoURL;
+        userPhotoUrl = user.photoURL || user.providerData[0].photoURL;
         userId = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
         // this value to authenticate with your backend server, if
         // you have one. Use User.getToken() instead.
