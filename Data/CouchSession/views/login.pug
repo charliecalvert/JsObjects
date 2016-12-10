@@ -1,0 +1,17 @@
+extends layout
+include mixins/menus
+
+block content
+    +littleMenu
+
+    h1= title
+    p Welcome to #{title}
+    p Last Refresh Date: #{lastRefreshDate}
+    p Last Refresh Time: #{lastRefreshTime}
+
+    .panel.panel-default
+        .panel-heading Google
+        .panel-body
+            ul.list-group
+                li.list-group-item
+                    a.urlClick(href='/google/login') Log In Google

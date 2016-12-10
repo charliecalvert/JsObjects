@@ -1,0 +1,22 @@
+extends layout
+include mixins/menus
+include mixins/main-sections
+
+block content
+
+    //+sample-menu
+    //+bigMenu
+    +littleMenu
+
+    div.container
+        h1= title
+        p Welcome to #{title}
+        p Last Refresh Date: #{lastRefreshDate}
+        p Last Refresh Time: #{lastRefreshTime}
+        +basics
+        +database
+        +authentication
+
+        div
+            pre#displayArea
+
