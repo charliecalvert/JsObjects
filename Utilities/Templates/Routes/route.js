@@ -17,9 +17,19 @@ define(['runQuery'], function(runQuery) {
     };
 
     function root(control) {
-        $('#elfContent').load(control.templateUrl, function(result) {
-            that.resolveRequest(control);
-        });
+        var elfContent = $('#elfContent');
+        if (elfContent.length) {
+            elfContent.load(control.templateUrl, function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Sorry but there was an error: ";
+                    $("#debug").html(msg + xhr.status + " " + xhr.statusText);
+                } else {
+                    that.resolveRequest(control);
+                }
+            });
+        } else {
+            throw ('Element with an id of elfcontent not found in HTML');
+        }
     }
 
     Route.prototype.resolveRequest = function(control) {

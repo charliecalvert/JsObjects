@@ -4,7 +4,7 @@ by Charlie Calvert
 
 Work with session and login data, store it in a database, retrieve it.
 
-Before running this app install CouchDb and set the **serverUrl** and **dbName** in **set-server.js**.
+Before running this app install CouchDb and set the **serverUrl** and **dbName** in **set-server.js**. You will need to create a new or use an existing database. The database can be empty at the start.
 
 Create a file like this, call it **setClientId**:
 
