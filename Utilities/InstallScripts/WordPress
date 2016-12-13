@@ -1,9 +1,31 @@
 #! /bin/bash
 
 TEMP=$HOME/temp
-WORDPRESS_DIR=wordpress
-WORDPRESS_DATA_OWNER=foo
-$WORDPRESS_DATA_PASSWORD=bar
+#WORDPRESS_DIR=wordpress
+#WORDPRESS_DATA_OWNER=foo
+#$WORDPRESS_DATA_PASSWORD=bar
+
+if [ -z "$WORDPRESS_DIR" ]; then
+        echo "WORDPRESS_DIR is unset";
+        exit 1
+else
+        echo "WORDPRESS_DIR is set to '$WORDPRESS_DIR'";
+fi
+
+if [ -z "$WORDPRESS_DATA_OWNER" ]; then
+        echo "WORDPRESS_DATA_OWNER is unset"
+        exit 1
+else
+        echo "WORDPRESS_DATA_OWNER is set to '$WORDPRESS_DATA_OWNER'";
+fi
+
+if [ -z "$WORDPRESS_DATA_PASSWORD" ]; then
+        echo "WORDPRESS_DATA_PASSWORD is unset."
+        exit 1
+else
+        echo "WORDPRESS_DATA_PASSWORD is set.";
+fi
+
 
 # getScriptDirectory was found on StackOverflow. It's not mine.
 # Set $SCRIPT_DIR. Call before you navigate (CD) to another directory
@@ -13,7 +35,7 @@ function getScriptDirectory() {
         SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
         SOURCE="$(readlink "$SOURCE")"
         # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-        [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE" 
+        [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_DIR/$SOURCE"
     done
     SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
@@ -35,7 +57,7 @@ function setupWpContent() {
     # These three lines work, but are commented out as they may need to be customized above
     #sed -i -- 's/database_name_here/'$WORDPRESS_DIR'/' wp-config.php
     #sed -i -- 's/username_here/'$WORDPRESS_DATA_OWNER'/' wp-config.php
-    #sed -i -- 's/password_here/'$WORDPRESS_DATA_PASSWORD'/' wp-config.php 
+    #sed -i -- 's/password_here/'$WORDPRESS_DATA_PASSWORD'/' wp-config.php
     echo 'Updating, please supply sudo password at first prompt, press enter, then enter the MySQL password'
     sudo chown -R www-data:www-data wp-content/
 
@@ -49,9 +71,9 @@ function download() {
         tar -xzvf latest.tar.gz
 
         setupWpContent
-        
+
         mv $WORDPRESS_DIR /var/www/html/.
-        
+
     fi
 }
 
