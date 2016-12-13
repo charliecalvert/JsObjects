@@ -95,9 +95,12 @@ function mysqlSetup-Old {
 }
 
 function mysqlSetup {
-    mysql -u root -p -e 'create database if not exists "$WORDPRESS_DIR";'
-    mysql -u root -p -e 'use "$WORDPRESS_DIR"'
-    mysql -u root -p -e 'GRANT ALL PRIVILEGES ON wordpress.* TO "root"@"localhost" IDENTIFIED BY "$WORDPRESS_DATA_PASSWORD";'
+    ELF_CREATE='create database if not exists "$WORDPRESS_DIR";'
+    ELF_USE_DIR='use "$WORDPRESS_DIR";'
+    ELF_GRANT_DIR='GRANT ALL PRIVILEGES ON wordpress.* TO "root"@"localhost" IDENTIFIED BY "$WORDPRESS_DATA_PASSWORD";'
+    mysql -u root -p -e "$ELF_CREATE"
+    mysql -u root -p -e "$ELF_USE_DIR"
+    mysql -u root -p -e "$ELF_GRANT_DIR"
     mysql -u root -p -e 'FLUSH PRIVILEGES;'
     mysql -u root -p -e 'show grants for "root"@"localhost";'
 }
