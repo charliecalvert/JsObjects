@@ -1,0 +1,18 @@
+WORDPRESS_DIR=wordpress
+WORDPRESS_DATA_OWNER=root
+WORDPRESS_DATA_PASSWORD=bcuser
+
+function setupWpContent() {
+    # cd $WORDPRESS_DIR
+    cp wp-config-sample.php wp-config.php
+    # These three lines work, but are commented out as they may need to be customized above
+    sed -i -- 's/database_name_here/'$WORDPRESS_DIR'/' wp-config.php
+    sed -i -- 's/username_here/'$WORDPRESS_DATA_OWNER'/' wp-config.php
+    sed -i -- 's/password_here/'$WORDPRESS_DATA_PASSWORD'/' wp-config.php 
+    echo 'Updating, please supply sudo password at first prompt, press enter, then enter the MySQL password'
+    sudo chown -R www-data:www-data wp-content/
+
+    cd ..
+}
+
+setupWpContent
