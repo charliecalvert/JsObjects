@@ -5,6 +5,21 @@ TEMP=$HOME/temp
 #WORDPRESS_DATA_OWNER=foo
 #$WORDPRESS_DATA_PASSWORD=bar
 
+if [ -z "$ELF_UTILS" ]; then
+        echo "ELF_UTILS is unset";
+        exit 1
+else
+        echo "ELF_UTILS is set to '$ELF_UTILS'";
+fi
+
+
+if [ -z "$ELF_AA_CODE" ]; then
+        echo "ELF_AA_CODE is unset";
+        exit 1
+else
+        echo "ELF_AA_CODE is set to '$ELF_AA_CODE'";
+fi
+
 if [ -z "$WORDPRESS_DIR" ]; then
         echo "WORDPRESS_DIR is unset";
         exit 1
@@ -34,6 +49,7 @@ APACHE_OWNER=${APACHE_FILE_INFO[2]}
 if [ ! $APACHE_OWNER = $USER ]; then
     echo "The /var/www/html directory is not owned by the current user"
     echo "consider: sudo chown -R $USER:$USER /var/www/html"
+    exit 1
 fi
 
 # getScriptDirectory was found on StackOverflow. It's not mine.
