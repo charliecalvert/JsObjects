@@ -1,20 +1,32 @@
 #! /bin/bash
 
-if [ ! -n "$JSOBJECTS" ]; then 
+
+BIN_DIR="$HOME"/bin
+
+if [ ! -d "$BIN_DIR" ]; then
+    echo 'Creating '"$BIN_DIR"
+    mkdir "$BIN_DIR"
+else
+    echo "$BIN_DIR"' exits.'
+fi
+
+exit 1
+
+if [ ! -n "$JSOBJECTS" ]; then
     echo "=> Creating JSOBJECTS variable"
     JSOBJECTS=$HOME/Git/JsObjects
 else
     echo "=> "JSOBJECTS environment variable already exists
 fi
 
-if [ ! -n "$ELF_UTILS" ]; then 
+if [ ! -n "$ELF_UTILS" ]; then
     echo "=> Creating ELF_UTILS variable"
     ELF_UTILS=$JSOBJECTS/Utilities
 else
     echo "=> "ELF_UTILS environment variable already exists
 fi
 
-if [ ! -n "$ELF_TEMPLATES" ]; then 
+if [ ! -n "$ELF_TEMPLATES" ]; then
     echo "=> Creating ELF_TEMPLATES variable"
     ELF_TEMPLATES=$ELF_UTILS/Templates
 else
