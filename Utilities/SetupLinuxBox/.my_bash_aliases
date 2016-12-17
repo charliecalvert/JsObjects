@@ -12,6 +12,9 @@ export ELF_WRITE="$GIT_HOME"/writings
 export ELF_WRITE_DATA=$ELF_WRITE/Data
 export ELF_WRITE_TECH=$ELF_WRITE/Tech
 export ELF_AA_CODE=$ELF_WRITE_TECH/AaCode
+export ELF_AA_SCRIPT_DIR="$ELF_AA_CODE"/Scripts
+export ELF_AA_BACKUP_DIR="$ELF_AA_CODE"/AAMeeting/DataBackUps/
+
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
 alias wtt="cd $ELF_WRITE/Tech"
