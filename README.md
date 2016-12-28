@@ -2,20 +2,29 @@
 
 Code by Charlie Calvert for Elvenware.
 
-Various JavaScript, HTML, CSS, Node, and Python Projects covering 
+Various JavaScript, HTML, CSS, Node, and Python Projects covering
 basic programming issues. To install a readonly copy:
 
     git clone http://github.com/charliecalvert/JsObjects.git
 
-I have many different example programs stored in this 
+I have many different example programs stored in this
 repository. Note especially the Utilities and JavaScript
 directories. And many other things as well.
 
-All the code in JsObjects is released under the MIT license. 
+All the code in JsObjects is released under the MIT license.
 
 ## Core Setup
 
-Learn about it here: [Core Setup](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup)
+Run the [UbuntuAndCloundNineSetup][ubuntup-setup] script. Choose the second option from the script's menu: **Run Basic Setup**. When you are done, source **.bashrc**:
+
+```bash
+source ~/.bashrc
+```
+
+[ubuntu-setup]: https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
+
+If you want the details, go here: [Core Setup](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup)
+
 
 ## Node Install
 
@@ -53,4 +62,4 @@ You can now install express, karma, etc globally without using sudo:
     npm install -g mocha
 
 If on Windows, you can issue the above commands without worrying about
-**sudo**. 
+**sudo**.
