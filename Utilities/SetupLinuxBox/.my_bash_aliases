@@ -36,6 +36,7 @@ alias ecc="cd $ELF_WRITE/Elvenware/development/cloud/"
 alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
 
 alias www='cd /var/www/html'
+alias eplug='cd /var/www/html/wordpress/wp-content/plugins/meeting-search'
 
 # My Programs
 alias cn='cd $GIT_HOME/CloudNotes'
