@@ -12,6 +12,9 @@ describe('test elven-config suite', function() {
     it('shows we can create the elf config', function(done) {
         elfConfig.useLocalConfig = false;
         elfConfig.load(function(err, data) {
+            if (err) {
+                throw err;
+            }
             expect(data.calvert['base-dir']).toBe('/home/charlie/');
             done();
         });

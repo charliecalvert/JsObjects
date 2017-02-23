@@ -12,7 +12,7 @@ var Guid = require('guid');
  * Format the JSON that holds a two dimensional array of
  * numbers representing a grid.
  */
-var prettyPrintGrid = function (grid) {
+var prettyPrintGrid = function(grid) {
     'use strict';
     var data = JSON.stringify(grid);
     var result = data.replace(/\[\"/g, '\n\t[');
@@ -27,15 +27,15 @@ var prettyPrintGrid = function (grid) {
  * @param {Object} pathName
  * @param {Object} fileName
  */
-var elfJoin = function (pathName, fileName) {
+var elfJoin = function(pathName, fileName) {
     'use strict';
     return path.join(pathName, fileName);
 };
 
-function padNumber(numberToPad, width, padValue) {
+var padNumber = function(numberToPad, width, padValue) {
     'use strict';
     padValue = padValue || '0';
-    numberToPad = numberToPad.toString();
+    numberToPad = numberToPad + '';
     if (numberToPad.length >= width) {
         return numberToPad;
     } else {
@@ -377,7 +377,6 @@ exports.endsWith = endsWith;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
 exports.getLastCharacterOfString = getLastCharacterOfString;
-
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
@@ -388,7 +387,6 @@ exports.writeFile = writeFile;
 exports.readFile = readFile;
 exports.fileExists = fileExists;
 exports.directoryExists = directoryExists;
-
 exports.ensureDir = ensureDir;
 exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;

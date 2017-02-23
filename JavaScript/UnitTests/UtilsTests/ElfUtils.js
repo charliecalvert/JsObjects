@@ -7,16 +7,6 @@ var os = require('os');
 var mkdirp = require('mkdirp');
 var Guid = require('guid');
 
-/**
- * Test if a folder exists, if it does not, make it
- */
-var ensureDir = function(folder) {
-    'use strict';
-    if (!fs.existsSync(folder)) {
-        mkdirp(folder);
-    }
-    return folder;
-};
 
 /**
  * Format the JSON that holds a two dimensional array of
@@ -29,24 +19,6 @@ var prettyPrintGrid = function(grid) {
     return result.replace(']]', ']\n]');
 };
 
-/**
- * Be sure we start with a path separator.
- */
-var ensureStartsWithPathSep = function(fileName) {
-    'use strict';
-    if (fileName.substring(0, 1) !== path.sep) {
-        fileName = path.sep + fileName;
-    }
-    return fileName;
-};
-
-var ensureEndsWithPathSep = function(fileName) {
-    'use strict';
-    if (fileName.substring(fileName.length, 1) !== path.sep) {
-        fileName = fileName + path.sep;
-    }
-    return fileName;
-};
 
 /**
  * All I'm really doing here is reminding myself that path.join
@@ -71,9 +43,318 @@ var padNumber = function(numberToPad, width, padValue) {
     }
 };
 
+
+/*
+ * @name: getFileNameFromPath
+ *
+ * We can't be sure of what the path separator will be since
+ * we don't know the platform ahead of time. If you need
+ * to use a pathseparator that may differ from the one for
+ * the current OS, then you need to specify it:
+ *
+ *    var actual = eu.getFileNameFromPath(test, "\\");
+ *
+ * Otherwise just pass in the string and let the function handle
+ * the separator automatically:
+ *
+ *    var actual = eu.getFileNameFromPath(test);
+ */
+function getFileNameFromPath(fileName, pathSeparator) {
+    'use strict';
+    if (typeof pathSeparator === 'undefined') {
+        pathSeparator = path.sep;
+    }
+    var index = fileName.lastIndexOf(pathSeparator);
+    return fileName.substr(index + 1, fileName.length - index - 1);
+}
+
+function getGuid() {
+    'use strict';
+    return Guid.create();
+}
+
+function getGuidFromMarkdown(fileName, test) {
+    'use strict';
+    fs.readFile(fileName, 'utf8', function(err, data) {
+        if (err) {
+            throw err;
+        }
+        var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
+        test(result);
+    });
+}
+
+function getHomeDir() {
+    'use strict';
+    var homeDir = null;
+    if (os.platform() === 'linux') {
+        homeDir = process.env.HOME;
+    } else if (os.platform() === 'win32') {
+        homeDir = process.env.USERPROFILE;
+    }
+    return homeDir;
+}
+
+/*******************
+ * Arrays
+ ******************/
+
+function isArray(itemToCheck) {
+    'use strict';
+    return Object.prototype.toString.call(itemToCheck) === '[object Array]';
+}
+
+var arrayContains = function (target, value) {
+    // console.log(target, value);
+    var found = false;
+    for (var i = 0; i < target.length && !found; i++) {
+        if (target[i] === value) {
+            found = true;
+        }
+    }
+    return found;
+};
+
+function arrayDifference(firstArray, secondArray) {
+    return firstArray.filter(function (item) {
+        return secondArray.indexOf(item) < 0;
+    });
+}
+
+// Flawed solution. Read comments: http://stackoverflow.com/a/1187628
+function arraySymmetricDifference(firstArray, secondArray) {
+
+    var temp = [];
+    var difference = [];
+
+    for (var i = 0; i < firstArray.length; i++) {
+        console.log(firstArray[i]);
+        temp[firstArray[i]] = true;
+        console.log(temp[firstArray[i]]);
+    }
+
+    console.log('temp:', temp);
+    console.log(firstArray);
+
+    for (i = 0; i < secondArray.length; i++) {
+        if (temp[secondArray[i]]) {
+            delete temp[secondArray[i]];
+        } else {
+            temp[secondArray[i]] = true;
+        }
+    }
+
+    console.log(temp);
+    console.log(firstArray);
+
+    for (var item in temp) {
+        console.log(item);
+        difference.push(item);
+    }
+
+    return difference;
+}
+
+/*******************
+ * Strings
+ ******************/
+
+function insertString(fileName, itemToInsert, index) {
+    'use strict';
+    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
+    return output;
+}
+
+function removeCharactersFromStartOfString(value, numberToDelete) {
+    'use strict';
+    return value.slice(numberToDelete, value.length);
+}
+
+function getFirstWord(value) {
+    return value.split(' ')[0];
+}
+
+function insertString(fileName, itemToInsert, index) {
+    'use strict';
+    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
+    return output;
+}
+
+function removeFromEndAtCharacter(value, char) {
+    'use strict';
+    return value.substring(0, value.lastIndexOf(char));
+}
+
 function endsWith(value, suffix) {
     'use strict';
     return value.indexOf(suffix, this.length - suffix.length) !== -1;
+}
+
+function endsWith(value, suffix) {
+    'use strict';
+    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+}
+
+var getLastCharacterOfString = function (value) {
+    return value.substring(value.length - 1);
+};
+
+function stripWhiteSpace(value) {
+    'use strict';
+    return String(value)
+        .replace(/ /g, '')
+        .replace(/\t/g, '')
+        .replace(/\r/g, '')
+        .replace(/\n/g, '');
+}
+
+function stripPunctuation(value) {
+    'use strict';
+    return String(value)
+        .replace(/\./g, '')
+        .replace(/!/g, '')
+        .replace(/\?/g, '')
+        .replace(/,/g, '');
+}
+
+function htmlEscape(str) {
+    'use strict';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+// jscs:disable validateQuoteMarks
+function htmlUnescape(str) {
+    'use strict';
+    return String(str)
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>');
+}
+// jscs:enable validateQuoteMarks
+
+/*******************
+ * File Related
+ ******************/
+
+/*
+ * @name: writeFile
+ *
+ * @param: fileName
+ * @param: contents
+ *
+ * To use promise, don't pass a callback
+ */
+function writeFile(fileName, contents, callback) {
+    'use strict';
+    console.log('writing', fileName);
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.writeFile(fileName, contents, 'utf8', function (err) {
+                if (err) {
+                    reject(err);
+                }
+                resolve({
+                    result: 'success'
+                });
+            });
+        })
+    } else {
+        fs.writeFile(fileName, contents, 'utf8', function (err) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                result: 'success'
+            });
+        });
+    }
+}
+
+/*
+ * @name: readFile
+ *
+ * To use promise, don't pass a callback
+ */
+function readFile(fileName, callback) {
+    'use strict';
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.readFile(fileName, 'utf8', function (err, fileContents) {
+                if (err) {
+                    reject (err);
+                }
+                resolve({
+                    'result': fileContents
+                });
+            });
+        })
+    } else {
+        fs.readFile(fileName, 'utf8', function (err, fileContents) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                'result': fileContents
+            });
+        });
+    }
+}
+
+function fileExists(filePath) {
+    try {
+        return fs.statSync(filePath).isFile();
+    }
+    catch (err) {
+        return false;
+    }
+}
+
+function directoryExists(path) {
+    var result = true;
+    try {
+        fs.accessSync(path, fs.F_OK);
+    } catch (e) {
+        result = false;
+    }
+    return result;
+}
+
+/**
+ * Test if a folder exists, if it does not, make it
+ */
+function ensureDir(folder) {
+    'use strict';
+    if (!fs.existsSync(folder)) {
+        mkdirp(folder);
+    }
+    return folder;
+};
+
+/**
+ * Be sure we start with a path separator.
+ */
+function ensureStartsWithPathSep(fileName) {
+    'use strict';
+    if (fileName.substring(0, 1) !== path.sep) {
+        fileName = path.sep + fileName;
+    }
+    return fileName;
+}
+
+function ensureEndsWithPathSep(fileName) {
+    'use strict';
+
+    if (fileName.substring(fileName.length, 1) !== path.sep) {
+        fileName = fileName + path.sep;
+    }
+    return fileName;
 }
 
 // from: http://stackoverflow.com/a/1203361
@@ -116,135 +397,38 @@ function getFileNameFromPath(fileName, pathSeparator) {
     return fileName.substr(index + 1, fileName.length - index - 1);
 }
 
-function getGuid() {
-    'use strict';
-    return Guid.create();
-}
-
-function getGuidFromMarkdown(fileName, test) {
-    'use strict';
-    fs.readFile(fileName, 'utf8', function(err, data) {
-        if (err) {
-            throw err;
-        }
-        var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
-        test(result);
-    });
-}
-
-function stripWhiteSpace(value) {
-    'use strict';
-    return String(value)
-        .replace(/ /g, '')
-        .replace(/\t/g, '')
-        .replace(/\r/g, '')
-        .replace(/\n/g, '');
-}
-
-function stripPunctuation(value) {
-    'use strict';
-    return String(value)
-        .replace(/\./g, '')
-        .replace(/!/g, '')
-        .replace(/\?/g, '')
-        .replace(/,/g, '');
-}
-
-function htmlEscape(str) {
-    'use strict';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-}
-
-// jscs:disable validateQuoteMarks
-function htmlUnescape(str) {
-    'use strict';
-    return String(str)
-        .replace(/&amp;/g, '&')
-        .replace(/&quot;/g, '"')
-        .replace(/&#39;/g, "'")
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>');
-}
-// jscs:enable validateQuoteMarks
-
-function isArray(itemToCheck) {
-    'use strict';
-    return Object.prototype.toString.call(itemToCheck) === '[object Array]';
-}
-
-function getHomeDir() {
-    'use strict';
-    var homeDir = null;
-    if (os.platform() === 'linux') {
-        homeDir = process.env.HOME;
-    } else if (os.platform() === 'win32') {
-        homeDir = process.env.USERPROFILE;
-    }
-    return homeDir;
-}
-
-function insertString(fileName, itemToInsert, index) {
-    'use strict';
-    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
-    return output;
-}
-
-function removeFromEndAtCharacter(value, char) {
-    'use strict';
-    return value.substring(0, value.lastIndexOf(char));
-}
-
-function removeCharactersFromStartOfString(value, numberToDelete) {
-    'use strict';
-    return value.slice(numberToDelete, value.length);
-}
-
-function writeFile(fileName, contents, callback) {
-    'use strict';
-    fs.writeFile(fileName, contents, function(err) {
-        callback({
-            result: 'success'
-        });
-    });
-}
-
-function readFile(fileName, callback) {
-    'use strict';
-    fs.readFile(fileName, 'utf8', function(err, fileContents) {
-        if (err) {
-            throw (err);
-        }
-        callback({
-            'result': fileContents
-        });
-    });
-}
-
-exports.ensureDir = ensureDir;
 exports.prettyPrintGrid = prettyPrintGrid;
-exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
-exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
 exports.elfJoin = elfJoin;
 exports.padNumber = padNumber;
-exports.endsWith = endsWith;
-exports.getExtension = getExtension;
-exports.swapExtension = swapExtension;
-exports.getFileNameFromPath = getFileNameFromPath;
 exports.getGuid = getGuid;
 exports.getGuidFromMarkdown = getGuidFromMarkdown;
+exports.getHomeDir = getHomeDir;
+
+// Array
+exports.isArray = isArray;
+exports.arrayContains = arrayContains;
+exports.arrayDifference = arrayDifference;
+exports.arraySymetricDifference = arraySymmetricDifference;
+
+// Strings
+exports.getFirstWord = getFirstWord;
+exports.endsWith = endsWith;
+exports.insertString = insertString;
+exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
-exports.getHomeDir = getHomeDir;
-exports.isArray = isArray;
-exports.insertString = insertString;
-exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
-exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
+
+// Files
 exports.writeFile = writeFile;
 exports.readFile = readFile;
+exports.fileExists = fileExists;
+exports.directoryExists = directoryExists;
+exports.ensureDir = ensureDir;
+exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
+exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
+exports.getExtension = getExtension;
+exports.swapExtension = swapExtension;
+exports.getFileNameFromPath = getFileNameFromPath;
