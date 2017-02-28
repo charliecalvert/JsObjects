@@ -138,15 +138,14 @@ function getFirstWord(value) {
     return value.split(' ')[0];
 }
 
+var getLastCharacterOfString = function (value) {
+    return value.substring(value.length - 1);
+};
+
 function insertString(fileName, itemToInsert, index) {
     'use strict';
     var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
     return output;
-}
-
-function removeFromEndAtCharacter(value, char) {
-    'use strict';
-    return value.substring(0, value.lastIndexOf(char));
 }
 
 function endsWith(value, suffix) {
@@ -154,9 +153,10 @@ function endsWith(value, suffix) {
     return value.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
-var getLastCharacterOfString = function (value) {
-    return value.substring(value.length - 1);
-};
+function removeFromEndAtCharacter(value, char) {
+    'use strict';
+    return value.substring(0, value.lastIndexOf(char));
+}
 
 function stripWhiteSpace(value) {
     'use strict';
@@ -310,7 +310,7 @@ function ensureStartsWithPathSep(fileName) {
 function ensureEndsWithPathSep(fileName) {
     'use strict';
 
-    if (fileName.substring(fileName.length, 1) !== path.sep) {
+    if (getLastCharacterOfString(fileName) !== path.sep) {
         fileName = fileName + path.sep;
     }
     return fileName;
