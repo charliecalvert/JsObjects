@@ -41,6 +41,22 @@ var padNumber = function(numberToPad, width, padValue) {
     } else {
         return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
     }
+};
+
+function getGuid() {
+    'use strict';
+    return Guid.create();
+}
+
+function getGuidFromMarkdown(fileName, test) {
+    'use strict';
+    fs.readFile(fileName, 'utf8', function(err, data) {
+        if (err) {
+            throw err;
+        }
+        var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
+        test(result);
+    });
 }
 
 function getHomeDir() {
@@ -52,22 +68,6 @@ function getHomeDir() {
         homeDir = process.env.USERPROFILE;
     }
     return homeDir;
-}
-
-function getGuid() {
-    'use strict';
-    return Guid.create();
-}
-
-function getGuidFromMarkdown(fileName, test) {
-    'use strict';
-    fs.readFile(fileName, 'utf8', function (err, data) {
-        if (err) {
-            throw err;
-        }
-        var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
-        test(result);
-    });
 }
 
 /*******************
@@ -198,7 +198,6 @@ function htmlUnescape(str) {
 }
 // jscs:enable validateQuoteMarks
 
-
 /*******************
  * File Related
  ******************/
@@ -236,7 +235,6 @@ function writeFile(fileName, contents, callback) {
         });
     }
 }
-
 
 /*
  * @name: readFile
@@ -377,6 +375,7 @@ exports.endsWith = endsWith;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
 exports.getLastCharacterOfString = getLastCharacterOfString;
+exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;

@@ -43,31 +43,6 @@ var padNumber = function(numberToPad, width, padValue) {
     }
 };
 
-
-/*
- * @name: getFileNameFromPath
- *
- * We can't be sure of what the path separator will be since
- * we don't know the platform ahead of time. If you need
- * to use a pathseparator that may differ from the one for
- * the current OS, then you need to specify it:
- *
- *    var actual = eu.getFileNameFromPath(test, "\\");
- *
- * Otherwise just pass in the string and let the function handle
- * the separator automatically:
- *
- *    var actual = eu.getFileNameFromPath(test);
- */
-function getFileNameFromPath(fileName, pathSeparator) {
-    'use strict';
-    if (typeof pathSeparator === 'undefined') {
-        pathSeparator = path.sep;
-    }
-    var index = fileName.lastIndexOf(pathSeparator);
-    return fileName.substr(index + 1, fileName.length - index - 1);
-}
-
 function getGuid() {
     'use strict';
     return Guid.create();
@@ -159,17 +134,6 @@ function arraySymmetricDifference(firstArray, secondArray) {
  * Strings
  ******************/
 
-function insertString(fileName, itemToInsert, index) {
-    'use strict';
-    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
-    return output;
-}
-
-function removeCharactersFromStartOfString(value, numberToDelete) {
-    'use strict';
-    return value.slice(numberToDelete, value.length);
-}
-
 function getFirstWord(value) {
     return value.split(' ')[0];
 }
@@ -183,11 +147,6 @@ function insertString(fileName, itemToInsert, index) {
 function removeFromEndAtCharacter(value, char) {
     'use strict';
     return value.substring(0, value.lastIndexOf(char));
-}
-
-function endsWith(value, suffix) {
-    'use strict';
-    return value.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
 function endsWith(value, suffix) {
@@ -415,6 +374,7 @@ exports.getFirstWord = getFirstWord;
 exports.endsWith = endsWith;
 exports.insertString = insertString;
 exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.getLastCharacterOfString = getLastCharacterOfString;
 exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
 exports.stripWhiteSpace = stripWhiteSpace;
 exports.stripPunctuation = stripPunctuation;
