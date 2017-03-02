@@ -158,6 +158,11 @@ function removeFromEndAtCharacter(value, char) {
     return value.substring(0, value.lastIndexOf(char));
 }
 
+function removeCharactersFromStartOfString(value, numberToDelete) {
+    'use strict';
+    return value.slice(numberToDelete, value.length);
+}
+
 function stripWhiteSpace(value) {
     'use strict';
     return String(value)

@@ -71,7 +71,7 @@ elvenConfig.load = function(callback) {
     try {
         elfLog.log(elfLog.logLevelMinorDetails, "Configuration Name: " + configName);
         utils.readFile(configName, function(result) {
-            elvenConfig.loaded = true;            
+            elvenConfig.loaded = true;
             try {
                 elvenConfig.configData = JSON.parse(result.result);
             } catch(e) {
@@ -116,19 +116,19 @@ elvenConfig.save = function(callback) {
 };
 
 elvenConfig.get = function(level, property) {
-    "use strict";    
+    "use strict";
     if (property) {
         return elvenConfig.configData[level][property];
-    } else {        
+    } else {
         return elvenConfig.configData[level]
     }
 };
 
 elvenConfig.set = function(newValue, level, property) {
-    "use strict";    
+    "use strict";
     if (property) {
         elvenConfig.configData[level][property] = newValue;
-    } else {        
+    } else {
         elvenConfig.configData[level] = newValue;
     }
 };
@@ -157,6 +157,15 @@ elvenConfig.getPropertyNamesAsArray = function(propertyName) {
         }
     }
     return result;
+}
+
+elvenConfig.getElvenImage = function(elvenImageName) {
+    var elfImages = elvenConfig.get('elvenImages');
+    for (var i = 0; i < elfImages.length; i++) {
+        if (elfImages[i].name === elvenImageName) {
+            return elfImages[i];
+        }
+    }
 }
 
 module.exports = elvenConfig;
