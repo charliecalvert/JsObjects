@@ -2,7 +2,7 @@
  * Created by charlie on 3/6/16.
  */
 
-describe('String Util Suite', function () {
+describe('Elf String Util Suite', function () {
     'use strict';
 
     var elfUtils = require('../index').elfUtils;

@@ -1,23 +1,29 @@
 /**
- * Created by charlie on 3/6/16.
+ * Created by charlie on 10/7/15.
  */
 
-var elfUtils = require('../elf-utils');
+var elfUtils = require('../index').elfUtils;
 
-describe('Test Array Utils Suite', function() {
+describe('Elf Utils Suite', function() {
+    'use strict';
 
-    it('expects to see difference between two string arrays. We Subtract arrayTwo from arrayOne', function () {
+    it('finds difference between two short string arrays.', function () {
         var one = ['a', 'b', 'c'];
         var two = ['b', 'c'];
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual(['a']);
     });
 
-    it('expects to see difference between two string arrays. We Subtract arrayTwo from arrayOne', function () {
+    it('finds difference between two longer string arrays.', function () {
         var one = ['a', 'b', 'c', 'd', 'e', 'f'];
         var two = ['b', 'd'];
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual(['a', 'c', 'e', 'f']);
+    });
+
+    it('expects array to contain delta', function() {
+        var nato = ['able', 'bravo', 'charlie', 'delta', 'echo'];
+        expect(elfUtils.arrayContains(nato, 'delta')).toBe(true);
     });
 
     it('expects to see difference between two numeric arrays', function () {

@@ -4,7 +4,9 @@
 
 var elfUtils = require('../index').elfUtils;
 
-describe('Elvenware ElfUtils Basics Suite', function() {
+describe('Elf Basics Utils Suite', function() {
+    'use strict';
+
     it('expects extension to png', function() {
         var extension = elfUtils.getExtension('foo.png');
         expect(extension).toBe('png');

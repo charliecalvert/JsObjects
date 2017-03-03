@@ -1,24 +1,12 @@
 /**
  * @author Charlie Calvert
  */
+
 var path = require('path');
 var fs = require('fs');
 var os = require('os');
 var mkdirp = require('mkdirp');
 var Guid = require('guid');
-
-
-/**
- * Format the JSON that holds a two dimensional array of
- * numbers representing a grid.
- */
-var prettyPrintGrid = function(grid) {
-    'use strict';
-    var data = JSON.stringify(grid);
-    var result = data.replace(/\[\"/g, '\n\t[');
-    return result.replace(']]', ']\n]');
-};
-
 
 /**
  * All I'm really doing here is reminding myself that path.join
@@ -32,22 +20,6 @@ var elfJoin = function(pathName, fileName) {
     return path.join(pathName, fileName);
 };
 
-var padNumber = function(numberToPad, width, padValue) {
-    'use strict';
-    padValue = padValue || '0';
-    numberToPad = numberToPad + '';
-    if (numberToPad.length >= width) {
-        return numberToPad;
-    } else {
-        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
-    }
-};
-
-function getGuid() {
-    'use strict';
-    return Guid.create();
-}
-
 function getGuidFromMarkdown(fileName, test) {
     'use strict';
     fs.readFile(fileName, 'utf8', function(err, data) {
@@ -57,6 +29,11 @@ function getGuidFromMarkdown(fileName, test) {
         var result = data.match(/<!-- GUID: (.+?) -->/i)[1];
         test(result);
     });
+}
+
+function getGuid() {
+    'use strict';
+    return Guid.create();
 }
 
 function getHomeDir() {
@@ -70,14 +47,32 @@ function getHomeDir() {
     return homeDir;
 }
 
+/**
+ * Format the JSON that holds a two dimensional array of
+ * numbers representing a grid.
+ */
+var prettyPrintGrid = function(grid) {
+    'use strict';
+    var data = JSON.stringify(grid);
+    var result = data.replace(/\[\"/g, '\n\t[');
+    return result.replace(']]', ']\n]');
+};
+
+
+var padNumber = function(numberToPad, width, padValue) {
+    'use strict';
+    padValue = padValue || '0';
+    numberToPad = numberToPad + '';
+    if (numberToPad.length >= width) {
+        return numberToPad;
+    } else {
+        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
+    }
+};
+
 /*******************
  * Arrays
  ******************/
-
-function isArray(itemToCheck) {
-    'use strict';
-    return Object.prototype.toString.call(itemToCheck) === '[object Array]';
-}
 
 var arrayContains = function (target, value) {
     // console.log(target, value);
@@ -130,9 +125,19 @@ function arraySymmetricDifference(firstArray, secondArray) {
     return difference;
 }
 
+function isArray(itemToCheck) {
+    'use strict';
+    return Object.prototype.toString.call(itemToCheck) === '[object Array]';
+}
+
 /*******************
  * Strings
  ******************/
+
+function endsWith(value, suffix) {
+    'use strict';
+    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+}
 
 function getFirstWord(value) {
     return value.split(' ')[0];
@@ -141,45 +146,6 @@ function getFirstWord(value) {
 var getLastCharacterOfString = function (value) {
     return value.substring(value.length - 1);
 };
-
-function insertString(fileName, itemToInsert, index) {
-    'use strict';
-    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
-    return output;
-}
-
-function endsWith(value, suffix) {
-    'use strict';
-    return value.indexOf(suffix, this.length - suffix.length) !== -1;
-}
-
-function removeFromEndAtCharacter(value, char) {
-    'use strict';
-    return value.substring(0, value.lastIndexOf(char));
-}
-
-function removeCharactersFromStartOfString(value, numberToDelete) {
-    'use strict';
-    return value.slice(numberToDelete, value.length);
-}
-
-function stripWhiteSpace(value) {
-    'use strict';
-    return String(value)
-        .replace(/ /g, '')
-        .replace(/\t/g, '')
-        .replace(/\r/g, '')
-        .replace(/\n/g, '');
-}
-
-function stripPunctuation(value) {
-    'use strict';
-    return String(value)
-        .replace(/\./g, '')
-        .replace(/!/g, '')
-        .replace(/\?/g, '')
-        .replace(/,/g, '');
-}
 
 function htmlEscape(str) {
     'use strict';
@@ -203,82 +169,43 @@ function htmlUnescape(str) {
 }
 // jscs:enable validateQuoteMarks
 
+function insertString(fileName, itemToInsert, index) {
+    'use strict';
+    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
+    return output;
+}
+
+function removeCharactersFromStartOfString(value, numberToDelete) {
+    'use strict';
+    return value.slice(numberToDelete, value.length);
+}
+
+function removeFromEndAtCharacter(value, char) {
+    'use strict';
+    return value.substring(0, value.lastIndexOf(char));
+}
+
+function stripPunctuation(value) {
+    'use strict';
+    return String(value)
+        .replace(/\./g, '')
+        .replace(/!/g, '')
+        .replace(/\?/g, '')
+        .replace(/,/g, '');
+}
+
+function stripWhiteSpace(value) {
+    'use strict';
+    return String(value)
+        .replace(/ /g, '')
+        .replace(/\t/g, '')
+        .replace(/\r/g, '')
+        .replace(/\n/g, '');
+}
+
 /*******************
  * File Related
  ******************/
-
-/*
- * @name: writeFile
- *
- * @param: fileName
- * @param: contents
- *
- * To use promise, don't pass a callback
- */
-function writeFile(fileName, contents, callback) {
-    'use strict';
-    console.log('writing', fileName);
-    if (!callback) {
-        return new Promise(function (resolve, reject) {
-            fs.writeFile(fileName, contents, 'utf8', function (err) {
-                if (err) {
-                    reject(err);
-                }
-                resolve({
-                    result: 'success'
-                });
-            });
-        })
-    } else {
-        fs.writeFile(fileName, contents, 'utf8', function (err) {
-            if (err) {
-                throw (err);
-            }
-            callback({
-                result: 'success'
-            });
-        });
-    }
-}
-
-/*
- * @name: readFile
- *
- * To use promise, don't pass a callback
- */
-function readFile(fileName, callback) {
-    'use strict';
-    if (!callback) {
-        return new Promise(function (resolve, reject) {
-            fs.readFile(fileName, 'utf8', function (err, fileContents) {
-                if (err) {
-                    reject (err);
-                }
-                resolve({
-                    'result': fileContents
-                });
-            });
-        })
-    } else {
-        fs.readFile(fileName, 'utf8', function (err, fileContents) {
-            if (err) {
-                throw (err);
-            }
-            callback({
-                'result': fileContents
-            });
-        });
-    }
-}
-
-function fileExists(filePath) {
-    try {
-        return fs.statSync(filePath).isFile();
-    }
-    catch (err) {
-        return false;
-    }
-}
 
 function directoryExists(path) {
     var result = true;
@@ -321,6 +248,16 @@ function ensureEndsWithPathSep(fileName) {
     return fileName;
 }
 
+function fileExists(filePath) {
+    try {
+        return fs.statSync(filePath).isFile();
+    }
+    catch (err) {
+        return false;
+    }
+}
+
+
 // from: http://stackoverflow.com/a/1203361
 function getExtension(fileName) {
     'use strict';
@@ -330,11 +267,6 @@ function getExtension(fileName) {
         return '';
     }
     return array.pop().toLowerCase();
-}
-
-function swapExtension(fileName, ext) {
-    'use strict';
-    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
 }
 
 /*
@@ -361,39 +293,112 @@ function getFileNameFromPath(fileName, pathSeparator) {
     return fileName.substr(index + 1, fileName.length - index - 1);
 }
 
-exports.prettyPrintGrid = prettyPrintGrid;
+/*
+ * @name: readFile
+ *
+ * To use promise, don't pass a callback
+ */
+function readFile(fileName, callback) {
+    'use strict';
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.readFile(fileName, 'utf8', function (err, fileContents) {
+                if (err) {
+                    reject (err);
+                }
+                resolve({
+                    'result': fileContents
+                });
+            });
+        })
+    } else {
+        fs.readFile(fileName, 'utf8', function (err, fileContents) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                'result': fileContents
+            });
+        });
+    }
+}
+
+function swapExtension(fileName, ext) {
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
+}
+
+/*
+ * @name: writeFile
+ *
+ * @param: fileName
+ * @param: contents
+ *
+ * To use promise, don't pass a callback
+ */
+function writeFile(fileName, contents, callback) {
+    'use strict';
+    //console.log('writing', fileName);
+    if (!callback) {
+        return new Promise(function (resolve, reject) {
+            fs.writeFile(fileName, contents, 'utf8', function (err) {
+                if (err) {
+                    reject(err);
+                }
+                resolve({
+                    result: 'success'
+                });
+            });
+        })
+    } else {
+        fs.writeFile(fileName, contents, 'utf8', function (err) {
+            if (err) {
+                throw (err);
+            }
+            callback({
+                result: 'success'
+            });
+        });
+    }
+}
+
+/*******************************************
+ * Exports                                 *
+ *******************************************/
+
 exports.elfJoin = elfJoin;
-exports.padNumber = padNumber;
-exports.getGuid = getGuid;
 exports.getGuidFromMarkdown = getGuidFromMarkdown;
+exports.getGuid = getGuid;
 exports.getHomeDir = getHomeDir;
+exports.padNumber = padNumber;
+exports.prettyPrintGrid = prettyPrintGrid;
 
 // Array
-exports.isArray = isArray;
 exports.arrayContains = arrayContains;
 exports.arrayDifference = arrayDifference;
 exports.arraySymetricDifference = arraySymmetricDifference;
+exports.isArray = isArray;
 
 // Strings
-exports.getFirstWord = getFirstWord;
 exports.endsWith = endsWith;
-exports.insertString = insertString;
-exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.getFirstWord = getFirstWord;
 exports.getLastCharacterOfString = getLastCharacterOfString;
-exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
-exports.stripWhiteSpace = stripWhiteSpace;
-exports.stripPunctuation = stripPunctuation;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
+exports.insertString = insertString;
+exports.removeCharactersFromStartOfString = removeCharactersFromStartOfString;
+exports.removeFromEndAtCharacter = removeFromEndAtCharacter;
+exports.stripPunctuation = stripPunctuation;
+exports.stripWhiteSpace = stripWhiteSpace;
 
 // Files
-exports.writeFile = writeFile;
-exports.readFile = readFile;
-exports.fileExists = fileExists;
 exports.directoryExists = directoryExists;
 exports.ensureDir = ensureDir;
-exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
+exports.ensureStartsWithPathSep = ensureStartsWithPathSep;
+exports.fileExists = fileExists;
 exports.getExtension = getExtension;
-exports.swapExtension = swapExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
+exports.readFile = readFile;
+exports.swapExtension = swapExtension;
+exports.writeFile = writeFile;
