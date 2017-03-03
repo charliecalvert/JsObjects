@@ -22,8 +22,4 @@ describe('Elf Basics Utils Suite', function() {
         expect(newFileName).toBe('bar.html');
     });
 
-    it('expects padnumber 5,3,"0" to be 005', function() {
-        var result = elfUtils.padNumber(5, 3, '0');
-        expect(result).toBe('005');
-    });
 });

@@ -7,9 +7,8 @@ var elfUtils = require('../index').elfUtils;
 describe('Elf Utils Suite', function() {
     'use strict';
 
-    it('expects elfUtils to be truthy', function () {
+    it('expects elfUtils to be truthy', function() {
         expect(elfUtils).toBeTruthy();
     });
 
 });
-

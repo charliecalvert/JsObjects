@@ -4,15 +4,15 @@
 
 var elfUtils = require('../index').elfUtils;
 
-describe('Elvenware Elf Utils Files Suite', function () {
+describe('Elvenware Elf Utils Files Suite', function() {
     'use strict';
 
-    it('expects ensure path sep when path does not end with path sep', function () {
+    it('expects ensure path sep when path does not end with path sep', function() {
         var result = elfUtils.ensureEndsWithPathSep('/foo/bar');
         expect(result).toBe('/foo/bar/');
     });
 
-    it('expects ensure path sep when path does end with path sep', function () {
+    it('expects ensure path sep when path does end with path sep', function() {
         var result = elfUtils.ensureEndsWithPathSep('/foo/bar/');
         expect(result).toBe('/foo/bar/');
     });
@@ -46,8 +46,8 @@ describe('Elvenware Elf Utils Files Suite', function () {
         expect(elfUtils.directoryExists(home)).toBe(true);
         var fileName = home + 'temp01';
         elfUtils.writeFile(fileName, 'bar-bar\nfoo-foo\n', function(result) {
-            var result = elfUtils.fileExists(fileName);
-            expect(result).toBe(true);
+            var foundFile = elfUtils.fileExists(fileName);
+            expect(foundFile).toBe(true);
             done();
         });
     });
@@ -60,8 +60,8 @@ describe('Elvenware Elf Utils Files Suite', function () {
         var fileName = home + 'temp01';
         elfUtils.writeFile(fileName, 'bar-bar\nfoo-foo\n').then(function(result) {
             //console.log(result);
-            var result = elfUtils.fileExists(fileName);
-            expect(result).toBe(true);
+            var foundFile = elfUtils.fileExists(fileName);
+            expect(foundFile).toBe(true);
             done();
         });
     });

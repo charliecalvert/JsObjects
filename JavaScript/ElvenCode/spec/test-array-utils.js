@@ -7,14 +7,14 @@ var elfUtils = require('../index').elfUtils;
 describe('Elf Utils Suite', function() {
     'use strict';
 
-    it('finds difference between two short string arrays.', function () {
+    it('finds difference between two short string arrays.', function() {
         var one = ['a', 'b', 'c'];
         var two = ['b', 'c'];
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual(['a']);
     });
 
-    it('finds difference between two longer string arrays.', function () {
+    it('finds difference between two longer string arrays.', function() {
         var one = ['a', 'b', 'c', 'd', 'e', 'f'];
         var two = ['b', 'd'];
         var diff = elfUtils.arrayDifference(one, two);
@@ -26,14 +26,14 @@ describe('Elf Utils Suite', function() {
         expect(elfUtils.arrayContains(nato, 'delta')).toBe(true);
     });
 
-    it('expects to see difference between two numeric arrays', function () {
+    it('expects to see difference between two numeric arrays', function() {
         var one = [1, 2, 3];
         var two = [2, 3];
         var diff = elfUtils.arrayDifference(one, two);
         expect(diff).toEqual([1]);
     });
 
-    it('expects to see difference between two numeric arrays', function () {
+    it('expects to see difference between two numeric arrays', function() {
         var one = [1, 2, 3, 4, 5, 6];
         var two = [2, 3];
         var diff = elfUtils.arrayDifference(one, two);

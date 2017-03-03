@@ -15,7 +15,7 @@ describe('Elvenware Walker Suite', function() {
 
     'use strict';
 
-    beforeEach(function () {
+    beforeEach(function() {
         walker.options.filters = ['node_modules', '.idea'];
     });
 
@@ -23,18 +23,18 @@ describe('Elvenware Walker Suite', function() {
         expect(true).toBe(true);
     });
 
-    it('expects to walk to find at least three files', function (done) {
+    it('expects to walk to find at least three files', function(done) {
         var root = getRoot();
-        walker.walkDirs(root, '.js', function (report) {
+        walker.walkDirs(root, '.js', function(report) {
             report = walker.getFileNames(report);
             expect(report.length).toBeGreaterThan(3);
             done();
         });
     });
 
-    it('expects to walk to find at least three files with array of extensions', function (done) {
+    it('expects to walk to find at least three files with array of extensions', function(done) {
         var root = getRoot();
-        walker.walkDirs(root, ['.js', '.JS'], function (report) {
+        walker.walkDirs(root, ['.js', '.JS'], function(report) {
             report = walker.getFileNames(report);
             //console.log(report);
             expect(report.length).toBeGreaterThan(3);
@@ -42,16 +42,16 @@ describe('Elvenware Walker Suite', function() {
         });
     });
 
-    it('expects to walk and find Gruntfile', function (done) {
-        walker.walkDirs(getRoot(), '.js', function (report) {
+    it('expects to walk and find Gruntfile', function(done) {
+        walker.walkDirs(getRoot(), '.js', function(report) {
             report = walker.getFileNames(report);
             expect(report).toContain('Gruntfile.js');
             done();
         });
     });
 
-    it('expects to walk and find Gruntfile full path', function (done) {
-        walker.walkDirs(getRoot(), '.js', function (report) {
+    it('expects to walk and find Gruntfile full path', function(done) {
+        walker.walkDirs(getRoot(), '.js', function(report) {
             report = walker.getFullFileNames(report);
             var rootPath = getRoot();
             var gruntPath = elfUtils.ensureEndsWithPathSep(rootPath) + 'Gruntfile.js';
@@ -60,8 +60,8 @@ describe('Elvenware Walker Suite', function() {
         });
     });
 
-    it('expects to walk and find Gruntfile', function (done) {
-        walker.walkDirs(getRoot(), '.js', function (report) {
+    it('expects to walk and find Gruntfile', function(done) {
+        walker.walkDirs(getRoot(), '.js', function(report) {
             report = walker.getBasics(report);
             expect(report[0].fileName).toBe('Gruntfile.js');
             done();

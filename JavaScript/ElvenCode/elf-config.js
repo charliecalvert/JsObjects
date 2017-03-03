@@ -2,54 +2,54 @@
  * @author Charlie Calvert
  */
 
-var fs = require("fs");
-var os = require("os");
-var utils = require("./elf-utils");
-var elfLog = require("./elf-log");
+var fs = require('fs');
+var os = require('os');
+var utils = require('./elf-utils');
+var elfLog = require('./elf-log');
 
 function getConfigNameGlobal() {
-    "use strict";
-    var configFileName = "ElvenConfig.json";
-    var configName = "";
-    if (os.platform() === "darwin") {
-        configName = process.env.HOME + "/.config/" + configFileName;
-    } else if (os.platform() === "linux") {
-        configName = process.env.HOME + "/.config/" + configFileName;
-    } else if (os.platform() === "win32") {
-        configName = process.env.USERPROFILE + "\\Config\\" + configFileName;
+    'use strict';
+    var configFileName = 'ElvenConfig.json';
+    var configName = '';
+    if (os.platform() === 'darwin') {
+        configName = process.env.HOME + '/.config/' + configFileName;
+    } else if (os.platform() === 'linux') {
+        configName = process.env.HOME + '/.config/' + configFileName;
+    } else if (os.platform() === 'win32') {
+        configName = process.env.USERPROFILE + '\\Config\\' + configFileName;
     }
     return configName;
 }
 
 function getConfigNameLocal() {
-    "use strict";
-    var configFileName = "ElvenConfig.json";
-    var configName = "";
-    if (os.platform() === "darwin") {
-        configName = "config/" + configFileName;
-    } else if (os.platform() === "linux") {
-        configName = "config/" + configFileName;
-    } else if (os.platform() === "win32") {
-        configName = "Config\\" + configFileName;
+    'use strict';
+    var configFileName = 'ElvenConfig.json';
+    var configName = '';
+    if (os.platform() === 'darwin') {
+        configName = 'config/' + configFileName;
+    } else if (os.platform() === 'linux') {
+        configName = 'config/' + configFileName;
+    } else if (os.platform() === 'win32') {
+        configName = 'Config\\' + configFileName;
     }
     return configName;
 }
 
 function reportError(err) {
-    "use strict";
-    console.log("*********************************");
+    'use strict';
+    console.log('*********************************');
     console.log(err);
-    console.log("*********************************");
-    console.log("Error condition in elf-config.js!");
-    console.log("This program requires a config file");
-    console.log("Please put ElvenConfig.json somewhere we can find it.");
-    console.log("Contrl-C to abort");
-    console.log("Error condition!");
-    console.log("*********************************");
+    console.log('*********************************');
+    console.log('Error condition in elf-config.js!');
+    console.log('This program requires a config file');
+    console.log('Please put ElvenConfig.json somewhere we can find it.');
+    console.log('Contrl-C to abort');
+    console.log('Error condition!');
+    console.log('*********************************');
 }
 
 function elvenConfig() {
-    "use strict";
+    'use strict';
 }
 
 elvenConfig.configData = {};
@@ -57,6 +57,7 @@ elvenConfig.loaded = false;
 elvenConfig.useLocalConfig = false;
 
 var getConfigName = function() {
+    'use strict';
     if (elvenConfig.useLocalConfig) {
         return getConfigNameLocal();
     } else {
@@ -65,20 +66,20 @@ var getConfigName = function() {
 };
 
 elvenConfig.load = function(callback) {
-    "use strict";
+    'use strict';
     var configName = getConfigName();
     elfLog.minorDetails(configName);
     try {
-        elfLog.log(elfLog.logLevelMinorDetails, "Configuration Name: " + configName);
+        elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.readFile(configName, function(result) {
             elvenConfig.loaded = true;
             try {
                 elvenConfig.configData = JSON.parse(result.result);
-            } catch(e) {
-                console.log("Could not parse config file", e);
+            } catch (e) {
+                console.log('Could not parse config file', e);
                 callback(e);
             }
-            elfLog.log(elfLog.logLevelNanoDetails, "In load: " + JSON.stringify(elvenConfig.configData, null, 4));
+            elfLog.log(elfLog.logLevelNanoDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
             if (callback) {
                 callback(null, elvenConfig.configData);
             }
@@ -89,23 +90,23 @@ elvenConfig.load = function(callback) {
 };
 
 elvenConfig.save = function(callback) {
-    "use strict";
+    'use strict';
     if (elvenConfig.loaded !== true) {
-        throw "Can't save config file if it is not first loaded";
+        throw 'Can\'t save config file if it is not first loaded';
     }
-    if (typeof elvenConfig.configData === "undefined") {
-        throw "Can't save configData as it is empty";
+    if (typeof elvenConfig.configData === 'undefined') {
+        throw 'Can\'t save configData as it is empty';
     }
     // console.log("save", elvenConfig.configData);
     var configName = getConfigName();
     elfLog.minorDetails(configName);
     try {
-        elfLog.log(elfLog.logLevelMinorDetails, "Configuration Name: " + configName);
+        elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.writeFile(configName, JSON.stringify(elvenConfig.configData, null, 4), function(result) {
-            if (result.result !== "success") {
-                throw "Could not write config file";
+            if (result.result !== 'success') {
+                throw 'Could not write config file';
             }
-            elfLog.log(elfLog.logLevelNanoDetails, "In save: " + result);
+            elfLog.log(elfLog.logLevelNanoDetails, 'In save: ' + result);
             if (callback) {
                 callback(null, result);
             }
@@ -116,16 +117,16 @@ elvenConfig.save = function(callback) {
 };
 
 elvenConfig.get = function(level, property) {
-    "use strict";
+    'use strict';
     if (property) {
         return elvenConfig.configData[level][property];
     } else {
-        return elvenConfig.configData[level]
+        return elvenConfig.configData[level];
     }
 };
 
 elvenConfig.set = function(newValue, level, property) {
-    "use strict";
+    'use strict';
     if (property) {
         elvenConfig.configData[level][property] = newValue;
     } else {
@@ -134,7 +135,7 @@ elvenConfig.set = function(newValue, level, property) {
 };
 
 elvenConfig.keys = function(obj) {
-    "use strict";
+    'use strict';
     // console.log(elvenConfig.configData);
     if (obj) {
         return Object.keys(elvenConfig.configData[obj]);
@@ -144,28 +145,30 @@ elvenConfig.keys = function(obj) {
 };
 
 elvenConfig.getPropertyNamesAsArray = function(propertyName) {
+    'use strict';
     var target;
     if (propertyName) {
         target = elvenConfig.configData[propertyName];
     } else {
-        target = elvenConfig.configdata
+        target = elvenConfig.configdata;
     }
     var result = [];
     for (var property in target) {
         if (target.hasOwnProperty(property)) {
-            result.push(property)
+            result.push(property);
         }
     }
     return result;
-}
+};
 
 elvenConfig.getElvenImage = function(elvenImageName) {
+    'use strict';
     var elfImages = elvenConfig.get('elvenImages');
     for (var i = 0; i < elfImages.length; i++) {
         if (elfImages[i].name === elvenImageName) {
             return elfImages[i];
         }
     }
-}
+};
 
 module.exports = elvenConfig;

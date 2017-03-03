@@ -10,10 +10,10 @@ var elfUtils = require('./elf-utils');
 function utils() {}
 
 function walker() {
-
+    'use strict';
 }
 
-walker.directoryToWalk;
+walker.directoryToWalk = '';
 
 walker.options = {
     followLinks: false,
@@ -22,6 +22,7 @@ walker.options = {
 };
 
 function testExtension(extensionFilter, fileExtension) {
+    'use strict';
     if (typeof extensionFilter === 'string') {
         return extensionFilter === fileExtension;
     } else if (elfUtils.arrayContains(extensionFilter, fileExtension)) {
@@ -33,9 +34,9 @@ function testExtension(extensionFilter, fileExtension) {
 
 walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
     'use strict';
-    
+
     var walkerFileReport = [];
-    
+
     walker.directoryToWalk = directoryToWalk;
 
     var walkInstance = walk.walk(directoryToWalk, walker.options);
