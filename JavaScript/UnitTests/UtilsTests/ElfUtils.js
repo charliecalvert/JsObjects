@@ -58,24 +58,12 @@ var prettyPrintGrid = function(grid) {
     return result.replace(']]', ']\n]');
 };
 
-
-var padNumber = function(numberToPad, width, padValue) {
-    'use strict';
-    padValue = padValue || '0';
-    numberToPad = numberToPad + '';
-    if (numberToPad.length >= width) {
-        return numberToPad;
-    } else {
-        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
-    }
-};
-
 /*******************
  * Arrays
  ******************/
 
-var arrayContains = function (target, value) {
-    // console.log(target, value);
+var arrayContains = function(target, value) {
+    'use strict';
     var found = false;
     for (var i = 0; i < target.length && !found; i++) {
         if (target[i] === value) {
@@ -86,14 +74,15 @@ var arrayContains = function (target, value) {
 };
 
 function arrayDifference(firstArray, secondArray) {
-    return firstArray.filter(function (item) {
+    'use strict';
+    return firstArray.filter(function(item) {
         return secondArray.indexOf(item) < 0;
     });
 }
 
 // Flawed solution. Read comments: http://stackoverflow.com/a/1187628
 function arraySymmetricDifference(firstArray, secondArray) {
-
+    'use strict';
     var temp = [];
     var difference = [];
 
@@ -136,14 +125,16 @@ function isArray(itemToCheck) {
 
 function endsWith(value, suffix) {
     'use strict';
-    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+    return value.indexOf(suffix, value.length - suffix.length) !== -1;
 }
 
 function getFirstWord(value) {
+    'use strict';
     return value.split(' ')[0];
 }
 
-var getLastCharacterOfString = function (value) {
+var getLastCharacterOfString = function(value) {
+    'use strict';
     return value.substring(value.length - 1);
 };
 
@@ -174,6 +165,17 @@ function insertString(fileName, itemToInsert, index) {
     var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
     return output;
 }
+
+var padNumber = function(numberToPad, width, padValue) {
+    'use strict';
+    padValue = padValue || '0';
+    numberToPad = numberToPad + '';
+    if (numberToPad.length >= width) {
+        return numberToPad;
+    } else {
+        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
+    }
+};
 
 function removeCharactersFromStartOfString(value, numberToDelete) {
     'use strict';
@@ -208,6 +210,7 @@ function stripWhiteSpace(value) {
  ******************/
 
 function directoryExists(path) {
+    'use strict';
     var result = true;
     try {
         fs.accessSync(path, fs.F_OK);
@@ -226,7 +229,7 @@ function ensureDir(folder) {
         mkdirp(folder);
     }
     return folder;
-};
+}
 
 /**
  * Be sure we start with a path separator.
@@ -249,14 +252,13 @@ function ensureEndsWithPathSep(fileName) {
 }
 
 function fileExists(filePath) {
+    'use strict';
     try {
         return fs.statSync(filePath).isFile();
-    }
-    catch (err) {
+    } catch (err) {
         return false;
     }
 }
-
 
 // from: http://stackoverflow.com/a/1203361
 function getExtension(fileName) {
@@ -301,18 +303,18 @@ function getFileNameFromPath(fileName, pathSeparator) {
 function readFile(fileName, callback) {
     'use strict';
     if (!callback) {
-        return new Promise(function (resolve, reject) {
-            fs.readFile(fileName, 'utf8', function (err, fileContents) {
+        return new Promise(function(resolve, reject) {
+            fs.readFile(fileName, 'utf8', function(err, fileContents) {
                 if (err) {
-                    reject (err);
+                    reject(err);
                 }
                 resolve({
                     'result': fileContents
                 });
             });
-        })
+        });
     } else {
-        fs.readFile(fileName, 'utf8', function (err, fileContents) {
+        fs.readFile(fileName, 'utf8', function(err, fileContents) {
             if (err) {
                 throw (err);
             }
@@ -338,10 +340,10 @@ function swapExtension(fileName, ext) {
  */
 function writeFile(fileName, contents, callback) {
     'use strict';
-    console.log('writing', fileName);
+    //console.log('writing', fileName);
     if (!callback) {
-        return new Promise(function (resolve, reject) {
-            fs.writeFile(fileName, contents, 'utf8', function (err) {
+        return new Promise(function(resolve, reject) {
+            fs.writeFile(fileName, contents, 'utf8', function(err) {
                 if (err) {
                     reject(err);
                 }
@@ -349,9 +351,9 @@ function writeFile(fileName, contents, callback) {
                     result: 'success'
                 });
             });
-        })
+        });
     } else {
-        fs.writeFile(fileName, contents, 'utf8', function (err) {
+        fs.writeFile(fileName, contents, 'utf8', function(err) {
             if (err) {
                 throw (err);
             }

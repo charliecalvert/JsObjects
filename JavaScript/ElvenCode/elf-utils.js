@@ -125,7 +125,7 @@ function isArray(itemToCheck) {
 
 function endsWith(value, suffix) {
     'use strict';
-    return value.indexOf(suffix, this.length - suffix.length) !== -1;
+    return value.indexOf(suffix, value.length - suffix.length) !== -1;
 }
 
 function getFirstWord(value) {

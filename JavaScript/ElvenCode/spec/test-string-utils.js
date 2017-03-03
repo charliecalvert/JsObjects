@@ -51,6 +51,21 @@ describe('Elf String Util Suite', function() {
             expect(actual).toBeTruthy();
         });
 
+        it('shows we can get ends with 2', function() {
+            var actual = elfUtils.endsWith('This is the end of the line', 'line');
+            expect(actual).toBeTruthy();
+        });
+
+        it('shows we can get ends with 3', function() {
+            var actual = elfUtils.endsWith('meatballs and chickens', 'kens');
+            expect(actual).toBeTruthy();
+        });
+
+        it('shows we can get ends with false', function() {
+            var actual = elfUtils.endsWith('meatballs and chickens', 'akens');
+            expect(actual).toBeFalsy();
+        });
+        
         it('removes from end of a string at character', function() {
             var testString = '/home/charlie/ElvenCode/spec';
             var result = elfUtils.removeFromEndAtCharacter(testString, path.sep);
@@ -157,3 +172,4 @@ describe('Elf String Util Suite', function() {
 
     });
 });
+
