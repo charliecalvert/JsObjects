@@ -13,7 +13,8 @@ elfLog.logLevelWarn = 3;
 elfLog.logLevelError = 4;
 elfLog.logLevelInfo = 5;
 elfLog.logLevelSilent = 6;
-
+elfLog.lastMessage = '';
+elfLog.showLog = true;
 elfLog.debugLevel = undefined;
 
 elfLog.init = function() {
@@ -62,18 +63,25 @@ elfLog.setMessage = function(level, message01, message02, message03) {
                 output = output + ' ' + message03;
             }
         }
+        this.lastMessage = output;
         return output;
     }
-    return '';
+    this.lastMessage = '';
+    return this.lastMessage;
 };
 
 elfLog.log = function(level, message01, message02, message03) {
     'use strict';
     message01 = this.setMessage(level, message01, message02, message03);
-    if (message01.trim().length > 0) {
+    if (this.showLog && message01.trim().length > 0) {
         console.log(message01);
     }
+    return message01;
 };
+
+elfLog.say = function(message01, message02, message03) {
+    return this.log(this.debugLevel, message01, message02, message03);
+}
 
 elfLog.emptyLine = function() {
     'use strict';
@@ -82,27 +90,32 @@ elfLog.emptyLine = function() {
 
 elfLog.nano = function(message01, message02, message03) {
     'use strict';
-    this.log(elfLog.logLevelNanoDetails, message01, message02, message03);
+    return this.log(elfLog.logLevelNanoDetails, message01, message02, message03);
 };
 
 elfLog.minorDetails = function(message01, message02, message03) {
     'use strict';
-    this.log(elfLog.logLevelMinorDetails, message01, message02, message03);
+    return this.log(elfLog.logLevelMinorDetails, message01, message02, message03);
 };
 
 elfLog.details = function(message01, message02, message03) {
     'use strict';
-    this.log(elfLog.logLevelDetails, message01, message02, message03);
+    return this.log(elfLog.logLevelDetails, message01, message02, message03);
 };
 
 elfLog.error = function(message01, message02, message03) {
     'use strict';
-    this.log(elfLog.logLevelError, message01, message02, message03);
+    return this.log(elfLog.logLevelError, message01, message02, message03);
 };
 
 elfLog.warning = function(message01, message02, message03) {
     'use strict';
-    this.log(elfLog.logLevelWarn, message01, message02, message03);
+    return this.log(elfLog.logLevelWarn, message01, message02, message03);
+};
+
+elfLog.info = function(message01, message02, message03) {
+    'use strict';
+    return this.log(elfLog.logLevelInfo, message01, message02, message03);
 };
 
 elfLog.init();

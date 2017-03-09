@@ -6,11 +6,11 @@ var walk = require('walk');
 var fs = require('fs');
 var path = require('path');
 var elfUtils = require('./elf-utils');
-
-function utils() {}
+var elfLog = require('./elf-log.js');
 
 function walker() {
     'use strict';
+    elfLog.setLevel(elfLog.logLevelSilent);
 }
 
 walker.directoryToWalk = '';
@@ -57,14 +57,13 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
     });
 
     walkInstance.on('errors', function(root, nodeStatsArray, next) {
-        console.log('Houston, we have an error');
-        //console.log('Houston, we have an error', nodeStatsArray.Error);
-        console.log(root, nodeStatsArray);
+        elfLog.log("Error iterating directories");
+        elfLog.log(elfLog.logLevelDetails, root, nodeStatsArray);
         next();
     });
 
     walkInstance.on('end', function() {
-        // console.log('all done');
+        elfLog.log(elfLog.logLevelDetails, 'all done walking directories');
         callback(walkerFileReport);
     });
 

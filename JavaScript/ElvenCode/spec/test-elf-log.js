@@ -2,10 +2,16 @@
  * Created by charlie on 3/1/16.
  */
 
-var elfLog = require('../index').elfLog;
 
 describe('test log suite', function() {
     'use strict';
+
+    var elfLog = require('../index').elfLog;
+
+    afterEach(function() {
+        elfLog.showLog = true;
+    });
+
     it('expects elflog to return Error: Ok', function() {
         elfLog.setLevel(elfLog.logLevelError);
         var result = elfLog.setMessage(elfLog.logLevelError, 'Ok');
@@ -52,6 +58,55 @@ describe('test log suite', function() {
         elfLog.setLevel(elfLog.logLevelDetails);
         var result = elfLog.setMessage(elfLog.logLevelDetails, 'Ok', 'Yes', 'Sir');
         expect(result).toBe('Details: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with say', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.showLog = false;
+        var result = elfLog.say('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Details: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with info', function() {
+        elfLog.setLevel(elfLog.logLevelInfo);
+        elfLog.showLog = false;
+        var result = elfLog.info('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Information: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with warning', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.showLog = false;
+        var result = elfLog.warning('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Warning: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with error', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.showLog = false;
+        var result = elfLog.error('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Error: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with details', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.showLog = false;
+        var result = elfLog.details('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Details: Ok Yes Sir');
+    });
+
+    it('expects to handle three parameter logs with nano-details', function() {
+        elfLog.setLevel(elfLog.logLevelNanoDetails);
+        elfLog.showLog = false;
+        var result = elfLog.nano('Ok', 'Yes', 'Sir');
+        expect(result).toBe('Nano-Details: Ok Yes Sir');
+    });
+
+    it('expects to suppress message because level is too low', function() {
+        elfLog.setLevel(elfLog.logLevelDetails);
+        elfLog.showLog = false;
+        var result = elfLog.nano('Ok', 'Yes', 'Sir');
+        expect(result).toBe('');
     });
 
 });
