@@ -17,14 +17,16 @@ export ELF_AA_BACKUP_DIR="$ELF_AA_CODE"/AAMeeting/DataBackUps/
 
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
+
 alias wtt="cd $ELF_WRITE/Tech"
 alias wta="cd $ELF_WRITE/Tech/AaCode"
-alias wtg="cd $ELF_WRITE/Tech/Games"
 alias wtds='cd $ELF_WRITE/Tech/DataStructures/'
-alias wtjs='cd $ELF_WRITE/Tech/JsSyntax/'
-alias wtpl="cd $ELF_WRITE/Tech/Games/ThreePointerLock"
+alias wtg="cd $ELF_WRITE/Tech/Games"
 alias wtgl="cd $ELF_WRITE/Tech/Games/GameListener"
-alias wtaa="cd $ELF_WRITE/Tech/AaCode"
+alias wtm="cd $ELF_WRITE/Tech/Markdown"
+alias wtme="cd $ELF_WRITE/Tech/Markdown/ElvenSiteTools"
+alias wtpl="cd $ELF_WRITE/Tech/Games/ThreePointerLock"
+alias wtjs='cd $ELF_WRITE/Tech/JsSyntax/'
 alias wtnt="cd $ELF_WRITE/Tech/Network"
 alias wtp="cd $ELF_WRITE/Tech/Programmable"
 alias wtu="cd $ELF_WRITE/UnitTests/Js"
