@@ -7,6 +7,7 @@ var fs = require('fs');
 var config = require('./elven-config');
 
 function walk(directoryToWalk, destinationDir, mostRecentDate, bootswatch) {
+    'use strict';
 
     fs.access(directoryToWalk, fs.F_OK | fs.R_OK, function(err) {
         if (err) {
@@ -28,7 +29,7 @@ function walk(directoryToWalk, destinationDir, mostRecentDate, bootswatch) {
                 };
 
                 try {
-                    walker.makePage(settings, function (masterListOfNames, htmlFilesWritten) {
+                    walker.makePage(settings, function(masterListOfNames, htmlFilesWritten) {
                         var report = {
                             result: 'success',
                             destinationDir: destinationDir,
@@ -38,8 +39,8 @@ function walk(directoryToWalk, destinationDir, mostRecentDate, bootswatch) {
                         };
                         console.log(report);
                     });
-                } catch(e) {
-                    console.log("The error:", e);
+                } catch (e) {
+                    console.log('The error:', e);
                 }
             });
         }
@@ -47,6 +48,7 @@ function walk(directoryToWalk, destinationDir, mostRecentDate, bootswatch) {
 }
 
 function run(configSummary) {
+    'use strict';
     //var directoryToWalk = process.env.HOME + '/Documents/AllTest';
     var directoryToWalk = configSummary.baseDir + configSummary.siteDirs[0];
     var destinationDir = configSummary.destinationDirs[0];
@@ -54,28 +56,28 @@ function run(configSummary) {
 }
 
 function runConfig() {
+    'use strict';
     config.useLocalConfig = true;
     var user = 'calvert';
     config.load(function() {
         var baseDir = config.get(user, 'base-dir');
         var mostRecentDate = config.get(user, 'most-recent-date');
         if (!mostRecentDate) {
-            throw "most-recent-date not found in ElvenConfig.json";
+            throw 'most-recent-date not found in ElvenConfig.json';
         }
         var bootswatch = config.get(user, 'bootswatch');
         var siteDirs = config.get(user, 'site-dirs');
         var destinationDirs = config.get(user, 'destination-dirs');
         var configSummary = {
-            "baseDir": baseDir, 
-            'bootswatch': bootswatch, 
-            'siteDirs': siteDirs, 
-            "destinationDirs": destinationDirs,
+            'baseDir': baseDir,
+            'bootswatch': bootswatch,
+            'siteDirs': siteDirs,
+            'destinationDirs': destinationDirs,
             'mostRecentDate': mostRecentDate
         };
-        console.log("ConfigSummary:", configSummary);
+        console.log('ConfigSummary:', configSummary);
         run(configSummary);
     });
 }
-
 
 runConfig();

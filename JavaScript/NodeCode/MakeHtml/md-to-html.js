@@ -14,8 +14,8 @@ var argv = require('yargs')
     .alias('h', 'help')
     .argv;
 
-console.log("File:", argv.f);
+console.log('File:', argv.f);
 setupMarked.getSingleFile(utils.fileNameFromPath(argv.f), argv.f, function(message, html) {
+    'use strict';
     console.log(message, html);
 });
-
