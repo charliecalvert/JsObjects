@@ -161,9 +161,14 @@ elvenConfig.getPropertyNamesAsArray = function(propertyName) {
     return result;
 };
 
+elvenConfig.getElvenImages = function() {
+    'use strict';
+    return elvenConfig.get('elvenImages');
+}
+
 elvenConfig.getElvenImage = function(elvenImageName) {
     'use strict';
-    var elfImages = elvenConfig.get('elvenImages');
+    var elfImages = elvenConfig.getElvenImages;
     for (var i = 0; i < elfImages.length; i++) {
         if (elfImages[i].name === elvenImageName) {
             return elfImages[i];
