@@ -3,10 +3,15 @@
  */
 
 
-describe('test log suite', function() {
+fdescribe('test log suite', function() {
     'use strict';
 
     var elfLog = require('../index').elfLog;
+    elfLog.elfName = 'test-elf-log';
+
+    beforeEach(function() {
+
+    });
 
     afterEach(function() {
         elfLog.showLog = true;
@@ -98,7 +103,7 @@ describe('test log suite', function() {
     it('expects to handle three parameter logs with nano-details', function() {
         elfLog.setLevel(elfLog.logLevelNanoDetails);
         elfLog.showLog = false;
-        var result = elfLog.nano('Ok', 'Yes', 'Sir');
+        var result = elfLog.nanoDetails('Ok', 'Yes', 'Sir');
         expect(result).toBe('Nano-Details: Ok Yes Sir');
     });
 

@@ -20,6 +20,7 @@ elfLog.logLevelWarn = 3;
 elfLog.logLevelError = 4;
 elfLog.logLevelInfo = 5;
 elfLog.logLevelSilent = 6;
+
 elfLog.lastMessage = '';
 elfLog.showLog = true;
 elfLog.debugLevel = undefined;
@@ -32,22 +33,23 @@ elfLog.init = function() {
 elfLog.getLevel = function(level) {
     'use strict';
     switch (level) {
-        case -1:
-            return 'Nano-Details';
-        case 0:
-            return 'Nano';
-        case 1:
-            return 'Minor-Details';
-        case 2:
-            return 'Details';
-        case 3:
-            return 'Warning';
-        case 4:
-            return 'Error';
-        case 5:
-            return 'Information';
-        case 6:
+        case this.logLevelSilent:
             return 'Silent';
+        case this.logLevelNanoDetails:
+            return 'Nano-Details';
+        case this.logLevelNano:
+            return 'Nano';
+        case this.logLevelMinorDetails:
+            return 'Minor-Details';
+        case this.logLevelDetails:
+            return 'Details';
+        case this.logLevelWarn:
+            return 'Warning';
+        case this.logLevelError:
+            return 'Error';
+        case this.logLevelInfo:
+            return 'Information';
+
         default:
             return 'Unknown level' + level;
     }
@@ -56,7 +58,7 @@ elfLog.getLevel = function(level) {
 
 elfLog.setLevel = function(level) {
     'use strict';
-    debug('level:', this.getLevel(level));
+    debug('setting level:', this.getLevel(level));
     if (level === undefined) {
         throw 'Log Level Undefined in setLevel';
     }
@@ -65,7 +67,9 @@ elfLog.setLevel = function(level) {
 
 elfLog.setMessage = function(level, message01, message02, message03) {
     'use strict';
+
     if (level >= this.debugLevel) {
+        debug("setMessage: ", message01, message02, message03);
         if (typeof message01 !== 'string') {
             message01 = JSON.stringify(message01);
         }
@@ -85,9 +89,10 @@ elfLog.setMessage = function(level, message01, message02, message03) {
 
 elfLog.log = function(level, message01, message02, message03) {
     'use strict';
+    debug("LOG: ", message01, message02, message03);
     message01 = this.setMessage(level, message01, message02, message03);
-    this.showLog = (this.elfName === process.env.ELFNAME);
-    if (this.showLog && message01.trim().length > 0) {
+    var elfNameSet = (this.elfName === process.env.ELFNAME);
+    if (elfNameSet && this.showLog && message01.trim().length > 0) {
         console.log(message01);
     }
     return message01;
@@ -95,7 +100,7 @@ elfLog.log = function(level, message01, message02, message03) {
 
 elfLog.say = function(message01, message02, message03) {
     return this.log(this.debugLevel, message01, message02, message03);
-}
+};
 
 elfLog.emptyLine = function() {
     'use strict';
@@ -119,6 +124,7 @@ elfLog.minorDetails = function(message01, message02, message03) {
 
 elfLog.details = function(message01, message02, message03) {
     'use strict';
+    debug('details: ', message01, message02, message03);
     return this.log(elfLog.logLevelDetails, message01, message02, message03);
 };
 

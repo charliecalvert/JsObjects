@@ -4,10 +4,16 @@
 
 var elfConfig = require('../index').elfConfig;
 var elfLog = require('../index').elfLog;
-elfLog.setLevel(elfLog.logLevelSilent);
+elfLog.elfName = 'test-config';
+elfLog.setLevel(elfLog.logLevelDetails);
 
 describe('test elven-config suite', function() {
     'use strict';
+
+    beforeEach(function() {
+       elfLog.nanoDetails('Before each called.');
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
+    });
 
     it('shows we can create the elf config', function(done) {
         elfConfig.useLocalConfig = false;
@@ -21,7 +27,7 @@ describe('test elven-config suite', function() {
     });
 
     it('shows we can get the root keys which name the items in the config file', function(done) {
-        elfConfig.load(function(data) {
+        elfConfig.load(function(err, data) {
             var keys = elfConfig.keys();
             expect(keys[0]).toBe('calvert');
             done();
@@ -29,7 +35,7 @@ describe('test elven-config suite', function() {
     });
 
     it('shows we can get the calvert keys', function(done) {
-        elfConfig.load(function(data) {
+        elfConfig.load(function(err, data) {
             var keys = elfConfig.keys('calvert');
             expect(keys[0]).toBe('base-dir');
             done();
@@ -37,15 +43,15 @@ describe('test elven-config suite', function() {
     });
 
     it('shows we can get the calvert base dir', function(done) {
-        elfConfig.load(function(data) {
+        elfConfig.load(function(err, data) {
             var dir = elfConfig.get('calvert', 'base-dir');
             expect(dir).toBe('/home/charlie/');
             done();
         });
     });
 
-    it('shows we can get the california elvenImages', function(done) {
-        elfConfig.load(function(data) {
+   it('shows we can get the california elvenImages', function(done) {
+        elfConfig.load(function(err, data) {
             var california = elfConfig.getElvenImage('california');
             expect(california.baseDir).toBe('/var/www/html');
             done();
