@@ -33,19 +33,25 @@
         {
             "name": "doc",
             "baseDir": "The base directory where the images to be processed are found",
-            "baseMarkdown": "Base string found in markdown files",
+            "cloudPath": "If you are on S3, or the like, then where on S3?",
             "createSmallImages": true
         },
         {
             "name": "california1",
             "baseDir": "/var/www/html/images",
-            "baseMarkdown": "https://s3.amazonaws.com/s3bucket01.elvenware.com",
+            "cloudPath": "https://s3.amazonaws.com/s3bucket01.elvenware.com",
             "createSmallImages": true
         },
         {
             "name": "california2",
             "baseDir": "/var/www/html/images",
-            "baseMarkdown": "/images",
+            "cloudPath": "",
+            "createSmallImages": true
+        },
+        {
+            "name": "testImages",
+            "baseDir": "/home/charlie/Git/writings/Tech/Markdown/",
+            "cloudPath": "/images",
             "createSmallImages": true
         }
     ]

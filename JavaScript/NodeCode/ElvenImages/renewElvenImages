@@ -1,6 +1,84 @@
-rm -r ~/Source/ElvenImages
-cd ~/Source
-cp -r $JSOBJECTS/JavaScript/NodeCode/ElvenImages/ .
-cd ElvenImages
-npm install
+#! /bin/bash
 
+INSTALL_DIR=$HOME/Source
+ELVEN_IMAGES=$INSTALL_DIR/ElvenImages
+CONFIG_NAME=ElvenConfig.json
+CONFIG_FILE=$ELVEN_IMAGES/config/$CONFIG_NAME
+TEMP_DIR=$HOME/temp
+TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
+
+
+TODAY=`date +%Y-%m-%d.%H:%M:%S`
+TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
+
+function checkDir() {
+    if [ -d "$1" ]; then
+        echo "$1 exists"
+    else
+        echo "$1 does not exist. Creating it."
+        mkdir $1
+    fi
+}
+
+function backupConfig() {
+    if [ -f "$CONFIG_FILE" ]; then
+        echo "$CONFIG_FILE exists."
+        echo "Copying it to $TEMP_DIR"
+        cp -v $CONFIG_FILE $TEMP_DIR/.
+        cp -v $CONFIG_FILE $TEMP_CONFIG_DATE_FILE
+    else
+        echo "$CONFIG_FILE" does not exist
+    fi
+}
+
+function restoreConfig() {
+    if [ -f "$TEMP_CONFIG_DATE_FILE" ]; then
+        echo "The Config file ($TEMP_CONFIG_DATE_FILE) exists."
+        echo "Copying it to $CONFIG_FILE"
+        cp -v $TEMP_CONFIG_DATE_FILE $CONFIG_FILE
+    else
+        echo "$TEMP_CONFIG_DATE_FILE" does not exist.
+    fi
+}
+
+function deleteElvenImages() {
+    if [ -d "$ELVEN_IMAGES" ]; then
+        echo "Deleting $ELVEN_IMAGES"
+        rm -r "$ELVEN_IMAGES"
+    else
+        echo "Not deleting $ELVEN_IMAGES because it does not exist. "
+    fi
+}
+
+function buildElvenImages() {
+    cp -r $JSOBJECTS/JavaScript/NodeCode/ElvenImages/ .
+    cd ElvenImages
+    npm install
+}
+
+function linkToRenewElvenImages() {
+    RMH=$HOME/Source/renewElvenImages
+    if [ -f "$RMH" ]; then
+        rm -v "$RMH"
+    fi
+    ln -s $HOME/Git/JsObjects/JavaScript/NodeCode/ElvenImages/renewElvenImages $HOME/Source/renewElvenImages
+}
+
+function run() {
+    checkDir $INSTALL_DIR
+    checkDir $HOME'/temp'
+    checkDir $HOME'/Documents'
+    checkDir $HOME'/Documents/AllTest'
+    checkDir $HOME'/Documents/Markdown'
+
+    cd $INSTALL_DIR
+    pwd
+    backupConfig
+    deleteElvenImages
+    buildElvenImages
+    restoreConfig
+    linkToRenewElvenImages
+}
+
+run
+echo "All done"

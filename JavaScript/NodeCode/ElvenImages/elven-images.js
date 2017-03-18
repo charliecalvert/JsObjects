@@ -4,8 +4,11 @@ var ElvenImages = (function() {
     var elvenCode = require('elven-code');
     var elfUtils = elvenCode.elfUtils;
     var elfLog = elvenCode.elfLog;
-    var inquirer = require('inquirer');    
-    var imageHelp = require('elven-site-tools').imageHelp;
+    var inquirer = require('inquirer');
+    var makeMarkdown = require('elven-site-tools').makeMarkdown;
+    var getNotUsed = require('elven-site-tools').getNotUsed;
+
+    console.log("MAKE MARK DOWN", makeMarkdown);
 
     function ElvenImages() {
         elfLog.setLevel(elfLog.logLevelDetails);
@@ -21,7 +24,7 @@ var ElvenImages = (function() {
             choices: [
                 new inquirer.Separator(),
                 'Make markdown file',
-                'Delete markdown file',                
+                'Delete markdown file',
                 new inquirer.Separator(),
                 'Find used images',
                 new inquirer.Separator(),
@@ -42,16 +45,27 @@ var ElvenImages = (function() {
     }
 
     function deleteMarkdown() {
-        var makeMarkdown = new imageHelp.MakeMarkdown();
-        makeMarkdown.deleteMarkdownFileWithImages(function(result) {
-            console.log(result);
-        })
+        //var makeMarkdown = new MakeMarkdown();
+        try {
+            makeMarkdown.deleteMarkdownFileWithImages(function(result) {
+                if (result.deletedFile) {
+                    console.log("Deleted: ", result.fileName);
+                } else {
+                    console.log('Failed to delete: ', result.error.path);
+                    console.log('Details: ', result.error.toString());
+                }
+            });
+        } catch(e) {
+            console.log("HANDLING DELETE");
+            console.log(e);
+        }
     }
 
-    function makeMarkdown() {
-        var makeMarkdown = new imageHelp.MakeMarkdown();
-        makeMarkdown.loadAndRun(function(report) {
-            if (report.spacesInFileNames) {
+    function runMakeMarkdown() {
+        //var makeMarkdown = new MakeMarkdown();
+        try {
+        makeMarkdown.loadAndRun(function(reports) {
+            if (reports.spacesInFileNames) {
                 console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
                 console.log('You have spaces in one or more file names.');
                 console.log('The problem is probably in your images directory.');
@@ -63,19 +77,37 @@ var ElvenImages = (function() {
                 console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
                 return;
             }
-            if (report.markdownFileExists) {
-                console.log('Markdown file exists: ', report.markdownFileWithImages)
+            var markdownExists = false;
+            console.log('===========');
+            reports.forEach(function(report) {
+                if (report.markdownFileExists) {
+                    console.log('Markdown file exists: ', report.markdownFileWithImages)
+                    markdownExists = true;
+                } else if (report.success) {
+                    console.log("Created: ", report.markdownFileWithImages);
+                    console.log("Created: ", report.allImagesFile);
+                    console.log('===========');
+                }
+            });
+            if (markdownExists) {
+                console.log('===========');
+                console.log('A markdown file exists.');
+                console.log('Save your work and run again to delete');
+                console.log('===========');
             }
-            console.log(report);
+            //console.log("OUTPUT:", reports);
         });
-
+    } catch(e) {
+        console.log(e);
+    }
     }
 
     function findUsedImages() {
         elfLog.details("findUserImages");
-        var getNotUsed = new imageHelp.GetNotUsed();
+        //var getNotUsed = new imageHelp.GetNotUsed();
+        var count = 0;
         getNotUsed.loadConfig(function(report) {
-            console.log(report);
+           console.log("REPORT DONE: ", ++count);
         });
     }
 
@@ -85,7 +117,7 @@ var ElvenImages = (function() {
                 findUsedImages();
                 break;
             case 'make':
-                makeMarkdown();
+                runMakeMarkdown();
                 break;
             case 'delete':
                 deleteMarkdown();
