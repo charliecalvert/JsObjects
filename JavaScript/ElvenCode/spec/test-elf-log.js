@@ -3,7 +3,7 @@
  */
 
 
-fdescribe('test log suite', function() {
+describe('test log suite', function() {
     'use strict';
 
     var elfLog = require('../index').elfLog;

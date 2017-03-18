@@ -2,6 +2,9 @@
  * Created by charlie on 3/1/16.
  */
 
+var elfLog = require('./elf-log');
+elfLog.elfName = 'custom-reporter';
+
 var myReporter = {
 
     jasmineStarted: function(suiteInfo) {
@@ -18,7 +21,7 @@ var myReporter = {
     // specStarted is invoked when an it starts to run (including associated beforeEach functions)
     specStarted: function(result) {
         'use strict';
-        console.log('Spec started: ' + result.description + ' whose full description is: ' + result.fullName);
+        elfLog.details('Spec started elf: ' + result.description + ' whose full description is: ' + result.fullName);
     },
 
     // specDone is invoked when an it and its associated beforeEach and afterEach functions have been run.

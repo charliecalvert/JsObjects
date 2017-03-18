@@ -91,7 +91,7 @@ elfLog.log = function(level, message01, message02, message03) {
     'use strict';
     debug("LOG: ", message01, message02, message03);
     message01 = this.setMessage(level, message01, message02, message03);
-    var elfNameSet = (this.elfName === process.env.ELFNAME);
+    var elfNameSet = (this.elfName.length > 0 && this.elfName === process.env.ELFNAME);
     if (elfNameSet && this.showLog && message01.trim().length > 0) {
         console.log(message01);
     }
