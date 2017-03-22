@@ -15,13 +15,13 @@ All the code in JsObjects is released under the MIT license.
 
 ## Core Setup
 
-Run the [UbuntuAndCloundNineSetup][ubuntup-setup] script. Choose the second option from the script's menu: **Run Basic Setup**. When you are done, source **.bashrc**:
+Run the [UbuntuAndCloundNineSetup][ubuntu-setup] script. Choose the second option from the script's menu: **Run Basic Setup**. When you are done, source **.bashrc**:
 
 ```bash
 source ~/.bashrc
 ```
 
-[ubuntu-setup]: https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
+[ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
 
 If you want the details, go here: [Core Setup](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup)
 
