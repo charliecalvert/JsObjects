@@ -15,51 +15,41 @@ All the code in JsObjects is released under the MIT license.
 
 ## Core Setup
 
-Run the [UbuntuAndCloundNineSetup][ubuntu-setup] script. Choose the second option from the script's menu: **Run Basic Setup**. When you are done, source **.bashrc**:
+On Linux systems, you can run the [UbuntuAndCloundNineSetup][ubuntu-setup] script. Choose either the first or second option from the script's menu:
+
+```text
+Ubuntu
+  a) Run All (Basic and Node Related)
+  b) Run Basic Setup (All but Node Related)
+```
+
+The first will install node and set up your system for work in my classes. The second will set up your system, but will not install node.
+
+When you are done, type the following:
 
 ```bash
 source ~/.bashrc
 ```
 
+If you want the details, go here: [Core Setup][core-details]
+
 [ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
-
-If you want the details, go here: [Core Setup](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup)
-
+[core-details]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup
 
 ## Node Install
 
 On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
 
-On Linux:
+On Linux you can run the script described in the previous section.
 
-Learn about it here: [Node Install](http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node)
+Learn more about it here:
 
-More information:
+- [Configure Linux and Node Install][node-install]
+- [Node on Elvenware][elven-node]
+- [NPM Global Installs][npm-global]
 
-- <http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node>
+[node-install]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node
+[elven-node]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
+[npm-global]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#npm-global
 
 
-## Global installs
-
-You will want to install express, karma, grunt, nodemon and jasmine-node globally.
-
-If on Linux, first do this so that you don't have to use sudo:
-
-    mkdir ~/npm
-    npm config set prefix ~/npm
-
-Then add this to the bottom of your .bashrc and restart or source bash:
-
-    export PATH="$PATH:$HOME/npm/bin"
-
-You can now install express, karma, etc globally without using sudo:
-
-    npm install -g karma-cli
-    npm install -g grunt-cli
-    npm install -g jasmine-node
-    npm install -g express-generator
-    npm install -g nodemon
-    npm install -g mocha
-
-If on Windows, you can issue the above commands without worrying about
-**sudo**.
