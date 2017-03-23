@@ -23,7 +23,9 @@ All the code in JsObjects is released under the MIT license.
 
 ## Core Setup
 
-On Linux systems, you can run the [UbuntuAndCloundNineSetup][ubuntu-setup] script.
+Students in my classes, and readers of my text, should have JsObjects setup correctly on their systems. In particular, I suggest creating a virtual machine that runs the Ubuntu Linux OS. You can then install JsObjects on it and perform the necessary setup without causing any conflicts with code on your primary machine. You don't have to do things this way, but it is perhaps the simplest course of action for many readers.
+
+On Linux systems, you can quickly and easily perform the setup by running the [UbuntuAndCloundNineSetup][ubuntu-setup] script.
 
 **NOTE**: _This script will save your current **.bash_aliases** file as **.bash_aliases.old** and will install a new **.bash_aliases** file. It will also append text to the end of your **.bashrc** file._
 
