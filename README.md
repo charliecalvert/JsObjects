@@ -1,8 +1,8 @@
 # JsObjects
 
-This repository contains sample code by Charlie Calvert for his classes and for Elvenware. In it you will find various JavaScript, HTML, CSS, Node, Bash scripts, and Python Projects covering basic programming issues.
+This repository contains sample code by Charlie Calvert for his classes and for Elvenware. In it you will find various sample JavaScript, HTML, CSS, Node, Bash scripts, and Python Projects.
 
-To install a read-only copy first create a directory called *~/Git* if it does not already exist:
+To properly install a read-only copy of JsObjects first create a directory called *~/Git* if it does not already exist:
 
 ```bash
 mkdir ~/Git
@@ -14,7 +14,7 @@ Now navigate to that directory and clone JsObjects from GitHub:
 
 ```bash
 cd ~/Git
-git clone http://github.com/charliecalvert/JsObjects.git
+git clone https://github.com/charliecalvert/JsObjects.git
 ```
 
 I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
@@ -70,7 +70,7 @@ Students in my classes, and readers of my assignments and texts, will find that 
 
 On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
 
-On Linux, you can run the script described in the previous section.
+On Linux, you can run the **UbuntuAndCloudNineSetup** described above.
 
 Learn more about it here:
 
