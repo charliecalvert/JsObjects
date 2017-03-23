@@ -1,21 +1,33 @@
 # JsObjects
 
-Code by Charlie Calvert for Elvenware.
+This repository contains sample code by Charlie Calvert for his classes and for Elvenware. In it you will find various JavaScript, HTML, CSS, Node, Bash scripts, and Python Projects covering basic programming issues.
 
-Various JavaScript, HTML, CSS, Node, and Python Projects covering
-basic programming issues. To install a readonly copy:
+To install a read-only copy first create a directory called *~/Git* if it does not already exist:
 
-    git clone http://github.com/charliecalvert/JsObjects.git
+```bash
+mkdir ~/Git
+```
 
-I have many different example programs stored in this
-repository. Note especially the Utilities and JavaScript
-directories. And many other things as well.
+Note that this directory should be a subdirectory of your home directory.
+
+Now navigate to that directory and clone JsObjects from GitHub:
+
+```bash
+cd ~/Git
+git clone http://github.com/charliecalvert/JsObjects.git
+```
+
+I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license.
 
 ## Core Setup
 
-On Linux systems, you can run the [UbuntuAndCloundNineSetup][ubuntu-setup] script. Choose either the first or second option from the script's menu:
+On Linux systems, you can run the [UbuntuAndCloundNineSetup][ubuntu-setup] script.
+
+**NOTE**: _This script will save your current **.bash_aliases** file as **.bash_aliases.old** and will install a new **.bash_aliases** file. It will also append text to the end of your **.bashrc** file._
+
+Choose either the first or second option from the script's menu:
 
 ```text
 Ubuntu
@@ -31,16 +43,32 @@ When you are done, type the following:
 source ~/.bashrc
 ```
 
-If you want the details, go here: [Core Setup][core-details]
+If you want more details, go here: [Core Setup][core-details]
 
 [ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
 [core-details]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup
+
+## Navigating JsObjects
+
+JsObjects is big and hard to navigate. I have, however, created a series of Bash aliases that can help you quickly find what you are looking for by only entering a few keystrokes.
+
+For instance, from the Bash prompt, you should be able to type *jo* to quickly get to **~/Git/JsObjects**. Typing **joj** should take you to **~/Git/JsObjects/JavaScript**. If these shortcuts are working on your system, then that is a sign that it is setup correctly. If they are not working, try running the *UbuntuAndCloudNineSetup* script as described above.
+
+These aliases are stored near the bottom of my *.bash_aliases* file, which is found [here][js-bash-aliases]. The **.bash_aliases** file is referenced in your **.bashrc** file and should be run automatically whenever you open a Bash shell. As implied above, your **.bashrc** file can also be processed by typing:
+
+```bash
+source ~/.bashrc
+```
+
+Students in my classes, and readers of my assignments and texts, will find that I often reference these aliases. Rather than asking you type a long path such as **~/Git/JsObjects/JavaScript/NodeCode**, I will ask you to run the **jon** alias. Of course, none of this will work unless you first set up your system correctly as described above.
+
+[js-bash-aliases]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/.bash_aliases
 
 ## Node Install
 
 On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
 
-On Linux you can run the script described in the previous section.
+On Linux, you can run the script described in the previous section.
 
 Learn more about it here:
 
