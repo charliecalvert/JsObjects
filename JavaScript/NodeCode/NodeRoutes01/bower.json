@@ -1,0 +1,23 @@
+{
+  "name": "node-routes-01",
+  "description": "Simple Reading and writing of JSON",
+  "main": "server.js",
+  "authors": [
+    "Charlie on rohan-elf"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "JSON"
+  ],
+  "homepage": "https://github.com/charliecalvert/JsObjects",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

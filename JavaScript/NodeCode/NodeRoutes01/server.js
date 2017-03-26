@@ -44,7 +44,7 @@ router.post('/add', function(request, response) {
 
 router.get('/', function(request, response) {
     'use strict';
-    var html = fs.readFileSync(__dirname + '/Public/index.html');
+    var html = fs.readFileSync(__dirname + '/public/index.html');
     response.writeHeader(200, {
         "Content-Type": "text/html"
     });
@@ -52,7 +52,7 @@ router.get('/', function(request, response) {
     response.end();
 });
 
-app.use("/", express.static(__dirname + '/Public'));
+app.use("/", express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 30025;
 app.listen(port);
