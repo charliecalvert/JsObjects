@@ -34,16 +34,18 @@ elf.Ajax = (function() {
         $.getJSON('/getFullName',
             objectToSendFromClientToServer[0],
             function(data) {
+                console.log("csc: success. Loaded index.json");
                 elf.utilities.clear();
                 displayFullName(data);
+            }) .done(function() {
+                console.log( "second success, done called" );
             })
-            .success(function() {
-                console.log("csc: success. Loaded index.json");
-            })
-            .error(function(jqXHR, textStatus, errorThrown) {
+            .fail(function() {
+                console.log( "error" );
                 alert("error calling JSON. Try JSONLint or JSLint: "
-                + textStatus + errorThrown);
-            }).complete(function() {
+                    + textStatus + errorThrown);
+            })
+            .always(function() {
                 console.log("csc: completed call to get index.json");
             });
     }

@@ -8,7 +8,7 @@ This is a sample markdown file. You can make lists like this:
 
 ## Details
 
-Try pasting the contents of this file into this editor:
+Try pasting the contents of the markdown text into this editor:
 
 - [StackEditIO](https://stackedit.io/)
 
