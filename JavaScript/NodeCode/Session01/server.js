@@ -45,6 +45,8 @@ app.get('/', function(request, response) {
     response.end(html);
 });
 
+var home = '<br /><a href="/">Home</a>';
+
 app.get('/page01', function(req, res) {
     'use strict';
     var info = "";
@@ -53,7 +55,7 @@ app.get('/page01', function(req, res) {
     }
 
     req.session.lastPage = '/page01';
-    res.send('Welcome to Page01.<br />' + info);
+    res.send('Welcome to Page01.<br />' + info + home);
 });
 
 app.get('/page02', function(req, res) {
@@ -64,7 +66,7 @@ app.get('/page02', function(req, res) {
     }
 
     req.session.lastPage = '/page02';
-    res.send('Welcome to Page02.<br />' + info);
+    res.send('Welcome to Page02.<br />' + info + home);
 });
 
 app.get('/page03', function(req, res) {
@@ -76,7 +78,7 @@ app.get('/page03', function(req, res) {
     }
 
     req.session.lastPage = '/page03';
-    res.send('Welcome to Page03.<br />' + info);
+    res.send('Welcome to Page03.<br />' + info + home);
 });
 
 app.use('/', express.static(__dirname + '/public'));
