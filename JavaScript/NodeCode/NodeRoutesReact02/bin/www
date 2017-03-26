@@ -1,0 +1,8 @@
+var app=require('../server.js');
+var debug = require('debug')('NodeRoutes02');
+
+var port = process.env.PORT || 30025;
+app.listen(port, function() {
+  debug('Express server listening on port ' + port);
+});
+// console.log('Listening on port :' + port);
