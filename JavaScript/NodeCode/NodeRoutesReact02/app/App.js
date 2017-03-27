@@ -29,35 +29,10 @@ export default class App extends React.Component {
                 <li>npm start</li>
             </ul></li>
         </ul>
-                <button id="getNine">Get Nine</button>
-        <p id="getNineResult">Get Nine Result will be placed here.</p>
 
         <hr />
 
-        <button id="getNineParse">Get Nine Parse</button>
-        <p id="getNineParseResult">Get Nine Result will be placed here.</p>
 
-        <hr />
-
-        <h2>Add Number with Get</h2>
-
-        <p>On the server side (server.js), use <strong>request.query</strong> to get the paramters.</p>
-
-        <input type="number" id="operandA" value="1" />
-        <input type="number" id="operandB" value="2" />
-        <p id="addResult"> </p>
-        <button id="add">Add Numbers</button>
-
-        <hr />
-
-        <h2>Add Number with Post</h2>
-
-        <p>On the server side (server.js), use <strong>request.body</strong> to get the paramters. You must
-        also include <strong>app.use(express.bodyParser());</strong></p>
-        <input type="number" id="operandAPost" value="1" />
-        <input type="number" id="operandBPost" value="2" />
-        <p id="addResultPost"> </p>
-        <button id="addPost">Add Numbers</button>
 
         </div>
         );
