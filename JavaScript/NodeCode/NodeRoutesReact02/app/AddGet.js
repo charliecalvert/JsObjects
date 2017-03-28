@@ -4,7 +4,6 @@ import styles from './App.css';
 export default class AddGet extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {test: 'foogore One Smith'};
     }
     render() {
       return (
