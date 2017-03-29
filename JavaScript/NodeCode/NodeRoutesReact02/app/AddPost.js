@@ -5,6 +5,8 @@ export default class AddPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            operandA: '5',
+            operandB: '7',
             addResultPost: 'Here is the POST result'
         };
         this.getAddPostResult = this.getAddPostResult.bind(this);
@@ -15,8 +17,8 @@ export default class AddPost extends React.Component {
         const that = this;
 
         const params = {
-            operandA: document.getElementById('operandAPost').value,
-            operandB: document.getElementById('operandBPost').value,
+            operandA: this.state.operandA,
+            operandB: this.state.operandB
         };
 
         const esc = encodeURIComponent;
@@ -51,8 +53,8 @@ export default class AddPost extends React.Component {
 
                 <p>On the server side (server.js), use <strong>request.body</strong> to get the paramters. You must
                     also include <strong>app.use(express.bodyParser());</strong></p>
-                <input type='number' id='operandAPost' defaultValue='1'/>
-                <input type='number' id='operandBPost' defaultValue='2'/>
+                <input type='number' defaultValue={this.state.operandA} />
+                <input type='number' defaultValue={this.state.operandB} />
                 <p id='addResultPost'></p>
                 <p>{this.state.addResultPost}</p>
                 <button onClick={this.getAddPostResult}>Add Numbers</button>

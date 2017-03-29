@@ -5,6 +5,8 @@ export default class AddGet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            operandA: '2',
+            operandB: '3',
             addResult: 'Here is the result'
         };
         this.getAddResult = this.getAddResult.bind(this);
@@ -13,8 +15,8 @@ export default class AddGet extends React.Component {
     getAddResult() {
         const that = this;
         const params = {
-            operandA: document.getElementById('operandA').value,
-            operandB: document.getElementById('operandB').value
+            operandA: this.state.operandA,
+            operandB: this.state.operandB
         };
 
         const esc = encodeURIComponent;
@@ -35,14 +37,14 @@ export default class AddGet extends React.Component {
     }
 
     render() {
+        console.log("OPA", this.state.operandA)
         return (
             <div>
                 <h2>Add Number with Get</h2>
 
                 <p>On the server side (server.js), use <strong>request.query</strong> to get the paramters.</p>
-
-                <input type='number' id='operandA' defaultValue={'2'} />
-                <input type='number' id='operandB' defaultValue={'2'} />
+                <input type='number' defaultValue={this.state.operandA} />
+                <input type='number' defaultValue={this.state.operandB} />
                 <p>{this.state.addResult}</p>
                 <button onClick={this.getAddResult}>Add Numbers</button>
 
