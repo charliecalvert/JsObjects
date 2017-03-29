@@ -114,7 +114,7 @@
     /**
      * Style
      */
-    "indent": [2, 4],                // http://eslint.org/docs/rules/indent
+    "indent": ["error", 4],                // http://eslint.org/docs/rules/indent
     "brace-style": [
       2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
@@ -157,17 +157,18 @@
       "before": false,
       "after": true
     }],
-    "space-after-keywords": 2,       // http://eslint.org/docs/rules/space-after-keywords
+    "keyword-spacing": 2,
+    "space-after-keywords": "off",       // http://eslint.org/docs/rules/space-after-keywords
     "space-before-blocks": 2,        // http://eslint.org/docs/rules/space-before-blocks
     "space-before-function-paren": [2, "never"], // http://eslint.org/docs/rules/space-before-function-paren
     "space-infix-ops": 2,            // http://eslint.org/docs/rules/space-infix-ops
-    "space-return-throw-case": 2,    // http://eslint.org/docs/rules/space-return-throw-case
+    "space-return-throw-case": "off",    // http://eslint.org/docs/rules/space-return-throw-case
     "spaced-comment": [2, "always",  {// http://eslint.org/docs/rules/spaced-comment
       "exceptions": ["-", "+"],
       "markers": ["=", "!"]           // space here to support sprockets directives
     }],
     // React
-    "jsx-quotes": [2, "prefer-double"],
+    "jsx-quotes": [2, "prefer-single"],
     "react/display-name": 0,
     "react/jsx-boolean-value": 1,
     "react/jsx-no-undef": 2,

@@ -1,6 +1,4 @@
 {
-  "esprima": "babel-jscs",
-  "esnext": true,
   "requireCurlyBraces": ["else", "for", "while", "do", "try", "catch", "case", "default"],
   "requireSpaceAfterKeywords": [
     "if",
@@ -60,7 +58,7 @@
   "disallowMultipleLineBreaks": true,
   "validateLineBreaks": "LF",
   "validateQuoteMarks": null,
-  "validateIndentation": 2,
+  "validateIndentation": 4,
   "disallowMixedSpacesAndTabs": true,
   "disallowTrailingWhitespace": true,
   "disallowTrailingComma": true,
