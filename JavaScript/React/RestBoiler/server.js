@@ -29,9 +29,15 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.get('*', function response(req, res) {
+
+  app.get('/', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
+  });
+
+  app.get('/foo', function(request, response) {
+    console.log('foo called');
+    response.send({'foo': 'success sent from server'});
   });
 } else {
   console.log('Production in server.js');
