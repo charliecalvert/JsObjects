@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="generator" content="pandoc">
+        <title>Node Routes 01</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <h1>Node Routes React 01</h1>
+        <p>
+            Convert NodeRoutes01 to use React. This version of
+            the program is problematic for two reasons:
+        </p>
+
+        <ul>
+            <li>It is not modularized. All the code is in index.js.</li>
+            <li>It uses jQuery instead of React state. Once we switch to React, we should abandon jQuery.</li>
+        </ul>
+
+        <p>
+            See NodeRoutesReact02 for the resolution of these issues.
+        </p>
+
+        <p>
+            I've kept this program, despite its flaws, because it demonstrates
+            some ways to convert existing jQuery projects into React projects.
+            Sometimes it is not possible to convert all the modules of your
+            project completely to a new paradigm, but this helps us get started
+            on the conversion. At times I think it is also useful to see partially
+            converted projects because it helps us understand what parts of a
+            new technology, do what. "Oh, I see, we can still manipulate the DOM
+            with jQuery, it is just that React provides a better way to do it."
+        </p>
+
+        <div id="root"></div>
+
+        <script src="bundle.js"></script>
+    </body>
+</html>
