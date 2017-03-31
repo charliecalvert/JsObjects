@@ -1,10 +1,9 @@
-# Hello Express React
+# Hello Express II
 
 To build:
 
 ```
 npm install
-npm run build
 npm start
 ```
 

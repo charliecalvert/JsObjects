@@ -12,13 +12,15 @@ const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? process.env.PORT : 30024;
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 if (isDeveloping) {
     console.log('developing in server.js');
     const compiler = webpack(config);
     const middleware = webpackMiddleware(compiler, {
         publicPath: config.output.publicPath,
-        contentBase: 'src',
+        contentBase: 'source',
         stats: {
             colors: true,
             hash: false,
@@ -28,8 +30,6 @@ if (isDeveloping) {
             modules: false
         }
     });
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false }));
 
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
@@ -42,7 +42,7 @@ if (isDeveloping) {
 } else {
     console.log('Production in server.js');
     app.use(express.static(__dirname + '/dist'));
-    app.get('*', function response(req, res) {
+    app.get('/', function response(req, res) {
         res.sendFile(path.join(__dirname, 'dist/index.html'));
     });
 }
