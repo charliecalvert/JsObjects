@@ -10,8 +10,8 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello Express</h1>
-                <p>A simple Node Express program</p>
+                <h1>Hello Express and React</h1>
+                <p>A simple Node Express program that uses React to create the front end.</p>
             </div>
         );
     }
