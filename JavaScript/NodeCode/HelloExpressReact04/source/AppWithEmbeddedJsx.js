@@ -15,6 +15,7 @@ import {createStore} from 'redux';
  */
 
 const data = {
+    origTitle: 'Elven Hello Express React ',
     title: 'Elven Hello Express React',
     eight: '0',
     nine: '0',
@@ -25,13 +26,15 @@ const counter = (state = data, action) => {
     switch (action.type) {
         case 'INCREMENT':
             state.counter++;
-            return state;
+            break;
         case 'DECREMENT':
             state.counter--;
-            return state;
+            break;
         default:
             return state;
     }
+    state.title = state.origTitle + state.counter;
+    return state;
 };
 
 export default class App extends React.Component {
@@ -43,9 +46,10 @@ export default class App extends React.Component {
         this.store = createStore(counter);
         this.state = this.store.getState();
         this.store.subscribe(() => {
-            //const temp = this.store.getState();
+            const temp = this.store.getState();
             this.setState(() => ({
-                counter: this.store.getState().counter
+                counter: temp.counter,
+                title: temp.title
             }));
         });
 

@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "51badbd4189fe413e3c4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8025d9fbeef30e13bb27"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10553,6 +10553,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  */
 
 var data = {
+    origTitle: 'Elven Hello Express React ',
     title: 'Elven Hello Express React',
     eight: '0',
     nine: '0',
@@ -10566,13 +10567,15 @@ var counter = function counter() {
     switch (action.type) {
         case 'INCREMENT':
             state.counter++;
-            return state;
+            break;
         case 'DECREMENT':
             state.counter--;
-            return state;
+            break;
         default:
             return state;
     }
+    state.title = state.origTitle + state.counter;
+    return state;
 };
 
 var App = function (_React$Component) {
@@ -10605,10 +10608,11 @@ var App = function (_React$Component) {
         _this.store = (0, _redux.createStore)(counter);
         _this.state = _this.store.getState();
         _this.store.subscribe(function () {
-            //const temp = this.store.getState();
+            var temp = _this.store.getState();
             _this.setState(function () {
                 return {
-                    counter: _this.store.getState().counter
+                    counter: temp.counter,
+                    title: temp.title
                 };
             });
         });
