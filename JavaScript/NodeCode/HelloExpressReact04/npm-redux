@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+npm install --save redux react-redux react-router-redux
+npm install --save-dev redux-devtools redux-devtools-dock-monitor redux-devtools-log-monitor
