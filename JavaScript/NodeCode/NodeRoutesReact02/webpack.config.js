@@ -41,7 +41,6 @@ module.exports = {
             loader: 'json'
         }, {
             test: /\.css$/,
-            //loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
             use: [
                 "style-loader",
                 "css-loader"
