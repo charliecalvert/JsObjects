@@ -6,45 +6,41 @@
 import React from 'react';
 import {createStore} from 'redux';
 
-// Reducer
-/*
- const data = {
- title: 'Elven Initial',
- counter: 0
- };
- */
-
-const data = {
-    origTitle: 'Elven Hello Express React ',
-    title: 'Elven Hello Express React',
-    eight: '0',
-    nine: '0',
-    counter: 0
-};
-
-const counter = (state = data, action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            state.counter++;
-            break;
-        case 'DECREMENT':
-            state.counter--;
-            break;
-        default:
-            return state;
-    }
-    state.title = state.origTitle + state.counter;
-    return state;
-};
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        //this.state =
-        this.counterUp = this.counterUp.bind(this);
         this.getNine = this.getNine.bind(this);
-        this.store = createStore(counter);
+        this.setupState();
         this.state = this.store.getState();
+    }
+
+    setupState() {
+        const startTitle = 'Elven Hello Express React ';
+        const data = {
+            origTitle: startTitle,
+            title: startTitle,
+            eight: '0',
+            nine: '0',
+            counter: 0
+        };
+
+        // Redux Reducer
+        const counter = (state = data, action) => {
+            switch (action.type) {
+                case 'INCREMENT':
+                    state.counter++;
+                    break;
+                case 'DECREMENT':
+                    state.counter--;
+                    break;
+                default:
+                    return state;
+            }
+            state.title = state.origTitle + state.counter;
+            return state;
+        };
+
+        this.store = createStore(counter);
         this.store.subscribe(() => {
             const temp = this.store.getState();
             this.setState(() => ({
@@ -53,9 +49,6 @@ export default class App extends React.Component {
             }));
         });
 
-
-
-        //this.store.subscribe(() => {});
     }
 
     getNine() {
@@ -84,20 +77,29 @@ export default class App extends React.Component {
         return (
             <div>
                 <h1>{this.state.title}</h1>
-                <p>Welcome to {this.state.title}. This is a standard Express app circa March, 2017.</p>
-                <button onClick={this.getNine}>Get Nine</button>
+                <p>
+                    Welcome to {this.state.title}. This is a standard Express
+                    app with React and Redux circa March, 2017.
+                </p>
+
                 <button onClick={this.getEight}>Get Eight</button>
+                <button onClick={this.getNine}>Get Nine</button>
+
+
+                <p>Eight: {this.state.eight}</p>
+                <p>Nine: {this.state.nine}</p>
+
                 <button onClick={this.counterUp}>Increment Counter</button>
                 <button onClick={this.counterDown}>Decrement Counter</button>
 
+                <p>Counter: {this.state.counter}</p>
+
+                <h2>Debugging Tip</h2>
                 <p>
                     To get started debugging your webpack, add this
                     to the <strong>webpack.config.js</strong> config file:
                 </p>
 
-                <p>Eight: {this.state.eight}</p>
-                <p>Nine: {this.state.nine}</p>
-                <p>Counter: {this.state.counter}</p>
                 <pre>devtool: 'source-map',</pre>
                 <p>Open the debugger and go webpack in the navigation pane.</p>
                 <img src="debug-web.png" alt="debugging"/>

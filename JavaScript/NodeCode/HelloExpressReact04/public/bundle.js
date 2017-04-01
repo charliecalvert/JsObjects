@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8025d9fbeef30e13bb27"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7929218a7bd9c4ce1b7f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10552,39 +10552,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  };
  */
 
-var data = {
-    origTitle: 'Elven Hello Express React ',
-    title: 'Elven Hello Express React',
-    eight: '0',
-    nine: '0',
-    counter: 0
-};
-
-var counter = function counter() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : data;
-    var action = arguments[1];
-
-    switch (action.type) {
-        case 'INCREMENT':
-            state.counter++;
-            break;
-        case 'DECREMENT':
-            state.counter--;
-            break;
-        default:
-            return state;
-    }
-    state.title = state.origTitle + state.counter;
-    return state;
-};
-
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App(props) {
         _classCallCheck(this, App);
 
-        //this.state =
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.getEight = function () {
@@ -10603,25 +10576,56 @@ var App = function (_React$Component) {
             _this.store.dispatch({ type: 'DECREMENT' });
         };
 
-        _this.counterUp = _this.counterUp.bind(_this);
         _this.getNine = _this.getNine.bind(_this);
-        _this.store = (0, _redux.createStore)(counter);
+        _this.setupState();
         _this.state = _this.store.getState();
-        _this.store.subscribe(function () {
-            var temp = _this.store.getState();
-            _this.setState(function () {
-                return {
-                    counter: temp.counter,
-                    title: temp.title
-                };
-            });
-        });
-
-        //this.store.subscribe(() => {});
         return _this;
     }
 
     _createClass(App, [{
+        key: 'setupState',
+        value: function setupState() {
+            var _this2 = this;
+
+            var startTitle = 'Elven Hello Express React ';
+            var data = {
+                origTitle: startTitle,
+                title: startTitle,
+                eight: '0',
+                nine: '0',
+                counter: 0
+            };
+
+            var counter = function counter() {
+                var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : data;
+                var action = arguments[1];
+
+                switch (action.type) {
+                    case 'INCREMENT':
+                        state.counter++;
+                        break;
+                    case 'DECREMENT':
+                        state.counter--;
+                        break;
+                    default:
+                        return state;
+                }
+                state.title = state.origTitle + state.counter;
+                return state;
+            };
+
+            this.store = (0, _redux.createStore)(counter);
+            this.store.subscribe(function () {
+                var temp = _this2.store.getState();
+                _this2.setState(function () {
+                    return {
+                        counter: temp.counter,
+                        title: temp.title
+                    };
+                });
+            });
+        }
+    }, {
         key: 'getNine',
         value: function (_getNine) {
             function getNine() {
@@ -10658,12 +10662,7 @@ var App = function (_React$Component) {
                     null,
                     'Welcome to ',
                     this.state.title,
-                    '. This is a standard Express app circa March, 2017.'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.getNine },
-                    'Get Nine'
+                    '. This is a standard Express app with React and Redux circa March, 2017.'
                 ),
                 _react2.default.createElement(
                     'button',
@@ -10672,24 +10671,8 @@ var App = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'button',
-                    { onClick: this.counterUp },
-                    'Increment Counter'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.counterDown },
-                    'Decrement Counter'
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    'To get started debugging your webpack, add this to the ',
-                    _react2.default.createElement(
-                        'strong',
-                        null,
-                        'webpack.config.js'
-                    ),
-                    ' config file:'
+                    { onClick: this.getNine },
+                    'Get Nine'
                 ),
                 _react2.default.createElement(
                     'p',
@@ -10704,10 +10687,36 @@ var App = function (_React$Component) {
                     this.state.nine
                 ),
                 _react2.default.createElement(
+                    'button',
+                    { onClick: this.counterUp },
+                    'Increment Counter'
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: this.counterDown },
+                    'Decrement Counter'
+                ),
+                _react2.default.createElement(
                     'p',
                     null,
                     'Counter: ',
                     this.state.counter
+                ),
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Debugging Tip'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'To get started debugging your webpack, add this to the ',
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'webpack.config.js'
+                    ),
+                    ' config file:'
                 ),
                 _react2.default.createElement(
                     'pre',
