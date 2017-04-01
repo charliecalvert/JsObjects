@@ -1,14 +1,13 @@
 /*
- * GET home page.
+ * GET users listing.
  */
 
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(request, response, next) {
     'use strict';
-    response.render('index', { title: 'Elvenware' });
+    response.send("respond with a resource");
 });
 
 module.exports = router;
