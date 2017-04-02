@@ -50,7 +50,7 @@ function setBashAliasAndSymbolicLinks() {
     else
         echo "=> The ~/.bash_aliases does not exist"
     fi
-    
+
     if [ ! -L $BASH_ALIAS_LINK ]; then
         echo "=> Creating ~/.bash_aliases symbolic link"
         ln -s $BASH_ALIAS $BASH_ALIAS_LINK
@@ -93,7 +93,7 @@ function clean() {
     else
         echo "=> Not deleting bash alias link because it does not exist"
     fi
-    
+
     if  [ -L "$BIN_DIR/CreateExpressProject" ]; then
         echo "=> Deleting symbolic links in bin directory"
         rm $BIN_DIR/CreateExpressProject
@@ -145,7 +145,7 @@ while true; do
     echo -e $LIGHT_GREEN"  b) Run Basic Setup (All but Node Related)"
     echo -e $BLUE"Cloud Nine"
     echo -e $BLUE"  c) Run All (Basic and Node Related)"
-    echo -e $BLUE"  d) Run Basic Setup  (All but Node Related)"    
+    echo -e $BLUE"  d) Run Basic Setup  (All but Node Related)"
     echo -e $YELLOW"Other"
     echo -e $YELLOW"  n) Install Node"
     echo -e $YELLOW"  p) Install Node Packages"
@@ -157,7 +157,7 @@ while true; do
         [Aa]* ) runAll false; continue;;
         [Bb]* ) runBasics false; continue;;
         [Cc]* ) runAll true; continue;;
-        [Dd]* ) runBasics true; continue;;        
+        [Dd]* ) runBasics true; continue;;
         [Nn]* ) nodeSetup; continue;;
         [Pp]* ) nodePackages; continue;;
         [Rr]* ) clean; continue;;
@@ -165,3 +165,6 @@ while true; do
         * )  -e "\n$NC" + "Please answer with c, r or x.";;
     esac
 done
+echo -e '----------------------------------------------'
+echo -e 'If you have made changes, run'$LIGHT_GREEN' source ~/.bashrc'$NC
+echo -e '----------------------------------------------'
