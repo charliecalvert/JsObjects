@@ -4,7 +4,7 @@
 
 var walker = require('elven-site-tools').walker;
 var fs = require('fs');
-var config = require('./elven-code').elfConfig;
+var config = require('elven-code').elfConfig;
 
 function walk(directoryToWalk, destinationDir, mostRecentDate, bootswatch) {
     'use strict';

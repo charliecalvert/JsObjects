@@ -15,11 +15,10 @@
   "license": "MIT",
   "dependencies": {
     "elven-code": "^3.0.1",
-    "elven-site-tools": "7.0.1",
+    "elven-site-tools": "7.0.2",
     "highlight.js": "^9.10.0",
     "jade": "^1.11.0",
     "jstransformer-marked": "^1.0.2",
-    "lwip": "0.0.9",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
     "pug": "^2.0.0-beta11",
