@@ -21,7 +21,7 @@ function essentials() {
     npm install -g nodemon
     npm install -g bower
     npm install -g jade
-    npm install -g pug
+    npm install -g pug-cli
     npm install -g js-beautify
     npm install -g css-beautify
     npm install -g html-beautify
