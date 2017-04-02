@@ -11,20 +11,24 @@ function message {
 }
 
 function clean() {
-	message "Clean"
+    message "Clean"
 }
 
 function essentials() {
-    message "Installing Essentials"    
+    message "Installing Essentials"
     npm install -g grunt-cli
     npm install -g express-generator
     npm install -g nodemon
     npm install -g bower
     npm install -g jade
+    npm install -g pug
+    npm install -g js-beautify
+    npm install -g css-beautify
+    npm install -g html-beautify
 }
 
 function unitTests {
-    message "Installing Unit Test related code"    
+    message "Installing Unit Test related code"
     npm install -g mocha
     npm install -g karma-cli
     npm install -g phantomjs-prebuilt
@@ -34,9 +38,9 @@ echo "You start with $# positional parameters"
 
 while [ "$1" != "" ]; do
     case $1 in
-		[Cc]* ) clean; shift;;
-		[Ee]* ) essentials; shift;;
-		[Uu]* ) unitTests; shift;;
-		[Xx]* ) break;;
-    esac    
+        [Cc]* ) clean; shift;;
+        [Ee]* ) essentials; shift;;
+        [Uu]* ) unitTests; shift;;
+        [Xx]* ) break;;
+    esac
 done

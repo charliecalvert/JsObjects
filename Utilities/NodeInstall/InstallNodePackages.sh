@@ -17,7 +17,7 @@ DIRECTORY=~/npm
 
 message "Checking NPM Directory"
 
-if [ ! -d "$DIRECTORY" ]; then    
+if [ ! -d "$DIRECTORY" ]; then
     echo Creating $DIRECTORY
     mkdir $DIRECTORY
 else
@@ -32,11 +32,11 @@ echo npm home directory is now:
 npm get prefix
 
 function testOne {
-    if [ -d "$DIRECTORY/lib/node_modules/$1" ]; then
-    echo -e "\e[92m$1 installed\e[0m"
+    if [ -d "$DIRECTORY/lib/node_modules/$1" ] || [ -f "$DIRECTORY/bin/$1" ]; then
+        echo -e "\e[92m$1 installed\e[0m"
     else
-    echo -e "\e[91m$1 not installed\e[0m"
-    fi 
+        echo -e "\e[91m$1 not installed\e[0m"
+    fi
 }
 
 function test {
@@ -49,16 +49,21 @@ function test {
     echo "Yeoman"
     testOne yo
     testOne generator-express
-    testOne generator-angular 
+    testOne generator-angular
     testOne generator-bootstrap
     testOne generator-mocha
     echo "Essential"
     testOne grunt-cli
     testOne express-generator
+    testOne create-react-app
     testOne nodemon
     testOne bower
-    echo "Optional"
     testOne jade
+    testOne pug
+    testOne js-beautify
+    testOne css-beautify
+    testOne html-beautify
+    echo "Optional"
     testOne cordova
     echo "========================================"
         echo
@@ -67,26 +72,15 @@ function test {
 
 function essentials() {
     $NODE_UTILS/NpmHelper e
-    #message "Installing Essentials"    
-    #npm install -g grunt-cli
-    #npm install -g express-generator
-    #npm install -g nodemon
-    #npm install -g bower
-    #npm install -g jade
 }
 
 function unitTests {
     $NODE_UTILS/NpmHelper u
-    #message "Installing Unit Test related code"    
-    #npm install -g mocha
-    #npm install -g karma-cli
-    #npm install -g phantomjs-prebuilt
 }
 
 function cordova {
     message "Installing Optional packages"
     npm install -g cordova
-    
 }
 
 function yeoman {
@@ -126,7 +120,7 @@ PATH="$PATH:$HOME/npm/bin"
 
 echo
 echo "========================================"
-echo "If you have not done so already, please" 
+echo "If you have not done so already, please"
 echo "Add this to the bottom of your .bashrc file:"
 echo
 echo 'export PATH="$PATH:$HOME/npm/bin"'
