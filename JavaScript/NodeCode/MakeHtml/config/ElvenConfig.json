@@ -4,14 +4,16 @@
     "bootswatch": "cosmo",
     "most-recent-date": "1980-01-01",
     "site-dirs": [
-      "Documents/AllTest",
-      "Documents/Markdown",
-      "Documents/AllSite"
+        "Git/CloudNotes/Tips",
+        "Documents/AllTest",
+        "Documents/Markdown",
+        "Documents/AllSite"
     ],
     "destination-dirs": [
-      "/var/www/html/",
-      "/home/bcuser/Source/firebase/public/",
-      "/home/bcuser/temp/test-site/"
+        "/home/charlie/Git/charliecalvert.github.io/books/CloudNotes/tips/",
+        "/var/www/html/",
+        "/home/bcuser/Source/firebase/public/",
+        "/home/bcuser/temp/test-site/"
     ]
   }
 }
