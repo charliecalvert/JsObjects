@@ -18,6 +18,7 @@ function essentials() {
     message "Installing Essentials"
     npm install -g grunt-cli
     npm install -g express-generator
+    npm install -g create-react-app
     npm install -g nodemon
     npm install -g bower
     npm install -g jade
