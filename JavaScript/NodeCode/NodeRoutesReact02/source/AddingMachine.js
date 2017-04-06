@@ -1,11 +1,11 @@
 var MyObject = (function() {
     'use strict';
     // Private Data
-    var helloString = "MyObject says hello";
+    var helloString = 'MyObject says hello';
 
     // Constructor
     function MyObject() {
-        console.log("Source/MyObject.Constructor called");
+        console.log('Source/MyObject.Constructor called');
     }
 
     MyObject.prototype.add = function(operandA, operandB) {

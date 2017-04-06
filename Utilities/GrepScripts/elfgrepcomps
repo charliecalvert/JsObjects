@@ -1,6 +1,6 @@
 #! /bin/bash
 
-GREP='grep -r --include=*.js --exclude-dir=node_modules --exclude-dir=components --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata'
+GREP='grep -r --include=*.js --exclude=bundle.js --exclude-dir=node_modules --exclude-dir=static --exclude-dir=components --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata'
 C=''
 for i in "$@"; do 
     C="$C \"${i//\"/\\\"}\""
