@@ -7,23 +7,32 @@ source ~/.bash_aliases
 alias
 
 function title() {
-	echo -e "\n==============="
-	echo $1
-	echo "==============="
+    echo -e "\n==============="
+    echo $1
+    echo "==============="
 }
 
 function winter() {
-	title 'i3c Working Site'
-	i3c && git status
+    title 'i3c Working Site'
+    i3c && git status
 }
 
 function spring() {
-	title 'prog219-calvert'
-	p9c && git status
+    title 'isit322-calvert'
+    i3c && git status
 
-	title 'Prog272Calvert'
-	p2c && git status
+    title 'Prog272Calvert'
+    p2c && git status
 }
+
+function fall() {
+    title 'isit320-calvert'
+    i3c && git status
+
+    title 'Prog270Calvert'
+    p2c && git status
+}
+
 
 title 'Git IO (charlie calvert)'
 gitio && git status
