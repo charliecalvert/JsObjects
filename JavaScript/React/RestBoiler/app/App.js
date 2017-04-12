@@ -31,6 +31,8 @@ export default class App extends React.Component {
     render() {
         return (
             <div className={styles.app}>
+                <h1>Elf Rest Boiler</h1>
+                <p>Boilerplate for React application with hot reloading.</p>
                 <button id="getNine" onClick={this.getNine}>Get Nine</button>
                 <p>NINE: {this.state.nine}</p>
                 <p>FOO: {this.state.foo}</p>

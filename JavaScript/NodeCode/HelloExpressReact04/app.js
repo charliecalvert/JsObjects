@@ -26,6 +26,34 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+if (false) {
+    console.log('Setting up Hotpack');
+    const webpack = require('webpack');
+    const webpackMiddleware = require('webpack-dev-middleware');
+    const webpackHotMiddleware = require('webpack-hot-middleware');
+    const config = require('./webpack.config.js');
+
+
+    const compiler = webpack(config);
+    const middleware = webpackMiddleware(compiler, {
+        publicPath: config.output.publicPath,
+        contentBase: 'src',
+        stats: {
+            colors: true,
+            hash: false,
+            timings: true,
+            chunks: true,
+            chunkModules: true,
+            modules: false
+        }
+    });
+
+    app.use(middleware);
+    app.use(webpackHotMiddleware(compiler));
+}
+*/
+
 app.use('/', index);
 app.use('/users', users);
 
