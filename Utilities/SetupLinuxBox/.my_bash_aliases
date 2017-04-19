@@ -40,8 +40,12 @@ alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
 alias www='cd /var/www/html'
 alias eplug='cd /var/www/html/wordpress/wp-content/plugins/meeting-search'
 
-# My Programs
+# Cloud Notes
 alias cn='cd $GIT_HOME/CloudNotes'
+alias cna='cd $GIT_HOME/CloudNotes/Assignments'
+alias cnar='cd $GIT_HOME/CloudNotes/Assignments/React'
+
+# My Programs
 alias elfa='cd $GIT_HOME/elven-assignments'
 alias awsb="cd $HOME/bin/AwsBasicS3"
 alias gitio="cd $GIT_HUB_IO"
