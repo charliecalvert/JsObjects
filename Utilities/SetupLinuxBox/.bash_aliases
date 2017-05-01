@@ -53,3 +53,10 @@ alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
 alias syscheck="$JSOBJECTS/Utilities/SetupLinuxBox/SystemCheck"
 alias slb="cd $SETUP_LINUXBOX"
+
+# Navigate
+alias cd1="cd .."
+alias cd2="cd ../.."
+alias cd3="cd ../../.."
+alias cd4="cd ../../../.."
+alias cd5="cd ../../../../.."
