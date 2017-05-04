@@ -53,7 +53,7 @@ export default class App extends React.Component {
 
     getNine() {
         const nine = getNine();
-        console.log(nine);
+        console.log("A NINE:", nine);
         this.setState(() => ({
             nine: nine
         }));
@@ -78,7 +78,7 @@ export default class App extends React.Component {
             <div>
                 <h1>{this.state.title}</h1>
                 <p>
-                    Welcome to {this.state.title}. This is a standard Express
+                    Hello from {this.state.title}. This is a standard Express
                     app with React and Redux circa March, 2017.
                 </p>
 
@@ -88,6 +88,8 @@ export default class App extends React.Component {
 
                 <p>Eight: {this.state.eight}</p>
                 <p>Nine: {this.state.nine}</p>
+
+                <h2>The Countered</h2>
 
                 <button onClick={this.counterUp}>Increment Counter</button>
                 <button onClick={this.counterDown}>Decrement Counter</button>

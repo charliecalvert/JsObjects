@@ -31,6 +31,7 @@ if (isDeveloping) {
     app.use(webpackHotMiddleware(compiler));
 
     app.get('/', function response(req, res) {
+        console.log('GETTING ROOT');
         res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
         res.end();
     });
@@ -42,7 +43,7 @@ if (isDeveloping) {
 } else {
     console.log('Production in server.js');
     app.use(express.static(__dirname + '/dist'));
-    app.get('*', function response(req, res) {
+    app.get('/', function response(req, res) {
         res.sendFile(path.join(__dirname, 'dist/index.html'));
     });
 }

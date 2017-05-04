@@ -7,10 +7,8 @@ if [ ! -d "$BIN_DIR" ]; then
     echo 'Creating '"$BIN_DIR"
     mkdir "$BIN_DIR"
 else
-    echo "$BIN_DIR"' exits.'
+    echo "$BIN_DIR"' exists.'
 fi
-
-exit 1
 
 if [ ! -n "$JSOBJECTS" ]; then
     echo "=> Creating JSOBJECTS variable"

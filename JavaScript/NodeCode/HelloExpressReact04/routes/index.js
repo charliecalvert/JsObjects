@@ -8,7 +8,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(request, response, next) {
     'use strict';
-    response.render('index', { note: 'The Real Title is source/App.js' });
+    response.render('index', { note: 'The Real Title is in source/App.js' });
 });
 
 module.exports = router;
