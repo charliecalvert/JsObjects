@@ -51,6 +51,7 @@ alias components="ln -s ~/tmp/components/ public/components"
 alias nmc="nm && components"
 alias elventools="cd $GIT_HOME/elven-tools"
 alias npmstarter="cd ~/Source/MakeHtml && npm start && cd -"
+alias gosrc="cd ~/Source"
 
 # My Courses
 
