@@ -22,6 +22,7 @@ fi
 alias gd="cd $GIT_HOME"
 alias chr="/usr/bin/chromium-browser"
 alias chrome="/usr/bin/chromium-browser"
+alias killwebstorm"ps -Alf |grep -i webstorm |grep -v grep |awk -F' ' '{print \$4}' |xargs kill -9 "
 
 # Commands
 alias sshadd="ssh-add ~/.ssh/main-key"
