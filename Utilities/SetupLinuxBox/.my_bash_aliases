@@ -74,3 +74,5 @@ alias p9c='cd $GIT_HOME/prog219-calvert-2016'
 
 # Apps
 alias fbd='cd ~/Source/firebase-database/'
+alias geserve='ln -s ~/Git/isit322-calvert-2017/GitExplorer/server/node_modules/ .'
+alias geclient='ln -s ~/Git/isit322-calvert-2017/GitExplorer/client/node_modules/ .'
