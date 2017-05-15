@@ -57,6 +57,7 @@ alias elventools="cd $GIT_HOME/elven-tools"
 alias npmstarter="cd ~/Source/MakeHtml && npm start && cd -"
 alias eip="cd ~/Git/writings/Tech/Markdown/ElvenImagePicker"
 alias gosrc="cd ~/Source"
+alias gcm='git checkout master'
 
 # My Courses
 

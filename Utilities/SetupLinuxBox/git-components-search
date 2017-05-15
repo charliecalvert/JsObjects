@@ -1,0 +1,17 @@
+#! /bin/bash
+
+# git branch -a | grep -o .eek0.* | xargs -n 1 git checkout
+#git rev-list 5c5fbdea5 | xargs git grep -l "^components" | grep .gitignore
+#git branch -a | grep -o .eek0.* | xargs -n 1 git checkout | git grep -l "^components" | grep .gitignore
+#git branch -a | grep -o .eek0.* | xargs -n 1 git checkout && git grep -l "^components" | grep .gitignore
+
+git checkout Week02-InClass
+git grep -l "^components" | grep .gitignore
+git checkout Week03
+git grep -l "^components" | grep .gitignore
+git checkout week04
+git grep -l "^components" | grep .gitignore
+git checkout week05
+git grep -l "^components" | grep .gitignore
+git checkout week06
+git grep -l "^components" | grep .gitignore
