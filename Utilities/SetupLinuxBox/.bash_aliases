@@ -25,7 +25,7 @@ alias chrome="/usr/bin/chromium-browser"
 alias killwebstorm="ps -Alf |grep -i webstorm |grep -v grep |awk -F' ' '{print \$4}' |xargs kill -9 "
 alias killchrome="pkill -9 chrome"
 alias killchromium="pkill -9 chromium"
-alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
+#alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
 
 # Commands
 alias sshadd="ssh-add ~/.ssh/main-key"
