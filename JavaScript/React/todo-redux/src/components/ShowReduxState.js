@@ -1,6 +1,9 @@
 /**
  * Created by charlie on 5/1/17.
- * This is one of the few parts of this app that I wrote
+ * This is one of the few parts of this app that I wrote.
+ * It does not use the Provider and connect, and hence
+ * would be considered beyond the pale by purists...
+ *
  * It is based on this:
  *
  *
