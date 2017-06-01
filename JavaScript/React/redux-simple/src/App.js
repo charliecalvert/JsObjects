@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import spokesman from './spokesman';
 import {createStore} from 'redux';
 
 // We change state by "dispatching" an action.
@@ -16,8 +15,8 @@ class App extends Component {
     //      dispatch,
     //      getState
     //
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         // When the state changes, you can update the UI
         // by monitoring calls to subscribe().
         // It can write the current state to localStorage.
@@ -26,10 +25,10 @@ class App extends Component {
         };
 
         const that = this;
-        this.store.subscribe(() => {
+        this.props.store.subscribe(() => {
             //console.log(this.store.getState());
             that.setState((prevState, ) => {
-                const storeState = that.store.getState();
+                const storeState = that.props.store.getState();
                 console.log(storeState);
                 return {statement: storeState.statement}
             });
@@ -38,15 +37,15 @@ class App extends Component {
     }
 
     verifyStatement = () => {
-        this.store.dispatch({ type: 'VERIFY' });
+        this.props.store.dispatch({ type: 'VERIFY' });
     };
 
     denyEverything = () => {
-        this.store.dispatch({ type: 'DENY' });
+        this.props.store.dispatch({ type: 'DENY' });
     };
 
     noComment = () => {
-        this.store.dispatch({ type: 'NO COMMENT' });
+        this.props.store.dispatch({ type: 'NO COMMENT' });
     };
 
   render() {
@@ -55,10 +54,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to React and Redux</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This component uses Redux.
         </p>
           <h1>Political Science</h1>
           {this.state.statement}

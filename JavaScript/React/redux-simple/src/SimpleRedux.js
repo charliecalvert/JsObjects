@@ -1,6 +1,6 @@
 /**
  * Created by charlie on 6/1/17.
- *
+ * This example does not use Redux. It is Redux-like, but not really redux.
  * Based on this:
  *
  * https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367
@@ -11,7 +11,7 @@ import spokesman from './spokesman';
 
 
 
-class Counter extends Component {
+class SimpleRedux extends Component {
     state = spokesman(undefined, {});
 
     dispatch(action) {
@@ -33,7 +33,9 @@ class Counter extends Component {
     render() {
         return (
             <div>
-                <h1>Political Science</h1>
+                <h1>Political Science Fake Redux</h1>
+
+                <p>This component does not use redux. It uses something redux-like.</p>
                 {this.state.value}
                 <hr />
                 <button onClick={this.verifyStatement}>Verify</button>
@@ -44,4 +46,4 @@ class Counter extends Component {
     }
 }
 
-export default Counter;
+export default SimpleRedux;
