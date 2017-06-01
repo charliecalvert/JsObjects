@@ -9,9 +9,11 @@
 import React, { Component } from 'react';
 import spokesman from './spokesman';
 
-
-
 class SimpleRedux extends Component {
+    /*constructor() {
+        super();
+        this.
+    }*/
     state = spokesman(undefined, {});
 
     dispatch(action) {
@@ -36,7 +38,7 @@ class SimpleRedux extends Component {
                 <h1>Political Science Fake Redux</h1>
 
                 <p>This component does not use redux. It uses something redux-like.</p>
-                {this.state.value}
+                {this.state.statement}
                 <hr />
                 <button onClick={this.verifyStatement}>Verify</button>
                 <button onClick={this.denyEverything}>Deny</button>

@@ -1,75 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {createStore} from 'redux';
 import {connect} from 'react-redux';
- // We change state by "dispatching" an action.
+// We change state by "dispatching" an action.
 // You can log, serialize or store actions.
 
-let AppConnect = ({ statement, deny, verify, noComment }) => {
+let AppConnect = ({statement, deny, verify, noComment}) => {
 
-    // A Redux tracks your app's state.
-    // It has the following methods:
-    //
-    //      subscribe,
-    //      dispatch,
-    //      getState
-    //
-    //constructor() {
-    //    super();
-        // When the state changes, you can update the UI
-        // by monitoring calls to subscribe().
-        // It can write the current state to localStorage.
-  /*      this.state = {
-            statement: 'No comment'
-        };*/
+    return (
+        <div className="App">
+            <div className="App-header">
+                <img src={logo} className="App-logo" alt="logo"/>
+                <h2>Welcome to React and Redux</h2>
+            </div>
+            <p className="App-intro">
+                This AppConnect component uses Redux and connect.
+            </p>
+            <h1>Political Science</h1>
+            {statement}
+            <hr />
+            <button onClick={verify}>Verify</button>
+            <button onClick={deny}>Deny</button>
+            <button onClick={noComment}>No Comment</button>
 
-//        const that = this;
-        /*store.subscribe(() => {
-            //console.log(this.store.getState());
-            that.setState((prevState, ) => {
-                const storeState = store.getState();
-                console.log(storeState);
-                return {statement: storeState.statement}
-            });
-        });*/
-
-    //}
-
-    const verifyStatement = () => {
-        //dispatch({ type: 'VERIFY' });
-    };
-
-    const denyEverything = () => {
-        //dispatch({ type: 'DENY' });
-    };
-
-    /*const noComment = (dispatch) => {
-       dispatch({ type: 'NO COMMENT' });
-    };*/
-
-  //render() {
-
-      return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React and Redux</h2>
         </div>
-        <p className="App-intro">
-          This AppConnect component uses Redux and connect.
-        </p>
-          <h1>Political Science</h1>
-          {statement}
-          <hr />
-          <button onClick={() => deny()}>To Do Click</button>
-          <button onClick={verify}>Verify</button>
-          <button onClick={deny}>Deny</button>
-          <button onClick={noComment}>No Comment</button>
-
-      </div>
     );
-  //}
+    //}
 };
 
 const mapStateToProps = (state) => {
@@ -81,7 +37,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deny: () => {
-            dispatch({ type: 'DENY' })
+            dispatch({type: 'DENY'})
         },
         verify: () => {
             dispatch({type: 'VERIFY'})
@@ -97,8 +53,4 @@ AppConnect = connect(
     mapDispatchToProps
 )(AppConnect);
 
-/*const VisibleTodoList = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AppConnect);*/
 export default AppConnect;

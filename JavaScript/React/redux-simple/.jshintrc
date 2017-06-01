@@ -1,0 +1,12 @@
+{
+  "strict": false,
+  "esversion": 6,
+  "devel": false,
+  "jquery": true,
+  "node": true,
+  // Enable globals available when code is running inside of the NodeJS runtime environment.
+  "predef": [
+    // Extra globals.
+    "Java"
+  ]
+}

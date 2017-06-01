@@ -5,9 +5,9 @@
 const spokesman = (state = { statement: 'No comment' }, action) => {
     switch (action.type) {
         case 'VERIFY':
-            return { statement: 'I stand by it. In fact, I invented it.' };
+            return { statement: 'We stand by it. In fact, we invented it.' };
         case 'DENY':
-            return { statement: 'I deny everything. Never heard of it.' };
+            return { statement: 'We deny everything. We\'ve never heard of it.' };
         case 'NO COMMENT':
             return {statement: 'No comment.'};
         default:
