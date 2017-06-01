@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
  // We change state by "dispatching" an action.
 // You can log, serialize or store actions.
 
-let AppConnect = ({ statement, deny, verify }) => {
+let AppConnect = ({ statement, deny, verify, noComment }) => {
 
     // A Redux tracks your app's state.
     // It has the following methods:
@@ -44,9 +44,9 @@ let AppConnect = ({ statement, deny, verify }) => {
         //dispatch({ type: 'DENY' });
     };
 
-    const noComment = () => {
-       // dispatch({ type: 'NO COMMENT' });
-    };
+    /*const noComment = (dispatch) => {
+       dispatch({ type: 'NO COMMENT' });
+    };*/
 
   //render() {
 
@@ -63,9 +63,9 @@ let AppConnect = ({ statement, deny, verify }) => {
           {statement}
           <hr />
           <button onClick={() => deny()}>To Do Click</button>
-          <button onClick={() => verify()}>Verify</button>
-          <button onClick={this.denyEverything}>Deny</button>
-          <button onClick={this.noComment}>No Comment</button>
+          <button onClick={verify}>Verify</button>
+          <button onClick={deny}>Deny</button>
+          <button onClick={noComment}>No Comment</button>
 
       </div>
     );
@@ -80,11 +80,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deny: (id) => {
+        deny: () => {
             dispatch({ type: 'DENY' })
         },
         verify: () => {
             dispatch({type: 'VERIFY'})
+        },
+        noComment: () => {
+            dispatch({type: 'NO COMMENT'})
         }
     }
 };
