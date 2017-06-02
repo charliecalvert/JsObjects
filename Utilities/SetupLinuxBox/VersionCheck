@@ -18,3 +18,6 @@ cat /etc/lsb-release
 
 message "lsb_release -a"
 lsb_release -a
+
+message "do-release-upgrade -c"
+do-release-upgrade -c
