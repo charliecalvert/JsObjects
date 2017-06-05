@@ -8,12 +8,12 @@ import {connect} from 'react-redux';
 //let DispatchComponentConnect = ({dispatch, statement}) => {
 class DispatchComponentConnect extends Component {
 
-    constructor() {
+    /*constructor() {
         super();
         this.state = {
             statement: ''
         };
-    }
+    }*/
 
     verifyStatement = () => {
         this.props.dispatch({type: 'VERIFY'});
