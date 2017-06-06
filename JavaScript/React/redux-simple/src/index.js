@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import SimpleRedux from './SimpleRedux';
 import AppConnect from './AppConnect';
-import AppConnectJsxOnly from './AppConnectJsxOnly';
 import AppConnectMaps from './AppConnectMaps';
 import DispatchConnect from './DispatchConnect';
 import DispactchComponentConnect from './DispatchComponentConnect';
