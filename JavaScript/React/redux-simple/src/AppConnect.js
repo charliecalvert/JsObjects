@@ -14,7 +14,7 @@ let AppConnect = ({statement, deny, verify, noComment}) => {
                 <h2>Welcome to React and Redux</h2>
             </div>
             <p className="App-intro">
-                This AppConnect component uses Redux and connect.
+                This AppConnect component <strong>mapStateToProps</strong> and <strong>mapDispatchToProps</strong>. It uses an <strong>arrow</strong> function rather than <strong>class</strong> syntax.
             </p>
             <h1>Political Science</h1>
             {statement}

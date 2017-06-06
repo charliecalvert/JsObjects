@@ -5,15 +5,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 
-//let DispatchComponentConnect = ({dispatch, statement}) => {
 class DispatchComponentConnect extends Component {
-
-    /*constructor() {
-        super();
-        this.state = {
-            statement: ''
-        };
-    }*/
 
     verifyStatement = () => {
         this.props.dispatch({type: 'VERIFY'});
@@ -31,13 +23,11 @@ class DispatchComponentConnect extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-intro">
-                    <h2>Welcome Dispatch Component Connect</h2>
-                </div>
+                <h1>Dispatch Component Connect</h1>
                 <p className="App-intro">
-                    This component uses Redux.
+                    This component uses <strong>connect</strong> and <strong>mapStateToProps</strong>. It uses <strong>class</strong> syntax rather than <strong>arrow</strong> functions.
                 </p>
-                <h1>Political Component Science</h1>
+
                 <p>SpokesPerson: {this.props.statement}</p>
                 <hr />
                 <button onClick={this.verifyStatement}>Verify</button>
@@ -49,7 +39,6 @@ class DispatchComponentConnect extends Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         statement: state.statement
@@ -57,6 +46,5 @@ const mapStateToProps = (state) => {
 };
 
 DispatchComponentConnect = connect(mapStateToProps)(DispatchComponentConnect);
-//DispatchComponentConnect = connect()(DispatchComponentConnect);
 
 export default DispatchComponentConnect;

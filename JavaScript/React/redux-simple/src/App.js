@@ -39,7 +39,7 @@ class App extends Component {
           <h2>Welcome to React and Redux App</h2>
         </div>
         <p className="App-intro">
-          This component uses Redux.
+          This component uses Redux and receives <strong>store</strong> as <strong>props</strong>.
         </p>
           <h1>Political Science</h1>
           {this.state.statement}

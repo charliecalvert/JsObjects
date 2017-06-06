@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import SimpleRedux from './SimpleRedux';
 import AppConnect from './AppConnect';
+import AppConnectJsxOnly from './AppConnectJsxOnly';
+import AppConnectMaps from './AppConnectMaps';
 import DispatchConnect from './DispatchConnect';
 import DispactchComponentConnect from './DispatchComponentConnect';
 import registerServiceWorker from './registerServiceWorker';
@@ -17,6 +19,8 @@ ReactDOM.render(
         <Provider store={store}>
             <div>
                 <AppConnect/>
+                <hr /> <hr />
+                <AppConnectMaps/>
                 <hr /> <hr />
                 <DispactchComponentConnect/>
                 <hr /> <hr />

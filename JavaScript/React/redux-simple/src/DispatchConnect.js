@@ -22,13 +22,11 @@ let DispatchConnect = ({dispatch, statement}) => {
 
     return (
         <div className="App">
-            <div className="App-intro">
-                <h2>Welcome to React and Dispatch Connect</h2>
-            </div>
+            <h1>Dispatch Connect</h1>
             <p className="App-intro">
-                This component uses Redux.
+                This component uses connect and <strong>mapStateToProps</strong>. It uses arrow functions instead of <strong>class</strong> syntax.
             </p>
-            <h1>Political Science</h1>
+
             {statement}
             <hr />
             <div>
