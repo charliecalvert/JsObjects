@@ -4,7 +4,7 @@ echo '[Unit]' > mongodb-hugepage-fix.service
 echo 'Description="Disable Transparent Hugepage before MongoDB boots"' >> mongodb-hugepage-fix.service
 echo '#WARN: check service name on your system' >> mongodb-hugepage-fix.service
 echo '# If you are using MongoDB Cloud, service name is "mongodb-mms-automation-agent.service"' >> mongodb-hugepage-fix.service
-echo 'Before=mongodb.service' >> mongodb-hugepage-fix.service
+echo 'Before=mongod.service' >> mongodb-hugepage-fix.service
 
 echo '' >> mongodb-hugepage-fix.service
 echo '[Service]' >> mongodb-hugepage-fix.service
@@ -16,7 +16,7 @@ echo '' >> mongodb-hugepage-fix.service
 echo '[Install]' >> mongodb-hugepage-fix.service
 echo '#WARN: check service name on your system' >> mongodb-hugepage-fix.service
 echo '# If you are using MongoDB Cloud, service name is "mongodb-mms-automation-agent.service"' >> mongodb-hugepage-fix.service
-echo 'RequiredBy=mongodb.service' >> mongodb-hugepage-fix.service
+echo 'RequiredBy=mongod.service' >> mongodb-hugepage-fix.service
 
 sudo mv mongodb-hugepage-fix.service /etc/systemd/system/.
 
