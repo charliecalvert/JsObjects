@@ -1,0 +1,24 @@
+CNM=createNodeModules
+
+echo $CNM
+
+function sendIt() {
+    echo -e $1 >> $CNM
+}
+
+echo '#! /bin/bash' > $CNM
+
+sendIt 'function run() {'
+sendIt '\tcd $1'
+sendIt '\tpwd'
+sendIt '\tnpm install'
+sendIt '\tcd ..'
+sendIt '}'
+
+ls $1 | while read x; do echo run $x; done >> $CNM
+
+sed -i".bak" '/run createNodeModules/d' $CNM
+
+chmod +x $CNM
+
+./$CNM

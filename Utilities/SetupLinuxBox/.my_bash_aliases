@@ -72,6 +72,8 @@ alias p2='cd $GIT_HOME/prog272-2017'
 alias p2c='cd $GIT_HOME/prog272-calvert-2017'
 alias p9='cd $GIT_HOME/prog219-2016'
 alias p9c='cd $GIT_HOME/prog219-calvert-2016'
+alias link-new="ln -s ~/temp/newmods/node_modules/ ."
+alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 
 # Apps
 alias fbd='cd ~/Source/firebase-database/'
