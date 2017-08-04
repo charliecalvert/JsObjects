@@ -1,0 +1,51 @@
+function message {
+    echo =======================
+    echo $1
+    echo =======================
+}
+
+function spacer {
+    echo
+    echo === $1 ===
+    echo
+}
+
+function listHardware {
+	sudo lshw -short
+}
+
+function listCpu {
+	sudo lscpu
+}
+
+function listStorage {
+	lsblk
+}
+
+function listUsb {
+	lsusb
+}
+
+while true; do
+    message "Menu"
+    echo "h) Hardware"
+    echo "c) CPU"
+    echo "s) Storage"
+    echo "i) Internal Hardware"
+    echo "u) USB"
+    echo "b) BIOS"
+    echo "x) Exit"
+    echo
+    read -p "Please make a selection and press enter: " eotuyx
+    clear
+    case $eotuyx in
+        [Hh]* ) listHardware; continue;;
+        [Cc]* ) listCpu; continue;;
+        [Ss]* ) listStorage; continue;;
+        [Ii]* ) listInternalHardware; continue;;
+        [Uu]* ) listUsb; continue;;
+        [Bb]* ) sudo dmidecode -t bios; continue;;
+        [XxQq]* ) break;;
+        * ) echo "Please answer with n, p or x.";;
+    esac
+done
