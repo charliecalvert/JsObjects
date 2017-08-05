@@ -10,7 +10,7 @@ function elfLog(name) {
     this.elfName = name;
 }
 
-// Set an environment variable to elfName to see output: see Log method.
+// Set an environment variable called ELFNAME to elfName to see output: see Log method.
 elfLog.elfName='';
 elfLog.logLevelNanoDetails = -1;
 elfLog.logLevelNano = 0;

@@ -3,11 +3,10 @@
  */
 
 
-describe('test log suite', function() {
+describe('test elven log suite', function() {
     'use strict';
 
-    var elfLog = require('../index').elfLog('test-elf-log');
-    //elfLog.elfName = ;
+    var elfLog = new require('../index').elvenLog('test-elf-log');
 
     beforeEach(function() {
 

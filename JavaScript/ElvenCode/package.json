@@ -1,6 +1,6 @@
 {
   "name": "elven-code",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "\"Elvenware code samples and utilities. For general use and for BC students\"",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-jsbeautifier": "^0.2.13",
     "grunt-jscs": "^3.0.1",
+    "jasmine": "^2.7.0",
     "jasmine-spec-reporter": "^3.2.0",
     "jshint-stylish": "^2.2.1"
   }

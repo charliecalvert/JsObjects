@@ -3,7 +3,7 @@
  */
 
 var elfConfig = require('../index').elfConfig;
-var elfLog = require('../index').elfLog;
+var elfLog = require('../index').elfLog();
 elfLog.elfName = 'test-config';
 elfLog.setLevel(elfLog.logLevelDetails);
 
