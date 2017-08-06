@@ -5,10 +5,11 @@
 var ElvenLog = (function() {
 
     var debug = require('debug')('elflog');
+    var debugBasics = require('debug')('elflog:basics');
 
     function ElvenLog(name) {
         'use strict';
-        console.log('ELF LOG CONSTRUCTOR', name);
+        debug('ELVEN LOG CONSTRUCTOR', name);
         this.elfName = name;
         this.debugLevel = this.logLevelSilent;
     }
