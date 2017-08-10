@@ -1,6 +1,57 @@
 /**
  * Created by charlie on 11/30/15.
+ *
+ * There are two ways to use Elf-Log. The key is to set the environment
+ * variable called ELFNAME:
+ *
+ * - One module at a time (set ELFNAME to module-name)
+ *   - example: export ELFNAME=my-module;
+ * - All modules at once (set ELFNAME to elf-all)
+ *   - example:
+ *       - export ELFNAME=elf-all;
+ *       - export ELF_NAME_LEVEL=0;
+ *
+ * You can use more than one module at a time by separating modules
+ * with a semicolon:
+ *   - example: export ELFNAME=my-module;my-other-module
+ *
+ * If you include elf-all, then any modules listed are ignored.
  */
+
+var EnvTests = (function() {
+
+    function EnvTests() {
+    }
+
+    function getEnvSplit() {
+        return process.env.ELFNAME.split(';');
+    }
+
+    function isElfAll() {
+        const envs = getEnvSplit();
+        return envs.indexOf('elf-all') > -1;
+    }
+
+    EnvTests.prototype.levelOk = function(level, debugLevel) {
+        if (isElfAll() && process.env.ELF_NAME_LEVEL) {
+            return level >= process.env.ELF_NAME_LEVEL;
+        } else {
+            return level >= debugLevel;
+        }
+    }
+
+    EnvTests.prototype.elfNameSet = function(elfName) {
+        if (process.env.ELFNAME) {
+            if (isElfAll() || getEnvSplit().indexOf(elfName) > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    return EnvTests;
+
+})();
 
 var ElvenLog = (function() {
 
@@ -9,6 +60,7 @@ var ElvenLog = (function() {
     var debugInfo = require('debug')('elflog:info');
     var debugInfoLevel = require('debug')('elflog:debug-info-level');
     var elvenUtils = require('./elf-utils');
+    var envTests = new EnvTests();
 
     function ElvenLog(name) {
         'use strict';
@@ -67,29 +119,11 @@ var ElvenLog = (function() {
         this.debugLevel = level;
     };
 
-    function levelOk(level, debugLevel) {
-        if (process.env.ELF_NAME_LEVEL) {
-            return level >= process.env.ELF_NAME_LEVEL;
-        } else {
-            return level >= debugLevel;
-        }
-    }
-
-    function elfNameSet(elfName) {
-        if (process.env.ELFNAME) {
-            const envs = process.env.ELFNAME.split(';');
-            if (envs.indexOf('elf-all') > -1 || envs.indexOf(elfName) > -1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     ElvenLog.prototype.setMessage = function(level, message01, message02, message03) {
         'use strict';
 
         debugInfoLevel(this.elfName, this.getLevel(level), this.getLevel(this.debugLevel));
-        if (levelOk(level, this.debugLevel)) {
+        if (envTests.levelOk(level, this.debugLevel)) {
             debug("setMessage: ", message01, message02, message03);
             if (typeof message01 !== 'string') {
                 message01 = JSON.stringify(message01);
@@ -113,7 +147,7 @@ var ElvenLog = (function() {
         debug("LOG: ", message01, message02, message03);
         message01 = this.setMessage(level, message01, message02, message03);
         //var elfNameSet = (this.elfName.length > 0 && this.elfName === process.env.ELFNAME);
-        if (elfNameSet(this.elfName) && this.showLog && message01.trim().length > 0) {
+        if (envTests.elfNameSet(this.elfName) && this.showLog && message01.trim().length > 0) {
             console.log('------\n' + this.elfName + ' - ' + message01 + '');
         }
         return message01;

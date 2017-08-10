@@ -23,7 +23,10 @@ sudo apt-get install curl
 # curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # The new setup script for Node.js v7.X
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
+# The new setup script for Node.js v8.X
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 # Install node
 sudo apt-get install -y nodejs
