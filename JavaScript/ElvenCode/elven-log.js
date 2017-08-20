@@ -16,6 +16,10 @@
  *   - example: export ELFNAME=my-module;my-other-module
  *
  * If you include elf-all, then any modules listed are ignored.
+ *
+ * To add elf-log to a module:
+ *
+ *   var elfLog = require('elven-code').elvenLog('my-module');
  */
 
 var EnvTests = (function() {
@@ -33,7 +37,7 @@ var EnvTests = (function() {
     }
 
     EnvTests.prototype.levelOk = function(level, debugLevel) {
-        if (isElfAll() && process.env.ELF_NAME_LEVEL) {
+        if (process.env.ELFNAME && isElfAll() && process.env.ELF_NAME_LEVEL) {
             return level >= process.env.ELF_NAME_LEVEL;
         } else {
             return level >= debugLevel;
