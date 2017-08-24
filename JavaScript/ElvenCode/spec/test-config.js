@@ -51,6 +51,7 @@ describe('test elven-config suite', function() {
     });
 
    it('shows we can get the california elvenImages', function(done) {
+       elfConfig.useLocalConfig = false;
         elfConfig.load(function(err, data) {
             var california = elfConfig.getElvenImage('california');
             expect(california.baseDir).toBe('/var/www/html');

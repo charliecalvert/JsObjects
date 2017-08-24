@@ -1,6 +1,6 @@
 {
   "name": "elven-code",
-  "version": "4.0.0",
+  "version": "4.1.1",
   "description": "\"Elvenware code samples and utilities. For general use and for BC students\"",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
     "debug": "^2.6.3",
-    "guid": "0.0.12",
     "mkdirp": "^0.5.1",
+    "node-uuid": "^1.4.8",
     "walk": "^2.3.9"
   },
   "devDependencies": {

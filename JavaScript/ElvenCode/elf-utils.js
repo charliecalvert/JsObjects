@@ -6,7 +6,7 @@ var path = require('path');
 var fs = require('fs');
 var os = require('os');
 var mkdirp = require('mkdirp');
-var Guid = require('guid');
+var Guid = require('node-uuid');
 
 /**
  * All I'm really doing here is reminding myself that path.join

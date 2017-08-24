@@ -3,6 +3,7 @@
  */
 
 var debug = require('debug')('elflog');
+var separator = ':';
 
 function elfLog(name) {
     'use strict';
@@ -125,7 +126,7 @@ elfLog.minorDetails = function(message01, message02, message03) {
 elfLog.details = function(message01, message02, message03) {
     'use strict';
     debug('details: ', message01, message02, message03);
-    return this.log(elfLog.logLevelDetails, message01, message02, message03);
+    return this.log(elfLog.logLevelDetails, seperator, message01, message02, message03);
 };
 
 elfLog.error = function(message01, message02, message03) {

@@ -52,7 +52,7 @@ function elvenConfig() {
     'use strict';
 }
 
-elvenConfig.configData = {};
+elvenConfig.configFileContents = {};
 elvenConfig.loaded = false;
 elvenConfig.useLocalConfig = false;
 
@@ -74,14 +74,14 @@ elvenConfig.load = function(callback) {
         utils.readFile(configName, function(result) {
             elvenConfig.loaded = true;
             try {
-                elvenConfig.configData = JSON.parse(result.result);
+                elvenConfig.configFileContents = JSON.parse(result.result);                
             } catch (e) {
                 console.log('Could not parse config file', e);
                 callback(e);
             }
-            elfLog.log(elfLog.logLevelNanoDetails, 'In load: ' + JSON.stringify(elvenConfig.configData, null, 4));
+            elfLog.log(elfLog.logLevelNanoDetails, 'In load: ' + JSON.stringify(elvenConfig.configFileContents, null, 4));
             if (callback) {
-                callback(null, elvenConfig.configData);
+                callback(null, elvenConfig.configFileContents);
             }
         });
     } catch (e) {
@@ -94,15 +94,15 @@ elvenConfig.save = function(callback) {
     if (elvenConfig.loaded !== true) {
         throw 'Can\'t save config file if it is not first loaded';
     }
-    if (typeof elvenConfig.configData === 'undefined') {
-        throw 'Can\'t save configData as it is empty';
+    if (typeof elvenConfig.configFileContents === 'undefined') {
+        throw 'Can\'t save configFileContents as it is empty';
     }
-    // console.log("save", elvenConfig.configData);
+    // console.log("save", elvenConfig.configFileContents);
     var configName = getConfigName();
     elfLog.minorDetails(configName);
     try {
         elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
-        utils.writeFile(configName, JSON.stringify(elvenConfig.configData, null, 4), function(result) {
+        utils.writeFile(configName, JSON.stringify(elvenConfig.configFileContents, null, 4), function(result) {
             if (result.result !== 'success') {
                 throw 'Could not write config file';
             }
@@ -119,28 +119,28 @@ elvenConfig.save = function(callback) {
 elvenConfig.get = function(level, property) {
     'use strict';
     if (property) {
-        return elvenConfig.configData[level][property];
+        return elvenConfig.configFileContents[level][property];
     } else {
-        return elvenConfig.configData[level];
+        return elvenConfig.configFileContents[level];
     }
 };
 
 elvenConfig.set = function(newValue, level, property) {
     'use strict';
     if (property) {
-        elvenConfig.configData[level][property] = newValue;
+        elvenConfig.configFileContents[level][property] = newValue;
     } else {
-        elvenConfig.configData[level] = newValue;
+        elvenConfig.configFileContents[level] = newValue;
     }
 };
 
 elvenConfig.keys = function(obj) {
     'use strict';
-    // console.log(elvenConfig.configData);
+    // console.log(elvenConfig.configFileContents);
     if (obj) {
-        return Object.keys(elvenConfig.configData[obj]);
+        return Object.keys(elvenConfig.configFileContents[obj]);
     } else {
-        return Object.keys(elvenConfig.configData);
+        return Object.keys(elvenConfig.configFileContents);
     }
 };
 
@@ -148,7 +148,7 @@ elvenConfig.getPropertyNamesAsArray = function(propertyName) {
     'use strict';
     var target;
     if (propertyName) {
-        target = elvenConfig.configData[propertyName];
+        target = elvenConfig.configFileContents[propertyName];
     } else {
         target = elvenConfig.configdata;
     }
@@ -169,9 +169,9 @@ elvenConfig.getElvenImages = function() {
 elvenConfig.getElvenImage = function(elvenImageName) {
     'use strict';
     var elfImages = elvenConfig.getElvenImages();
-    for (var i = 0; i < elfImages.length; i++) {
-        if (elfImages[i].name === elvenImageName) {
-            return elfImages[i];
+    for (var elfImage in elfImages) {
+        if (elfImage === elvenImageName) {
+            return elfImages[elfImage];
         }
     }
 };
