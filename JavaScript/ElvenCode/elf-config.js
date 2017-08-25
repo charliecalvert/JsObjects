@@ -74,7 +74,7 @@ elvenConfig.load = function(callback) {
         utils.readFile(configName, function(result) {
             elvenConfig.loaded = true;
             try {
-                elvenConfig.configFileContents = JSON.parse(result.result);                
+                elvenConfig.configFileContents = JSON.parse(result.result);
             } catch (e) {
                 console.log('Could not parse config file', e);
                 callback(e);
@@ -169,9 +169,9 @@ elvenConfig.getElvenImages = function() {
 elvenConfig.getElvenImage = function(elvenImageName) {
     'use strict';
     var elfImages = elvenConfig.getElvenImages();
-    for (var elfImage in elfImages) {
-        if (elfImage === elvenImageName) {
-            return elfImages[elfImage];
+    for (var i = 0; i < elfImages.length; i++) {
+        if (elfImages[i].name === elvenImageName) {
+            return elfImages[i];
         }
     }
 };
