@@ -2,7 +2,7 @@
  * Created by charlie on 3/1/16.
  */
 
-var elfLog = require('./elf-log');
+var elfLog = require('./elven-log')('custom-reporter');
 elfLog.elfName = 'custom-reporter';
 
 var myReporter = {

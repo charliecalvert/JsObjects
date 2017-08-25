@@ -67,53 +67,49 @@ var getConfigName = function() {
 
 elvenConfig.load = function(callback) {
     'use strict';
-    var configName = getConfigName();
-    elfLog.minorDetails(configName);
-    try {
+
+    return new Promise(function(resolve, reject) {
+        if (elvenConfig.loaded) {
+            resolve(elvenConfig.configFileContents);
+        }
+
+        var configName = getConfigName();
+
         elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
-        utils.readFile(configName, function(result) {
+        utils.readFile(configName).then(function(result) {
             elvenConfig.loaded = true;
             try {
                 elvenConfig.configFileContents = JSON.parse(result.result);
             } catch (e) {
                 console.log('Could not parse config file', e);
-                callback(e);
+                reject(e);
             }
             elfLog.log(elfLog.logLevelNanoDetails, 'In load: ' + JSON.stringify(elvenConfig.configFileContents, null, 4));
-            if (callback) {
-                callback(null, elvenConfig.configFileContents);
-            }
+            resolve(elvenConfig.configFileContents);
         });
-    } catch (e) {
-        console.log(e);
-    }
+    });
 };
 
 elvenConfig.save = function(callback) {
     'use strict';
-    if (elvenConfig.loaded !== true) {
-        throw 'Can\'t save config file if it is not first loaded';
-    }
-    if (typeof elvenConfig.configFileContents === 'undefined') {
-        throw 'Can\'t save configFileContents as it is empty';
-    }
-    // console.log("save", elvenConfig.configFileContents);
-    var configName = getConfigName();
-    elfLog.minorDetails(configName);
-    try {
-        elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
-        utils.writeFile(configName, JSON.stringify(elvenConfig.configFileContents, null, 4), function(result) {
+    return new Promise(function(resolve, reject) {
+        if (elvenConfig.loaded !== true) {
+            throw 'Can\'t save config file if it is not first loaded';
+        }
+        if (typeof elvenConfig.configFileContents === 'undefined') {
+            throw 'Can\'t save configFileContents as it is empty';
+        }
+        var configName = getConfigName();
+        elfLog.minorDetails(configName);
+        var fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
+        utils.writeFile(configName, fileContents).then(function(result) {
             if (result.result !== 'success') {
-                throw 'Could not write config file';
+                return reject('failure');
             }
             elfLog.log(elfLog.logLevelNanoDetails, 'In save: ' + result);
-            if (callback) {
-                callback(null, result);
-            }
+            resolve(result);
         });
-    } catch (e) {
-        console.log(e);
-    }
+    });
 };
 
 elvenConfig.get = function(level, property) {
