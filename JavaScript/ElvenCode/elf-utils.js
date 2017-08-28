@@ -209,6 +209,17 @@ function stripWhiteSpace(value) {
  * File Related
  ******************/
 
+function deleteFile(fileName) {
+	return new Promise(function(resolve, reject) {
+		fs.unlink(fileName, (err) => {
+			if (err) {
+				reject(err);
+			}
+			resolve( {result: 'success'} );
+		});
+	});
+}
+
 function directoryExists(path) {
     'use strict';
     var result = true;
@@ -394,6 +405,7 @@ exports.stripPunctuation = stripPunctuation;
 exports.stripWhiteSpace = stripWhiteSpace;
 
 // Files
+exports.deleteFile = deleteFile;
 exports.directoryExists = directoryExists;
 exports.ensureDir = ensureDir;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;

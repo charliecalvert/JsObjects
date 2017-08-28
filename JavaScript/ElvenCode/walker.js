@@ -8,14 +8,16 @@ var path = require('path');
 var elfUtils = require('./elf-utils');
 var elfLog = require('./elf-log.js');
 
-function walker() {
+var Walker = (function() {
+
+function Walker() {
     'use strict';
     elfLog.setLevel(elfLog.logLevelSilent);
 }
 
-walker.directoryToWalk = '';
+Walker.prototype.directoryToWalk = '';
 
-walker.options = {
+Walker.prototype.options = {
     followLinks: false,
     // directories with these keys will be skipped
     filters: []
@@ -32,14 +34,14 @@ function testExtension(extensionFilter, fileExtension) {
     }
 }
 
-walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
+Walker.prototype.walkDirs = function(directoryToWalk, extensionFilter, callback) {
     'use strict';
 
     var walkerFileReport = [];
 
-    walker.directoryToWalk = directoryToWalk;
+    this.directoryToWalk = directoryToWalk;
 
-    var walkInstance = walk.walk(directoryToWalk, walker.options);
+    var walkInstance = walk.walk(directoryToWalk, this.options);
 
     walkInstance.on('file', function(root, fileStats, next) {
 
@@ -69,7 +71,7 @@ walker.walkDirs = function(directoryToWalk, extensionFilter, callback) {
 
 };
 
-walker.writeFile = function(fileName, report, response) {
+Walker.prototype.writeFile = function(fileName, report, response) {
     'use strict';
     fs.writeFile(fileName, JSON.stringify(report, null, 4), function(err) {
         if (err) {
@@ -84,7 +86,7 @@ walker.writeFile = function(fileName, report, response) {
 };
 
 // for more on mtime: https://nodejs.org/api/fs.html#fs_class_fs_stats
-walker.getBasics = function(fileReport) {
+Walker.prototype.getBasics = function(fileReport) {
     'use strict';
     return fileReport.map(function(file) {
         return {
@@ -96,7 +98,7 @@ walker.getBasics = function(fileReport) {
     });
 };
 
-walker.getDirectories = function(report) {
+Walker.prototype.getDirectories = function(report) {
     'use strict';
     var accumulator = [];
 
@@ -112,18 +114,21 @@ walker.getDirectories = function(report) {
     return directories;
 };
 
-walker.getFileNames = function(report) {
+Walker.prototype.getFileNames = function(report) {
     'use strict';
     return report.map(function(item) {
         return item.fileStats.name;
     });
 };
 
-walker.getFullFileNames = function(report) {
+Walker.prototype.getFullFileNames = function(report) {
     'use strict';
     return report.map(function(item) {
         return path.normalize(elfUtils.ensureEndsWithPathSep(item.root) + item.fileStats.name);
     });
 };
 
-module.exports = walker;
+	return Walker;
+})();
+
+module.exports = new Walker();

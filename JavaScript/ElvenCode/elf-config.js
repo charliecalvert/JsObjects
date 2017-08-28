@@ -65,23 +65,44 @@ var getConfigName = function() {
     }
 };
 
-elvenConfig.load = function(callback) {
+elvenConfig.load = function() {
+    'use strict';
+
+    if (elvenConfig.loaded) {
+        return elvenConfig.configFileContents;
+    }
+
+    var configName = './' + getConfigName();
+
+    elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
+    var contents = fs.readFileSync(configName, 'utf8');
+    elvenConfig.loaded = true;
+    elvenConfig.configFileContents = JSON.parse(contents);
+    return contents;
+};
+
+elvenConfig.loadAsync = function(callback) {
     'use strict';
 
     return new Promise(function(resolve, reject) {
         if (elvenConfig.loaded) {
             resolve(elvenConfig.configFileContents);
+            return;
         }
 
-        var configName = getConfigName();
+        var configName = './' + getConfigName();
 
         elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.readFile(configName).then(function(result) {
             elvenConfig.loaded = true;
             try {
+                //console.log('CONFIG NAME', configName);
+                //console.log('DIRNAME', __dirname);
+                //console.log('RESULT.RESULT', result.result);
                 elvenConfig.configFileContents = JSON.parse(result.result);
             } catch (e) {
-                console.log('Could not parse config file', e);
+                //console.log('CONFIG NAME', configName);
+                //console.log('Could not parse config file', e);
                 reject(e);
             }
             elfLog.log(elfLog.logLevelNanoDetails, 'In load: ' + JSON.stringify(elvenConfig.configFileContents, null, 4));
@@ -91,6 +112,20 @@ elvenConfig.load = function(callback) {
 };
 
 elvenConfig.save = function(callback) {
+    'use strict';
+    if (elvenConfig.loaded !== true) {
+        throw 'Can\'t save config file if it is not first loaded';
+    }
+    if (typeof elvenConfig.configFileContents === 'undefined') {
+        throw 'Can\'t save configFileContents as it is empty';
+    }
+    var configName = getConfigName();
+    elfLog.minorDetails(configName);
+    var fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
+    fs.writeFileSync(configName, fileContents, 'utf8');
+};
+
+elvenConfig.saveAsync = function(callback) {
     'use strict';
     return new Promise(function(resolve, reject) {
         if (elvenConfig.loaded !== true) {
