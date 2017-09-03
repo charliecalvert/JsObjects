@@ -127,6 +127,7 @@ elvenConfig.save = function(callback) {
 
 elvenConfig.saveAsync = function(callback) {
     'use strict';
+
     return new Promise(function(resolve, reject) {
         if (elvenConfig.loaded !== true) {
             throw 'Can\'t save config file if it is not first loaded';
@@ -146,6 +147,11 @@ elvenConfig.saveAsync = function(callback) {
         });
     });
 };
+
+elvenConfig.forceReload = function() {
+    elvenConfig.configFileContents = {};
+    elvenConfig.loaded = false;
+}
 
 elvenConfig.get = function(level, property) {
     'use strict';
@@ -194,6 +200,9 @@ elvenConfig.getPropertyNamesAsArray = function(propertyName) {
 
 elvenConfig.getElvenImages = function() {
     'use strict';
+    if (!elvenConfig.loaded) {
+        elvenConfig.load();
+    }
     return elvenConfig.get('elvenImages');
 };
 
