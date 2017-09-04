@@ -59,6 +59,43 @@ var prettyPrintGrid = function(grid) {
 };
 
 /*******************
+ * Dates
+ ******************/
+
+function createDate(dateSeparator, divider, timeSeparator) {
+    // TODO: Compare speed of padSlow and pad
+    function padSlow(number) {
+        return padNumber(number, 2, 0);
+    }
+
+    function pad(n) {
+        return (n < 10) ? ('0' + n) : ('' + n);
+    }
+
+    var date = new Date();
+    var str = date.getFullYear() + dateSeparator +
+    pad(date.getMonth() + 1) + dateSeparator +
+    pad(date.getDate()) + divider +
+    pad(date.getHours()) + timeSeparator +
+    pad(date.getMinutes()) + timeSeparator +
+    pad(date.getSeconds());
+    return str;
+}
+
+function getHyphenDate() {
+    var hyphen = "-";
+    return createDate(hyphen, hyphen, hyphen);
+}
+
+function getNormalDate() {
+    var hyphen = "-";
+    var colon = ":";
+    var space = " ";
+    return createDate(hyphen, space, colon);
+}
+
+
+/*******************
  * Arrays
  ******************/
 
@@ -209,15 +246,43 @@ function stripWhiteSpace(value) {
  * File Related
  ******************/
 
+/* Creates directory with name like:
+ *
+ *   /home/charlie/2017-09-03-21-09-09
+ *
+ */
+function createDateDir() {
+    var dateDirString = ensureEndsWithPathSep(process.env.HOME) +
+            getHyphenDate();
+    ensureDir(dateDirString);
+    console.log(dateDirString);
+    return dateDirString;
+}
+
 function deleteFile(fileName) {
-	return new Promise(function(resolve, reject) {
-		fs.unlink(fileName, (err) => {
-			if (err) {
-				reject(err);
-			}
-			resolve( {result: 'success'} );
-		});
-	});
+    return new Promise(function(resolve, reject) {
+        fs.unlink(fileName, (err) => {
+            if (err) {
+                reject(err);
+            }
+            resolve( {result: 'success'} );
+        });
+    });
+}
+
+function deleteDirectory(path) {
+    return new Promise(function(resolve, reject) {
+        fs.rmdir(path, (err) => {
+            if (err) {
+                reject(err);
+            }
+            var result = {
+                result: 'success',
+                path: path
+            }
+            resolve(result);
+        });
+    });
 }
 
 function directoryExists(path) {
@@ -386,6 +451,11 @@ exports.getHomeDir = getHomeDir;
 exports.padNumber = padNumber;
 exports.prettyPrintGrid = prettyPrintGrid;
 
+// Dates
+exports.createDate = createDate;
+exports.getNormalDate = getNormalDate;
+exports.getHyphenDate = getHyphenDate;
+
 // Array
 exports.arrayContains = arrayContains;
 exports.arrayDifference = arrayDifference;
@@ -405,7 +475,9 @@ exports.stripPunctuation = stripPunctuation;
 exports.stripWhiteSpace = stripWhiteSpace;
 
 // Files
+exports.createDateDir = createDateDir;
 exports.deleteFile = deleteFile;
+exports.deleteDirectory = deleteDirectory;
 exports.directoryExists = directoryExists;
 exports.ensureDir = ensureDir;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
