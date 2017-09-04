@@ -2,15 +2,15 @@
  * @author Charlie Calvert
  */
 
-var fs = require('fs');
-var os = require('os');
-var utils = require('./elf-utils');
-var elfLog = require('./elf-log');
+const fs = require('fs');
+const os = require('os');
+const utils = require('./elf-utils');
+const elfLog = require('./elf-log');
 
 function getConfigNameGlobal() {
     'use strict';
-    var configFileName = 'ElvenConfig.json';
-    var configName = '';
+    const configFileName = 'ElvenConfig.json';
+    let configName = '';
     if (os.platform() === 'darwin') {
         configName = process.env.HOME + '/.config/' + configFileName;
     } else if (os.platform() === 'linux') {
@@ -23,8 +23,8 @@ function getConfigNameGlobal() {
 
 function getConfigNameLocal() {
     'use strict';
-    var configFileName = 'ElvenConfig.json';
-    var configName = '';
+    const configFileName = 'ElvenConfig.json';
+    let configName = '';
     if (os.platform() === 'darwin') {
         configName = 'config/' + configFileName;
     } else if (os.platform() === 'linux') {
@@ -35,6 +35,7 @@ function getConfigNameLocal() {
     return configName;
 }
 
+/*
 function reportError(err) {
     'use strict';
     console.log('*********************************');
@@ -46,7 +47,7 @@ function reportError(err) {
     console.log('Contrl-C to abort');
     console.log('Error condition!');
     console.log('*********************************');
-}
+}*/
 
 function elvenConfig() {
     'use strict';
@@ -56,7 +57,7 @@ elvenConfig.configFileContents = {};
 elvenConfig.loaded = false;
 elvenConfig.useLocalConfig = false;
 
-var getConfigName = function() {
+const getConfigName = function() {
     'use strict';
     if (elvenConfig.useLocalConfig) {
         return getConfigNameLocal();
@@ -72,16 +73,16 @@ elvenConfig.load = function() {
         return elvenConfig.configFileContents;
     }
 
-    var configName = './' + getConfigName();
+    const configName = getConfigName();
 
     elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
-    var contents = fs.readFileSync(configName, 'utf8');
+    const contents = fs.readFileSync(configName, 'utf8');
     elvenConfig.loaded = true;
     elvenConfig.configFileContents = JSON.parse(contents);
     return contents;
 };
 
-elvenConfig.loadAsync = function(callback) {
+elvenConfig.loadAsync = function() {
     'use strict';
 
     return new Promise(function(resolve, reject) {
@@ -90,7 +91,7 @@ elvenConfig.loadAsync = function(callback) {
             return;
         }
 
-        var configName = './' + getConfigName();
+        const configName = getConfigName();
 
         elfLog.log(elfLog.logLevelMinorDetails, 'Configuration Name: ' + configName);
         utils.readFile(configName).then(function(result) {
@@ -111,7 +112,7 @@ elvenConfig.loadAsync = function(callback) {
     });
 };
 
-elvenConfig.save = function(callback) {
+elvenConfig.save = function() {
     'use strict';
     if (elvenConfig.loaded !== true) {
         throw 'Can\'t save config file if it is not first loaded';
@@ -119,13 +120,13 @@ elvenConfig.save = function(callback) {
     if (typeof elvenConfig.configFileContents === 'undefined') {
         throw 'Can\'t save configFileContents as it is empty';
     }
-    var configName = getConfigName();
+    const configName = getConfigName();
     elfLog.minorDetails(configName);
-    var fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
+    const fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
     fs.writeFileSync(configName, fileContents, 'utf8');
 };
 
-elvenConfig.saveAsync = function(callback) {
+elvenConfig.saveAsync = function() {
     'use strict';
 
     return new Promise(function(resolve, reject) {
@@ -135,9 +136,9 @@ elvenConfig.saveAsync = function(callback) {
         if (typeof elvenConfig.configFileContents === 'undefined') {
             throw 'Can\'t save configFileContents as it is empty';
         }
-        var configName = getConfigName();
+        const configName = getConfigName();
         elfLog.minorDetails(configName);
-        var fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
+        const fileContents = JSON.stringify(elvenConfig.configFileContents, null, 4);
         utils.writeFile(configName, fileContents).then(function(result) {
             if (result.result !== 'success') {
                 return reject('failure');
@@ -151,7 +152,7 @@ elvenConfig.saveAsync = function(callback) {
 elvenConfig.forceReload = function() {
     elvenConfig.configFileContents = {};
     elvenConfig.loaded = false;
-}
+};
 
 elvenConfig.get = function(level, property) {
     'use strict';
@@ -183,14 +184,14 @@ elvenConfig.keys = function(obj) {
 
 elvenConfig.getPropertyNamesAsArray = function(propertyName) {
     'use strict';
-    var target;
+    let target;
     if (propertyName) {
         target = elvenConfig.configFileContents[propertyName];
     } else {
         target = elvenConfig.configdata;
     }
-    var result = [];
-    for (var property in target) {
+    const result = [];
+    for (let property in target) {
         if (target.hasOwnProperty(property)) {
             result.push(property);
         }
@@ -208,8 +209,8 @@ elvenConfig.getElvenImages = function() {
 
 elvenConfig.getElvenImage = function(elvenImageName) {
     'use strict';
-    var elfImages = elvenConfig.getElvenImages();
-    for (var i = 0; i < elfImages.length; i++) {
+    const elfImages = elvenConfig.getElvenImages();
+    for (let i = 0; i < elfImages.length; i++) {
         if (elfImages[i].name === elvenImageName) {
             return elfImages[i];
         }

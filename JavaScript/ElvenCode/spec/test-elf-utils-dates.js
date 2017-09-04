@@ -3,7 +3,7 @@
  **************/
 
 
-fdescribe('Elf Utils Date Suite', function() {
+describe('Elf Utils Date Suite', function() {
     'use strict';
 
     var elfUtils = require('../index').elfUtils;

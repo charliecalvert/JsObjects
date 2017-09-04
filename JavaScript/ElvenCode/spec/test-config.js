@@ -2,8 +2,8 @@
  * Created by charlie on 3/1/16.
  */
 
-var elfConfig = require('../index').elfConfig;
-var elfLog = require('../index').elfLog();
+const elfConfig = require('../index').elfConfig;
+const elfLog = require('../index').elfLog();
 elfLog.elfName = 'test-config';
 elfLog.setLevel(elfLog.logLevelDetails);
 
@@ -15,7 +15,20 @@ describe('test elven-config suite', function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
     });
 
-    it('shows we can create the elf config', function(done) {
+    fit('shows we can load the elf config async', function(done) {
+        elfConfig.useLocalConfig = false;
+        elfConfig.loadAsync()
+            .then(function(data) {
+                expect(data.calvert['base-dir']).toBe('/home/charlie/');
+                expect(data.calvert['bootswatch').toE
+            })
+            .catch(function(err) {
+                expect(false).toBe(true);
+            })
+            .then(done);
+    });
+
+    it('shows we can load the elf config', function(done) {
         elfConfig.useLocalConfig = false;
         elfConfig.load(function(err, data) {
             if (err) {
