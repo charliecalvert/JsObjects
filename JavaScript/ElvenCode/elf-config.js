@@ -79,7 +79,7 @@ elvenConfig.load = function() {
     const contents = fs.readFileSync(configName, 'utf8');
     elvenConfig.loaded = true;
     elvenConfig.configFileContents = JSON.parse(contents);
-    return contents;
+    return elvenConfig.configFileContents;
 };
 
 elvenConfig.loadAsync = function() {
