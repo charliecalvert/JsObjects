@@ -1,15 +1,13 @@
 
 $(document).ready(function() { 'use strict';
-    class HelloComponent extends React.Component {
+    class SimpleReact extends React.Component {
         render() {
-
-            return <div>Hello {this.props.name}</div>;
-
+            return <div>This is a react component</div>;
         };
     }
 
     ReactDOM.render(
-        <HelloComponent/>,
+        <SimpleReact/>,
         document.getElementById('root')
     );
 
