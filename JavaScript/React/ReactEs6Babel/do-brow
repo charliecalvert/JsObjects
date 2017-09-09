@@ -1,0 +1,1 @@
+browserify -t [ babelify --presets [ react ] ] src/*.js -o public/javascripts/basics.js

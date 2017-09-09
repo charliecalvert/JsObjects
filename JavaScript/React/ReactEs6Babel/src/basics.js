@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
+import ShowMe from './show-me';
 
 class SimpleReact extends React.Component {
     render() {
@@ -7,7 +8,13 @@ class SimpleReact extends React.Component {
     };
 }
 
-ReactDOM.render(
-    <SimpleReact/>,
-    document.getElementById('root')
-);
+$(document).ready(function() {
+    'use strict';
+    ReactDOM.render(
+        <div>
+            <ShowMe/>
+            <SimpleReact/>
+        </div>,
+        document.getElementById('root')
+    );
+});
