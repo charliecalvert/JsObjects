@@ -7,13 +7,14 @@ module.exports = {
         path: __dirname,
         filename: 'bundle.js'
     },
+    devtool: "#inline-source-map",
     module: {
         loaders: [
             {
                 test: /.js?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {presets: ['es2015', 'react']}
+                query: {presets: ['es2016', 'react']}
             }
         ]
     },
