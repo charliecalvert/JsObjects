@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "build": "babel src -d public/javascripts"
+    "builda": "babel src -d public/javascripts",
+    "build": "./do-brow"
   },
   "dependencies": {
     "babelify": "^7.3.0",

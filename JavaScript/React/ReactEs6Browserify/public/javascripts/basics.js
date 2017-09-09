@@ -21008,7 +21008,7 @@ var SimpleReact = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                'This is a react component'
+                'This is a react component.'
             );
         }
     }]);
@@ -21024,7 +21024,7 @@ $(document).ready(function () {
         null,
         _react2.default.createElement(_showMe2.default, null),
         _react2.default.createElement(SimpleReact, null)
-    ), document.getElementById('root'));
+    ), document.getElementById('reactStuff'));
 });
 
 },{"./show-me":184,"react":182,"react-dom":30}],184:[function(require,module,exports){
@@ -21063,7 +21063,7 @@ var ShowMe = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                'This is ShowMe'
+                'This is the ShowMe component.'
             );
         }
     }]);

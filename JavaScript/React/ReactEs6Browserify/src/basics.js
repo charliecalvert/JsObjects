@@ -4,7 +4,7 @@ import ShowMe from './show-me';
 
 class SimpleReact extends React.Component {
     render() {
-        return <div>This is a react component</div>;
+        return <div>This is a react component.</div>;
     };
 }
 
@@ -15,6 +15,6 @@ $(document).ready(function() {
             <ShowMe/>
             <SimpleReact/>
         </div>,
-        document.getElementById('root')
+        document.getElementById('reactStuff')
     );
 });
