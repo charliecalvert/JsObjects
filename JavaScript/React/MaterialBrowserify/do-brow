@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# browserify -t [ babelify --presets [ react ] ] src/*.js -o public/javascripts/basics.js
+watchify -t [ babelify --presets [ react ] ] src/*.js -o public/javascripts/basics.js
