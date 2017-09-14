@@ -21092,63 +21092,6 @@ var MaterialSlider = function (_React$Component) {
                                 'Here is our small slogan.'
                             )
                         )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement('img', { src: 'http://lorempixel.com/580/250/nature/2' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'caption left-align' },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Left Aligned Caption'
-                            ),
-                            _react2.default.createElement(
-                                'h5',
-                                { className: 'light grey-text text-lighten-3' },
-                                'Here is our small slogan.'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement('img', { src: 'http://lorempixel.com/580/250/nature/3' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'caption right-align' },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Right Aligned Caption'
-                            ),
-                            _react2.default.createElement(
-                                'h5',
-                                { className: 'light grey-text text-lighten-3' },
-                                'Here is our small slogan.'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement('img', { src: 'http://lorempixel.com/580/250/nature/4' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'caption center-align' },
-                            _react2.default.createElement(
-                                'h3',
-                                null,
-                                'This is our big Tagline!'
-                            ),
-                            _react2.default.createElement(
-                                'h5',
-                                { className: 'light grey-text text-lighten-3' },
-                                'Here is our small slogan.'
-                            )
-                        )
                     )
                 )
             );
@@ -21241,6 +21184,11 @@ var MaterialSlider = function (_React$Component) {
                         'i',
                         { className: 'large mdi-content-add' },
                         'abc'
+                    ),
+                    _react2.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'face'
                     )
                 ),
                 _react2.default.createElement(
@@ -21416,7 +21364,8 @@ var MaterialSlider = function (_React$Component) {
                         )
                     )
                 ),
-                this.various()
+                this.various(),
+                this.getSlider()
             );
         }
     }]);
