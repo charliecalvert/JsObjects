@@ -34,6 +34,7 @@ alias wtu="cd $ELF_WRITE/UnitTests/Js"
 # Elvenware
 export WRITE_ELF=$ELF_WRITE/Elvenware
 alias ec="cd $ELF_WRITE/Elvenware"
+alias ecd="cd $ELF_WRITE/Elvenware/development/"
 alias ecc="cd $ELF_WRITE/Elvenware/development/cloud/"
 alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
 
