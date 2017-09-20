@@ -1,0 +1,9 @@
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+fi
+
+export CHROME_BIN=/usr/bin/chromium-browser
+
+export NODE_PATH=:$HOME/npm/lib/node_modules
+export PATH="$PATH:$HOME/npm/bin"
