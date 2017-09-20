@@ -64,13 +64,13 @@ alias gcm='git checkout master'
 
 alias p270='cd $GIT_HOME/prog270-fall-2016'
 alias p270c='cd $GIT_HOME/prog270-calvert-2016'
-alias i3='cd $GIT_HOME/isit322-2017'
-alias i3c='cd $GIT_HOME/isit322-calvert-2017'
+alias i3='cd $GIT_HOME/isit320-2017'
+alias i3c='cd $GIT_HOME/isit320-calvert-2017'
 alias p28='cd $GIT_HOME/Prog282'
 
 # Spring 2016
-alias p2='cd $GIT_HOME/prog272-2017'
-alias p2c='cd $GIT_HOME/prog272-calvert-2017'
+alias p2='cd $GIT_HOME/prog270-2017'
+alias p2c='cd $GIT_HOME/prog270-calvert-2017'
 alias p9='cd $GIT_HOME/prog219-2016'
 alias p9c='cd $GIT_HOME/prog219-calvert-2016'
 alias link-new="ln -s ~/temp/newmods/node_modules/ ."
