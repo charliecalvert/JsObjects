@@ -65,4 +65,8 @@ describe('Elvenware Elf Utils Files Suite', function() {
             done();
         });
     });
+
+    it('We added some (stripExtension?) make sure they are tested', function() {
+        expect(true).toBe(false);
+    })
 });
