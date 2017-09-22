@@ -399,6 +399,11 @@ function readFile(fileName, callback) {
     }
 }
 
+function stripExtension(fileName) {
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.'));
+}
+
 function swapExtension(fileName, ext) {
     'use strict';
     return fileName.substr(0, fileName.lastIndexOf('.')) + ext;
@@ -484,5 +489,6 @@ exports.fileExists = fileExists;
 exports.getExtension = getExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
 exports.readFile = readFile;
+exports.stripExtension = stripExtension;
 exports.swapExtension = swapExtension;
 exports.writeFile = writeFile;

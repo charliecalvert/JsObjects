@@ -1,6 +1,6 @@
 {
   "name": "elven-code",
-  "version": "4.1.7",
+  "version": "4.2.0",
   "description": "\"Elvenware code samples and utilities. For general use and for BC students\"",
   "main": "index.js",
   "scripts": {
