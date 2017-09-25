@@ -65,6 +65,12 @@ describe('Elf String Util Suite', function() {
             var actual = elfUtils.endsWith('meatballs and chickens', 'akens');
             expect(actual).toBeFalsy();
         });
+
+        it('gets string from end of string at character', function() {
+            const testString = '/home/charlie/ElvenCode/spec.md';
+            const result = elfUtils.getEndFromCharacter(testString, path.sep);
+            expect(result).toBe('spec.md');
+        });
         
         it('removes from end of a string at character', function() {
             var testString = '/home/charlie/ElvenCode/spec';

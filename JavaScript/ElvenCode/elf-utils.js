@@ -174,6 +174,10 @@ const getLastCharacterOfString = function(value) {
     return value.substring(value.length - 1);
 };
 
+const getEndFromCharacter = function(value, char) {
+    return value.substring(value.lastIndexOf(char) + 1, value.length);
+};
+
 function htmlEscape(str) {
     'use strict';
     return String(str)
@@ -469,6 +473,7 @@ exports.isArray = isArray;
 exports.endsWith = endsWith;
 exports.getFirstWord = getFirstWord;
 exports.getLastCharacterOfString = getLastCharacterOfString;
+exports.getEndFromCharacter = getEndFromCharacter;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.insertString = insertString;

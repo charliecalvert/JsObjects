@@ -66,7 +66,10 @@ describe('Elvenware Elf Utils Files Suite', function() {
         });
     });
 
-    it('We added some (stripExtension?) make sure they are tested', function() {
-        expect(true).toBe(false);
+    it('Ensure we can stripExtension from a string', function() {
+        const testString = '/home/charlie/ElvenCode/spec.md';
+        const expected = '/home/charlie/ElvenCode/spec';
+        const result = elfUtils.stripExtension(testString);
+        expect(result).toBe(expected);
     })
 });
