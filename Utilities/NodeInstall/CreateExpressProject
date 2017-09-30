@@ -20,6 +20,7 @@ checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
 # Create an express app and run npm install
 express --view=pug $1
 cd $1
+
 npm install
 
 # Setup bower and bootstrap
