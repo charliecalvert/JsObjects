@@ -55,4 +55,7 @@ elventools && git status
 title 'Elven Assignments'
 elfa && git status
 
+title 'ElvenCode'
+elfcode && git status
+
 spring

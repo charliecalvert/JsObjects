@@ -2,20 +2,20 @@
  * @author Charlie Calvert
  */
 
-var path = require('path');
-var fs = require('fs');
-var os = require('os');
-var mkdirp = require('mkdirp');
-var Guid = require('guid');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
+const mkdirp = require('mkdirp');
+const Guid = require('uuid');
 
 /**
- * All I'm really doing here is reminding myself that path.join
- * solves the problem of properly appending a file name onto a path
+ * Remeber that path.join solves the problem of
+ * properly appending a file name onto a path
  *
  * @param {Object} pathName
  * @param {Object} fileName
  */
-var elfJoin = function(pathName, fileName) {
+const elfJoin = function(pathName, fileName) {
     'use strict';
     return path.join(pathName, fileName);
 };
@@ -38,7 +38,7 @@ function getGuid() {
 
 function getHomeDir() {
     'use strict';
-    var homeDir = null;
+    let homeDir = null;
     if (os.platform() === 'linux') {
         homeDir = process.env.HOME;
     } else if (os.platform() === 'win32') {
@@ -53,19 +53,55 @@ function getHomeDir() {
  */
 var prettyPrintGrid = function(grid) {
     'use strict';
-    var data = JSON.stringify(grid);
-    var result = data.replace(/\[\"/g, '\n\t[');
+    let data = JSON.stringify(grid);
+    let result = data.replace(/\[\"/g, '\n\t[');
     return result.replace(']]', ']\n]');
 };
+
+/*******************
+ * Dates
+ ******************/
+
+function createDate(dateSeparator, divider, timeSeparator) {
+    // TODO: Compare speed of padSlow and pad
+    function padSlow(number) {
+        return padNumber(number, 2, 0);
+    }
+
+    function pad(n) {
+        return (n < 10) ? ('0' + n) : ('' + n);
+    }
+
+    const date = new Date();
+    return date.getFullYear() + dateSeparator +
+        pad(date.getMonth() + 1) + dateSeparator +
+        pad(date.getDate()) + divider +
+        pad(date.getHours()) + timeSeparator +
+        pad(date.getMinutes()) + timeSeparator +
+        pad(date.getSeconds());
+}
+
+function getHyphenDate() {
+    const hyphen = "-";
+    return createDate(hyphen, hyphen, hyphen);
+}
+
+function getNormalDate() {
+    const hyphen = "-";
+    const colon = ":";
+    const space = " ";
+    return createDate(hyphen, space, colon);
+}
+
 
 /*******************
  * Arrays
  ******************/
 
-var arrayContains = function(target, value) {
+const arrayContains = function(target, value) {
     'use strict';
-    var found = false;
-    for (var i = 0; i < target.length && !found; i++) {
+    let found = false;
+    for (let i = 0; i < target.length && !found; i++) {
         if (target[i] === value) {
             found = true;
         }
@@ -83,10 +119,10 @@ function arrayDifference(firstArray, secondArray) {
 // Flawed solution. Read comments: http://stackoverflow.com/a/1187628
 function arraySymmetricDifference(firstArray, secondArray) {
     'use strict';
-    var temp = [];
-    var difference = [];
+    let temp = [];
+    let difference = [];
 
-    for (var i = 0; i < firstArray.length; i++) {
+    for (let i = 0; i < firstArray.length; i++) {
         console.log(firstArray[i]);
         temp[firstArray[i]] = true;
         console.log(temp[firstArray[i]]);
@@ -95,7 +131,7 @@ function arraySymmetricDifference(firstArray, secondArray) {
     console.log('temp:', temp);
     console.log(firstArray);
 
-    for (i = 0; i < secondArray.length; i++) {
+    for (let i = 0; i < secondArray.length; i++) {
         if (temp[secondArray[i]]) {
             delete temp[secondArray[i]];
         } else {
@@ -106,7 +142,7 @@ function arraySymmetricDifference(firstArray, secondArray) {
     console.log(temp);
     console.log(firstArray);
 
-    for (var item in temp) {
+    for (let item in temp) {
         console.log(item);
         difference.push(item);
     }
@@ -133,9 +169,13 @@ function getFirstWord(value) {
     return value.split(' ')[0];
 }
 
-var getLastCharacterOfString = function(value) {
+const getLastCharacterOfString = function(value) {
     'use strict';
     return value.substring(value.length - 1);
+};
+
+const getEndFromCharacter = function(value, char) {
+    return value.substring(value.lastIndexOf(char) + 1, value.length);
 };
 
 function htmlEscape(str) {
@@ -162,11 +202,10 @@ function htmlUnescape(str) {
 
 function insertString(fileName, itemToInsert, index) {
     'use strict';
-    var output = [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
-    return output;
+    return [fileName.slice(0, index), itemToInsert, fileName.slice(index)].join('');
 }
 
-var padNumber = function(numberToPad, width, padValue) {
+const padNumber = function(numberToPad, width, padValue) {
     'use strict';
     padValue = padValue || '0';
     numberToPad = numberToPad + '';
@@ -209,9 +248,48 @@ function stripWhiteSpace(value) {
  * File Related
  ******************/
 
+/* Creates directory with name like:
+ *
+ *   /home/charlie/2017-09-03-21-09-09
+ *
+ */
+function createDateDir() {
+    let dateDirString = ensureEndsWithPathSep(process.env.HOME) +
+            getHyphenDate();
+    ensureDir(dateDirString);
+    console.log(dateDirString);
+    return dateDirString;
+}
+
+function deleteFile(fileName) {
+    return new Promise(function(resolve, reject) {
+        fs.unlink(fileName, (err) => {
+            if (err) {
+                reject(err);
+            }
+            resolve( {result: 'success'} );
+        });
+    });
+}
+
+function deleteDirectory(path) {
+    return new Promise(function(resolve, reject) {
+        fs.rmdir(path, (err) => {
+            if (err) {
+                reject(err);
+            }
+            const result = {
+                result: 'success',
+                path: path
+            };
+            resolve(result);
+        });
+    });
+}
+
 function directoryExists(path) {
     'use strict';
-    var result = true;
+    let result = true;
     try {
         fs.accessSync(path, fs.F_OK);
     } catch (e) {
@@ -264,7 +342,7 @@ function fileExists(filePath) {
 function getExtension(fileName) {
     'use strict';
     fileName = fileName.trim();
-    var array = fileName.split('.');
+    const array = fileName.split('.');
     if (array.length === 1 || (array[0] === '' && array.length === 2)) {
         return '';
     }
@@ -291,7 +369,7 @@ function getFileNameFromPath(fileName, pathSeparator) {
     if (typeof pathSeparator === 'undefined') {
         pathSeparator = path.sep;
     }
-    var index = fileName.lastIndexOf(pathSeparator);
+    const index = fileName.lastIndexOf(pathSeparator);
     return fileName.substr(index + 1, fileName.length - index - 1);
 }
 
@@ -323,6 +401,11 @@ function readFile(fileName, callback) {
             });
         });
     }
+}
+
+function stripExtension(fileName) {
+    'use strict';
+    return fileName.substr(0, fileName.lastIndexOf('.'));
 }
 
 function swapExtension(fileName, ext) {
@@ -375,6 +458,11 @@ exports.getHomeDir = getHomeDir;
 exports.padNumber = padNumber;
 exports.prettyPrintGrid = prettyPrintGrid;
 
+// Dates
+exports.createDate = createDate;
+exports.getNormalDate = getNormalDate;
+exports.getHyphenDate = getHyphenDate;
+
 // Array
 exports.arrayContains = arrayContains;
 exports.arrayDifference = arrayDifference;
@@ -385,6 +473,7 @@ exports.isArray = isArray;
 exports.endsWith = endsWith;
 exports.getFirstWord = getFirstWord;
 exports.getLastCharacterOfString = getLastCharacterOfString;
+exports.getEndFromCharacter = getEndFromCharacter;
 exports.htmlEscape = htmlEscape;
 exports.htmlUnescape = htmlUnescape;
 exports.insertString = insertString;
@@ -394,6 +483,9 @@ exports.stripPunctuation = stripPunctuation;
 exports.stripWhiteSpace = stripWhiteSpace;
 
 // Files
+exports.createDateDir = createDateDir;
+exports.deleteFile = deleteFile;
+exports.deleteDirectory = deleteDirectory;
 exports.directoryExists = directoryExists;
 exports.ensureDir = ensureDir;
 exports.ensureEndsWithPathSep = ensureEndsWithPathSep;
@@ -402,5 +494,6 @@ exports.fileExists = fileExists;
 exports.getExtension = getExtension;
 exports.getFileNameFromPath = getFileNameFromPath;
 exports.readFile = readFile;
+exports.stripExtension = stripExtension;
 exports.swapExtension = swapExtension;
 exports.writeFile = writeFile;
