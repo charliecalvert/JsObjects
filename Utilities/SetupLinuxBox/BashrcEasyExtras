@@ -3,6 +3,7 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
 fi
 
+# Edit and uncomment to load a key automatically.
 #ssh-add -l | grep -q "made on rohan-elf"  
 #if [ $? -eq 0 ]; then  
 #    echo OK  
