@@ -3,5 +3,13 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
 fi
 
+#ssh-add -l | grep -q "made on rohan-elf"  
+#if [ $? -eq 0 ]; then  
+#    echo OK  
+#else  
+#    echo FAIL  
+#    ssh-add ~/.ssh/id_rsa  
+#fi
+
 export NODE_PATH="$HOME/npm/lib/node_modules"
 export PATH="$PATH:$HOME/npm/bin"
