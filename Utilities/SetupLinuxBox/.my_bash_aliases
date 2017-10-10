@@ -37,7 +37,8 @@ alias ec="cd $ELF_WRITE/Elvenware"
 alias ecd="cd $ELF_WRITE/Elvenware/development/"
 alias ecc="cd $ELF_WRITE/Elvenware/development/cloud/"
 alias ecj="cd $ELF_WRITE/Elvenware/development/web/JavaScript"
-
+alias gitpl="git checkout package-lock.json"
+alias gitplc="git add package-lock.json && git commit -m 'package-lock' && git push"
 alias www='cd /var/www/html'
 alias eplug='cd /var/www/html/wordpress/wp-content/plugins/meeting-search'
 
