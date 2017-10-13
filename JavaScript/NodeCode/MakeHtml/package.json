@@ -14,8 +14,8 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-code": "^3.0.1",
-    "elven-site-tools": "7.0.3",
+    "elven-code": "^4.3.3",
+    "elven-site-tools": "8.3.0",
     "highlight.js": "^9.10.0",
     "jade": "^1.11.0",
     "jstransformer-marked": "^1.0.2",
@@ -23,7 +23,7 @@
     "mkdirp": "^0.5.1",
     "pug": "^2.0.0-beta11",
     "walk": "^2.3.9",
-    "yargs": "^7.0.2"
+    "yargs": "^9.0.1"
   },
   "devDependencies": {
     "grunt-contrib-clean": "^1.0.0",
