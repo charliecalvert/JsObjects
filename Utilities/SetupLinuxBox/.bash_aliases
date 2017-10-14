@@ -29,6 +29,7 @@ alias killchromium="pkill -9 chromium"
 
 # Commands
 alias sshadd="ssh-add ~/.ssh/main-key"
+alias gossh="cd ~/.ssh"
 alias ba="less ~/.bash_aliases"
 alias platform="cordova platform add android"
 alias go="npm install && bower install && npm start"
