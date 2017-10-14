@@ -24,7 +24,6 @@ function essentials() {
     npm install -g jade
     npm install -g pug-cli
     npm install -g js-beautify
-    npm install -g css-beautify
     npm install -g html-beautify
 }
 
