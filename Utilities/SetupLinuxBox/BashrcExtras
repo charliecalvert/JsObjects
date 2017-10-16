@@ -19,9 +19,14 @@ set-system-path () {
     fi
 }
 
+# General
+set-system-path "$HOME/bin"
+export CHROME_BIN=/usr/bin/chromium-browser
+
 # Node Support
 set-node-path "$HOME/npm/lib/node_modules"
 set-system-path "$HOME/npm/bin"
+
 
 export PYTHONPATH="${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/"
 
@@ -32,9 +37,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_PLATFORM_TOOLS="$HOME/Android/Sdk/platform-tools"
 set-system-path "$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS"
-
-# Other
-export CHROME_BIN=/usr/bin/chromium-browser
 
 # Edit and uncomment to load a key automatically.
 #ssh-add -l | grep -q "made on rohan-elf"

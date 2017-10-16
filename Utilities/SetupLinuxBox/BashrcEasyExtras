@@ -19,6 +19,9 @@ set-system-path () {
     fi
 }
 
+# General
+set-system-path "$HOME/bin"
+
 # Node Support
 set-node-path "$HOME/npm/lib/node_modules"
 set-system-path "$HOME/npm/bin"

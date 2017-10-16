@@ -7,3 +7,7 @@ sudo apt-get install build-essentials
 mkdir ~/Git
 cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects
+cd ~/.ssh
+ssh-copy-id -i id_rsa bcuser@192.168.2.34
+ssh-add id_rsa
+
