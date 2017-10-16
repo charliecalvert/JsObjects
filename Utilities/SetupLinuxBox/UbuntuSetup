@@ -106,6 +106,7 @@ function clean() {
         rm "$BIN_DIR"/elfgrepcomps
         rm "$BIN_DIR"/FixtureReady
         rm "$BIN_DIR"/InsertJadeExecGrunt.py
+        rm "$BIN_DIR"/show-path
         echo "=> Done"
     else
         echo "=> -----------"

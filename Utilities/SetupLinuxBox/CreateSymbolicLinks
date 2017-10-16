@@ -41,3 +41,4 @@ ln -s $ELF_UTILS/NodeInstall/TestCheck ~/bin/.
 ln -s $ELF_UTILS/GrepScripts/elfgrepcomps ~/bin/.
 ln -s $ELF_TEMPLATES/UnitTest/FixtureReady ~/bin/.
 ln -s $JSOBJECTS/Python/Utils/InsertJadeExecGrunt.py ~/bin/.
+ln -s $ELF_TEMPLATES/Scripts/show-path ~/bin/.
