@@ -9,13 +9,13 @@ fi
 
 set-node-path () {
     if ! echo "$NODE_PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
-        NODE_PATH="$1:$NODE_PATH"
+        export NODE_PATH="$1:$NODE_PATH"
     fi
 }
 
 set-system-path () {
     if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
-        PATH="$1:$PATH"
+        export PATH="$1:$PATH"
     fi
 }
 
