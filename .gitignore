@@ -18,6 +18,7 @@ node_modules
 MyTempDir
 DeleteMe*
 *.*~
+*~
 npm-debug.log
 foo.bat
 __pycache__

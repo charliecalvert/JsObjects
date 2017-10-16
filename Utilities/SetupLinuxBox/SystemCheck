@@ -7,7 +7,7 @@ function message {
 function spacer {
     echo
     echo === $1 ===
-    echo 
+    echo
 }
 
 function checkDirectory {
@@ -38,7 +38,9 @@ function checkSymbolicLinkExists {
 }
 
 function checkEnvironmentVariable {
-    if [ ! -z "$2" ]
+    # [[ -v ${2//\:} ]]; echo $2
+
+    if [ ! -z "${2:+x}" ]
     then
         echo -e "\tOK: \$$1 = $2"
     else
@@ -47,13 +49,13 @@ function checkEnvironmentVariable {
 }
 
 function basics {
-    message "Basic System Check"    
-    
-    spacer "Directories"    
+    message "Basic System Check"
+
+    spacer "Directories"
     checkDirectory $HOME/Git
     checkDirectory $HOME/bin
-    
-    spacer "Files"    
+
+    spacer "Files"
     checkFileExists $HOME/.bash_aliases
     echo
 }
@@ -65,30 +67,30 @@ function node {
     checkEnvironmentVariable JSOBJECTS $JSOBJECTS
     checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
     checkEnvironmentVariable NODE_PATH $NODE_PATH
-    checkEnvironmentVariable FOOGOO $FOOGOO
-    
-    spacer "Directories"    
+    # [[ -v ${NODE_PATH//:} ]]; echo $NODE_PATH
+
+    spacer "Directories"
     checkDirectory $HOME/npm
-    echo    
+    echo
 }
 
 function common {
-	message "Common"
-	spacer "Environment Variables"
-	checkEnvironmentVariable JAVA_HOME $JAVA_HOME
- 	checkEnvironmentVariable CHROME_BIN $CHROME_BIN
-	echo
+    message "Common"
+    spacer "Environment Variables"
+    checkEnvironmentVariable JAVA_HOME $JAVA_HOME
+    checkEnvironmentVariable CHROME_BIN $CHROME_BIN
+    echo
 }
 
 function lamp {
-	message "LAMP"
-	spacer "Lamp Setup"
-	checkFileExists /usr/bin/mysql
-	checkFileExists /usr/bin/php
-	checkFileExists /usr/bin/perl
-	checkFileExists /usr/bin/python
-	checkDirectory /var/www
-	checkDirectory /etc/apache2
+    message "LAMP"
+    spacer "Lamp Setup"
+    checkFileExists /usr/bin/mysql
+    checkFileExists /usr/bin/php
+    checkFileExists /usr/bin/perl
+    checkFileExists /usr/bin/python
+    checkDirectory /var/www
+    checkDirectory /etc/apache2
 }
 
 function sshCheck {
@@ -102,7 +104,7 @@ function sshCheck {
 
 function phoneGap {
     message "PhoneGap"
-    
+
     spacer "Environment Variables"
     checkEnvironmentVariable ANDROID_HOME $ANDROID_HOME
     checkEnvironmentVariable ANDROID_PLATFORM_TOOLS $ANDROID_PLATFORM_TOOLS
