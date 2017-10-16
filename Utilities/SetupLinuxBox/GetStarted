@@ -2,20 +2,27 @@
 
 SLB=~/Git/JsObjects/Utilities/SetupLinuxBox
 
+# Update
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get install build-essentials -y
 
+# Git
 mkdir ~/Git
 cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects
 
+# SSH
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+fi
 "$SLB/SetupSsh"
 cd ~/.ssh
 ssh-add id_rsa
 // ssh-copy-id -i id_rsa bcuser@192.168.2.34
 
+# Create Next Script to run after reboot
 RUS=~/RunUbuntuSetup
 echo -e '#!/bin/bash' > $RUS
 echo -e '' >> $RUS
