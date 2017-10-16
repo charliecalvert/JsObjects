@@ -37,5 +37,5 @@ echo -e 'cd ~/Git/JsObjects/Utilities/SetupLinuxBox' >> $RUS
 echo -e './UbuntuSetup' >> $RUS
 chmod +x $RUS
 
-echo -e 'You should run ${LIGHT_GREEN}sudo reboot${NC} to re-start the system.'
-echo -e 'Then execute ${LIGHT_GREEN}~/RunUbuntuSetup'${NC}'
+echo -e "You should run ${LIGHT_GREEN}sudo reboot${NC} to re-start the system."
+echo -e "Then execute ${LIGHT_GREEN}~/RunUbuntuSetup'${NC}"
