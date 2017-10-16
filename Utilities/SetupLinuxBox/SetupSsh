@@ -7,7 +7,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
-KEY_NAME=id_rsa_03
+KEY_NAME=id_rsa
 SSH_DIR=$HOME/.ssh
 FULL_PATH=$SSH_DIR/$KEY_NAME
 PUBLIC_KEY=$FULL_PATH.pub
