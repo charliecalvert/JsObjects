@@ -1,20 +1,23 @@
 if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent` 
+    eval `ssh-agent`
 fi
 
-# Edit and uncomment to load a key automatically.
-#ssh-add -l | grep -q "made on rohan-elf"  
-#if [ $? -eq 0 ]; then  
-#    echo OK  
-#else  
-#    echo FAIL  
-#    ssh-add ~/.ssh/id_rsa  
-#fi
+set-node-path () {
+    if ! echo "$NODE_PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        NODE_PATH="$1:$NODE_PATH"
+    fi
+}
 
-export CHROME_BIN=/usr/bin/chromium-browser
+set-system-path () {
+    if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        PATH="$1:$PATH"
+    fi
+}
 
-export NODE_PATH=:$HOME/npm/lib/node_modules
-export PATH="$PATH:$HOME/npm/bin"
+# Node Support
+set-node-path "$HOME/npm/lib/node_modules"
+set-system-path "$HOME/npm/bin"
+
 export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOME/bin/pynao
 
 # Java Path Support
@@ -23,5 +26,16 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 # Android Path Support
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_PLATFORM_TOOLS="$HOME/Android/Sdk/platform-tools"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS:
+set-system-path "$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS"
 
+# Other
+export CHROME_BIN=/usr/bin/chromium-browser
+
+# Edit and uncomment to load a key automatically.
+#ssh-add -l | grep -q "made on rohan-elf"
+#if [ $? -eq 0 ]; then
+#    echo OK
+#else
+#    echo FAIL
+#    ssh-add ~/.ssh/id_rsa
+#fi
