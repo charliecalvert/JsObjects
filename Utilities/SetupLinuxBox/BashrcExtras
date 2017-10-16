@@ -1,3 +1,8 @@
+
+#==================#
+#=== Elven Code ===#
+#==================#
+
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
 fi
@@ -18,7 +23,7 @@ set-system-path () {
 set-node-path "$HOME/npm/lib/node_modules"
 set-system-path "$HOME/npm/bin"
 
-export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOME/bin/pynao
+export PYTHONPATH="${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/"
 
 # Java Path Support
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
@@ -39,3 +44,6 @@ export CHROME_BIN=/usr/bin/chromium-browser
 #    echo FAIL
 #    ssh-add ~/.ssh/id_rsa
 #fi
+
+# === End Elven Code === #
+
