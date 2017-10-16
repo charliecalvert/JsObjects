@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SLB=~/Git/JsObjects/Utilities/SetupLinuxBox
+
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
@@ -9,9 +11,10 @@ mkdir ~/Git
 cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects
 
+"$SLB/SetupSsh"
 cd ~/.ssh
-ssh-copy-id -i id_rsa bcuser@192.168.2.34
 ssh-add id_rsa
+// ssh-copy-id -i id_rsa bcuser@192.168.2.34
 
 RUS=~/RunUbuntuSetup
 echo -e '#!/bin/bash' > $RUS
