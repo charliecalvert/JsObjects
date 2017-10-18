@@ -69,6 +69,7 @@ alias p270c='cd $GIT_HOME/prog270-calvert-2016'
 alias i3='cd $GIT_HOME/isit320-2017'
 alias i3c='cd $GIT_HOME/isit320-calvert-2017'
 alias p28='cd $GIT_HOME/Prog282'
+alias i3w='cd $GIT_HOME/WebCrafts'
 
 # Spring 2016
 alias p2='cd $GIT_HOME/prog270-2017'
