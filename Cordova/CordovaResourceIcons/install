@@ -1,5 +1,0 @@
-#! /bin/bash
-
-cordova build android
-adb uninstall io.cordova.hellocordova
-adb install platforms/android/build/outputs/apk/android-debug.apk

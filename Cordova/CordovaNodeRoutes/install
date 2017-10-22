@@ -1,6 +1,0 @@
-#! /bin/bash
-
-cordova build android
-adb uninstall com.elvenware.elven_node_routes
-adb install platforms/android/build/outputs/apk/android-debug.apk
-

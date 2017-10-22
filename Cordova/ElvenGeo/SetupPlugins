@@ -1,7 +1,0 @@
-#! /bin/bash
-
-cordova platform add android
-# cordova plugin add cordova-plugin-geolocation
-cordova plugin add http://github.com/apache/cordova-plugin-geolocation
-# cordova plugin add ~/Git/cordova-plugin-geolocation/
-bower install

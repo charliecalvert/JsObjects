@@ -1,4 +1,0 @@
-#! /bin/bash
-
-cordova plugin add org.apache.cordova.camera
-cordova plugin add org.apache.cordova.vibration

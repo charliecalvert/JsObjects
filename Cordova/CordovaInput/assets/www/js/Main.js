@@ -1,4 +1,0 @@
-// Global abatement
-
-var CordovaInput = {};
-

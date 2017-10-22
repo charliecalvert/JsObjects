@@ -1,6 +1,0 @@
-#! /bin/bash
-
-# npm install -g yo
-npm install -g generator-angularjs-cordova
-mkdir testapp && cd testapp
-yo angularjs-cordova
