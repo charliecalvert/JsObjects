@@ -1,9 +1,0 @@
-{
-  "name": "Grunt01Sample",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-contrib-jshint": "~1.0.0",
-    "grunt-contrib-clean": "~1.0.0"
-  }
-}

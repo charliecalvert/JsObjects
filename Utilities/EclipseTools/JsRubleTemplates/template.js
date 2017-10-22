@@ -1,3 +1,0 @@
-/**
- * @author ${TM_FULLNAME}
- */
