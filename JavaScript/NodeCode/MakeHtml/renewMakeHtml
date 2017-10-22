@@ -30,7 +30,7 @@ function backupConfig() {
     else
         echo "$CONFIG_FILE" does not exist
         checkDir "$CONFIG_DIR"
-	cp "$SOURCE_DIR/config/ElvenConfig.json" "$CONFIG_FILE"
+        cp "$SOURCE_DIR/config/ElvenConfig.json" "$CONFIG_FILE"
         sed -i "s/bcuser/${USER}/g" "$CONFIG_FILE"
     fi
 }
@@ -46,7 +46,7 @@ function restoreConfig() {
 }
 
 function deleteMakeHtml() {
-    if [ -d "$MAKE_HTML" ]; then
+    if [ -d "$MAKE_HTML/views" ]; then
         echo "Deleting $MAKE_HTML"
         rm -r "$MAKE_HTML"
     else
@@ -55,10 +55,19 @@ function deleteMakeHtml() {
 }
 
 function buildMakeHtml() {
-    cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/* ."
+    echo "Building MakeHtml New"
+    checkDir "$MAKE_HTML"
+    cd "$MAKE_HTML"
+    echo "Current Directory: "
+    pwd
+    # Exclude sub-directories but include files
+    rsync -a -f"- config" -f"+ *" "$SOURCE_DIR/" "$MAKE_HTML/"
+    exit
+    # cp -v "${JSOBJECTS}"/JavaScript/NodeCode/MakeHtml/* "$MAKE_HTML"/.
     checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
     echo "About to copy views"
-    cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
+    cp -r "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
+    echo "Copied views"
     cd MakeHtml
     npm install
     npm start
@@ -84,6 +93,7 @@ function run() {
     backupConfig
     deleteMakeHtml
     buildMakeHtml
+    exit
     restoreConfig
     linkToRenewMakeHtml
 }
