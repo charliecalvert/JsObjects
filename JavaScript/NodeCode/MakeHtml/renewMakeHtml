@@ -1,11 +1,12 @@
 #! /bin/bash
 
-INSTALL_DIR=$HOME/Source
-MAKE_HTML=$INSTALL_DIR/MakeHtml
+INSTALL_DIR="$HOME/Source"
+MAKE_HTML="$INSTALL_DIR/MakeHtml"
 CONFIG_NAME=ElvenConfig.json
-CONFIG_FILE=$MAKE_HTML/config/$CONFIG_NAME
-TEMP_DIR=$HOME/temp
-TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
+CONFIG_DIR="$MAKE_HTML/config"
+CONFIG_FILE="$CONFIG_DIR/$CONFIG_NAME"
+TEMP_DIR="$HOME/temp"
+TEMP_CONFIG_FILE="$TEMP_DIR/$CONFIG_NAME"
 
 
 TODAY=`date +%Y-%m-%d.%H:%M:%S`
@@ -24,11 +25,12 @@ function backupConfig() {
     if [ -f "$CONFIG_FILE" ]; then
         echo "$CONFIG_FILE exists."
         echo "Copying it to $TEMP_DIR"
-        cp -v $CONFIG_FILE $TEMP_DIR/.
-        cp -v $CONFIG_FILE $TEMP_CONFIG_DATE_FILE
+        cp -v "$CONFIG_FILE $TEMP_DIR/."
+        cp -v "$CONFIG_FILE $TEMP_CONFIG_DATE_FILE"
     else
         echo "$CONFIG_FILE" does not exist
-        sed -i "s/bcuser/${USER}/g" $HOME/Source/MakeHtml/config/ElvenConfig.json
+        checkDir "$CONFIG_DIR"
+        sed -i "s/bcuser/${USER}/g" "$CONFIG_FILE"
     fi
 }
 
@@ -52,7 +54,9 @@ function deleteMakeHtml() {
 }
 
 function buildMakeHtml() {
-    cp -r $JSOBJECTS/JavaScript/NodeCode/MakeHtml/ .
+    cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/* ."
+    checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
+    cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
     cd MakeHtml
     npm install
     npm start
