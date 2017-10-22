@@ -7,7 +7,7 @@ CONFIG_DIR="$MAKE_HTML/config"
 CONFIG_FILE="$CONFIG_DIR/$CONFIG_NAME"
 TEMP_DIR="$HOME/temp"
 TEMP_CONFIG_FILE="$TEMP_DIR/$CONFIG_NAME"
-
+SOURCE_DIR="$JSOBJECTS/JavaScript/NodeCode/MakeHtml"
 
 TODAY=`date +%Y-%m-%d.%H:%M:%S`
 TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
@@ -17,7 +17,7 @@ function checkDir() {
         echo "$1 exists"
     else
         echo "$1 does not exist. Creating it."
-        mkdir $1
+        mkdir -p $1
     fi
 }
 
@@ -30,6 +30,7 @@ function backupConfig() {
     else
         echo "$CONFIG_FILE" does not exist
         checkDir "$CONFIG_DIR"
+	cp "$SOURCE_DIR/config/ElvenConfig.json" "$CONFIG_FILE"
         sed -i "s/bcuser/${USER}/g" "$CONFIG_FILE"
     fi
 }
@@ -56,6 +57,7 @@ function deleteMakeHtml() {
 function buildMakeHtml() {
     cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/* ."
     checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
+    echo "About to copy views"
     cp "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
     cd MakeHtml
     npm install
@@ -67,7 +69,7 @@ function linkToRenewMakeHtml() {
     if [ -f "$RMH" ]; then
         rm -v "$RMH"
     fi
-    ln -s $HOME/Git/JsObjects/JavaScript/NodeCode/MakeHtml/renewMakeHtml $HOME/Source/renewMakeHtml
+    ln -s "$SOURCE_DIR/renewMakeHtml" $HOME/Source/renewMakeHtml
 }
 
 function run() {
