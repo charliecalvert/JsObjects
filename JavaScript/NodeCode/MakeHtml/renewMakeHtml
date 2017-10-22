@@ -28,7 +28,7 @@ function backupConfig() {
         cp -v $CONFIG_FILE $TEMP_CONFIG_DATE_FILE
     else
         echo "$CONFIG_FILE" does not exist
-        $ sed -i "s/bcuser/${USER}/g" $HOME/Source/MakeHtml/config/ElvenConfig.json
+        sed -i "s/bcuser/${USER}/g" $HOME/Source/MakeHtml/config/ElvenConfig.json
     fi
 }
 
