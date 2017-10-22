@@ -50,6 +50,23 @@ If you want more details, go here: [Core Setup][core-details]
 [ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
 [core-details]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup
 
+## Simple view
+
+JsObjects is a useful, but massive and disorganized repository. If you want a more simplified view of this repository, see the **SimpleView** branch.
+
+```nohighlighting
+cd ~/Git/JsObjects
+git checkout SimpleView
+```
+
+This view shows only a few folders. It can help you see the core parts of the repository used most often by students.
+
+To return to the normal view:
+
+```nohighlighting
+git checkout master
+```
+
 ## Navigating JsObjects
 
 JsObjects is big and hard to navigate. I have, however, created a series of Bash aliases that can help you quickly find what you are looking for by only entering a few keystrokes.
@@ -81,5 +98,3 @@ Learn more about it here:
 [node-install]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node
 [elven-node]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
 [npm-global]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#npm-global
-
-
