@@ -60,14 +60,14 @@ function buildMakeHtml() {
     cd "$MAKE_HTML"
     echo "Current Directory: "
     pwd
-    # Exclude sub-directories but include files
+    # Exclude config sub-directory but include files
     rsync -a -f"- config" -f"+ *" "$SOURCE_DIR/" "$MAKE_HTML/"
-    exit
+
     # cp -v "${JSOBJECTS}"/JavaScript/NodeCode/MakeHtml/* "$MAKE_HTML"/.
-    checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
-    echo "About to copy views"
-    cp -r "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
-    echo "Copied views"
+    # checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
+    # echo "About to copy views"
+    # cp -r "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
+    # echo "Copied views"
     cd MakeHtml
     npm install
     npm start
@@ -93,7 +93,6 @@ function run() {
     backupConfig
     deleteMakeHtml
     buildMakeHtml
-    exit
     restoreConfig
     linkToRenewMakeHtml
 }
