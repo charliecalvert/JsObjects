@@ -1,2 +1,0 @@
-create table additions (id int NOT NULL AUTO_INCREMENT, operanda int, operandb int, answer int, PRIMARY KEY (id));
-insert into additions (operanda, operandb, answer) values (2, 3, 5);

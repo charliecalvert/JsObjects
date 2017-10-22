@@ -1,2 +1,0 @@
-The sum of 1 and 2 is 3
-The sum of 2 and 3 is 5
