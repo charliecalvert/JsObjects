@@ -25,8 +25,8 @@ function backupConfig() {
     if [ -f "$CONFIG_FILE" ]; then
         echo "$CONFIG_FILE exists."
         echo "Copying it to $TEMP_DIR"
-        cp -v "$CONFIG_FILE $TEMP_DIR/."
-        cp -v "$CONFIG_FILE $TEMP_CONFIG_DATE_FILE"
+        cp -v "$CONFIG_FILE" "$TEMP_DIR/."
+        cp -v "$CONFIG_FILE" "$TEMP_CONFIG_DATE_FILE"
     else
         echo "$CONFIG_FILE" does not exist
         checkDir "$CONFIG_DIR"
@@ -36,9 +36,11 @@ function backupConfig() {
 }
 
 function restoreConfig() {
+    echo "IN RESTORE CONFIG"
     if [ -f "$TEMP_CONFIG_DATE_FILE" ]; then
         echo "The Config file ($TEMP_CONFIG_DATE_FILE) exists."
         echo "Copying it to $CONFIG_FILE"
+        checkDir $MAKE_HTML/config
         cp -v $TEMP_CONFIG_DATE_FILE $CONFIG_FILE
     else
         echo "$TEMP_CONFIG_DATE_FILE" does not exist.
@@ -70,7 +72,6 @@ function buildMakeHtml() {
     # echo "Copied views"
     cd MakeHtml
     npm install
-    npm start
 }
 
 function linkToRenewMakeHtml() {
@@ -95,6 +96,7 @@ function run() {
     buildMakeHtml
     restoreConfig
     linkToRenewMakeHtml
+    npm start
 }
 
 run
