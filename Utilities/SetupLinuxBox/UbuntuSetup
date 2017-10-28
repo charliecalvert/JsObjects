@@ -130,6 +130,7 @@ function nodePackages() {
 function runBasics() {
     gitSetup
     setBashAliasAndSymbolicLinks
+    sudo apt-get install build-essential
     setupBashRc "$1"
 }
 
