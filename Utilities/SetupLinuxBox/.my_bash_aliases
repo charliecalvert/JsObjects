@@ -77,6 +77,7 @@ alias i3w='cd $WEBCRAFTS'
 alias i3wc='cd $WEBCRAFTS/isit-code-calvertbc'
 alias i3ws='cd $WEBCRAFTS/isit-site-tools-calvertbc'
 alias i3ww='cd $WEBCRAFTS/isit-web-crafts-calvertbc'
+alias i3wi='cd ~/Git/WebCrafts-Isit320'
 
 # Spring 2016
 alias p2='cd $GIT_HOME/prog270-2017'
