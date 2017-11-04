@@ -140,6 +140,11 @@ function runAll() {
     nodePackages
 }
 
+if [ "$1" = "b" ]; then
+	runBasics
+	exit
+fi
+
 while true; do
     message "Menu"
     echo -e "$LIGHT_GREEN Ubuntu"
