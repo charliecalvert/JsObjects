@@ -118,6 +118,7 @@ function clean() {
 
 function nodeSetup() {
     message "Installing Node"
+    sudo apt-get install build-essential
     "$NODE_UTILS"/NodeInstall.sh
     echo "=> When you exit, run: 'nvm use system'"
 }
@@ -130,7 +131,6 @@ function nodePackages() {
 function runBasics() {
     gitSetup
     setBashAliasAndSymbolicLinks
-    sudo apt-get install build-essential
     setupBashRc "$1"
 }
 
