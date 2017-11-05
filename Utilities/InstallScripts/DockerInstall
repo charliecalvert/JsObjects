@@ -8,9 +8,11 @@ function PartOne() {
 	sudo apt-get install -y docker-ce
 #	sudo systemctl status docker
 	sudo usermod -aG docker ${USER}
-	su - ${USER}
-	id -nG
-	# echo "Now run Part Two"
+#	su - ${USER}
+#	id -nG
+	echo "You should now log out and then log in again."
+	echo "This will ensure that the docker group you"
+	echo "joined is properly registered."
 }
 
 PartOne
