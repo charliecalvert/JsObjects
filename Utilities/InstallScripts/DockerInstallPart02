@@ -2,8 +2,8 @@ function partTwo() {
 	sudo apt-get install -y docker-ce
 	sudo systemctl status docker
 	sudo usermod -aG docker ${USER}
-	su - ${USER}
-	id -nG
+#	su - ${USER}
+#	id -nG
 }
 
 partTwo
