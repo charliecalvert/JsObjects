@@ -31,6 +31,13 @@ else
     echo "=> "ELF_TEMPLATES environment variable already exists
 fi
 
+if [ ! -n "$ELF_SCRIPTS" ]; then
+    echo "=> Creating ELF_SCRIPTS variable"
+    ELF_SCRIPTS=$ELF_TEMPLATES/Scripts
+else
+    echo "=> "ELF_SCRIPTS environment variable already exists
+fi
+
 ln -s $ELF_UTILS/NodeInstall/CreateExpressProject ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/CreateAllExpress ~/bin/.
 ln -s $ELF_UTILS/NodeInstall/check-karma-grunt-config ~/bin/.
@@ -41,4 +48,5 @@ ln -s $ELF_UTILS/NodeInstall/TestCheck ~/bin/.
 ln -s $ELF_UTILS/GrepScripts/elfgrepcomps ~/bin/.
 ln -s $ELF_TEMPLATES/UnitTest/FixtureReady ~/bin/.
 ln -s $JSOBJECTS/Python/Utils/InsertJadeExecGrunt.py ~/bin/.
-ln -s $ELF_TEMPLATES/Scripts/ShowPath ~/bin/.
+ln -s $ELF_SCRIPTS/ShowPath ~/bin/.
+ln -s $ELF_SCRIPTS/GitIgnoreTest ~/bin/.
