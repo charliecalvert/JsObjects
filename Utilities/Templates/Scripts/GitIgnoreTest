@@ -1,1 +1,5 @@
-egrep -c "^bower_components|components|^npm-debug.log|bundle.js|\*.js.map|node_modules|Thumbs.db|coverage" .gitignore
+#!/bin/bash
+
+TOFIND="^bower_components|components|^npm-debug.log|bundle.js|\*.js.map|node_modules|Thumbs.db|coverage"
+egrep "$1" $TOFIND .gitignore
+
