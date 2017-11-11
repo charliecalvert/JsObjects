@@ -11,6 +11,8 @@ export ELF_TEMPLATES=$ELF_UTILS/Templates
 export ELF_SCRIPTS=$ELF_TEMPLATES/Scripts
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
+export PORT=30025
+export SERVER_PORT=30026
 
 # Alias definitions.
 
