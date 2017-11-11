@@ -1,0 +1,8 @@
+^bower_components
+^npm-debug.log
+^bundle.js
+^\*.js.map
+^node_modules
+^Thumbs.db
+^coverage
+asfdasdf
