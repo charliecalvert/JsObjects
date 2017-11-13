@@ -13,6 +13,7 @@ export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
 export PORT=30025
 export SERVER_PORT=30026
+export WEB_CRAFTS_PORT=30200
 
 # Alias definitions.
 
