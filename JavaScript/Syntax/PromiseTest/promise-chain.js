@@ -8,7 +8,7 @@ const numberChecker = (input) => {
         if (isNumeric(input)) {
             resolve(input)
         } else {
-            reject('Not a number: ' + input)
+            reject('Reject because not a number: ' + input)
         }
     });
 };
@@ -18,7 +18,7 @@ const largerThanZero = (input) => {
         if (input >= 0) {
             resolve(input);
         } else {
-            reject('Reject Larger than 0: ' + input);
+            reject('Reject because number is smaller than 0: ' + input);
         }
     });
 };
@@ -28,25 +28,25 @@ const largerThan100 = (input) => {
         if (input <= 100) {
             resolve(input);
         } else {
-            reject('Reject larger than 100: ' + input);
+            reject('Reject because number is larger than 100: ' + input);
         }
     });
 };
 
 
-const check(value) {
+const check = (value) => {
     numberChecker(value)
         .then(largerThanZero)
         .then(largerThan100)
         .then((output) => {
             "use strict";
-            console.log(output);
+            console.log('Accepted:', output);
         })
         .catch((error) => {
             console.log(error);
         });
 
-}
+};
 
 check('Foo');
 check(-1);
