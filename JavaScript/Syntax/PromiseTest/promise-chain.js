@@ -34,43 +34,22 @@ const largerThan100 = (input) => {
 };
 
 
-const value = 5;
-/*
-largerThanZero(value)
-    .then((output) => {
-        console.log(output);
-    })
-    .then(largerThan100(value)
+const check(value) {
+    numberChecker(value)
+        .then(largerThanZero)
+        .then(largerThan100)
         .then((output) => {
+            "use strict";
             console.log(output);
         })
         .catch((error) => {
             console.log(error);
-        }))
-    .catch((error) => {
-        console.log(error);
-    });
-*/
+        });
 
-/*
-largerThanZero(value)
-    .then(largerThan100)
-    .then((output) => {
-        "use strict";
-        console.log(output);
-    }).catch((error) => {
-        console.log(error);
-    });
-*/
+}
 
+check('Foo');
+check(-1);
+check(5);
+check(102);
 
-numberChecker(value)
-    .then(largerThanZero)
-    .then(largerThan100)
-    .then((output) => {
-        "use strict";
-        console.log(output);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
