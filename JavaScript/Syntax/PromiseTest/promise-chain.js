@@ -23,7 +23,7 @@ const largerThanZero = (input) => {
     });
 };
 
-const largerThan100 = (input) => {
+const lessThan100 = (input) => {
     return new Promise((resolve, reject) => {
         if (input <= 100) {
             resolve(input);
@@ -37,7 +37,7 @@ const largerThan100 = (input) => {
 const check = (value) => {
     numberChecker(value)
         .then(largerThanZero)
-        .then(largerThan100)
+        .then(lessThan100)
         .then((output) => {
             "use strict";
             console.log('Accepted:', output);
