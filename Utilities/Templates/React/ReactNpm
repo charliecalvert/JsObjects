@@ -1,0 +1,3 @@
+npm install --save react react-dom webpack
+npm install --save babel-loader babel-core
+npm install --save babel-preset-react babel-preset-env babel-preset-stage-0
