@@ -13,3 +13,10 @@ export const decrement = () => {
         type: 'DECREMENT'
     }
 };
+
+export const getEight = (value) => {
+    return {
+        'type': 'GET_EIGHT',
+        'value': value
+    }
+};
