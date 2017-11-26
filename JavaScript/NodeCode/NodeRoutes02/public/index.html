@@ -6,7 +6,7 @@
 		<title>Node Routes 02</title>
 		<link href="index.css" rel="stylesheet" type="text/css">
 		<script src="components/jquery/dist/jquery.js"></script>
-		<script src="index.js"></script>
+		<script src="index-fetch.js"></script>
 	</head>
 
 	<body>
@@ -27,35 +27,36 @@
 			</ul></li>
 		</ul>
 
-		<button id="getNine">Get Nine</button>
-		<p id="getNineResult">Get Nine Result will be placed here.</p>
 
-		<hr />
+        <h2>Simple Get Nine</h2>
 
-		<button id="getNineParse">Get Nine Parse</button>
+        <p id="getNineResult">Get Nine Result will be placed here.</p>
+
+		<a id="getNine" class="button elf">Get Nine</a>
+
+        <h2>Parsed Get Nine</h2>
+
 		<p id="getNineParseResult">Get Nine Result will be placed here.</p>
 
-		<hr />
+        <a id="getNineParse" class="button elf">Get Nine Parse</a>
 
-		<h2>Add Number with Get</h2>
+		<h2>Add Numbers with fetch GET</h2>
 
 		<p>On the server side (server.js), use <strong>request.query</strong> to get the paramters.</p>
 
 		<input type="number" id="operandA" value="1" />
 		<input type="number" id="operandB" value="2" />
 		<p id="addResult"> </p>
-		<button id="add">Add Numbers</button>
+		<a id="add" class="button elf">Add Numbers</a>
 
-		<hr />
-
-		<h2>Add Number with Post</h2>
+		<h2>Add Numbers with fetch Post</h2>
 
 		<p>On the server side (server.js), use <strong>request.body</strong> to get the paramters. You must
 		also include <strong>app.use(express.bodyParser());</strong></p>
 		<input type="number" id="operandAPost" value="1" />
 		<input type="number" id="operandBPost" value="2" />
 		<p id="addResultPost"> </p>
-		<button id="addPost">Add Numbers</button>
+		<a id="addPost" class="button elf">Add Numbers</a>
 
 	</body>
 </html>
