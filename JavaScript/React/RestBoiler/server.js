@@ -36,9 +36,9 @@ if (isDeveloping) {
         res.end();
     });
 
-    app.get('/foo', function(request, response) {
-        console.log('foo called');
-        response.send({'foo': 'success sent from server'});
+    app.get('/get-nine-from-server', function(request, response) {
+        console.log('Get Nine called');
+        response.send({ 'result': 'success sent from server', 'nine': 9 });
     });
 } else {
     console.log('Production in server.js');

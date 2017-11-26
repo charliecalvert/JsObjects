@@ -8,21 +8,18 @@ export default class App extends React.Component {
         this.getNine = this.getNine.bind(this);
         this.state = {
             nine: 'Get Nine Result will be placed here.',
-            foo: 'waiting for server'
+            result: 'waiting for server'
         };
     }
 
     getNine() {
         const that = this;
-        this.setState(() => ({
-            nine: '9'
-        }));
-        fetch('/foo')
+        fetch('/get-nine-from-server')
             .then(function(response) {
                 return response.json();
             }).then(function(json) {
                 console.log('parsed json', json);
-                that.setState(foo => (json));
+                that.setState(() => (json));
             }).catch(function(ex) {
                 console.log('parsing failed', ex);
             });
@@ -35,7 +32,7 @@ export default class App extends React.Component {
                 <p>Boilerplate for React application with hot reloading.</p>
                 <button id="getNine" onClick={this.getNine}>Get Nine</button>
                 <p>NINE: {this.state.nine}</p>
-                <p>FOO: {this.state.foo}</p>
+                <p>FOO: {this.state.result}</p>
             </div>
         );
     }
