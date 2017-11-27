@@ -37,7 +37,7 @@ export default class AddGet extends React.Component {
     }
 
     render() {
-        console.log("OPA", this.state.operandA)
+        console.log('OPA', this.state.operandA);
         return (
             <div>
                 <h2>Add Number with Get</h2>
@@ -46,7 +46,7 @@ export default class AddGet extends React.Component {
                 <input type='number' defaultValue={this.state.operandA} />
                 <input type='number' defaultValue={this.state.operandB} />
                 <p>{this.state.addResult}</p>
-                <button onClick={this.getAddResult}>Add Numbers</button>
+                <a className='button elf' onClick={this.getAddResult}>Add Numbers</a>
 
                 <hr />
             </div>
