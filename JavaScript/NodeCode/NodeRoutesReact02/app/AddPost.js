@@ -31,7 +31,7 @@ export default class AddPost extends React.Component {
         fetch(url, {
             method: 'post',
             headers: {
-                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
             body: body
         })
@@ -57,7 +57,7 @@ export default class AddPost extends React.Component {
                 <input type='number' defaultValue={this.state.operandB} />
                 <p id='addResultPost'></p>
                 <p>{this.state.addResultPost}</p>
-                <button onClick={this.getAddPostResult}>Add Numbers</button>
+                <a className='button elf' onClick={this.getAddPostResult}>Add Numbers</a>
             </div>
         );
     }

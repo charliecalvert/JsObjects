@@ -35,11 +35,11 @@ export default class GetNine extends React.Component {
     render() {
         return (
             <div className={styles.app}>
-                <button id='getNine' onClick={this.getNine}>Get Nine</button>
                 <p>{this.state.nine}</p>
+                <a id='getNine' className='button elf' onClick={this.getNine}>Get Nine</a>
                 <hr />
-                <button id='getNineParse' onClick={this.getNineFromServer}>Get Nine Parse</button>
                 <p>{this.state.serverNine}</p>
+                <a id='getNineParse' className='button elf' onClick={this.getNineFromServer}>Get Nine Parse</a>
                 <hr />
             </div>
         );
