@@ -1,3 +1,9 @@
+/*
+ * The old jQuery code.
+ * If you want to use this, add the following to the HEAD element of the HTML:
+ *   <script src="bower_components/jquery/dist/jquery.js"></script>
+ */
+
 var RouteMaster = (function() {
     'use strict';
     // Constructor
