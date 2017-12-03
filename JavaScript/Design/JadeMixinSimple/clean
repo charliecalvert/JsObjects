@@ -1,4 +1,3 @@
 #!/bin/bash
 
 rm -r node_modules
-rm -r public/bower_components

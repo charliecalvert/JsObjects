@@ -24,10 +24,9 @@
     "grunt-jscs": "^3.0.1",
     "jasmine-core": "^2.5.2",
     "jshint-stylish": "^2.2.1",
-    "request": "~2.79.0",
     "karma": "^1.7.1",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.2",
-    "karma-spec-reporter": "^0.0.26"
+    "karma-spec-reporter": "^0.0.31"
   }
 }
