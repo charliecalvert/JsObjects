@@ -38,6 +38,7 @@ alias gossh="cd ~/.ssh"
 alias ba="less ~/.bash_aliases"
 alias platform="cordova platform add android"
 alias go="npm install && bower install && npm start"
+alias elfgo="npm install && bower install"
 alias runnpm="npm install && npm start"
 alias runexpress='npm install && bower install && grunt check'
 alias gck='npm install && bower install && grunt check'
