@@ -3,8 +3,33 @@ extends layout
 include mixins
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
 
-  +attribution
+    +attribution
+
+    h2 Basics
+
+    p This program shows how to use Pug <a href="https://pugjs.org/language/mixins.html">Mixins.</a>
+
+    p There are two mixins on this page. One is the attribution above:
+
+    .box
+        strong
+            +attribution
+
+    p The other is shown here:
+
+    +sample("My Mixin")
+
+    h2 References
+
+    p Look at:
+
+    ul
+        li
+            strong views/index.pug
+        li
+            strong views/mixins.pug
+
 

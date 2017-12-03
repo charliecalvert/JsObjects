@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
     'use strict';
     res.render('index', {
-        title: 'Express'
+        title: 'Jade Mixin Simple'
     });
 });
 
