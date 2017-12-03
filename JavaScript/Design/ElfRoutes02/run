@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export DEBUG=elf-routes
+npm install && bower install && npm start

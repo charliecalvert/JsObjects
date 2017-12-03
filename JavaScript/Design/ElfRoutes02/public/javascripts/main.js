@@ -13,8 +13,8 @@
 requirejs.config({
     baseUrl: '.',
     paths: {
-        'jquery': '/components/jquery/dist/jquery',
-        'bootstrap': '/components/bootstrap/dist/js/bootstrap.min',
+        'jquery': '/bower_components/jquery/dist/jquery',
+        'bootstrap': '/bower_components/bootstrap/dist/js/bootstrap.min',
         'control': '/javascripts/control',
         'queryController': '/javascripts/controllers/query-controller',
         'aboutController': '/javascripts/controllers/about-controller',
