@@ -1,9 +1,12 @@
 {
-  "name": "SimpleReadWriteJson",
-  "description": "Simple Reading and writing of JSON",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "latest"
-  }
+    "name": "SimpleReadWriteJson",
+    "description": "Simple Reading and writing of JSON",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "latest"
+    }
 }
