@@ -1,5 +1,11 @@
-var express = require('express');
+const express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
+
 var fs = require('fs');
 
 var port = process.env.PORT || 30025;
@@ -31,15 +37,15 @@ app.get('/read', function(request, response) {
     fs.readFile(fileName, 'utf8', readData);
 });
 
-app.get('/write', function(request, response) {
+app.post('/write', function(request, response) {
     'use strict';
-    console.log('Write called: ' + request.query);
-    var person = request.query;
+    console.log('Write called: ' + request.body);
+    var person = request.body;
     var personString = JSON.stringify(person, null, 4);
     console.log('PersonString: ' + personString);
-    fs.writeFile(fileName, personString, 'utf8', function(err, data) {
+    fs.writeFile(fileName, personString, 'utf8', function(err) {
         if (err) throw err;
-        console.log('It\'s saved!', data);
+        console.log('It\'s saved!');
     });
     response.send('{"result":"success"}');
 });
