@@ -1,25 +1,20 @@
-function writeJsonPrivate () {
+function writeJsonPrivate() {
+
     const userInput = {
         firstName: $('#firstName').val(),
         lastName: $('#lastName').val(),
         age: $('#age').val()
     };
 
-    $.ajax({
-        type: 'GET',
-        url: '/write',
-        dataType: 'json',
-        data: userInput,
-        success: function(data) {
-            showDebug(data.result);
-        },
-        error: function(request, ajaxOptions, thrownError) {
-            showDebug("Error occurred: = " + ajaxOptions + " " + thrownError);
-            showDebug(request.status);
-            showDebug(request.statusText);
-            showDebug(request.getAllResponseHeaders());
-            showDebug(request.responseText);
-        }
-    });
+    fetch('/write', {
+        method: 'POST',
+        body: JSON.stringify(userInput),
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    })
+        .then(res => res.json())
+        .then(response => console.log('Success:', response))
+        .catch(error => console.error('Error:', error));
 }
 

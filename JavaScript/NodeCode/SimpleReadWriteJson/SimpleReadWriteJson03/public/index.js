@@ -17,18 +17,14 @@ const App = (function() {
     }
 
     function readJson() {
-        $.getJSON('/read', function(data) {
+        fetch('/read').then(function(response) {
+            return response.json();
+        }).then(function(data) {
             addNames(data.firstName, data.lastName, data.age);
-        }).success(function() {
-            showDebug('success');
-        }).error(function(jqXHR, textStatus, errorThrown) {
-            alert("error calling JSON. Try JSONLint or JSLint: " + textStatus + ' ' + errorThrown);
-        }).complete(function() {
-            console.log("csc: completed call to get index.json");
+        }).catch(function(err) {
+            alert("error calling JSON. Try JSONLint or JSLint: " + err);
         });
     }
-
-
 
     const writeJson = function() {
         writeJsonPrivate();
