@@ -1,4 +1,4 @@
-function writeJsonPrivate() {
+export function writeJsonPrivate() {
 
     const userInput = {
         firstName: $('#firstName').val(),
