@@ -1,4 +1,5 @@
 function addNames(data) {
+    console.log('Add Names called');
     $("#firstName").val(data.firstName);
     $("#lastName").val(data.lastName);
     $("#age").val(data.age);

@@ -1,20 +1,24 @@
 const express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+const app = express();
+const favicon = require('serve-favicon');
+const path = require('path');
+const bodyParser = require('body-parser');
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-var fs = require('fs');
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-var port = process.env.PORT || 30025;
+const fs = require('fs');
 
-var fileName = 'person.json';
+const port = process.env.PORT || 30026;
+
+const fileName = 'person.json';
 
 app.get('/', function(req, res) {
     'use strict';
-    var html = fs.readFileSync('public/index.html');
+    const html = fs.readFileSync('public/index.html');
     res.writeHeader(200, {
         "Content-Type": "text/html"
     });
@@ -40,8 +44,8 @@ app.get('/read', function(request, response) {
 app.post('/write', function(request, response) {
     'use strict';
     console.log('Write called: ' + request.body);
-    var person = request.body;
-    var personString = JSON.stringify(person, null, 4);
+    const person = request.body;
+    const personString = JSON.stringify(person, null, 4);
     console.log('PersonString: ' + personString);
     fs.writeFile(fileName, personString, 'utf8', function(err) {
         if (err) throw err;
