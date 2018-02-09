@@ -7,13 +7,13 @@ class App {
     'use strict';
 
     constructor() {
-        $("#buttonRead").click(readJsonPrivate);
-        $("#buttonWrite").click(writeJsonPrivate);
+        document.getElementById("buttonRead").onclick = readJsonPrivate;
+        document.getElementById("buttonWrite").onclick = writeJsonPrivate;
     }
 
 }
 
-$(document).ready(function() {
+window.onload = function() {
     'use strict';
     new App();
-});
+};

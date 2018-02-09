@@ -3,14 +3,18 @@
     "description": "Simple Reading and writing of JSON",
     "version": "0.0.1",
     "private": true,
-    "config" : { "port" : "30026" },
+    "config": {
+        "port": "30026"
+    },
     "scripts": {
-        "start": "./node_modules/.bin/webpack-dev-server",
-        "starter": "nodemon server.js",
+        "start": "concurrently 'npm run webserver' 'npm run node-server'",
+        "webserver": "./node_modules/.bin/webpack-dev-server",
+        "node-server": "nodemon server.js",
         "bundle": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
         "body-parser": "^1.18.2",
+        "concurrently": "^3.5.1",
         "express": "latest",
         "serve-favicon": "^2.4.5"
     },
