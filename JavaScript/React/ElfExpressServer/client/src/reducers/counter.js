@@ -12,13 +12,13 @@ const counter = (state={title: baseTitle + 0, counter: 0, eight: 0, nine: 0}, ac
                 return {
                 ...state,
                 counter: state.counter+1,
-                title: baseTitle + state.counter
+                title: baseTitle + (state.counter+1)
             };
             case 'DECREMENT':
                 return {
                     ...state,
                     counter: state.counter - 1,
-                    title: baseTitle + state.counter
+                    title: baseTitle + (state.counter+1)
                 };
             case 'GET_EIGHT':
                 console.log("GET EIGHT CASE");

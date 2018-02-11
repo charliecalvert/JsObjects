@@ -6,6 +6,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {increment, decrement, getEight} from './actions';
+import Counter from './Counter';
 
 class App extends React.Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class App extends React.Component {
                 <h2>The Main File</h2>
                 <p>The code for this file is found in <strong>client/src/App.js</strong></p>
                 <p>Redux is initialized in <strong>index.js</strong>.
-                    In <strong>src/App.js</strong> you will
+                    In <strong>src/App.js</strong> and <strong>src/Counter.js</strong> you will
                     find <strong>Connect</strong> is used along with:</p>
 
 
@@ -51,6 +52,9 @@ class App extends React.Component {
                     <li>MapStateToProps</li>
                     <li>MapDispatchToProps</li>
                 </ul>
+
+
+                <Counter/>
 
                 <h2>Get Numbers</h2>
                 <p>The number nine is retrieved from an Express Server.
@@ -65,14 +69,6 @@ class App extends React.Component {
                 <button onClick={this.props.getEight}>Get Eight</button>
                 <button onClick={this.getNine}>Get Nine</button>
 
-                <h2>The Counter</h2>
-
-                <p>Creating a counter is a classic way to teach Redux.</p>
-
-                <button onClick={this.props.counterUp}>Increment Counter</button>
-                <button onClick={this.props.counterDown}>Decrement Counter</button>
-
-                <p>Counter: {this.props.counter}</p>
 
 
             </div>
@@ -82,7 +78,6 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter,
         eight: state.eight,
         nine: state.nine,
         title: state.title
@@ -91,12 +86,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        counterUp: () => {
-            dispatch(increment());
-        },
-        counterDown: () => {
-            dispatch(decrement())
-        },
         getEight: () => {
             dispatch(getEight(8));
         },

@@ -1,0 +1,48 @@
+import React from 'react';
+import {connect} from 'react-redux';
+import {increment, decrement, getEight} from './actions';
+
+class App extends React.Component {
+
+
+    render() {
+        return (
+            <div>
+                <h2>The Counter</h2>
+
+
+                <p>Creating a counter is a classic way to teach Redux.</p>
+
+                <button onClick={this.props.counterUp}>Increment Counter</button>
+                <button onClick={this.props.counterDown}>Decrement Counter</button>
+
+                <p>Counter: {this.props.counter}</p>
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        counter: state.counter,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        counterUp: () => {
+            dispatch(increment());
+        },
+        counterDown: () => {
+            dispatch(decrement())
+        }
+    }
+};
+
+
+App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+
+export default App;
