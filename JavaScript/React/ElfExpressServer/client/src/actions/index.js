@@ -26,3 +26,9 @@ export const getTitle = () => {
         'type': 'TITLE'
     }
 };
+
+export const getDate = () => {
+    return {
+        'type': 'DATE'
+    }
+};

@@ -13,12 +13,13 @@ class App extends React.Component {
 
                 <p>Creating a counter is a classic way to teach Redux.</p>
 
-                <button onClick={this.props.counterUp}>Increment Counter</button>
-                <button onClick={this.props.counterDown}>Decrement Counter</button>
-
                 <p>Counter: {this.props.counter}</p>
 
                 <p>{this.props.counterString}</p>
+
+                <button onClick={this.props.counterUp}>Increment Counter</button>
+                <button onClick={this.props.counterDown}>Decrement Counter</button>
+
             </div>
         )
     }

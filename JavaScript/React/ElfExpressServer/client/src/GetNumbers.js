@@ -26,6 +26,8 @@ class GetNumbers extends React.Component {
         return (
             <div>
                 <h2>Get Numbers</h2>
+                <p>Date: {this.props.date}</p>
+                <p>{this.props.counter}</p>
                 <p>The number nine is retrieved from an Express Server.
                     The Server is found in a directory called <strong>server</strong>.
                     See <strong>server/routes/index.js</strong> in the server application.</p>
@@ -45,7 +47,10 @@ class GetNumbers extends React.Component {
 const mapStateToProps = (state) => {
     return {
         eight: state.eight,
-        nine: state.nine
+        nine: state.nine,
+        date: state.date,
+        counter: state.counterString
+
     }
 };
 
