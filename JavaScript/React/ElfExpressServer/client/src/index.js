@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import App from './App';
 
-import configReducer from './reducers/counter';
+import configReducer from './reducers/redux-counter';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import registerServiceWorker from './registerServiceWorker';

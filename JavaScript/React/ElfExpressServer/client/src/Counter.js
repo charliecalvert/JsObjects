@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {increment, decrement, getEight} from './actions';
+import {increment, decrement} from './actions';
 
 class App extends React.Component {
 
@@ -17,6 +17,8 @@ class App extends React.Component {
                 <button onClick={this.props.counterDown}>Decrement Counter</button>
 
                 <p>Counter: {this.props.counter}</p>
+
+                <p>{this.props.counterString}</p>
             </div>
         )
     }
@@ -25,6 +27,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
     return {
         counter: state.counter,
+        counterString: state.counterString
     }
 };
 
