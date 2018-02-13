@@ -1,5 +1,6 @@
 var GameEvent = (function() {
 
+    const bc = new BroadcastChannel('test_channel');
 	var message = "";
 	rootScope = null;
 
@@ -26,11 +27,12 @@ var GameEvent = (function() {
 
 	GameEvent.prototype.changeDirectionBroadcast = function(message) {
 		this.message = message;
-		broadcastMessage('changeDirectionBroadcast');
+		broadcastMessage('changeDirectionBroadcast', message);
 		return true;
 	};
 
-	var broadcastMessage = function(broadcastType) {
+	var broadcastMessage = function(broadcastType, message) {
+        bc.postMessage({'ElfTest: ': broadcastType, message: message});
 		rootScope.$broadcast(broadcastType);
 	};
 
