@@ -9,7 +9,7 @@ class App extends React.Component {
         bc.onmessage = function (ev) {
             console.log(ev);
             that.setState((prev) => {
-                let debugBroadcast = prev.debugMessage;
+                let debugBroadcast = prev.debugBroadcast;
                 let encounterMessage = prev.encounterMessage;
                 let changeDirectionBroadcast = prev.changeDirectionBroadcast;
                 let unknownMessage = prev.unknownMessage;
@@ -24,6 +24,9 @@ class App extends React.Component {
                 const previousMessageType = prev.messageType;
                 const thirdMessageType = prev.previousMessageType;
                 if (ev.data.type === 'debugBroadcast') {
+                    if (message === undefined) {
+                        console.log('Undefined debug');
+                    }
                     debugBroadcast = message;
                 } else if (ev.data.type === 'encounterBroadcast') {
                     encounterMessage = message;
@@ -44,6 +47,7 @@ class App extends React.Component {
                 }
             })
         };
+        // console.log('debugBroadcast: ', debugBroadcast);
         this.state = {
             name: 'ElfPlayer',
             message: '',
@@ -58,17 +62,20 @@ class App extends React.Component {
     }
 
     render() {
+        if (this.state.debugBroadcast === undefined) {
+            console.log('render undefined debugBroadcast');
+        }
         return (
             <div>
                 <h1>Elven React Game</h1>
 
-                <p>Name: {this.state.name}</p>
+                <p><strong>Name</strong>: {this.state.name}</p>
                 <p>Message: {this.state.message}</p>
                 <p>MessageType: {this.state.messageType}</p>
                 <p>PreviousMessageType: {this.state.previousMessageType}</p>
                 <p>ThirdMessageType: {this.state.thirdMessageType}</p>
                 <p>ChangeDirectionBroadcast: {this.state.changeDirectionBroadcast}</p>
-                <p>DebugBroadcast: {this.state.debugBroadcast}</p>
+                <p><strong>DebugBroadcast</strong>: {this.state.debugBroadcast}</p>
                 <p>EncounterMesssage: {this.state.encounterMessage}</p>
                 <p>UnknownMessage: {this.state.unknownMessage}</p>
 

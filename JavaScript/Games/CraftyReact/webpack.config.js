@@ -11,7 +11,9 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'public/javascripts'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        hotUpdateChunkFilename: 'elven-hot-files/hot-update.js',
+        hotUpdateMainFilename: 'elven-hot-files/hot-update.json'
     },
     devServer: {
         contentBase: './public',
