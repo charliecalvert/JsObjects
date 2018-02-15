@@ -1,4 +1,5 @@
 .metadata
+elven-hot-files
 *.hot-update.js*
 bundle.js
 *.js.map

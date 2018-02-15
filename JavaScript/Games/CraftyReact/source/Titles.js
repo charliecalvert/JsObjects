@@ -70,14 +70,20 @@ class App extends React.Component {
                 <h1>Elven React Game</h1>
 
                 <p><strong>Name</strong>: {this.state.name}</p>
+
+                <div class="col">
                 <p>Message: {this.state.message}</p>
                 <p>MessageType: {this.state.messageType}</p>
                 <p>PreviousMessageType: {this.state.previousMessageType}</p>
                 <p>ThirdMessageType: {this.state.thirdMessageType}</p>
+                </div>
+                <div class="col">
+
                 <p>ChangeDirectionBroadcast: {this.state.changeDirectionBroadcast}</p>
                 <p><strong>DebugBroadcast</strong>: {this.state.debugBroadcast}</p>
                 <p>EncounterMesssage: {this.state.encounterMessage}</p>
                 <p>UnknownMessage: {this.state.unknownMessage}</p>
+                </div>
 
             </div>
         )
