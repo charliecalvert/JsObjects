@@ -42,10 +42,21 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
 			var foodDetails = "Food: {0} (X:{2} Y:{4}) ({1}px - {3}px)";
 			var debug = foodDetails.format(count, food.x, food.x / food.w, food.y, food.y / food.h);
 			gameEventService.debugBroadcast(debug);
+
 			if (count === 4) {
-				gameEventService.encounterBroadcast('Food success');
+				gameEventService.encounterBroadcast({
+				    message: 'Food Success',
+                    details: debug,
+                    //food: food,
+                    count: count
+                });
 			} else {
-				gameEventService.encounterBroadcast('Food progress');
+				gameEventService.encounterBroadcast({
+                    message: 'Food Success',
+                    details: debug,
+                    //food: food,
+                    count: count
+                });
 			}
 			return true;
 		},

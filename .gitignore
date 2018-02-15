@@ -1,4 +1,5 @@
 .metadata
+*.hot-update.js*
 bundle.js
 *.js.map
 platforms
@@ -21,6 +22,7 @@ MyTempDir
 DeleteMe*
 *.*~
 *~
+
 npm-debug.log
 foo.bat
 __pycache__

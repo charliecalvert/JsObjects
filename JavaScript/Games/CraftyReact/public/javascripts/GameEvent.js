@@ -16,13 +16,13 @@ var GameEvent = (function() {
 
 	GameEvent.prototype.debugBroadcast = function(message) {
 		this.message = message;
-		broadcastMessage('debugBroadcast');
+		broadcastMessage('debugBroadcast', message);
 		return true;
 	};
 
 	GameEvent.prototype.encounterBroadcast = function(message) {
 		this.message = message;
-		broadcastMessage('encounterBroadcast');
+		broadcastMessage('encounterBroadcast', message);
 	};
 
 	GameEvent.prototype.changeDirectionBroadcast = function(message) {
@@ -32,7 +32,11 @@ var GameEvent = (function() {
 	};
 
 	var broadcastMessage = function(broadcastType, message) {
-        bc.postMessage({'ElfTest: ': broadcastType, message: message});
+	    try {
+            bc.postMessage({'type': broadcastType, message: message});
+        } catch(err) {
+	        console.log(err);
+        }
 		rootScope.$broadcast(broadcastType);
 	};
 

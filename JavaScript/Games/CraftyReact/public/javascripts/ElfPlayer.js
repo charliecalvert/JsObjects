@@ -21,20 +21,28 @@ angular.module('elfPlayer', ['elfGameMod'])
 	// This event is fired from inside crafty when a tower is found.
 	// We need to call $apply because we are calling from Crafty, not from Angular.
 	$scope.$on('towerBroadcast', function() {		
-		$scope.$apply(function() { $scope.eventNote = gameEventService.message; });		
+		$scope.$apply(function() {
+		    $scope.eventNote = gameEventService.message;
+		});
 	});
 
 	$scope.$on('debugBroadcast', function() {		
-		$scope.$apply(function() { $scope.debugMessages.unshift(gameEventService.message); });		
+		$scope.$apply(function() {
+		    $scope.debugMessages.unshift(gameEventService.message);
+		});
 	});
 
 	$scope.$on('changeDirectionBroadcast', function() {
 		$scope.eventNote = gameEventService.message;
-		$scope.$apply(function() { $scope.moveMessages.unshift(gameEventService.message); });	
+		$scope.$apply(function() {
+		    $scope.moveMessages.unshift(gameEventService.message);
+		});
 	});
 
 	$scope.$on('encounterBroadcast', function() {		
-		$scope.$apply(function() { $scope.encounterMessage = gameEventService.message; });		
+		$scope.$apply(function() {
+		    $scope.encounterMessage = gameEventService.message;
+		});
 	});
 
 	$scope.goLeft = function() {
