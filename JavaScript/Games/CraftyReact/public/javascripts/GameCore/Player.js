@@ -96,7 +96,7 @@ Crafty.c('PlayerCharacter', {
 		}
 
 		Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
-		if (Crafty.game.encounter(data[0].obj)) {
+		if (Crafty.game.encounters.encounter(data[0].obj)) {
 			var village = data[0].obj;
 			village.visit();
 		} else {

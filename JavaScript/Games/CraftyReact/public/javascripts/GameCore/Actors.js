@@ -16,7 +16,7 @@ Crafty.c('Tree', {
     },
 
     visit: function() {
-        Crafty.game.encounterBush(this, this.count);
+        Crafty.game.encounters.encounterBush(this, this.count);
     }
 });
 
@@ -27,6 +27,6 @@ Crafty.c('Bush', {
     },
 
     visit: function() {
-        Crafty.game.encounterBush(this, this.count);
+        Crafty.game.encounters.encounterBush(this, this.count);
     }
 });

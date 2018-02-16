@@ -29,7 +29,7 @@ Crafty.c('Food', {
 				break;
 		}
 
-		Crafty.game.encounterFood(this, this.count);
+		Crafty.game.encounters.encounterFood(this, this.count);
 
 		Crafty.audio.play('knock');
 		// Crafty.trigger('FoodVisited', this);
