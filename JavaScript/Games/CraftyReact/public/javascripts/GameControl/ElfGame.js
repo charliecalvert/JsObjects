@@ -2,7 +2,7 @@
 
 angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
     .factory('elfGameService',
-        function(gameEventService, encounters, people, gameWrap, utility) {
+        function(gameEventService, encounters, gameMessages, people, gameWrap, utility) {
         'use strict';
         return {
 
@@ -24,18 +24,7 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
             villages: [],
 
             encounters: encounters,
-
-            reportEvent: function(message) {
-                return gameEventService.towerBroadcast(message);
-            },
-
-            changeDirectionMessage: function(message) {
-                return gameEventService.changeDirectionBroadcast(message);
-            },
-
-            sendDebugMessage: function(message) {
-                return gameEventService.debugBroadcast(message);
-            },
+            gameMessages: gameMessages,
 
             newVillage: function(village) {
                 village.tower = people.tower();

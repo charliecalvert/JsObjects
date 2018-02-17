@@ -33,16 +33,16 @@ Crafty.c('PlayerCharacter', {
 		this.bind('NewDirection', function(data) {
 			this.encounterMode = false;
 			if (data.x > 0) {
-				Crafty.game.changeDirectionMessage("Going Right");
+				Crafty.game.gameMessages.changeDirectionMessage("Going Right");
 				this.animate('PlayerMovingRight', LOOP_COUNT);
 			} else if (data.x < 0) {
-				Crafty.game.changeDirectionMessage("Going Left");
+				Crafty.game.gameMessages.changeDirectionMessage("Going Left");
 				this.animate('PlayerMovingLeft', LOOP_COUNT);
 			} else if (data.y > 0) {
-				Crafty.game.changeDirectionMessage("Going Down");
+				Crafty.game.gameMessages.changeDirectionMessage("Going Down");
 				this.animate('PlayerMovingDown', LOOP_COUNT);
 			} else if (data.y < 0) {
-				Crafty.game.changeDirectionMessage("Going Up");
+				Crafty.game.gameMessages.changeDirectionMessage("Going Up");
 				this.animate('PlayerMovingUp', LOOP_COUNT);
 			} else {
 				this.resetAnimation();
@@ -95,9 +95,9 @@ Crafty.c('PlayerCharacter', {
 			return;
 		}
 
-		Crafty.game.reportEvent("Found Tower: " + data[0].obj._entityName);
+		Crafty.game.gameMessages.reportEvent("Found Tower: " + data[0].obj._entityName);
 		if (Crafty.game.encounters.encounter(data[0].obj)) {
-			var village = data[0].obj;
+			const village = data[0].obj;
 			village.visit();
 		} else {
 			this.encounterMode = true;
@@ -111,7 +111,7 @@ Crafty.c('PlayerCharacter', {
 		if (this.encounterMode) {
 			return;
 		}
-		var food = data[0].obj;
+		const food = data[0].obj;
 		// food.sprite(0,2);
 		food.visit();
 		this.encounterMode = true;
