@@ -1,12 +1,13 @@
 /* jshint browser: true */
 
-angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
+angular.module('elfGameMod', ['gameWrapMod'])
     .factory('elfGameService',
         function(gameEventService, encounters, gameMessages,
-                 people, gameWrap, utility) {
+                 gameWrap, utility) {
         'use strict';
             // Initialize and start our game
 
+            const people = new People();
         return {
 
             map_grid: null,

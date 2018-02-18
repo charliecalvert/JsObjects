@@ -1,7 +1,7 @@
 angular.module('elfGameMod')
-    .factory('encounters', function(gameEventService, people) {
+    .factory('encounters', function(gameEventService) {
         'use strict';
-        return new Encounters(gameEventService, people);
+        return new Encounters(gameEventService);
     });
 
 const Encounters = (function() {
@@ -9,8 +9,8 @@ const Encounters = (function() {
     let gameEventService = null;
     let people = null;
 
-    function Encounters(gameEventServiceInit, peopleInit) {
-        people = peopleInit;
+    function Encounters(gameEventServiceInit) {
+        people = new People();
         gameEventService = gameEventServiceInit;
     }
 
