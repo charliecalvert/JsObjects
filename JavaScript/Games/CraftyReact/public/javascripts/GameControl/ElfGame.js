@@ -2,7 +2,8 @@
 
 angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
     .factory('elfGameService',
-        function(gameEventService, encounters, gameMessages, people, gameWrap, utility) {
+        function(gameEventService, encounters, gameMessages,
+                 people, gameWrap, utility) {
         'use strict';
         return {
 
@@ -59,7 +60,7 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
             start: function(mapGrid) {
                 utility.addStringFormat();
                 // Start crafty
-                var gameDiv = document.getElementById("gameBoard");
+                const gameDiv = document.getElementById("gameBoard");
                 if (mapGrid) {
                     this.map_grid = mapGrid;
                 } else {

@@ -60,7 +60,7 @@ Crafty.scene('Game', function() {
 
 	// Show the victory screen once all villages are visisted
 	this.show_victory = this.bind('VillageVisited', function() {
-		Crafty.game.gamesMessages.sendDebugMessage("Village Length: " + Crafty('Village').length);
+		Crafty.game.gameMessages.sendDebugMessage("Village Length: " + Crafty('Village').length);
 		if (!Crafty('Village').length) {
 			Crafty.scene('Victory');
 		}

@@ -19,8 +19,8 @@ const Encounters = (function() {
     };
 
     Encounters.prototype.encounterFood = function(food, count) {
-        var foodDetails = "Food: {0} (X:{2} Y:{4}) ({1}px - {3}px)";
-        var debug = foodDetails.format(count, food.x, food.x / food.w, food.y, food.y / food.h);
+        const foodDetails = "Food: {0} (X:{2} Y:{4}) ({1}px - {3}px)";
+        const debug = foodDetails.format(count, food.x, food.x / food.w, food.y, food.y / food.h);
         gameEventService.debugBroadcast(debug);
 
         if (count === 4) {
@@ -30,7 +30,7 @@ const Encounters = (function() {
                 details: debug,
                 //food: food,
                 count: count,
-                details: debug
+
             });
         } else {
             gameEventService.encounterBroadcast({
@@ -39,11 +39,10 @@ const Encounters = (function() {
                 details: debug,
                 //food: food,
                 count: count,
-                details: debug
             });
         }
         return true;
-    },
+    };
 
     Encounters.prototype.encounterBush = function(bush, count) {
         var name = 'Tree';
@@ -70,7 +69,7 @@ const Encounters = (function() {
             count: count
         });
         return true;
-    },
+    };
 
     Encounters.prototype.encounter = function(village) {
         village.tower.hitPoints -= rollD3(village);
@@ -101,7 +100,7 @@ const Encounters = (function() {
             gameEventService.encounterBroadcast(status);
             return true;
         } else {
-            status.status = 'miss'
+            status.status = 'miss';
             gameEventService.encounterBroadcast(status);
             if (this.misses++ > 3) {
                 Crafty.trigger('youLose', Crafty);
@@ -109,7 +108,7 @@ const Encounters = (function() {
 
             return false;
         }
-    }
+    };
 
     return Encounters;
 })();

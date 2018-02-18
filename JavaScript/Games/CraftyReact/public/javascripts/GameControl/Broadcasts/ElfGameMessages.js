@@ -1,7 +1,7 @@
 angular.module('elfGameMod')
-    .factory('gameMessages', function(gameEventService, people) {
+    .factory('gameMessages', function(gameEventService) {
         'use strict';
-        return new GameMessages(gameEventService, people);
+        return new GameMessages(gameEventService);
     });
 
 const GameMessages = (function() {
