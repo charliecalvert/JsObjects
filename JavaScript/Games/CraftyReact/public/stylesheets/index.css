@@ -13,11 +13,11 @@ body {
 }
 
 #textDisplay {
-	width: 250px;
+	width: 2px;
 	background-color: #00AA44;
-	margin-left: 50px;
-	padding: 5px;
-	border: solid black 2px; 
+	margin-left: 0px;
+	padding: 2px;
+	border: solid black 1px;
 }
 
 .message {

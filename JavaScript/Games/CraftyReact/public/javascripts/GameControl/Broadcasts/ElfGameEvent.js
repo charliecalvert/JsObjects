@@ -4,7 +4,7 @@
 
 /* jshint devel: true */
 
-angular.module('elfPlayer')
+angular.module('elfPlayer', ['elfGameMod'])
     .factory('gameEventService', function($rootScope) { 'use strict';
         return new GameEvent($rootScope);
     });

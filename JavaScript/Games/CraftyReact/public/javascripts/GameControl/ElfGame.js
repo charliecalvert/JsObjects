@@ -5,6 +5,8 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
         function(gameEventService, encounters, gameMessages,
                  people, gameWrap, utility) {
         'use strict';
+            // Initialize and start our game
+
         return {
 
             map_grid: null,
@@ -56,18 +58,21 @@ angular.module('elfGameMod', ['characterMod', 'gameWrapMod'])
                 this.map_grid = mapGrid;
             },
 
-            // Initialize and start our game
             start: function(mapGrid) {
-                utility.addStringFormat();
-                // Start crafty
-                const gameDiv = document.getElementById("gameBoard");
-                if (mapGrid) {
-                    this.map_grid = mapGrid;
-                } else {
-                    this.map_grid = this.defaultMapGrid;
-                }
-                gameWrap.startGame(gameDiv, this);
+               utility.addStringFormat();
+               // Start crafty
+            const gameDiv = document.getElementById("gameBoard");
+            if (mapGrid) {
+                this.map_grid = mapGrid;
+            } else {
+                this.map_grid = this.defaultMapGrid;
+            }
+            gameWrap.startGame(gameDiv, this);
             }
         };
+    })
+    .controller('ElfController', function($scope, gameEventService, elfGameService) {
+        'use strict';
+        elfGameService.start();
     });
 
