@@ -1,8 +1,3 @@
-angular.module('elfGameMod')
-    .factory('encounters', function(gameEventService) {
-        'use strict';
-        return new Encounters(gameEventService);
-    });
 
 const Encounters = (function() {
 

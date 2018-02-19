@@ -10,12 +10,7 @@ angular.module('gameWrapMod', [])
 	return {
 		startGame: function(gameDiv, elfGameService) {
 			Crafty.game = elfGameService;
-		},
-
-		trigger: function() {
-
 		}
-
 	};
 });
 

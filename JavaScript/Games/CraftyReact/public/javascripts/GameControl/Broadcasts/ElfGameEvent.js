@@ -4,20 +4,14 @@
 
 /* jshint devel: true */
 
-angular.module('elfPlayer', ['elfGameMod'])
-    .factory('gameEventService', function($rootScope) { 'use strict';
-        return new GameEvent($rootScope);
-    });
-
-
 const GameEvent = (function() {
 
     const bc = new BroadcastChannel('test_channel');
     var message = "";
-    rootScope = null;
+    //rootScope = null;
 
-    function GameEvent($rootScope) {
-        rootScope = $rootScope;
+    function GameEvent() {
+      //  rootScope = $rootScope;
     }
 
     GameEvent.prototype.towerBroadcast = function(message) {
@@ -49,7 +43,7 @@ const GameEvent = (function() {
         } catch(err) {
             console.log(err);
         }
-        rootScope.$broadcast(broadcastType);
+        //rootScope.$broadcast(broadcastType);
     };
 
     return GameEvent;
