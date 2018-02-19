@@ -4,7 +4,7 @@ block content
 
     #root
     #gameBoard
-    #textDisplay(ng-controller='ElfController')
+    #textDisplay
         //h1 ElvenGame06
         //p {{name}}
             p {{eventNote}}
@@ -22,3 +22,4 @@ block content
           ul ng-repeat="debugMessage in debugMessages track by $index">
           <li>{{debugMessage}}</li>
           </ul
+    script(src='javascripts/GameControl/ElfGame.js')

@@ -4,7 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href='/stylesheets/index.css', rel='stylesheet', type='text/css')
-    script(src='components/angular/angular.js')
+    //script(src='components/angular/angular.js')
     script(src='javascripts/Library/crafty.js')
     script(src='javascripts/GameCore/Actors.js')
     script(src='javascripts/GameCore/Food.js')
@@ -22,11 +22,7 @@ html
 
     script(src='javascripts/GameControl/Broadcasts/ElfEncounters.js')
     script(src='javascripts/GameControl/Broadcasts/ElfGameMessages.js')
-
-    script(src='javascripts/GameControl/ElfGame.js')
-
-
     script(src='javascripts/GameControl/Broadcasts/ElfGameEvent.js')
 
-  body(ng-app="elfGameMod")
+  body
     block content
