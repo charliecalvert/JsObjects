@@ -9,10 +9,10 @@
 Crafty.c('PlayerCharacter', {
 	init : function() {'use strict';
 		var DURATION = 25;
-		var FRAME_COUNT = 4;
+		var FRAME_COUNT = 3;
 		this.requires('Actor, Fourway, Collision, spr_mainCharacter, SpriteAnimation')
 
-		.fourway(4).stopOnSolids()
+		.fourway(125).stopOnSolids()
 		.onHit('Village', this.visitVillage)
 		.onHit('Food', this.visitFood)
 		.onHit('Tree', this.visitTree)
@@ -72,17 +72,22 @@ Crafty.c('PlayerCharacter', {
 		return this;
 	},
 
-	stop : function() {
-		// Not sure what this is supposed to do
-	},
+	// stop : function() {
+	// 	// Not sure what this is supposed to do
+     //    console.log('stop called');
+     //    this.pauseAnimation();
+	// },
 
 	// Stops the movement
 	stopMovement : function() {'use strict';
-		this._speed = 0;
+        
+	    this.resetAnimation();
+		//this._speed = 0;
 		if (this._movement) {
 			this.x -= this._movement.x;
 			this.y -= this._movement.y;
 		}
+		//Crafty.stop();
 	},
 
 	// Respond to this player visiting a village
@@ -92,7 +97,7 @@ Crafty.c('PlayerCharacter', {
 		// If we are in an encounter, then we do nothing until the user
 		// asks to move again.
 		if (this.encounterMode) {
-			return;
+		 	return;
 		}
 
 		Crafty.game.gameMessages.reportEvent("Found Tower: " + data[0].obj._entityName);
