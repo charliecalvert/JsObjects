@@ -82,4 +82,10 @@ Learn more about it here:
 [elven-node]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
 [npm-global]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#npm-global
 
+## Grunt
 
+There are a few grunt tasks defined. One would be:
+
+    npm run lint
+
+This will use Grunt to lint the files in the root JsObjects directory.  
