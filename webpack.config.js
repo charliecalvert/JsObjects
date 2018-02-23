@@ -1,31 +1,15 @@
-var path = require("path");
-
-module.exports = {
-    entry: {
-        foo: "./webpack.config.js"
+module.exports={
+    entry: "./index.js",
+    output: {
+        filename: "bundle.js"
     },
-    module: {
-        rules: [
-
+    module:{
+        loaders: [
             {
-                test: /\.js$/, // include .js files
+                test: /\.js$/,
                 exclude: /node_modules/,
-                enforce: "pre", // preload
                 loader: "eslint-loader",
-                options: {},
-            },
-            {
-                loader: "jshint-loader",
-                options: {
-                    camelcase: true,
-                    emitErrors: true,
-                    failOnHint: true
-                }
             }
         ]
-    },
-    output: {
-        filename: "jshint.txt",
-        path: path.resolve(__dirname, "out")
     }
 };

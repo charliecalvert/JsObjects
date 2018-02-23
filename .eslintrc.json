@@ -1,9 +1,11 @@
 {
     "env": {
-        "node": true
+        "node": true,
+        "browser": false
     },
     "extends": "eslint:recommended",
     "rules": {
+        "no-console": "off",
         "indent": [
             "error",
             4

@@ -1,5 +1,7 @@
-module.exports = function(grunt) {
 
+
+module.exports = function(grunt) {
+    require("load-grunt-tasks")(grunt);
     grunt.initConfig({
         jshint: {
             files: ["**/*.js"],
@@ -20,7 +22,13 @@ module.exports = function(grunt) {
                 reporterOutput: "result.xml"
             }
         },
-
+        eslint: {
+            options: {
+                configFile: ".eslintrc.json",
+                fix: true
+            },
+            target: ["*.js"]
+        },
         clean: {
             yourTarget: {
                 src: ["**/node_modules/**", "**/components/**"]
@@ -30,4 +38,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    //grunt.loadNpmTasks("load-grunt-tasks");
+    grunt.registerTask("default", ["eslint"]);
 };
