@@ -1,5 +1,8 @@
 /**
  * @author Charlie Calvert
+ * Go to MLAB and generator or retrieve your API_KEY and put in the
+ * CONFIG object found below. Just replace the text in the
+ * API_KEY field with your API_KEY.
  */
 
 /* global angular */
@@ -8,27 +11,31 @@ angular.module('elvenApp', ['pres'])
 .constant('CONFIG', {
     DB_NAME: 'elvenlab01',
     COLLECTION: 'address',
-    API_KEY: 'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy'
+    API_KEY: 'Log into MLAB. Click on your name. Get an API_KEY. Put it here.'
 })
 .controller('MyController', function($scope, $http, presidents) {
     $scope.hint = "<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>";
-    
+
     $scope.presidentsLength = 0;
     $scope.userIndexSelection = 0;
-    
+
     // $scope.presidents = presidents;
     $scope.presidents = presidents.query({}, function(presidents) {
       $scope.presidentsLength = presidents.length;
       console.log($scope.presidentsLength);
-      $scope.userIndexSelection = 0;      
+      $scope.userIndexSelection = 0;
       $('#indexSelection').val("0");
       $scope.indexChange();
+    }, function(error) {
+      console.log(error);
+      console.log(error.config.params.apiKey);
+      alert('Check the console and your CONFIG.API_KEY');
     });
-    
+
     $scope.test = function() {
     	$scope.userIndexSelection = 0;
     };
-    
+
     $scope.addPresident = function() {
         var pres = new presidents({
             firstName: $scope.firstName,
@@ -46,7 +53,7 @@ angular.module('elvenApp', ['pres'])
             $scope.presidentsLength = $scope.presidents.length;
         });
     };
-    
+
     $scope.deleteRow = function() {
         var userIndexSelection = $scope.userIndexSelection;
         // if (userIndexSelection < $scope.presidents.length) {}
@@ -54,10 +61,10 @@ angular.module('elvenApp', ['pres'])
             $scope.presidents.splice(userIndexSelection, 1);
             $scope.presidentsLength = $scope.presidents.length;
         }, function(err) {
-            console.log("error: " + err.data.message);  
+            console.log("error: " + err.data.message);
         });
     };
-    
+
     $scope.updateRow = function() {
         var indexOfItemToUpdate = $scope.userIndexSelection;
         $scope.presidents[indexOfItemToUpdate].firstName = $scope.firstName;
@@ -68,14 +75,14 @@ angular.module('elvenApp', ['pres'])
         $scope.presidents[indexOfItemToUpdate].phoneHome = $scope.phoneHome;
         $scope.presidents[indexOfItemToUpdate].phoneMobile = $scope.phoneMobile;
         $scope.presidents[indexOfItemToUpdate].email = $scope.email;
-        $scope.presidents[indexOfItemToUpdate].updateMe(function(data) {            
+        $scope.presidents[indexOfItemToUpdate].updateMe(function(data) {
             console.log("success: " + data);
         }, function(err) {
             console.log("Error Status: " + err.status + ' ' + err.data.message);
-        });  
+        });
     };
-    
-    $scope.indexChange = function() {        
+
+    $scope.indexChange = function() {
         $scope.firstName = $scope.presidents[$scope.userIndexSelection].firstName;
         $scope.lastName = $scope.presidents[$scope.userIndexSelection].lastName;
         $scope.address = $scope.presidents[$scope.userIndexSelection].address;
@@ -92,9 +99,9 @@ angular.module('pres', ['ngResource'])
 .factory('presidents', function($resource, CONFIG) {
 	console.log('Presidents factory called');
 	var Presidents = $resource(
-        'https://api.mongolab.com/api/1/databases/' + CONFIG.DB_NAME + 
-        '/collections/' + CONFIG.COLLECTION + '/:id', {      
-        apiKey: CONFIG.API_KEY     
+        'https://api.mongolab.com/api/1/databases/' + CONFIG.DB_NAME +
+        '/collections/' + CONFIG.COLLECTION + '/:id', {
+        apiKey: CONFIG.API_KEY
     },
     {
         update: {method:'PUT'}
@@ -103,44 +110,44 @@ angular.module('pres', ['ngResource'])
     Presidents.prototype.updateMe = function (callback, errorCallback) {
         console.log("update called");
         return Presidents.update(
-            {id:this._id.$oid}, 
-            angular.extend({}, this, {_id:undefined}), 
-            callback, 
+            {id:this._id.$oid},
+            angular.extend({}, this, {_id:undefined}),
+            callback,
             errorCallback);
     };
-    
+
     Presidents.prototype.getFirstName = function() {
       return this.firstName;
     };
-    
+
     Presidents.prototype.getLastName = function() {
     	return this.lastName;
     };
-    
+
     Presidents.prototype.address = function() {
     	return this.address;
     };
-    
+
     Presidents.prototype.city = function() {
     	return this.city;
     };
-    
+
     Presidents.prototype.state = function() {
     	return this.state;
     };
-    
+
     Presidents.prototype.phoneMobile = function() {
     	return this.phoneMobile;
     };
-    
+
     Presidents.prototype.phoneHome = function() {
     	return this.phoneHome;
     };
-    
+
     Presidents.prototype.email = function() {
     	return this.phoneHome;
     };
-    
+
     Presidents.prototype.remove = function (cb, errorcb) {
       return Presidents.remove({id:this._id.$oid}, cb, errorcb);
     };
@@ -149,7 +156,7 @@ angular.module('pres', ['ngResource'])
       return this.remove(cb, errorcb);
     };
 
-    return Presidents;    
-	 
-	// return { a: 2 };		
+    return Presidents;
+
+	// return { a: 2 };
 });
