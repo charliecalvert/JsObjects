@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  * Go to MLAB and generator or retrieve your API_KEY and put in the
  * CONFIG object found below. Just replace the text in the
- * API_KEY field with your API_KEY.
+ * API_KEY field with your API_KEY. You will probably also need
+ * to change the DB_NAME.
  */
 
 /* global angular */
@@ -29,7 +30,7 @@ angular.module('elvenApp', ['pres'])
     }, function(error) {
       console.log(error);
       console.log(error.config.params.apiKey);
-      alert('Check the console and your CONFIG.API_KEY');
+      alert('Check the console and your CONFIG.DBNAME & CONFIG.API_KEY');
     });
 
     $scope.test = function() {
