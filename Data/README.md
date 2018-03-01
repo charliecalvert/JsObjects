@@ -5,6 +5,16 @@ Here you will find examples of how to use:
 - MongoDb
 - CouchDb
 
+## MongoDb
+
+As of March 1, 2018, I believe the following both work.
+
+- [MongoTalk][mt]
+- [MongoBootStrap][mbs]
+
+[mbs]: https://github.com/charliecalvert/JsObjects/tree/master/Data/MongoBootstrap
+[mt]: https://github.com/charliecalvert/JsObjects/tree/master/Data/MongoTalk
+
 ## CouchDb
 
 - [CouchDb01 Hello CouchDb with Request](https://github.com/charliecalvert/JsObjects/tree/master/Data/CouchDb01)
@@ -24,10 +34,10 @@ Here you will find examples of how to use:
 
 When using the Mongo examples, you have to specify what database
 you want to use. Many of the examples use a file called **MongoTalk.json**
-to help you specify that file. Here is how to up **MongoTalk.json**. 
+to help you specify that file. Here is how to up **MongoTalk.json**.
 
-Create a file called **MongoTalk.json** in **$HOME/Config**. That is, 
-place it in a subdirectory of your home directory. The subdirectory 
+Create a file called **MongoTalk.json** in **$HOME/Config**. That is,
+place it in a subdirectory of your home directory. The subdirectory
 should be called **Config**. Here is the contents of the file:
 
     {
@@ -37,7 +47,7 @@ should be called **Config**. Here is the contents of the file:
         ],
         "selectedUrl": 0
     }
-    
+
 Here is how it might look on Cloud Nine:
 
 ```javascript
@@ -49,28 +59,27 @@ Here is how it might look on Cloud Nine:
         "selectedUrl": 0
     }
 ```
-    
+
 You might double check the IP against the Cloud 9 environment variable $IP. It should be 0.0.0.0, but type this at the Cloud 9 bash shell to confirm:
 
 <pre>
 echo $IP
 </pre>
-    
+
 
 ### Details
 
-Here are more detailed directions on how to create **MongoTalk.json**. 
+Here are more detailed directions on how to create **MongoTalk.json**.
 
 Create the directory:
 
     mkdir ~/Config
-    
+
 Open the file you want to create in an editor:
 
     geany ~/Config/MongoTalk.json
 
 Copy in the contents of the JSON object shown above.
 
-Open up [http://jsonlint.com/](http://jsonlint.com/) and paste in the 
+Open up [http://jsonlint.com/](http://jsonlint.com/) and paste in the
 contents of your file. Confirm that it is valid JSON. Save the file.
-
