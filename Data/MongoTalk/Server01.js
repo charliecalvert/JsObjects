@@ -10,7 +10,7 @@ var format = require('util').format;
 var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
-	var url02 = 'mongodb://192.168.2.19:27017/test';
+	var url02 = 'mongodb://192.168.2.20:27017/test';
 	var url03 = 'mongodb://192.168.2.34:27017/test';
 	var url04 = 'mongodb://192.168.56.101:27017/test';
 
@@ -18,32 +18,40 @@ var QueryMongo = (function() {
 
 	}
 
-	QueryMongo.prototype.getData = function(result) {
+	QueryMongo.prototype.getData = function(response) {
 		console.log('Called getData');
-		// Open the test database that comes with MongoDb
-		MongoClient.connect(url01, function(err, database) {
+		// Open the test database for MongoDb 3.00 or higher with client
+		MongoClient.connect(url02, function(err, client) {
+			console.log('IngetDataCallback');
 			if (err) {
 				throw err;
 			}
-			console.log('IngetDataCallback');
-			insertIntoCollection(database, 'test_insert', { firstName : "Suzy" });
-			getCollection(database, result);
+			var database = client.db('test');
+			const collectionName = 'test_insert';
+			//insertIntoCollection(database, collectionName, { firstName : "Suzy" });
+			getCollection(database, collectionName, function(testInsert) {
+				var body = '<html><body><h2>Mongo Data: ' + testInsert[0].firstName + '</h2>';
+				body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
+				response.setHeader('Content-Type', 'text/html');
+				response.setHeader('Content-Length', Buffer.byteLength(body));
+				response.end(body);
+				client.close();
+			});
 		});
 	};
-	
-	var getCollection = function(database, response) {
 
-		var collection = database.collection('test_insert');
+	var getCollection = function(database, collectionName, callback) {
+    console.log('In getCollection');
+		var collection = database.collection(collectionName);
 
 		// View the collection
 		collection.find().toArray(function(err, theArray) {
+			if (err) {
+				throw(err);
+			}
 			console.dir(theArray);
-			var body = '<html><body><h2>Mongo Data: ' + theArray[2].firstName + '</h2>';
-			body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
-			response.setHeader('Content-Type', 'text/html');
-			response.setHeader('Content-Length', Buffer.byteLength(body));
-			response.end(body);
-			database.close();
+			console.dir(JSON.stringify(theArray));
+			callback(theArray);
 		});
 
 	};

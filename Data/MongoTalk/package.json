@@ -3,12 +3,11 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "node server.js"
+        "start": "node Server01.js"
     },
-    "dependencies": {        
+    "dependencies": {
+        "express": "^4.16.2",
+        "mongodb": "^3.0.3"
     },
-    "devDependencies": {
-		"express": "latest",
-		"mongodb": "latest"
-	}
+    "devDependencies": {}
 }
