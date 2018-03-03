@@ -11,11 +11,9 @@ function showData() {
 		.then(function(response){ return response.json() })
 		.then(function(json) {
 			for (var i = 0; i < json.length; i++) {
-				appendToList(JSON.stringify(json[i]));
-				// $("#mongoData").append('<li>' + JSON.stringify(json[i]) + '</li>');
+				appendToList(JSON.stringify(json[i]));				
 			}
 		})
-
 }
 
 window.onload = function() {
