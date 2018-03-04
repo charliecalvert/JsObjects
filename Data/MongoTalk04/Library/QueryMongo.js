@@ -15,22 +15,22 @@ var QueryMongo = (function() {'use strict';
 	var response = null;
 	var database = null;
 	var url = null;
-	var collectionName = 'MongoTalk04Data';
+	var collectionName = 'test_insert';
 	/*
 	 * Normally we do not close the database. If you have more
-	 * more than one MongoClient then call it, otherwise, don't 
+	 * more than one MongoClient then call it, otherwise, don't
 	 * call it. So we default to false.
 	 */
 	var callClose = false;
 
 	function QueryMongo() {
 		var urls = ['mongodb://127.0.0.1:27017/test',
-			'mongodb://192.168.2.19:27017/test',
+			'mongodb://192.168.2.20:27017/test',
 			'mongodb://192.168.2.34:27017/test',
 			'mongodb://charlie:foobar@ds049848.mongolab.com:49848/elvenlab01/test',
 			'mongodb://192.168.56.101:27017/test'];
 
-		url = urls[3];
+		url = urls[1];
 	}
 
 	function showDatabase(database, deep) {
@@ -74,13 +74,13 @@ var QueryMongo = (function() {'use strict';
 			}
 		} else {
 			console.log('Querying for database: ' + url);
-			MongoClient.connect(url, function(err, databaseResult) {
+			MongoClient.connect(url, function(err, client) {
 				/* if (err) {
 					throw err;
 				}*/
 				assert.equal(null, err);
-				assert.ok(databaseResult != null);
-				database = databaseResult;
+				assert.ok(client != null);
+				database = client.db('test');
 				// showDatabase(database);
 				callback(database);
 			});

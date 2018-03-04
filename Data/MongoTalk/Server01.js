@@ -28,10 +28,12 @@ var QueryMongo = (function() {
 			}
 			var database = client.db('test');
 			const collectionName = 'test_insert';
-			//insertIntoCollection(database, collectionName, { firstName : "Suzy" });
+			insertIntoCollection(database, collectionName, { firstName : "Suzy" });
 			getCollection(database, collectionName, function(testInsert) {
-				var body = '<html><body><h2>Mongo Data: ' + testInsert[0].firstName + '</h2>';
-				body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
+				var body = '<html><body>';
+				body += '<h2>Mongo Data: ' + testInsert[0].firstName + '</h2>';
+				body += "<p>This HTML is hardcoded into Server01.js. See the getCollection method.</p></body></html>";
+				body += JSON.stringify(testInsert, null, 4);
 				response.setHeader('Content-Type', 'text/html');
 				response.setHeader('Content-Length', Buffer.byteLength(body));
 				response.end(body);
@@ -58,7 +60,7 @@ var QueryMongo = (function() {
 
 	// Will create collection if it does not exist
 	var insertIntoCollection = function(db, collectionName, objectToInsert) {
-
+    console.log('Called insertIntoCollection', objectToInsert);
 		var collection = db.collection(collectionName);
 		collection.insert(objectToInsert, function(err, docs) {
 			if (err) {
