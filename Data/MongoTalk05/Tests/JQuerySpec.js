@@ -5,14 +5,14 @@
 function test() {
 	describe("Jasmine-JQuery example suite", function() {
 
-		jasmine.getFixtures().fixturesPath = '../Public/';
+		jasmine.getFixtures().fixturesPath = './public/';
 
 		it('proves jasmine-jquery suite is called and working', function() {
 			expect(true).toBe(true);
 		});
 
 		it('Manually finds if the word *talk* has been loaded into the page', function(done) {
-			$("#test").load("../Public/Pieces.html #introTemplate", function() {
+			$("#test").load("./public/Pieces.html #introTemplate", function() {
 				var test = $('#test');
 				var foo = test.text();
 				expect(foo).toContain('Talk');

@@ -4,7 +4,7 @@
 
 require.config({
 	paths : {
-		'jquery' : '../Public/jquery-2.1.0',
+		'jquery' : './public/JavaScripts/jquery-2.1.0',
 		//'pubSub' : '../Public/PubSubOn',
 		//'clientMongo' : "../Public/ClientMongo",
 		//'clientUi' : "../Public/ClientUi",
@@ -12,7 +12,7 @@ require.config({
 		'jasmine-html' : 'Library/jasmine-html',
 		'jasmine-jquery' : 'Library/jasmine-jquery',
 		'boot' : 'Library/boot',
-		
+
 	},
 	shim : {
 		'jasmine' : {
@@ -42,4 +42,3 @@ require(['jquery', 'jasmine-jquery'], function(j, b, c) { 'use strict';
 		window.onload();
 	});
 });
-

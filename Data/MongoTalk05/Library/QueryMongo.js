@@ -17,23 +17,24 @@ var QueryMongo = (function() {'use strict';
 
 	var response = null;
 	var database = null;
+	var client = null;
 	var url = null;
-	var collectionName = 'finalWalk';
+	var collectionName = 'test_insert';
 	/*
 	 * Normally we do not close the database. If you have more
-	 * more than one MongoClient then call it, otherwise, don't 
+	 * more than one MongoClient then call it, otherwise, don't
 	 * call it. So we default to false.
 	 */
 	var callClose = false;
 
 	function QueryMongo() {
-		loadConfig(function(urls) {			
+		loadConfig(function(urls) {
 			var mongoTalkJson = JSON.parse(urls);
 			url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
 			console.log("The Mongo URL:" + url);
 		});
 	}
-	
+
 
 	function showDatabase(database, deep) {
 		// Make deep default to false
@@ -76,13 +77,14 @@ var QueryMongo = (function() {'use strict';
 			}
 		} else {
 			console.log('Querying for database: ' + url);
-			MongoClient.connect(url, function(err, databaseResult) {
-				/* if (err) {
+			MongoClient.connect(url, function(err, clientInit) {
+				if (err) {
 					throw err;
-				}*/
+				}
 				assert.equal(null, err);
-				assert.ok(databaseResult !== null);
-				database = databaseResult;
+				assert.ok(clientInit !== null);
+				client = clientInit;
+				database = client.db('test');
 				// showDatabase(database);
 				callback(database);
 			});
@@ -91,7 +93,7 @@ var QueryMongo = (function() {'use strict';
 
 	// If you have only on MongoClient, there is no need to call close.
 	var closeDatabase = function() {
-		database.close();
+		client.close();
 	};
 
 	QueryMongo.prototype.getAllDocuments = function(initResponse) {
@@ -159,7 +161,7 @@ var QueryMongo = (function() {'use strict';
 			});
 		});
 	};
-	
+
 	// Will create collection if it does not exist
 	QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
 		console.log("QueryMongo.updateCollection called");

@@ -4,10 +4,10 @@
 
 require.config({
 	paths : {
-		'testMe' : '../Public/testMe',
-		'jquery' : '../Public/jquery-2.1.0',
-		'pubSub' : '../Public/PubSubOn',
-		'clientMongo' : "../Public/ClientMongo",
+		'testMe' : './public/testMe',
+		'jquery' : './public/JavaScripts/jquery-2.1.0',
+		'pubSub' : './public/JavaScripts/PubSubOn',
+		'clientMongo' : "./public/JavaScripts/ClientMongo",
 		'jasmine' : 'Library/jasmine',
 		'jasmine-html' : 'Library/jasmine-html',
 		'boot' : 'Library/boot',
@@ -37,4 +37,3 @@ require(['jquery', 'boot'], function(j, b, c) {
 		window.onload();
 	});
 });
-

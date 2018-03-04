@@ -5,8 +5,8 @@ define(['clientMongo', 'pubSub'], function(clientMongo) {'use strict';
 		/* var mongoData = null; */
 
 		beforeEach(function() {
-			
-		}); 
+
+		});
 
 		it("Proves Jasmine is working", function() {
 			expect(true).toBe(true);
@@ -19,7 +19,7 @@ define(['clientMongo', 'pubSub'], function(clientMongo) {'use strict';
 		it("Performs Async intergration test on readAll", function(done) {
 			clientMongo();
 			$.publish('readAll', function(data) {
-				expect(data[0].firstName).toBe("George");
+				expect(data[0].firstName).toBe("Suzy");
 				done();
 			});
 		});
@@ -36,4 +36,4 @@ define(['clientMongo', 'pubSub'], function(clientMongo) {'use strict';
 			expect($.getJSON).toHaveBeenCalledWith("/readAll", null);
 		}); */
 	});
-}); 
+});
