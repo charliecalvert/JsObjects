@@ -19,7 +19,7 @@ define(['clientMongo', 'pubSub'], function(clientMongo) {'use strict';
 		it("Performs Async intergration test on readAll", function(done) {
 			clientMongo();
 			$.publish('readAll', function(data) {
-				expect(data[0].firstName).toBe("Suzy");
+				expect(data[0].firstName).toBe("George");
 				done();
 			});
 		});

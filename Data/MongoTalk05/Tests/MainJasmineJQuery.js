@@ -4,7 +4,7 @@
 
 require.config({
 	paths : {
-		'jquery' : './public/JavaScripts/jquery-2.1.0',
+		'jquery' : './public/javascripts/jquery-2.1.0',
 		//'pubSub' : '../Public/PubSubOn',
 		//'clientMongo' : "../Public/ClientMongo",
 		//'clientUi' : "../Public/ClientUi",
