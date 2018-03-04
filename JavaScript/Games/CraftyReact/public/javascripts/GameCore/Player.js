@@ -80,7 +80,7 @@ Crafty.c('PlayerCharacter', {
 
 	// Stops the movement
 	stopMovement : function() {'use strict';
-        
+
 	    this.resetAnimation();
 		//this._speed = 0;
 		if (this._movement) {
