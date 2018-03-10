@@ -2,21 +2,22 @@
  * @author Charlie Calvert
  */
 
-var express = require('express');
-var app = express();
-var MongoClient = require('mongodb').MongoClient;
-var format = require('util').format;
-var assert = require('assert');
-var loadConfig = require('./LoadConfig.js').loadConfig;
-var argv = require('minimist')(process.argv.slice(2));
+const express = require('express');
+const app = express();
+const MongoClient = require('mongodb').MongoClient;
+const format = require('util').format;
+const assert = require('assert');
+const loadConfig = require('./LoadConfig.js').loadConfig;
+const argv = require('minimist')(process.argv.slice(2));
 
-var QueryMongo = (function() {
+const QueryMongo = (function() {
 	'use strict';
 
-	var url = null;
-	var that = null;
-	var database = null;
-	var collectionName = 'lincoln';
+	let url = null;
+	let that = null;
+	let client = null;
+	let database = null;
+	let collectionName = 'lincoln';
 
 	function QueryMongo() {
 		console.log("Constructor called.");
@@ -25,7 +26,7 @@ var QueryMongo = (function() {
 
 	QueryMongo.prototype.run = function(option) {
 		loadConfig(function(urls) {
-			var mongoTalkJson = JSON.parse(urls);
+			const mongoTalkJson = JSON.parse(urls);
 			url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
 			console.log("The Mongo URL: " + url);
 			that.getData(option);
@@ -33,7 +34,7 @@ var QueryMongo = (function() {
 		});
 	};
 
-	var getDatabase = function(callback) {
+	const getDatabase = function(callback) {
 		console.log('Called QueryMongo.getDatabase: ');
 		if (database !== null) {
 			console.log('database exists');
@@ -52,10 +53,11 @@ var QueryMongo = (function() {
 			}
 		} else {
 			console.log('Querying for database: ' + url);
-			MongoClient.connect(url, function(err, databaseResult) {
+			MongoClient.connect(url, function(err, clientInit) {
 				assert.equal(null, err);
-				assert.ok(databaseResult !== null);
-				database = databaseResult;
+				assert.ok(clientInit !== null);
+				client = clientInit;
+				database = client.db('test');
 				callback(database);
 			});
 		}
@@ -74,14 +76,14 @@ var QueryMongo = (function() {
 		console.log("Leaving get data");
 	};
 
-	var insertCollection = function(database) {
+	const insertCollection = function(database) {
 
 		getDatabase(function(database) {
-			var count, collection = database.collection(collectionName);
-			var records = [];
+			const collection = database.collection(collectionName);
+			const records = [];
 
-			for (count = 10000; count < 10005; count++) {
-				var newRecord = {
+			for (let count = 10000; count < 10005; count++) {
+				const newRecord = {
 					firstName : "Abe" + count,
 					"lastName" : "Lincoln" + count,
 					"address" : count + " Green Street",
@@ -97,34 +99,34 @@ var QueryMongo = (function() {
 					throw err;
 				} else {
 					console.log('Inserted: ' + JSON.stringify(docs, null, 4));
-					database.close();
+					client.close();
 				}
 			});
 			console.log("Leaving insert collection");
 		});
 	};
 
-	var getCollection = function(database) {
+	const getCollection = function(database) {
 		console.log('Get Collection Called');
 		getDatabase(function(database) {
-			var collection = database.collection(collectionName);
+			const collection = database.collection(collectionName);
 
 			collection.find().toArray(function(err, theArray) {
 				console.dir(theArray);
-				database.close();
+				client.close();
 			});
 		})
 
 	};
 
-	var removeCollection = function(database) {
+	const removeCollection = function(database) {
 		getDatabase(function(database) {
-			var collection = database.collection(collectionName);
+			const collection = database.collection(collectionName);
 			collection.remove(function(err) {
 				if (err) {
 					throw err;
 				}
-				database.close();
+				client.close();
 			});
 		});
 	};
@@ -134,7 +136,7 @@ var QueryMongo = (function() {
 }());
 
 function run(option) {
-	var q = new QueryMongo();
+	const q = new QueryMongo();
 	q.run(option);
 }
 
