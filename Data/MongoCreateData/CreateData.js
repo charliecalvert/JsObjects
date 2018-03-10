@@ -2,10 +2,7 @@
  * @author Charlie Calvert
  */
 
-const express = require('express');
-const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const format = require('util').format;
 const assert = require('assert');
 const loadConfig = require('./LoadConfig.js').loadConfig;
 const argv = require('minimist')(process.argv.slice(2));
@@ -67,16 +64,16 @@ const QueryMongo = (function() {
 		console.log('Called getData');
 
 		if (option === 'insert') {
-			insertCollection(database);
+			insertCollection();
 		} else if (option === 'remove') {
-			removeCollection(database);
+			removeCollection();
 		} else {
-			getCollection(database);
+			getCollection();
 		}
 		console.log("Leaving get data");
 	};
 
-	const insertCollection = function(database) {
+	const insertCollection = function() {
 
 		getDatabase(function(database) {
 			const collection = database.collection(collectionName);
@@ -106,7 +103,7 @@ const QueryMongo = (function() {
 		});
 	};
 
-	const getCollection = function(database) {
+	const getCollection = function() {
 		console.log('Get Collection Called');
 		getDatabase(function(database) {
 			const collection = database.collection(collectionName);
@@ -119,7 +116,7 @@ const QueryMongo = (function() {
 
 	};
 
-	const removeCollection = function(database) {
+	const removeCollection = function() {
 		getDatabase(function(database) {
 			const collection = database.collection(collectionName);
 			collection.remove(function(err) {
