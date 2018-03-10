@@ -18,7 +18,7 @@ angular.module('mongoMod', [])
       };
 
       //a constructor for new resources
-      var Resource = function (data) {
+      const Resource = function (data) {
         angular.extend(this, data);
       };
 
@@ -34,15 +34,24 @@ angular.module('mongoMod', [])
           });
       };
 
-      Resource.save = function (data) {
+      Resource.save = function (data, callback) {
+          /*fetch(collectionUrl)
+              .then(function(response) {
+                  return response.text()
+              }).then(function(body) {
+                  console.log(body);
+            })*/
         return $http.post(collectionUrl, data, {params:defaultParams})
           .then(function (response) {
-            return new Resource(data);
+            const pres = new Resource(data);
+
+            //return pres;
+              callback(pres);
           });
       };
 
-      Resource.prototype.$save = function (data) {
-        return Resource.save(this);
+      Resource.prototype.$save = function (callback) {
+        return Resource.save(this, callback);
       };
 
       Resource.remove = function (data) {

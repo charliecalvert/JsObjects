@@ -1,7 +1,7 @@
 angular.module('customResourceDemo', ['mongoMod'])
 .constant('CONFIG', {
-    DB_NAME: 'elvenlab01',    
-    API_KEY: 'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy'
+    DB_NAME: 'elvenlab01',
+    API_KEY: 'PUT YOUR API KEY HERE'
 })
 .factory('presidents', function (mongolabResource) {
     return mongolabResource('Presidents');
@@ -18,9 +18,9 @@ angular.module('customResourceDemo', ['mongoMod'])
         termStart: 1825, 
         termEnd: 1829 };
       new presidents(pres)
-      .$save(function(president, r) {
-          $scope.presidents.push(president);
-      });
+          .$save(function(president, $scope) {
+              //this.$apply();
+          })
     };
     
     $scope.deletePresident = function() {

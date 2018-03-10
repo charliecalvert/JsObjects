@@ -9,6 +9,18 @@
 <body ng-app="customResourceDemo" ng-controller="CustomResourceCtrl">
 
    <h1>Presidents</h1>
+
+   <p>At the top of index.js is a file is this declaration which needs to be modified:</p>
+
+   <pre>
+    .constant('CONFIG', {
+        DB_NAME: 'elvenlab01',
+        API_KEY: 'PUT YOUR MLAB API KEY HERE'
+    })
+   </pre>
+
+   <p>Log into <a http="mlab.com">mlab.com</a> and find your key under the <strong>account</strong> link.</p>
+
    <p>As implemented, you need to refresh after selecting buttons. I'll update.</p>
    <button ng-click="addPresident()">Add John Quincy</button>
    <button ng-click="deletePresident()">Delete John Quincy</button>
