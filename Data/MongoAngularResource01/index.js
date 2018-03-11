@@ -21,8 +21,9 @@ angular.module('customResourceDemo', ['mongoMod'])
                 termStart: 1825,
                 termEnd: 1829
             };
+
             new presidents(pres)
-                .save(function(president, $scope) {
+                .save(function(president) {
                     showPresidents();
                 })
         };
@@ -39,4 +40,3 @@ angular.module('customResourceDemo', ['mongoMod'])
 
         showPresidents();
     });
-

@@ -1,21 +1,22 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
     <script src="Presidents.js"></script>
     <script src="index.js"></script>
 </head>
+
 <body ng-app="customResourceDemo" ng-controller="CustomResourceCtrl">
 
-   <h1>Presidents</h1>
+    <h1>Presidents</h1>
 
-   <p>Learn how to query MongoDb and how to create an Angular custom resource.
-      Not for use in production as it is not secure.</p>
+    <p>Learn how to query MongoDb and how to create an Angular custom resource. Not for use in production as it is not secure.</p>
 
-   <p>At the top of index.js is this declaration. The value of each property may need to be modified:</p>
+    <p>At the top of index.js is this declaration. The value of each property may need to be modified:</p>
 
-   <pre>
+    <pre>
     .constant('CONFIG', {
         DB_NAME: 'YOUR DB NAME',
         MONGO_URL: 'YOUR MONGO LAB URL PREFIX',
@@ -23,13 +24,14 @@
     })
    </pre>
 
-   <p>Log into <a http="mlab.com">mlab.com</a> and find your key under the <strong>account</strong> link.</p>
+    <p>Log into <a http="mlab.com">mlab.com</a> and find your key under the <strong>account</strong> link.</p>
 
-   <button ng-click="addPresident()">Add John Quincy</button>
-   <button ng-click="deletePresident()">Delete John Quincy</button>
-   <ul ng-repeat="president in presidents">
-       <li>{{president.presidentName}}</li>
-   </ul>
+    <button ng-click="addPresident()">Add John Quincy</button>
+    <button ng-click="deletePresident()">Delete John Quincy</button>
+    <ul ng-repeat="president in presidents">
+        <li>{{president.presidentName}}</li>
+    </ul>
 
 </body>
+
 </html>

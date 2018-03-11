@@ -9,7 +9,9 @@ angular.module('mongoMod', [])
                 CONFIG.MONGO_URL +
                 CONFIG.DB_NAME + '/collections/' + collectionName;
 
-            var defaultParams = {apiKey: CONFIG.API_KEY};
+            var defaultParams = {
+                apiKey: CONFIG.API_KEY
+            };
 
             // Constructor: Called by Resource.query.
             // angular.extend is a utility for auto-creating properties.
@@ -23,7 +25,9 @@ angular.module('mongoMod', [])
 
             Resource.query = function(params) {
                 return $http.get(collectionUrl, {
-                    params: angular.extend({q: JSON.stringify(params || {} )}, defaultParams)
+                    params: angular.extend({
+                        q: JSON.stringify(params || {})
+                    }, defaultParams)
                 }).then(function(response) {
                     var result = [];
                     angular.forEach(response.data, function(value, key) {
@@ -34,19 +38,22 @@ angular.module('mongoMod', [])
             };
 
             Resource.prototype.save = function(callback) {
-                return $http.post(collectionUrl, this, {params: defaultParams})
+                return $http.post(collectionUrl, this, {
+                        params: defaultParams
+                    })
                     .then(function(response) {
                         callback();
                     });
             };
 
             Resource.prototype.remove = function(callback) {
-                return $http['delete'](collectionUrl + '/' + this._id.$oid, {params: defaultParams})
+                return $http['delete'](collectionUrl + '/' + this._id.$oid, {
+                        params: defaultParams
+                    })
                     .then(function(response) {
                         callback();
                     });
             };
-
 
             return Resource;
         };
