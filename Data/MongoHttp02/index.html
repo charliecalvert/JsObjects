@@ -8,6 +8,17 @@
     </head>
     <body ng-app="customResourceDemo">
 
+	<h1>Presidents</h1>
+
+	   <p>At the top of index.js is a file is this declaration which needs to be modified:</p>
+
+	   <pre>
+	    .constant('CONFIG', {
+		DB_NAME: 'elvenlab01',
+		API_KEY: 'PUT YOUR MLAB API KEY HERE'
+	    })
+	   </pre>
+
         <div ng-controller="CustomResourceCtrl">
 
             <h1>Presidents via HTTP</h1>

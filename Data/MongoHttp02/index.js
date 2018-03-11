@@ -1,7 +1,7 @@
 angular.module('customResourceDemo', ['mongoMod'])
 .constant('CONFIG', {
-    DB_NAME : 'elvenlab01',
-    API_KEY : 'qfSxFoUGHBA1EuUlqhux_op2fy6oF_wy'
+    DB_NAME: 'elvenlab01',
+    API_KEY: 'PUT YOUR KEY HERE'
 })
 .factory('presidents', function(mongolabResource) {
     return mongolabResource('Presidents');
@@ -12,16 +12,16 @@ angular.module('customResourceDemo', ['mongoMod'])
 .controller('CustomResourceCtrl', function($scope, presidents) {
 
     presidents.query().then(function(presidentData) {
-        $scope.presidents = presidentData;
+      $scope.presidents = presidentData;
     });
 
     $scope.addPresident = function() {
-        var pres = {
-            presidentName : 'John Quincy Adames',
-            termStart : 1825,
-            termEnd : 1829
-        };
-        new presidents(pres).$save(function(president, r) {
+      var pres = {
+        presidentName: 'John Quincy Adames',
+        termStart: 1825,
+        termEnd: 1829
+    };
+      new presidents(pres).$save(function(president) {
             $scope.presidents.push(president);
         });
     };

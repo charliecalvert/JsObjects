@@ -7,8 +7,8 @@ angular.module('mongoMod', [])
       //basic configuration
       var collectionUrl =
         'https://api.mongolab.com/api/1/databases/' +
-          CONFIG.DB_NAME +
-          '/collections/' + collectionName;
+        CONFIG.DB_NAME +
+        '/collections/' + collectionName;
 
       var defaultParams = {apiKey:CONFIG.API_KEY};
 
@@ -18,7 +18,7 @@ angular.module('mongoMod', [])
       };
 
       //a constructor for new resources
-      var Resource = function (data) {
+      const Resource = function (data) {
         angular.extend(this, data);
       };
 
@@ -34,15 +34,22 @@ angular.module('mongoMod', [])
           });
       };
 
-      Resource.save = function (data) {
+      Resource.save = function (data, callback) {
+          /*fetch(collectionUrl)
+              .then(function(response) {
+                  return response.text()
+              }).then(function(body) {
+                  console.log(body);
+            })*/
         return $http.post(collectionUrl, data, {params:defaultParams})
           .then(function (response) {
-            return new Resource(data);
+            const pres = new Resource(data);
+            callback(pres);
           });
       };
 
-      Resource.prototype.$save = function (data) {
-        return Resource.save(this);
+      Resource.prototype.$save = function (callback) {
+        return Resource.save(this, callback);
       };
 
       Resource.remove = function (data) {
