@@ -37,7 +37,7 @@ angular.module('pres', ['ngResource'])
     .factory('presidents', function($resource, mlabSettings) {
         console.log('Presidents factory called: ', mlabSettings);
         return new Promise(function(resolve, reject) {
-            mlabSettings.getKeys()
+            mlabSettings
                 .then(function(response) {
                     var Presidents = $resource(response.url, response.keyPart);
 
