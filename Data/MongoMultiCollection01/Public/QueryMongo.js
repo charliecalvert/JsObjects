@@ -37,12 +37,12 @@ var QueryMongo = (function() {
 			func(response, collectionName, database);
 		} else {
 			console.log('Querying for database');
-			MongoClient.connect(url, function(err, databaseResult) {
+			MongoClient.connect(url, function(err, client) {
 				if (err) {
 					console.log("Error in GetDatabase");
 					throw err;
 				}
-				database = databaseResult;
+				database = client.db('test');
 				func(response, collectionName, database);
 			});
 		}

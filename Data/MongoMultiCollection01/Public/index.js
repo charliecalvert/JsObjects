@@ -27,15 +27,20 @@ App.MongoQuery = (function showData() {
 	};
 
 	var read = function(event) {
-		$.getJSON('/read', {
-			collectionName : event.data.collectionName
-		}, function(data) {
-			console.log(data);
-			for ( var i = 0; i < data.length; i++) {
-				$("#mongoData").append(
-						'<li>' + JSON.stringify(data[i]) + '</li>');
-			}
-		});
+        var params = "?collectionName=" + event.data.collectionName;
+        fetch('/read'+params, {
+            method: 'get'
+        }).then(function(response) {
+            return response.json();
+        }).then(function(result) {
+            console.log(result);
+            for ( var i = 0; i < result.length; i++) {
+                $("#mongoData").append(
+                    '<li>' + JSON.stringify(result[i]) + '</li>');
+            }
+        }).catch(function(err) {
+            console.log('error');
+        });
 	};
 
 	var insertData = function() {
@@ -45,19 +50,24 @@ App.MongoQuery = (function showData() {
 	};
 
 	var doInsert = function(route, index) {
-		$.getJSON(route, {
-			collectionName : collections[index]
-		}, function(data) {
-			console.log(data);
-			for ( var i = 0; i < data.length; i++) {
-				$("#mongoData").append(
-						'<li>' + JSON.stringify(data[i]) + '</li>');
-			}
-		});
+        const params = "?collectionName=" + collections[index];
+        fetch(route+params, {
+            method: 'get'
+        }).then(function(response) {
+            return response.json();
+        }).then(function(result) {
+            console.log(result);
+                for ( let i = 0; i < result.length; i++) {
+                    $("#mongoData").append(
+                        '<li>' + JSON.stringify(result[i]) + '</li>');
+                }
+        }).catch(function(err) {
+            console.log('error');
+        });
 	};
 
 	var deleteData = function() {
-		for ( var i = 0; i < collections.length; i++) {
+		for ( let i = 0; i < collections.length; i++) {
 			doInsert('/deleteData', i);
 		}
 	};

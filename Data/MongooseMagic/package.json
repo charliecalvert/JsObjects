@@ -8,15 +8,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ParseMagic.js"
   },
   "keywords": [
     "magic",
     "mongoose"
   ],
-  "scripts": {
-        "start": "node ParseMagic.js"
-  },
   "author": "Charlie Calvert",
   "license": "MIT"
 }
