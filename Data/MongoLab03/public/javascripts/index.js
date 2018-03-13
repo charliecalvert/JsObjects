@@ -95,5 +95,5 @@ function animate($drawTarget, image, ready) {
 
 $(document).ready(function() {
 	var target01 = $('#drawHere01');	
-	animate(target01, 'People256.png', true);	
+	animate(target01, 'images/People256.png', true);
 });

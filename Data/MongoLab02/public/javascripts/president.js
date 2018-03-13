@@ -6,8 +6,8 @@ angular.module('pres', ['ngResource'])
         return new Promise(function(resolve, reject) {
             mlabSettings
                 .then(function(response) {
-
-                    var Presidents = $resource(mlabSettings.url, mlabSettings.apiKey,
+                    console.log('president promise called: ', response.apiKey);
+                    var Presidents = $resource(response.url, response.apiKey,
                         {
                             update: {method: 'PUT'}
                         });
@@ -41,7 +41,7 @@ angular.module('pres', ['ngResource'])
                         return this.remove(cb, errorcb);
                     };
 
-                    return Presidents;
+                    resolve(Presidents);
                 })
         });
     });

@@ -3,9 +3,10 @@ angular.module('pres')
     return new Promise(function(resolve, reject) {
         $http.get('/get-api-key')
             .then(function(response) {
+                console.log('resolved apiKey');
                 resolve({
                     url: 'https://api.mongolab.com/api/1/databases/elvenlab01/collections/Presidents/:id',
-                    keyPart: {
+                    apiKey: {
                         apiKey: response.data.apiKey
                     }
                 });
