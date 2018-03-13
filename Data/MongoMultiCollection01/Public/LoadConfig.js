@@ -8,10 +8,10 @@ var os = require('os');
 function getConfigName() { 'use strict';
 	var configName = "MongoTalk.json";
 	if (os.platform() === 'darwin') {
-		configName = process.env.HOME + '/Config/MongoTalk.json';
+		configName = process.env.HOME + '/.config/MongoTalk.json';
 	} else if (os.platform() === 'linux') {
-		configName = process.env.HOME + '/Config/MongoTalk.json';
-	} else if (os.platform() === 'win32') {		
+		configName = process.env.HOME + '/.config/MongoTalk.json';
+	} else if (os.platform() === 'win32') {
 		configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
 	}
 	return configName;
@@ -38,7 +38,7 @@ function loadConfig(callback) {
 				reportError(err);
 			} else {
 				callback(urls);
-			}		
+			}
 		});
 	} catch(e) {
 		console.log(e);

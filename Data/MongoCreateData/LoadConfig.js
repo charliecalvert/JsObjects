@@ -11,7 +11,7 @@ function getConfigName() { 'use strict';
 		configName = process.env.HOME + '/.config/MongoTalk.json';
 	} else if (os.platform() === 'linux') {
 		configName = process.env.HOME + '/.config/MongoTalk.json';
-	} else if (os.platform() === 'win32') {		
+	} else if (os.platform() === 'win32') {
 		configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
 	}
 	return configName;
@@ -38,7 +38,7 @@ function loadConfig(callback) {
 				reportError(err);
 			} else {
 				callback(urls);
-			}		
+			}
 		});
 	} catch(e) {
 		console.log(e);
