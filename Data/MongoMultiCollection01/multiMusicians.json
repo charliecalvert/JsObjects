@@ -28,10 +28,32 @@
         "death": "March-25-1918"
     },
     {
+        "firstName": "Duke",
+        "lastName": "Ellington",
+        "country": "United States",
+        "birth": "April-29-1899,",
+        "death": "May-24-1974"
+    },
+    {
+        "firstName": "Louis",
+        "lastName": "Armstrong",
+        "country": "United States",
+        "birth": "August-04-1901,",
+        "death": "July-06-1971"
+    },
+    {
         "firstName": "John",
         "lastName": "Coltrane",
         "country": "United States",
         "birth": "September-23-1926,",
         "death": "July-17-1967"
+    },
+    {
+        "firstName": "Miles",
+        "lastName": "Davis",
+        "country": "United States",
+        "birth": "May-26-1926,",
+        "death": "September-28-1991"
     }
+
 ]
