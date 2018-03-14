@@ -7,7 +7,7 @@ var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var format = require('util').format;
 var fs = require('fs');
-var queryMongo = require('./Public/QueryMongo').QueryMongo;
+var queryMongo = require('./public/QueryMongo').QueryMongo;
 
 function message(value) { 'use strict';
     console.log("------------");

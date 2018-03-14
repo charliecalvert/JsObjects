@@ -26,5 +26,12 @@
         "country": "France",
         "birth": "August-22-1862",
         "death": "March-25-1918"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Coltrane",
+        "country": "United States",
+        "birth": "September-23-1926,",
+        "death": "July-17-1967"
     }
 ]
