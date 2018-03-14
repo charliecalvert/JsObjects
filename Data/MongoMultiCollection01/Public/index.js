@@ -11,39 +11,43 @@ App.MongoQuery = (function showData() {
 	var collections = [ 'multiPresidents', 'multiMusicians' ];
 
 	function MongoQuery() {
-		$('#presidents').click({
-			collectionName : collections[0]
-		}, read);
-		$('#musicians').click({
-			collectionName : collections[1]
-		}, read);
-		$('#deleteData').click(deleteData);
-		$('#insertData').click(insertData);
-		$('#clearList').click(clearList);
+        document.getElementById('presidents').onclick=() => read(0);
+        document.getElementById('musicians').onclick=() => read(1);
+		document.getElementById('deleteData').onclick=() => deleteData();
+        document.getElementById('insertData').onclick=() => insertData();
+        document.getElementById('clearList').onclick=() => clearList();
 	}
 
 	var clearList = function(event) {
-		$("#mongoData").empty();
-	};
 
-	var read = function(event) {
-        var params = "?collectionName=" + event.data.collectionName;
+        document.getElementById("mongoData").innerHTML = "";
+
+    };
+
+    function appendToList(text) {
+        var ul = document.getElementById("mongoData");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(text));
+        ul.appendChild(li);
+    }
+
+	var read = function(index) {
+        var params = "?collectionName=" + collections[index];
         fetch('/read'+params, {
             method: 'get'
         }).then(function(response) {
             return response.json();
         }).then(function(result) {
             console.log(result);
-            for ( var i = 0; i < result.length; i++) {
-                $("#mongoData").append(
-                    '<li>' + JSON.stringify(result[i]) + '</li>');
+            for (let i = 0; i < result.length; i++) {
+                appendToList(JSON.stringify(result[i]));
             }
         }).catch(function(err) {
             console.log('error');
         });
 	};
 
-	var insertData = function() {
+    var insertData = function() {
 		for ( var i = 0; i < collections.length; i++) {
 			doInsert('/insertData', i);
 		}
@@ -57,9 +61,8 @@ App.MongoQuery = (function showData() {
             return response.json();
         }).then(function(result) {
             console.log(result);
-                for ( let i = 0; i < result.length; i++) {
-                    $("#mongoData").append(
-                        '<li>' + JSON.stringify(result[i]) + '</li>');
+                for (let i = 0; i < result.length; i++) {
+                    appendToList(JSON.stringify(result[i]));                    
                 }
         }).catch(function(err) {
             console.log('error');
@@ -75,7 +78,5 @@ App.MongoQuery = (function showData() {
 	return MongoQuery;
 }());
 
-$(document).ready(function() {
-	'use strict';
-	App.init();
-});
+window.onload = () => App.init();
+
