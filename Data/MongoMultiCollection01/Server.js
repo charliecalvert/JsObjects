@@ -39,14 +39,14 @@ app.get('/deleteData', function(request, response) { 'use strict';
 // Default.
 app.get('/', function(request, result){ 'use strict';
 	console.log('Default route called');
-	var html = fs.readFileSync(__dirname + '/Public/index.html');
+	var html = fs.readFileSync(__dirname + '/public/index.html');
 	result.writeHeader(200, {"Content-Type": "text/html"});   
 	result.write(html);
 	result.end();
 });
 
 // Give express access to the Public directory
-app.use("/", express.static(__dirname + '/Public'));
+app.use("/", express.static(__dirname + '/public'));
 
 // Tell the webserver (and user) to listen on port 30025
 app.listen(30025);
