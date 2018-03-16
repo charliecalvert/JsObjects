@@ -1,0 +1,24 @@
+extends layout
+
+include menu-mixin
+
+block content
+    +elfMenu
+    .container
+        #root
+        .starter-template
+            h1 MongoLab02
+
+            #mongoData(ng-controller='MyController')
+                .inputDiv
+                    input(type='text', ng-model='presidentName')
+                    input(type='text', ng-model='termStart', placeholder='termStart')
+                    input(type='text', ng-model='termEnd', placeholder='termEnd')
+                    button(ng-click='newPresident()') Add President
+                    hr
+                    input(type='number', ng-model='indexOfItemToDelete', min='0', max='{{presidentsLength-1}}')
+                    br
+                    button(ng-click='deleteRow()') Delete
+                    button(ng-click='updateRow()') Update
+
+    script(src="./javascripts/bundle.js")
