@@ -1,0 +1,33 @@
+const {DefinePlugin} = require('webpack');
+
+module.exports = (env, options) => {
+    console.log(options);
+    return {
+        entry: './source/main.js',
+        output: {
+            path: __dirname,
+            filename: 'public/javascripts/bundle.js'
+        },
+        devtool: "inline-source-map",
+        module: {
+            rules: [
+                {
+                    test: /.js?$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ['react', 'stage-0']
+                        }
+                    }
+                }
+            ],
+
+        },
+        plugins: [
+            new DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify(options.mode)
+            })
+        ]
+    }
+};
