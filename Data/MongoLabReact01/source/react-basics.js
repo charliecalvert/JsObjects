@@ -1,6 +1,13 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import Face from 'material-ui/svg-icons/action/face';
+import Code from 'material-ui/svg-icons/action/code';
 
 process.env.NODE_ENV = 'development';
+
+const style = {
+    margin: 12,
+};
 
 export class ReactBasics extends React.Component {
 
@@ -67,8 +74,19 @@ export class ReactBasics extends React.Component {
                     from a node server and some data from the MongoLab
                     cloud based Mongo Database.</p>
 
-                <button onClick={this.loadData}>Load Data</button>
-                <button onClick={this.getApiKey}>Get Api Key</button>
+                <RaisedButton
+                    label="Load Data"
+                    icon={<Code/>}
+                    secondary={true}
+                    style={style}
+                    onClick={this.loadData} />
+
+                <RaisedButton
+                    label="Get Presidents"
+                    primary={true}
+                    style={style}
+                    onClick={this.getApiKey}
+                    icon={<Face />} />
 
                 <pre>{this.state.president}</pre>
                 <pre>{this.state.data}</pre>

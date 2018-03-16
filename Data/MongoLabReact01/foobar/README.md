@@ -1,2 +1,0 @@
-# foobar
-by Charlie Calvert
