@@ -5,14 +5,14 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-const QueryMongo = require('./QueryMongo');
+const queryMongo = require('./QueryMongo');
 
 
 // Express Code
 app.get('/read', function(request, response) {
     console.log('read route called');
-    var q = new QueryMongo();
-    q.getData(response);
+    //var q = new QueryMongo();
+    queryMongo.getCollection('test_insert', response);
 });
 
 // Default.
