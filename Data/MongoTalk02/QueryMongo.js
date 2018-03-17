@@ -8,19 +8,20 @@ var loadConfig = require('./LoadConfig.js').loadConfig;
 var QueryMongo = (function() {
     'use strict';
 
-    var url = null;
     var mongoClient = null;
 
     function QueryMongo() {
         loadConfig(function(urls) {
             var mongoTalkJson = JSON.parse(urls);
-            url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
+            var url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
             console.log("The Mongo URL:" + url);
-            getDatabase(function() { console.log('Connected to MongoDb') });
+            getDatabase(url, function() {
+                console.log('Connected to MongoDb')
+            });
         });
     }
 
-    const getDatabase = function(func) {
+    const getDatabase = function(url, func) {
         if (mongoClient !== null) {
             console.log('Allready connected to MongoDb');
             func(mongoClient);
@@ -30,39 +31,33 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
+		assert.equal(null, err);
+                assert.ok(mongoClientInit !== null);
                 mongoClient = mongoClientInit;
                 func(mongoClient);
             });
         }
     };
 
+    // Count documents in the collection
     QueryMongo.prototype.getCount = function(collectionName, response) {
         console.log('getCount called');
-        getDatabase(function(mongoClient) {
-            // Count documents in the collection
-            var database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
+        var database = mongoClient.db('test');
+        var collection = database.collection(collectionName);
 
-            collection.count(function(err, count) {
-                //mongoClient.close();
-                response.send({"count": count});
-            });
+        collection.count(function(err, count) {
+            response.send({"count": count});
         });
     };
 
     QueryMongo.prototype.getCollection = function(collectionName, response) {
         console.log('getCollection called');
-        getDatabase(function(mongoClient) {
-            var database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
+        var database = mongoClient.db('test');
+        var collection = database.collection(collectionName);
 
-            // Send the collection to the client.
-            collection.find().toArray(function(err, theArray) {
-                //console.dir(theArray);
-                //mongoClient.close();
-                response.send(theArray);
-            });
-
+        // Send the collection to the client.
+        collection.find().toArray(function(err, theArray) {
+            response.send(theArray);
         });
     };
 

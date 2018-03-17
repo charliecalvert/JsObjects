@@ -7,8 +7,11 @@ var queryMongo = require('./QueryMongo').QueryMongo;
  * GET home page.
  */
 
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'MongoConfig01' });
+router.get('/', function(req, res, next) {
+    'use strict';
+    res.render('index', {
+        title: 'MongoConfig01'
+    });
 });
 
 var collectionName = 'MongoConfig';
@@ -25,7 +28,7 @@ function readAndInsertConfig(response) {
         if (err) {
             console.log(err);
             response.send({
-                "Error" : err
+                "Error": err
             });
         } else {
             console.log(fileContent);

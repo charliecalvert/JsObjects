@@ -2,11 +2,11 @@
  * @author Charlie
  */
 
-var fs = require('fs');
-var os = require('os');
+const fs = require('fs');
+const os = require('os');
 
 function getConfigName() { 'use strict';
-	var configName = "MongoTalk.json";
+	let configName = "MongoTalk.json";
 	if (os.platform() === 'darwin') {
 		configName = process.env.HOME + '/.config/MongoTalk.json';
 	} else if (os.platform() === 'linux') {
@@ -31,7 +31,7 @@ function reportError(err) { 'use strict';
 
 function loadConfig(callback) {
 	'use strict';
-	var configName = getConfigName();
+	const configName = getConfigName();
 	try {
 		fs.readFile(configName, function(err, urls) {
 			if (err) {
