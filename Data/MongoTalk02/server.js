@@ -7,12 +7,15 @@ var app = express();
 var fs = require('fs');
 const queryMongo = require('./QueryMongo');
 
-
 // Express Code
 app.get('/read', function(request, response) {
     console.log('read route called');
     //var q = new QueryMongo();
     queryMongo.getCollection('test_insert', response);
+});
+
+app.get('/count', function(request, response) {
+    queryMongo.getCount('test_insert', response);
 });
 
 // Default.

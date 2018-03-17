@@ -17,6 +17,18 @@ function showData() {
         })
 }
 
+function getCount() {
+    fetch('/count')
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(json) {
+            appendToList(JSON.stringify(json));
+        })
+}
+
+
 window.onload = function() {
     showData();
+    getCount();
 };

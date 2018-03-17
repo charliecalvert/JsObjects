@@ -9,47 +9,57 @@ var QueryMongo = (function() {
     'use strict';
 
     var url = null;
-    var database = null;
+    var mongoClient = null;
 
     function QueryMongo() {
         loadConfig(function(urls) {
             var mongoTalkJson = JSON.parse(urls);
             url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
             console.log("The Mongo URL:" + url);
+            getDatabase(function() { console.log('Connected to MongoDb') });
         });
     }
 
-    var getDatabase = function(response, collectionName, func) {
-        if (database !== null) {
-            console.log('database exists');
-            func(response, collectionName, database);
+    const getDatabase = function(func) {
+        if (mongoClient !== null) {
+            console.log('Allready connected to MongoDb');
+            func(mongoClient);
         } else {
-            console.log('Querying for database');
-            MongoClient.connect(url, function(err, client) {
+            console.log('Querying for MongoDb connection');
+            MongoClient.connect(url, function(err, mongoClientInit) {
                 if (err) {
                     throw err;
                 }
-                database = client.db('test');
-                func(response, collectionName, database);
+                mongoClient = mongoClientInit;
+                func(mongoClient);
             });
         }
     };
 
-    QueryMongo.prototype.getCollection = function(collectionName, response) {
-        console.log('getCollection called');
-        getDatabase(response, collectionName, function(response, collectionName, database) {
-
+    QueryMongo.prototype.getCount = function(collectionName, response) {
+        console.log('getCount called');
+        getDatabase(function(mongoClient) {
+            // Count documents in the collection
+            var database = mongoClient.db('test');
             var collection = database.collection(collectionName);
 
-            // Count documents in the collection
             collection.count(function(err, count) {
-                console.log("count: ", count);
+                //mongoClient.close();
+                response.send({"count": count});
             });
+        });
+    };
+
+    QueryMongo.prototype.getCollection = function(collectionName, response) {
+        console.log('getCollection called');
+        getDatabase(function(mongoClient) {
+            var database = mongoClient.db('test');
+            var collection = database.collection(collectionName);
 
             // Send the collection to the client.
             collection.find().toArray(function(err, theArray) {
-                console.dir(theArray);
-                //client.close();
+                //console.dir(theArray);
+                //mongoClient.close();
                 response.send(theArray);
             });
 
