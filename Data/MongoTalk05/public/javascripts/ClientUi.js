@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-define(function() {'use strict';
+define(function() {
+    'use strict';
 
     var itemToShow = null;
 
@@ -30,7 +31,7 @@ define(function() {'use strict';
     };
 
     var displayDocument = function(document) {
-        if ( typeof document !== 'undefined') {
+        if (typeof document !== 'undefined') {
             $('#firstName').html(document.firstName);
             $('#lastName').html(document.lastName);
             $('#address').html(document.address);
@@ -77,8 +78,8 @@ define(function() {'use strict';
     var readCountDocuments = function() {
         var numRequested = $('#numRequested').val();
         $.publish('readCountDocuments', {
-            numRequested : numRequested,
-            callback : function(data) {
+            numRequested: numRequested,
+            callback: function(data) {
                 displayDocument(data[0]);
                 displayList(data);
             }
@@ -103,8 +104,8 @@ define(function() {'use strict';
     var showData = function() {
         var index = $("#userIndex").val();
         $.publish("getDocument", {
-            index : index,
-            callback : function(document) {
+            index: index,
+            callback: function(document) {
                 displayDocument(document);
             }
         });
@@ -112,14 +113,14 @@ define(function() {'use strict';
 
     var update = function() {
         var updateDetails = {
-            field : 'firstName',
-            oldString : "Thomas",
-            newString : "Tom",
-            callback : function(data) {
+            field: 'firstName',
+            oldString: "Thomas",
+            newString: "Tom",
+            callback: function(data) {
                 if (data.result === 'Success') {
                     itemToShow = {
-                        field : updateDetails.field,
-                        value : updateDetails.newString
+                        field: updateDetails.field,
+                        value: updateDetails.newString
                     };
                     readAll();
                 }
@@ -131,4 +132,3 @@ define(function() {'use strict';
 
     return ClientUi;
 });
-

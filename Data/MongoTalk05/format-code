@@ -1,0 +1,1 @@
+find . -type f -iname "*.js" -not -path "**/node_modules/**" -exec js-beautify -r {} \;
