@@ -48,7 +48,7 @@ var QueryMongo = (function() {
                     callback(database);
                 });
             } else {*/
-                callback(database);
+            callback(database);
             //}
         } else {
             console.log('Querying for database: ' + url);
@@ -96,47 +96,43 @@ var QueryMongo = (function() {
 
     QueryMongo.prototype.getAllDocuments = function(response) {
         console.log("QueryMongo.getAllDocuments called", collectionName);
-        assert.ok(mongoClient!== null);
+        assert.ok(mongoClient !== null);
         //getDatabase(function getCol(database) {
-            const database = mongoClient.db('test');
-            console.log('database: ', database);
-            var collection = database.collection(collectionName);
+        const database = mongoClient.db('test');
+        console.log('database: ', database);
+        var collection = database.collection(collectionName);
 
-            // Send the collection to the client.
-            collection.find().toArray(function(err, theArray) {
-                console.dir(theArray);
-          //      if (callClose) {
+        // Send the collection to the client.
+        collection.find().toArray(function(err, theArray) {
+            console.dir(theArray);
+            //      if (callClose) {
             //        closeDatabase();
-              //  }
-                response.send(theArray);
-            });
+            //  }
+            response.send(theArray);
+        });
         //});
     };
 
     // Get a specific number of documents from the collection
     QueryMongo.prototype.getDocuments = function(response, count) {
         console.log("QueryMongo.getDocuments called");
+        const database = mongoClient.db('test');
+        var collection = database.collection(collectionName);
 
-        //getDatabase(function getCol(database) {
-            const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
-
-            // Send the collection to the client.
-            collection.find().limit(count).toArray(function(err, theArray) {
-                console.dir(theArray);
-                if (callClose) {
-                    closeDatabase();
-                }
-                response.send(theArray);
-            });
-        //});
+        // Send the collection to the client.
+        collection.find().limit(count).toArray(function(err, theArray) {
+            console.dir(theArray);
+            if (callClose) {
+                closeDatabase();
+            }
+            response.send(theArray);
+        });
     };
 
     // Get the number of documents in the collection
-    QueryMongo.prototype.getDocumentCount = function(initResponse) {
+    QueryMongo.prototype.getDocumentCount = function(response) {
         console.log("QueryMongo.getDocumentCount called");
-        response = initResponse;
-        getDatabase(function getCol(database) {
+        const database = mongoClient.db('test');
             var collection = database.collection(collectionName);
 
             var count = collection.count(function(err, result) {
@@ -151,14 +147,13 @@ var QueryMongo = (function() {
                     "documentCount": result
                 });
             });
-        });
     };
 
 
     // Will create collection if it does not exist
     QueryMongo.prototype.insertIntoCollection = function(response, objectToInsert) {
         console.log("QueryMongo.insertIntoCollection called");
-        getDatabase(function getCol(database) {
+        const database = mongoClient.db('test');
             var collection = database.collection(collectionName);
             collection.insert(objectToInsert, function(err, docs) {
                 if (err) {
@@ -173,13 +168,12 @@ var QueryMongo = (function() {
                     mongoDocument: docs
                 });
             });
-        });
     };
 
     // Will create collection if it does not exist
     QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
         console.log("QueryMongo.updateCollection called");
-        getDatabase(function getCol(database) {
+        const database = mongoClient.db('test');
             console.log("In the update callback");
             var collection = database.collection(collectionName);
             collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
@@ -195,7 +189,6 @@ var QueryMongo = (function() {
                     mongoDocument: docs
                 });
             });
-        });
     };
 
     QueryMongo.prototype.readMarkDown = function(title, fileName) {
@@ -215,7 +208,7 @@ var QueryMongo = (function() {
 
     QueryMongo.prototype.readFileOut = function(response) {
         console.log("readFileOut called");
-        getDatabase(function(database) {
+        const database = mongoClient.db('test');
             var collection = database.collection(collectionName);
             collection.find().toArray(function(err, theArray) {
                 if (err) {
@@ -229,7 +222,6 @@ var QueryMongo = (function() {
                 writeFile(response, output);
                 // response.send(theArray[0]);
             });
-        });
     };
 
     var writeFile = function(response, jsonString) {
@@ -253,7 +245,7 @@ var QueryMongo = (function() {
 
     QueryMongo.prototype.removeById = function(id) {
         console.log("QueryMongo.removeById called");
-        getDatabase(function getCol(database) {
+        const database = mongoClient.db('test');
             var collection = database.collection(collectionName);
             collection.remove({
                 "_id": mongodb.ObjectID("52fc4547640b76180b9fb9c4")
@@ -267,12 +259,11 @@ var QueryMongo = (function() {
                 console.log("Item deleted");
             });
 
-        });
     };
 
     QueryMongo.prototype.removeAll = function(response) {
         console.log("QueryMongo.removeAll called");
-        getDatabase(function getCol(database) {
+        const database = mongoClient.db('test');
             var collection = database.collection(collectionName);
             collection.remove(function(err, data) {
                 if (err) {
@@ -287,8 +278,6 @@ var QueryMongo = (function() {
                     data: data
                 });
             });
-
-        });
     };
 
     return QueryMongo;
