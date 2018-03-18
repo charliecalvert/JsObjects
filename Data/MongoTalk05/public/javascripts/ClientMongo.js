@@ -79,6 +79,22 @@ define(function() {
     };
 
     const update = function(event, updateDetails) {
+
+        // from: https://stackoverflow.com/a/1714899/253576
+        const urlEncode = function(obj, prefix) {
+            const str = [];
+            for (let p in obj) {
+                if (obj.hasOwnProperty(p)) {
+                    const k = prefix ? prefix + "[" + p + "]" : p,
+                        v = obj[p];
+                    str.push((v !== null && typeof v === "object") ?
+                        urlEncode(v, k) :
+                        encodeURIComponent(k) + "=" + encodeURIComponent(v));
+                }
+            }
+            return str.join("&");
+        };
+
         const request = {
             query: {
                 "firstName": updateDetails.oldString
@@ -89,10 +105,19 @@ define(function() {
                 }
             }
         };
-        $.getJSON('/update', request, function(data) {
-            data.mongoData = mongoData;
-            updateDetails.callback(data);
-        });
+
+        const urlEncodedRequest = urlEncode(request);
+        console.log(urlEncodedRequest); //'query[firstName]=Thomas&update[$set][firstName]=Tom')
+        fetch('http://localhost:30025/update?' + urlEncodedRequest)
+
+            .then(function(json) {
+                return json.json();
+            })
+            .then(function(response) {
+                response.mongoData = mongoData;
+                updateDetails.callback(response);
+            });
+
     };
 
     return ClientMongo;

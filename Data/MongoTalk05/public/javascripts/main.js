@@ -6,7 +6,8 @@ require.config({
     paths: {
         "jquery": "/scripts/jquery.min",
         "TinyPubSub": "TinyPubSub",
-        "clientMongo": "ClientMongo"
+        "clientMongo": "ClientMongo",
+        "utilities": "utilities"
     },
     shim: {
         'TinyPubSub': {
@@ -16,7 +17,8 @@ require.config({
     }
 });
 
-require(["TinyPubSub", "ClientUi", "ClientMongo"], function(TinyPubSub, clientUi, clientMongo) {
+require(["TinyPubSub", "ClientUi", "ClientMongo", "utilities"],
+        function(TinyPubSub, clientUi, clientMongo, utilities) {
     'use strict';
     console.log("Main called.");
     clientMongo();

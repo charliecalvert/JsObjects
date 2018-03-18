@@ -100,18 +100,18 @@ var QueryMongo = (function() {
     QueryMongo.prototype.getDocumentCount = function(response) {
         console.log("QueryMongo.getDocumentCount called");
         const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
+        var collection = database.collection(collectionName);
 
-            var count = collection.count(function(err, result) {
-                if (err) {
-                    throw err;
-                }
-                console.log('sending back result: ' + result);
+        var count = collection.count(function(err, result) {
+            if (err) {
+                throw err;
+            }
+            console.log('sending back result: ' + result);
 
-                response.send({
-                    "documentCount": result
-                });
+            response.send({
+                "documentCount": result
             });
+        });
     };
 
 
@@ -119,37 +119,34 @@ var QueryMongo = (function() {
     QueryMongo.prototype.insertIntoCollection = function(response, objectToInsert) {
         console.log("QueryMongo.insertIntoCollection called");
         const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
-            collection.insert(objectToInsert, function(err, docs) {
-                if (err) {
-                    throw err;
-                }
+        var collection = database.collection(collectionName);
+        collection.insert(objectToInsert, function(err, docs) {
+            if (err) {
+                throw err;
+            }
 
-                console.log("insert succeeded");
-                response.send({
-                    result: "Success",
-                    mongoDocument: docs
-                });
+            console.log("insert succeeded");
+            response.send({
+                result: "Success",
+                mongoDocument: docs
             });
+        });
     };
 
     // Will create collection if it does not exist
     QueryMongo.prototype.updateCollection = function(response, objectToInsert) {
         console.log("QueryMongo.updateCollection called");
         const database = mongoClient.db('test');
-            console.log("In the update callback");
-            var collection = database.collection(collectionName);
-            collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
-                if (err) {
-                    throw err;
-                }
-
-                console.log("update succeeded");
-                response.send({
-                    result: "Success",
-                    mongoDocument: docs
-                });
+        var collection = database.collection(collectionName);
+        collection.update(objectToInsert.query, objectToInsert.update, function(err, docs) {
+            if (err) {
+                throw err;
+            }
+            response.send({
+                result: "Success",
+                mongoDocument: docs
             });
+        });
     };
 
     QueryMongo.prototype.readMarkDown = function(title, fileName) {
@@ -170,17 +167,17 @@ var QueryMongo = (function() {
     QueryMongo.prototype.readFileOut = function(response) {
         console.log("readFileOut called");
         const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
-            collection.find().toArray(function(err, theArray) {
-                if (err) {
-                    throw err;
-                }
+        var collection = database.collection(collectionName);
+        collection.find().toArray(function(err, theArray) {
+            if (err) {
+                throw err;
+            }
 
-                console.log(typeof theArray[theArray.length - 1].text);
-                var output = theArray[theArray.length - 1].text;
-                writeFile(response, output);
-                // response.send(theArray[0]);
-            });
+            console.log(typeof theArray[theArray.length - 1].text);
+            var output = theArray[theArray.length - 1].text;
+            writeFile(response, output);
+            // response.send(theArray[0]);
+        });
     };
 
     var writeFile = function(response, jsonString) {
@@ -206,34 +203,34 @@ var QueryMongo = (function() {
     QueryMongo.prototype.removeById = function(id) {
         console.log("QueryMongo.removeById called");
         const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
-            collection.remove({
-                "_id": mongodb.ObjectID("52fc4547640b76180b9fb9c4")
-            }, function(err, data) {
-                if (err) {
-                    throw err;
-                }
+        var collection = database.collection(collectionName);
+        collection.remove({
+            "_id": mongodb.ObjectID("52fc4547640b76180b9fb9c4")
+        }, function(err, data) {
+            if (err) {
+                throw err;
+            }
 
-                console.log("Item deleted");
-            });
+            console.log("Item deleted");
+        });
 
     };
 
     QueryMongo.prototype.removeAll = function(response) {
         console.log("QueryMongo.removeAll called");
         const database = mongoClient.db('test');
-            var collection = database.collection(collectionName);
-            collection.remove(function(err, data) {
-                if (err) {
-                    throw err;
-                }
+        var collection = database.collection(collectionName);
+        collection.remove(function(err, data) {
+            if (err) {
+                throw err;
+            }
 
-                console.log("Item deleted");
-                response.send({
-                    result: "Success",
-                    data: data
-                });
+            console.log("Item deleted");
+            response.send({
+                result: "Success",
+                data: data
             });
+        });
     };
 
     return QueryMongo;

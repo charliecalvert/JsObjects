@@ -2,26 +2,31 @@
  * @author Charlie Calvert
  */
 
-define(function() {
+define(["utilities"], function(utilities) {
     'use strict';
 
-    var itemToShow = null;
+    let itemToShow = null;
+    let currentItems = null;
 
     function ClientUi() {
         $('#intro').load("Pieces.html #introTemplate");
         $('#buttonBasic').load("Pieces.html #buttonTemplate", function() {
-            $("#readTwo").click(readTwo);
-            $("#newRecord").click(insertNewDocument);
-            $("#showData").click(showData);
-            $("#readRecords").click(readCountDocuments);
-            $("#clearList").click(clearList);
-            $('#readAll').click(readAll);
-            $('#removeAll').click(removeAll);
-            $('#update').click(update);
+            document.getElementById("readTwo").onclick = readTwo;
+            document.getElementById("newRecord").onclick = insertNewDocument;
+            //document.getElementById("showData").onclick = showData;
+            document.getElementById("userIndex").onchange = showData;
+            document.getElementById("readRecords").onclick = readCountDocuments;
+            document.getElementById("clearList").onclick = clearList;
+            document.getElementById("readAll").onclick = readAll;
+            document.getElementById("removeAll").onclick = removeAll;
+            document.getElementById("update").onclick = update;
         });
+
+
+
     }
 
-    var clearList = function(emptyMongoData) {
+    const clearList = function(emptyMongoData) {
         $("#mongoData").empty();
         if (emptyMongoData) {
             $.publish('emptyMongoData', function() {
@@ -30,7 +35,7 @@ define(function() {
         }
     };
 
-    var displayDocument = function(document) {
+    const displayDocument = function(document) {
         if (typeof document !== 'undefined') {
             $('#firstName').html(document.firstName);
             $('#lastName').html(document.lastName);
@@ -41,22 +46,48 @@ define(function() {
         }
     };
 
-    var displayList = function(data) {
+    /*const appendToList = function(text) {
+        const ul = document.getElementById("mongoData");
+        const li = document.createElement("li");
+        // li.className += "mdl-list__item mdl-list__item--two-line";
+        li.innerHTML = text;
+        ul.appendChild(li);
+    };*/
+
+    const displayByLastName = function(lastName) {
+        for (let i = 0; i < currentItems.length; i++) {
+            if (currentItems[i].lastName === lastName) {
+                displayDocument(currentItems[i]);
+            }
+            }
+        };
+
+    const displayList = function(data) {
         clearList(false);
-        for (var i = 0; i < data.length; i++) {
-            $("#mongoData").append('<li>' + JSON.stringify(data[i]) + '</li>');
+        currentItems = data;
+
+        for (let i = 0; i < data.length; i++) {
+            utilities.appendToList(data[i], displayByLastName);
         }
+
+        document.getElementById("mongoData").addEventListener("click",function(e) {
+            // e.target is our targetted element.
+            // try doing console.log(e.target.nodeName), it will result LI
+            if(e.target && e.target.nodeName == "LI") {
+                console.log(e.target.id + " was clicked");
+            }
+        });
     };
 
-    var insertNewDocument = function() {
+    const insertNewDocument = function() {
         $.publish('insertNewDocument', function(newData, mongoData) {
             displayDocument(newData[0]);
             displayList(mongoData);
         });
     };
 
-    var showItem = function(data) {
-        for (var i = 0; i < data.length; i++) {
+    const showItem = function(data) {
+        for (let i = 0; i < data.length; i++) {
             if (data[i][itemToShow.field] === itemToShow.value) {
                 displayDocument(data[i]);
                 itemToShow = null;
@@ -65,7 +96,7 @@ define(function() {
         }
     };
 
-    var readAll = function(event) {
+    const readAll = function(event) {
         $.publish('readAll', function(data) {
             displayDocument(data[0]);
             displayList(data);
@@ -75,8 +106,8 @@ define(function() {
         });
     };
 
-    var readCountDocuments = function() {
-        var numRequested = $('#numRequested').val();
+    const readCountDocuments = function() {
+        const numRequested = $('#numRequested').val();
         $.publish('readCountDocuments', {
             numRequested: numRequested,
             callback: function(data) {
@@ -86,14 +117,14 @@ define(function() {
         });
     };
 
-    var readTwo = function() {
+    const readTwo = function() {
         $.publish('readTwo', function(data) {
             displayDocument(data[0]);
             displayList(data);
         });
     };
 
-    var removeAll = function() {
+    const removeAll = function() {
         $.publish('removeAll', function(data) {
             if (data.result === "Success") {
                 clearList(true);
@@ -101,8 +132,8 @@ define(function() {
         });
     };
 
-    var showData = function() {
-        var index = $("#userIndex").val();
+    const showData = function() {
+        const index = $("#userIndex").val();
         $.publish("getDocument", {
             index: index,
             callback: function(document) {
@@ -111,8 +142,8 @@ define(function() {
         });
     };
 
-    var update = function() {
-        var updateDetails = {
+    const update = function() {
+        const updateDetails = {
             field: 'firstName',
             oldString: "Thomas",
             newString: "Tom",
@@ -129,6 +160,8 @@ define(function() {
 
         $.publish('update', updateDetails);
     };
+
+
 
     return ClientUi;
 });
