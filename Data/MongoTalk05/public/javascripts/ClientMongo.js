@@ -2,7 +2,7 @@
 define(function() {
     'use strict';
 
-    var mongoData = null;
+    let mongoData = [];
 
     function ClientMongo() {
         console.log("ClientMongo constructor called");
@@ -16,30 +16,26 @@ define(function() {
         $.subscribe('emptyMongoData', emptyMongoData)
     }
 
-    var getDocument = function(event, request) {
+    const getDocument = function(event, request) {
         request.callback(mongoData[request.index]);
     };
 
-    var emptyMongoData = function(event, callback) {
+    const emptyMongoData = function(event, callback) {
         mongoData = [];
         callback();
     };
 
-    var insertNewDocument = function(event, callback) {
+    const insertNewDocument = function(event, callback) {
         console.log("insert New Document called");
-        fetch('/readAll')
+        fetch('/insertJson')
             .then((response) => response.json())
-            .then((result) => {
+            .then((newData) => {
                 mongoData = mongoData.concat(newData.mongoDocument);
                 callback(newData.mongoDocument, mongoData);
             });
-        /*$.getJSON('/insertJson', function(newData) {
-            mongoData = mongoData.concat(newData.mongoDocument);
-            callback(newData.mongoDocument, mongoData);
-        });*/
     };
 
-    var readAll = function(event, callback) {
+    const readAll = function(event, callback) {
         console.log("readAll called");
         fetch('/readAll')
             .then((response) => response.json())
@@ -47,13 +43,9 @@ define(function() {
                 mongoData = result;
                 callback(result)
             });
-        /*$.getJSON('/readAll', function(data) {
-            mongoData = data;
-            callback(data);
-        });*/
     };
 
-    var readTwo = function(event, callback) {
+    const readTwo = function(event, callback) {
         console.log("readTwo called");
         fetch('/readTwo')
             .then((response) => response.json())
@@ -61,15 +53,11 @@ define(function() {
                 mongoData = result;
                 callback(result)
             });
-        /*$.getJSON('/readTwo', function(data) {
-            mongoData = data;
-            callback(data);
-        });*/
     };
 
-    var readCountDocuments = function(event, publishedRequest) {
+    const readCountDocuments = function(event, publishedRequest) {
         console.log("readCountDocuments called");
-        var request = {};
+        const request = {};
         request.numRequested = publishedRequest.numRequested;
         const url = '/readDocuments?numRequested=' + publishedRequest.numRequested;
         fetch(url)
@@ -78,14 +66,9 @@ define(function() {
                 mongoData = result;
                 publishedRequest.callback(mongoData);
             });
-        /*$.getJSON('/readDocuments', request, function(data) {
-            mongoData = data;
-            publishedRequest.callback(mongoData);
-        });*/
-
     };
 
-    var removeAll = function(event, callback) {
+    const removeAll = function(event, callback) {
         fetch('/removeAll')
             .then(function(json) {
                 return json.json();
@@ -93,14 +76,10 @@ define(function() {
             .then(function(response) {
                callback(response);
             });
-
-        /*$.getJSON('/removeAll', function(data) {
-            callback(data);
-        });*/
     };
 
-    var update = function(event, updateDetails) {
-        var request = {
+    const update = function(event, updateDetails) {
+        const request = {
             query: {
                 "firstName": updateDetails.oldString
             },
