@@ -14,15 +14,9 @@ var loadConfig = require('./LoadConfig.js').loadConfig;
 var QueryMongo = (function() {
     'use strict';
 
-    var response = null;
+    //var response = null;
     var mongoClient = null;
     var collectionName = 'test_insert';
-    /*
-     * Normally we do not close the database. If you have more
-     * more than one MongoClient then call it, otherwise, don't
-     * call it. So we default to false.
-     */
-    var callClose = false;
 
     function QueryMongo() {
         loadConfig(function(urls) {
@@ -38,18 +32,7 @@ var QueryMongo = (function() {
     const getDatabase = function(url, callback) {
         if (mongoClient !== null) {
             console.log('Already connected to MongoDb');
-            /*if (database.openCalled === false) {
-                mongoClient.open(function(err, database) {
-                    console.log('In database open callback');
-                    if (err) {
-                        console.log("found err");
-                        throw err;
-                    }
-                    callback(database);
-                });
-            } else {*/
-            callback(database);
-            //}
+            callback(mongoClient);
         } else {
             console.log('Querying for database: ' + url);
             MongoClient.connect(url, function(err, clientInit) {
@@ -60,8 +43,6 @@ var QueryMongo = (function() {
                 assert.ok(clientInit !== null);
 
                 mongoClient = clientInit;
-                //var database = clientInit.db('test');
-                // showDatabase(database);
                 callback(mongoClient);
             });
         }
@@ -88,16 +69,9 @@ var QueryMongo = (function() {
         }
     }
 
-
-    // If you have only on MongoClient, there is no need to call close.
-    var closeDatabase = function() {
-        client.close();
-    };
-
     QueryMongo.prototype.getAllDocuments = function(response) {
         console.log("QueryMongo.getAllDocuments called", collectionName);
         assert.ok(mongoClient !== null);
-        //getDatabase(function getCol(database) {
         const database = mongoClient.db('test');
         console.log('database: ', database);
         var collection = database.collection(collectionName);
@@ -105,12 +79,8 @@ var QueryMongo = (function() {
         // Send the collection to the client.
         collection.find().toArray(function(err, theArray) {
             console.dir(theArray);
-            //      if (callClose) {
-            //        closeDatabase();
-            //  }
             response.send(theArray);
         });
-        //});
     };
 
     // Get a specific number of documents from the collection
@@ -122,9 +92,6 @@ var QueryMongo = (function() {
         // Send the collection to the client.
         collection.find().limit(count).toArray(function(err, theArray) {
             console.dir(theArray);
-            if (callClose) {
-                closeDatabase();
-            }
             response.send(theArray);
         });
     };
@@ -140,9 +107,7 @@ var QueryMongo = (function() {
                     throw err;
                 }
                 console.log('sending back result: ' + result);
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 response.send({
                     "documentCount": result
                 });
@@ -159,9 +124,7 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 console.log("insert succeeded");
                 response.send({
                     result: "Success",
@@ -180,9 +143,7 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 console.log("update succeeded");
                 response.send({
                     result: "Success",
@@ -214,9 +175,7 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 console.log(typeof theArray[theArray.length - 1].text);
                 var output = theArray[theArray.length - 1].text;
                 writeFile(response, output);
@@ -228,6 +187,7 @@ var QueryMongo = (function() {
         fs.writeFile("test.md", jsonString, function(err) {
             if (err) {
                 console.log(err);
+                throw(err);
             } else {
                 console.log("The file was saved!");
                 convertToHtml(response);
@@ -253,9 +213,7 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 console.log("Item deleted");
             });
 
@@ -269,9 +227,7 @@ var QueryMongo = (function() {
                 if (err) {
                     throw err;
                 }
-                if (callClose) {
-                    closeDatabase();
-                }
+
                 console.log("Item deleted");
                 response.send({
                     result: "Success",
