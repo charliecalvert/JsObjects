@@ -5,7 +5,7 @@
 require.config({
     paths: {
         'testMe': './public/testMe',
-        'jquery': './public/javascripts/jquery-2.1.0',
+        'jquery': '/scripts/jquery',
         'pubSub': './public/javascripts/PubSubOn',
         'clientMongo': "./public/javascripts/ClientMongo",
         'jasmine': 'Library/jasmine',

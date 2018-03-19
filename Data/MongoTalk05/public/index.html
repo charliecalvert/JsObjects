@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-blue.min.css"/>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="Styles/index.css" rel="stylesheet" type="text/css">
     <link href="Styles/materials.css" rel="stylesheet" type="text/css">
     <script data-main="./javascripts/main" src="./scripts/require.js"></script>
 </head>
@@ -34,6 +34,7 @@
             <a id="removeAll" class="mdl-navigation__link" href="">Delete All</a>
             <a id="clearList" class="mdl-navigation__link" href="">ClearList</a>
             <a id="update" class="mdl-navigation__link" href="">Update Thomas to Tom</a>
+            <a id="showTools" class="mdl-navigation__link" href="">Show Tools</a>
             <a id="help" class="mdl-navigation__link" href="">Help</a>
         </nav>
     </div>
@@ -53,27 +54,8 @@
             <p><span id="city"> </span> <span id="state"> </span> <span id="zip"> </span></p>
         </div>
 
-        <br>
-        <br>
+        <div id="tools"></div>
 
-
-        <div class="group">
-            <input type="number" id="userIndex" value=0>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Index of record to display</label>
-        </div>
-
-
-        <hr/>
-
-        <input type="number" id="numRequested" value="3">
-
-        <button
-            id="readRecords"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Read X Records
-        </button>
 
         <ul>
             <li><a href="../Tests/TestClient.html">Unit Tests</a></li>

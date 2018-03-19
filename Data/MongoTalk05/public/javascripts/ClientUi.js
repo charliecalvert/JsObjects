@@ -8,6 +8,7 @@ define(["utilities"], function(utilities) {
     let itemToShow = null;
     let currentItems = null;
     let helpVisible = false;
+    let toolsVisible = false;
 
     function ClientUi() {
 
@@ -15,12 +16,11 @@ define(["utilities"], function(utilities) {
             document.getElementById("readTwo").onclick = readTwo;
             document.getElementById("newRecord").onclick = insertNewDocument;
             //document.getElementById("showData").onclick = showData;
-            document.getElementById("userIndex").onchange = showData;
-            document.getElementById("readRecords").onclick = readCountDocuments;
             document.getElementById("clearList").onclick = clear;
             document.getElementById("readAll").onclick = readAll;
             document.getElementById("removeAll").onclick = removeAll;
             document.getElementById("update").onclick = update;
+            document.getElementById("showTools").onclick = showTools;
             document.getElementById("help").onclick = help;
         });
         readAll();
@@ -50,6 +50,19 @@ define(["utilities"], function(utilities) {
         helpVisible = !helpVisible;
     };
 
+    const showTools = function(event) {
+        setUpLink(event);
+        if (toolsVisible) {
+            document.getElementById("tools").innerHTML = "";
+        } else {
+            $('#tools').load("Pieces.html #extraTools", function() {
+                document.getElementById("userIndex").onchange = showData;
+                document.getElementById("readRecords").onclick = readCountDocuments;
+            });
+        }
+        toolsVisible = !toolsVisible;
+    };
+
     const clearList = function(emptyMongoData) {
         $("#mongoData").empty();
         if (emptyMongoData) {
@@ -76,19 +89,11 @@ define(["utilities"], function(utilities) {
         }
     };
 
-    /*const appendToList = function(text) {
-        const ul = document.getElementById("mongoData");
-        const li = document.createElement("li");
-        // li.className += "mdl-list__item mdl-list__item--two-line";
-        li.innerHTML = text;
-        ul.appendChild(li);
-    };*/
-
     const displayByLastName = function(target) {
         // Remove highlight
         const ul = document.getElementById("mongoData");
-        var items = ul.getElementsByTagName("li");
-        for (var i = 0; i < items.length; ++i) {
+        const items = ul.getElementsByTagName("li");
+        for (let i = 0; i < items.length; ++i) {
             items[i].classList.remove("material-green");
         }
 
