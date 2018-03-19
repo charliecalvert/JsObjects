@@ -30,8 +30,8 @@ define(function() {
         fetch('/insertJson')
             .then((response) => response.json())
             .then((newData) => {
-                mongoData = mongoData.concat(newData.mongoDocument);
-                callback(newData.mongoDocument, mongoData);
+                mongoData = mongoData.concat(newData.mongoDocument.ops);
+                callback(newData.mongoDocument.ops, mongoData);
             });
     };
 
@@ -119,6 +119,7 @@ define(function() {
             });
 
     };
+
 
     return ClientMongo;
 });

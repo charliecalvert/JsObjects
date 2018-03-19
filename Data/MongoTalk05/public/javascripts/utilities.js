@@ -13,9 +13,10 @@ define(function() {
             return span;
         },
 
-        createIcon: function(span) {
+        createIcon: function(span, president) {
             const icon = document.createElement("i");
             icon.className = "material-icons mdl-list__item-avatar";
+            icon.id="icon" + president.firstName + president.lastName;
             icon.appendChild(document.createTextNode('person'));
             span.appendChild(icon);
         },
@@ -23,7 +24,7 @@ define(function() {
         createMainSpan: function(president, li) {
             const span = document.createElement('span');
             span.className = "mdl-list__item-primary-content";
-            this.createIcon(span);
+            this.createIcon(span, president);
             this.createSubSpan(span, president.firstName + " " + president.lastName, "mdl-list__item-primary-content");
             this.createSubSpan(span, president._id, "mdl-list__item-sub-title");
             li.appendChild(span);
@@ -33,9 +34,9 @@ define(function() {
             const ul = document.getElementById("mongoData");
             const li = document.createElement("li");
             li.className += "mdl-list__item mdl-list__item--two-line";
-            li.id=president.lastName;
+            li.id=president.firstName + president.lastName;
             li.addEventListener("click", function(event) {
-                callback(event.currentTarget.id);
+                callback(event.currentTarget);
             });
             this.createMainSpan(president, li);
             ul.appendChild(li);

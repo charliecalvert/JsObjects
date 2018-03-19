@@ -76,6 +76,11 @@ input:focus ~ .highlight {
     animation:inputHighlighter 0.3s ease;
 }
 
+.material-green { background-color: #EEFFEE; }
+/*.mdl-list__item-avatar, .mdl-list__item-avatar.material-icons {
+    background-color: #4CAF50;
+}*/
+
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
     from { background:#5264AE; }
