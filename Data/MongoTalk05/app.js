@@ -36,7 +36,8 @@ app.use("/Tests/", express.static(__dirname + '/Tests'));
 app.use("/", express.static(__dirname + '/Library'));
 app.use("/scripts", express.static(__dirname + '/node_modules/requirejs'));
 app.use("/scripts", express.static(__dirname + '/node_modules/jquery/dist'));
-
+app.use("/scripts", express.static(__dirname + '/node_modules/jasmine-core/lib/jasmine-core/'));
+app.use("/scripts", express.static(__dirname + '/node_modules/jasmine-jquery/lib/'));
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     'use strict';

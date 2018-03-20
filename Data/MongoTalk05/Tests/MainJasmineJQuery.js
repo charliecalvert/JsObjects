@@ -8,10 +8,10 @@ require.config({
         //'pubSub' : '../Public/PubSubOn',
         //'clientMongo' : "../Public/ClientMongo",
         //'clientUi' : "../Public/ClientUi",
-        'jasmine': 'Library/jasmine',
-        'jasmine-html': 'Library/jasmine-html',
-        'jasmine-jquery': 'Library/jasmine-jquery',
-        'boot': 'Library/boot',
+        'jasmine': '/scripts/jasmine',
+        'jasmine-html': '/scripts/jasmine-html',
+        'jasmine-jquery': '/scripts/jasmine-jquery',
+        'boot': '/scripts/boot',
 
     },
     shim: {

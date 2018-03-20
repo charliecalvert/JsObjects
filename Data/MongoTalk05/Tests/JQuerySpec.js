@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-function test() {
+define(function() {
+// function test() {
     describe("Jasmine-JQuery example suite", function() {
 
         jasmine.getFixtures().fixturesPath = './public/';
@@ -39,8 +40,8 @@ function test() {
         });
 
         it('Uses Jasmine-JQuery to spy on a button click version 2', function() {
-            loadFixtures('Pieces.html');
-            var elementName = '#readAll';
+            loadFixtures("Pieces.html");
+            const elementName = "#readAll";
             var spyEvent = spyOnEvent(elementName, 'click');
             $(elementName).click();
             expect('click').toHaveBeenTriggeredOn(elementName);
@@ -48,8 +49,9 @@ function test() {
         });
     });
 
-}
+});
 
+/*
 $(document).ready(function() {
     test();
-});
+});*/

@@ -8,9 +8,9 @@ require.config({
         'jquery': '/scripts/jquery',
         'pubSub': './public/javascripts/PubSubOn',
         'clientMongo': "./public/javascripts/ClientMongo",
-        'jasmine': 'Library/jasmine',
-        'jasmine-html': 'Library/jasmine-html',
-        'boot': 'Library/boot',
+        'jasmine': '/scripts/jasmine',
+        'jasmine-html': '/scripts/jasmine-html',
+        'boot': '/scripts/boot',
         // 'jasmine-jquery' : 'Library/jasmine-jquery'
     },
     shim: {
