@@ -4,7 +4,8 @@
   "description": "Learn about for loops and simple express servers",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest --watch",
+    "test": "testcafe firefox test-cafe-starter.js",
+    "tester": "./node_modules/.bin/jest --watch",
     "start": "nodemon server.js"
   },
   "repository": {
