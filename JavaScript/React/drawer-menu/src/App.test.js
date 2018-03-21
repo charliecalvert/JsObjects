@@ -29,7 +29,7 @@ describe('App Tests', function() {
         const wrapper = mount(<MuiThemeProvider><App /></MuiThemeProvider>);
         const welcome = <h1>You Picked Foo</h1>;
         wrapper.find('#showFooId').last().simulate('click');
-        elfDebugEnzyme.getLast(wrapper, 'h1', true);
+        elfDebugEnzyme.getLast(wrapper, 'h1');
         expect(wrapper.contains(welcome)).toEqual(true);
     });
 
@@ -37,7 +37,7 @@ describe('App Tests', function() {
         const wrapper = mount(<MuiThemeProvider><App /></MuiThemeProvider>);
         const welcome = <h1>You Picked Bar</h1>;
         wrapper.find('#showBarId').last().simulate('click');
-        elfDebugEnzyme.getLast(wrapper, 'h1', true);
+        elfDebugEnzyme.getLast(wrapper, 'h1');
         expect(wrapper.contains(welcome)).toEqual(true);
     });
 

@@ -1,15 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {getDate, getTitle} from "./actions";
+//import {connect} from 'react-redux';
+//import {getDate, getTitle} from "./actions";
 
 class Overview extends React.Component {
 
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-        this.props.dispatchTitle();
-        this.props.dispatchDate();
+        //this.props.dispatchTitle();
+        //this.props.dispatchDate();
+    }*/
 
-    }
+    //let AppConnect = ({dispatchTitle, displatchDate}) => {
     render() {
 
         return (
@@ -49,6 +50,7 @@ class Overview extends React.Component {
     }
 }
 
+/*
 const mapStateToProps = (state) => {
     return {
         title: state.title,
@@ -71,5 +73,6 @@ Overview = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Overview);
+*/
 
 export default Overview;

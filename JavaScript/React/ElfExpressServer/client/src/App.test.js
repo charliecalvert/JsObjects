@@ -4,20 +4,39 @@ import React from 'react';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-import { shallow } from 'enzyme';
-import App from '../src/App';
+import { shallow, mount } from 'enzyme';
+import {Provider} from 'react-redux';
+import configReducer from './reducers/redux-counter';
+import {createStore} from 'redux';
 
-describe('App', () => {
+let store = createStore(configReducer);
+
+import Overview from './Overview';
+import ElfDebugEnzyme from './ElfDebugEnzyme';
+const elfDebugEnzyme = new ElfDebugEnzyme(true, 'App.test.js');
+
+
+class OverviewDummyWrapper extends React.Component {
+
+}
+describe('Test overview', () => {
     let wrapper;
 
-    beforeEach(() => {
+    /*beforeEach(() => {
         wrapper = shallow(
             <App />,
         );
+    });*/
+
+    it('renders and reads H1 text from App', () => {
+        //const wrapper = mount(<Provider store={store}><Overview/></Provider>);
+        const wrapper = mount(<Overview title="Elven React Redux REST Demo" date="June" />);
+        //elfDebugEnzyme.getAll(wrapper);
+        const welcome = <h1>Elven React Redux REST Demo</h1>;
+        elfDebugEnzyme.getLast(wrapper, 'h1', true);
+        expect(wrapper.contains(welcome)).toEqual(true);
     });
 
-    it('Check for header', () => {
-        //expect(wrapper.toContain('<h2>The Main File</h2>');
-    });
+
 
 });

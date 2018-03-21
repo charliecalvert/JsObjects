@@ -6,7 +6,7 @@
 import React from 'react';
 import Counter from './Counter';
 import GetNumbers from './GetNumbers';
-import Overview from "./Overview";
+import OverviewConnect from "./OverviewConnect";
 
 class App extends React.Component {
 
@@ -14,7 +14,7 @@ class App extends React.Component {
         return (
             <div>
 
-                <Overview/>
+                <OverviewConnect/>
                 <Counter/>
                 <GetNumbers/>
 
