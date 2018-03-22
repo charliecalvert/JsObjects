@@ -25,8 +25,15 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-jasmine-node-coverage": "^2.0.1",
     "grunt-jsbeautifier": "^0.2.13",
+    "grunt-karma": "^2.0.0",
     "jasmine": "^3.1.0",
+    "jasmine-jquery": "^2.1.1",
     "jest": "^22.4.3",
-    "js-beautify": "^1.7.5"
+    "js-beautify": "^1.7.5",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "~1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-spec-reporter": "~0.0.32"
   }
 }

@@ -1,4 +1,4 @@
-app.CsvToArray = (function() {
+const CsvToArray = (function() {
     'use strict';
 
     function CsvToArray() {
@@ -138,3 +138,5 @@ app.CsvToArray = (function() {
 
     return CsvToArray;
 }());
+
+module.exports = CsvToArray;

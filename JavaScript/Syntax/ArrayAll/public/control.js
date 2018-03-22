@@ -1,9 +1,5 @@
-/*
-window.onload = function() {
-    'use strict';
-    app.init();
-};
-*/
+
+const app = require('./app');
 
 function appendToList(text, method) {
     var ul = document.getElementById("appList");
@@ -12,6 +8,17 @@ function appendToList(text, method) {
     ul.appendChild(li);
 }
 
+window.onload = function() {
+    'use strict';
+    app.init();
+    appendToList(app.arrayAll.arrayConstructor(), "arrayConstructor");
+    appendToList(app.arrayAll.mixedArray(), "mixedArray");
+    appendToList(app.arrayAll.convertTextToArray("This is some text", "convertTextToArray"));
+};
+
+
+
+/*
 $(document).ready(function() {
     'use strict';
     //app.init();
@@ -20,3 +27,4 @@ $(document).ready(function() {
     appendToList(app.arrayAll.mixedArray(), "mixedArray");
     appendToList(app.arrayAll.convertTextToArray("This is some text", "convertTextToArray"));
 });
+*/

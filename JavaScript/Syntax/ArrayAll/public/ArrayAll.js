@@ -2,24 +2,7 @@
  * @author Charlie Calvert
  */
 
-var app = {
-    arrayAll: null,
-    csvToArray: null,
-
-    init: function() {
-        'use strict';
-        if (!this.arrayAll) {
-            this.arrayAll = new app.ArrayAll();
-        }
-
-        if (!this.csvToArray) {
-            this.csvToArray = new app.CsvToArray();
-        }
-        return this.arrayAll;
-    }
-};
-
-app.ArrayAll = (function() {
+const ArrayAll = (function() {
     'use strict';
 
     function ArrayAll() {
@@ -83,5 +66,5 @@ app.ArrayAll = (function() {
 
 }());
 
-
+module.exports = ArrayAll;
 
