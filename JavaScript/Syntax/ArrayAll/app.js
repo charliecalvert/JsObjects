@@ -29,12 +29,14 @@ function charlie(req, res, next) {
 app.use(charlie);
 
 app.use(express.static(path.join(__dirname, 'Tests')));
-app.use('/Scripts', express.static(path.join(__dirname, 'Scripts')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/scripts', express.static(path.join(__dirname, 'node_modules/jquery/dist/')));
+app.use('/scripts', express.static(path.join(__dirname, 'node_modules/jasmine-core/lib/jasmine-core/')));
 
 app.get('/', function(req, res) {
     'use strict';
     var htmlFiles = ['index.html', 'Tests/ArraySpec.html'];
-    var html = fs.readFileSync(__dirname + '/' + htmlFiles[1]);
+    var html = fs.readFileSync(__dirname + '/' + htmlFiles[0]);
     res.writeHeader(200, {
         "Content-Type": "text/html"
     });

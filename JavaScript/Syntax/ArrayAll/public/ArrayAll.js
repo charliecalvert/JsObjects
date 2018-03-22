@@ -27,18 +27,17 @@ app.ArrayAll = (function() {
     }
 
     ArrayAll.prototype.emptyArray = function() {
-        var empty = [];
-        return empty;
+        return [];
     };
 
     ArrayAll.prototype.emptyArrayCount = function() {
-        var empty = [];
+        const empty = [];
         return empty.length;
     };
 
     ArrayAll.prototype.letterArray = function() {
-        var empty = [];
-        var letters = ['a', 'b', 'c'];
+        //const empty = [];
+        const letters = ['a', 'b', 'c'];
         return letters.length;
     };
 
@@ -52,8 +51,7 @@ app.ArrayAll = (function() {
     };
 
     ArrayAll.prototype.convertTextToArray = function(text) {
-        var array = text.split(" ");
-        return array;
+        return text.split(" ");
     };
 
 
@@ -72,7 +70,7 @@ app.ArrayAll = (function() {
             return false;
         }
 
-        for (var count = 0; count < one.length; count++) {
+        for (let count = 0; count < one.length; count++) {
             if (one[count] !== two[count]) {
                 return false;
             }
@@ -85,7 +83,5 @@ app.ArrayAll = (function() {
 
 }());
 
-$(document).ready(function() {
-    'use strict';
-    app.init();
-});
+
+

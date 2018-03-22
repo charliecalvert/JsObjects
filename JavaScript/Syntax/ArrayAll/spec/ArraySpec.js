@@ -1,6 +1,8 @@
 describe("An Array Suite", function() {
     'use strict';
 
+//    import app from "../public/ArrayAll.js";
+
     beforeAll(function() {
         app.init();
     });

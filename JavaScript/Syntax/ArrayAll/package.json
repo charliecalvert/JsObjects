@@ -3,16 +3,18 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "DEBUG=my.application node ./bin/www"
+    "start": "DEBUG=my.application nodemon ./app",
+    "test": "node_modules/.bin/jasmine"
   },
   "dependencies": {
-    "express": "~4.16.3",
-    "static-favicon": "~2.0.0-alpha",
-    "morgan": "~1.9.0",
-    "cookie-parser": "~1.4.3",
     "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
     "debug": "~3.1.0",
-    "jade": "~1.11.0"
+    "express": "~4.16.3",
+    "jade": "~1.11.0",
+    "jquery": "^3.3.1",
+    "morgan": "~1.9.0",
+    "static-favicon": "~2.0.0-alpha"
   },
   "devDependencies": {
     "grunt": "^1.0.2",
@@ -23,6 +25,8 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-jasmine-node-coverage": "^2.0.1",
     "grunt-jsbeautifier": "^0.2.13",
+    "jasmine": "^3.1.0",
+    "jest": "^22.4.3",
     "js-beautify": "^1.7.5"
   }
 }
