@@ -2,6 +2,28 @@
 
 This shows how to use a tool called [Browserify][brow] to make it simple to test modules that are used on the client.
 
+## Testing
+
+To test:
+
+    npm install
+    npm test
+
+## Run
+
+To launch:
+
+    npm install
+    npm run dev
+    npm start
+
+
+In a second console or tab, open the browser:
+
+    firefox http://localhost:30025
+
+## Overview
+
 The key feature here is [Browserify][brow] itself. We use it convert server side JS into code that can be used on client:
 
     browserify --debug public/control.js > public/bundle.js
