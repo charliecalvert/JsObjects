@@ -11,7 +11,7 @@ module.exports = function(config) {
         
         files: [
             'node_modules/jquery/dist/jquery.min.js',
-            'source/*.js',
+            'public/*.js',
             'spec/test*.js'
         ],
 
