@@ -25,8 +25,7 @@ const ArrayAll = (function() {
     };
 
     ArrayAll.prototype.arrayConstructor = function() {
-        var numbers = new Array(1, 2, 3, 4, 5);
-        return numbers;
+        return new Array(1, 2, 3, 4, 5);
     };
 
     ArrayAll.prototype.mixedArray = function() {
@@ -36,8 +35,6 @@ const ArrayAll = (function() {
     ArrayAll.prototype.convertTextToArray = function(text) {
         return text.split(" ");
     };
-
-
 
     // If you pass in [a, b, c] it will return a and leave [b, c]
     ArrayAll.prototype.getFirst = function(myArray) {

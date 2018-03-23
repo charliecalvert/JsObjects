@@ -1,4 +1,4 @@
-/*jshint jquery: true, devel: true, browser: true, strict: true */
+
 
 var App = (function() {
     'use strict';
@@ -10,14 +10,19 @@ var App = (function() {
         [0, 1, 0]
     ];
 
+    function addGridText(item, value) {
+        var element = document.getElementById(item);
+        element.innerText = value;
+    }
+
     function App() {
         for (var column = 0; column < MAX; column++) {
             for (var row = 0; row < MAX; row++) {
-                var item = "#item" + row + column;
+                var item = "item" + row + column;
                 if (grid[row][column] === 0) {
-                    $(item).html("0");
+                    addGridText(item, "0")
                 } else {
-                    $(item).html("X");
+                    addGridText(item, "X")
                 }
             }
         }
@@ -26,7 +31,7 @@ var App = (function() {
     return App;
 })();
 
-$(document).ready(function() {
+window.onload = function() {
     'use strict';
     new App();
-});
+};
