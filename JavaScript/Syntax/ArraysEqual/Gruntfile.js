@@ -21,6 +21,7 @@ module.exports = function(grunt) {
 				reporter : require('jshint-stylish'),
 				// reporterOutput : 'result.xml',
 				strict : true,
+                esversion: 6,
 				globals : {
 					describe : true,
 					afterEach : true,

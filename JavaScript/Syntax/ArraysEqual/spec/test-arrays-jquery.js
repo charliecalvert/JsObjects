@@ -97,6 +97,8 @@ describe("Arrays have same elements with jquery", function() {
 
 describe("Arrays are equal with jquery", function() {
 
+    'use strict';
+
     it("expects null arrays to fail", function() {
         var a1 = null;
         var a2 = [1];

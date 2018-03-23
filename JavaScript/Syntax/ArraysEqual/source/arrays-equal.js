@@ -23,7 +23,7 @@ function arraysAreEqual(array1, array2) { 'use strict';
             if (!arraysAreEqual(array1[i], array2[i]))
                 return false;
         }
-        else if (array1[i] != array2[i]) {
+        else if (array1[i] !== array2[i]) {
             // Warning - two different object instances will never be equal: {x:20} != {x:20}
             return false;
         }
@@ -38,7 +38,7 @@ function arraysHaveSameElements(array1, array2) { 'use strict';
         return false;
     }
 
-    if (array1.length != array2.length) {
+    if (array1.length !== array2.length) {
         return false;
     }
 
