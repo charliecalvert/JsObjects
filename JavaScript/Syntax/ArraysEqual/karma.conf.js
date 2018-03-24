@@ -11,8 +11,8 @@ module.exports = function(config) {
         
         files: [
             'node_modules/jquery/dist/jquery.min.js',
-            'public/*.js',
-            'spec/test-basic.js'
+            'public/arrays-equal.js',
+            'spec/*.js'
         ],
 
         // list of files to exclude

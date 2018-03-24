@@ -2,6 +2,17 @@
  * Created by charlie on 10/20/15.
  */
 
+function removeEvens(numbers) { 'use strict';
+    return numbers.filter(function(number) {
+        return number % 2 !== 0;
+    });
+}
+
+/*
+function bar() { 'use strict';
+    return true;
+}
+*/
 // Similar to here: http://stackoverflow.com/a/14853974
 // Checks for arrays or nested arrays that are exactly alike
 function arraysAreEqual(array1, array2) { 'use strict';
