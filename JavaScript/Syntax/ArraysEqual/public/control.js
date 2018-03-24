@@ -1,3 +1,4 @@
+var elvenUtils = require('elven-code').elfUtils;
 
 function addGridText(item, value) { 'use strict';
     var element = document.getElementById(item);
@@ -12,7 +13,7 @@ function bar() { 'use strict';
 function foo() { 'use strict';
     var a1 = [1];
     var a2 = [1];
-    var result = arraysAreEqual(a1, a2);
+    var result = elvenUtils.arraysAreEqual(a1, a2);
     //bar();
     addGridText('foo', 'Arrays Equal: ' + result);
 }

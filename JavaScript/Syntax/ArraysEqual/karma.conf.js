@@ -7,13 +7,17 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: './',
 
-        frameworks: ['jasmine'],
+        frameworks: ['browserify', 'jasmine'],
         
         files: [
             'node_modules/jquery/dist/jquery.min.js',
             'public/arrays-equal.js',
-            'spec/*.js'
+            'spec/test-arrays-equal.js'
         ],
+
+        preprocessors: {
+            '**/*test*.js': [ 'browserify' ]
+        },
 
         // list of files to exclude
         exclude: [
@@ -43,9 +47,12 @@ module.exports = function(config) {
         // Set to false to watch files for changes
         singleRun: false,
 
-        plugins: ["karma-jasmine",
+        plugins: [
+            "karma-browserify",
+            "karma-jasmine",
             "karma-spec-reporter",
-            'karma-phantomjs-launcher']
+            'karma-phantomjs-launcher'
+        ]
         
     });
 };
