@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "scripts": {
         "start": "nodemon app.js",
-        "test": "grunt test",
+        "test-grunt": "grunt test",
+        "test": "node_modules/.bin/jasmine",
         "dev": "browserify --debug public/control.js > public/bundle.js"
     },
     "devDependencies": {
@@ -14,7 +15,6 @@
         "jasmine-core": "^3.1.0",
         "jshint-stylish": "^2.2.1",
         "karma": "~2.0.0",
-        "karma-browserify": "^5.2.0",
         "karma-jasmine": "~1.1.1",
         "karma-phantomjs-launcher": "~1.0.4",
         "karma-spec-reporter": "0.0.32",

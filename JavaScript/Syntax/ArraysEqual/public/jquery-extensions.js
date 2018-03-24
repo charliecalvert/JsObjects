@@ -20,7 +20,7 @@ jQuery.extend({arraysHaveSameElements: function(array1, array2) { 'use strict';
 
         for (var i = 0; i < array1.length; i++) {
             if (array1[i] instanceof Array && array2[i] instanceof Array) {
-                if (!arraysHaveSameElements(array1[i], array2[i])) {
+                if (!jQuery.arraysHaveSameElements(array1[i], array2[i])) {
                     return false;
                 }
             } else if (array1[i] != array2[i]) {

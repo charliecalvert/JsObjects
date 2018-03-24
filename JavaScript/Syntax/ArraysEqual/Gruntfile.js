@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    '**/node_modules/**', '**/components/**'
+                    '**/bundle.js', '**/node_modules/**', '**/components/**'
                 ],
                 reporter: require('jshint-stylish'),
                 // reporterOutput : 'result.xml',
