@@ -37,7 +37,7 @@ const ArrayAll = (function() {
     };
 
     // If you pass in [a, b, c] it will return a and leave [b, c]
-    ArrayAll.prototype.getFirst = function(myArray) {
+    ArrayAll.prototype.takeFirst = function(myArray) {
         return myArray.shift();
     };
 

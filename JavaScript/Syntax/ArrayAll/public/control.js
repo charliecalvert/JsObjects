@@ -1,7 +1,7 @@
 
 const app = require('./app');
 
-function appendToList(text, method) {
+function appendToList(text, method) { 'use strict';
     const ul = document.getElementById("appList");
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(method + ": " + text));

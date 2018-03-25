@@ -57,9 +57,32 @@ describe("An Array Suite", function() {
 
     it("can get first element from an array", function() {
         var natoAlphabet = ['Alpha', 'Bravo', 'Charlie'];
-        var first = app.arrayAll.getFirst(natoAlphabet);
+        var first = app.arrayAll.takeFirst(natoAlphabet);
         expect(first).toBe('Alpha');
         expect(app.arrayAll.isEqual(natoAlphabet, ['Bravo', 'Charlie'])).toBe(true);
+    });
+
+    it("can can detect null array", function() {
+        var natoAlphabet = ['Alpha', 'Bravo', 'Charlie'];
+        var alphabet = null;
+        expect(app.arrayAll.isEqual(natoAlphabet, alphabet)).toBe(false);
+    });
+
+    it("array can detect different lengths", function() {
+        var natoAlphabet = ['Alpha', 'Bravo', 'Charlie'];
+        var alphabet = ['Alpha'];
+        expect(app.arrayAll.isEqual(natoAlphabet, alphabet)).toBe(false);
+    });
+
+    it("can detect identical arrays", function() {
+        var natoAlphabet = ['Alpha', 'Bravo', 'Charlie'];
+        expect(app.arrayAll.isEqual(natoAlphabet, natoAlphabet)).toBe(true);
+    });
+
+    it("array can detect different lengths", function() {
+        var natoAlphabet = ['Alpha', 'Bravo', 'Charlie'];
+        var alphabet = ['Alpha', 'Bravo', 'Charles'];
+        expect(app.arrayAll.isEqual(natoAlphabet, alphabet)).toBe(false);
     });
 
 });

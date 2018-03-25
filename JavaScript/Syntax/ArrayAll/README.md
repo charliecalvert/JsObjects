@@ -1,6 +1,6 @@
 # Array All
 
-This shows how to use a tool called [Browserify][brow] to make it simple to test modules that are used on the client.
+**ArrayAll** shows how to use a tool called [Browserify][brow] to make it simple to test modules that are used on the client.
 
 ## Testing
 
