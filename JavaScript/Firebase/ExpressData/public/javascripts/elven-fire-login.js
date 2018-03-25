@@ -1,15 +1,4 @@
-// Initialize Firebase and sign in Redirect
-
-document.addEventListener('DOMContentLoaded', function () {
-    try {
-        elfConfigure();
-        elfSignIn();
-        document.getElementById('load').innerHTML = 'Firebase App Loaded';
-    } catch (e) {
-        console.error(e);
-        document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-    }
-});
+// Initialize Firebase
 
 /**
  * Function called when clicking the Login/Logout button.
@@ -27,7 +16,7 @@ function toggleSignIn() {
 
 function elfConfigure() {
     const config = {
-        YOUR FIREBASE CONFIG API - KEY OBJECT HERE
+        YOUR FIREBASE CONFIG API-KEY OBJECT HERE
         GO TO FIREBASE CONSOLE, FIND YOUR PROJECT, SELECT "Add Firebase to your webapp"
     };
     firebase.initializeApp(config);
@@ -42,22 +31,17 @@ function elfSignIn() {
         if (result.credential) {
             var token = result.credential.accessToken;
             console.log(JSON.stringify(token));
-            document.getElementById('elf-sign-in').textContent = 'Sign out';
+            console.log(result.user);
         }
-        var user = result.user;
+
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
-
         if (errorCode === 'auth/account-exists-with-different-credential') {
-            alert('You have already signed up with a different auth provider for that email.' + credential);
+            alert('You have already signed up with a different auth provider for that email.');
         } else {
-            console.error(error);
-            console.error(errorMessage);
-            console.error(email);
+            console.error(error, errorMessage);
         }
     });
 
@@ -65,24 +49,31 @@ function elfSignIn() {
         if (user) {
             // User is signed in.
             var displayName = user.displayName;
-            var email = user.email;
             var photoURL = user.photoURL;
-            document.getElementById('elf-sign-in-status').textContent = 'Signed in';
             document.getElementById('elf-sign-in').textContent = 'Sign out';
             document.getElementById('elf-user').textContent = displayName;
-            document.getElementById('elf-details').textContent = email;
             document.getElementById("elfPhoto").src = photoURL;
-            //document.getElementById('elf-details').textContent = JSON.stringify(user, null, '  ');
         } else {
             // User is signed out.
-            document.getElementById('elf-sign-in-status').textContent = 'Signed out';
             document.getElementById('elf-sign-in').textContent = 'Sign in with Google';
             document.getElementById('elf-user').textContent = 'null';
-            document.getElementById('elf-details').textContent = 'null';
             document.getElementById("elfPhoto").src = "favicon.png";
         }
         document.getElementById('elf-sign-in').disabled = false;
     });
 
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    try {
+        elfConfigure();
+        elfSignIn();
+    } catch (e) {
+        console.error(e);
+        document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    }
+});
 
