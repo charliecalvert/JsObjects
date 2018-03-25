@@ -19,7 +19,8 @@ module.exports = function(config) {
         exclude: [
         ],
 
-        reporters: ['spec'],
+        // Try 'spec' if you want more information
+        reporters: ['progress'],
 
         // web server port
         port: 9876,
@@ -27,8 +28,8 @@ module.exports = function(config) {
         // enable / disable colors in the output (reporters and logs)
         colors: true,
 
-        // level of logging
-        logLevel: config.LOG_INFO,
+        // level of logging (Try LOG_INFO if you have problems)
+        logLevel: config.LOG_DISABLE,
 
         // enable / disable watching file and executing tests whenever any file changes
         // CLI --auto-watch --no-auto-watch
@@ -41,7 +42,7 @@ module.exports = function(config) {
         captureTimeout: 20000,
 
         // Set to false to watch files for changes
-        singleRun: false,
+        singleRun: true,
 
         plugins: [
             "karma-jasmine",

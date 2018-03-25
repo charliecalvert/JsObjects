@@ -1,10 +1,7 @@
-var App = (function() {
-    'use strict';
+const workers = require('./workers');
 
-    var Alabama = 'AL',
-        California = 'CA',
-        Texas = 'TX',
-        Washington = 'WA';
+const App = (function() {
+    'use strict';
 
     function App() {
         describe('If Statements');
@@ -17,112 +14,51 @@ var App = (function() {
         runFuncState2();
     }
 
-    var describe = function(value) {
+    const
+        Alabama = 'AL',
+        California = 'CA',
+        Texas = 'TX',
+        Washington = 'WA';
+
+    const describe = function(value) {
         console.log();
         console.log(value);
         console.log("==============");
     };
 
-    var isEven = function(input) {
-        if (input % 2 === 0) {
-            console.log('Your input of ' + input + ' is even');
-        } else {
-            console.log('Your input of ' + input + ' is odd');
-        }
+    const runIfStatements = function() {
+        workers.isEven(2);
+        workers.isEven(3);
+        workers.isEven(4);
+        workers.isEven(5);
     };
 
-    var statePopulation = function(stateAbbreviation) {
-        var result = 0;
 
-        switch (stateAbbreviation) {
-            case 'AL':
-                result = 4800736;
-                break;
-
-            case 'CA':
-                result = 38053956;
-                break;
-
-            case 'TX':
-                result = 25901361;
-                break;
-
-            case 'WA':
-                result = 6830038;
-                break;
-
-            default:
-                result = -1;
-        }
-
-        console.log('The population of ' + stateAbbreviation + ' is ' + result);
+    const runState = function() {
+        workers.statePopulation(Alabama);
+        workers.statePopulation(California);
+        workers.statePopulation(Texas);
+        workers.statePopulation(Washington);
+        workers.statePopulation('Unknown');
     };
 
-    var funcBranch = function(stateAbbreviation) {
-
-        var stateMap = {
-            'AL': 4800736,
-            'CA': 38053956,
-            'TX': 25901361,
-            'WA': 6830038
-        };
-
-        console.log('The population of ' + stateAbbreviation + ' = ' + stateMap[stateAbbreviation]);
+    const runFuncState = function() {
+        workers.funcBranch(Alabama);
+        workers.funcBranch(California);
+        workers.funcBranch(Texas);
+        workers.funcBranch(Washington);
+        workers.funcBranch('Unknown');
     };
 
-    var funcBranch2 = function(stateAbbreviation) {
-        var stateMap2 = {
-            'AL': function() {
-                return 4800736 / 100;
-            }(),
-            'CA': function() {
-                return 38053956 / 100;
-            }(),
-            'TX': function() {
-                return 25901361 / 100;
-            }(),
-
-            'WA': function() {
-                return 6830038 / 100;
-            }()
-        };
-
-        console.log('The population of ' + stateAbbreviation + ' = ' + stateMap2[stateAbbreviation]);
-        //var bar = stateMap2[stateAbbreviation];
-        //console.log('The population of ' + stateAbbreviation + ' = ' + bar());
+    const runFuncState2 = function() {
+        workers.funcBranch2(Alabama);
+        workers.funcBranch2(California);
+        workers.funcBranch2(Texas);
+        workers.funcBranch2(Washington);
     };
 
-    var runIfStatements = function() {
-        isEven(2);
-        isEven(3);
-        isEven(4);
-        isEven(5);
-    };
-
-    var runState = function() {
-        statePopulation(Alabama);
-        statePopulation(California);
-        statePopulation(Texas);
-        statePopulation(Washington);
-        statePopulation('Unknown');
-    };
-
-    var runFuncState = function() {
-        funcBranch(Alabama);
-        funcBranch(California);
-        funcBranch(Texas);
-        funcBranch(Washington);
-        funcBranch('Unknown');
-    };
-
-    var runFuncState2 = function() {
-        funcBranch2(Alabama);
-        funcBranch2(California);
-        funcBranch2(Texas);
-        funcBranch2(Washington);
-    };
 
     return App;
 })();
 
-var app = new App();
+const app = new App();

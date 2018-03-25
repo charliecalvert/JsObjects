@@ -3,8 +3,9 @@
     "version": "0.0.1",
     "scripts": {
         "start": "nodemon app.js",
-        "test-grunt": "grunt test",
-        "test": "node_modules/.bin/jasmine",
+        "grunt-check": "grunt check",
+        "test": "node spec/run-jasmine.js",
+        "tester": "node_modules/.bin/jasmine",
         "dev": "browserify --debug public/control.js > public/bundle.js"
     },
     "devDependencies": {
@@ -13,6 +14,7 @@
         "grunt-karma": "^2.0.0",
         "jasmine": "^3.1.0",
         "jasmine-core": "^3.1.0",
+        "jasmine-spec-reporter": "^4.2.1",
         "jshint-stylish": "^2.2.1",
         "karma": "~2.0.0",
         "karma-jasmine": "~1.1.1",
