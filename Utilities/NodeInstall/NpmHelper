@@ -25,6 +25,7 @@ function essentials() {
     npm install -g pug-cli
     npm install -g js-beautify
     npm install -g html-beautify
+    npm install -g npm@latest
 }
 
 function unitTests {
