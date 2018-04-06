@@ -67,4 +67,4 @@ createLink $ELF_TEMPLATES/React/ ReactNpm
 createLink $JSOBJECTS/Python/Utils/ InsertJadeExecGrunt.py
 createLink $ELF_SCRIPTS/ ShowPath
 createLink $ELF_SCRIPTS/ GitIgnoreTest
-createLink $ELF_TEMPLATES/React/ get-eslintrc
+createLink $ELF_TEMPLATES/React/ get-gist
