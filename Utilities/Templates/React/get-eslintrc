@@ -1,17 +1,1 @@
-#!/bin/bash
-
-ESLINT_DIR=/tmp/eslint-dir
-
-function removeDir {		
-	if [ -d $ESLINT_DIR ]; then		
-		rm -rf $ESLINT_DIR
-		echo "Deleted " $ESLINT_DIR
-	fi
-}
-
-removeDir
-git clone git@gist.github.com:c5952541925c04479150bbd8c40feac6.git $ESLINT_DIR
-cp -v $ESLINT_DIR/.eslintrc.json .
-removeDir
-
-echo "All Done"
+get-gist
