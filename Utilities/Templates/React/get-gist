@@ -47,11 +47,11 @@ function runAll() {
 
 while true; do
     message "Menu"
-    echo -e "$LIGHT_GREEN Ubuntu"
+    echo -e "$LIGHT_GREEN Gists"
     echo -e "$LIGHT_GREEN  a) Run All (ESLintRc and ElfDebugEnzyme)"
     echo -e "$LIGHT_GREEN  b) Get ElfDebugEnzyme"
     echo -e "$LIGHT_GREEN  c) Get .eslintrc"
-    echo -e "$LIGHT_RED  x) Exit (You should source .bashrc when done)"
+    echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
