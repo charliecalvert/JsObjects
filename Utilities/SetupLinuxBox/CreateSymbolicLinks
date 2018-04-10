@@ -44,7 +44,7 @@ else
     echo "=> "ELF_SCRIPTS environment variable already exists
 fi
 
-function createLink() {
+function createLink {
 	if [ ! -L ~/bin/$2 ]; then
 		echo -e "$LIGHT_GREEN => Creating $1$2 $NC"
 		ln -s $1$2 ~/bin/.
