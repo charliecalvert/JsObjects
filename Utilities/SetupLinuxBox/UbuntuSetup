@@ -59,7 +59,7 @@ function setBashAliasAndSymbolicLinks() {
         echo "=> ~/.bash_aliases already exists"
     fi
     shopt -s expand_aliases
-    sh "$SETUP_LINUXBOX"/CreateSymbolicLinks
+    /bin/bash "$SETUP_LINUXBOX"/CreateSymbolicLinks
 }
 
 function setupBashRc() {
