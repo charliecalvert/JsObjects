@@ -17,11 +17,16 @@ function checkEnvironmentVariable {
 
 checkEnvironmentVariable ELF_TEMPLATES $ELF_TEMPLATES
 
-# Create an express app and run npm install
+# Create an express app
 express --view=pug $1
 cd $1
 
-npm install
+# Install dependencies
+if ! [ -x "$(command -v yarn)" ]; then
+    npm install
+else
+    yarn install
+fi
 
 # Setup bower and bootstrap
 cp $ELF_TEMPLATES/bower.json .
