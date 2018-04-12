@@ -28,6 +28,7 @@ cp $ELF_TEMPLATES/bower.json .
 cp $ELF_TEMPLATES/.bowerrc .
 cp $ELF_TEMPLATES/nodemon.json .
 bower install bootstrap --save
+bower install jquery --save
 
 # Set port, start command and favicon
 sed -i -- 's/3000/30025/g' bin/www
