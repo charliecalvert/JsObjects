@@ -33,7 +33,7 @@ bower install jquery --save
 # Set port, start command and favicon
 sed -i -- 's/3000/30025/g' bin/www
 sed -i -- 's/node\s/nodemon /g' package.json
-cp ~/Git/JsObjects/Data/MongoLab03/favicon.png public/.
+cp $ELF_TEMPLATES/Images/favicon.ico public/.
 
 # Set title, create README and control.js
 sed -i -- 's/Express/'$1'/g' routes/index.js
@@ -47,3 +47,4 @@ sed -i "s/next) {/next) { 'use strict';/" app.js
 
 # Link in Bootstrap with layout.jade
 sed -i "/style.css')/r "$ELF_TEMPLATES"/BootstrapLayout.json" views/layout.pug
+sed -i "/style.css')/r "$ELF_TEMPLATES"/Favicon.json" views/layout.pug
