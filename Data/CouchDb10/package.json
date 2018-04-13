@@ -7,8 +7,8 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.10.2",
-    "handlebars": "^2.0.0",
-    "nano": "^5.12.2"
+    "express": "^4.16.3",
+    "handlebars": "^4.0.11",
+    "nano": "^6.4.3"
   }
 }

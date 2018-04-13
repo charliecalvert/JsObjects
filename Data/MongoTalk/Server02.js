@@ -11,7 +11,7 @@ var fs = require('fs');
 var QueryMongo = (function() {
 
 	var url01 = 'mongodb://127.0.0.1:27017/test';
-	var url02 = 'mongodb://192.168.2.19:27017/test';
+	var url02 = 'mongodb://192.168.2.20:27017/test';
 	var url03 = 'mongodb://192.168.2.34:27017/test';
 	var url04 = 'mongodb://192.168.56.101:27017/test';
 
@@ -22,29 +22,31 @@ var QueryMongo = (function() {
 	QueryMongo.prototype.getData = function(result, fileContent) {
 		console.log('Called getData');
 		// Open the test database that comes with MongoDb
-		MongoClient.connect(url01, function(err, database) {
+		MongoClient.connect(url02, function(err, client) {
 			if (err) {
 				throw err;
 			}
 			console.log('IngetDataCallback');
+			const database = client.db('test');
 			insertIntoCollection(database, 'test_insert', fileContent);
-			getCollection(database, result);
+			getCollection(database, result, client);
 		});
 	};
-	
-	var getCollection = function(database, response) {
+
+	var getCollection = function(database, response, client) {
 
 		var collection = database.collection('test_insert');
 
 		// View the collection
 		collection.find().toArray(function(err, theArray) {
 			console.dir(theArray);
-			var body = '<html><body><h2>Mongo Data: ' + theArray[2].firstName + '</h2>';
-			body += "<p>This HTML is hardcoded into Server.js. See the getCollection method.</p></body></html>";
+			var body = '<html><body><h2>Mongo Data: ' + theArray[0].firstName + '</h2>';
+			body += "<p>This HTML is hardcoded into Server01.js. See the getCollection method.</p></body></html>";
+			body += JSON.stringify(theArray, null, 4);
 			response.setHeader('Content-Type', 'text/html');
 			response.setHeader('Content-Length', Buffer.byteLength(body));
 			response.end(body);
-			database.close();
+			client.close();
 		});
 
 	};

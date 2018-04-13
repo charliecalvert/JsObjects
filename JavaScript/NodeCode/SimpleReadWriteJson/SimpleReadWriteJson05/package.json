@@ -1,0 +1,30 @@
+{
+    "name": "SimpleReadWriteJson",
+    "description": "Simple Reading and writing of JSON",
+    "version": "0.0.1",
+    "private": true,
+    "config": {
+        "port": "30026"
+    },
+    "scripts": {
+        "start": "concurrently 'npm run webserver' 'npm run node-server'",
+        "webserver": "./node_modules/.bin/webpack-dev-server",
+        "node-server": "nodemon server.js",
+        "bundle": "node_modules/.bin/webpack --watch"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "concurrently": "^3.5.1",
+        "express": "latest",
+        "serve-favicon": "^2.4.5"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "webpack": "^3.10.0",
+        "webpack-dev-server": "^2.11.1"
+    }
+}

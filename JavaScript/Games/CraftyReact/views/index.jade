@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    #root
+    #gameBoard
+    // #textDisplay
+        //h1 ElvenGame06
+        //p {{name}}
+            p {{eventNote}}
+            p {{encounterMessage}}
+            button(ng-click='goLeft()') Left
+            button(ng-click='stopMove()') Stop
+        //p Move Messages
+        //select.message(size='3', ng-model='crazyFoo', ng-options='msg for msg in moveMessages')
+        //br
+        //p Debug Messages
+        //select.message(size='3', ng-model='crazyBar', ng-options='message for message in debugMessages')
+        //br
+    script(src='javascripts/bundle.js')
+        //
+          ul ng-repeat="debugMessage in debugMessages track by $index">
+          <li>{{debugMessage}}</li>
+          </ul
+    script(src='javascripts/GameControl/ElfGame.js')

@@ -1,0 +1,22 @@
+
+const GameMessages = (function() {
+
+    let gameEventService = null;
+
+    function GameMessages(gameEventServiceInit) {
+        gameEventService = gameEventServiceInit;
+    }
+
+    GameMessages.prototype.changeDirectionMessage = function(message) {
+        return gameEventService.changeDirectionBroadcast(message);
+    };
+
+    GameMessages.prototype.reportEvent = function(message) {
+        return gameEventService.towerBroadcast(message);
+    };
+
+    GameMessages.prototype.sendDebugMessage = function(message) {
+        return gameEventService.debugBroadcast(message);
+    };
+    return GameMessages;
+})();

@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
+                    '**/bundle.js',
                     'jquery*.js',
                     '**/coverage/**',
                     '**/node_modules/**',
@@ -20,6 +21,7 @@ module.exports = function(grunt) {
                 reporterOutput: 'result.xml',
                 strict: true,
                 newcap: false,
+                esversion: 6,
                 globals: {
                     describe: true,
                     afterEach: true,

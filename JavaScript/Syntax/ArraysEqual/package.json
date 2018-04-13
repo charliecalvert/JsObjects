@@ -1,23 +1,31 @@
 {
-  "name": "Week04-DeliciousQuery",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "nodemon ./bin/www"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-karma": "^0.12.1",
-    "jasmine-core": "^2.3.4",
-    "jshint-stylish": "^2.0.1",
-    "karma": "~0.13.10",
-    "karma-jasmine": "~0.3.3",
-    "karma-phantomjs-launcher": "~0.2.1",
-    "karma-spec-reporter": "0.0.20",
-    "phantomjs": "^1.9.18"
-  },
-  "dependencies": {
-    "jquery": "^2.1.4"
-  }
+    "name": "arrays-equal",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "nodemon app.js",
+        "grunt-check": "grunt check",
+        "test": "node spec/run-jasmine.js",
+        "tester": "node_modules/.bin/jasmine",
+        "dev": "browserify --debug public/control.js > public/bundle.js"
+    },
+    "devDependencies": {
+        "grunt": "~1.0.2",
+        "grunt-contrib-jshint": "~1.1.0",
+        "grunt-karma": "^2.0.0",
+        "jasmine": "^3.1.0",
+        "jasmine-core": "^3.1.0",
+        "jasmine-spec-reporter": "^4.2.1",
+        "jshint-stylish": "^2.2.1",
+        "karma": "~2.0.0",
+        "karma-jasmine": "~1.1.1",
+        "karma-phantomjs-launcher": "~1.0.4",
+        "karma-spec-reporter": "0.0.32",
+        "watchify": "^3.11.0"
+    },
+    "dependencies": {
+        "elven-code": "^4.4.0",
+        "express": "^4.16.3",
+        "jquery": "^3.3.1",
+        "serve-static": "^1.13.2"
+    }
 }

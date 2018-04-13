@@ -20,3 +20,15 @@ export const getEight = (value) => {
         'value': value
     }
 };
+
+export const getTitle = () => {
+    return {
+        'type': 'TITLE'
+    }
+};
+
+export const getDate = () => {
+    return {
+        'type': 'DATE'
+    }
+};

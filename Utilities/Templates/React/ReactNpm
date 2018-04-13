@@ -1,4 +1,5 @@
-npm install --save react react-dom webpack
-npm install --save babel-loader babel-core
-npm install --save babel-preset-react babel-preset-env babel-preset-stage-0
+npm install --save react react-dom
+npm install --save-dev webpack webpack-cli
+npm install --save-dev babel-loader babel-core babel-preset-es2015
+npm install --save-dev babel-preset-react babel-preset-env babel-preset-stage-0
 npm install --save material-ui

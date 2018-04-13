@@ -8,7 +8,8 @@
 
 var request = require('request');
 
-describe("A Mongo Suite", function() {'use strict';
+describe("A Mongo Suite", function() {
+    'use strict';
 
     var server = 'http://localhost:30025/';
 
@@ -16,7 +17,7 @@ describe("A Mongo Suite", function() {'use strict';
 
     });
 
-     
+
     it("should delete all records", function(done) {
         console.log("Remove all");
         request(server + "removeAll", function(error, response, body) {
@@ -37,29 +38,34 @@ describe("A Mongo Suite", function() {'use strict';
             expect(output.result).toBe('Success');
             done();
         });
-    }); 
+    });
 
     it("should update a JSON document in the database", function(done) {
-        var query = { "firstName" : "George" };
-        var update = {
-            "firstName" : "George",
-            "lastName" : "Washingtons",
-            "address" : "101 Juned Street",
-            "city" : "Bellevued",
-            "state" : "WA"
+        var query = {
+            "firstName": "George"
         };
-        
-        var data = { "query": query, "update": update };        
+        var update = {
+            "firstName": "George",
+            "lastName": "Washingtons",
+            "address": "101 Juned Street",
+            "city": "Bellevued",
+            "state": "WA"
+        };
+
+        var data = {
+            "query": query,
+            "update": update
+        };
         var requestData = {
-            url : server + "update",
-            qs : data 
+            url: server + "update",
+            qs: data
         };
         request(requestData, function(error, response, output) {
             console.log("Update callback called");
             if (error) {
                 console.log("Error: " + error);
-            }            
-            output = JSON.parse(output);            
+            }
+            output = JSON.parse(output);
             expect(output.result).toBe('Success');
             expect(output.mongoDocument).toBe(1);
             done();
@@ -67,22 +73,29 @@ describe("A Mongo Suite", function() {'use strict';
     });
 
     it("should update one field of a JSON document in the database", function(done) {
-        var query = { "firstName" : "Thomas" };
-        var update = {
-            $set: {"firstName" : "Tom"} 
+        var query = {
+            "firstName": "Thomas"
         };
-        
-        var data = { "query": query, "update": update };        
+        var update = {
+            $set: {
+                "firstName": "Tom"
+            }
+        };
+
+        var data = {
+            "query": query,
+            "update": update
+        };
         var requestData = {
-            url : server + "update",
-            qs : data 
+            url: server + "update",
+            qs: data
         };
         request(requestData, function(error, response, output) {
             console.log("Update callback called");
             if (error) {
                 console.log("Error: " + error);
-            }            
-            output = JSON.parse(output);            
+            }
+            output = JSON.parse(output);
             expect(output.result).toBe('Success');
             expect(output.mongoDocument).toBe(1);
             done();
@@ -157,7 +170,7 @@ describe("A Mongo Suite", function() {'use strict';
             }
             console.log("Response statuscode: " + response.statusCode);
             jsonObject = JSON.parse(jsonObject);
-            console.log( typeof jsonObject);
+            console.log(typeof jsonObject);
             var markdown = jsonObject.text;
             var lengthMarkdown = markdown.length;
             var george = "George Washington";
@@ -170,7 +183,7 @@ describe("A Mongo Suite", function() {'use strict';
     it("should read file out", function(done) {
         request("http://localhost:30025/readFileOut", function(error, response, html) {
             console.log("Calling read file out test");
-            console.log( typeof html);
+            console.log(typeof html);
             console.log(html);
             var george = '<h2 id="george-washington">George Washington</h2>';
             var input = html.substring(0, george.length);

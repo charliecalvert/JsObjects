@@ -65,27 +65,24 @@ alias npmstarter="cd ~/Source/MakeHtml && npm start && cd -"
 alias eip="cd ~/Git/writings/Tech/Markdown/ElvenImagePicker"
 alias gosrc="cd ~/Source"
 alias gcm='git checkout master'
+alias link-new="ln -s ~/temp/newmods/node_modules/ ."
+alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 
-# My Courses
+# Isit Courses
 
-alias p270='cd $GIT_HOME/prog270-fall-2016'
-alias p270c='cd $GIT_HOME/prog270-calvert-2016'
-alias i3='cd $GIT_HOME/isit320-2017'
-alias i3c='cd $GIT_HOME/isit320-calvert-2017'
-alias p28='cd $GIT_HOME/Prog282'
+alias i3='cd $GIT_HOME/isit322-2018'
+alias i3c='cd $GIT_HOME/isit322-calvert-2018'
+
+# Prog Courses
+alias p2='cd $GIT_HOME/prog272-2018'
+alias p2c='cd $GIT_HOME/prog272-calvert-2018'
+
+## WebCrafts
 alias i3w='cd $WEBCRAFTS'
 alias i3wc='cd $WEBCRAFTS/isit-code-calvertbc'
 alias i3ws='cd $WEBCRAFTS/isit-site-tools-calvertbc'
 alias i3ww='cd $WEBCRAFTS/isit-web-crafts-calvertbc'
 alias i3wi='cd ~/Git/WebCrafts-Isit320'
-
-# Spring 2016
-alias p2='cd $GIT_HOME/prog270-2017'
-alias p2c='cd $GIT_HOME/prog270-calvert-2017'
-alias p9='cd $GIT_HOME/prog219-2016'
-alias p9c='cd $GIT_HOME/prog219-calvert-2016'
-alias link-new="ln -s ~/temp/newmods/node_modules/ ."
-alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 
 # Apps
 alias fbd='cd ~/Source/firebase-database/'

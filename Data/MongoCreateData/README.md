@@ -139,16 +139,23 @@ Then call show again:
 
 ## Create User
 
+Here are some commands to run inside **mongo**, the client interface for MongoDb. These is not part of the program, but tools for maintaining the database.
+
+```javascript
 db.createUser({
 		user: "bcuser",
 		pwd: "bcuser",
 		roles: [ "readWrite", "dbAdmin" ]
 	}
 )
+```
 
-## Accept remote Connections
+To insure that MongoDb can accept remote connections, edit this file:
 
-In **/etc/mongod.conf:
+    /etc/mongod.conf:
+
+
+Here is the section of the file that needs to be edited:
 
 ```.code
 	# network interfaces

@@ -67,8 +67,8 @@ class App extends Component {
                     onRequestChange={(open) => this.setState({open})}>
 
                     <AppBar title="AppBar"/>
-                    <MenuItem onClick={this.showFoo}>Show Foo</MenuItem>
-                    <MenuItem onClick={this.showBar}>Show Bar</MenuItem>
+                    <MenuItem id="showFooId" onClick={this.showFoo}>Show Foo</MenuItem>
+                    <MenuItem id="showBarId" onClick={this.showBar}>Show Bar</MenuItem>
 
                 </Drawer>
                 <Paper style={paperStyle} zDepth={5}>

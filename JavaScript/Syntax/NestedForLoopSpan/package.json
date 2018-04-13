@@ -1,0 +1,31 @@
+{
+  "name": "forloopnested",
+  "version": "1.0.0",
+  "description": "Learn about for loops and simple express servers",
+  "main": "server.js",
+  "scripts": {
+    "test": "testcafe firefox test-cafe-starter.js",
+    "tester": "./node_modules/.bin/jest --watch",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}

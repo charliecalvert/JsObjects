@@ -1,5 +1,5 @@
 {
-	"Name": "ComplexConfig",
+    "Name": "ComplexConfig",
     "Part01": [
         "One",
         "Two",
@@ -17,8 +17,7 @@
             "BThree": "BThree"
         }
     },
-    "Part03": [
-        {
+    "Part03": [{
             "Part03A": "This is a string for Part03A.",
             "Part03B": "This is a string for Part03B.",
             "Part03C": "This is a string for Part03C."
@@ -34,8 +33,7 @@
             "Part03C": "This is a string for Part03I."
         }
     ],
-    "Part04": [
-        {
+    "Part04": [{
             "Part04A": "This is Part04A.",
             "Part04B": "This is Part04B.",
             "Part04C": {

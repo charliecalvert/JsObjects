@@ -1,6 +1,10 @@
 describe("An Array Suite", function() {
     'use strict';
 
+    beforeAll(function() {
+        app.init();
+    });
+
     it("contains spec with an expectation", function() {
         expect(true).toBe(true);
     });
@@ -14,8 +18,8 @@ describe("An Array Suite", function() {
     });
 
     it("shows empty array is an array", function() {
-        var emptyArray = app.arrayAll.emptyArray();
-        var isArray = Array.isArray(emptyArray);
+        const emptyArray = app.arrayAll.emptyArray();
+        const isArray = Array.isArray(emptyArray);
         expect(isArray).toBe(true);
     });
 
