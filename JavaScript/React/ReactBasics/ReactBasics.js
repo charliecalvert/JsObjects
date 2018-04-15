@@ -8,6 +8,7 @@ export class ReactBasics extends React.Component {
         console.log(x);
         return 2 * x;
     }
+
     render() {
         return (
             <div>
