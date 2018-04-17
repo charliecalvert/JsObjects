@@ -1,5 +1,13 @@
 'use strict';
 
+(function() {
+  console.log("Immediate invocation ES5");
+})();
+
+(() => {
+  console.log("Immediate invocation ES6");
+})()
+
 function addEs5(operanda, operandb) {
     return operanda + operandb;
 }
@@ -61,7 +69,7 @@ class Person {
   fullName() {
      return this.first + ' ' + this.last;
   }
-  
+
   getLast = () => this.last;
 }
 
