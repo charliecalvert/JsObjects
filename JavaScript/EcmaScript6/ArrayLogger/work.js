@@ -51,3 +51,20 @@ const loggerForIn = (myObject) => {
 logger(['four', 'five', 'six']);
 loggerForOf(['seven', 'eight', 'nine']);
 loggerForIn(myObject);
+
+class Person {
+  constructor(first, last) {
+     this.first = first;
+     this.last = last;
+  }
+
+  fullName() {
+     return this.first + ' ' + this.last;
+  }
+  
+  getLast = () => this.last;
+}
+
+var person = new Person('George', 'Washington');
+console.log(person.fullName());
+console.log(person.getLast());
