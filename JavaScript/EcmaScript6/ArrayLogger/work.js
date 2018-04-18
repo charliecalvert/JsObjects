@@ -76,3 +76,24 @@ class Person {
 var person = new Person('George', 'Washington');
 console.log(person.fullName());
 console.log(person.getLast());
+
+class Foo {
+    get info() {
+	return 2;
+    }
+}
+
+class Bar {
+    constructor() {
+    }
+
+    get info() {
+	return 3;
+    }
+}
+
+const foo = new Foo();
+const bar = new Bar();
+
+console.log(foo.info);
+console.log(bar.info);

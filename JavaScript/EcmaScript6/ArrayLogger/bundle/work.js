@@ -4,6 +4,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+(function () {
+    console.log("Immediate invocation ES5");
+})();
+
+(function () {
+    console.log("Immediate invocation ES6");
+})();
+
 function addEs5(operanda, operandb) {
     return operanda + operandb;
 }
@@ -115,7 +123,7 @@ var Person = function () {
     }
 
     _createClass(Person, [{
-        key: 'fullName',
+        key: "fullName",
         value: function fullName() {
             return this.first + ' ' + this.last;
         }
@@ -127,3 +135,39 @@ var Person = function () {
 var person = new Person('George', 'Washington');
 console.log(person.fullName());
 console.log(person.getLast());
+
+var Foo = function () {
+    function Foo() {
+        _classCallCheck(this, Foo);
+    }
+
+    _createClass(Foo, [{
+        key: "info",
+        get: function get() {
+            return 2;
+        }
+    }]);
+
+    return Foo;
+}();
+
+var Bar = function () {
+    function Bar() {
+        _classCallCheck(this, Bar);
+    }
+
+    _createClass(Bar, [{
+        key: "info",
+        get: function get() {
+            return 3;
+        }
+    }]);
+
+    return Bar;
+}();
+
+var foo = new Foo();
+var bar = new Bar();
+
+console.log(foo.info);
+console.log(bar.info);
