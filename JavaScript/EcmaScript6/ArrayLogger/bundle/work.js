@@ -135,3 +135,39 @@ var Person = function () {
 var person = new Person('George', 'Washington');
 console.log(person.fullName());
 console.log(person.getLast());
+
+var Foo = function () {
+    function Foo() {
+        _classCallCheck(this, Foo);
+    }
+
+    _createClass(Foo, [{
+        key: "info",
+        get: function get() {
+            return 2;
+        }
+    }]);
+
+    return Foo;
+}();
+
+var Bar = function () {
+    function Bar() {
+        _classCallCheck(this, Bar);
+    }
+
+    _createClass(Bar, [{
+        key: "info",
+        get: function get() {
+            return 3;
+        }
+    }]);
+
+    return Bar;
+}();
+
+var foo = new Foo();
+var bar = new Bar();
+
+console.log(foo.info);
+console.log(bar.info);
