@@ -43,6 +43,7 @@ alias runnpm="npm install && npm start"
 alias runexpress='npm install && bower install && grunt check'
 alias runy='yarn install && bower install && yarn start'
 alias runs='yarn install && yarn start'
+alias runl='ln -s ~/tmp/node_modules . && npm start'
 alias runcly='cd client && yarn && cd ../server && yarn && cd .. && yarn'
 alias yni="yarn install"
 alias gck='npm install && bower install && grunt check'
