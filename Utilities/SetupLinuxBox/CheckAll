@@ -1,29 +1,30 @@
+
 echo "================"
-cd JsObjects
+cd $GIT_HOME/JsObjects
 pwd
 git status
 cd ..
 
 echo "================"
-cd writings
+cd $GIT_HOME/writings
 pwd
 git status
 cd ..
 
 echo "================"
-cd CloudNotes
+cd $GIT_HOME/CloudNotes
 pwd
 git status
 cd ..
 
 echo "================"
-cd ElfSite
+cd $GIT_HOME/prog272-calvert-2018
 pwd
 git status
 cd ..
 
 echo "================"
-cd prog219-calvert
+cd $GIT_HOME/isit322-calvert-2018
 pwd
 git status
 cd ..
