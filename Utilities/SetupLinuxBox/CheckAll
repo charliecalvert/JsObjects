@@ -1,35 +1,36 @@
 #!/bin/bash
 
 function checkStatus {
+	pwd
 	if [ -n "$(git status --porcelain)" ]; then
 	  echo "there are changes";
 	  exit;
 	else
 	  echo "no changes";
+	  git pull
 	fi
 }
 
 echo "================"
 cd $GIT_HOME/JsObjects
-pwd
 checkStatus
 
 echo "================"
 cd $GIT_HOME/writings
-pwd
 checkStatus
 
 echo "================"
 cd $GIT_HOME/CloudNotes
-pwd
+checkStatus
+
+echo "================"
+cd $GIT_HOME/charliecalvert.github.io
 checkStatus
 
 echo "================"
 cd $GIT_HOME/prog272-calvert-2018
-pwd
 checkStatus
 
 echo "================"
 cd $GIT_HOME/isit322-calvert-2018
-pwd
 checkStatus
