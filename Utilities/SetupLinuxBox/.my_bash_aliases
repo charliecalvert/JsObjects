@@ -76,6 +76,7 @@ alias i3c='cd $GIT_HOME/isit322-calvert-2018'
 # Prog Courses
 alias p2='cd $GIT_HOME/prog272-2018'
 alias p2c='cd $GIT_HOME/prog272-calvert-2018'
+alias repo='cd ~/Git/prog272-calvert-2018'
 
 ## WebCrafts
 alias i3w='cd $WEBCRAFTS'
