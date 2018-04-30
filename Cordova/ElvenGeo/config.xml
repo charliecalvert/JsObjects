@@ -9,4 +9,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <plugin name="cordova-plugin-geolocation" spec="http://github.com/apache/cordova-plugin-geolocation" />
+    <engine name="android" spec="^7.1.0" />
 </widget>

@@ -1,0 +1,17 @@
+{
+  "name": "com.elvenware.elven_geo",
+  "version": "0.0.1",
+  "displayName": "Elven Geo",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-geolocation": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.1.0",
+    "cordova-plugin-geolocation": "git+ssh://git@github.com/apache/cordova-plugin-geolocation.git"
+  }
+}
