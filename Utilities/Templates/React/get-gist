@@ -10,6 +10,9 @@ NC='\033[0m' # No Color
 ESLINT_DIR=/tmp/eslint-dir
 GIST_ELF_DEBUG_ENZYME=https://gist.github.com/51daef341699943b07c9570c3ad2cbab.git
 GIST_ESLINTRC=https://gist.github.com/c5952541925c04479150bbd8c40feac6.git
+GIST_ESLINTIGNORE=https://gist.github.com/bf7c7f9ab52c55a42a6d184019fc1550.git
+GIST_PRETTIER=https://gist.github.com/f19ea847f81f8634b37ef2b9c12a77e0.git
+GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
 
 function message {
     echo
@@ -37,6 +40,9 @@ function runCommand() {
 	case $1 in
 		"elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
 		"eslintrc") getGist $GIST_ESLINTRC .eslintrc.json ;;
+		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
+		"prettier") getGist $GIST_PRETTIER prettier ;;
+		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
 	esac
 }
 
@@ -51,6 +57,9 @@ while true; do
     echo -e "$LIGHT_GREEN  a) Run All (ESLintRc and ElfDebugEnzyme)"
     echo -e "$LIGHT_GREEN  b) Get ElfDebugEnzyme"
     echo -e "$LIGHT_GREEN  c) Get .eslintrc"
+    echo -e "$LIGHT_GREEN  d) Get .eslintignore"
+    echo -e "$LIGHT_GREEN  e) Get prettier"
+    echo -e "$LIGHT_GREEN  f) Get .prettierrc"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -58,6 +67,9 @@ while true; do
         [Aa]* ) runAll false; continue;;
         [Bb]* ) runCommand "elfdebug"; continue;;
         [Cc]* ) runCommand "eslintrc"; continue;;
+        [Dd]* ) runCommand "eslintignore"; continue;;
+        [Ee]* ) runCommand "prettier"; continue;;
+        [Ff]* ) runCommand "prettierrc"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
