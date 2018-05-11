@@ -1,4 +1,16 @@
 #!/bin/bash
 
-find . -iname "$1" -not -path "**/node_modules/**" -not -path "**/bower_components/**" -not -path "**bundle.js" -not -path "registerServiceWorker.js" -exec "prettier" --write {} \;
+if [[ $# -eq 0 ]] ; then
+    echo 'FindNpPrettier expects a parameter.'
+    echo 'For instance:'
+    echo ''
+    echo '  FindNpPretter "*.json"'
+    exit 0
+fi
 
+find . -iname "$1" \
+  -not -path "**/node_modules/**" \
+  -not -path "**/bower_components/**" \
+  -not -path "**/bundle.js" \
+  -not -path "**/registerServiceWorker.js" \
+  -exec "prettier" --write {} \;
