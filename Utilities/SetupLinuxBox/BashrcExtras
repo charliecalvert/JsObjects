@@ -27,7 +27,10 @@ export CHROME_BIN=/usr/bin/chromium-browser
 set-node-path "$HOME/npm/lib/node_modules"
 set-system-path "$HOME/npm/bin"
 
+# Yarn Support
+set-system-path "$HOME/.config/yarn/global/node_modules/.bin"
 
+# Python Support
 export PYTHONPATH="${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/"
 
 # Java Path Support

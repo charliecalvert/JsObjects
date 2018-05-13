@@ -26,6 +26,9 @@ set-system-path "$HOME/bin"
 set-node-path "$HOME/npm/lib/node_modules"
 set-system-path "$HOME/npm/bin"
 
+# Yarn Support
+set-system-path "$HOME/.config/yarn/global/node_modules/.bin"
+
 # Edit and uncomment to load a key automatically.
 #ssh-add -l | grep -q "made on rohan-elf"
 #if [ $? -eq 0 ]; then
