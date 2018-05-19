@@ -8,6 +8,7 @@ BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
 ESLINT_DIR=/tmp/eslint-dir
+GIST_REACT_COMPONENT=https://gist.github.com/0d154b7186410a2947eaffaf4b8de8d6.git
 GIST_ELF_DEBUG_ENZYME=https://gist.github.com/51daef341699943b07c9570c3ad2cbab.git
 GIST_ESLINTRC=https://gist.github.com/c5952541925c04479150bbd8c40feac6.git
 GIST_ESLINTIGNORE=https://gist.github.com/bf7c7f9ab52c55a42a6d184019fc1550.git
@@ -43,6 +44,7 @@ function runCommand() {
 		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
 		"prettier") getGist $GIST_PRETTIER prettier ;;
 		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
+		"reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;
 	esac
 }
 
@@ -60,6 +62,7 @@ while true; do
     echo -e "$LIGHT_GREEN  d) Get .eslintignore"
     echo -e "$LIGHT_GREEN  e) Get prettier"
     echo -e "$LIGHT_GREEN  f) Get .prettierrc"
+    echo -e "$LIGHT_GREEN  g) Get Default React Component"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -70,6 +73,7 @@ while true; do
         [Dd]* ) runCommand "eslintignore"; continue;;
         [Ee]* ) runCommand "prettier"; continue;;
         [Ff]* ) runCommand "prettierrc"; continue;;
+        [Gg]* ) runCommand "reactcomp"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
