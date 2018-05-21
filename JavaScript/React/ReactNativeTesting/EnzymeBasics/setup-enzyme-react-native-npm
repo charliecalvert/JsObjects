@@ -1,0 +1,7 @@
+#!/bin/bash
+
+npm install --save-dev enzyme enzyme-adapter-react-16
+npm install --save-dev enzyme-to-json jest-serializer-enzyme
+npm install --save-dev react-addons-test-utils
+npm install --save react-dom
+

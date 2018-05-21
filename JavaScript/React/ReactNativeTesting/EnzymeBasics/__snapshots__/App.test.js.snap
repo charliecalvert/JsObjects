@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App tests handles click on foobar with enzyme 1`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    id="testClosed"
+  >
+    foobar1
+  </Text>
+  <button
+    id="textOpen"
+    onClick={[Function]}
+  >
+    Foobar
+  </button>
+  <Address />
+</Component>
+`;
+
+exports[`App tests handles click on foobar with react 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    id="testClosed"
+  >
+    foobar1
+  </Text>
+  <button
+    id="textOpen"
+    onClick={[Function]}
+  >
+    Foobar
+  </button>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Address
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`App tests renders default output with enzyme shallow 1`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    id="testClosed"
+  >
+    barfoo
+  </Text>
+  <button
+    id="textOpen"
+    onClick={[Function]}
+  >
+    Foobar
+  </button>
+  <Address />
+</Component>
+`;
+
+exports[`App tests renders default output with react (mount) 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    id="testClosed"
+  >
+    barfoo
+  </Text>
+  <button
+    id="textOpen"
+    onClick={[Function]}
+  >
+    Foobar
+  </button>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Address
+    </Text>
+  </View>
+</View>
+`;
