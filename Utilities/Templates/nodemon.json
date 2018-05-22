@@ -1,4 +1,4 @@
 {
   "verbose": true,
-  "ignore": ["**/components/**"]
+  "ignore": ["**/bower_components/**"]
 }
