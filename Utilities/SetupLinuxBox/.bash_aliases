@@ -46,6 +46,7 @@ alias runs='yarn install && yarn start'
 alias runl='ln -s ~/tmp/node_modules . && npm start'
 alias runcly='cd client && yarn && cd ../server && yarn && cd .. && yarn'
 alias yni="yarn install"
+alias runt="yarn && yarn test"
 alias gck='npm install && bower install && grunt check'
 alias run="nm && components && npm start"
 alias mh="cd ~/Source/MakeHtml"
