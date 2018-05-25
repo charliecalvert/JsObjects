@@ -17,14 +17,31 @@ exports[`App tests handles click on foobar with enzyme 1`] = `
     ellipsizeMode="tail"
     id="testClosed"
   >
-    foobar1
+    Test: 
+    unknown
   </Text>
-  <button
-    id="textOpen"
-    onClick={[Function]}
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    You Rang: 
+    unknown
+  </Text>
+  <Button
+    id="clickTest"
+    onPress={[Function]}
+    title="Test"
   >
     Foobar
-  </button>
+  </Button>
+  <Button
+    id="fetchMicro"
+    onPress={[Function]}
+    title="Fetch Micro"
+  >
+    Foobar
+  </Button>
   <Address />
 </Component>
 `;
@@ -46,14 +63,129 @@ exports[`App tests handles click on foobar with react 1`] = `
     ellipsizeMode="tail"
     id="testClosed"
   >
-    foobar1
+    Test: 
+    foo is known
   </Text>
-  <button
-    id="textOpen"
-    onClick={[Function]}
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
   >
-    Foobar
-  </button>
+    You Rang: 
+    unknown
+  </Text>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={undefined}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Test
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={undefined}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Fetch Micro
+      </Text>
+    </View>
+  </View>
   <View>
     <Text
       accessible={true}
@@ -83,14 +215,31 @@ exports[`App tests renders default output with enzyme shallow 1`] = `
     ellipsizeMode="tail"
     id="testClosed"
   >
-    barfoo
+    Test: 
+    unknown
   </Text>
-  <button
-    id="textOpen"
-    onClick={[Function]}
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    You Rang: 
+    unknown
+  </Text>
+  <Button
+    id="clickTest"
+    onPress={[Function]}
+    title="Test"
   >
     Foobar
-  </button>
+  </Button>
+  <Button
+    id="fetchMicro"
+    onPress={[Function]}
+    title="Fetch Micro"
+  >
+    Foobar
+  </Button>
   <Address />
 </Component>
 `;
@@ -112,14 +261,129 @@ exports[`App tests renders default output with react (mount) 1`] = `
     ellipsizeMode="tail"
     id="testClosed"
   >
-    barfoo
+    Test: 
+    unknown
   </Text>
-  <button
-    id="textOpen"
-    onClick={[Function]}
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
   >
-    Foobar
-  </button>
+    You Rang: 
+    unknown
+  </Text>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={undefined}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Test
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={undefined}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#007AFF",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Fetch Micro
+      </Text>
+    </View>
+  </View>
   <View>
     <Text
       accessible={true}
