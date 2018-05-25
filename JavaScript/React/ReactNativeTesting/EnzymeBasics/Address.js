@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
 class Address extends Component {
-
     render() {
         return (
-            <View><Text>Address</Text></View>
+            <View>
+                <Text>Address</Text>
+            </View>
         );
     }
 }

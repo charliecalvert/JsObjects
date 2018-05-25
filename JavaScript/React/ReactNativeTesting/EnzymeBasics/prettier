@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find . -iname "*.js" \
+  -not -path "**/node_modules/**" \
+  -not -path "**/bower_components/**" \
+  -not -path "**/bundle.js" \
+  -not -path "**/registerServiceWorker.js" \
+  -exec "prettier" --write {} \;
