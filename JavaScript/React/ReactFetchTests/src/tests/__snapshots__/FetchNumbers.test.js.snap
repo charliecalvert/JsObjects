@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchNumbers Tests handles click on foobar with enzyme 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FetchServerInfo />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <p>
+            a
+</p>,
+          <p>
+            b
+</p>,
+        ],
+        <p
+          className="App-intro"
+>
+          Error: 
+          none
+</p>,
+        <button
+          id="fetchNumbers"
+          onClick={[Function]}
+>
+          Fetch Numbers
+</button>,
+        <hr />,
+      ],
+      "className": "App",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "a",
+        "nodeType": "host",
+        "props": Object {
+          "children": "a",
+        },
+        "ref": null,
+        "rendered": "a",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": "b",
+        "nodeType": "host",
+        "props": Object {
+          "children": "b",
+        },
+        "ref": null,
+        "rendered": "b",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Error: ",
+            "none",
+          ],
+          "className": "App-intro",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Error: ",
+          "none",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Fetch Numbers",
+          "id": "fetchNumbers",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Fetch Numbers",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <p>
+              a
+</p>,
+            <p>
+              b
+</p>,
+          ],
+          <p
+            className="App-intro"
+>
+            Error: 
+            none
+</p>,
+          <button
+            id="fetchNumbers"
+            onClick={[Function]}
+>
+            Fetch Numbers
+</button>,
+          <hr />,
+        ],
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "a",
+          "nodeType": "host",
+          "props": Object {
+            "children": "a",
+          },
+          "ref": null,
+          "rendered": "a",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": "b",
+          "nodeType": "host",
+          "props": Object {
+            "children": "b",
+          },
+          "ref": null,
+          "rendered": "b",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Error: ",
+              "none",
+            ],
+            "className": "App-intro",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Error: ",
+            "none",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Fetch Numbers",
+            "id": "fetchNumbers",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Fetch Numbers",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
