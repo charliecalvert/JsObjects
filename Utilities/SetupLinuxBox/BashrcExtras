@@ -41,6 +41,11 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_PLATFORM_TOOLS="$HOME/Android/Sdk/platform-tools"
 set-system-path "$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS"
 
+export PORT=30025
+export SERVER_PORT=30026
+# export BROWSER=chromium-browser
+# export BROWSER=google-chrome
+
 # Edit and uncomment to load a key automatically.
 #ssh-add -l | grep -q "made on rohan-elf"
 #if [ $? -eq 0 ]; then

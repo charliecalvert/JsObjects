@@ -29,6 +29,11 @@ set-system-path "$HOME/npm/bin"
 # Yarn Support
 set-system-path "$HOME/.config/yarn/global/node_modules/.bin"
 
+export PORT=30025
+# export SERVER_PORT=30026
+# export BROWSER=chromium-browser
+# export BROWSER=google-chrome
+
 # Edit and uncomment to load a key automatically.
 #ssh-add -l | grep -q "made on rohan-elf"
 #if [ $? -eq 0 ]; then
