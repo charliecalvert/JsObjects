@@ -8,6 +8,7 @@ BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
 POUCH_DATABASE_MANAGER=$ELF_TEMPLATES_DATABASE/PouchDbManager.js
+POUCH_DATABASE_INIT=$ELF_TEMPLATES_DATABASE/InitializeDatabase.js
 
 function message {
     echo
@@ -24,24 +25,22 @@ function getTemplate() {
 function runCommand() {
 	case $1 in
 		"pouchDbManager") getTemplate $POUCH_DATABASE_MANAGER ;;
+		"initDb") getTemplate $POUCH_DATABASE_INIT ;;
 	esac
-}
-
-function runAll() {
-	runCommand "elfdebug"
-	runCommand "eslintrc"
 }
 
 while true; do
     message "Menu"
     echo -e "$LIGHT_GREEN Gists"    
     echo -e "$LIGHT_GREEN  a) Get PouchDbManager"
+    echo -e "$LIGHT_GREEN  b) Get InitializeDatabase"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "$LIGHT_RED  q) Quit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in        
         [Aa]* ) runCommand "pouchDbManager"; continue;;
+        [Bb]* ) runCommand "initDb"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
