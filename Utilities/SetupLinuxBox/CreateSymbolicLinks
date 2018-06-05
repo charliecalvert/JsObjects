@@ -66,8 +66,8 @@ createLink "$ELF_TEMPLATES"/UnitTest/ FixtureReady
 createLink "$ELF_TEMPLATES"/React/ ReactNpm
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNp
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNpPrettier
+createLink "$ELF_TEMPLATES"/React/ get-gist
+createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
 createLink "$ELF_SCRIPTS"/ ShowPath
 createLink "$ELF_SCRIPTS"/ GitIgnoreTest
-
-createLink "$ELF_TEMPLATES"/React/ get-gist

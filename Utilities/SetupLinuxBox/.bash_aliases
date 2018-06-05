@@ -9,6 +9,7 @@ export ELF_UTILS=$JSOBJECTS/Utilities
 export NODE_UTILS=$JSOBJECTS/Utilities/NodeInstall
 export ELF_TEMPLATES=$ELF_UTILS/Templates
 export ELF_SCRIPTS=$ELF_TEMPLATES/Scripts
+export ELF_TEMPLATES_DATABASE=$ELF_TEMPLATES/Database
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
 export PORT=30025

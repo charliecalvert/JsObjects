@@ -1,0 +1,50 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+POUCH_DATABASE_MANAGER=$ELF_TEMPLATES_DATABASE/PouchDbManager.js
+
+function message {
+    echo
+    echo =======================
+    echo "$1"
+    echo =======================
+    echo
+}
+
+function getTemplate() {
+	cp -vp $1 .
+}
+
+function runCommand() {
+	case $1 in
+		"pouchDbManager") getTemplate $POUCH_DATABASE_MANAGER ;;
+	esac
+}
+
+function runAll() {
+	runCommand "elfdebug"
+	runCommand "eslintrc"
+}
+
+while true; do
+    message "Menu"
+    echo -e "$LIGHT_GREEN Gists"    
+    echo -e "$LIGHT_GREEN  a) Get PouchDbManager"
+    echo -e "$LIGHT_RED  x) Exit"
+    echo -e "$LIGHT_RED  q) Quit"
+    echo -e "\n$NC"
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in        
+        [Aa]* ) runCommand "pouchDbManager"; continue;;
+        [XxQq]* ) break;;
+        * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
+    esac
+done
+
+echo "All Done"
