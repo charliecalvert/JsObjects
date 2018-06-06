@@ -113,7 +113,7 @@ class InitializeDatabase extends Component {
                     <Typography variant="headline">Enter Sync Mode</Typography>
                     <Typography variant="body1" gutterBottom align="left">Use the sync button when you are connected to
                         the Internet.
-                        By default, you are not in sync mode. Don't press this
+                        By default, you are not in sync mode. Do not press this
                         button if you are offline.</Typography>
                     <Button
                         color="secondary"
@@ -186,7 +186,19 @@ class InitializeDatabase extends Component {
 }
 
 InitializeDatabase.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    dataManager: PropTypes.shape({
+        sync: PropTypes.func,
+        convertAddress: PropTypes.func,
+        createIndex: PropTypes.func,
+        deleteDatabase: PropTypes.func,
+        db: PropTypes.shape({
+            info: PropTypes.func,
+            find: PropTypes.func,
+            getIndexes: PropTypes.func
+        })
+    }),
+
 };
 
 export default withStyles(styles)(InitializeDatabase);
