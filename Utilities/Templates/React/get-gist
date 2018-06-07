@@ -16,6 +16,7 @@ GIST_PRETTIER=https://gist.github.com/f19ea847f81f8634b37ef2b9c12a77e0.git
 GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
 GIST_REACT_NATIVE_ENZYME_NPM=https://gist.github.com/5688f8461bfe0ec284261acf6103a12b.git
 GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be0b0321.git
+GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
 
 function message {
     echo
@@ -49,31 +50,47 @@ function runCommand() {
 		"reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;\
 		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
 		"setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
+		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
 	esac
 }
 
 function runAll() {
 	runCommand "elfdebug"
 	runCommand "eslintrc"
+	runCommand "eslintignore"
+	runCommand "prettier"
+	runCommand "prettierrc"
+	runCommand "reactcomp"
+	runCommand "setrnen"
+	runCommand "setrney"
+	runCommand "elvenlogger"
+}
+
+function runEsLintAndPrettier() {
+	runCommand "eslintrc"
+	runCommand "eslintignore"
+	runCommand "prettier"
+	runCommand "prettierrc"
 }
 
 while true; do
     message "Menu"
     echo -e "$LIGHT_GREEN Gists"
-    echo -e "$LIGHT_GREEN  a) Run All (ESLintRc and ElfDebugEnzyme)"
-    echo -e "$LIGHT_GREEN  b) Get ElfDebugEnzyme"
-    echo -e "$LIGHT_GREEN  c) Get .eslintrc"
-    echo -e "$LIGHT_GREEN  d) Get .eslintignore"
-    echo -e "$LIGHT_GREEN  e) Get prettier"
-    echo -e "$LIGHT_GREEN  f) Get .prettierrc"
-    echo -e "$LIGHT_GREEN  g) Get Default React Component"
-    echo -e "$LIGHT_GREEN  h) Get Setup React Native Enzyme Npm"
-    echo -e "$LIGHT_GREEN  i) Get Setup React Native Enzyme Yarn"
+    echo -e "$LIGHT_GREEN  a) Run ESLintRc and Prettier (cdef)"
+    echo -e "$LIGHT_GREEN  b) ElfDebugEnzyme"
+    echo -e "$LIGHT_GREEN  c) .eslintrc"
+    echo -e "$LIGHT_GREEN  d) .eslintignore"
+    echo -e "$LIGHT_GREEN  e) prettier"
+    echo -e "$LIGHT_GREEN  f) .prettierrc"
+    echo -e "$LIGHT_GREEN  g) Default React Component"
+    echo -e "$LIGHT_GREEN  h) Setup React Native Enzyme Npm"
+    echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
+    echo -e "$LIGHT_GREEN  j) ElvenLogger"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
-        [Aa]* ) runAll false; continue;;
+        [Aa]* ) runEsLintAndPrettier false; continue;;
         [Bb]* ) runCommand "elfdebug"; continue;;
         [Cc]* ) runCommand "eslintrc"; continue;;
         [Dd]* ) runCommand "eslintignore"; continue;;
@@ -82,6 +99,7 @@ while true; do
         [Gg]* ) runCommand "reactcomp"; continue;;
         [Hh]* ) runCommand "setrnen"; continue;;
         [Ii]* ) runCommand "setrney"; continue;;
+        [Jj]* ) runCommand "elvenlogger"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac

@@ -50,8 +50,8 @@ class InitializeDatabase extends Component {
             .then(response => response.json())
             .then(addressListFromServer => {
                 if (!this.canceled) {
-                    this.setState({addressList: addressListFromServer});
-                    this.setState({addressIndex: 0});
+                    this.setState({ addressList: addressListFromServer });
+                    this.setState({ addressIndex: 0 });
                     console.log(addressListFromServer.length);
                     //this.setAddress(0);
                 }
@@ -67,7 +67,7 @@ class InitializeDatabase extends Component {
         });
     };
 
-    getFive = () => {
+getFive = () => {
         this.props.dataManager.db
             .find({
                 selector: {
