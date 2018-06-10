@@ -50,6 +50,7 @@ alias yni="yarn install"
 alias runt="yarn && yarn test"
 alias gck='npm install && bower install && grunt check'
 alias run="nm && components && npm start"
+alias runlint="yarn && eslint ."
 alias mh="cd ~/Source/MakeHtml"
 alias vwh="cd /var/www/html"
 alias cpfavi="cp -v $ELF_TEMPLATES/Images/favicon.ico ."
