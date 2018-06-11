@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './css/App.css';
-import Instructions from './components/Instructions';
-import FetchServer from "./components/FetchServer";
-import FetchNumbers from "./components/FetchNumbers";
+import logo from '../logo.svg';
+import '../css/App.css';
+import Instructions from './Instructions';
+import FetchServer from "./FetchServer";
+import FetchNumbers from "./FetchNumbers";
 
 class App extends Component {
 
