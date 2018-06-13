@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 import counter from './reducers/counter';
-import {increment, decrement} from './actions';
+import { increment, decrement } from './actions';
 
 export default class AppWithReduxSubscribe extends React.Component {
     constructor(props) {
@@ -30,7 +30,6 @@ export default class AppWithReduxSubscribe extends React.Component {
         }));
     };
 
-
     setupState() {
         this.store = createStore(counter);
         this.store.subscribe(this.work);
@@ -39,19 +38,22 @@ export default class AppWithReduxSubscribe extends React.Component {
     getNine() {
         const that = this;
         return fetch('/getNine', {
-            accept: 'application/json',
-        }).then(function(response) {
-            return response.json();
-        }).then(function(json) {
-            console.log('parsed json', json);
-            that.setState(() => ({nine: json.result}));
-        }).catch(function(ex) {
-            console.log('parsing failed', ex);
-        });
+            accept: 'application/json'
+        })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.setState(() => ({ nine: json.result }));
+            })
+            .catch(function(ex) {
+                console.log('parsing failed', ex);
+            });
     }
 
     getEight = () => {
-        this.store.dispatch({type: 'GET_EIGHT'});
+        this.store.dispatch({ type: 'GET_EIGHT' });
         /*this.setState(() => ({
             eight: '8'
         }));*/
@@ -78,7 +80,6 @@ export default class AppWithReduxSubscribe extends React.Component {
                 <button onClick={this.getEight}>Get Eight</button>
                 <button onClick={this.getNine}>Get Nine</button>
 
-
                 <p>Eight: {this.state.eight}</p>
                 <p>Nine: {this.state.nine}</p>
 
@@ -88,10 +89,7 @@ export default class AppWithReduxSubscribe extends React.Component {
                 <button onClick={this.counterDown}>Decrement Counter</button>
 
                 <p>Counter: {this.state.counter}</p>
-
-
             </div>
         );
     }
 }
-

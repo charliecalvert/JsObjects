@@ -1,15 +1,15 @@
-import {getDate, getTitle} from './actions';
-import {connect} from 'react-redux';
+import { getDate, getTitle } from './actions';
+import { connect } from 'react-redux';
 import Overview from './Overview';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         title: state.title,
         date: state.date
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         dispatchTitle: () => {
             dispatch(getTitle());

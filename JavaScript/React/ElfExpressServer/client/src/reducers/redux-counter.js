@@ -5,13 +5,16 @@
 const baseTitle = 'Elven React Redux REST Demo';
 const baseCounterString = 'The counter is set to: ';
 // Redux Reducer
-const counter = (state = {
-    title: baseTitle,
-    counterString: baseCounterString + 0,
-    counter: 0,
-    eight: 0,
-    nine: 0
-}, action) => {
+const counter = (
+    state = {
+        title: baseTitle,
+        counterString: baseCounterString + 0,
+        counter: 0,
+        eight: 0,
+        nine: 0
+    },
+    action
+) => {
     console.log('COUNTER CALLED');
     switch (action.type) {
         case 'INCREMENT':
@@ -41,8 +44,6 @@ const counter = (state = {
             };
 
         case 'TITLE':
-
-
             return {
                 ...state,
 
@@ -53,12 +54,18 @@ const counter = (state = {
             const currentdate = new Date();
             return {
                 ...state,
-                date: currentdate.getDate() + '/'
-                + (currentdate.getMonth() + 1) + '/'
-                + currentdate.getFullYear() + ' @ '
-                + currentdate.getHours() + ':'
-                + currentdate.getMinutes() + ':'
-                + currentdate.getSeconds()
+                date:
+                    currentdate.getDate() +
+                    '/' +
+                    (currentdate.getMonth() + 1) +
+                    '/' +
+                    currentdate.getFullYear() +
+                    ' @ ' +
+                    currentdate.getHours() +
+                    ':' +
+                    currentdate.getMinutes() +
+                    ':' +
+                    currentdate.getSeconds()
             };
 
         default:

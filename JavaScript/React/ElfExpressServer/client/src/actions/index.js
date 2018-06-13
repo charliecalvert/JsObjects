@@ -14,21 +14,21 @@ export const decrement = () => {
     };
 };
 
-export const getEight = (value) => {
+export const getEight = value => {
     return {
-        'type': 'GET_EIGHT',
-        'value': value
+        type: 'GET_EIGHT',
+        value: value
     };
 };
 
 export const getTitle = () => {
     return {
-        'type': 'TITLE'
+        type: 'TITLE'
     };
 };
 
 export const getDate = () => {
     return {
-        'type': 'DATE'
+        type: 'DATE'
     };
 };

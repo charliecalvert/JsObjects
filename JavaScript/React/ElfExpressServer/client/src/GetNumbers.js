@@ -1,6 +1,6 @@
 import React from 'react';
-import {getEight} from './actions';
-import {connect} from 'react-redux';
+import { getEight } from './actions';
+import { connect } from 'react-redux';
 
 class GetNumbers extends React.Component {
     constructor(props) {
@@ -11,15 +11,18 @@ class GetNumbers extends React.Component {
     getNine() {
         const that = this;
         return fetch('/getNine', {
-            accept: 'application/json',
-        }).then(function(response) {
-            return response.json();
-        }).then(function(json) {
-            console.log('parsed json', json);
-            that.props.getNine(json.result);
-        }).catch(function(ex) {
-            console.log('parsing failed', ex);
-        });
+            accept: 'application/json'
+        })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.props.getNine(json.result);
+            })
+            .catch(function(ex) {
+                console.log('parsing failed', ex);
+            });
     }
 
     render() {
@@ -28,9 +31,13 @@ class GetNumbers extends React.Component {
                 <h2>Get Numbers</h2>
                 <p>Date: {this.props.date}</p>
                 <p>{this.props.counter}</p>
-                <p>The number nine is retrieved from an Express Server.
-                    The Server is found in a directory called <strong>server</strong>.
-                    See <strong>server/routes/index.js</strong> in the server application.</p>
+                <p>
+                    The number nine is retrieved from an Express Server. The
+                    Server is found in a directory called{' '}
+                    <strong>server</strong>. See{' '}
+                    <strong>server/routes/index.js</strong> in the server
+                    application.
+                </p>
 
                 <ul>
                     <li>Eight: {this.props.eight}</li>
@@ -44,23 +51,22 @@ class GetNumbers extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         eight: state.eight,
         nine: state.nine,
         date: state.date,
         counter: state.counterString
-
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         getEight: () => {
             dispatch(getEight(8));
         },
-        getNine: (value) => {
-            dispatch({type: 'GET_NINE', value: value});
+        getNine: value => {
+            dispatch({ type: 'GET_NINE', value: value });
         }
     };
 };

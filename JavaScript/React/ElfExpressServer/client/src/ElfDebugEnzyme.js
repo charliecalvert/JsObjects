@@ -12,7 +12,6 @@
  */
 
 export default class ElfDebugEnzyme {
-
     /**
      * @param showData: Whether or not to display output
      *
@@ -21,7 +20,7 @@ export default class ElfDebugEnzyme {
      * the console includes the name of the class that is
      * requesting to see the output.
      */
-    constructor(showData=false, callerName = '') {
+    constructor(showData = false, callerName = '') {
         this.showData = showData;
         this.callerName = callerName + ':\n';
     }
@@ -46,23 +45,31 @@ export default class ElfDebugEnzyme {
 
     getFirst(wrapper, element, showMe) {
         if (this.showData || showMe) {
-            const paragraphData = wrapper.find(element).first().debug();
+            const paragraphData = wrapper
+                .find(element)
+                .first()
+                .debug();
             this.display(paragraphData);
         }
     }
 
     getIndex(wrapper, element, index, showMe) {
         if (this.showData || showMe) {
-            var paragraphData = wrapper.find(element).childAt(index).debug();
+            var paragraphData = wrapper
+                .find(element)
+                .childAt(index)
+                .debug();
             this.display(paragraphData);
         }
     }
 
     getLast(wrapper, element, showMe) {
         if (this.showData || showMe) {
-            const paragraphData = wrapper.find(element).last().debug();
+            const paragraphData = wrapper
+                .find(element)
+                .last()
+                .debug();
             this.display(this.callerName + paragraphData);
         }
-
     }
 }

@@ -7,8 +7,8 @@ import ReactDom from 'react-dom';
 import App from './App';
 
 import configReducer from './reducers/redux-counter';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 
 let store = createStore(configReducer);

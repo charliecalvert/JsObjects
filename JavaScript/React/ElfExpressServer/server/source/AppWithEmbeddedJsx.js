@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -48,7 +48,6 @@ export default class App extends React.Component {
                 title: temp.title
             }));
         });
-
     }
 
     getNine() {
@@ -66,11 +65,11 @@ export default class App extends React.Component {
     };
 
     counterUp = () => {
-        this.store.dispatch({type: 'INCREMENT'});
+        this.store.dispatch({ type: 'INCREMENT' });
     };
 
     counterDown = () => {
-        this.store.dispatch({type: 'DECREMENT'});
+        this.store.dispatch({ type: 'DECREMENT' });
     };
 
     render() {
@@ -85,7 +84,6 @@ export default class App extends React.Component {
                 <button onClick={this.getEight}>Get Eight</button>
                 <button onClick={this.getNine}>Get Nine</button>
 
-
                 <p>Eight: {this.state.eight}</p>
                 <p>Nine: {this.state.nine}</p>
 
@@ -98,15 +96,14 @@ export default class App extends React.Component {
 
                 <h2>Debugging Tip</h2>
                 <p>
-                    To get started debugging your webpack, add this
-                    to the <strong>webpack.config.js</strong> config file:
+                    To get started debugging your webpack, add this to the{' '}
+                    <strong>webpack.config.js</strong> config file:
                 </p>
 
                 <pre>devtool: 'source-map',</pre>
                 <p>Open the debugger and go webpack in the navigation pane.</p>
-                <img src="debug-web.png" alt="debugging"/>
+                <img src="debug-web.png" alt="debugging" />
             </div>
         );
     }
 }
-

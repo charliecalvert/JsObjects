@@ -9,19 +9,15 @@ import GetNumbers from './GetNumbers';
 import OverviewConnect from './OverviewConnect';
 
 class App extends React.Component {
-
     render() {
         return (
             <div>
-
-                <OverviewConnect/>
-                <Counter/>
-                <GetNumbers/>
-
+                <OverviewConnect />
+                <Counter />
+                <GetNumbers />
             </div>
         );
     }
 }
-
 
 export default App;

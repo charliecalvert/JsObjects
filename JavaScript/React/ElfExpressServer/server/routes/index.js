@@ -12,7 +12,7 @@ router.get('/', function(request, response) {
 });
 
 router.get('/getNine', function(request, response) {
-    response.send({ result: '9'});
+    response.send({ result: '9' });
 });
 
 module.exports = router;
