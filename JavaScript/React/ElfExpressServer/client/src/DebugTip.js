@@ -13,7 +13,7 @@ class DebugTip extends React.Component {
                 <p>Open the debugger and go webpack in the navigation pane.</p>
                 <img src="debug-web.png" alt="debugging"/>
             </div>
-        )
+        );
 
     }
 }

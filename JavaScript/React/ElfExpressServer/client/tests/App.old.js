@@ -8,16 +8,16 @@ configure({ adapter: new Adapter() });
 
 
 describe('App', () => {
-  let wrapper;
+    let wrapper;
 
-  beforeEach(() => {
-    wrapper = shallow(
-      <App />,
-    );
-  });
+    beforeEach(() => {
+        wrapper = shallow(
+            <App />,
+        );
+    });
 
-  it('Check for header', () => {
-    //expect(wrapper.toContain('<h2>The Main File</h2>');
-  });
+    it('Check for header', () => {
+        expect(wrapper.toContain('<h2>The Main File</h2>');
+    });
 
 });

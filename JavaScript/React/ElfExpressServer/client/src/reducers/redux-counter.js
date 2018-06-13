@@ -12,7 +12,7 @@ const counter = (state = {
     eight: 0,
     nine: 0
 }, action) => {
-    console.log("COUNTER CALLED");
+    console.log('COUNTER CALLED');
     switch (action.type) {
         case 'INCREMENT':
             return {
@@ -27,14 +27,14 @@ const counter = (state = {
                 counterString: baseCounterString + (state.counter + 1)
             };
         case 'GET_EIGHT':
-            console.log("GET EIGHT CASE");
+            console.log('GET EIGHT CASE');
             return {
                 ...state,
                 eight: action.value
             };
 
         case 'GET_NINE':
-            console.log("GET NINE CASE");
+            console.log('GET NINE CASE');
             return {
                 ...state,
                 nine: action.value
@@ -53,11 +53,11 @@ const counter = (state = {
             const currentdate = new Date();
             return {
                 ...state,
-                date: currentdate.getDate() + "/"
-                + (currentdate.getMonth() + 1) + "/"
-                + currentdate.getFullYear() + " @ "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
+                date: currentdate.getDate() + '/'
+                + (currentdate.getMonth() + 1) + '/'
+                + currentdate.getFullYear() + ' @ '
+                + currentdate.getHours() + ':'
+                + currentdate.getMinutes() + ':'
                 + currentdate.getSeconds()
             };
 

@@ -37,7 +37,7 @@ class Overview extends React.Component {
                     <li>MapDispatchToProps</li>
                 </ul>
             </div>
-        )
+        );
     }
 }
 

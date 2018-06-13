@@ -53,7 +53,7 @@ export default class App extends React.Component {
 
     getNine() {
         const nine = getNine();
-        console.log("A NINE:", nine);
+        console.log('A NINE:', nine);
         this.setState(() => ({
             nine: nine
         }));
@@ -106,7 +106,7 @@ export default class App extends React.Component {
                 <p>Open the debugger and go webpack in the navigation pane.</p>
                 <img src="debug-web.png" alt="debugging"/>
             </div>
-        )
+        );
     }
 }
 

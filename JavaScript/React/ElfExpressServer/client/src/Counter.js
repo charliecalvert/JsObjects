@@ -21,7 +21,7 @@ class App extends React.Component {
                 <button onClick={this.props.counterDown}>Decrement Counter</button>
 
             </div>
-        )
+        );
     }
 }
 
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
     return {
         counter: state.counter,
         counterString: state.counterString
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,9 +38,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(increment());
         },
         counterDown: () => {
-            dispatch(decrement())
+            dispatch(decrement());
         }
-    }
+    };
 };
 
 

@@ -51,7 +51,7 @@ export default class AppWithReduxSubscribe extends React.Component {
     }
 
     getEight = () => {
-        this.store.dispatch({type: "GET_EIGHT"});
+        this.store.dispatch({type: 'GET_EIGHT'});
         /*this.setState(() => ({
             eight: '8'
         }));*/
@@ -91,7 +91,7 @@ export default class AppWithReduxSubscribe extends React.Component {
 
 
             </div>
-        )
+        );
     }
 }
 

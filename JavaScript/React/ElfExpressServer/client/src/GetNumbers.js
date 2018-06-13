@@ -1,6 +1,6 @@
-import React from "react";
-import {getEight} from "./actions";
-import {connect} from "react-redux";
+import React from 'react';
+import {getEight} from './actions';
+import {connect} from 'react-redux';
 
 class GetNumbers extends React.Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class GetNumbers extends React.Component {
                 <button onClick={this.props.getEight}>Get Eight</button>
                 <button onClick={this.getNine}>Get Nine</button>
             </div>
-        )
+        );
     }
 }
 
@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
         date: state.date,
         counter: state.counterString
 
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -60,9 +60,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getEight(8));
         },
         getNine: (value) => {
-            dispatch({type: "GET_NINE", value: value});
+            dispatch({type: 'GET_NINE', value: value});
         }
-    }
+    };
 };
 
 GetNumbers = connect(

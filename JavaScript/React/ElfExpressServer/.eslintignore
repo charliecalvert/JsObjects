@@ -1,4 +1,5 @@
-*/node_modules/*
-client/semantic/*
-client/build/*
-client/*
+**/registerServiceWorker.js
+**/bundle.js
+.git
+**/node_modules/**
+**/bower_components/**
