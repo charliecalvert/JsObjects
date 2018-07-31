@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# https://gist.githubusercontent.com/subfuzion/90e8498a26c206ae393b66804c032b79/raw/4806d8ff1b61aacba29226b4118d3804be21307d/install-docker-ubuntu.md
+# https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
+sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88 | grep docker@docker.com || exit 1
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce
+sudo docker run --rm hello-world
