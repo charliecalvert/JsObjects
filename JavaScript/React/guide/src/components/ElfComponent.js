@@ -5,7 +5,7 @@ const ElfComponent = ({ className, id }) => (
     <div className={className} id={id}>
         <p>Elf Component</p>
         <a href="https://react-styleguidist.js.org/docs/getting-started.html">
-            StyleGuidest
+            Style Guidest Component
         </a>
     </div>
 );
