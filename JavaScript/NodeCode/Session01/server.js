@@ -60,6 +60,8 @@ app.get('/page01', function(req, res) {
 
 app.get('/page02', function(req, res) {
     'use strict';
+    console.log(req.session);
+    console.log(req.cookies);
     var info = "";
     if (req.session.lastPage) {
         info = previous + req.session.lastPage + '. ';
