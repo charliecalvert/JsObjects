@@ -39,7 +39,11 @@ app.use(function(req, res, next) {
 app.get('/', function(req, res) {
     'use strict';
     console.log('Online: ', req.online);
-    res.send(req.online.length + ' users online');
+    res.send({
+        'users_online': req.online.length,
+        'req_online': req.online,
+        'sessions': req.session
+    });
 });
 
 app.listen(30025);
