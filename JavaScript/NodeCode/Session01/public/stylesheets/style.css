@@ -1,3 +1,4 @@
 body {
-    background-color: transparent;
+    background-color: hsl(60, 50%, 95%);
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
