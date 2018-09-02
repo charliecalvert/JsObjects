@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     res.render('index', { title: 'Session Tracker One' });
 });
 
@@ -24,7 +24,7 @@ function display(request, response, lastPage) {
     console.log(request.session);
     console.log(request.cookies);
     const page = capitalizeFirstLetter(request.params.id);
-    response.render('session', {title: page, lastPage: lastPage});
+    response.render('session', { title: page, lastPage: lastPage });
 }
 
 router.get('/:id', function(request, response) {
@@ -33,6 +33,5 @@ router.get('/:id', function(request, response) {
     request.session.lastPage = request.params.id;
     display(request, response, lastPage);
 });
-
 
 module.exports = router;

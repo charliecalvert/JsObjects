@@ -1,7 +1,6 @@
 {
     "extends": [
-		"eslint:recommended",
-		"plugin:react/recommended"
+		"eslint:recommended"
 	],
     "rules": {
         // enable additional rules
@@ -20,10 +19,7 @@
     "parser":  "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 7,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "sourceType": "module"
     },
     "env": {
         "browser": true,
