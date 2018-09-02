@@ -2,87 +2,58 @@
 var express = require('express');
 var path=require('path');
 var app = express();
-var fs = require('fs');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 var port = process.env.PORT || 30025;
-
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'pug');
+
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-/* app.use(session({
-    secret: '1234567890QWERTY'
-})); */
-
-var uuid = require('uuid');
+const uuid = require('uuid');
 
 app.use(session({
     genid: function(req) {
-        return uuid.v4(); // use UUIDs for session IDs
+        return uuid.v4(); // use UUIDs for session.pug IDs
     },
     secret: process.env.SESSION_SECRET || 'keyboard cat',
     resave: true,
     saveUninitialized: true
 }));
 
-var previous = 'Previously you visited: ';
-
 app.get('/', function(request, response) {
     'use strict';
-    var html = fs.readFileSync('public/index.html');
-    response.writeHeader(200, {
-        "Content-Type": "text/html"
-    });
-    console.log(html);
-    response.end(html);
+    response.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-var home = '<br /><a href="/">Home</a>';
-
-app.get('/page01', function(req, res) {
-    'use strict';
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
+function getLastpage(sessionPage) {
+    let lastPage = 'This is the first page you have visited.';
+    const previous = 'Previously you visited: ';
+    if (sessionPage) {
+        lastPage = previous + sessionPage + '.';
     }
+    return lastPage;
+}
 
-    req.session.lastPage = '/page01';
-    res.send('Welcome to Page01.<br />' + info + home);
-});
+// https://stackoverflow.com/a/1026087
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-app.get('/page02', function(req, res) {
+function display(request, response, lastPage) {
+    console.log(request.session);
+    console.log(request.cookies);
+    const page = capitalizeFirstLetter(request.params.id);
+    response.render('session', {title: page, lastPage: lastPage});
+}
+
+app.get('/:id', function(request, response) {
     'use strict';
-    console.log(req.session);
-    console.log(req.cookies);
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
-    }
-
-    req.session.lastPage = '/page02';
-    res.send('Welcome to Page02.<br />' + info + home);
+    const lastPage = getLastpage(request.session.lastPage);
+    request.session.lastPage = request.params.id;
+    display(request, response, lastPage);
 });
 
-app.get('/page03', function(req, res) {
-    'use strict';
-    console.log(req.session);
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
-    }
-
-    req.session.lastPage = '/page03';
-    res.send('Welcome to Page03.<br />' + info + home);
-});
-
-app.use('/', express.static(__dirname + '/public'));
-console.log('Listening on port: ', port);
-app.listen(port);
+app.listen(port, () => console.log('Session01 listening on port', port + '.'));
