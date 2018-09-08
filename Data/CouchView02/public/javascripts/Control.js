@@ -102,8 +102,10 @@ nameController.allDbs = function($q) {
     return runQuery('/listDb', $q);
 };
 
-myModule.config(function($routeProvider) {
+myModule.config(function($routeProvider, $locationProvider) {
     'use strict';
+    $locationProvider.hashPrefix('');
+
     $routeProvider.when('/databaseName', {
         templateUrl: 'templates/DatabaseNames.html',
         controller: 'NameController',
