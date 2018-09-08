@@ -13,9 +13,9 @@
 requirejs.config({
     baseUrl: '.',
     paths: {
-        'jquery': '/components/jquery/dist/jquery',
-        'bootstrap': '/components/bootstrap/dist/js/bootstrap.min',
-        'jsonToHtml': '/components/elf-json-to-table/json-to-table',
+        'jquery': '/bower_components/jquery/dist/jquery',
+        'bootstrap': '/bower_components/bootstrap/dist/js/bootstrap.min',
+        'jsonToHtml': '/bower_components/elf-json-to-table/json-to-table',
         'control': '/javascripts/control',
         'queryController': '/javascripts/controllers/query-controller',
         'nameController': '/javascripts/controllers/name-controller',
