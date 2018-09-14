@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    // Optional theme
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap-theme.min.css')
+    // JavaScript
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='bower_components/angular/angular.js')
+    script(src="javascripts/control.js")
+
+  body(ng-app="elvenApp")
+    block content

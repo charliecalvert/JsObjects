@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  #elvenController(ng-controller="ElvenController as elvenController")
+    p {{elvenController.hint}}
