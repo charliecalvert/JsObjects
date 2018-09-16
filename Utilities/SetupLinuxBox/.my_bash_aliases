@@ -70,13 +70,13 @@ alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 
 # Isit Courses
 
-alias i3='cd $GIT_HOME/isit322-2018'
-alias i3c='cd $GIT_HOME/isit322-calvert-2018'
+alias i3='cd $GIT_HOME/isit320-2018'
+alias i3c='cd $GIT_HOME/isit320-calvert-2018'
 
 # Prog Courses
-alias p2='cd $GIT_HOME/prog272-2018'
-alias p2c='cd $GIT_HOME/prog272-calvert-2018'
-alias repo='cd ~/Git/prog272-calvert-2018'
+alias p2='cd $GIT_HOME/prog109-2018'
+alias p2c='cd $GIT_HOME/prog109-calvert-2018'
+alias p2n='cd ~/Git/prog109-notes'
 
 ## WebCrafts
 alias i3w='cd $WEBCRAFTS'
