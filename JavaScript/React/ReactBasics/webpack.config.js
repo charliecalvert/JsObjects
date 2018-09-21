@@ -1,20 +1,22 @@
-var path = require('path');
-var webpack = require('webpack');
+//var path = require('path');
+//var webpack = require('webpack');
 
 module.exports = {
+    mode: 'development',
     entry: './main.js',
     output: {
         path: __dirname,
         filename: 'bundle.js'
     },
-    devtool: "#inline-source-map",
+    devtool: "source-map",
     module: {
-        loaders: [
+        rules: [
             {
                 test: /.js?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {presets: ['env', 'react']}
+                exclude: /(node_modules|bower_components)/,
+                use: [{
+                    loader: 'babel-loader'
+                }]
             }
         ]
     },
