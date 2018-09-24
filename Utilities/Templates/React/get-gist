@@ -17,6 +17,7 @@ GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
 GIST_REACT_NATIVE_ENZYME_NPM=https://gist.github.com/5688f8461bfe0ec284261acf6103a12b.git
 GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be0b0321.git
 GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
+ELVEN_NODE_TOOLS=https://github.com/charliecalvert/elven-node-tools.git
 
 function message {
     echo
@@ -36,8 +37,7 @@ function removeDir {
 function getGist() {
 	removeDir
 	git clone $1 $ESLINT_DIR
-	cp -v $ESLINT_DIR/$2 .
-	removeDir
+	cp -v $ESLINT_DIR/$2 .		
 }
 
 function runCommand() {
@@ -51,6 +51,20 @@ function runCommand() {
 		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
 		"setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
 		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
+		"elven-node-tools") 
+			getGist $ELVEN_NODE_TOOLS *-service  
+			cp -v $ESLINT_DIR/eip.service .	
+			;;\
+	esac
+	removeDir
+}
+
+function runGitCommand() {
+	case $1 in
+		"elven-node-tools") 
+			getGist $ELVEN_NODE_TOOLS *-service  
+			cp -v $ESLINT_DIR/eip.service .	
+			;;\
 	esac
 }
 
@@ -86,6 +100,7 @@ while true; do
     echo -e "$LIGHT_GREEN  h) Setup React Native Enzyme Npm"
     echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
     echo -e "$LIGHT_GREEN  j) ElvenLogger"
+    echo -e "$LIGHT_GREEN  k) Elven Node Tools"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -100,6 +115,7 @@ while true; do
         [Hh]* ) runCommand "setrnen"; continue;;
         [Ii]* ) runCommand "setrney"; continue;;
         [Jj]* ) runCommand "elvenlogger"; continue;;
+        [Kk]* ) runCommand "elven-node-tools"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
