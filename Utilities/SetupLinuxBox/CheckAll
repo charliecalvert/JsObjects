@@ -28,7 +28,11 @@ cd $GIT_HOME/charliecalvert.github.io
 checkStatus
 
 echo "================"
-cd $GIT_HOME/prog270-calvert-2018
+cd $GIT_HOME/prog109-calvert-2018
+checkStatus
+
+echo "================"
+cd $GIT_HOME/prog109-notes-2018
 checkStatus
 
 echo "================"
