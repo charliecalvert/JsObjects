@@ -28,9 +28,9 @@ cd $GIT_HOME/charliecalvert.github.io
 checkStatus
 
 echo "================"
-cd $GIT_HOME/prog272-calvert-2018
+cd $GIT_HOME/prog270-calvert-2018
 checkStatus
 
 echo "================"
-cd $GIT_HOME/isit322-calvert-2018
+cd $GIT_HOME/isit320-calvert-2018
 checkStatus
