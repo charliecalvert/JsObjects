@@ -11,10 +11,10 @@ NC='\033[0m' # No Color
 function checkStatus {
 	pwd
 	if [ -n "$(git status --porcelain)" ]; then
-	  echo  -e "$RED there are changes";
+	  echo  -e "$RED there are changes $NC";
 	  exit;
 	else
-	  echo  -e "$LIGHT_GREEN no changes";
+	  echo  -e "$LIGHT_GREEN no changes $NC";
 	  git pull
 	fi
 }
