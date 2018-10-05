@@ -46,11 +46,11 @@ function directions {
 
 function run-get-started {
     scp $SETUP_LINUXBOX/$GET_STARTED "bcuser@192.168.86.53:$DEST_HOME/."
-    ssh eu "$GET_STARTED_DEST"
+    ssh $EC2_CONFIG "$GET_STARTED_DEST"
 }
 
 function run-ubuntu-setup {
-    ssh eu "$UBUNTU_SETUP"
+    ssh $EC2_CONFIG "$UBUNTU_SETUP"
 }   
 
 while true; do
