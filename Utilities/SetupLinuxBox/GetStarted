@@ -11,7 +11,8 @@ SLB=~/Git/JsObjects/Utilities/SetupLinuxBox
 
 # Update
 sudo apt-get update
-sudo apt-get upgrade -y
+DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
+# sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get install build-essential -y
 sudo apt-get install dist-upgrade -y

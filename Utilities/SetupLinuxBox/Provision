@@ -8,7 +8,7 @@ BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
 GET_STARTED=GetStarted
-DEST_HOME=/home/bcuser/
+DEST_HOME=/home/ubuntu/
 GET_STARTED_DEST="$DEST_HOME/$GET_STARTED"
 UBUNTU_SETUP="$DEST_HOME/RunUbuntuSetup"
 EC2_CONFIG=ec2-bc
@@ -24,7 +24,7 @@ function message {
 function directions {
 	message Directions
 	echo "Be sure you have an ~/.ssh/config file that contains a HOST called ec2-bc"
-	echo "Learn about SSH config here: TBD"
+	echo "Learn about SSH config here: https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/"
 	echo "------"
 	echo "This script assumes you are trying to configure an EC2 ubuntu instance"
 	echo "where the user does not need to type a password to run sudo commands."
@@ -45,7 +45,7 @@ function directions {
 }
 
 function run-get-started {
-    scp $SETUP_LINUXBOX/$GET_STARTED "bcuser@192.168.86.53:$DEST_HOME/."
+    scp $SETUP_LINUXBOX/$GET_STARTED "$EC2_CONFIG:$DEST_HOME/."
     ssh $EC2_CONFIG "$GET_STARTED_DEST"
 }
 
