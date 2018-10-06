@@ -11,10 +11,14 @@ SLB=~/Git/JsObjects/Utilities/SetupLinuxBox
 
 # Update
 sudo apt-get update
-DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -yq
-DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade -yq
-sudo apt-get install build-essential -y
+# export DEBIAN_FRONTEND=noninteractive
+# sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
+# sudo DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -yq
 
+# https://askubuntu.com/a/147079/130778
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+sudo apt-get install build-essential -y
 
 # Git
 mkdir ~/Git
