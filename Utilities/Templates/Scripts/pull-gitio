@@ -1,0 +1,6 @@
+#! /bin/bash
+
+cd $HOME/Git/charliecalvert.github.io
+pwd
+git pull
+
