@@ -4,3 +4,10 @@ cd $HOME/Git/charliecalvert.github.io
 pwd
 git pull
 
+cd $HOME/Git/CloudNotes
+pwd
+git pull
+
+cd $HOME/Git/JsObjects
+pwd
+git pull
