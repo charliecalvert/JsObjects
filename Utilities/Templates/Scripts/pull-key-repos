@@ -8,17 +8,17 @@ function message {
     echo
 }
 
-message "Pulling charliecalvert.github.io"
+message "Pulling charliecalvert.github.io on $HOSTNAME" 
 cd $HOME/Git/charliecalvert.github.io
 pwd
 git pull
 
-message "Pulling CloudNotes"
+message "Pulling CloudNotes on $HOSTNAME"
 cd $HOME/Git/CloudNotes
 pwd
 git pull
 
-message "Pulling JsObjects"
+message "Pulling JsObjects on $HOSTNAME"
 cd $HOME/Git/JsObjects
 pwd
 git pull
