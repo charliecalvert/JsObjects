@@ -1,0 +1,23 @@
+{
+    "name": "classconstructor",
+    "version": "1.0.0",
+    "description": "Show constructor inheritance",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/charliecalvert/JsObjects.git"
+    },
+    "keywords": [
+        "class",
+        "javascript"
+    ],
+    "author": "Charlie Calvert",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/charliecalvert/JsObjects/issues"
+    },
+    "homepage": "https://github.com/charliecalvert/JsObjects#readme"
+}
