@@ -100,7 +100,7 @@ while true; do
     echo -e "$LIGHT_GREEN  h) Setup React Native Enzyme Npm"
     echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
     echo -e "$LIGHT_GREEN  j) ElvenLogger"
-    echo -e "$LIGHT_GREEN  k) Elven Node Tools"
+    echo -e "$LIGHT_GREEN  k) Elven systemd Tools"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
