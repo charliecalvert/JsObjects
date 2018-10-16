@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo systemctl stop package-editor.service
+sudo systemctl disable package-editor.service

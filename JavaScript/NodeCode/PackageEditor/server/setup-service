@@ -1,0 +1,9 @@
+#! /bin/bash
+
+function copyService() {
+    sudo cp -v package-editor.service /etc/systemd/system/.
+    sudo systemctl enable package-editor.service
+    sudo systemctl start package-editor.service
+}
+
+copyService
