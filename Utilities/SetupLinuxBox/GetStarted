@@ -39,7 +39,7 @@ RUS=~/RunUbuntuSetup
 echo -e '#!/bin/bash' > $RUS
 echo -e '' >> $RUS
 echo -e 'cd ~/Git/JsObjects/Utilities/SetupLinuxBox' >> $RUS
-echo -e './UbuntuSetup' >> $RUS
+echo -e './UbuntuSetupHelper a' >> $RUS
 chmod +x $RUS
 
 echo -e "=================================================="
