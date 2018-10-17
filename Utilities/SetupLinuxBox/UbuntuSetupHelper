@@ -129,14 +129,12 @@ function nodePackages() {
 }
 
 function runBasics() {
-	#$SETUP_LINUXBOX/UbuntuSetupHelper b
     gitSetup
     setBashAliasAndSymbolicLinks
     setupBashRc "$1"
 }
 
 function runAll() {
-	#$SETUP_LINUXBOX/UbuntuSetupHelper a
     runBasics "$1"
     nodeSetup
     nodePackages
@@ -147,33 +145,15 @@ if [ "$1" = "b" ]; then
 	exit
 fi
 
-while true; do
-    message "Menu"
-    echo -e "$LIGHT_GREEN Ubuntu"
-    echo -e "$LIGHT_GREEN  a) Run All (Basic and Node Related)"
-    echo -e "$LIGHT_GREEN  b) Run Basic Setup (All but Node Related)"
-    echo -e "$BLUE Cloud Nine"
-    echo -e "$BLUE  c) Run All (Basic and Node Related)"
-    echo -e "$BLUE  d) Run Basic Setup  (All but Node Related)"
-    echo -e "$YELLOW Other"
-    echo -e "$YELLOW  n) Install Node"
-    echo -e "$YELLOW  p) Install Node Packages"
-    echo -e "$YELLOW  r) Remove files created by Basic setup"
-    echo -e "$LIGHT_RED  x) Exit (You should source .bashrc when done)"
-    echo -e "\n$NC"
-    read -p "Please make a selection: " eotuyx
-    case $eotuyx in
-        [Aa]* ) runAll false; continue;;
-        [Bb]* ) runBasics false; continue;;
-        [Cc]* ) runAll true; continue;;
-        [Dd]* ) runBasics true; continue;;
-        [Nn]* ) nodeSetup; continue;;
-        [Pp]* ) nodePackages; continue;;
-        [Rr]* ) clean; continue;;
-        [XxQq]* ) break;;
-        * )  -e "\n$NC" + "Please answer with c, r or x.";;
+while [ "$1" != "" ]; do
+    case $1 in
+        [Aa]* ) runAll false; shift;;
+        [Bb]* ) runBasics false; shift;;
+        [Cc]* ) runAll true; shift;;
+        [Dd]* ) runBasics true; shift;;
+        [Nn]* ) nodeSetup; shift;;
+        [Pp]* ) nodePackages; shift;;
+        [Rr]* ) clean; shift;;
+        [XxQq]* ) break;;        
     esac
 done
-echo -e '----------------------------------------------'
-echo -e 'If you have made changes, run'"$LIGHT_GREEN"' source ~/.bashrc'"$NC"
-echo -e '----------------------------------------------'
