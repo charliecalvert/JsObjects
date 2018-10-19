@@ -51,3 +51,11 @@ echo "================"
 cd $GIT_HOME/elven-systemd-tools
 checkStatus
 
+echo "================"
+cd $GIT_HOME/elven-create-concurrently
+checkStatus
+
+echo "================"
+cd $GIT_HOME/coderzendo.github.io
+checkStatus
+
