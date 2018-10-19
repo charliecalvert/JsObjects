@@ -17,7 +17,8 @@ GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
 GIST_REACT_NATIVE_ENZYME_NPM=https://gist.github.com/5688f8461bfe0ec284261acf6103a12b.git
 GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be0b0321.git
 GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
-ELVEN_NODE_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
+GIST_ELVEN_NODE_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
+GIST_ELVEN_CREATE_CONCUR=https://github.com/charliecalvert/elven-create-concurrently.git
 
 function message {
     echo
@@ -52,9 +53,14 @@ function runCommand() {
 		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
 		"setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
 		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
-		"elven-node-tools") 
-			getGist $ELVEN_NODE_TOOLS "*-service"
+		"elven-systemd-tools") 
+			getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
 			cp -v $ESLINT_DIR/temp.service .
+			cp -v $ESLINT_DIR/edit-package-json.js .
+			;;\
+		"elven-create-concur") 
+			getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
+			cp -v $ESLINT_DIR/start-client.js .
 			cp -v $ESLINT_DIR/edit-package-json.js .
 			;;\
 	esac
@@ -64,7 +70,7 @@ function runCommand() {
 function runGitCommand() {
 	case $1 in
 		"elven-node-tools") 
-			getGist $ELVEN_NODE_TOOLS *-service  
+			getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
 			cp -v $ESLINT_DIR/eip.service .	
 			;;\
 	esac
@@ -103,6 +109,7 @@ while true; do
     echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
     echo -e "$LIGHT_GREEN  j) ElvenLogger"
     echo -e "$LIGHT_GREEN  k) Elven Node systemd Tools"
+    echo -e "$LIGHT_GREEN  l) Elven Create Concurrently"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -117,7 +124,8 @@ while true; do
         [Hh]* ) runCommand "setrnen"; continue;;
         [Ii]* ) runCommand "setrney"; continue;;
         [Jj]* ) runCommand "elvenlogger"; continue;;
-        [Kk]* ) runCommand "elven-node-tools"; continue;;
+        [Kk]* ) runCommand "elven-systemd-tools"; continue;;
+        [Ll]* ) runCommand "elven-create-concur"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
