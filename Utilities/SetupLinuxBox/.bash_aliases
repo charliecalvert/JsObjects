@@ -45,7 +45,8 @@ alias runexpress='npm install && bower install && grunt check'
 alias runy='yarn install && bower install && yarn start'
 alias runs='yarn install && yarn start'
 alias runl='ln -s ~/tmp/node_modules . && npm start'
-alias runcly='cd client && yarn && cd ../server && yarn && bower install && cd .. && yarn'
+alias runcln='cd client && npm i && cd ../server && npm i && bower install && cd .. && npm i'
+alias runcs='cd client && npm i && cd ../server && npm i && npm start'
 alias yni="yarn install"
 alias runt="yarn && yarn test"
 alias gck='npm install && bower install && grunt check'
@@ -57,6 +58,8 @@ alias cpfavi="cp -v $ELF_TEMPLATES/Images/favicon.ico ."
 alias cpfavp="cp -v $ELF_TEMPLATES/Images/favicon.png ."
 alias gss="git status"
 alias gitlog="git log --pretty=format:'%h: %ad'"
+alias pj="git co package.json"
+alias plj="git co package-lock.json"
 
 #alias run="npm install && bower install && npm start"
 
