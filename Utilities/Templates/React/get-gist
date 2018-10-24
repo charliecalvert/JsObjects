@@ -17,7 +17,7 @@ GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
 GIST_REACT_NATIVE_ENZYME_NPM=https://gist.github.com/5688f8461bfe0ec284261acf6103a12b.git
 GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be0b0321.git
 GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
-GIST_ELVEN_NODE_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
+GIST_ELVEN_SYSTEMD_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
 GIST_ELVEN_CREATE_CONCUR=https://github.com/charliecalvert/elven-create-concurrently.git
 
 function message {
