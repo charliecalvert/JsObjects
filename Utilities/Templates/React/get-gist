@@ -47,7 +47,10 @@ function runCommand() {
 		"elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
 		"eslintrc") getGist $GIST_ESLINTRC .eslintrc.json ;;
 		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
-		"prettier") getGist $GIST_PRETTIER prettier ;;
+		"prettier") 
+			getGist $GIST_PRETTIER prettier 
+			chmod +x prettier
+			;;\
 		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
 		"reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;\
 		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
