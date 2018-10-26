@@ -12,9 +12,11 @@ export ELF_SCRIPTS=$ELF_TEMPLATES/Scripts
 export ELF_TEMPLATES_DATABASE=$ELF_TEMPLATES/Database
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
+export ELF_SSH_DIR=$HOME/.ssh
 export PORT=30025
 export SERVER_PORT=30026
 export WEB_CRAFTS_PORT=30200
+
 
 # Alias definitions.
 
@@ -34,8 +36,8 @@ alias killnode="killall node"
 #alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
 
 # Commands
-alias sshadd="ssh-add ~/.ssh/main-key"
-alias gossh="cd ~/.ssh"
+alias sshadd="ssh-add $ELF_SSH_DIR/main-key"
+alias gossh="cd $ELF_SSH_DIR/"
 alias ba="less ~/.bash_aliases"
 alias platform="cordova platform add android"
 alias go="npm install && bower install && npm start"
