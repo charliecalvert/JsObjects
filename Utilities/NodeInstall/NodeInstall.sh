@@ -32,7 +32,10 @@ sudo apt-get install curl
 # curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 
 # The new setup script for Node.js v10.X
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
+# The new setup script for Node.js v10.X
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 
 # Install node
 sudo apt-get install -y nodejs
