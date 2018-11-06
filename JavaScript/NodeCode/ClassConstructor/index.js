@@ -9,6 +9,27 @@ class BarFoo extends Bar {
         super();
         console.log('BarFoo constructor called.');
     }
+    
+    sayName() {
+        console.log('BarFoo');
+    }
 }
 
-new BarFoo();
+const barFoo = new BarFoo();
+barFoo.sayName();
+
+/*
+ * Old Style Function Constructor
+ */
+function Fulano() {
+    // private function 
+    var bar  = function() {}; 
+    
+    // Method on a prototype
+    Fulano.prototype.sayName = function() { 
+      console.log('Fulano.sayName'); 
+    };  
+}
+
+const fulano = new Fulano();
+fulano.sayName();
