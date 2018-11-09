@@ -39,16 +39,22 @@ function getGist() {
 	removeDir
 	git clone $1 $ESLINT_DIR
 	echo -e "NUMBER 2 = $2"
-	cp -v $ESLINT_DIR/$2 .		
+	cp -v $ESLINT_DIR/$2 .
 }
 
 function runCommand() {
 	case $1 in
 		"elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
-		"eslintrc") getGist $GIST_ESLINTRC .eslintrc.json ;;
+		"eslintrc")
+			getGist $GIST_ESLINTRC .eslintrc.json
+			echo 'npm install -g babel-eslint eslint-plugin-react' >> installEslintPackages
+			chmod +x installEslintPackages
+			;;\
 		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
 		"prettier") 
 			getGist $GIST_PRETTIER prettier 
+			echo '**/build/**' >> .prettierignore
+			echo '**/serviceWorker.js' >> .prettierignore
 			chmod +x prettier
 			;;\
 		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
