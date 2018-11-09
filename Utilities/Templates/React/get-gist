@@ -43,12 +43,15 @@ function getGist() {
 }
 
 function runCommand() {
+	# REMOVE_ALL='rm .esl* installEslintPackages  prettier .prettier*'
+	INSTALL_ESLINT_PACKAGES=installEslintPackages
 	case $1 in
 		"elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
 		"eslintrc")
 			getGist $GIST_ESLINTRC .eslintrc.json
-			echo 'npm install -g babel-eslint eslint-plugin-react' >> installEslintPackages
-			chmod +x installEslintPackages
+			echo 'npm install -g babel-eslint eslint-plugin-react' >> $INSTALL_ESLINT_PACKAGES
+			chmod +x $INSTALL_ESLINT_PACKAGES
+			./$INSTALL_ESLINT_PACKAGES
 			;;\
 		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
 		"prettier") 
