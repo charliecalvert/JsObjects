@@ -1,0 +1,26 @@
+{
+  "name": "getip",
+  "version": "1.0.0",
+  "description": "Get IP from from SSH config",
+  "main": "getip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "ssh",
+    "ip"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "dependencies": {
+    "elven-code": "^4.5.0"
+  }
+}
