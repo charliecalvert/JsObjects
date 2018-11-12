@@ -62,6 +62,9 @@ alias gss="git status"
 alias gitlog="git log --pretty=format:'%h: %ad'"
 alias pj="git co package.json"
 alias plj="git co package-lock.json"
+alias elf-server="nodemon ${PWD}/server/bin/www"
+alias elf-client="cd client && ${PWD}/client/node_modules/react-scripts/bin/react-scripts.js start"
+alias cleanher="git co client && git co server && find . -iname 'nohup.out' ! -type l | xargs rm -rv"
 
 #alias run="npm install && bower install && npm start"
 
