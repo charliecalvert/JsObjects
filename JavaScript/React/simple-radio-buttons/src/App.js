@@ -5,12 +5,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkedRadioButton: ''
+            checkedRadioButton: 'none',
+            message: 'none'
         };
     }
 
     handleRadioChange = (event) => {
         this.setState({checkedRadioButton: event.target.value});
+    };
+
+    useRadioButtonSelection = (event) => {
+        this.setState({message: "You've chosen " + this.state.checkedRadioButton})
     };
 
     render() {
@@ -43,7 +48,9 @@ class App extends Component {
                     <hr/>
                     {bookRadios}
                     <hr/>
-                    <p>Checked radio: {this.state.checkedRadioButton}</p>
+                    <p>Selected radio button: {this.state.checkedRadioButton}</p>
+                    <p>Message: {this.state.message}</p>
+                    <button type="button" onClick={this.useRadioButtonSelection}>Use Radio Button to set the message</button>
                 </section>
             </div>
         );
