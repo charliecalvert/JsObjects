@@ -4,7 +4,7 @@
   "description": "Get IP from from SSH config",
   "main": "getip.js",
   "scripts": {
-      "start": "nodemon getip.js",
+    "start": "nodemon getip.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
