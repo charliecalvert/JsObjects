@@ -25,10 +25,10 @@ class MyClass {
 
 const myClass = new MyClass();
 
-class GetNumbers {
-    getOne() { return 1 }
-    getTwo() { return 2 }
-}
+    class GetNumbers {
+        getOne() { return 1 }
+        getTwo() { return 2 }
+    }
 
-const getNumbers = new GetNumbers();
-console.log('getOne + getTwo = ', getNumbers.getOne() + getNumbers.getTwo());
+    const getNumbers = new GetNumbers();
+    console.log('getOne + getTwo = ', getNumbers.getOne() + getNumbers.getTwo());
