@@ -76,4 +76,5 @@ createLink "$ELF_SCRIPTS"/ GitIgnoreTest
 createLink "$ELF_SCRIPTS"/ get-reveal
 createLink "$ELF_SCRIPTS"/ pull-key-repos
 createLink "$ELF_SCRIPTS"/ semver-inc
+createLink "$ELF_SCRIPTS"/ update-all
 createLink "$ELF_UTILS"/SetupLinuxBox/ Provision	
