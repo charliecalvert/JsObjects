@@ -68,6 +68,7 @@ createLink "$ELF_TEMPLATES"/React/ ReactNpm
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNp
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNpDir
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNpPrettier
+createLink "$ELF_TEMPLATES"/FindScripts/ package-json-test
 createLink "$ELF_TEMPLATES"/React/ get-gist
 createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
@@ -77,4 +78,5 @@ createLink "$ELF_SCRIPTS"/ get-reveal
 createLink "$ELF_SCRIPTS"/ pull-key-repos
 createLink "$ELF_SCRIPTS"/ semver-inc
 createLink "$ELF_SCRIPTS"/ update-all
+createLink "$ELF_SCRIPTS"/ delete_node_modules
 createLink "$ELF_UTILS"/SetupLinuxBox/ Provision	
