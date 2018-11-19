@@ -29,3 +29,17 @@ console.log('SLICE', slate);
 
 const slake = newWords.slice(-2);
 console.log('SLICE', slake);
+
+const newList = ['linux', 'OS2', 'Windows']
+let i = 0;
+while(newList[i]) {
+    console.log('WHILE', newList[i++]);
+}
+
+let j = 0;
+do {
+    console.log('J', j);
+    console.log('DO-WHILE', newList[j++]);
+    console.log('J', j);
+    console.log('--------------')
+} while(newList[j])
