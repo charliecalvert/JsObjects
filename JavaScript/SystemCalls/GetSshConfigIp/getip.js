@@ -20,7 +20,7 @@ const getSshIp = () => {
                 const result = {};
                 const match = content.result.match(pattern);
                 console.log(match);
-                /*for (let i = 1; i < 5; i++) {
+                for (let i = 1; i < 5; i++) {
                     if (match[i].startsWith('HostName')) {
                         var hostPattern = new RegExp('HostName\\s(.*)');
                         result.hostName = match[i].match(hostPattern)[1];
@@ -30,7 +30,7 @@ const getSshIp = () => {
                         const path = match[i].match(idPattern)[1];
                         result.identityFile = path.substring(path.lastIndexOf('/') + 1, path.length)
                     }
-                }*/
+                }
                 resolve(result);
             })
             .catch(reject);
