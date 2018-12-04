@@ -1,0 +1,46 @@
+body {
+  padding: 25px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p.compact {
+  margin: 2px;
+}
+
+.response {
+  border: solid 1px black;
+  border-radius: 10px;
+  padding-left: 5px;
+  background-color: #dedede;
+  max-width: 500px;
+}
+
+.debug {
+  border: solid 1px black;
+  background-color: #999999;
+}
+
+button, .button {
+  margin: 5px;
+}
+
+/* https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 360px) {
+  /* padding-top , right, bottom, left */
+  body {
+    padding: 5px 0px 5px 5px;
+  }
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+  body {
+    /* padding-top , right, bottom, left */
+    padding:5px 0px 5px 15px;
+  }
+}

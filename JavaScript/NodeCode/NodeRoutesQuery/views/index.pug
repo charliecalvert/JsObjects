@@ -3,6 +3,8 @@ extends layout
 block content
     h1= title
     p Welcome to #{title}
+    p
+        i Copyright &copy; 2018 by #{author}
 
     p
         | Look in routes/RouteParams.js to see why these urls respond as they do.
@@ -22,15 +24,16 @@ block content
     div
         h2 Normal
         button#root root
-        button#routeParams /routeParams
-        button#able /routeParams/able
-        button#bravo /routeParams/bravo
-        button#charlie /routeParams/charlie
+        button#routeParams(data-query="?custom=routeParams") /routeParams
+        button#able(data-query="?custom=able") /routeParams/able
+        button#bravo(data-query="?custom=bravo") /routeParams/bravo
+        button#crick(data-query="?first=Francis&last=Crick") /routeParams/charlie
 
     div
         h2 Cats
-        button#acat /routeParams/acat
-        button#a /routeParams/a
+        button#catAction /routeParams/cat
+        button#aCatAction /routeParams/acat
+        button#ableAction /routeParams/able
 
 
 

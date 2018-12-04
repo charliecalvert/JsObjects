@@ -4,8 +4,9 @@ var Control = (function() {
 
 	// Constructor
     function buttonClickHandler (event) {
+        var query = event.target.dataset.query;
         var id = event.target.id;
-        var route = '/routeParams/' + id;
+        var route = '/routeParams/' + id + query;
         document.getElementById('clientRoute').textContent = 'ClientRoute: ' + route;
 
         fetch(route)

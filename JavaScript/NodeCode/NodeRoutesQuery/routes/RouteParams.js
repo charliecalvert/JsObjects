@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (request, response) {
-    console.log(request.query);
-    response.send({route: '/', result: 'success', request: request.query, params: request.params});
+    console.log('QUERY', request.query);
+    console.log('PARAMS', request.params);
+    response.send({route: '/', result: 'success', query: request.query, params: request.params});
 });
 
 router.get('/cat', function (request, response) {
-    console.log(request.query);
-    console.log(request.params);
+    console.log('QUERY', request.query);
+    console.log('PARAMS', request.params);
     var id = request.params.id;
     response.send({
         route: '/' + id,
@@ -21,7 +22,7 @@ router.get('/cat', function (request, response) {
 
 router.get('/a(cat)?', function (request, response) {
     console.log(request.query);
-    response.send({route: '/a(cat)?', result: 'success', request: request.query, params: request.params});
+    response.send({route: '/a(cat)?', result: 'success', query: request.query, params: request.params});
 });
 
 /* GET users listing. */

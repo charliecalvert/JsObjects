@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/components/jquery/dist/jquery.js"></script>
+    <script src="/javascripts/Utilities.js"></script>
+    <script src="/javascripts/Control.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </head>
+  <body>
+    <h1></h1>
+    <p>Welcome to </p>
+    <p>
+      Look in routes/RouteParams.js to see why these urls respond as they do.
+      The point is that you don't need to have a route for every URL. There
+      are parameters wild cards you can use to handle multiple URLs on a single
+      route.
+    </p>
+    <h2>Response Area</h2>
+    <div class="response">
+      <p id="clientRoute" class="compact">clientRoute</p>
+      <p id="route" class="compact">route</p>
+      <p id="result" class="compact"></p>
+      <p id="query" class="compact"></p>
+      <p id="params" class="compact"></p>
+      <p id="id" class="compact"></p>
+    </div>
+    <div>
+      <h2>Normal</h2>
+      <button id="root">root</button>
+      <button id="routeParams">/routeParams</button>
+      <button id="able">/routeParams/able</button>
+      <button id="bravo">/routeParams/bravo</button>
+      <button id="charlie">/routeParams/charlie</button>
+    </div>
+    <div>
+      <h2>Cats</h2>
+      <button id="acat">/routeParams/acat</button>
+      <button id="a">/routeParams/a</button>
+    </div>
+    <h2>Debug Area</h2>
+    <div class="debug">
+      <p id="debug"></p>
+    </div>
+  </body>
+</html>
