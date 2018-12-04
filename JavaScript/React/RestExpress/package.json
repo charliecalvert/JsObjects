@@ -1,0 +1,31 @@
+{
+    "name": "restexpress",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon ./bin/www",
+        "build": "node_modules/.bin/webpack --watch"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "express": "~4.16.0",
+        "http-errors": "~1.6.2",
+        "morgan": "~1.9.0",
+        "pug": "2.0.0-beta11",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.0",
+        "@babel/plugin-proposal-class-properties": "^7.2.1",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.2",
+        "css-loader": "^1.0.1",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.19.1",
+        "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.8"
+    }
+}
