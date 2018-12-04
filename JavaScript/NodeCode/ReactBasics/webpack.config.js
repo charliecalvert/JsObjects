@@ -3,10 +3,10 @@
 
 module.exports = {
     mode: 'development',
-    entry: __dirname + '/source/main.js',
+    entry: './main.js',
     output: {
         path: __dirname,
-        filename: 'public/bundle.js'
+        filename: 'bundle.js'
     },
     devtool: "source-map",
     module: {

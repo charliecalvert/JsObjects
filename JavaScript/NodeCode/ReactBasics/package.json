@@ -1,0 +1,26 @@
+{
+    "name": "react-basics",
+    "version": "1.0.0",
+    "description": "React from scratch",
+    "main": "ReactBasics.js",
+    "scripts": {
+        "start": "node_modules/.bin/webpack-dev-server --port=30025 --mode=development",
+        "build": "node_modules/.bin/webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Charlie Calvert",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.0",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.2",
+        "webpack": "^4.19.1",
+        "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.8"
+    }
+}

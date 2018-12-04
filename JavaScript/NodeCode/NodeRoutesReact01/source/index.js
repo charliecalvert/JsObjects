@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './index.css';
-import 'whatwg-fetch';
 
 export default class GetNine extends React.Component {
 
