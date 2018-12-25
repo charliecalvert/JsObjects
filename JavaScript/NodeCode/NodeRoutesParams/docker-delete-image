@@ -1,0 +1,7 @@
+docker rmi bcuser/node-routes-params:latest
+echo "-----------------------------"
+echo "If needed, try this to get CONTAINER_NAME:"
+echo "  docker ps -as"
+echo "Then:"
+echo "  docker stop <CONTAINER_NAME>"
+echo "  docker rm <CONTAINER_NAME>"
