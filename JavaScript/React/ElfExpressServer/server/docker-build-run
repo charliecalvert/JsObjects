@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+docker build -t bcuser/elf-express-server .
+docker run -p 30026:30026 -d bcuser/elf-express-server
+
