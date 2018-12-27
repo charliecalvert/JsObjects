@@ -51,7 +51,7 @@ export default class App extends React.Component {
     }
 
     getNine() {
-        const nine = getNine();
+        const nine = this.getNine();
         console.log('A NINE:', nine);
         this.setState(() => ({
             nine: nine
