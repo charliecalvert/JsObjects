@@ -1,0 +1,17 @@
+version: '3.7'
+
+services: 
+  node-routes:
+    container_name: app-node-routes
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '30025:30025'
+    environment:
+      - NODE_ENV=devlopment
+
+      
