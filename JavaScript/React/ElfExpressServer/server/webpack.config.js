@@ -5,22 +5,24 @@ module.exports = {
     mode: 'development',
     entry: './source/main.js',
     output: {
-        path: __dirname + "/public/",
+        path: __dirname + '/public/',
         filename: 'bundle.js'
     },
-    devtool: "source-map",
+    devtool: 'source-map',
     module: {
         rules: [
             {
                 test: /.js?$/,
                 exclude: /(node_modules|bower_components)/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
                     }
-                }]
+                ]
             }
         ]
-    },
+    }
 };
