@@ -1,73 +1,76 @@
 var request = require('request');
+var setServer = require('../set-server');
 require('request-debug')(request);
 
-var servers = ["http://127.0.0.1:5984/", "http://192.168.2.30:5984/"];
-var index = 0;
-var databaseName = "bcdata";
-var docName = "data_one";
+// var servers = ["http://127.0.0.1:5984/", "http://192.168.2.30:5984/"];
+// var index = 0;
+const server = setServer.serverUrl + '/';
+
+const databaseName = "bcdata";
+const docName = "data_one";
 
 function showJson(json) {
-    var data = JSON.parse(json);
+    const data = JSON.parse(json);
     console.log(JSON.stringify(data, null, 4));
 }
 
-var sayHello = function() {
-    request(servers[index], function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        console.log(body); 
+const sayHello = function() {
+    request(server, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+        console.log(body);
       }
     })
-}
+};
 
-var showDatabases = function() {
-    var command = servers[index] + '_all_dbs';
+const showDatabases = function() {
+    const command = server + '_all_dbs';
     console.log("showDatabases called with: ", command);
     request(command, function (error, response, body) {
         if(error) {
             console.log(error);
-        } else if (response.statusCode == 200) {
+        } else if (response.statusCode === 200) {
             console.log(body);
-            var bodyString = JSON.parse(body); 
-            for (var i = 0; i < bodyString.length; i++) {
+            const bodyString = JSON.parse(body);
+            for (let i = 0; i < bodyString.length; i++) {
                 console.log(bodyString[i]);
             }
         } else {
             console.log("Error status code: ", response.statusCode);
         }
     })
-}
+};
 
-var createDatabase = function() {
-    request.put(servers[index] + databaseName, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
+const createDatabase = function() {
+    request.put(server + databaseName, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
         console.log(body);
       }
     })
-}
+};
 
-    var data = {
+    const data = {
         "firstName": "Sarah",
-        "lastName": "Patton", 
+        "lastName": "Patton",
         "age": 3
     };
 
-var putData = function () {
+const putData = function () {
 
 
-    var postum = servers[index] + databaseName + ' -d "' +  JSON.stringify(data) + '" -H "Content-Type: application/json"';
+    const postum = server + databaseName + ' -d "' +  JSON.stringify(data) + '" -H "Content-Type: application/json"';
     console.log(postum);
-    request.post(postum, 
+    request.post(postum,
         function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 console.log('Insert Data');
                 console.log(body);
             } else {
                 console.log(showJson(response.body));
             }
     });
-}
+};
 
-var bulkData = {
+const bulkData = {
     "docs": [
         {
             "firstName": "Sarah",
@@ -82,21 +85,21 @@ var bulkData = {
     ]
 };
 
-var putBulkData = function () {
+const putBulkData = function () {
 
-    var req = {
+    const req = {
         "method": "POST",
-        "uri": servers[0] + databaseName + "/_bulk_docs",
-        "headers": { 
-            'content-type': 'application/json', 
+        "uri": `${server + databaseName}/_bulk_docs`,
+        "headers": {
+            'content-type': 'application/json',
             'accept'      : 'application/json'
         },
         "json": bulkData
     };
     console.log(req);
-    request.post(req, 
+    request.post(req,
         function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 console.log('Insert Data');
                 console.log(body);
             } else {
@@ -104,15 +107,15 @@ var putBulkData = function () {
                 console.log(response.body);
             }
     });
-}
+};
 
-      
+
 function putDoc() {
-    var req = {
+    const req = {
         "method": "PUT",
-        "uri": servers[0] + databaseName + "/" + docName,
-        "headers": { 
-            'content-type': 'application/json', 
+        "uri": server + databaseName + "/" + docName,
+        "headers": {
+            'content-type': 'application/json',
             'accept'      : 'application/json'
         },
         "doc": "data",
@@ -120,9 +123,9 @@ function putDoc() {
     };
 
     console.log(req);
-    
+
     request(req, function (error, response, body) {
-      if(response.statusCode == 201){
+      if(response.statusCode === 201){
         console.log('document saved');
       } else {
         console.log('error: '+ response.statusCode);
@@ -132,32 +135,58 @@ function putDoc() {
 }
 
 
-var getDoc = function() {
-    var req = servers[index] + databaseName + '/_all_docs';
+const getAllDocs = function() {
+    const req = server + databaseName + '/_all_docs';
     request.get(req , function (error, response, body) {
-      if (!error && response.statusCode == 200) {
+      if (!error && response.statusCode === 200) {
         console.log(body);
       } else {
         console.log(error);
       }
     })
-}  
+};
 
-var getDoc = function() {
-    var req = servers[index] + databaseName + '/' + docName;
+const getDoc = function() {
+    const req = server + databaseName + '/' + docName;
     request.get(req , function (error, response, body) {
-      if (!error && response.statusCode == 200) {
+      if (!error && response.statusCode === 200) {
         console.log(body);
         console.log('firstName: ' + JSON.parse(body).firstName);
       } else {
         console.log(error);
       }
     })
-}  
- 
-// sayHello();
-// createDatabase();
-// showDatabases();
-putBulkData();
-// getDoc();
+};
+
+const option = 'sayHello';
+
+switch (option) {
+    case 'sayHello':
+        sayHello();
+        break;
+
+    case 'create':
+        createDatabase();
+        break;
+
+    case 'show':
+        showDatabases();
+        break;
+
+    case 'put':
+        putBulkData();
+        break;
+
+    case 'get':
+        getDoc();
+        break;
+
+    case 'getAll':
+        getAllDocs();
+        break;
+
+    default:
+        sayHello();
+}
+
 
