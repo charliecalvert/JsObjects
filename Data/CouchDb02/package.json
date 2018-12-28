@@ -4,9 +4,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "node server.js"   
+        "start": "node server.js"
     },
     "dependencies": {
-        "request": "~2.55.0"
+        "request": "~2.88.0"
     }
 }
