@@ -3,10 +3,10 @@ var App = (function() {
         $('#buttonRead02').click(readJson02);
     }
 
-    var readJson02 = function() {
+    var readJson01 = function() {
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:5984/',
+            url: 'http://192.168.86.117:5984/',
             dataType: 'jsonp',
             success: function(data) {
                 showDebug(data.couchdb);
@@ -15,6 +15,31 @@ var App = (function() {
             },
             error: showError
         });
+    };
+
+    var readJson02 = function() {
+        const url = 'http://192.168.86.117:5984/';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                showData(data);
+            })
+            .catch(err => {
+                showDebug(err);
+            });
+
+    };
+
+    const showData = (data) => {
+        const couch = document.getElementById('couchdb');
+        const venderName = document.getElementById('venderName');
+        const version = document.getElementById('version');
+        const features = document.getElementById('features');
+
+        couch.textContent = data.couchdb;
+        version.textContent = data.version;
+        venderName.textContent = data.vendor.name;
+        features.textContent = data.features[0] + ', ' + data.features[1];
     };
 
     var showError = function(request, ajaxOptions, thrownError) {
@@ -26,12 +51,13 @@ var App = (function() {
     };
 
     var showDebug = function(textToDisplay) {
-        $('#debug').append('<li>' + textToDisplay + '</li>');
+        const debug = document.getElementById('debug');
+        debug.innerHTML += textToDisplay + '<br/>';
     };
 
     return App;
 })();
 
-$(document).ready(function() {
+window.onload = function() {
     new App();
-});
+};

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "DEBUG=CouchDb05 nodemon ./bin/www",
     "nodebug": "node ./bin/www"
   },
   "dependencies": {
@@ -12,8 +12,8 @@
     "cookie-parser": "^1.4.3",
     "debug": "^4.1.1",
     "express": "^4.16.4",
-    "jade": "^1.11.0",
     "morgan": "^1.9.1",
+    "pug": "^2.0.3",
     "serve-favicon": "^2.5.0"
   }
 }
