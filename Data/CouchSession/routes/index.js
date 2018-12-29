@@ -56,7 +56,7 @@ var pageReport = function(request, response) {
     response.send({
         currentPage: request.url,
         previousPage: previousPage,
-        'session': request.session
+        session: request.session
     });
 };
 router.get('/page01', function(request, response) {

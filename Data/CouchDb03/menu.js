@@ -7,6 +7,7 @@ var elfUtils = elvenCode.elfUtils;
 var elfLog = elvenCode.elfLog('elf-menu');
 
 clear();
+
 console.log(
     chalk.yellow(figlet.textSync('Elf Couch', { horizontalLayout: 'full' }))
 );

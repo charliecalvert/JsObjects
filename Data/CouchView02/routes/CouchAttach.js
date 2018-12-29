@@ -10,22 +10,28 @@ function couchAttach(router, nano, dbName) {
     'use strict';
 
     router.get('/attachPng', function(request, response) {
-
         console.log('/attachPng called');
         var fs = require('fs');
 
         fs.readFile('Images/rabbit.png', function(err, data) {
             if (!err) {
                 var nanoDb = nano.db.use(dbName);
-                nanoDb.attachment.insert('rabbit', 'rabbit.png', data, 'image/png', {
-                    rev: '12-150985a725ec88be471921a54ce91452'
-                }, function(err, body) {
-                    if (!err) {
-                        console.log(body);
-                    } else {
-                        console.log(err);
+                nanoDb.attachment.insert(
+                    'rabbit',
+                    'rabbit.png',
+                    data,
+                    'image/png',
+                    {
+                        rev: '12-150985a725ec88be471921a54ce91452'
+                    },
+                    function(err, body) {
+                        if (!err) {
+                            console.log(body);
+                        } else {
+                            console.log(err);
+                        }
                     }
-                });
+                );
             }
         });
     });
@@ -35,17 +41,17 @@ function couchAttach(router, nano, dbName) {
      * attachUpdateHtml handler below
      */
     var insertAttachment = function(rev, response) {
-
         function nestedCallback(err1, body) {
             if (!err1) {
                 console.log(body);
                 response.send({
-                    'Result': 'Success'
+                    Result: 'Success'
                 });
             } else {
                 console.log(err1);
-                err1.p282special = 'Document conflict means document already exists. Try an update.';
-		response.status(err.statusCode).send(err1);
+                err1.p282special =
+                    'Document conflict means document already exists. Try an update.';
+                response.status(err.statusCode).send(err1);
             }
         }
 
@@ -53,11 +59,17 @@ function couchAttach(router, nano, dbName) {
             if (!err) {
                 var nanoDb = nano.db.use(dbName);
                 var a = nanoDb.attachment;
-                a.insert('attachMe', 'AttachMe.html', data, 'text/html', rev,
-                    nestedCallback);
+                a.insert(
+                    'attachMe',
+                    'AttachMe.html',
+                    data,
+                    'text/html',
+                    rev,
+                    nestedCallback
+                );
             } else {
-		console.log(err);                
-		response.status(err.statusCode).send(err);
+                console.log(err);
+                response.status(err.statusCode).send(err);
             }
         }
 
@@ -79,8 +91,8 @@ function couchAttach(router, nano, dbName) {
                 console.log(body);
                 response.send(body);
             } else {
-                console.log(err);                
-		response.status(err.statusCode).send(err);
+                console.log(err);
+                response.status(err.statusCode).send(err);
             }
         });
     });
@@ -101,7 +113,6 @@ function couchAttach(router, nano, dbName) {
             }
         });
     });
-
 }
 
 module.exports = couchAttach;

@@ -2,10 +2,11 @@
  * @author Charlie Calvert
  */
 
-
-angular.module('elvenApp', ['pres'])
+angular
+    .module('elvenApp', ['pres'])
     .controller('MyController', function($scope, $http, presidents) {
-        $scope.hint = "<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>";
+        $scope.hint =
+            '<p>Start with <strong>node server.js</strong> to retrieve JSON from Server</p>';
 
         presidents.then(function(presidents) {
             $scope.loadMongoData = function() {
@@ -17,11 +18,10 @@ angular.module('elvenApp', ['pres'])
 
             $scope.loadJson = function() {
                 var collectionUrl = 'data.json';
-                return $http.get(collectionUrl)
-                    .then(function(response) {
-                        console.log(response);
-                        $scope.data = response.data;
-                    });
+                return $http.get(collectionUrl).then(function(response) {
+                    console.log(response);
+                    $scope.data = response.data;
+                });
             };
 
             $scope.loadAll = function() {
@@ -29,27 +29,25 @@ angular.module('elvenApp', ['pres'])
                 $scope.loadJson();
             };
         });
-
-
     });
 
-angular.module('pres', ['ngResource'])
+angular
+    .module('pres', ['ngResource'])
     .factory('presidents', function($resource, mlabSettings) {
         console.log('Presidents factory called: ', mlabSettings);
         return new Promise(function(resolve, reject) {
-            mlabSettings
-                .then(function(response) {
-                    var Presidents = $resource(response.url, response.keyPart);
+            mlabSettings.then(function(response) {
+                var Presidents = $resource(response.url, response.keyPart);
 
-                    Presidents.prototype.getPresidentName = function() {
-                        return this.presidentName;
-                    };
+                Presidents.prototype.getPresidentName = function() {
+                    return this.presidentName;
+                };
 
-                    Presidents.prototype.getTermStart = function() {
-                        return this.termStart;
-                    };
+                Presidents.prototype.getTermStart = function() {
+                    return this.termStart;
+                };
 
-                    resolve(Presidents);
-                })
-        })
+                resolve(Presidents);
+            });
+        });
     });

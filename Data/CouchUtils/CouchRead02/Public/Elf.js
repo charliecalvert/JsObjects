@@ -1,7 +1,6 @@
 /**
  * @author Charlie Calvert
  */
- 
- var ELF = {};
- ELF.own = {};
 
+var ELF = {};
+ELF.own = {};

@@ -3,9 +3,8 @@
  */
 
 define(function() {
-// function test() {
-    describe("Jasmine-JQuery example suite", function() {
-
+    // function test() {
+    describe('Jasmine-JQuery example suite', function() {
         jasmine.getFixtures().fixturesPath = './public/';
 
         it('proves jasmine-jquery suite is called and working', function() {
@@ -13,7 +12,7 @@ define(function() {
         });
 
         it('Manually finds if the word *talk* has been loaded into the page', function(done) {
-            $("#test").load("./public/Pieces.html #introTemplate", function() {
+            $('#test').load('./public/Pieces.html #introTemplate', function() {
                 var test = $('#test');
                 var foo = test.text();
                 expect(foo).toContain('Talk');
@@ -24,7 +23,7 @@ define(function() {
 
         it('Uses Jasmine-JQuery to check for the word *talk* using loadFixtures and toContainText', function() {
             loadFixtures('Pieces.html');
-            expect($("#introTemplate")).toContainText("Talk");
+            expect($('#introTemplate')).toContainText('Talk');
         });
 
         it('Uses Jasmine-JQuery to spy on a button click version 1', function(done) {
@@ -40,15 +39,14 @@ define(function() {
         });
 
         it('Uses Jasmine-JQuery to spy on a button click version 2', function() {
-            loadFixtures("Pieces.html");
-            const elementName = "#readAll";
+            loadFixtures('Pieces.html');
+            const elementName = '#readAll';
             var spyEvent = spyOnEvent(elementName, 'click');
             $(elementName).click();
             expect('click').toHaveBeenTriggeredOn(elementName);
             expect(spyEvent).toHaveBeenTriggered();
         });
     });
-
 });
 
 /*

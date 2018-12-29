@@ -5,6 +5,6 @@ request(setServer.serverUrl, function(error, response, body) {
     if (!error && response.statusCode == 200) {
         console.log(body); // Get the JSON ack showing that the server is running
     } else {
-      console.log(error);
+        console.log(error);
     }
 });

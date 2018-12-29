@@ -21,30 +21,41 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(__dirname + '/node_modules/jquery/dist'));
-app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
-app.use('/styles', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use(
+    '/scripts',
+    express.static(__dirname + '/node_modules/bootstrap/dist/js')
+);
+app.use(
+    '/styles',
+    express.static(__dirname + '/node_modules/bootstrap/dist/css')
+);
 app.use('/scripts', express.static(__dirname + '/node_modules/angular/'));
-app.use('/scripts', express.static(__dirname + '/node_modules/angular-resource/'));
+app.use(
+    '/scripts',
+    express.static(__dirname + '/node_modules/angular-resource/')
+);
 
 app.use('/', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) { 'use strict';
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function(req, res, next) {
+    'use strict';
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) { 'use strict';
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res, next) {
+    'use strict';
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

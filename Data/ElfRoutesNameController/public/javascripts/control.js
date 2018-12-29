@@ -1,23 +1,28 @@
-define(['Route', 'queryController', 'nameController'],
-    function(Route, queryController, nameController) {
-        'use strict';
+define(['Route', 'queryController', 'nameController'], function(
+    Route,
+    queryController,
+    nameController
+) {
+    'use strict';
 
-        var findRoutes = (function($routeProvider) {
-            $routeProvider.when('/home', {
+    var findRoutes = function($routeProvider) {
+        $routeProvider
+            .when('/home', {
                 templateUrl: '/home',
                 controller: queryController
-            }).when('/databaseName', {
+            })
+            .when('/databaseName', {
                 templateUrl: '/display-default',
                 controller: nameController,
                 resolve: {
                     databaseName: nameController.databaseName,
                     allDbs: nameController.allDbs
                 }
-            }).otherwise({
+            })
+            .otherwise({
                 redirectTo: '/home'
             });
-        });
+    };
 
-        return findRoutes;
-
-    });
+    return findRoutes;
+});

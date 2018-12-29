@@ -36,7 +36,13 @@ handlebars.registerHelper('states', function(context, block) {
     var ret = formattedData + '<ul>';
 
     for (var i = 0, j = context.length; i < j; i++) {
-        ret = ret + '<li>' + context[i].name + ': ' + context[i].capital + '</li>';
+        ret =
+            ret +
+            '<li>' +
+            context[i].name +
+            ': ' +
+            context[i].capital +
+            '</li>';
     }
 
     return ret + '</ul>';
@@ -53,14 +59,14 @@ var Templater = (function() {
     };
 
     Templater.prototype.addNames = function(fileName, data) {
-
         var mainFile = readHtml(fileName);
 
         var template = handlebars.compile(mainFile);
 
         var result = template({
             nav: data,
-            description: 'The templated HTML in this section was created with handlebars.',
+            description:
+                'The templated HTML in this section was created with handlebars.',
             headGuy: fileName
         });
 
@@ -70,7 +76,6 @@ var Templater = (function() {
     };
 
     return Templater;
-
 })();
 
 exports.template = new Templater();

@@ -2,24 +2,24 @@
  * @author Charlie
  */
 
-var fs = require('fs');
-var os = require('os');
+var fs = require("fs");
+var os = require("os");
 
 function getConfigName() {
-    'use strict';
+    "use strict";
     var configName = "MongoTalk.json";
-    if (os.platform() === 'darwin') {
-        configName = process.env.HOME + '/.config/MongoTalk.json';
-    } else if (os.platform() === 'linux') {
-        configName = process.env.HOME + '/.config/MongoTalk.json';
-    } else if (os.platform() === 'win32') {
+    if (os.platform() === "darwin") {
+        configName = process.env.HOME + "/.config/MongoTalk.json";
+    } else if (os.platform() === "linux") {
+        configName = process.env.HOME + "/.config/MongoTalk.json";
+    } else if (os.platform() === "win32") {
         configName = process.env.USERPROFILE + "\\Config\\MongoTalk.json";
     }
     return configName;
 }
 
 function reportError(err) {
-    'use strict';
+    "use strict";
     console.log("*********************************");
     console.log(err);
     console.log("*********************************");
@@ -32,7 +32,7 @@ function reportError(err) {
 }
 
 function loadConfig(callback) {
-    'use strict';
+    "use strict";
     var configName = getConfigName();
     try {
         fs.readFile(configName, function(err, urls) {

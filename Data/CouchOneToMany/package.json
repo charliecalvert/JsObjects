@@ -6,15 +6,15 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
+    "body-parser": "~1.18.3",
     "cookie-parser": "~1.4.3",
-    "debug": "~3.1.0",
-    "express": "~4.16.3",
-    "handlebars": "^4.0.11",
+    "debug": "~4.1.1",
+    "express": "~4.16.4",
+    "handlebars": "^4.0.12",
     "jade": "~1.11.0",
-    "morgan": "~1.9.0",
-    "nano": "^6.4.3",
-    "request": "^2.85.0",
-    "serve-favicon": "~2.4.5"
+    "morgan": "~1.9.1",
+    "nano": "^7.1.1",
+    "request": "^2.88.0",
+    "serve-favicon": "~2.5.0"
   }
 }

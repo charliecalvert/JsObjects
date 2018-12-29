@@ -1,0 +1,27 @@
+function build() {
+    cd $1
+    pwd
+    npm i
+    cd ..    
+}
+
+build CouchApp01
+build CouchAppAuto
+build CouchDb01
+build CouchDb02
+build CouchDb03
+build CouchDb04
+build CouchDb05
+build CouchDb06
+build CouchDb07
+build CouchDb08
+build CouchDb09
+build CouchDb10
+build CouchDb11
+build CouchDb12
+build CouchFoo
+build CouchOneToMany
+build CouchSession
+build CouchUtils
+build CouchView01
+build CouchView02

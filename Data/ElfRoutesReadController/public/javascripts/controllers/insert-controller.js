@@ -2,7 +2,11 @@
  * Created by charlie on 11/26/16.
  */
 
-define(['runQuery', 'jsonToHtml', 'utility'], function(runQuery, jsonToHtml, utility) {
+define(['runQuery', 'jsonToHtml', 'utility'], function(
+    runQuery,
+    jsonToHtml,
+    utility
+) {
     'use strict';
 
     var insertController = function(query, result) {
@@ -17,7 +21,12 @@ define(['runQuery', 'jsonToHtml', 'utility'], function(runQuery, jsonToHtml, uti
             var gameDocs = result.data;
 
             docElement.html(JSON.stringify(gameDocs, null, 4));
-            var jsonHtmlTable = jsonToHtml(gameDocs, 'jsonTable', 'table table-bordered table-striped', 'Download');
+            var jsonHtmlTable = jsonToHtml(
+                gameDocs,
+                'jsonTable',
+                'table table-bordered table-striped',
+                'Download'
+            );
 
             $('#myTable').html(jsonHtmlTable);
         }
@@ -28,5 +37,4 @@ define(['runQuery', 'jsonToHtml', 'utility'], function(runQuery, jsonToHtml, uti
     };
 
     return insertController;
-
 });

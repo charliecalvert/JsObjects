@@ -55,5 +55,4 @@ define(['runQuery'], function(runQuery) {
     };
 
     return Route;
-
 });

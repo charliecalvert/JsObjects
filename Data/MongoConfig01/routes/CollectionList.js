@@ -4,13 +4,11 @@
 
 // Maintain a list of MongoDb collections
 var CollectionList = (function() {
-    'use strict';
+    "use strict";
 
     var collectionList = [];
 
-    function CollectionList() {
-
-    }
+    function CollectionList() {}
 
     var message = function(message) {
         console.log("------------");
@@ -29,7 +27,10 @@ var CollectionList = (function() {
     };
 
     // Maintain a list of collections
-    CollectionList.prototype.getCollectionByName = function(database, collectionName) {
+    CollectionList.prototype.getCollectionByName = function(
+        database,
+        collectionName
+    ) {
         message("Collection List Length: " + collectionList.length);
         var index = getCollectionListIndex(collectionName);
 
@@ -43,6 +44,6 @@ var CollectionList = (function() {
     };
 
     return CollectionList;
-}());
+})();
 
 exports.CollectionList = new CollectionList();

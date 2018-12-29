@@ -2,12 +2,12 @@
  * @author Charlie Calvert and Terence Buencamino
  */
 
-var MongoClient = require('mongodb').MongoClient;
-var loadConfig = require('./LoadConfig.js').loadConfig;
-var collectionList = require('./CollectionList').CollectionList;
+var MongoClient = require("mongodb").MongoClient;
+var loadConfig = require("./LoadConfig.js").loadConfig;
+var collectionList = require("./CollectionList").CollectionList;
 
 var QueryMongo = (function() {
-    'use strict';
+    "use strict";
 
     var mongoClient = null;
 
@@ -17,42 +17,52 @@ var QueryMongo = (function() {
             var url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
             console.log("The Mongo URL:" + url);
             getDatabase(url, function() {
-                console.log('Connected to MongoDb')
+                console.log("Connected to MongoDb");
             });
         });
     }
 
     const getDatabase = function(url, func) {
         if (mongoClient !== null) {
-            console.log('Allready connected to MongoDb');
+            console.log("Allready connected to MongoDb");
             func(mongoClient);
         } else {
-            console.log('Querying for MongoDb connection');
-            MongoClient.connect(url, function(err, mongoClientInit) {
-                if (err) {
-                    throw err;
+            console.log("Querying for MongoDb connection");
+            MongoClient.connect(
+                url,
+                function(err, mongoClientInit) {
+                    if (err) {
+                        throw err;
+                    }
+                    mongoClient = mongoClientInit;
+                    func(mongoClient);
                 }
-                mongoClient = mongoClientInit;
-                func(mongoClient);
-            });
+            );
         }
     };
 
     // Count documents in the collection
     QueryMongo.prototype.getCount = function(collectionName, response) {
-        console.log('getCount called');
-        var database = mongoClient.db('test');
+        console.log("getCount called");
+        var database = mongoClient.db("test");
         var collection = database.collection(collectionName);
 
         collection.count(function(err, count) {
-            response.send({"count": count});
+            response.send({ count: count });
         });
     };
 
-    QueryMongo.prototype.getCollectionData = function(response, query, collectionName) {
+    QueryMongo.prototype.getCollectionData = function(
+        response,
+        query,
+        collectionName
+    ) {
         console.log("getCollection called");
-        const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database, collectionName);
+        const database = mongoClient.db("test");
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
 
         collection.find(query).toArray(function(err, theArray) {
             if (err) {
@@ -63,30 +73,43 @@ var QueryMongo = (function() {
         });
     };
 
-    QueryMongo.prototype.getCollectionProject = function(response, request, collectionName) {
+    QueryMongo.prototype.getCollectionProject = function(
+        response,
+        request,
+        collectionName
+    ) {
         console.log("getCollectionProject called");
-        const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        const database = mongoClient.db("test");
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
 
-        collection.find(request.query, request.project).toArray(function(err, theArray) {
-            if (err) {
-                console.log("Error in getCollection: " + err);
-            }
-            console.log("Found collection item.");
-            console.log(theArray);
-            response.send(theArray);
-        });
+        collection
+            .find(request.query, request.project)
+            .toArray(function(err, theArray) {
+                if (err) {
+                    console.log("Error in getCollection: " + err);
+                }
+                console.log("Found collection item.");
+                console.log(theArray);
+                response.send(theArray);
+            });
     };
 
     // Will create collection if it does not exist
-    QueryMongo.prototype.insertIntoCollection = function(response,
-                                                         collectionName, objectToInsert) {
+    QueryMongo.prototype.insertIntoCollection = function(
+        response,
+        collectionName,
+        objectToInsert
+    ) {
         message("QueryMongo.insertIntoCollection called: " + collectionName);
         console.log(objectToInsert[0]);
-        const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        const database = mongoClient.db("test");
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
         if (collection !== null) {
             collection.insert(objectToInsert, function(err, docs) {
                 if (err) {
@@ -100,16 +123,18 @@ var QueryMongo = (function() {
             });
         } else {
             response.send({
-                result: 'Could not get collection'
+                result: "Could not get collection"
             });
         }
     };
 
     QueryMongo.prototype.removeAll = function(response, collectionName) {
         console.log("QueryMongo.removeAll called");
-        const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        const database = mongoClient.db("test");
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
         if (collection !== null) {
             collection.remove(function(err, data) {
                 if (err) {
@@ -130,7 +155,6 @@ var QueryMongo = (function() {
     }
 
     return QueryMongo;
-
 })();
 
 exports.QueryMongo = new QueryMongo();

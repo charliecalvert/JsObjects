@@ -1,13 +1,14 @@
-angular.module('mongoMod', [])
+angular
+    .module('mongoMod', [])
 
     .factory('mongolabResource', function($http, CONFIG) {
-
         return function(collectionName) {
-
             //basic configuration
             var collectionUrl =
                 CONFIG.MONGO_URL +
-                CONFIG.DB_NAME + '/collections/' + collectionName;
+                CONFIG.DB_NAME +
+                '/collections/' +
+                collectionName;
 
             var defaultParams = {
                 apiKey: CONFIG.API_KEY
@@ -24,21 +25,27 @@ angular.module('mongoMod', [])
             }
 
             Resource.query = function(params) {
-                return $http.get(collectionUrl, {
-                    params: angular.extend({
-                        q: JSON.stringify(params || {})
-                    }, defaultParams)
-                }).then(function(response) {
-                    var result = [];
-                    angular.forEach(response.data, function(value, key) {
-                        result[key] = new Resource(value);
+                return $http
+                    .get(collectionUrl, {
+                        params: angular.extend(
+                            {
+                                q: JSON.stringify(params || {})
+                            },
+                            defaultParams
+                        )
+                    })
+                    .then(function(response) {
+                        var result = [];
+                        angular.forEach(response.data, function(value, key) {
+                            result[key] = new Resource(value);
+                        });
+                        return result;
                     });
-                    return result;
-                });
             };
 
             Resource.prototype.save = function(callback) {
-                return $http.post(collectionUrl, this, {
+                return $http
+                    .post(collectionUrl, this, {
                         params: defaultParams
                     })
                     .then(function(response) {
@@ -48,11 +55,10 @@ angular.module('mongoMod', [])
 
             Resource.prototype.remove = function(callback) {
                 return $http['delete'](collectionUrl + '/' + this._id.$oid, {
-                        params: defaultParams
-                    })
-                    .then(function(response) {
-                        callback();
-                    });
+                    params: defaultParams
+                }).then(function(response) {
+                    callback();
+                });
             };
 
             return Resource;

@@ -18,12 +18,11 @@ var designDocs = require('./CouchDesignDocs')(router, nano, dbName);
 var views = require('./CouchViews')(router, nano, dbName);
 //var attach = require('./CouchAttach')(router, nano, dbName);
 
-
 router.get('/databaseName', function(request, response) {
     'use strict';
     console.log('databaseName route called.');
     response.send({
-        'currentDatabaseName': dbName
+        currentDatabaseName: dbName
     });
 });
 
@@ -51,22 +50,27 @@ router.get('/read', function(request, response) {
 
     var nanoDb = nano.db.use(dbName);
     console.log('Nano Used: ', dbName);
-    nanoDb.get(request.query.docName, {
-        revs_info: true
-    }, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send(body);
-        } else {
-            console.log('Error in /read', err);
-            var cscMessage = 'No such record as: ' + request.query.docName +
-                '. Use a the Get Doc Names button to find ' +
-                'the name of an existing document.';
-            err.p282special = cscMessage;
-            response.status(500).send(err);
+    nanoDb.get(
+        request.query.docName,
+        {
+            revs_info: true
+        },
+        function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send(body);
+            } else {
+                console.log('Error in /read', err);
+                var cscMessage =
+                    'No such record as: ' +
+                    request.query.docName +
+                    '. Use a the Get Doc Names button to find ' +
+                    'the name of an existing document.';
+                err.p282special = cscMessage;
+                response.status(500).send(err);
+            }
         }
-
-    });
+    );
 });
 
 router.get('/docNames', function(request, response) {

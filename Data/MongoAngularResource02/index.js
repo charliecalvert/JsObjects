@@ -1,4 +1,5 @@
-angular.module('customResourceDemo', ['mongoMod'])
+angular
+    .module('customResourceDemo', ['mongoMod'])
     .constant('CONFIG', {
         DB_NAME: 'elvenlab01',
         MONGO_URL: 'https://api.mongolab.com/api/1/databases/',
@@ -11,7 +12,6 @@ angular.module('customResourceDemo', ['mongoMod'])
         return mongolabResource('address');
     })
     .controller('CustomResourceCtrl', function($scope, presidents) {
-
         function showPresidents() {
             presidents.query().then(function(presidentData) {
                 $scope.presidents = presidentData;
@@ -25,19 +25,21 @@ angular.module('customResourceDemo', ['mongoMod'])
                 termEnd: 1829
             };
 
-            new presidents(pres)
-                .save(function(president) {
-                    showPresidents();
-                })
+            new presidents(pres).save(function(president) {
+                showPresidents();
+            });
         };
 
         $scope.deletePresident = function() {
             var indexOfItemToDelete = 5;
-            $scope.presidents[indexOfItemToDelete].remove(function(deletedObject, headers) {
-                showPresidents();
-            }, function(err) {
-                console.log("error: " + err.data.message);
-            });
+            $scope.presidents[indexOfItemToDelete].remove(
+                function(deletedObject, headers) {
+                    showPresidents();
+                },
+                function(err) {
+                    console.log('error: ' + err.data.message);
+                }
+            );
         };
 
         showPresidents();

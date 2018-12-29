@@ -1,14 +1,14 @@
 {
-  "name": "CouchDb11",
-  "description": "Simple Couch Db with Some Templating",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-	"start": "nodemon server.js"  
-  },
-  "dependencies": {
-	 "express": "^4.16.3",
-	 "handlebars": "^4.0.11",
-	 "nano": "^6.4.3"
-  }
+ "name": "CouchDb11",
+ "description": "Simple Couch Db with Some Templating",
+ "version": "0.0.1",
+ "private": true,
+ "scripts": {
+  "start": "nodemon server.js"
+ },
+ "dependencies": {
+  "express": "^4.16.4",
+  "handlebars": "^4.0.12",
+  "nano": "^7.1.1"
+ }
 }

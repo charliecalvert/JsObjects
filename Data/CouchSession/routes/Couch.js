@@ -20,13 +20,13 @@ router.get('/databaseName', function(request, response) {
     if (request.query.newDbName) {
         var newDbName = request.query.newDbName;
         console.log(typeof newDbName);
-        if ((newDbName.length > 0) && (typeof newDbName === 'string')) {
+        if (newDbName.length > 0 && typeof newDbName === 'string') {
             console.log('setting new database name', newDbName);
             dbName = newDbName;
         }
     }
     response.send({
-        'currentDatabaseName': dbName
+        currentDatabaseName: dbName
     });
 });
 
@@ -49,21 +49,26 @@ router.get('/read', function(request, response) {
     console.log('Read called: ' + JSON.stringify(request.query));
 
     var nanoDb = nano.db.use(dbName);
-    nanoDb.get(request.query.docName, {
-        revs_info: true
-    }, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send(body);
-        } else {
-            var cscMessage = 'No such record as: ' + request.query.docName +
-                '. Use a the Get Doc Names button to find ' +
-                'the name of an existing document.';
-            err.p282special = cscMessage;
-            response.status(500).send(err);
+    nanoDb.get(
+        request.query.docName,
+        {
+            revs_info: true
+        },
+        function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send(body);
+            } else {
+                var cscMessage =
+                    'No such record as: ' +
+                    request.query.docName +
+                    '. Use a the Get Doc Names button to find ' +
+                    'the name of an existing document.';
+                err.p282special = cscMessage;
+                response.status(500).send(err);
+            }
         }
-
-    });
+    );
 });
 
 router.get('/docNames', function(request, response) {

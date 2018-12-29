@@ -20,7 +20,7 @@ define(function(require) {
                     response.statusText = textStatus;
                 }
                 controller({
-                    'requestFailed': response
+                    requestFailed: response
                 });
             });
         } else {

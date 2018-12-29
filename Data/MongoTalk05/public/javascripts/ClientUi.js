@@ -2,7 +2,7 @@
  * @author Charlie Calvert
  */
 
-define(["utilities"], function(utilities) {
+define(['utilities'], function(utilities) {
     'use strict';
 
     let itemToShow = null;
@@ -11,26 +11,31 @@ define(["utilities"], function(utilities) {
     let toolsVisible = false;
 
     function ClientUi() {
-
-        $('#buttonBasic').load("Pieces.html #buttonTemplate", function() {
-            document.getElementById("readTwo").onclick = readTwo;
-            document.getElementById("newRecord").onclick = insertNewDocument;
+        $('#buttonBasic').load('Pieces.html #buttonTemplate', function() {
+            document.getElementById('readTwo').onclick = readTwo;
+            document.getElementById('newRecord').onclick = insertNewDocument;
             //document.getElementById("showData").onclick = showData;
-            document.getElementById("clearList").onclick = clear;
-            document.getElementById("readAll").onclick = readAll;
-            document.getElementById("removeAll").onclick = removeAll;
-            document.getElementById("update").onclick = update;
-            document.getElementById("showTools").onclick = showTools;
-            document.getElementById("help").onclick = help;
+            document.getElementById('clearList').onclick = clear;
+            document.getElementById('readAll').onclick = readAll;
+            document.getElementById('removeAll').onclick = removeAll;
+            document.getElementById('update').onclick = update;
+            document.getElementById('showTools').onclick = showTools;
+            document.getElementById('help').onclick = help;
         });
         readAll();
     }
 
     function closeDrawer() {
-        document.querySelector('.mdl-layout__drawer').addEventListener('click', function () {
-            document.querySelector('.mdl-layout__obfuscator').classList.remove('is-visible');
-            this.classList.remove('is-visible');
-        }, false);
+        document.querySelector('.mdl-layout__drawer').addEventListener(
+            'click',
+            function() {
+                document
+                    .querySelector('.mdl-layout__obfuscator')
+                    .classList.remove('is-visible');
+                this.classList.remove('is-visible');
+            },
+            false
+        );
     }
 
     function setUpLink(event) {
@@ -43,9 +48,9 @@ define(["utilities"], function(utilities) {
     const help = function(event) {
         setUpLink(event);
         if (helpVisible) {
-            document.getElementById("intro").innerHTML = "";
+            document.getElementById('intro').innerHTML = '';
         } else {
-            $('#intro').load("Pieces.html #introTemplate");
+            $('#intro').load('Pieces.html #introTemplate');
         }
         helpVisible = !helpVisible;
     };
@@ -53,18 +58,20 @@ define(["utilities"], function(utilities) {
     const showTools = function(event) {
         setUpLink(event);
         if (toolsVisible) {
-            document.getElementById("tools").innerHTML = "";
+            document.getElementById('tools').innerHTML = '';
         } else {
-            $('#tools').load("Pieces.html #extraTools", function() {
-                document.getElementById("userIndex").onchange = showData;
-                document.getElementById("readRecords").onclick = readCountDocuments;
+            $('#tools').load('Pieces.html #extraTools', function() {
+                document.getElementById('userIndex').onchange = showData;
+                document.getElementById(
+                    'readRecords'
+                ).onclick = readCountDocuments;
             });
         }
         toolsVisible = !toolsVisible;
     };
 
     const clearList = function(emptyMongoData) {
-        $("#mongoData").empty();
+        $('#mongoData').empty();
         if (emptyMongoData) {
             $.publish('emptyMongoData', function() {
                 // Nothing to do.
@@ -91,16 +98,16 @@ define(["utilities"], function(utilities) {
 
     const displayByLastName = function(target) {
         // Remove highlight
-        const ul = document.getElementById("mongoData");
-        const items = ul.getElementsByTagName("li");
+        const ul = document.getElementById('mongoData');
+        const items = ul.getElementsByTagName('li');
         for (let i = 0; i < items.length; ++i) {
-            items[i].classList.remove("material-green");
+            items[i].classList.remove('material-green');
         }
 
         // Add highlight
         console.log(target.children.id);
         const element = document.getElementById(target.id);
-        element.classList.add("material-green");
+        element.classList.add('material-green');
 
         for (let i = 0; i < currentItems.length; i++) {
             const name = currentItems[i].firstName + currentItems[i].lastName;
@@ -118,14 +125,16 @@ define(["utilities"], function(utilities) {
             utilities.appendToList(data[i], displayByLastName);
         }
 
-        document.getElementById("mongoData").addEventListener("click",function(e) {
-            // e.target is our targetted element.
-            // try doing console.log(e.target.nodeName), it will result LI
+        document
+            .getElementById('mongoData')
+            .addEventListener('click', function(e) {
+                // e.target is our targetted element.
+                // try doing console.log(e.target.nodeName), it will result LI
 
-            if(e.target && e.target.nodeName == "LI") {
-                console.log(e.target.id + " was clicked");
-            }
-        });
+                if (e.target && e.target.nodeName == 'LI') {
+                    console.log(e.target.id + ' was clicked');
+                }
+            });
     };
 
     const insertNewDocument = function(event) {
@@ -177,20 +186,18 @@ define(["utilities"], function(utilities) {
         });
     };
 
-
-
     const removeAll = function(event) {
         setUpLink(event);
         $.publish('removeAll', function(data) {
-            if (data.result === "Success") {
+            if (data.result === 'Success') {
                 clearList(true);
             }
         });
     };
 
     const showData = function() {
-        const index = $("#userIndex").val();
-        $.publish("getDocument", {
+        const index = $('#userIndex').val();
+        $.publish('getDocument', {
             index: index,
             callback: function(document) {
                 displayDocument(document);
@@ -203,8 +210,8 @@ define(["utilities"], function(utilities) {
         closeDrawer();
         const updateDetails = {
             field: 'firstName',
-            oldString: "Thomas",
-            newString: "Tom",
+            oldString: 'Thomas',
+            newString: 'Tom',
             callback: function(data) {
                 if (data.result === 'Success') {
                     itemToShow = {
@@ -218,8 +225,6 @@ define(["utilities"], function(utilities) {
 
         $.publish('update', updateDetails);
     };
-
-
 
     return ClientUi;
 });

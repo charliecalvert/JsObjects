@@ -4,11 +4,14 @@ function views(router, nano, dbName) {
     router.get('/viewSessions', function(request, response) {
         console.log('/viewSessions called', request.query, dbName);
         var nanoDb = nano.db.use(dbName);
-        nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
+        nanoDb.view(request.query.designDoc, request.query.view, function(
+            err,
+            body
+        ) {
             if (!err) {
                 console.log(body);
                 response.send({
-                    'name': 'viewSessions',
+                    name: 'viewSessions',
                     docs: body
                 });
             } else {
@@ -25,7 +28,7 @@ function views(router, nano, dbName) {
             if (!err) {
                 console.log(body);
                 response.send({
-                    'name': 'viewSessions',
+                    name: 'viewSessions',
                     docs: body
                 });
             } else {
@@ -42,7 +45,7 @@ function views(router, nano, dbName) {
             if (!err) {
                 console.log(body);
                 response.send({
-                    'name': 'viewSessions',
+                    name: 'viewSessions',
                     docs: body
                 });
             } else {
@@ -51,7 +54,6 @@ function views(router, nano, dbName) {
             }
         });
     });
-
 }
 
 module.exports = views;

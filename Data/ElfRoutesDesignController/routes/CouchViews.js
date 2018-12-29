@@ -3,7 +3,10 @@ function views(router, nano, dbName) {
     router.get('/viewNpcsBulk', function(request, response) {
         console.log('/viewNpcsBulk called', request.query);
         var nanoDb = nano.db.use(dbName);
-        nanoDb.view(request.query.designDoc, request.query.view, function(err, body) {
+        nanoDb.view(request.query.designDoc, request.query.view, function(
+            err,
+            body
+        ) {
             if (!err) {
                 console.log(body);
                 var result = {

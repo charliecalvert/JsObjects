@@ -15,7 +15,6 @@ function designDocs(router, nano, dbName) {
     };
 
     var lastOnly = function(doc) {
-
         if (doc.firstName && doc.lastName) {
             var name = doc.lastName;
             emit(doc._id, name);
@@ -32,8 +31,8 @@ function designDocs(router, nano, dbName) {
 
     var docStateCapital = function(doc) {
         emit(doc.abbreviation, {
-            'name': doc.name,
-            'capital': doc.capital
+            name: doc.name,
+            capital: doc.capital
         });
     };
 
@@ -42,8 +41,8 @@ function designDocs(router, nano, dbName) {
             var data = [];
             doc.docs.forEach(function(state) {
                 data.push({
-                    'name': state.name,
-                    'capital': state.capital
+                    name: state.name,
+                    capital: state.capital
                 });
             });
             emit(doc.docs[0].abbreviation, data);
@@ -85,36 +84,35 @@ function designDocs(router, nano, dbName) {
         var nanoDb = nano.db.use(dbName);
         nanoDb.insert(designDocument, designName, function(error, body) {
             if (!error) {
-                var result = { "ok": true, data: body };
+                var result = { ok: true, data: body };
                 console.log(result);
                 response.status(200).send(result);
             } else {
                 console.log('error: ' + error);
                 response.send({
-                    'Result': 'The document might already exist. ' + error
+                    Result: 'The document might already exist. ' + error
                 });
             }
         });
     }
 
     router.get('/designDoc', function(request, response) {
-
         console.log('Design Doc Called');
 
         var designName = '_design/states';
         var designDocument = {
-            'views': {
-                'docBulk': {
-                    'map': docBulk
+            views: {
+                docBulk: {
+                    map: docBulk
                 },
-                'docIdDoc': {
-                    'map': docIdDoc
+                docIdDoc: {
+                    map: docIdDoc
                 },
-                'docStateCapital': {
-                    'map': docStateCapital
+                docStateCapital: {
+                    map: docStateCapital
                 },
-                'docStatesDoc': {
-                    'map': docStatesDoc
+                docStatesDoc: {
+                    map: docStatesDoc
                 }
                 /*,
                                 "viewStatesDoc" : {
@@ -128,7 +126,6 @@ function designDocs(router, nano, dbName) {
 
         createDesignDocument(designDocument, designName, response);
     });
-
 }
 
 module.exports = designDocs;

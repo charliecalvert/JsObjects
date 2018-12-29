@@ -2,7 +2,11 @@
  * @name NameController.js
  */
 
-define(['runQuery', 'utility', 'jsonToHtml'], function(runQuery, utility, jsonToHtml) {
+define(['runQuery', 'utility', 'jsonToHtml'], function(
+    runQuery,
+    utility,
+    jsonToHtml
+) {
     'use strict';
 
     var nameController = function(query, data) {
@@ -19,10 +23,13 @@ define(['runQuery', 'utility', 'jsonToHtml'], function(runQuery, utility, jsonTo
             debug.html(displayData);
         } else {
             docs.html('allDatabases: ' + displayData);
-            var jsonHtmlTable = jsonToHtml(JSON.parse(displayData), 'jsonTable',
-                'table table-bordered table-striped', 'Download');
+            var jsonHtmlTable = jsonToHtml(
+                JSON.parse(displayData),
+                'jsonTable',
+                'table table-bordered table-striped',
+                'Download'
+            );
             $('#myTable').html(jsonHtmlTable);
-
         }
     };
 

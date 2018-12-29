@@ -16,10 +16,11 @@ var port = process.env.PORT || 30025;
 
 // var fileName = 'person.json';
 
-app.get('/', function(req, res) { 'use strict';
+app.get('/', function(req, res) {
+    'use strict';
     var html = fs.readFileSync('Public/index.html');
     res.writeHeader(200, {
-        "Content-Type" : "text/html"
+        'Content-Type': 'text/html'
     });
     res.end(html);
 });
@@ -27,56 +28,62 @@ app.get('/', function(req, res) { 'use strict';
 var dbName = 'couch_db_10';
 var docName = 'doc01';
 
-app.get('/databaseName', function(request, response) {'use strict';
-	console.log("\/databaseName called.")
-	response.send({ 'Result': dbName} );
+app.get('/databaseName', function(request, response) {
+    'use strict';
+    console.log('/databaseName called.');
+    response.send({ Result: dbName });
 });
 
-var firstAndLast = function(doc) {'use strict';
+var firstAndLast = function(doc) {
+    'use strict';
     if (doc.firstName && doc.lastName) {
         var name = doc.firstName + ' ' + doc.lastName;
         emit(doc._id, name);
     }
 };
 
-var lastOnly = function(doc) {'use strict';
+var lastOnly = function(doc) {
+    'use strict';
     if (doc.firstName && doc.lastName) {
         var name = doc.lastName;
         emit(doc._id, name);
     }
 };
 
-
-app.get('/designDoc', function(request, response) { 'use strict';
-    console.log("Design Doc Called");
+app.get('/designDoc', function(request, response) {
+    'use strict';
+    console.log('Design Doc Called');
 
     var nanoDb = nano.db.use(dbName);
-    nanoDb.insert({
-        "views" : {
-            "firstAndLast" : {
-                "map" : firstAndLast
+    nanoDb.insert(
+        {
+            views: {
+                firstAndLast: {
+                    map: firstAndLast
+                }
+            }
+        },
+        '_design/people',
+        function(error, body) {
+            if (!error) {
+                console.log(body);
+                response.send({
+                    Result: 'Success',
+                    body: body
+                });
+            } else {
+                console.log('error: ' + error);
+                response.send({
+                    Result: 'The document might already exist. ' + error
+                });
             }
         }
-    }, '_design/people', 
-    function(error, body) {
-        if (!error) {
-            console.log(body);
-            response.send({
-                 'Result' : 'Success',
-                 'body': body
-            });
-        } else {
-            console.log("error: " + error);
-            response.send({
-                 'Result' : 'The document might already exist. ' + error
-            });
-        }
-    });
-    
+    );
 });
 
-app.get('/view01', function(request, response) { 'use strict';
-    console.log("view Called");
+app.get('/view01', function(request, response) {
+    'use strict';
+    console.log('view Called');
 
     var nanoDb = nano.db.use(dbName);
     nanoDb.view('people', 'firstAndLast', function(err, body) {
@@ -86,16 +93,20 @@ app.get('/view01', function(request, response) { 'use strict';
                 result.push(doc);
                 console.log(doc.value);
             });
-            var html = templater.template.addNames('Templates/Basic.html', result);
+            var html = templater.template.addNames(
+                'Templates/Basic.html',
+                result
+            );
             response.send(html);
         } else {
             console.log(err);
-            response.send({ 'Result': 'Could not create view ' + err })
+            response.send({ Result: 'Could not create view ' + err });
         }
     });
 });
 
-app.get('/create', function(request, response) { 'use strict';
+app.get('/create', function(request, response) {
+    'use strict';
     console.log('create called.');
     nano.db.create(dbName, function(err, body) {
         if (!err) {
@@ -104,54 +115,64 @@ app.get('/create', function(request, response) { 'use strict';
             console.log('Could not create database');
             console.log(err);
             response.send({
-				'Result' : 'Database already exists.'
-			});
+                Result: 'Database already exists.'
+            });
             return;
-        }        
+        }
     });
-    
+
     console.log('use database');
     var nanoDb = nano.db.use(dbName);
 
-    nanoDb.insert({
-        firstName : 'Suzie',
-        lastName : 'Fredrick',
-        age : 38
-    }, docName, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send({
-                 'Result' : 'Success'
-             });
-        } else {
-            console.log(err);
-            response.send({'Result': err });
+    nanoDb.insert(
+        {
+            firstName: 'Suzie',
+            lastName: 'Fredrick',
+            age: 38
+        },
+        docName,
+        function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send({
+                    Result: 'Success'
+                });
+            } else {
+                console.log(err);
+                response.send({ Result: err });
+            }
         }
-        
-    });
-
+    );
 });
 
-app.get('/read', function(request, response) { 'use strict';
+app.get('/read', function(request, response) {
+    'use strict';
     console.log('Read called: ' + JSON.stringify(request.query));
 
     var nanoDb = nano.db.use(dbName);
-    nanoDb.get(request.query.docName, {
-        revs_info : true
-    }, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send(body);
-        } else {
-        	response.send("No such record as: " + request.query.docName +
-        		". Use a the Get Doc Names button to find " +
-        		"the name of an existing document.");
+    nanoDb.get(
+        request.query.docName,
+        {
+            revs_info: true
+        },
+        function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send(body);
+            } else {
+                response.send(
+                    'No such record as: ' +
+                        request.query.docName +
+                        '. Use a the Get Doc Names button to find ' +
+                        'the name of an existing document.'
+                );
+            }
         }
-        	
-    });
+    );
 });
 
-app.get('/docNames', function(request, response) { 'use strict';
+app.get('/docNames', function(request, response) {
+    'use strict';
     // var url = 'http://localhost:5984/prog28202/_all_docs';
     var nanoDb = nano.db.use(dbName);
     var result = [];
@@ -171,7 +192,8 @@ app.get('/docNames', function(request, response) { 'use strict';
     });
 });
 
-app.get('/write', function(request, response) { 'use strict';
+app.get('/write', function(request, response) {
+    'use strict';
     console.log('Write called: ' + request.query);
     var person = request.query;
     var personString = JSON.stringify(person, null, 4);
@@ -188,14 +210,13 @@ app.get('/write', function(request, response) { 'use strict';
         }
     });
     response.send({
-        'Result' : 'Success'
+        Result: 'Success'
     });
 });
 
-app.use("/", express.static(__dirname + '/Public'));
-app.use("/", express.static(__dirname + '/Library'));
+app.use('/', express.static(__dirname + '/Public'));
+app.use('/', express.static(__dirname + '/Library'));
 
 console.log('CouchDb URL: ' + nano.config.url);
 console.log('Listening on port: ' + port);
 app.listen(port);
-
