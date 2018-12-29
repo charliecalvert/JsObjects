@@ -10,16 +10,10 @@
     "@octokit/rest": "^16.3.0",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
-    "clui": "^0.3.6",
-    "configstore": "^4.0.0",
     "elven-code": "^4.5.0",
     "figlet": "^1.2.1",
     "inquirer": "^6.2.1",
-    "lodash": "^4.17.11",
-    "minimist": "^1.2.0",
     "request": "~2.88.0",
-    "request-debug": "^0.2.0",
-    "simple-git": "^1.107.0",
-    "touch": "^3.1.0"
+    "request-debug": "^0.2.0"
   }
 }
