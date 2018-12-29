@@ -6,25 +6,28 @@ const nano = require('nano')(setServer.serverUrl);
 var docName = 'bigNames';
 var dbName = 'bcdata';
 
-var readIt = function() {
-	var prog = nano.db.use(dbName);
-	prog.get(docName, { revs_info: true }, function(err, body) {
-		if (!err)
-			console.log(body);
-	});
-}
+var readIt = function () {
+    var prog = nano.db.use(dbName);
+    prog.get(docName, {revs_info: true}, function (err, body) {
+        if (!err)
+            console.log(body);
+    });
+};
 
 function insert() {
-	nano.db.create(dbName);
-	var prog = nano.db.use(dbName);
+    nano.db.create(dbName);
+    var prog = nano.db.use(dbName);
 
-	prog.insert({ 'firstName': 'Suzie', 'lastName': 'Higgins'}, docName, function(err, body) {
-	  if (!err)
-		console.log(body);
-		readIt();
-	});
+    prog.insert({'firstName': 'Suzie', 'lastName': 'Higgins'}, docName, function (err, body) {
+        if (!err) {
+            console.log(body);
+            readIt();
+        } else {
+            console.log(err);
+        }
+    });
 }
 
 
 insert();
-// readIt();
+
