@@ -9,7 +9,7 @@ const sprite = function(params) {
     element.style.position = 'absolute';
     element.style.width = params.width + 'px';
     element.style.height = params.height + 'px';
-    element.style.backgroundImage = 'url(\'' + params.images + '\')';
+    element.style.backgroundImage = "url('" + params.images + "')";
 
     const that = {
         draw: function(x, y) {

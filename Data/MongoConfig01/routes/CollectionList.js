@@ -4,16 +4,16 @@
 
 // Maintain a list of MongoDb collections
 var CollectionList = (function() {
-    "use strict";
+    'use strict';
 
     var collectionList = [];
 
     function CollectionList() {}
 
     var message = function(message) {
-        console.log("------------");
+        console.log('------------');
         console.log(message);
-        console.log("------------");
+        console.log('------------');
     };
 
     // Given a collection name, get the index of it in the collection list
@@ -31,7 +31,7 @@ var CollectionList = (function() {
         database,
         collectionName
     ) {
-        message("Collection List Length: " + collectionList.length);
+        message('Collection List Length: ' + collectionList.length);
         var index = getCollectionListIndex(collectionName);
 
         if (index === -1) {

@@ -1,2 +1,16 @@
 **/build/**
 **/serviceWorker.js
+
+**/angular.js
+**/angular-mocks.js
+**/angular-route.js
+**/require.js
+**/jasmine-jquery.js
+**/jasmine.js
+**/jasmine-html.js
+**/boot.js
+**/jquery-2.1.0.js
+**/jquery-2.1.1.js
+**/jquery-1.9.1.js
+**/jquery-1.9.1.min.js
+**/jquery-1.7.2.min.js

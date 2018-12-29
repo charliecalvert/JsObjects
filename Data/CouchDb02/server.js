@@ -6,7 +6,7 @@ const menu = require('./menu');
 console.log('CouchDb02 Using: ' + server + '\n');
 
 function basics() {
-    request(server, function (error, response, body) {
+    request(server, function(error, response, body) {
         if (!error && response.statusCode === 200) {
             console.log('BODY:', body);
         } else {
@@ -17,7 +17,7 @@ function basics() {
 
 const availableDatabases = () => {
     console.log('Available databases:\n');
-    request(server + '_all_dbs', function (error, response, body) {
+    request(server + '_all_dbs', function(error, response, body) {
         if (!error && response.statusCode === 200) {
             console.log(body);
         } else {
@@ -31,7 +31,7 @@ function stats() {
     const uri = server + '/_node/_local/_stats';
     console.log('stats', uri);
 
-    request(uri, function (error, response, body) {
+    request(uri, function(error, response, body) {
         console.log('Status Code', response.statusCode);
         if (!error && response.statusCode === 200) {
             console.log(typeof body);
@@ -43,9 +43,8 @@ function stats() {
     });
 }
 
-const handleInput = function (option) {
+const handleInput = function(option) {
     switch (option) {
-
         case 'basics':
             basics();
             break;

@@ -29,7 +29,7 @@ handlebars.registerHelper('list', function(context, block) {
     console.log(block);
 
     var base =
-        'Based on <a href=\'http://wiki.apache.org/couchdb/EntityRelationship#One_to_Many\'>this</a>';
+        "Based on <a href='http://wiki.apache.org/couchdb/EntityRelationship#One_to_Many'>this</a>";
     var description = base + '<p>Here are the rows returned by the view</p>';
     var content = description + '<p>' + JSON.stringify(context) + '</p>';
     var ret = content + '<ul>';

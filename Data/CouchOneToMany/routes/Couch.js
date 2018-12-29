@@ -87,10 +87,10 @@ router.get('/view01', function(request, response) {
     'use strict';
     console.log('view Called: ' + request.query);
     var keys = {
-        startkey: ['[\'george\']', 'endkey', '[\'george\', {}]']
+        startkey: ["['george']", 'endkey', "['george', {}]"]
     };
-    var startKey = '[\'george\']';
-    var endKey = '[\'george\', {}]';
+    var startKey = "['george']";
+    var endKey = "['george', {}]";
 
     var nanoDb = nano.db.use(dbName);
     nanoDb.view(request.query.designDoc, request.query.view, keys, function(
