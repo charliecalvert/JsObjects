@@ -1,23 +1,10 @@
 var App = (function() {
     function App() {
-        $('#buttonRead02').click(readJson02);
+        const button = document.getElementById('buttonRead02');
+        button.onclick = readJson02;
     }
 
-    var readJson01 = function() {
-        $.ajax({
-            type: 'GET',
-            url: 'http://192.168.86.117:5984/',
-            dataType: 'jsonp',
-            success: function(data) {
-                showDebug(data.couchdb);
-                showDebug(data.vendor.name);
-                showDebug(data.version);
-            },
-            error: showError
-        });
-    };
-
-    var readJson02 = function() {
+    const readJson02 = function() {
         const url = 'http://192.168.86.117:5984/';
         fetch(url)
             .then(response => response.json())
