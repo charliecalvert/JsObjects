@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 var port = process.env.PORT || 30025;
 
@@ -26,9 +28,9 @@ app.get('/read', function(request, response) {
     fs.readFile(fileName, 'utf8', readData);
 });
 
-app.get('/write', function(request, response) {
-    console.log('Write called: ' + request.query);
-    var person = request.query;
+app.post('/write', function(request, response) {
+    console.log('Write called: ', request.body);
+    var person = request.body;
     var personString = JSON.stringify(person, null, 4);
     console.log('PersonString: ' + personString);
     fs.writeFile(fileName, personString, 'utf8', function(err, data) {

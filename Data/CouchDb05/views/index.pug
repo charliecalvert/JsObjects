@@ -10,11 +10,25 @@ block content
     | to enable CORS. Enabling CORS can be a security risk.
 
   div
-    button#buttonRead02 Hello from CouchDb
-    p#couchdb
-    p#version
-    p#features
-    p#venderName
+    button#buttonRead02 Query CouchDb
+
+    h2 Results
+
+    fieldset
+      legend Data from CouchDb
+
+      p.result
+        b CouchDb:&nbsp;
+        span#couchdb
+      p.result
+        b Version:&nbsp;
+        span#version
+      p.result
+        b Features:&nbsp;
+        span#features
+      p.result
+        b Name:&nbsp;
+        span#venderName
 
 
   h2 Details

@@ -1,40 +1,42 @@
+let elfControls = null;
+
 function addNames(initFirstName, initLastName, initAge) {
     'use strict';
 
-    $('#firstName').val(initFirstName);
-    $('#lastName').val(initLastName);
-    $('#age').val(initAge);
+
+    elfControls.firstName.value = initFirstName;
+    elfControls.lastName.value = initLastName;
+    elfControls.age.value = initAge;
 }
 
 function readJson() {
-    $.getJSON('/read', function(data) {
-        addNames(data.firstName, data.lastName, data.age);
-    })
-        .error(function(jqXHR, textStatus, errorThrown) {
-            alert('error calling JSON. Try JSONLint or JSLint: ' + textStatus);
-        })
-        .complete(function() {
-            console.log('csc: completed call to get index.json');
+    fetch('/read')
+        .then(response => response.json())
+        .then(data => addNames(data.firstName, data.lastName, data.age))
+        .catch(err => {
+            console.log(err);
         });
 }
 
 var writeJson = function() {
+
     var userInput = {
-        firstName: $('#firstName').val(),
-        lastName: $('#lastName').val(),
-        age: $('#age').val()
+        firstName: elfControls.firstName.value,
+        lastName: elfControls.lastName.value,
+        age: elfControls.age.value
     };
 
-    $.ajax({
-        type: 'GET',
-        url: '/write',
-        dataType: 'json',
-        data: userInput,
-        success: function(data) {
-            showDebug(data.result);
+    fetch('/write', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
-        error: showError
-    });
+        body: JSON.stringify(userInput) } )
+        .then(response => response.json())
+        .then(data => showDebug(data.result))
+        .catch(err => showDebug(err))
+
 };
 
 var showError = function(request, ajaxOptions, thrownError) {
@@ -46,10 +48,21 @@ var showError = function(request, ajaxOptions, thrownError) {
 };
 
 var showDebug = function(textToDisplay) {
-    $('#debug').append('<li>' + textToDisplay + '</li>');
+    const debug = document.getElementById('debug');
+    elfCode.appendToList(debug, textToDisplay);
+    //$('#debug').append('<li>' + textToDisplay + '</li>');
 };
 
-$(document).ready(function() {
-    $('#buttonRead').click(readJson);
-    $('#buttonWrite').click(writeJson);
-});
+window.onload = function() {
+    const buttonRead = document.getElementById('buttonRead');
+    const buttonWrite = document.getElementById('buttonWrite');
+    buttonRead.onclick = readJson;
+    buttonWrite.onclick = writeJson;
+
+    elfControls = {
+        firstName: document.getElementById('firstName'),
+        lastName: document.getElementById('lastName'),
+        age: document.getElementById('age')
+
+    };
+};
