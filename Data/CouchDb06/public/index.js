@@ -3,7 +3,6 @@ let elfControls = null;
 function addNames(initFirstName, initLastName, initAge) {
     'use strict';
 
-
     elfControls.firstName.value = initFirstName;
     elfControls.lastName.value = initLastName;
     elfControls.age.value = initAge;
