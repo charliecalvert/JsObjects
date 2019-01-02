@@ -3,7 +3,10 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var nano = require('nano')('http://localhost:5984');
+// var nano = require('nano')('http://localhost:5984');
+const setServer = require('../set-server');
+const nano = require('nano')(setServer.userPassUrl('admin', 'foo'));
+
 
 var port = process.env.PORT || 30025;
 

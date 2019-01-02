@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="generator" content="pandoc">
-        <title>CouchDb08</title>
-        <link href="index.css" rel="stylesheet" type="text/css">
-        <script src="jquery-1.9.1.min.js"></script>
-        <script src="index.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>CouchDb08</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="index.js"></script>
 
-    </head>
-    <body>
-        <h1 id="read-json-code">CouchDB v8: Design Doc and Views</h1>
+</head>
+<body>
+<h1 id="read-json-code">CouchDB v8: Design Doc and Views</h1>
 
+<div>
+    <h2>First Create the Database</h2>
+    <p>Select the Create Database button to create a database and
+        insert one record.</p>
+    <div class="buttonList">
+        <button id="buttonCreate"> Create Database</button>
+        <hr/>
+        <button id="buttonDatabaseName">Show Database Name</button>
+        <button id="buttonCouchDbUrl">Show CouchDb Url</button>
+    </div>
+    <h2>Now Read and Write to It</h2>
+    <p>Choose <strong>Get Doc Names</strong> to get a list of the
+        records that have been inserted. Put the name of one of the
+        documents in the docName (the first) field, and press
+        read.</p>
+    <div class="dataFields">
         <div>
-            <h2>First Create the Database</h2>
-            <p>Select the Create Database button to create a database and
-                insert one record.</p>
-            <div class="buttonList">
-                <button id="buttonCreate"> Create Database </button>
-                <hr />
-                <button id="buttonDatabaseName">Show Database Name</button>
-                <button id="buttonCouchDbUrl">Show CouchDb Url</button>
-            </div>
-            <h2>Now Read and Write to It</h2>
-            <p>Choose <strong>Get Doc Names</strong> to get a list of the
-                records that have been inserted. Put the name of one of the
-                documents in the docName (the first) field, and press
-                read.</p>
-            <div class="dataFields">
-                <div>
-                    <label for="docName">Document Name: </label>
-                    <input type="text" id="docName" value="docName">
-                </div>
-            </div>
-            
-            <div  class="buttonList">
-                <button id="buttonDocNames"> Get Doc Names </button>
-                <button id="buttonRead"> Read </button>
-            </div>
-            
-            <p>To create a new record, choose a new name for the document
-                and put it in the <strong>Document Name</strong> field. Fill in your
-                own data in the other fields, and press <strong>Insert</strong> to insert
-                a new record.</p>
-            <div class="dataFields">
-                <div>
-                    <label for="firstName">First Name: </label>
-                    <input type="text" id="firstName" value="firstName">
-                </div>
-                <div>
-                    <label for="lastName">Last Name: </label>
-                    <input type="text" id="lastName" value="lastName">
-                </div>
-                <label for="age">Age: </label>
-                <input type="text" id="age" value="age">
-            </div>
-
-            <div class="buttonList">
-                <button id="buttonWrite"> Insert </button>
-                <button id="buttonClear"> Clear Messages </button>
-            </div>
+            <label for="docName">Document Name: </label>
+            <input type="text" id="docName" value="docName">
         </div>
+    </div>
 
-        <ul id='debug'></ul>
+    <div class="buttonList">
+        <button id="buttonDocNames"> Get Doc Names</button>
+        <button id="buttonRead"> Read</button>
+    </div>
 
-    </body>
+    <p>To create a new record, choose a new name for the document
+        and put it in the <strong>Document Name</strong> field. Fill in your
+        own data in the other fields, and press <strong>Insert</strong> to insert
+        a new record.</p>
+    <div class="dataFields">
+        <div>
+            <label for="firstName">First Name: </label>
+            <input type="text" id="firstName" value="firstName">
+        </div>
+        <div>
+            <label for="lastName">Last Name: </label>
+            <input type="text" id="lastName" value="lastName">
+        </div>
+        <div>
+            <label for="age">Age: </label>
+            <input type="text" id="age" value="age">
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="buttonList">
+        <button id="buttonWrite"> Insert</button>
+        <button id="buttonClear"> Clear Messages</button>
+    </div>
+</div>
+
+<ul id='debug'></ul>
+
+</body>
 </html>

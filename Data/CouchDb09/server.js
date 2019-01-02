@@ -9,7 +9,9 @@ var fs = require('fs');
 //var nano = require('nano')('http://192.168.2.21:5984');
 //var nano = require('nano')('http://ccalvert:foobar@192.168.2.21:5984');
 //var nano = require('nano')('http://ccalvert:foobar@localhost:5984');
-var nano = require('nano')('http://127.0.0.1:5984');
+// var nano = require('nano')('http://127.0.0.1:5984');
+const setServer = require('../set-server');
+const nano = require('nano')(setServer.userPassUrl('admin', 'foo'));
 
 var port = process.env.PORT || 30025;
 
