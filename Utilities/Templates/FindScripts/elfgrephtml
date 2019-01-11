@@ -1,0 +1,11 @@
+#! /bin/bash
+
+GREP='grep -r --include=*.html --exclude=bundle.js --exclude-dir=node_modules --exclude-dir=static --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata'
+C=''
+for i in "$@"; do 
+    C="$C \"${i//\"/\\\"}\""
+done
+echo -e '\n'Running:'\n'${GREP} ${C}'\n\nResults:'
+bash -c "${GREP} ${C}"
+
+echo -e '\nExit Code:' $?

@@ -16,10 +16,11 @@ var port = process.env.PORT || 30025;
 
 // var fileName = 'person.json';
 
-app.get('/', function(req, res) { 'use strict';
+app.get('/', function(req, res) {
+    'use strict';
     var html = fs.readFileSync('Public/index.html');
     res.writeHeader(200, {
-        "Content-Type" : "text/html"
+        'Content-Type': 'text/html'
     });
     res.end(html);
 });
@@ -27,56 +28,62 @@ app.get('/', function(req, res) { 'use strict';
 var dbName = 'one_to_many';
 var docName = 'phones';
 
-app.get('/databaseName', function(request, response) {'use strict';
-    console.log("\/databaseName called.");
-    response.send({ 'Result': dbName} );
+app.get('/databaseName', function(request, response) {
+    'use strict';
+    console.log('/databaseName called.');
+    response.send({ Result: dbName });
 });
 
-var firstAndLast = function(doc) {'use strict';
+var firstAndLast = function(doc) {
+    'use strict';
     if (doc.firstName && doc.lastName) {
         var name = doc.firstName + ' ' + doc.lastName;
         emit(doc._id, name);
     }
 };
 
-var lastOnly = function(doc) {'use strict';
+var lastOnly = function(doc) {
+    'use strict';
     if (doc.firstName && doc.lastName) {
         var name = doc.lastName;
         emit(doc._id, name);
     }
 };
 
-
-app.get('/designDoc', function(request, response) { 'use strict';
-    console.log("Design Doc Called");
+app.get('/designDoc', function(request, response) {
+    'use strict';
+    console.log('Design Doc Called');
 
     var nanoDb = nano.db.use(dbName);
-    nanoDb.insert({
-        "views" : {
-            "firstAndLast" : {
-                "map" : firstAndLast
+    nanoDb.insert(
+        {
+            views: {
+                firstAndLast: {
+                    map: firstAndLast
+                }
+            }
+        },
+        '_design/people',
+        function(error, body) {
+            if (!error) {
+                console.log(body);
+                response.send({
+                    Result: 'Success',
+                    body: body
+                });
+            } else {
+                console.log('error: ' + error);
+                response.send({
+                    Result: 'The document might already exist. ' + error
+                });
             }
         }
-    }, '_design/people', 
-    function(error, body) {
-        if (!error) {
-            console.log(body);
-            response.send({
-                 'Result' : 'Success',
-                 'body': body
-            });
-        } else {
-            console.log("error: " + error);
-            response.send({
-                 'Result' : 'The document might already exist. ' + error
-            });
-        }
-    });
-    
+    );
 });
 
-app.get('/view01', function(request, response) { 'use strict';
-    console.log("view Called");
+app.get('/view01', function(request, response) {
+    'use strict';
+    console.log('view Called');
 
     var nanoDb = nano.db.use(dbName);
     nanoDb.view('people', 'firstAndLast', function(err, body) {
@@ -86,7 +93,10 @@ app.get('/view01', function(request, response) { 'use strict';
                 result.push(doc);
                 console.log(doc.value);
             });
-            var html = templater.template.addNames('Templates/Basic.html', result);
+            var html = templater.template.addNames(
+                'Templates/Basic.html',
+                result
+            );
             response.send(html);
         } else {
             console.log(err);
@@ -95,7 +105,8 @@ app.get('/view01', function(request, response) { 'use strict';
     });
 });
 
-app.get('/create', function(request, response) { 'use strict';
+app.get('/create', function(request, response) {
+    'use strict';
     console.log('create called.');
     nano.db.create(dbName, function(err, body) {
         if (!err) {
@@ -105,49 +116,55 @@ app.get('/create', function(request, response) { 'use strict';
             console.log(err);
             response.send(500, err);
             return;
-        }        
+        }
     });
-    
+
     console.log('use database');
     var nanoDb = nano.db.use(dbName);
-    var record=fs.readFile('Phones.json', function(json) {
-    nanoDb.insert(json, docName, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send({
-                 'Result' : 'Success'
-             });
-        } else {
-            console.log(err);
-            response.send({'Result': err });
-        }    
+    var record = fs.readFile('Phones.json', function(json) {
+        nanoDb.insert(json, docName, function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send({
+                    Result: 'Success'
+                });
+            } else {
+                console.log(err);
+                response.send({ Result: err });
+            }
+        });
     });
-    });
-
 });
 
-app.get('/read', function(request, response) { 'use strict';
+app.get('/read', function(request, response) {
+    'use strict';
     console.log('Read called: ' + JSON.stringify(request.query));
 
     var nanoDb = nano.db.use(dbName);
-    nanoDb.get(request.query.docName, {
-        revs_info : true
-    }, function(err, body) {
-        if (!err) {
-            console.log(body);
-            response.send(body);
-        } else {
-            var cscMessage = "No such record as: " + request.query.docName +
-                ". Use a the Get Doc Names button to find " +
-                "the name of an existing document.";
-            err.p282special = cscMessage;
-            response.send(500, err);
+    nanoDb.get(
+        request.query.docName,
+        {
+            revs_info: true
+        },
+        function(err, body) {
+            if (!err) {
+                console.log(body);
+                response.send(body);
+            } else {
+                var cscMessage =
+                    'No such record as: ' +
+                    request.query.docName +
+                    '. Use a the Get Doc Names button to find ' +
+                    'the name of an existing document.';
+                err.p282special = cscMessage;
+                response.send(500, err);
+            }
         }
-            
-    });
+    );
 });
 
-app.get('/docNames', function(request, response) { 'use strict';
+app.get('/docNames', function(request, response) {
+    'use strict';
     // var url = 'http://localhost:5984/prog28202/_all_docs';
     var nanoDb = nano.db.use(dbName);
     var result = [];
@@ -167,7 +184,8 @@ app.get('/docNames', function(request, response) { 'use strict';
     });
 });
 
-app.get('/write', function(request, response) { 'use strict';
+app.get('/write', function(request, response) {
+    'use strict';
     console.log('Write called: ' + request.query);
     var person = request.query;
     var personString = JSON.stringify(person, null, 4);
@@ -184,27 +202,34 @@ app.get('/write', function(request, response) { 'use strict';
         }
     });
     response.send({
-        'Result' : 'Success'
+        Result: 'Success'
     });
 });
 
-app.get("/attachPng", function(request, response) {'use strict';
-   console.log('/attachPng called');
-   var fs = require('fs');
+app.get('/attachPng', function(request, response) {
+    'use strict';
+    console.log('/attachPng called');
+    var fs = require('fs');
 
     fs.readFile('Images/rabbit.png', function(err, data) {
         if (!err) {
             var nanoDb = nano.db.use(dbName);
-            nanoDb.attachment.insert('rabbit', 'rabbit.png', data, 'image/png',
-                { rev: '12-150985a725ec88be471921a54ce91452' }, function(err, body) {
-                if (!err) {
-                    console.log(body);
-                } else {
-                    console.log(err);
+            nanoDb.attachment.insert(
+                'rabbit',
+                'rabbit.png',
+                data,
+                'image/png',
+                { rev: '12-150985a725ec88be471921a54ce91452' },
+                function(err, body) {
+                    if (!err) {
+                        console.log(body);
+                    } else {
+                        console.log(err);
+                    }
                 }
-            });
+            );
         }
-    }); 
+    });
 });
 
 /**
@@ -212,40 +237,49 @@ app.get("/attachPng", function(request, response) {'use strict';
  * See the attachUpdateHtml handler below
  */
 var doInsert = function(rev, response) {
-	'use strict';
+    'use strict';
     var fs = require('fs');
 
     fs.readFile(__dirname + '/Templates/AttachMe.html', function(err, data) {
         if (!err) {
             var nanoDb = nano.db.use(dbName);
-            nanoDb.attachment.insert('attachMe', 'AttachMe.html', data, 'text/html', rev,
+            nanoDb.attachment.insert(
+                'attachMe',
+                'AttachMe.html',
+                data,
+                'text/html',
+                rev,
                 function(err1, body) {
-                if (!err1) {
-                    console.log(body);
-                    response.send({"Result":"Success"});
-                } else {
-                    console.log(err1);
-                    err1.p282special = "Document conflict means document already exists. Try an update.";
-                    response.send(500, err1);
+                    if (!err1) {
+                        console.log(body);
+                        response.send({ Result: 'Success' });
+                    } else {
+                        console.log(err1);
+                        err1.p282special =
+                            'Document conflict means document already exists. Try an update.';
+                        response.send(500, err1);
+                    }
                 }
-            });
+            );
         } else {
             console.log(err);
             response.send(500, err);
         }
-    }); 
+    });
 };
 
-app.get("/attachHtml", function(request, response) {'use strict';
-   console.log('/attachHtml called');
-   // Null means we are trying to do an insert
-   doInsert(null, response);
+app.get('/attachHtml', function(request, response) {
+    'use strict';
+    console.log('/attachHtml called');
+    // Null means we are trying to do an insert
+    doInsert(null, response);
 });
 
-app.get("/getAttachedHtml", function(request, response) {'use strict';
-   console.log('/getAttachedHtml called');
-   
-   var nanoDb = nano.db.use(dbName);
+app.get('/getAttachedHtml', function(request, response) {
+    'use strict';
+    console.log('/getAttachedHtml called');
+
+    var nanoDb = nano.db.use(dbName);
     nanoDb.attachment.get('attachMe', 'AttachMe.html', function(err, body) {
         if (!err) {
             console.log(body);
@@ -253,29 +287,29 @@ app.get("/getAttachedHtml", function(request, response) {'use strict';
         } else {
             console.log(err1);
             response.send(500, err);
-        }   
-    }); 
+        }
+    });
 });
 
-app.get("/attachUpdateHtml", function(request, response) {'use strict';
+app.get('/attachUpdateHtml', function(request, response) {
+    'use strict';
     console.log('/attachUpdate called');
     var nanoDb = nano.db.use(dbName);
-    nanoDb.get('attachMe', function(error, existing) { 
-        if(!error) { 
+    nanoDb.get('attachMe', function(error, existing) {
+        if (!error) {
             console.log(existing);
             console.log(existing._rev);
-            doInsert({ "rev":existing._rev }, response);
-        }  else {
+            doInsert({ rev: existing._rev }, response);
+        } else {
             console.log(error);
             response.send(500, error);
         }
     });
 });
 
-app.use("/", express.static(__dirname + '/Public'));
-app.use("/", express.static(__dirname + '/Library'));
+app.use('/', express.static(__dirname + '/Public'));
+app.use('/', express.static(__dirname + '/Library'));
 
 console.log('CouchDb URL: ' + nano.config.url);
 console.log('Listening on port: ' + port);
 app.listen(port);
-

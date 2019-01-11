@@ -6,16 +6,15 @@ import Code from 'material-ui/svg-icons/action/code';
 process.env.NODE_ENV = 'development';
 
 const style = {
-    margin: 12,
+    margin: 12
 };
 
 export class ReactBasics extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
             presidents: []
-        }
+        };
     }
 
     loadData = () => {
@@ -26,9 +25,8 @@ export class ReactBasics extends React.Component {
             })
             .then(function(result) {
                 console.log(result);
-                that.setState({data: JSON.stringify(result)});
+                that.setState({ data: JSON.stringify(result) });
             });
-
     };
 
     getApiKey = () => {
@@ -39,20 +37,20 @@ export class ReactBasics extends React.Component {
             })
             .then(function(result) {
                 console.log(result);
-                that.getPresidents(result.apiKey)
+                that.getPresidents(result.apiKey);
             });
-
     };
 
-    getPresidents = (apiKey) => {
+    getPresidents = apiKey => {
         const that = this;
-        var query = "https://api.mongolab.com/api/1/databases/elvenlab01/collections/Presidents?apiKey=vUoL-xbE47lbrhEuFZr1xt78oqVFJt7a";
+        var query =
+            'https://api.mongolab.com/api/1/databases/elvenlab01/collections/Presidents?apiKey=vUoL-xbE47lbrhEuFZr1xt78oqVFJt7a';
         fetch(query, {
             method: 'GET',
             headers: new Headers({
-                    'Content-Type': 'application/json'
-                })
+                'Content-Type': 'application/json'
             })
+        })
             .then(function(response) {
                 return response.json();
             })
@@ -61,7 +59,7 @@ export class ReactBasics extends React.Component {
                 const presNames = result.map(function(president) {
                     return president.presidentName;
                 });
-                that.setState({president: presNames.join('\n')});
+                that.setState({ president: presNames.join('\n') });
             });
     };
 
@@ -70,23 +68,27 @@ export class ReactBasics extends React.Component {
             <div>
                 <h1>Mongo Lab React</h1>
 
-                <p>This project retrieves a small amount of JSON
-                    from a node server and some data from the MongoLab
-                    cloud based Mongo Database.</p>
+                <p>
+                    This project retrieves a small amount of JSON from a node
+                    server and some data from the MongoLab cloud based Mongo
+                    Database.
+                </p>
 
                 <RaisedButton
                     label="Load Data"
-                    icon={<Code/>}
+                    icon={<Code />}
                     secondary={true}
                     style={style}
-                    onClick={this.loadData} />
+                    onClick={this.loadData}
+                />
 
                 <RaisedButton
                     label="Get Presidents"
                     primary={true}
                     style={style}
                     onClick={this.getApiKey}
-                    icon={<Face />} />
+                    icon={<Face />}
+                />
 
                 <pre>{this.state.president}</pre>
                 <pre>{this.state.data}</pre>
@@ -94,5 +96,3 @@ export class ReactBasics extends React.Component {
         );
     }
 }
-
-

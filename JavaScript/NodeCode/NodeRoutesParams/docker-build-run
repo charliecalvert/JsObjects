@@ -1,0 +1,3 @@
+docker build -t bcuser/node-routes-params .
+docker run -p 30025:30025 -d bcuser/node-routes-params
+

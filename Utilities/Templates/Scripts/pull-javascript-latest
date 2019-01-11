@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cd /var/www/html/charlie/development/web/JavaScript/
+./get-latest

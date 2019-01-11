@@ -6,5 +6,8 @@
   "dependencies": {
     "express": "latest",
     "nano": "latest"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

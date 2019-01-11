@@ -2,24 +2,28 @@
  * Created by charlie on 4/29/2015.
  */
 
-angular.module('pres', ['ngResource'])
+angular
+    .module('pres', ['ngResource'])
     .factory('presidents', function($resource, mlabSettings) {
         console.log('Presidents factory called');
 
         return new Promise(function(resolve, reject) {
             mlabSettings.then(function(response) {
-                var Presidents = $resource(response.url, response.apiKey,
-                    {
-                        update: {method: 'PUT'}
-                    });
+                var Presidents = $resource(response.url, response.apiKey, {
+                    update: { method: 'PUT' }
+                });
 
-                Presidents.prototype.updateMe = function(callback, errorCallback) {
-                    console.log("update called");
+                Presidents.prototype.updateMe = function(
+                    callback,
+                    errorCallback
+                ) {
+                    console.log('update called');
                     return Presidents.update(
-                        {id: this._id.$oid},
-                        angular.extend({}, this, {_id: undefined}),
+                        { id: this._id.$oid },
+                        angular.extend({}, this, { _id: undefined }),
                         callback,
-                        errorCallback);
+                        errorCallback
+                    );
                 };
 
                 Presidents.prototype.getPresidentName = function() {
@@ -35,7 +39,11 @@ angular.module('pres', ['ngResource'])
                 };
 
                 Presidents.prototype.remove = function(cb, errorcb) {
-                    return Presidents.remove({id: this._id.$oid}, cb, errorcb);
+                    return Presidents.remove(
+                        { id: this._id.$oid },
+                        cb,
+                        errorcb
+                    );
                 };
 
                 Presidents.prototype['delete'] = function(cb, errorcb) {
@@ -46,5 +54,5 @@ angular.module('pres', ['ngResource'])
 
                 // return { a: 2 };
             });
-        })
+        });
     });

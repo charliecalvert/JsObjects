@@ -34,7 +34,12 @@ define(['runQuery', 'jsonToHtml'], function(runQuery, jsonToHtml) {
             displayGameCode(gameDocs[index]);
 
             docElement.html(JSON.stringify(gameDocs, null, 4));
-            var jsonHtmlTable = jsonToHtml(gameDocs, 'jsonTable', 'table table-bordered table-striped', 'Download');
+            var jsonHtmlTable = jsonToHtml(
+                gameDocs,
+                'jsonTable',
+                'table table-bordered table-striped',
+                'Download'
+            );
 
             $('#myTable').html(jsonHtmlTable);
         }
@@ -49,5 +54,4 @@ define(['runQuery', 'jsonToHtml'], function(runQuery, jsonToHtml) {
     };
 
     return readController;
-
 });

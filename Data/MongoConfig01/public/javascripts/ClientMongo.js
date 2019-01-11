@@ -32,7 +32,7 @@ app.MongoClient = (function() {
 
     var read = function() {
         request.query = {
-            "Name": "ComplexConfig"
+            Name: 'ComplexConfig'
         };
         $.getJSON('/read', request, function(config) {
             $('#config01').text(JSON.stringify(config, null, 4));
@@ -56,7 +56,7 @@ app.MongoClient = (function() {
         try {
             request.query = JSON.parse(input);
         } catch (err) {
-            alert("Please enter valid JSON");
+            alert('Please enter valid JSON');
         }
         $.getJSON('/read', request, function(result) {
             $('#config02').text(JSON.stringify(result, null, 4));
@@ -68,7 +68,7 @@ app.MongoClient = (function() {
         try {
             request.query = JSON.parse(input);
         } catch (err) {
-            alert("Please enter valid JSON");
+            alert('Please enter valid JSON');
         }
         $.getJSON('/queryProject', request, function(result) {
             $('#config02').text(JSON.stringify(result, null, 4));
@@ -79,7 +79,7 @@ app.MongoClient = (function() {
         try {
             request.query = JSON.parse(input);
         } catch (err) {
-            alert("Please enter valid JSON");
+            alert('Please enter valid JSON');
         }
         $.getJSON('/read', request, function(result) {
             $('#config03').text(JSON.stringify(result, null, 4));
@@ -87,7 +87,7 @@ app.MongoClient = (function() {
     };
 
     return MongoClient;
-}());
+})();
 
 $(document).ready(function() {
     app.init();

@@ -5,7 +5,7 @@ import { ReactBasics } from './react-basics.js';
 
 ReactDOM.render(
     <MuiThemeProvider>
-        <ReactBasics/>
+        <ReactBasics />
     </MuiThemeProvider>,
     document.getElementById('root')
 );

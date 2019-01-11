@@ -18,5 +18,4 @@
     $.publish = function() {
         o.trigger.apply(o, arguments);
     };
-
-}(jQuery));
+})(jQuery);

@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const elfUtils = require('elven-code').elfUtils;
+
+elfUtils.readFile((process.env.HOME + '/.ssh/config'), (content) => {
+    //var pattern='Host elflocal\\n\\s*HostName\\s(.*)'
+    //console.log(err);
+
+    var pattern= new RegExp('Host ec2-bc[\\s\\S]\\s*HostName\\s*(.*)');
+    const find = content.result.match(pattern);
+    console.log(find[1]);
+});

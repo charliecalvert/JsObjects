@@ -35,16 +35,15 @@ function designDocs(router, nano, dbName) {
 
         var designName = '_design/game';
         var designDocument = {
-            'views': {
-                'npcsBulk': {
-                    'map': npcsBulk
+            views: {
+                npcsBulk: {
+                    map: npcsBulk
                 }
             }
         };
 
         createDesignDocument(designDocument, designName, response);
     });
-
 }
 
 module.exports = designDocs;

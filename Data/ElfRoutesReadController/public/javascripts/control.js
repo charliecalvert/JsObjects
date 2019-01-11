@@ -1,51 +1,68 @@
-define(['Route', 'queryController', 'nameController', 'insertController', 'readController'],
-    function(Route, queryController, nameController, insertController, readController) {
-        'use strict';
+define([
+    'Route',
+    'queryController',
+    'nameController',
+    'insertController',
+    'readController'
+], function(
+    Route,
+    queryController,
+    nameController,
+    insertController,
+    readController
+) {
+    'use strict';
 
-        var findRoutes = (function($routeProvider) {
-            $routeProvider.when('/home', {
+    var findRoutes = function($routeProvider) {
+        $routeProvider
+            .when('/home', {
                 templateUrl: '/home',
                 controller: queryController,
                 resolve: {
                     init: queryController.init
                 }
-            }).when('/databaseName', {
+            })
+            .when('/databaseName', {
                 templateUrl: '/display-default',
                 controller: nameController,
                 resolve: {
                     databaseName: nameController.databaseName,
                     allDbs: nameController.allDbs
                 }
-            }).when('/createDb', {
+            })
+            .when('/createDb', {
                 templateUrl: '/display-default',
                 controller: queryController,
                 resolve: {
                     result: queryController.create
                 }
-            }).when('/deleteDb', {
+            })
+            .when('/deleteDb', {
                 templateUrl: '/display-default',
                 controller: queryController,
                 resolve: {
                     result: queryController.delete
                 }
-            }).when('/insertNpcs', {
+            })
+            .when('/insertNpcs', {
                 templateUrl: '/display-default',
                 controller: insertController,
                 resolve: {
                     result: insertController.insertNpcsOneDoc
                 }
-            }).when('/readNpcs', {
+            })
+            .when('/readNpcs', {
                 templateUrl: '/row-display-one-doc',
                 controller: readController,
                 resolve: {
                     result: readController.readOne,
                     init: readController.init
                 }
-            }).otherwise({
+            })
+            .otherwise({
                 redirectTo: '/home'
             });
-        });
+    };
 
-        return findRoutes;
-
-    });
+    return findRoutes;
+});

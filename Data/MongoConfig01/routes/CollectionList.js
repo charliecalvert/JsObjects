@@ -8,14 +8,12 @@ var CollectionList = (function() {
 
     var collectionList = [];
 
-    function CollectionList() {
-
-    }
+    function CollectionList() {}
 
     var message = function(message) {
-        console.log("------------");
+        console.log('------------');
         console.log(message);
-        console.log("------------");
+        console.log('------------');
     };
 
     // Given a collection name, get the index of it in the collection list
@@ -29,8 +27,11 @@ var CollectionList = (function() {
     };
 
     // Maintain a list of collections
-    CollectionList.prototype.getCollectionByName = function(database, collectionName) {
-        message("Collection List Length: " + collectionList.length);
+    CollectionList.prototype.getCollectionByName = function(
+        database,
+        collectionName
+    ) {
+        message('Collection List Length: ' + collectionList.length);
         var index = getCollectionListIndex(collectionName);
 
         if (index === -1) {
@@ -43,6 +44,6 @@ var CollectionList = (function() {
     };
 
     return CollectionList;
-}());
+})();
 
 exports.CollectionList = new CollectionList();

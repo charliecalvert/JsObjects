@@ -1,8 +1,7 @@
 define(function() {
-
     return {
         clearList: function(event) {
-            document.getElementById("mongoData").innerHTML = "";
+            document.getElementById('mongoData').innerHTML = '';
         },
 
         createSubSpan: function(element, text, className) {
@@ -14,28 +13,32 @@ define(function() {
         },
 
         createIcon: function(span, president) {
-            const icon = document.createElement("i");
-            icon.className = "material-icons mdl-list__item-avatar";
-            icon.id="icon" + president.firstName + president.lastName;
+            const icon = document.createElement('i');
+            icon.className = 'material-icons mdl-list__item-avatar';
+            icon.id = 'icon' + president.firstName + president.lastName;
             icon.appendChild(document.createTextNode('person'));
             span.appendChild(icon);
         },
 
         createMainSpan: function(president, li) {
             const span = document.createElement('span');
-            span.className = "mdl-list__item-primary-content";
+            span.className = 'mdl-list__item-primary-content';
             this.createIcon(span, president);
-            this.createSubSpan(span, president.firstName + " " + president.lastName, "mdl-list__item-primary-content");
-            this.createSubSpan(span, president._id, "mdl-list__item-sub-title");
+            this.createSubSpan(
+                span,
+                president.firstName + ' ' + president.lastName,
+                'mdl-list__item-primary-content'
+            );
+            this.createSubSpan(span, president._id, 'mdl-list__item-sub-title');
             li.appendChild(span);
         },
 
         appendToList: function(president, callback) {
-            const ul = document.getElementById("mongoData");
-            const li = document.createElement("li");
-            li.className += "mdl-list__item mdl-list__item--two-line";
-            li.id=president.firstName + president.lastName;
-            li.addEventListener("click", function(event) {
+            const ul = document.getElementById('mongoData');
+            const li = document.createElement('li');
+            li.className += 'mdl-list__item mdl-list__item--two-line';
+            li.id = president.firstName + president.lastName;
+            li.addEventListener('click', function(event) {
                 callback(event.currentTarget);
             });
             this.createMainSpan(president, li);
@@ -50,5 +53,5 @@ define(function() {
             componentHandler.upgradeElement(button);
             document.getElementById('container').appendChild(button);
         }
-    }
+    };
 });

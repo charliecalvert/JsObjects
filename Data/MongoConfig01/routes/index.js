@@ -28,13 +28,16 @@ function readAndInsertConfig(response) {
         if (err) {
             console.log(err);
             response.send({
-                "Error": err
+                Error: err
             });
         } else {
             console.log(fileContent);
             fileContent = JSON.parse(fileContent);
-            queryMongo.insertIntoCollection(response, collectionName,
-                fileContent);
+            queryMongo.insertIntoCollection(
+                response,
+                collectionName,
+                fileContent
+            );
             // response.send({ "result" : fileContent });
         }
     });

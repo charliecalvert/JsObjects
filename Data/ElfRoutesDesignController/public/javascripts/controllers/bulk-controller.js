@@ -54,8 +54,12 @@ define(['runQuery', 'jsonToHtml'], function(runQuery, jsonToHtml) {
                     answer: row.answer
                 };
             });
-            var jsonHtmlTable = jsonToHtml(editedGameDocs, 'jsonTable',
-                'table table-bordered table-striped', 'Download');
+            var jsonHtmlTable = jsonToHtml(
+                editedGameDocs,
+                'jsonTable',
+                'table table-bordered table-striped',
+                'Download'
+            );
 
             $('#myTable').html(jsonHtmlTable);
         }
@@ -74,5 +78,4 @@ define(['runQuery', 'jsonToHtml'], function(runQuery, jsonToHtml) {
     };
 
     return bulkController;
-
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { getEight } from './actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class GetNumbers extends React.Component {
     constructor(props) {
@@ -71,9 +72,16 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-GetNumbers = connect(
+GetNumbers.propTypes = {
+    title: PropTypes.string,
+    counter: PropTypes.number,
+    eight: PropTypes.number,
+    nine: PropTypes.number,
+    getEight: PropTypes.func,
+    date: PropTypes.instanceOf(Date)
+};
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(GetNumbers);
-
-export default GetNumbers;

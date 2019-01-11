@@ -41,22 +41,21 @@ function designDocs(router, nano, dbName) {
 
         var designName = '_design/elf-session';
         var designDocument = {
-            'views': {
+            views: {
                 'elf-sessions': {
-                    'map': elfSessions
+                    map: elfSessions
                 },
                 'elf-session-store': {
-                    'map': elfSessionStore
+                    map: elfSessionStore
                 },
                 'elf-expires': {
-                    'map': elfSessionExpires
+                    map: elfSessionExpires
                 }
             }
         };
 
         createDesignDocument(designDocument, designName, response);
     });
-
 }
 
 module.exports = designDocs;

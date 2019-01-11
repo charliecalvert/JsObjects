@@ -2,9 +2,7 @@ define(function() {
     'use strict';
 
     var utils = {
-
         clearAll: function() {
-
             function clear(selector) {
                 $(selector).empty();
             }

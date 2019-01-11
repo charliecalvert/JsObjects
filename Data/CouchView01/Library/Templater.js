@@ -10,16 +10,16 @@ handlebars.registerHelper('list', function(context, block) {
     console.log(context);
     console.log(context.length);
     console.log(block);
-    
-    var description = "<p>Here are the rows returned by the view</p>";
-    var content = description + "<p>" + JSON.stringify(context) + "</p>";
-    var ret = content + "<ul>";
+
+    var description = '<p>Here are the rows returned by the view</p>';
+    var content = description + '<p>' + JSON.stringify(context) + '</p>';
+    var ret = content + '<ul>';
 
     for (var i = 0, j = context.length; i < j; i++) {
-    	ret = ret + "<li>" + context[i] + "</li>";
+        ret = ret + '<li>' + context[i] + '</li>';
     }
 
-    return ret + "</ul>";
+    return ret + '</ul>';
 });
 
 handlebars.registerHelper('states', function(context, block) {
@@ -27,49 +27,53 @@ handlebars.registerHelper('states', function(context, block) {
     console.log(context);
     console.log(context.length);
     console.log(block);
-    
-    var description = "<p>Here are the rows returned by the view</p>";
-    var content = description + "<p>" + JSON.stringify(context) + "</p>";
-    var formattedData = content + "The formated data: ";
-    var ret = formattedData + "<ul>";
+
+    var description = '<p>Here are the rows returned by the view</p>';
+    var content = description + '<p>' + JSON.stringify(context) + '</p>';
+    var formattedData = content + 'The formated data: ';
+    var ret = formattedData + '<ul>';
 
     for (var i = 0, j = context.length; i < j; i++) {
-    	ret = ret + "<li>" + context[i].name + ': ' + context[i].capital + "</li>";
+        ret =
+            ret +
+            '<li>' +
+            context[i].name +
+            ': ' +
+            context[i].capital +
+            '</li>';
     }
 
-    return ret + "</ul>";
+    return ret + '</ul>';
 });
 
-var Templater = (function() {'use strict';
+var Templater = (function() {
+    'use strict';
 
-    function Templater() {
-    }
+    function Templater() {}
 
     // Please note that we convert to a string.
     var readHtml = function(fileName) {
         return String(fs.readFileSync(fileName));
     };
 
-
     Templater.prototype.addNames = function(fileName, data) {
-        
         var mainFile = readHtml(fileName);
-        
+
         var template = handlebars.compile(mainFile);
 
-        var result = template({   
-            nav: data, 
-            description: "The templated HTML in this section was created with handlebars.",
-            headGuy : fileName
+        var result = template({
+            nav: data,
+            description:
+                'The templated HTML in this section was created with handlebars.',
+            headGuy: fileName
         });
-        
+
         console.log('Return result');
 
         return result;
     };
 
     return Templater;
-
 })();
 
 exports.template = new Templater();

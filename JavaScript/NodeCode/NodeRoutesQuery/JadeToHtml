@@ -1,0 +1,1 @@
+node_modules/.bin/jade --pretty --out public/html/ views/index.jade

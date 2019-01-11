@@ -1,28 +1,49 @@
-var nano = require('nano')('http://localhost:5984');
-// var nano = require('nano')('http://192.168.2.21:5984');
+const setServer = require('../set-server');
+const nano = require('nano')(setServer.serverUrl);
+// var nano = require('nano')('http://localhost:5984');
+const menu = require('./menu');
 
 var docName = 'bigNames';
-var dbName = 'bc_data';
+var dbName = 'bcdata';
 
 var readIt = function() {
-	var prog = nano.db.use(dbName);
-	prog.get(docName, { revs_info: true }, function(err, body) {
-		if (!err)
-			console.log(body);
-	});
-}
+    var prog = nano.db.use(dbName);
+    prog.get(docName, { revs_info: true }, function(err, body) {
+        if (!err) {
+            console.log(body);
+        } else {
+            console.log(err);
+        }
+    });
+};
 
 function insert() {
-	nano.db.create(dbName);
-	var prog = nano.db.use(dbName);
+    nano.db.create(dbName);
+    var prog = nano.db.use(dbName);
+    const doc = { firstName: 'Suzie', lastName: 'Higgins' };
 
-	prog.insert({ 'firstName': 'Suzie', 'lastName': 'Higgins'}, docName, function(err, body) {
-	  if (!err)
-		console.log(body);
-		readIt();
-	});
+    prog.insert(doc, docName, function(err, body) {
+        if (!err) {
+            console.log(body);
+        } else {
+            console.log(err);
+        }
+    });
 }
 
+const handleInput = function(option) {
+    switch (option) {
+        case 'show':
+            readIt();
+            break;
 
-insert();
-// readIt();
+        case 'insert':
+            insert();
+            break;
+
+        default:
+            return;
+    }
+};
+
+menu.showMenu(handleInput);

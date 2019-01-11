@@ -1,0 +1,17 @@
+[Unit]
+Description=Package Editor Service
+
+[Service]
+ExecStart=/home/charlie/npm/bin/npm run start-service
+WorkingDirectory=/home/charlie/bin/package-editor
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=package-editor
+User=charlie
+Group=charlie
+Environment=NODE_ENV=production
+Environment=SERVER_PORT=30031
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,7 @@
 #! /bin/bash
 
-function PartOne() {
+// 2017
+function PartOneOld() {
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 	sudo apt-get update
@@ -13,6 +14,22 @@ function PartOne() {
 	echo "You should now log out and then log in again."
 	echo "This will ensure that the docker group you"
 	echo "joined is properly registered."
+}
+
+
+// December 2018
+function PartOne() {
+    sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable"
+    sudo apt-get update
+    sudo apt-get install docker-ce
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    sudo systemctl enable docker
 }
 
 PartOne

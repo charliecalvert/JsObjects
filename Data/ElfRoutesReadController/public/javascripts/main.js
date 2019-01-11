@@ -13,17 +13,17 @@
 requirejs.config({
     baseUrl: '.',
     paths: {
-        'jquery': '/components/jquery/dist/jquery',
-        'bootstrap': '/components/bootstrap/dist/js/bootstrap.min',
-        'jsonToHtml': '/components/elf-json-to-table/json-to-table',
-        'control': '/javascripts/control',
-        'queryController': '/javascripts/controllers/query-controller',
-        'nameController': '/javascripts/controllers/name-controller',
-        'insertController': '/javascripts/controllers/insert-controller',
-        'readController': '/javascripts/controllers/read-controller',
-        'Route': '/javascripts/route-provider/route',
-        'runQuery': '/javascripts/route-provider/run-query',
-        'utility': '/javascripts/utility'
+        jquery: '/components/jquery/dist/jquery',
+        bootstrap: '/components/bootstrap/dist/js/bootstrap.min',
+        jsonToHtml: '/components/elf-json-to-table/json-to-table',
+        control: '/javascripts/control',
+        queryController: '/javascripts/controllers/query-controller',
+        nameController: '/javascripts/controllers/name-controller',
+        insertController: '/javascripts/controllers/insert-controller',
+        readController: '/javascripts/controllers/read-controller',
+        Route: '/javascripts/route-provider/route',
+        runQuery: '/javascripts/route-provider/run-query',
+        utility: '/javascripts/utility'
     }
 });
 
@@ -35,7 +35,6 @@ function setHover() {
     });
 
     function setActiveMenuItem(event) {
-
         $('nav li').removeClass('active');
 
         // var menuItem = $('a[href=".' + this.location.pathname + '"]');

@@ -15,9 +15,9 @@ var QueryMongo = (function() {
         loadConfig(function(urls) {
             var mongoTalkJson = JSON.parse(urls);
             var url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
-            console.log("The Mongo URL:" + url);
+            console.log('The Mongo URL:' + url);
             getDatabase(url, function() {
-                console.log('Connected to MongoDb')
+                console.log('Connected to MongoDb');
             });
         });
     }
@@ -28,13 +28,16 @@ var QueryMongo = (function() {
             func(mongoClient);
         } else {
             console.log('Querying for MongoDb connection');
-            MongoClient.connect(url, function(err, mongoClientInit) {
-                if (err) {
-                    throw err;
+            MongoClient.connect(
+                url,
+                function(err, mongoClientInit) {
+                    if (err) {
+                        throw err;
+                    }
+                    mongoClient = mongoClientInit;
+                    func(mongoClient);
                 }
-                mongoClient = mongoClientInit;
-                func(mongoClient);
-            });
+            );
         }
     };
 
@@ -45,56 +48,76 @@ var QueryMongo = (function() {
         var collection = database.collection(collectionName);
 
         collection.count(function(err, count) {
-            response.send({"count": count});
+            response.send({ count: count });
         });
     };
 
-    QueryMongo.prototype.getCollectionData = function(response, query, collectionName) {
-        console.log("getCollection called");
+    QueryMongo.prototype.getCollectionData = function(
+        response,
+        query,
+        collectionName
+    ) {
+        console.log('getCollection called');
         const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database, collectionName);
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
 
         collection.find(query).toArray(function(err, theArray) {
             if (err) {
-                console.log("Error in getCollection: " + err);
+                console.log('Error in getCollection: ' + err);
             }
-            console.log("Found collection item.");
+            console.log('Found collection item.');
             response.send(theArray);
         });
     };
 
-    QueryMongo.prototype.getCollectionProject = function(response, request, collectionName) {
-        console.log("getCollectionProject called");
+    QueryMongo.prototype.getCollectionProject = function(
+        response,
+        request,
+        collectionName
+    ) {
+        console.log('getCollectionProject called');
         const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
 
-        collection.find(request.query, request.project).toArray(function(err, theArray) {
-            if (err) {
-                console.log("Error in getCollection: " + err);
-            }
-            console.log("Found collection item.");
-            console.log(theArray);
-            response.send(theArray);
-        });
+        collection
+            .find(request.query, request.project)
+            .toArray(function(err, theArray) {
+                if (err) {
+                    console.log('Error in getCollection: ' + err);
+                }
+                console.log('Found collection item.');
+                console.log(theArray);
+                response.send(theArray);
+            });
     };
 
     // Will create collection if it does not exist
-    QueryMongo.prototype.insertIntoCollection = function(response,
-                                                         collectionName, objectToInsert) {
-        message("QueryMongo.insertIntoCollection called: " + collectionName);
+    QueryMongo.prototype.insertIntoCollection = function(
+        response,
+        collectionName,
+        objectToInsert
+    ) {
+        message('QueryMongo.insertIntoCollection called: ' + collectionName);
         console.log(objectToInsert[0]);
         const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
         if (collection !== null) {
             collection.insert(objectToInsert, function(err, docs) {
                 if (err) {
                     throw err;
                 }
-                console.log("insert succeeded");
+                console.log('insert succeeded');
                 response.send({
-                    result: "Success",
+                    result: 'Success',
                     mongoDocument: docs
                 });
             });
@@ -106,31 +129,32 @@ var QueryMongo = (function() {
     };
 
     QueryMongo.prototype.removeAll = function(response, collectionName) {
-        console.log("QueryMongo.removeAll called");
+        console.log('QueryMongo.removeAll called');
         const database = mongoClient.db('test');
-        var collection = collectionList.getCollectionByName(database,
-            collectionName);
+        var collection = collectionList.getCollectionByName(
+            database,
+            collectionName
+        );
         if (collection !== null) {
             collection.remove(function(err, data) {
                 if (err) {
                     throw err;
                 }
-                console.log("Item deleted");
+                console.log('Item deleted');
                 response.send({
-                    result: "removeAll Called"
+                    result: 'removeAll Called'
                 });
             });
         }
     };
 
     function message(messageToShow) {
-        console.log("------------");
+        console.log('------------');
         console.log(messageToShow);
-        console.log("------------");
+        console.log('------------');
     }
 
     return QueryMongo;
-
 })();
 
 exports.QueryMongo = new QueryMongo();

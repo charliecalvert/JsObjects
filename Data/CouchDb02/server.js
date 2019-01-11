@@ -1,31 +1,65 @@
-var request = require('request');
+const request = require('request');
+const setServer = require('../set-server');
+const server = setServer.serverUrl + '/';
+const menu = require('./menu');
 
-var server = ['http://127.0.0.1:5984/', 'http://192.168.2.30:5984/'];
-var index = 0;
+console.log('CouchDb02 Using: ' + server + '\n');
 
-console.log('Using: ' + server[index] + '\n');
+function basics() {
+    request(server, function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log('BODY:', body);
+        } else {
+            console.log(error);
+        }
+    });
+}
 
-request(server[index], function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log(body); 
-  }
-})
+const availableDatabases = () => {
+    console.log('Available databases:\n');
+    request(server + '_all_dbs', function(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+        } else {
+            console.log(error);
+        }
+    });
+};
 
-console.log('Available databases:\n');
+function stats() {
+    const server = setServer.userPassUrl('admin', 'foo');
+    const uri = server + '/_node/_local/_stats';
+    console.log('stats', uri);
 
-request(server[index] + '_all_dbs', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log(body);
-  }
-})
+    request(uri, function(error, response, body) {
+        console.log('Status Code', response.statusCode);
+        if (!error && response.statusCode === 200) {
+            console.log(typeof body);
+            var data = JSON.parse(body);
+            console.log(JSON.stringify(data, null, 4));
+        } else {
+            console.log('ERROR', response.statusCode, error);
+        }
+    });
+}
 
-console.log('stats');
+const handleInput = function(option) {
+    switch (option) {
+        case 'basics':
+            basics();
+            break;
 
-request(server[index] + '_stats', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-      console.log(typeof body);
-      var data = JSON.parse(body);
-      console.log(JSON.stringify(data, null, 4));
-  }
-})
+        case 'available':
+            availableDatabases();
+            break;
 
+        case 'stats':
+            stats();
+            break;
+
+        default:
+            return;
+    }
+};
+
+menu.showMenu(handleInput);

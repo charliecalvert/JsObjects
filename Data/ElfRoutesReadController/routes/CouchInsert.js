@@ -20,7 +20,6 @@ function insert(router, nano, dbName) {
             if (!err) {
                 console.log(body);
                 response.send(body);
-
             } else {
                 console.log(err);
                 response.send(err);
@@ -36,9 +35,9 @@ function insert(router, nano, dbName) {
             if (!err) {
                 console.log(body);
                 response.send({
-                    'ok': true,
-                    'Result': 'Success',
-                    'data': body
+                    ok: true,
+                    Result: 'Success',
+                    data: body
                 });
             } else {
                 console.log(err);
@@ -63,7 +62,6 @@ function insert(router, nano, dbName) {
             }
         });
     });
-
 }
 
 module.exports = insert;

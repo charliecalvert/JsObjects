@@ -43,9 +43,7 @@ module.exports = function(grunt) {
 
         clean: {
             work: {
-                src: [
-                    "**/node_modules/**"
-                ]
+                src: ['**/node_modules/**']
             },
 
             zip: {
@@ -59,7 +57,8 @@ module.exports = function(grunt) {
                     archive: '<%= zipFile %>',
                     mode: 'zip'
                 },
-                files: [{
+                files: [
+                    {
                         src: './*.html'
                     },
                     {
@@ -96,7 +95,8 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 src: '<%= zipFile %>',
-                dest: process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
+                dest:
+                    process.env.HOMEPATH + '/Aptana Rubles/ElfRuble/templates/'
             }
         },
 
@@ -112,7 +112,8 @@ module.exports = function(grunt) {
                 files: {
                     'jasmine.js': 'jasmine/lib/jasmine-core/jasmine.js',
                     'jasmine.css': 'jasmine/lib/jasmine-core/jasmine.css',
-                    'jasmine-html.js': 'jasmine/lib/jasmine-core/jasmine-html.js',
+                    'jasmine-html.js':
+                        'jasmine/lib/jasmine-core/jasmine-html.js',
                     'boot.js': 'jasmine/lib/jasmine-core/boot.js',
                     'console.js': 'jasmine/lib/console/console.js',
                     'jasmine_favicon.png': 'jasmine/images/jasmine_favicon.png'
@@ -127,5 +128,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bowercopy');
 
-    grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main']);
+    grunt.registerTask('dist', [
+        'clean:zip',
+        'compress:angularCalculator',
+        'copy:main'
+    ]);
 };

@@ -13,9 +13,16 @@ FULL_PATH=$SSH_DIR/$KEY_NAME
 PUBLIC_KEY=$FULL_PATH.pub
 AUTHORIZED_KEY_FILE=$SSH_DIR/authorized_keys
 
+if [[ -z $1 ]]; then
+    echo -e "Pass in a to create a private key with no password"
+    echo -e "Pass in b to create a private key with a password"
+    echo -e "Pass in c to delete the private key"
+    echo -e "Example: $YELLOW./SetupSsh a$NC"
+    exit
+fi
+
 cd $HOME
-pwd
-echo
+#pwd
 
 function setupKey() {
     # -t: Type of key
@@ -26,10 +33,13 @@ function setupKey() {
         echo -e "${YELLOW}Creating key: $FULL_PATH${NC}"
         ssh-keygen -v -t rsa -P '' -f $FULL_PATH
         cat $PUBLIC_KEY >> $AUTHORIZED_KEY_FILE
-
-        # Change the passphrase
-        ssh-keygen -p -f "$FULL_PATH"
-        echo -e "${LIGHT_GREEN}Created: $FULL_PATH${NC}"
+		echo -e "${LIGHT_GREEN}Created: $FULL_PATH${NC}"
+		
+		if [ $1 = true ]; then 
+           # Change the passphrase
+           ssh-keygen -p -f "$FULL_PATH"
+        fi
+        
     else
         echo -e "${RED}Key already exists:"
         echo -e "\t- ${YELLOW}$FULL_PATH."
@@ -39,9 +49,12 @@ function setupKey() {
 
 function removeKey() {
     rm -v $FULL_PATH
-    rm -v $PUBLIC_KEY
-    rm -v $AUTHORIZED_KEY_FILE
+    #rm -v $PUBLIC_KEY
+    #rm -v $AUTHORIZED_KEY_FILE
 }
 
-# removeKey
-setupKey
+case $1 in
+	[Aa]* ) setupKey false;;
+	[Bb]* ) setupKey true;;
+	[Cc]* ) removeKey;;
+esac

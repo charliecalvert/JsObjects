@@ -9,10 +9,12 @@ function CouchDatabase(router, nano, dbName) {
         console.log('create called.');
         nano.db.create(dbName, function(err, body) {
             if (!err) {
-                body.data = [{
-                    'result': 'Database created',
-                    'dbName': dbName
-                }];
+                body.data = [
+                    {
+                        result: 'Database created',
+                        dbName: dbName
+                    }
+                ];
                 console.log(body);
                 response.status(200).send(body);
             } else {
@@ -30,15 +32,16 @@ function CouchDatabase(router, nano, dbName) {
                 console.log(err);
                 response.status(err.statusCode).send(err);
             } else {
-                body.data = [{
-                    result: 'Database deleted',
-                    dbName: dbName
-                }];
+                body.data = [
+                    {
+                        result: 'Database deleted',
+                        dbName: dbName
+                    }
+                ];
                 response.status(200).send(body);
             }
         });
     });
-
 }
 
 module.exports = CouchDatabase;

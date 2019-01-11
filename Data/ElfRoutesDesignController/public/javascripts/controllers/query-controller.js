@@ -1,4 +1,4 @@
-        /**
+/**
  * Created by charlie on 11/26/16.
  */
 
@@ -38,7 +38,9 @@ define(['runQuery', 'utility'], function(runQuery, utility) {
         });
 
         $('#help').click(function() {
-            $('#charlie').html('<strong>Help Text</strong>: Select some controls and press the Submit button.');
+            $('#charlie').html(
+                '<strong>Help Text</strong>: Select some controls and press the Submit button.'
+            );
         });
     }
 
@@ -55,5 +57,4 @@ define(['runQuery', 'utility'], function(runQuery, utility) {
     };
 
     return queryController;
-
 });

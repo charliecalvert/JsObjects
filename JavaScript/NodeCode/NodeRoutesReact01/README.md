@@ -1,6 +1,8 @@
 NodeRoutes01
 ===========
 
+This program is currently broken. See NodeRoutesReact03.
+
 This program shows how to handle Express Routes.
 
 When you are in the browser, and you can make an ajax call to the client using **$.ajax**, **$.load**,

@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 #RED='\033[0;31m'
 #LIGHT_RED='\033[1;31m'
@@ -61,14 +61,22 @@ createLink "$ELF_UTILS"/SetupLinuxBox/ StartPythonWebServer
 createLink "$ELF_UTILS"/NodeInstall/ TestReady
 createLink "$ELF_UTILS"/NodeInstall/ TestCheck
 createLink "$ELF_UTILS"/GrepScripts/ elfgrepcomps
+createLink "$ELF_UTILS"/GrepScripts/ elfgrepmd
 createLink "$ELF_UTILS"/GrepScripts/ CheckBower
 createLink "$ELF_TEMPLATES"/UnitTest/ FixtureReady
 createLink "$ELF_TEMPLATES"/React/ ReactNpm
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNp
+createLink "$ELF_TEMPLATES"/FindScripts/ FindNpDir
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNpPrettier
+createLink "$ELF_TEMPLATES"/FindScripts/ package-json-test
 createLink "$ELF_TEMPLATES"/React/ get-gist
 createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
 createLink "$ELF_SCRIPTS"/ ShowPath
 createLink "$ELF_SCRIPTS"/ GitIgnoreTest
 createLink "$ELF_SCRIPTS"/ get-reveal
+createLink "$ELF_SCRIPTS"/ pull-key-repos
+createLink "$ELF_SCRIPTS"/ semver-inc
+createLink "$ELF_SCRIPTS"/ update-all
+createLink "$ELF_SCRIPTS"/ delete_node_modules
+createLink "$ELF_UTILS"/SetupLinuxBox/ Provision	

@@ -43,37 +43,42 @@ function setUser(request) {
 // Create a file like this and source it:
 // export GOOGLE_CLIENT_ID=<YOUR CLIENT ID>
 // export GOOGLE_CLIENT_SECRET=<YOUR CLIENT SECRET>
-passport.use(new GoogleStrategy({
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        /*
-         * Avoid Private IP so you don't get the the device_id device_name issue
-         * for Private IP during authentication.
-         * In the google cloud console set up a name http://mydomain:3000/
-         * then edit your /etc/hosts local file to point on your private IP.
-         */
-        callbackURL: 'http://localhost:30025/google/google/callback',
-        passReqToCallback: true
-    },
-    function(request, accessToken, refreshToken, profile, done) {
-        'use strict';
-        // asynchronous verification, for effect...
+passport.use(
+    new GoogleStrategy(
+        {
+            clientID: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            /*
+             * Avoid Private IP so you don't get the the device_id device_name issue
+             * for Private IP during authentication.
+             * In the google cloud console set up a name http://mydomain:3000/
+             * then edit your /etc/hosts local file to point on your private IP.
+             */
+            callbackURL: 'http://localhost:30025/google/google/callback',
+            passReqToCallback: true
+        },
+        function(request, accessToken, refreshToken, profile, done) {
+            'use strict';
+            // asynchronous verification, for effect...
 
-        process.nextTick(function() {
+            process.nextTick(function() {
+                // For now, return the whole profile. Later get Database info instead.
+                return done(null, profile);
+            });
+        }
+    )
+);
 
-            // For now, return the whole profile. Later get Database info instead.
-            return done(null, profile);
-        });
-    }
-));
-
-router.get('/login',
+router.get(
+    '/login',
     passport.authenticate('google', {
         scope: ['profile']
-    }));
+    })
+);
 
 //router.get('/auth/google/callback',
-router.get('/google/callback',
+router.get(
+    '/google/callback',
     passport.authenticate('google', {
         failureRedirect: '/login'
     }),
@@ -82,6 +87,7 @@ router.get('/google/callback',
         // Successful authentication, redirect home.
         setUser(request);
         response.redirect('/');
-    });
+    }
+);
 
 module.exports = router;

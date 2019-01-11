@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  h2#read-json-code Elven CouchDb
+
+  p
+    | You must have CouchDb installed, and use the configuration tool
+    | to enable CORS. Enabling CORS can be a security risk.
+
+  div
+    button#buttonRead02 Query CouchDb
+
+    h2 Results
+
+    fieldset
+      legend Data from CouchDb
+
+      p.result
+        b CouchDb:&nbsp;
+        span#couchdb
+      p.result
+        b Version:&nbsp;
+        span#version
+      p.result
+        b Features:&nbsp;
+        span#features
+      p.result
+        b Name:&nbsp;
+        span#venderName
+
+
+  h2 Details
+
+  p The call we are making looks like this:
+  pre.
+    var readJson02 = function() {
+      const url = 'http://192.168.86.117:5984/';
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+                showDebug(data.couchdb);
+                showDebug(data.vendor.name);
+                showDebug(data.version);
+                })
+        .catch(err => {
+                showDebug(err);
+                });
+
+    };
+
+  p#debug

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# When passing wildcards, put them in quotes: FindNp "*.js"
+
+find . -iname "$1" -type d -not -path "**/node_modules/**" -not -path "**/bower_components/**" 
+

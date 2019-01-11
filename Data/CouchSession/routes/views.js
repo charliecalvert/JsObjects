@@ -11,13 +11,19 @@ module.exports = (function() {
 
     router.get('/page01', function(request, response, next) {
         response.send({
-            message: 'you viewed this page ' + request.session.views['/views/page01'] + ' times'
+            message:
+                'you viewed this page ' +
+                request.session.views['/views/page01'] +
+                ' times'
         });
     });
 
     router.get('/page02', function(request, response, next) {
         response.send({
-            message: 'you viewed this page ' + request.session.views['/views/page02'] + ' times'
+            message:
+                'you viewed this page ' +
+                request.session.views['/views/page02'] +
+                ' times'
         });
     });
 
@@ -36,13 +42,12 @@ module.exports = (function() {
         } else {
             request.session.viewCount = 1;
             response.send({
-                'hello': 'Click another button and return here!'
+                hello: 'Click another button and return here!'
             });
         }
     });
 
     router.get('/request', function(request, response, next) {
-
         //console.log('request called', request.user);
         var requester = {
             cookies: request.cookies,
@@ -69,5 +74,4 @@ module.exports = (function() {
     });
 
     return router;
-
 })();

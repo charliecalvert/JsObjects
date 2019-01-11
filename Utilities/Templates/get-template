@@ -26,6 +26,7 @@ function runCommand() {
 	case $1 in
 		"pouchDbManager") getTemplate $POUCH_DATABASE_MANAGER ;;
 		"initDb") getTemplate $POUCH_DATABASE_INIT ;;
+		"getFavicon") getTemplate $ELF_TEMPLATES/Images/favicon.png ;;
 	esac
 }
 
@@ -34,6 +35,7 @@ while true; do
     echo -e "$LIGHT_GREEN Gists"    
     echo -e "$LIGHT_GREEN  a) Get PouchDbManager"
     echo -e "$LIGHT_GREEN  b) Get InitializeDatabase"
+    echo -e "$LIGHT_GREEN  c) Get Favicon"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "$LIGHT_RED  q) Quit"
     echo -e "\n$NC"
@@ -41,6 +43,7 @@ while true; do
     case $eotuyx in        
         [Aa]* ) runCommand "pouchDbManager"; continue;;
         [Bb]* ) runCommand "initDb"; continue;;
+        [Cc]* ) runCommand "getFavicon"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac

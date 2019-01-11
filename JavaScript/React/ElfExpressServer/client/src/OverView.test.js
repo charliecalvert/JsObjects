@@ -4,20 +4,21 @@ import React from 'react';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-import { shallow, mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import configReducer from './reducers/redux-counter';
-import { createStore } from 'redux';
+//import { shallow, mount } from 'enzyme';
+//import { Provider } from 'react-redux';
+//import configReducer from './reducers/redux-counter';
+//import { createStore } from 'redux';
 
-let store = createStore(configReducer);
+//let store = createStore(configReducer);
 
 import Overview from './Overview';
 import ElfDebugEnzyme from './ElfDebugEnzyme';
 const elfDebugEnzyme = new ElfDebugEnzyme(true, 'App.test.js');
 
-class OverviewDummyWrapper extends React.Component {}
+//class OverviewDummyWrapper extends React.Component {}
+
 describe('Test overview', () => {
-    let wrapper;
+//    let wrapper;
 
     /*beforeEach(() => {
         wrapper = shallow(

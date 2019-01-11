@@ -12,9 +12,11 @@ export ELF_SCRIPTS=$ELF_TEMPLATES/Scripts
 export ELF_TEMPLATES_DATABASE=$ELF_TEMPLATES/Database
 export ELF_UNIT_TEST=$ELF_TEMPLATES/UnitTest
 export SETUP_LINUXBOX=$ELF_UTILS/SetupLinuxBox
+export ELF_SSH_DIR=$HOME/.ssh
 export PORT=30025
 export SERVER_PORT=30026
 export WEB_CRAFTS_PORT=30200
+
 
 # Alias definitions.
 
@@ -34,8 +36,8 @@ alias killnode="killall node"
 #alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
 
 # Commands
-alias sshadd="ssh-add ~/.ssh/main-key"
-alias gossh="cd ~/.ssh"
+alias sshadd="ssh-add $ELF_SSH_DIR/main-key"
+alias gossh="cd $ELF_SSH_DIR/"
 alias ba="less ~/.bash_aliases"
 alias platform="cordova platform add android"
 alias go="npm install && bower install && npm start"
@@ -45,7 +47,8 @@ alias runexpress='npm install && bower install && grunt check'
 alias runy='yarn install && bower install && yarn start'
 alias runs='yarn install && yarn start'
 alias runl='ln -s ~/tmp/node_modules . && npm start'
-alias runcly='cd client && yarn && cd ../server && yarn && bower install && cd .. && yarn'
+alias runcln='cd client && npm i && cd ../server && npm i && bower install && cd .. && npm i'
+alias runcs='cd client && npm i && cd ../server && npm i && npm start'
 alias yni="yarn install"
 alias runt="yarn && yarn test"
 alias gck='npm install && bower install && grunt check'
@@ -57,6 +60,12 @@ alias cpfavi="cp -v $ELF_TEMPLATES/Images/favicon.ico ."
 alias cpfavp="cp -v $ELF_TEMPLATES/Images/favicon.png ."
 alias gss="git status"
 alias gitlog="git log --pretty=format:'%h: %ad'"
+alias pj="git co package.json"
+alias plj="git co package-lock.json package.json"
+alias elf-server="nodemon ${PWD}/server/bin/www"
+alias elf-client="cd client && ${PWD}/client/node_modules/react-scripts/bin/react-scripts.js start"
+alias cleanher="git co client && git co server && find . -iname 'nohup.out' ! -type l | xargs rm -rv"
+alias kcp="killnode && cleanher && plj"
 
 #alias run="npm install && bower install && npm start"
 

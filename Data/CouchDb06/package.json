@@ -5,5 +5,8 @@
   "private": true,
   "dependencies": {
     "express": "latest"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

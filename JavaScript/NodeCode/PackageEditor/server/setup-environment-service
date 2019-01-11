@@ -1,0 +1,30 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+
+# You should define the following environment variables.
+# Then run: source setup-environment-service
+export SYSTEMD_PROJECT_NAME=package-editor
+export SYSTEMD_DESCRIPTION="Package Editor Service"
+export SYSTEMD_PORT="ELF_PACKAGE_EDITOR_PORT=30031"
+
+# This export does not need to be edited. It is derived from the lines above.
+export SERVICE_FILE=$SYSTEMD_PROJECT_NAME.service
+
+# Describe environment
+echo "You set the following environment variables"
+echo -e "SYSTEMD_PROJECT_NAME is set to: $BLUE$SYSTEMD_PROJECT_NAME$NC"
+echo -e "SERVICE FILE is set to $BLUE$SERVICE_FILE$NC"
+echo -e "DESCRIPTION is set to $BLUE$SYSTEMD_DESCRIPTION$NC"
+
+echo -e "Renaming$YELLOW temp.service$NC to $YELLOW$SYSTEMD_PROJECT_NAME.service"$NC
+
+mv temp.service $SYSTEMD_PROJECT_NAME.service
+
+echo -e "If the above looks good, run ./mod-service"

@@ -4,26 +4,28 @@
 
 var myModule = angular.module('myModule', ['ngRoute']);
 
-var queryController = myModule.controller('QueryController',
-    function($scope, result) {
-        'use strict';
-        if (result.ok) {
-            $scope.result = "It worked";
-            $scope.stateList = result.data;
-        } else if (result.requestFailed) {
-            $scope.result = JSON.stringify(result.requestFailed, null, 4);
-        } else if (result.error) {
-            $scope.result = result.error + ': ' + result.message;
-        } else if (result.docs) {
-            $scope.stateList = result.docs;
-        } else if (result.rows) {
-            $scope.stateList = result.rows;
-        } else {
-            $scope.result = result;
-        }
+var queryController = myModule.controller('QueryController', function(
+    $scope,
+    result
+) {
+    'use strict';
+    if (result.ok) {
+        $scope.result = 'It worked';
+        $scope.stateList = result.data;
+    } else if (result.requestFailed) {
+        $scope.result = JSON.stringify(result.requestFailed, null, 4);
+    } else if (result.error) {
+        $scope.result = result.error + ': ' + result.message;
+    } else if (result.docs) {
+        $scope.stateList = result.docs;
+    } else if (result.rows) {
+        $scope.stateList = result.rows;
+    } else {
+        $scope.result = result;
+    }
 
-        $scope.docs = JSON.stringify(result.docs, null, 4);
-    });
+    $scope.docs = JSON.stringify(result.docs, null, 4);
+});
 
 function runQuery(query, $q) {
     'use strict';
@@ -35,7 +37,7 @@ function runQuery(query, $q) {
         response.genericError = error;
         response.statusText = textStatus;
         defers.resolve({
-            'requestFailed': response
+            requestFailed: response
         });
     });
     return defers.promise;
@@ -83,10 +85,17 @@ queryController.viewOneDoc = function($q) {
 
 queryController.viewBulkAngular = function($q) {
     'use strict';
-    return runQuery('/viewStateCapitalAngular?designDoc=states&view=docStateCapital', $q);
+    return runQuery(
+        '/viewStateCapitalAngular?designDoc=states&view=docStateCapital',
+        $q
+    );
 };
 
-var nameController = myModule.controller('NameController', function($scope, databaseName, allDbs) {
+var nameController = myModule.controller('NameController', function(
+    $scope,
+    databaseName,
+    allDbs
+) {
     'use strict';
     $scope.databaseName = databaseName;
     $scope.allDbs = allDbs;
@@ -106,70 +115,81 @@ myModule.config(function($routeProvider, $locationProvider) {
     'use strict';
     $locationProvider.hashPrefix('');
 
-    $routeProvider.when('/databaseName', {
-        templateUrl: 'templates/DatabaseNames.html',
-        controller: 'NameController',
-        resolve: {
-            databaseName: nameController.databaseName,
-            allDbs: nameController.allDbs
-        }
-    }).when('/deleteDb', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.delete
-        }
-    }).when('/createDb', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.create
-        }
-    }).when('/insertStatesBulk', {
-        templateUrl: 'templates/States.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.statesBulk
-        }
-    }).when('/insertStatesOneDoc', {
-        templateUrl: 'templates/States.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.statesOneDoc
-        }
-    }).when('/insertDesignDoc', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.design
-        }
-    }).when('/readOne', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.readOne
-        }
-    }).when('/viewBulk', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.viewBulk
-        }
-    }).when('/viewOneDoc', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.viewOneDoc
-        }
-    }).when('/viewBulkStatesCapital', {
-        templateUrl: 'templates/QueryView.html',
-        controller: 'QueryController',
-        resolve: {
-            result: queryController.viewBulkAngular
-        }
-    }).otherwise({
-        redirectTo: '/'
-    });
+    $routeProvider
+        .when('/databaseName', {
+            templateUrl: 'templates/DatabaseNames.html',
+            controller: 'NameController',
+            resolve: {
+                databaseName: nameController.databaseName,
+                allDbs: nameController.allDbs
+            }
+        })
+        .when('/deleteDb', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.delete
+            }
+        })
+        .when('/createDb', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.create
+            }
+        })
+        .when('/insertStatesBulk', {
+            templateUrl: 'templates/States.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.statesBulk
+            }
+        })
+        .when('/insertStatesOneDoc', {
+            templateUrl: 'templates/States.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.statesOneDoc
+            }
+        })
+        .when('/insertDesignDoc', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.design
+            }
+        })
+        .when('/readOne', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.readOne
+            }
+        })
+        .when('/viewBulk', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.viewBulk
+            }
+        })
+        .when('/viewOneDoc', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.viewOneDoc
+            }
+        })
+        .when('/viewBulkStatesCapital', {
+            templateUrl: 'templates/QueryView.html',
+            controller: 'QueryController',
+            resolve: {
+                result: queryController.viewBulkAngular
+            }
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
 });
 
 /*

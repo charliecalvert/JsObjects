@@ -2,12 +2,14 @@ $(document).ready(function() {
     'use strict';
 
     function setActiveMenuItem(pathname) {
-
         $('.nav li').removeClass('active');
         try {
             $('#' + pathname).addClass('active');
         } catch (e) {
-            console.log('Could not find selector. This is expected when testing.', e);
+            console.log(
+                'Could not find selector. This is expected when testing.',
+                e
+            );
         }
     }
 
@@ -82,15 +84,18 @@ $(document).ready(function() {
                 callback(response);
             }
             $('#displayArea').html(JSON.stringify(response, null, 4));
-        }).done(function() {
-            console.log('second success');
-        }).fail(function(jq, status, error) {
-            $('#displayArea').html('error: ' + jq.responseText);
-            console.log('error: ', status);
-            console.log('error: ', error);
-        }).always(function() {
-            console.log('complete');
-        });
+        })
+            .done(function() {
+                console.log('second success');
+            })
+            .fail(function(jq, status, error) {
+                $('#displayArea').html('error: ' + jq.responseText);
+                console.log('error: ', status);
+                console.log('error: ', error);
+            })
+            .always(function() {
+                console.log('complete');
+            });
     }
 
     function showPage(pageRoute, callback) {
@@ -99,16 +104,21 @@ $(document).ready(function() {
                 callback(response);
             }
             $('#displayArea').html(JSON.stringify(response, null, 4));
-        }).done(function() {
-            console.log('second success');
-        }).fail(function(jq, status, error) {
-            var responseText = JSON.parse(jq.responseText);
-            $('#displayArea').html('error: ' + JSON.stringify(responseText, null, 4));
-            console.log('error: ', status);
-            console.log('error: ', error);
-        }).always(function() {
-            console.log('complete');
-        });
+        })
+            .done(function() {
+                console.log('second success');
+            })
+            .fail(function(jq, status, error) {
+                var responseText = JSON.parse(jq.responseText);
+                $('#displayArea').html(
+                    'error: ' + JSON.stringify(responseText, null, 4)
+                );
+                console.log('error: ', status);
+                console.log('error: ', error);
+            })
+            .always(function() {
+                console.log('complete');
+            });
     }
 
     $('#page01').click(function() {

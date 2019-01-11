@@ -14,9 +14,9 @@ var QueryMongo = (function() {
         loadConfig(function(urls) {
             var mongoTalkJson = JSON.parse(urls);
             var url = mongoTalkJson.urls[mongoTalkJson.selectedUrl];
-            console.log("The Mongo URL:" + url);
+            console.log('The Mongo URL:' + url);
             getDatabase(url, function() {
-                console.log('Connected to MongoDb')
+                console.log('Connected to MongoDb');
             });
         });
     }
@@ -27,15 +27,18 @@ var QueryMongo = (function() {
             func(mongoClient);
         } else {
             console.log('Querying for MongoDb connection');
-            MongoClient.connect(url, function(err, mongoClientInit) {
-                if (err) {
-                    throw err;
+            MongoClient.connect(
+                url,
+                function(err, mongoClientInit) {
+                    if (err) {
+                        throw err;
+                    }
+                    assert.equal(null, err);
+                    assert.ok(mongoClientInit !== null);
+                    mongoClient = mongoClientInit;
+                    func(mongoClient);
                 }
-		assert.equal(null, err);
-                assert.ok(mongoClientInit !== null);
-                mongoClient = mongoClientInit;
-                func(mongoClient);
-            });
+            );
         }
     };
 
@@ -46,7 +49,7 @@ var QueryMongo = (function() {
         var collection = database.collection(collectionName);
 
         collection.count(function(err, count) {
-            response.send({"count": count});
+            response.send({ count: count });
         });
     };
 
@@ -62,7 +65,6 @@ var QueryMongo = (function() {
     };
 
     return QueryMongo;
-
 })();
 
 module.exports = new QueryMongo();
