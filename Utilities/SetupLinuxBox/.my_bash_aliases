@@ -67,7 +67,7 @@ alias gosrc="cd ~/Source"
 alias gcm='git checkout master'
 alias link-new="ln -s ~/temp/newmods/node_modules/ ."
 alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
-alias elfweb="cd ~/Git/elven-web"
+alias elfweb="cd ~/Git/elven-web/server"
 
 # Isit Courses
 
