@@ -46,13 +46,13 @@ export SERVER_PORT=30026
 # export BROWSER=chromium-browser
 # export BROWSER=google-chrome
 
-# Edit and uncomment to load a key automatically.
-#ssh-add -l | grep -q "made on rohan-elf"
+# Edit and uncomment to load ssh main-key automatically.
+#ssh-add -l | grep -q "main-key"
 #if [ $? -eq 0 ]; then
-#    echo OK
+#   echo main-key already loaded
 #else
-#    echo FAIL
-#    ssh-add ~/.ssh/id_rsa
+#   echo loading main-key
+#   ssh-add ~/.ssh/main-key
 #fi
 
 # === End Elven Code === #
