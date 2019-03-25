@@ -27,7 +27,11 @@ All the code in JsObjects is released under the MIT license.
 
 Students in my classes, and readers of my text, should have JsObjects setup correctly on their systems. In particular, I suggest creating a virtual machine that runs the Ubuntu Linux OS. You can then install JsObjects on it and perform the necessary setup without causing any conflicts with code on your primary machine. You don't have to do things this way, but it is perhaps the simplest course of action for many readers.
 
-On Linux systems, you can quickly and easily perform the setup by running the [UbuntuAndCloundNineSetup][ubuntu-setup] script.
+On modern Ubuntu based Linux systems, you can quickly and easily perform the setup by running the [UbuntuSetup][ubuntu-setup] script. I have tested this script extensively, however, I think it is best to run it on a freshly minted VM running in a tool such as VirtualBox or VMware. When I install a fresh copy of Ubuntu, Lubuntu or Mint either in a VM or directly to metal, this is usually the first thing I do. I hesitate recommending that you do this on other systems simple because it adds the commands [specified here][brcext] to your **.bashrc** file. The script also installs a fresh copy of NodeJs. There are various ways to install node, and it is probably not best to mix one with another. Hence I recommend a fresh install of an Ubuntu based distro before proceeding, unless you are sure you do not have Node installed already.
+
+If you are using [Pristine Lubuntu][pvba] then this script has already been run, and running it a second time will rarely cause damage unless you have done something odd your instance of Pristine Lubuntu. If all all else fails, I strongly recommend just downloading a fresh copy of Pristine Lubuntu.
+
+- [Pristine VirtualBox Assignment][pvba]
 
 **NOTE**: _This script will save your current **.bash_aliases** file as **.bash_aliases.old** and will install a new **.bash_aliases** file. It will also append text to the end of your **.bashrc** file._
 
@@ -49,8 +53,7 @@ source ~/.bashrc
 
 If you want more details, go here: [Core Setup][core-details]
 
-[ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuAndCloudNineSetup
-[core-details]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup
+**NOTE**: _It is best not to edit the files in a repository that you do not own, such as JsObjects. If you want to edit a file or other entity such as a project, I suggest coping it to another location on your hard drive. If you have a bit of experience with Git, then an alternative is to create a fork of the repository._
 
 ## Navigating JsObjects
 
@@ -66,8 +69,6 @@ source ~/.bashrc
 
 Students in my classes, and readers of my assignments and texts, will find that I often reference these aliases. Rather than asking you type a long path such as **~/Git/JsObjects/JavaScript/NodeCode**, I will ask you to run the **jon** alias. Of course, none of this will work unless you first set up your system correctly as described above.
 
-[js-bash-aliases]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/.bash_aliases
-
 ## Node Install
 
 On Windows, run the install found at the [nodejs](https://nodejs.org/) site.
@@ -80,9 +81,6 @@ Learn more about it here:
 - [Node on Elvenware][elven-node]
 - [NPM Global Installs][npm-global]
 
-[node-install]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node
-[elven-node]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
-[npm-global]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#npm-global
 
 ## Grunt
 
@@ -91,3 +89,18 @@ There are a few grunt tasks defined. One would be:
     npm run lint
 
 This will use Grunt to lint the files in the root JsObjects directory.  
+
+<!--       -->
+<!-- Links -->
+<!--       -->
+
+[ubuntu-setup]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/UbuntuSetup
+[brcext]: https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/BashrcExtras
+[core-details]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#core-setup
+[pvba]: http://www.ccalvert.net/books/CloudNotes/Assignments/PristineVirtualBox.html
+
+[js-bash-aliases]:https://github.com/charliecalvert/JsObjects/blob/master/Utilities/SetupLinuxBox/.bash_aliases
+
+[node-install]:http://www.elvenware.com/charlie/os/linux/ConfigureLinux.html#install-node
+[elven-node]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#node
+[npm-global]:http://www.elvenware.com/charlie/development/web/JavaScript/NodeJs.html#npm-global
