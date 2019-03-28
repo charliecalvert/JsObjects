@@ -1,0 +1,34 @@
+#! /bin/bash
+
+CONTENT_LINK=$HOME/Content
+
+#if [ ! -d "$CONTENT" ]; then
+#	mkdir $CONTENT
+#fi
+
+if [ -z "$ELF_WRITE" ]; then
+	echo "Need to set ELF_WRITE"
+	echo "Is .bash_aliases set up?"
+	exit 1
+fi
+
+if [ -z "$GIT_HOME" ]; then
+	echo "Need to set GIT_HOME"
+	echo "Is .bash_aliases set up?"
+	exit 1
+fi 
+
+if [ ! -d "$ELF_WRITE" ]; then
+	echo $ELF_WRITE does not exist
+	exit 1
+fi
+
+ln -s $GIT_HOME/CloudNotes CloudNotes
+ln -s $ELF_WRITE/Elvenware Elvenware
+ln -s $GIT_HOME/prog109-notes prog109
+
+# ln -s $GIT_HOME/CloudNotes $CONTENT/CloudNotes
+# ln -s $ELF_WRITE/Elvenware $CONTENT/Elvenware
+# ln -s $GIT_HOME/prog109-notes $CONTENT/prog109
+
+ln -s $PWD $CONTENT_LINK
