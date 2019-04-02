@@ -4,3 +4,5 @@ BuildConfig.java
 project.properties
 *.map
 *.hot-update.js*
+package-lock.json
+

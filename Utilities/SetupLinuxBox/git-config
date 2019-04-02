@@ -1,0 +1,19 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+    cim= commit -m 
+	cia= commit -a
+	st = status
+	last = log -1 HEAD
+	log1 = log --pretty=oneline
+	log2 = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	tags = tag --sort=taggerdate -l -n1
+	tagtail = "tag --sort=taggerdate -l -n1 | tail -10"
+	sedate = "git whatchanged --since '10/29/2018' --until '11/01/2018' --oneline --name-only --pretty=format: | sort | uniq"
+	
+[user]
+	email = charlie@elvenware.com
+	name = Charlie on Linux Ubuntu Main
+[diff]
+	tool = meld

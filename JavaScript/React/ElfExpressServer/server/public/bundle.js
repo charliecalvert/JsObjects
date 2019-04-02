@@ -22286,25 +22286,15 @@ function (_React$Component) {
     }
   }, {
     key: "getNine",
-    value: function (_getNine) {
-      function getNine() {
-        return _getNine.apply(this, arguments);
-      }
-
-      getNine.toString = function () {
-        return _getNine.toString();
-      };
-
-      return getNine;
-    }(function () {
-      var nine = getNine();
+    value: function getNine() {
+      var nine = this.getNine();
       console.log('A NINE:', nine);
       this.setState(function () {
         return {
           nine: nine
         };
       });
-    })
+    }
   }, {
     key: "render",
     value: function render() {
