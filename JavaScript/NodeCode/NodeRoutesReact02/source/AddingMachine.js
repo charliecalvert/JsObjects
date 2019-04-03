@@ -17,7 +17,6 @@ var MyObject = (function() {
     };
 
     return MyObject;
-
-}());
+})();
 
 exports.myObject = new MyObject();

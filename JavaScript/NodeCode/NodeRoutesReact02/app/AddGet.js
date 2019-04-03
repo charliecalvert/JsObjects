@@ -1,5 +1,4 @@
 import React from 'react';
-import 'whatwg-fetch';
 
 export default class AddGet extends React.Component {
     constructor(props) {
@@ -28,10 +27,12 @@ export default class AddGet extends React.Component {
         fetch(url)
             .then(function(response) {
                 return response.json();
-            }).then(function(json) {
+            })
+            .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(() => (json));
-            }).catch(function(ex) {
+                that.setState(() => json);
+            })
+            .catch(function(ex) {
                 console.log('parsing failed', ex);
             });
     }
@@ -42,11 +43,16 @@ export default class AddGet extends React.Component {
             <div>
                 <h2>Add Number with Get</h2>
 
-                <p>On the server side (server.js), use <strong>request.query</strong> to get the paramters.</p>
-                <input type='number' defaultValue={this.state.operandA} />
-                <input type='number' defaultValue={this.state.operandB} />
+                <p>
+                    On the server side (server.js), use{' '}
+                    <strong>request.query</strong> to get the paramters.
+                </p>
+                <input type="number" defaultValue={this.state.operandA} />
+                <input type="number" defaultValue={this.state.operandB} />
                 <p>{this.state.addResult}</p>
-                <a className='button elf' onClick={this.getAddResult}>Add Numbers</a>
+                <a className="button elf" onClick={this.getAddResult}>
+                    Add Numbers
+                </a>
 
                 <hr />
             </div>

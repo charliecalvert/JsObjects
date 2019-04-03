@@ -1,5 +1,4 @@
 import React from 'react';
-import 'whatwg-fetch';
 
 export default class AddPost extends React.Component {
     constructor(props) {
@@ -10,7 +9,6 @@ export default class AddPost extends React.Component {
             addResultPost: 'Here is the POST result'
         };
         this.getAddPostResult = this.getAddPostResult.bind(this);
-
     }
 
     getAddPostResult() {
@@ -31,16 +29,19 @@ export default class AddPost extends React.Component {
         fetch(url, {
             method: 'post',
             headers: {
-                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                'Content-type':
+                    'application/x-www-form-urlencoded; charset=UTF-8'
             },
             body: body
         })
             .then(function(response) {
                 return response.json();
-            }).then(function(json) {
+            })
+            .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(() => (json));
-            }).catch(function(ex) {
+                that.setState(() => json);
+            })
+            .catch(function(ex) {
                 console.log('parsing failed', ex);
             });
     }
@@ -48,16 +49,20 @@ export default class AddPost extends React.Component {
     render() {
         return (
             <div>
-
                 <h2>Add Number with Post</h2>
 
-                <p>On the server side (server.js), use <strong>request.body</strong> to get the paramters. You must
-                    also include <strong>app.use(express.bodyParser());</strong></p>
-                <input type='number' defaultValue={this.state.operandA} />
-                <input type='number' defaultValue={this.state.operandB} />
-                <p id='addResultPost'></p>
+                <p>
+                    On the server side (server.js), use{' '}
+                    <strong>request.body</strong> to get the paramters. You must
+                    also include <strong>app.use(express.bodyParser());</strong>
+                </p>
+                <input type="number" defaultValue={this.state.operandA} />
+                <input type="number" defaultValue={this.state.operandB} />
+                <p id="addResultPost" />
                 <p>{this.state.addResultPost}</p>
-                <a className='button elf' onClick={this.getAddPostResult}>Add Numbers</a>
+                <a className="button elf" onClick={this.getAddPostResult}>
+                    Add Numbers
+                </a>
             </div>
         );
     }

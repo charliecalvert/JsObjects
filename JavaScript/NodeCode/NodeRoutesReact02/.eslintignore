@@ -1,5 +1,12 @@
-dist
-node_modules
-coverage
-webpack.*.js
-*Server.js
+**/registerServiceWorker.js
+**/serviceWorker.js
+**/bundle.js
+.git
+**/node_modules/**
+**/bower_components/**
+**/coverage/**
+**/build/**
+**/static/**
+**/manifest.json
+**/precache-manifest.*.js
+**/service-worker.js
