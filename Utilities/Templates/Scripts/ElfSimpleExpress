@@ -1,0 +1,22 @@
+#! /usr/bin/env bash
+
+SOURCE=$HOME/Source
+ESLINT_TEST=eslint-test
+cd $HOME
+
+if [[ ! -d $SOURCE ]]; then
+    mkdir Source
+fi
+
+cd $SOURCE
+
+if [[ -d $ESLINT_TEST ]]; then
+    rm -r $ESLINT_TEST
+fi
+
+elf-express $ESLINT_TEST
+cd $ESLINT_TEST
+
+npm i
+bower install
+npm run build

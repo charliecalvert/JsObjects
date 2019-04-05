@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 RED='\033[0;31m'
 LIGHT_RED='\033[1;31m'
@@ -28,8 +28,8 @@ function message {
     echo
 }
 
-function removeDir {		
-	if [ -d $ESLINT_DIR ]; then		
+function removeDir {
+	if [ -d $ESLINT_DIR ]; then
 		rm -rf $ESLINT_DIR
 		echo "Deleted " $ESLINT_DIR
 	fi
@@ -58,6 +58,7 @@ function runCommand() {
 			getGist $GIST_PRETTIER prettier 
 			echo '**/build/**' >> .prettierignore
 			echo '**/serviceWorker.js' >> .prettierignore
+            echo '**/bower_components/**' >> .prettierignore
 			chmod +x prettier
 			;;\
 		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;

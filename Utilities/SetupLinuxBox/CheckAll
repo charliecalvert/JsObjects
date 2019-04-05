@@ -24,10 +24,6 @@ cd $GIT_HOME/JsObjects
 checkStatus
 
 echo "================"
-cd $GIT_HOME/writings
-checkStatus
-
-echo "================"
 cd $GIT_HOME/CloudNotes
 checkStatus
 
@@ -44,7 +40,7 @@ cd $GIT_HOME/prog109-notes
 checkStatus
 
 echo "================"
-cd $GIT_HOME/isit320-calvert-2018
+cd $GIT_HOME/isit322-calvert-2019
 checkStatus
 
 echo "================"
@@ -61,4 +57,8 @@ checkStatus
 
 echo "================"
 cd $GIT_HOME/elven-web
+checkStatus
+
+echo "================"
+cd $GIT_HOME/writings
 checkStatus
