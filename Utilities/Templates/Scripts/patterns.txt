@@ -3,6 +3,8 @@
 ^bundle.js
 ^\*.js.map
 ^node_modules
-^Thumbs.db
 ^coverage
-asfdasdf
+^.idea
+^.vscode
+^.c9
+
