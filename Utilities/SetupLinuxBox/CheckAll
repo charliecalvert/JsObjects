@@ -32,7 +32,7 @@ cd $GIT_HOME/charliecalvert.github.io
 checkStatus
 
 echo "================"
-cd $GIT_HOME/prog109-calvert-2018
+cd $GIT_HOME/prog272-calvert-2019
 checkStatus
 
 echo "================"
