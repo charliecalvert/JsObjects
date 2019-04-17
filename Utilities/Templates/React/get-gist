@@ -75,6 +75,12 @@ function runCommand() {
 			getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
 			cp -v $ESLINT_DIR/start-client.js .
 			cp -v $ESLINT_DIR/edit-package-json.js .
+            if [ -f package.json ]; then                
+                echo -e ${YELLOW}"package.json already exists"${NC}
+            else
+                echo -e ${YELLOW}"Adding package.json"${NC}
+                cp -v $ESLINT_DIR/package.json .
+            fi
 			;;\
 	esac
 	# removeDir
