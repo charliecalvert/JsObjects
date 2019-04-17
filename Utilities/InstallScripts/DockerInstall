@@ -30,6 +30,9 @@ function PartOne() {
     sudo groupadd docker
     sudo usermod -aG docker $USER
     sudo systemctl enable docker
+    echo "You should now log out and then log in again."
+	echo "This should ensure that the docker group you"
+	echo "joined is properly registered."
 }
 
 PartOne
