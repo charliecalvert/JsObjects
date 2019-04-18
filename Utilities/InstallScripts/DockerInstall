@@ -1,25 +1,8 @@
 #! /bin/bash
 
-// 2017
-function PartOneOld() {
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-	sudo apt-get update
-	# apt-cache policy docker-ce
-	sudo apt-get install -y docker-ce
-#	sudo systemctl status docker
-	sudo usermod -aG docker ${USER}
-#	su - ${USER}
-#	id -nG
-	echo "You should now log out and then log in again."
-	echo "This will ensure that the docker group you"
-	echo "joined is properly registered."
-}
-
-
-// December 2018
+# Updated December 2018, reviewed in April 2019
 function PartOne() {
-    sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common
+    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -31,8 +14,8 @@ function PartOne() {
     sudo usermod -aG docker $USER
     sudo systemctl enable docker
     echo "You should now log out and then log in again."
-	echo "This should ensure that the docker group you"
-	echo "joined is properly registered."
+    echo "This should ensure that the docker group you"
+    echo "joined is properly registered."
 }
 
 PartOne
