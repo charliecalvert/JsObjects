@@ -9,9 +9,9 @@ NC='\033[0m' # No Color
 
 NORMAL_PORT=true
 
-if [[ -z $1	 ]]; then
-	echo "======================================================"
-	echo -e $LIGHT_RED"Aborting. "$YELLOW"You must pass in the name of the project to create."$NC	    
+if [[ -z $1  ]]; then
+    echo "======================================================"
+    echo -e $LIGHT_RED"Aborting. "$YELLOW"You must pass in the name of the project to create."$NC       
     echo "Example:"
     echo -e $LIGHT_GREEN"    CreateExpressProject MyProject"$NC
     echo "======================================================"
@@ -35,7 +35,7 @@ while true; do
     echo -e "\n$NC"
     read -p "Please make a selection: "  eotuyx
     case $eotuyx in
-		[Nn]* ) NORMAL_PORT=true; break;;
+        [Nn]* ) NORMAL_PORT=true; break;;
         [Ss]* ) NORMAL_PORT=false; break;;        
 #        [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with n or s.";;
@@ -73,36 +73,36 @@ bower install bootstrap --save
 bower install jquery --save
 
 function setPortToNormal() {
-	# Set up port
-	if [[ $NORMAL_PORT == true ]]; then
-		sed -i -- 's/3000/30025/g' bin/www
-	else	
-		sed -i "s/process.env.PORT || '3000'/process.env.SERVER_PORT || '30026'/" bin/www
-	fi
+    # Set up port
+    if [[ $NORMAL_PORT == true ]]; then
+        sed -i -- 's/3000/30025/g' bin/www
+    else    
+        sed -i "s/process.env.PORT || '3000'/process.env.SERVER_PORT || '30026'/" bin/www
+    fi
 
-	sed -i "s/server.listen(port)/server.listen(port, () => { console.log('Listening on port', port); })/" bin/www
+    sed -i "s/server.listen(port)/server.listen(port, () => { console.log('Listening on port', port); })/" bin/www
 }
 
 function createProject() {
-	# Set nodemon and favicon
-	sed -i -- 's/node\s/nodemon /g' package.json
-	cp $ELF_TEMPLATES/Images/favicon.ico public/.
+    # Set nodemon and favicon
+    sed -i -- 's/node\s/nodemon /g' package.json
+    cp $ELF_TEMPLATES/Images/favicon.ico public/.
 
-	# Set title, create README and control.js
-	sed -i -- 's/Express/'$1'/g' routes/index.js
-	echo -e "# $1\n\nby Charlie Calvert" >> README.md
-	#echo -e "\$(document).ready(function() { 'use strict'; \n});" >> public/javascripts/control.js
-	echo -e "window.onload = () => { };" >> public/javascripts/control.js
+    # Set title, create README and control.js
+    sed -i -- 's/Express/'$1'/g' routes/index.js
+    echo -e "# $1\n\nby Charlie Calvert" >> README.md
+    #echo -e "\$(document).ready(function() { 'use strict'; \n});" >> public/javascripts/control.js
+    echo -e "window.onload = () => { };" >> public/javascripts/control.js
 
-	# Add use strict
-	sed -i "s/{$/{ 'use strict';/" routes/index.js
-	sed -i "s/{$/{ 'use strict';/" routes/users.js
-	sed -i "s/next) {/next) { 'use strict';/" app.js
+    # Add use strict
+    sed -i "s/{$/{ 'use strict';/" routes/index.js
+    sed -i "s/{$/{ 'use strict';/" routes/users.js
+    sed -i "s/next) {/next) { 'use strict';/" app.js
 
-	# Link in Bootstrap with layout.jade
-	sed -i "/style.css')/r "$ELF_TEMPLATES"/BootstrapLayout.json" views/layout.pug
-	sed -i "/style.css')/r "$ELF_TEMPLATES"/Favicon.json" views/layout.pug
-	exit
+    # Link in Bootstrap with layout.jade
+    sed -i "/style.css')/r "$ELF_TEMPLATES"/BootstrapLayout.json" views/layout.pug
+    sed -i "/style.css')/r "$ELF_TEMPLATES"/Favicon.json" views/layout.pug
+    exit
 }
 
 setPortToNormal
