@@ -16,15 +16,14 @@ function clean() {
 
 function essentials() {
     message "Installing Essentials"
-    npm install -g eslint babel-eslint eslint-plugin-react prettier
-    # npm i -g eslint-config-react-app
+    npm install -g eslint babel-eslint 
     npm install -g create-react-app
     npm install -g grunt-cli bower
-    npm install -g elf-express-generator
-    npm install -g express-generator    
+    npm install -g elf-express-generator express-generator    
     npm install -g jade pug-cli
-    npm install -g js-beautify html-beautify
-    npm install -g npm@latest nodemon npm-check-updates    
+    npm install -g prettier js-beautify html-beautify
+    npm install -g npm@latest nodemon npm-check-updates
+    $NODE_UTILS/EsLintInstall
 }
 
 function unitTests {
