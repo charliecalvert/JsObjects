@@ -9,6 +9,7 @@ NC='\033[0m' # No Color
 
 ESLINT_DIR=/tmp/eslint-dir
 GIST_REACT_COMPONENT=https://gist.github.com/0d154b7186410a2947eaffaf4b8de8d6.git
+GIST_REACT_CONTROL=https://gist.github.com/add450e42ccd7b12ec892292eaa3612a.git
 GIST_ELF_DEBUG_ENZYME=https://gist.github.com/51daef341699943b07c9570c3ad2cbab.git
 GIST_ESLINTRC=https://gist.github.com/c5952541925c04479150bbd8c40feac6.git
 GIST_ESLINTIGNORE=https://gist.github.com/bf7c7f9ab52c55a42a6d184019fc1550.git
@@ -66,6 +67,7 @@ function runCommand() {
 		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
 		"setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
 		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
+        "reactcontrol") getGist $GIST_REACT_CONTROL control.js ;;\
 		"elven-systemd-tools") 
 			getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
 			cp -v $ESLINT_DIR/temp.service .
@@ -123,12 +125,13 @@ while true; do
     echo -e "$LIGHT_GREEN  d) .eslintignore"
     echo -e "$LIGHT_GREEN  e) prettier"
     echo -e "$LIGHT_GREEN  f) .prettierrc"
-    echo -e "$LIGHT_GREEN  g) Default React Component"
+    echo -e "$LIGHT_GREEN  g) Default React Component"    
     echo -e "$LIGHT_GREEN  h) Setup React Native Enzyme Npm"
     echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
     echo -e "$LIGHT_GREEN  j) ElvenLogger"
     echo -e "$LIGHT_GREEN  k) Elven Node systemd Tools"
     echo -e "$LIGHT_GREEN  l) Elven Create Concurrently"
+    echo -e "$LIGHT_GREEN  m) React Control Component for elf-express"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -145,6 +148,7 @@ while true; do
         [Jj]* ) runCommand "elvenlogger"; continue;;
         [Kk]* ) runCommand "elven-systemd-tools"; continue;;
         [Ll]* ) runCommand "elven-create-concur"; continue;;
+        [Mm]* ) runCommand "reactcontrol"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
