@@ -88,14 +88,14 @@ function runCommand() {
 	# removeDir
 }
 
-function runGitCommand() {
-	case $1 in
-		"elven-node-tools") 
-			getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
-			cp -v $ESLINT_DIR/eip.service .	
-			;;\
-	esac
-}
+#function runGitCommand() {
+#	case $1 in
+#	"elven-node-tools") 
+#		getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
+#			cp -v $ESLINT_DIR/eip.service .	
+#			;;\
+#	esac
+#}
 
 function runAll() {
 	runCommand "elfdebug"
