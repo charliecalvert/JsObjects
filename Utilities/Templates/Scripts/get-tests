@@ -51,8 +51,7 @@ while true; do
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
-        [Aa]* ) runEsLintAndPrettier false; continue;;
-        [Bb]* ) runCommand "restBasicsAppTest"; continue;;
+        [Aa]* ) runCommand "restBasicsAppTest"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
