@@ -9,6 +9,7 @@ NC='\033[0m' # No Color
 
 ESLINT_DIR=/tmp/eslint-dir
 SANITY_APP_TEST=https://gist.github.com/charliecalvert/64d2a63ed40e116dd20f55e98116baa6
+ELVEN_SANITY_TESTS=https://github.com/charliecalvert/elven-sanity.git
 
 function message {
     echo
@@ -34,7 +35,9 @@ function getGist() {
 
 function runCommand() {
     case $1 in
-        "restBasicsAppTest") getGist $SANITY_APP_TEST Sanity.App.test.js ;;
+        "restBasicsAppTest") getGist $ELVEN_SANITY_TESTS Sanity.App.test.js ;;
+        "gitExplorerMicroStructureTest") getGist $ELVEN_SANITY_TESTS Sanity.MicroStructure.js ;;
+        
     esac    
 }
 
@@ -47,11 +50,13 @@ while true; do
     message "Menu"
     echo -e "$LIGHT_GREEN Gists"
     echo -e "$LIGHT_GREEN  a) Week03 Rest Basics App Test"
+    echo -e "$LIGHT_GREEN  b) Git Explorer Micros Structure Tests"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Aa]* ) runCommand "restBasicsAppTest"; continue;;
+        [Bb]* ) runCommand "gitExplorerMicroStructureTest"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
