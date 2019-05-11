@@ -6,16 +6,16 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.3",
-    "cookie-parser": "~1.4.3",
-    "debug": "~4.1.0",
+    "body-parser": "~1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~4.1.1",
     "express": "~4.16.4",
     "morgan": "~1.9.1",
     "pug": "^2.0.3",
     "serve-favicon": "~2.5.0"
   },
   "devDependencies": {
-    "grunt": "~1.0.3",
+    "grunt": "~1.0.4",
     "grunt-develop": "~0.4.0",
     "grunt-contrib-sass": "~1.0.0",
     "grunt-contrib-watch": "~1.1.0",

@@ -1,0 +1,39 @@
+{
+  "name": "NodeRouteBasics",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node jasmine-runner.js",
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~4.1.1",
+    "express": "~4.16.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "serve-favicon": "~2.5.0"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jade": "^1.0.0",
+    "grunt-contrib-jshint": "~2.1.0",
+    "grunt-exec": "^3.0.0",
+    "grunt-jsbeautifier": "^0.2.13",
+    "grunt-jscs": "^3.0.1",
+    "grunt-karma": "^3.0.2",
+    "jasmine": "^3.4.0",
+    "jasmine-core": "^3.4.0",
+    "jasmine-jquery": "^2.1.1",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jshint-stylish": "^2.2.1",
+    "karma": "~4.1.0",
+    "karma-jasmine": "~2.0.1",
+    "karma-phantomjs-launcher": "~1.0.4",
+    "karma-spec-reporter": "~0.0.32",
+    "phantomjs": "^2.1.7",
+    "supertest": "^4.0.2"
+  }
+}
