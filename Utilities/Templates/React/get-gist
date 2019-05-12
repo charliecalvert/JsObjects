@@ -119,7 +119,7 @@ function runEsLintAndPrettier() {
 while true; do
     message "Menu"
     echo -e "$LIGHT_GREEN Gists"
-    echo -e "$LIGHT_GREEN  a) Run ESLintRc and Prettier (cdef)"
+    echo -e "$LIGHT_GREEN  a) Install ESLintRc and Prettier in cwd (cdef)"
     echo -e "$LIGHT_GREEN  b) ElfDebugEnzyme"
     echo -e "$LIGHT_GREEN  c) .eslintrc"
     echo -e "$LIGHT_GREEN  d) .eslintignore"
