@@ -73,6 +73,7 @@ createLink "$ELF_TEMPLATES"/React/ get-gist
 createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
 createLink "$ELF_SCRIPTS"/ ShowPath
+createLink "$ELF_SCRIPTS"/ GitIgnoreCheckForBad
 createLink "$ELF_SCRIPTS"/ GitIgnoreTest
 createLink "$ELF_SCRIPTS"/ GitIgnoreTester
 createLink "$ELF_SCRIPTS"/ get-reveal
