@@ -38,7 +38,7 @@ function runCommand() {
         "restBasicsAppTest") getGist $ELVEN_SANITY_TESTS Sanity.App.test.js ;;
         "gitExplorerMicroStructureTest") getGist $ELVEN_SANITY_TESTS Sanity.MicroStructure.js ;;
         "gitSimpleAddress") getGist $ELVEN_SANITY_TESTS address-simple/Sanity.Files.test.js ;;
-        
+        "gitAddressReact") getGist $ELVEN_SANITY_TESTS address-react/Sanity.App.test.js ;;        
     esac    
 }
 
@@ -53,6 +53,7 @@ while true; do
     echo -e "$LIGHT_GREEN  a) Week03 Rest Basics App Test"
     echo -e "$LIGHT_GREEN  b) Git Explorer Micros Structure Tests"
     echo -e "$LIGHT_GREEN  c) Address Simple File Tests"
+    echo -e "$LIGHT_GREEN  d) Address React Tests"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -60,6 +61,7 @@ while true; do
         [Aa]* ) runCommand "restBasicsAppTest"; continue;;
         [Bb]* ) runCommand "gitExplorerMicroStructureTest"; continue;;
         [Cc]* ) runCommand "gitSimpleAddress"; continue;;
+        [Dd]* ) runCommand "gitAddressReact"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
