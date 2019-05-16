@@ -60,6 +60,10 @@ cd $GIT_HOME/elven-web
 checkStatus
 
 echo "================"
+cd $GIT_HOME/elven-sanity
+checkStatus
+
+echo "================"
 cd $GIT_HOME/isit322-calvert-2018
 checkStatus
 
