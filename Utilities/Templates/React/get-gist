@@ -21,6 +21,7 @@ GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be
 GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
 GIST_ELVEN_SYSTEMD_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
 GIST_ELVEN_CREATE_CONCUR=https://github.com/charliecalvert/elven-create-concurrently.git
+GIST_ELVEN_LOCAL_STORAGE=https://gist.github.com/charliecalvert/d8404b826ee22702c501368335624622
 
 function message {
     echo
@@ -70,6 +71,7 @@ function runCommand() {
 		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
         "reactcontrol") getGist $GIST_REACT_CONTROL control.js ;;\
         "reactclass") getGist $GIST_REACT_CLASS ElfApp.js ;;
+        "elven-local-storage") getGist $GIST_ELVEN_LOCAL_STORAGE elf-local-storage.js ;;
 		"elven-systemd-tools") 
 			getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
 			cp -v $ESLINT_DIR/temp.service .
@@ -135,6 +137,7 @@ while true; do
     echo -e "$LIGHT_GREEN  l) Elven Create Concurrently"
     echo -e "$LIGHT_GREEN  m) React Control Component for elf-express"
     echo -e "$LIGHT_GREEN  n) Simple React Class Component"
+    echo -e "$LIGHT_GREEN  o) Elf Local Storage"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -153,6 +156,7 @@ while true; do
         [Ll]* ) runCommand "elven-create-concur"; continue;;
         [Mm]* ) runCommand "reactcontrol"; continue;;
         [Nn]* ) runCommand "reactclass"; continue;;
+        [Oo]* ) runCommand "elven-local-storage"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
