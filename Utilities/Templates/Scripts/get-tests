@@ -35,7 +35,7 @@ function getGist() {
 
 function runCommand() {
     case $1 in        
-        "gitSimpleAddress") getGist $ELVEN_SANITY_TESTS address-simple/Sanity.Files.test.js ;;
+        "gitSimpleAddress") getGist $ELVEN_SANITY_TESTS address-simple/Sanity.*.test.js ;;
         "gitAddressReact") getGist $ELVEN_SANITY_TESTS address-react/Sanity.App.test.js ;;
         'isit322-2019-ProjectSanity')
             getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/project-sanity-tests/*
@@ -44,6 +44,9 @@ function runCommand() {
             cp -v $ESLINT_DIR/isit322-midterm-2019/project-sanity-tests/.babelrc .
         ;;
         'isit322-2019-Client') getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/client/* ;;
+        'prog272-midterm-2019') getGist $ELVEN_SANITY_TESTS prog272-midterm-2019/Sanity.*.test.js
+            cp -vr $ESLINT_DIR/prog272-midterm-2019/test-data.js .
+        ;;
     esac    
 }
 
@@ -53,14 +56,15 @@ function runAll() {
 
 
 while true; do
-    message "Menu"
+    message "Get Test Menu"
     echo -e "$LIGHT_GREEN Tests"
     echo -e "$LIGHT_GREEN  a) Does nothing for now"
     echo -e "$LIGHT_GREEN  b) Does nothing for now"
-    echo -e "$LIGHT_GREEN  c) Address Simple File Tests"
-    echo -e "$LIGHT_GREEN  d) Address React Tests"
-    echo -e "$LIGHT_GREEN  e) Isit322 Midterm Project Sanity Tests"
-    echo -e "$LIGHT_GREEN  f) Isit322 Midterm Client Tests"
+    echo -e "$LIGHT_GREEN  c) Address Simple File"
+    echo -e "$LIGHT_GREEN  d) Address React"
+    echo -e "$LIGHT_GREEN  e) Isit322 Midterm Project Sanity"
+    echo -e "$LIGHT_GREEN  f) Isit322 Midterm Client"
+    echo -e "$LIGHT_GREEN  g) Prog272 Midterm 2019"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -71,6 +75,7 @@ while true; do
         [Dd]* ) runCommand "gitAddressReact"; continue;;
         [Ee]* ) runCommand "isit322-2019-ProjectSanity"; continue;;
         [Ff]* ) runCommand "isit322-2019-Client"; continue;;
+        [Fg]* ) runCommand "prog272-midterm-2019"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
