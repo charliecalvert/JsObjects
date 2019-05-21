@@ -26,9 +26,9 @@ addNumbers(2)
 
 const fs = require('fs');
 
-const writeFile = (fileName, contents) => {
+const elfWriteFile = (fileName, contents) => {
     return new Promise(function(resolve, reject) {
-        fs.writeFile(fileName, contents, 'utf8', err => {
+        fs.writeFile(fileName, contents, 'utf8', (err) => {
             if (err) {
                 reject(err);
             }
@@ -39,4 +39,5 @@ const writeFile = (fileName, contents) => {
     });
 };
 
-writeFile('foo.txt', 'foo').then(result => console.log(result));
+elfWriteFile('foo.txt', 'foo')
+    .then(result => console.log(result));
