@@ -44,6 +44,7 @@ function runCommand() {
             cp -v $ESLINT_DIR/isit322-midterm-2019/project-sanity-tests/.babelrc .
         ;;
         'isit322-2019-Client') getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/client/* ;;
+        'isit322-2019-gist-gist') getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/git-gist/*.js ;;
         'prog272-midterm-2019') getGist $ELVEN_SANITY_TESTS prog272-midterm-2019/Sanity.*.test.js
             cp -vr $ESLINT_DIR/prog272-midterm-2019/test-data.js .
         ;;
@@ -64,7 +65,9 @@ while true; do
     echo -e "$LIGHT_GREEN  d) Address React"
     echo -e "$LIGHT_GREEN  e) Isit322 Midterm Project Sanity"
     echo -e "$LIGHT_GREEN  f) Isit322 Midterm Client"
-    echo -e "$LIGHT_GREEN  g) Prog272 Midterm 2019"
+    echo -e "$LIGHT_GREEN  g) Isit322 Midterm Git Gist"
+    echo -e "$LIGHT_GREEN  h) Prog272 Midterm 2019"
+    
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -75,7 +78,8 @@ while true; do
         [Dd]* ) runCommand "gitAddressReact"; continue;;
         [Ee]* ) runCommand "isit322-2019-ProjectSanity"; continue;;
         [Ff]* ) runCommand "isit322-2019-Client"; continue;;
-        [Fg]* ) runCommand "prog272-midterm-2019"; continue;;
+        [Gg]* ) runCommand "isit322-2019-gist-gist"; continue;;
+        [Hh]* ) runCommand "prog272-midterm-2019"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
