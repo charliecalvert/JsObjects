@@ -34,7 +34,8 @@ function getGist() {
 }
 
 function runCommand() {
-    case $1 in        
+    case $1 in
+        "reactPropsSanityTest") getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/client/Sanity.App.test.js ;;
         "gitSimpleAddress") getGist $ELVEN_SANITY_TESTS address-simple/Sanity.*.test.js ;;
         "gitAddressReact") getGist $ELVEN_SANITY_TESTS address-react/Sanity.App.test.js ;;
         'isit322-2019-ProjectSanity')
@@ -60,7 +61,7 @@ while true; do
     message "Get Test Menu"
     echo -e "$LIGHT_GREEN Tests"
     echo -e "$LIGHT_GREEN  a) Does nothing for now"
-    echo -e "$LIGHT_GREEN  b) Does nothing for now"
+    echo -e "$LIGHT_GREEN  b) React Props Sanity Test"
     echo -e "$LIGHT_GREEN  c) Address Simple File"
     echo -e "$LIGHT_GREEN  d) Address React"
     echo -e "$LIGHT_GREEN  e) Isit322 Midterm Project Sanity"
@@ -73,7 +74,7 @@ while true; do
     read -p "Please make a selection: " eotuyx
     case $eotuyx in
         [Aa]* ) echo "I don't do anything"; continue;;
-        [Bb]* ) echo "I don't do anything"; continue;;
+        [Bb]* ) runCommand "reactPropsSanityTest"; continue;;
         [Cc]* ) runCommand "gitSimpleAddress"; continue;;
         [Dd]* ) runCommand "gitAddressReact"; continue;;
         [Ee]* ) runCommand "isit322-2019-ProjectSanity"; continue;;
