@@ -1,43 +1,24 @@
 {
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
     "rules": {
         // enable additional rules
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1
-            }
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "indent": ["error", 4, {"SwitchCase": 1}],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["warn", "single"],
+        "semi": ["error", "always"],
+
         // override default options for rules from base configurations
-        "comma-dangle": [
-            "off",
-            "always"
-        ],
-        "no-cond-assign": [
-            "error",
-            "always"
-        ],
+        "comma-dangle": ["off", "always"],
+        "no-cond-assign": ["error", "always"],
+
         // disable rules from base configurations
         "no-console": "off",
         "no-control-regex": "warn"
     },
-    "parser": "babel-eslint",
+    "parser":  "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 7,
         "sourceType": "module",

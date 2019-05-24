@@ -3,25 +3,7 @@
 module.exports = function(grunt) {
     require("load-grunt-tasks")(grunt);
     grunt.initConfig({
-        jshint: {
-            files: ["**/*.js"],
-
-            options: {
-                ignores: ["*/angular-mocks.js",
-                    "*/ui-bootstrap-tpls-*.js",
-                    "*/knockout-*.js",
-                    "*/Ractive.js",
-                    "*/**/angular.js",
-                    "**/node_modules/**",
-                    "**/handlebars.js",
-                    "**/jquery*.js",
-                    "**/cordova*.js",
-                    "**/qunit*.js"
-                ],
-                reporter: "checkstyle",
-                reporterOutput: "result.xml"
-            }
-        },
+        
         eslint: {
             options: {
                 configFile: ".eslintrc.json",
@@ -36,8 +18,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-contrib-clean");
-    grunt.loadNpmTasks("grunt-contrib-jshint");
-    //grunt.loadNpmTasks("load-grunt-tasks");
+    grunt.loadNpmTasks("grunt-contrib-clean");        
     grunt.registerTask("default", ["eslint"]);
 };
