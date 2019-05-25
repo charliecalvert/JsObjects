@@ -33,27 +33,11 @@ describe('Sanity GetGist Layout Tests', () => {
         expect(typeof App).toBe('function');
     });
 
-    fit('checks that we use CssBaseLine', () => {
-        console.log(wrapper.debug());
-        expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
-    });
-
-    it('checks that we use backDiv3', () => {
-        expect(wrapper.find('div').first().length).toBe(1);
+    it('checks that we use className layout in first item', () => {
         expect(
             wrapper
                 .find('div')
-                .first()
-                .props()
-                .className.includes('backDiv3')
-        ).toBe(true);
-    });
-
-    it('checks that we use className layout in second item', () => {
-        expect(
-            wrapper
-                .find('div')
-                .get(1)
+                .get(0)
                 .props.className.includes('layout')
         ).toBe(true);
     });

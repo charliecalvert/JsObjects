@@ -41,14 +41,6 @@ describe('Check Gist withStyles Display Suite', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('checks that one element has an id of id', () => {
-        expect(wrapper.find('#cbl').length).toBe(1);
-    });
-
-    it('checks that one element has an id of description', () => {
-        expect(wrapper.find('#bd3').length).toBe(1);
-    });
-
     it('checks that one element has an id of ownerLogin', () => {
         expect(wrapper.find('#lo').length).toBe(1);
     });

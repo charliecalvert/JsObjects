@@ -9,9 +9,6 @@ export const styles = theme => ({
             marginRight: 'auto'
         }
     },
-    backDiv3: {
-        backgroundColor: '#ddf3ff'
-    },
     paperLion: {
         flexGrow: 1,
         padding: theme.spacing.unit,

@@ -41,79 +41,76 @@ class App extends Component {
         return (
             <React.Fragment>
 
-                <div className={classes.backDiv3}>
-                    <div className={classes.layout}>
-                        <Grid container spacing={24}>
-                            <Grid item xs={12}>
-                                {/*This empty Grid puts space before the first section*/}
-                            </Grid>
-                            <Grid item xs={12}>
-
-                                <Paper className={classes.paperLion}>
-                                    <Typography variant="h4">
-                                        Section One
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-
-                            <Grid item xs={12}>
-                                <Paper className={classes.paperLion}>
-                                    <Typography variant="h6">
-                                        Section Two
-                                    </Typography>
-                                    <Typography
-                                        className={elfParagraph}
-                                        align="left"
-                                        variant="body1"
-                                    >
-                                        In <b>src/index.js</b> we create a theme and wrap the entire app in
-                                        the theme. We also use <b>CssBaseline</b>.
-                                    </Typography>
-
-                                    <Typography
-                                        className={classes.elfTypography}
-                                        align="left"
-                                        variant="body1"
-                                    >
-                                        View the source of this component to see how we wrap our content
-                                        in the following elements:
-                                    </Typography>
-                                    <List>
-                                        {getListItem('backDiv3', 'bd3')}
-                                        {getListItem('layout', 'lo')}
-                                        {getListItem(
-                                            'A Grid with container and spacing of 24',
-                                            'gridContainerSpace24'
-                                        )}
-                                    </List>
-                                    <Typography
-                                        className={classes.elfTypography}
-                                        align="left"
-                                        variant="body1"
-                                    >
-                                        Inside the four items we create
-                                        one or more sections for our
-                                        document. Each section has this
-                                        structure:
-                                    </Typography>
-                                    <List>
-                                        {getListItem(
-                                            'A Grid item with xs = 12',
-                                            'gridItem12'
-                                        )}
-                                        {getListItem(
-                                            'Paper with a className of paperLion',
-                                            'paperLion'
-                                        )}
-                                        {getListItem(
-                                            'And then some content',
-                                            'content'
-                                        )}
-                                    </List>
-                                </Paper>
-                            </Grid>
+                <div className={classes.layout}>
+                    <Grid container spacing={24}>
+                        <Grid item xs={12}>
+                            {/*This empty Grid puts space before the first section*/}
                         </Grid>
-                    </div>
+                        <Grid item xs={12}>
+
+                            <Paper className={classes.paperLion}>
+                                <Typography variant="h4">
+                                    Section One
+                                </Typography>
+                            </Paper>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Paper className={classes.paperLion}>
+                                <Typography variant="h6">
+                                    Section Two
+                                </Typography>
+                                <Typography
+                                    className={elfParagraph}
+                                    align="left"
+                                    variant="body1"
+                                >
+                                    In <b>src/index.js</b> we create a theme and wrap the entire app in
+                                    the theme. We also use <b>CssBaseline</b>.
+                                </Typography>
+
+                                <Typography
+                                    className={classes.elfTypography}
+                                    align="left"
+                                    variant="body1"
+                                >
+                                    View the source of this component to see how we wrap our content
+                                    in the following elements:
+                                </Typography>
+                                <List>
+                                    {getListItem('layout', 'lo')}
+                                    {getListItem(
+                                        'A Grid with container and spacing of 24',
+                                        'gridContainerSpace24'
+                                    )}
+                                </List>
+                                <Typography
+                                    className={classes.elfTypography}
+                                    align="left"
+                                    variant="body1"
+                                >
+                                    Inside the four items we create
+                                    one or more sections for our
+                                    document. Each section has this
+                                    structure:
+                                </Typography>
+                                <List>
+                                    {getListItem(
+                                        'A Grid item with xs = 12',
+                                        'gridItem12'
+                                    )}
+                                    {getListItem(
+                                        'Paper with a className of paperLion',
+                                        'paperLion'
+                                    )}
+                                    {getListItem(
+                                        'And then some content',
+                                        'content'
+                                    )}
+                                </List>
+                            </Paper>
+                        </Grid>
+                    </Grid>
                 </div>
 
             </React.Fragment>

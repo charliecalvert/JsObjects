@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import App from './App';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
