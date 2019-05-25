@@ -32,17 +32,14 @@ describe('Sanity GetGist Layout Tests', () => {
     });
 
     it('checks that we use MuiThemeProvider', () => {
-        //console.log(wrapper.debug());
         expect(wrapper.find('MuiThemeProviderOld').length).toBe(1);
     });
 
     it('checks that we use CssBaseLine', () => {
-        //console.log(wrapper.debug());
         expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
     });
 
     it('checks that we create the App', () => {
-        //console.log(wrapper.debug());
         expect(wrapper.find('WithStyles(App)').length).toBe(1);
     });
 
