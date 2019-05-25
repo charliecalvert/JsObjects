@@ -24,5 +24,8 @@ export const styles = theme => ({
         fontWeight: '400',
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
         lineHeight: '1.5em'
+    },
+    elfParagraph: {
+        marginBottom: '1.0em'
     }
 });
