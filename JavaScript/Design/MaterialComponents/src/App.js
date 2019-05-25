@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './elf-styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -33,7 +32,7 @@ class App extends Component {
 
         return (
             <React.Fragment>
-                <CssBaseline>
+
                     <div className={classes.backDiv3}>
                         <div className={classes.layout}>
                             <Grid container spacing={24}>
@@ -100,7 +99,7 @@ class App extends Component {
                             </Grid>
                         </div>
                     </div>
-                </CssBaseline>
+
             </React.Fragment>
         );
     }
