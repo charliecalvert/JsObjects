@@ -33,7 +33,8 @@ describe('Sanity GetGist Layout Tests', () => {
         expect(typeof App).toBe('function');
     });
 
-    it('checks that we use CssBaseLine', () => {
+    fit('checks that we use CssBaseLine', () => {
+        console.log(wrapper.debug());
         expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
     });
 
