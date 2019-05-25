@@ -43,11 +43,12 @@ class App extends Component {
 
                 <div className={classes.layout}>
                     <Grid container spacing={24}>
+
                         <Grid item xs={12}>
                             {/*This empty Grid puts space before the first section*/}
                         </Grid>
-                        <Grid item xs={12}>
 
+                        <Grid item xs={12}>
                             <Paper className={classes.paperLion}>
                                 <Typography variant="h4">
                                     Section One
@@ -110,7 +111,9 @@ class App extends Component {
                                 </List>
                             </Paper>
                         </Grid>
+
                     </Grid>
+
                 </div>
 
             </React.Fragment>
