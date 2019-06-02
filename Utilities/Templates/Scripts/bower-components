@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+echo Here are all the .bowerrc files found:
+echo -e "---------------------------------------"
+find . -iname ".bowerrc"
+
+echo -e "\n---------------------------------------"
+echo "This is what what we want to see. All .bowerrc should be in this list":
+echo "---------------------------------------"
+find . -iname ".bowerrc" | xargs grep bower_components
+
+echo -e "\n---------------------------------------"
+echo Items appearing below here are errors, it should be an empty list.
+echo "---------------------------------------"
+find . -iname ".bowerrc" | xargs grep "/components"
+

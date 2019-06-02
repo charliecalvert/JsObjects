@@ -82,4 +82,5 @@ createLink "$ELF_SCRIPTS"/ semver-inc
 createLink "$ELF_SCRIPTS"/ update-all
 createLink "$ELF_SCRIPTS"/ delete_node_modules
 createLink "$ELF_SCRIPTS"/ get-tests
+createLink "$ELF_SCRIPTS"/ bower-components
 createLink "$ELF_UTILS"/SetupLinuxBox/ Provision
