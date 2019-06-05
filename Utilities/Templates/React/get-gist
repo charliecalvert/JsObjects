@@ -22,6 +22,7 @@ GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
 GIST_ELVEN_SYSTEMD_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
 GIST_ELVEN_CREATE_CONCUR=https://github.com/charliecalvert/elven-create-concurrently.git
 GIST_ELVEN_LOCAL_STORAGE=https://gist.github.com/charliecalvert/d8404b826ee22702c501368335624622
+REPO_ELVEN_FIREBASE=https://github.com/charliecalvert/elven-firebase.git
 
 function message {
     echo
@@ -36,6 +37,11 @@ function removeDir {
 		rm -rf $ESLINT_DIR
 		echo "Deleted " $ESLINT_DIR
 	fi
+}
+
+function getRepo() {
+	removeDir
+	git clone $1 $ESLINT_DIR
 }
 
 function getGist() {
@@ -76,7 +82,7 @@ function runCommand() {
 			getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
 			cp -v $ESLINT_DIR/temp.service .
 			cp -v $ESLINT_DIR/edit-package-json.js .
-			;;\
+			;;
 		"elven-create-concur") 
 			getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
 			cp -v $ESLINT_DIR/start-client.js .
@@ -87,7 +93,16 @@ function runCommand() {
                 echo -e ${YELLOW}"Adding package.json"${NC}
                 cp -v $ESLINT_DIR/package.json .
             fi
-			;;\
+			;;
+        "elven-firebase")
+            getRepo $REPO_ELVEN_FIREBASE
+            cp -vp $ESLINT_DIR/elf-firebase.js public/.
+            cp -vp $ESLINT_DIR/elf-sign-in.html public/.
+            if [ -d src ]; then
+                cp -vp $ESLINT_DIR/FirebaseLogin.js src/components/.
+            else
+                cp -vp $ESLINT_DIR/FirebaseLogin.js source/.
+            fi    
 	esac
 	# removeDir
 }
@@ -138,6 +153,7 @@ while true; do
     echo -e "$LIGHT_GREEN  m) React Control Component for elf-express"
     echo -e "$LIGHT_GREEN  n) Simple React Class Component"
     echo -e "$LIGHT_GREEN  o) Elf Local Storage"
+    echo -e "$LIGHT_GREEN  p) Elf Firebase"
     echo -e "$LIGHT_RED  x) Exit"
     echo -e "\n$NC"
     read -p "Please make a selection: " eotuyx
@@ -157,6 +173,7 @@ while true; do
         [Mm]* ) runCommand "reactcontrol"; continue;;
         [Nn]* ) runCommand "reactclass"; continue;;
         [Oo]* ) runCommand "elven-local-storage"; continue;;
+        [Pp]* ) runCommand "elven-firebase"; continue;;
         [XxQq]* ) break;;
         * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
     esac
