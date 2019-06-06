@@ -46,7 +46,7 @@ const initApp = function() {
                 document.getElementById('sign-in-status').textContent = 'Status: Signed out';
                 document.getElementById('sign-in').textContent = '';
                 document.getElementById('account-details').textContent = '';
-                document.getElementById('sign-out').style.visibility = 'hidden';
+                //document.getElementById('sign-out').style.visibility = 'hidden';
             }
         },
         function(error) {
@@ -55,6 +55,10 @@ const initApp = function() {
     );
 };
 
+export {initApp}
+
+/*
 window.addEventListener('load', function() {
     initApp();
 });
+*/

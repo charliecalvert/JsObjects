@@ -9,4 +9,11 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/worker', (request, response) => {
+    'use strict';
+    response.render('worker', {
+        title: request.query.title
+    });
+});
+
 module.exports = router;

@@ -1,12 +1,10 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
 
     #root
 
-    .__react-root(id="App" data-app="App")
+    .__react-root(id= title data-app= title)
 
     p#sign-in-status
 
