@@ -96,12 +96,14 @@ function runCommand() {
 			;;
         "elven-firebase")
             getRepo $REPO_ELVEN_FIREBASE
-            cp -vp $ESLINT_DIR/elf-firebase.js public/.
+            
             cp -vp $ESLINT_DIR/elf-sign-in.html public/.
             if [ -d src ]; then
                 cp -vp $ESLINT_DIR/FirebaseLogin.js src/components/.
+                cp -vp $ESLINT_DIR/elf-firebase.js public/.
             else
                 cp -vp $ESLINT_DIR/FirebaseLogin.js source/.
+                cp -vp $ESLINT_DIR/elf-firebase.js source/.
             fi    
 	esac
 	# removeDir
