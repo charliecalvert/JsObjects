@@ -21,7 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 window.firebase.initializeApp(firebaseConfig);
 
-const initApp = function() {
+const initApp = function(callback) {
     window.elvenFireBaseData = {};
     window.firebase.auth().onAuthStateChanged(
         function(user) {
@@ -48,6 +48,7 @@ const initApp = function() {
                 document.getElementById('account-details').textContent = '';
                 //document.getElementById('sign-out').style.visibility = 'hidden';
             }
+            callback();
         },
         function(error) {
             console.log(error);
