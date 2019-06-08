@@ -8,12 +8,6 @@ function init(url) {
     const firebaseApp = admin.initializeApp({
         credential: admin.credential.applicationDefault(),
     });
-
-    /*const firebaseApp = admin.initializeApp({
-        apiKey: 'AIzaSyB1TS2rXl2M6gsJXoxc63x0fo0iKvjx7yQ',
-        authDomain: 'isit322-calvert.firebaseapp.com',
-        projectId: 'isit322-calvert'
-    });*/
     console.log('INITIALIZE FIREBASE ADMIN', firebaseApp);
     return admin.firestore();
 }
