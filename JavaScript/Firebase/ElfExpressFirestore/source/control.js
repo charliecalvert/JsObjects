@@ -1,18 +1,8 @@
-/**
- * Created by charlie on 11/5/16.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ElfApp from "./ElfApp";
 
 window.onload = function() {
-    fetch('/test-get')
-        .then(response => {
-            return response.json();
-        })
-        .then(result => {
-            console.log(result);
-        })
-        .catch(ex => {
-            console.log(ex);
-        })
-
+    ReactDOM.render(<ElfApp/>, document.getElementById('root'));
 };
-//$(document).ready(function() {});
+
