@@ -3,7 +3,7 @@
  */
 
 window.onload = function() {
-    fetch('/test')
+    fetch('/test-get')
         .then(response => {
             return response.json();
         })

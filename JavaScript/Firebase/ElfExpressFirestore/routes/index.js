@@ -5,8 +5,10 @@ const firebase = require("firebase");
 const admin = require('firebase-admin');
 require("firebase/firestore");
 
+let db = null;
+
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     'use strict';
     res.render('index', {
         title: 'Elf-Express'
@@ -14,7 +16,7 @@ router.get('/', function(req, res) {
 });
 
 const writeData = (user, response, db) => {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         const message = {
             result: 'success',
             status: 'ok',
@@ -38,6 +40,25 @@ const writeData = (user, response, db) => {
     });
 };
 
+const getData = (docName) => {
+    return new Promise(function (resolve, reject) {
+        var docRef = db.collection("user").doc(docName);
+
+        docRef.get()
+            .then(function (doc) {
+                if (doc.exists) {
+                    resolve({"documentData": doc.data()});
+                } else {
+                    // doc.data() will be undefined in this case
+                    resolve({documentData: "No such document!"});
+                }
+            })
+            .catch(function (error) {
+                reject({error: error});
+            });
+    });
+};
+
 const userData = {
     uid: 'TempRecord',
     displayName: 'Temp DisplayName',
@@ -47,11 +68,25 @@ const userData = {
 
 router.get('/test', (req, res) => {
     console.log('VERIFY, INIT', verifyToken, init);
-    const db = init();
+    if(!db) {
+        db = init();
+    }
     writeData(userData, res, db)
         .then(result => {
             res.send(result);
         })
 });
+
+router.get('/test-get', (req, res) => {
+    console.log('VERIFY, INIT', verifyToken, init);
+    if(!db) {
+        db = init();
+    }
+    getData('TempRecord')
+        .then(result => {
+            res.send(result);
+        })
+});
+
 
 module.exports = router;
