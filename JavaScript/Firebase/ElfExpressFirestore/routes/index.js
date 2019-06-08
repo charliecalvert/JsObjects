@@ -15,16 +15,10 @@ router.get('/', function (req, res) {
     });
 });
 
-const writeData = (user, response, db) => {
+const writeData = (user, db) => {
     return new Promise(function (resolve, reject) {
-        const message = {
-            result: 'success',
-            status: 'ok',
-            file: 'routes/index.js',
-            server: 'ElfExpressFirestore'
-        };
-        console.log('WRITE DATA CALLED:\n' + JSON.stringify(message, null, 4));
 
+        console.log('WRITE DATA CALLED:\n' + JSON.stringify(user, null, 4));
 
         db.collection("user").doc(user.uid).set({
             name: user.displayName,
@@ -32,10 +26,10 @@ const writeData = (user, response, db) => {
             photoUrl: user.photoURL
         })
             .then(function (dbData) {
-                resolve({'result': 'success', dbData: dbData, ...message});
+                resolve({'result': 'success'});
             })
             .catch(function (error) {
-                reject("Error writing document: ", error);
+                reject({"error: ": error, text: 'error writing document'});
             });
     });
 };
@@ -49,7 +43,6 @@ const getData = (docName) => {
                 if (doc.exists) {
                     resolve({"documentData": doc.data()});
                 } else {
-                    // doc.data() will be undefined in this case
                     resolve({documentData: "No such document!"});
                 }
             })
@@ -66,25 +59,29 @@ const userData = {
     photoURL: 'https://qux.net/photo.png'
 };
 
-router.get('/test', (req, res) => {
+router.get('/write', (req, res) => {
     console.log('VERIFY, INIT', verifyToken, init);
     if(!db) {
         db = init();
     }
-    writeData(userData, res, db)
+    writeData(userData, db)
         .then(result => {
+            console.log('WRITE RESULT', result);
             res.send(result);
+        })
+        .catch(ex => {
+            res.send(ex)
         })
 });
 
-router.get('/test-get', (req, res) => {
+router.get('/read', (req, res) => {
     console.log('VERIFY, INIT', verifyToken, init);
     if(!db) {
         db = init();
     }
     getData('TempRecord')
         .then(result => {
-            res.send(result);
+            res.send(result.documentData);
         })
 });
 

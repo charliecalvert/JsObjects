@@ -16,7 +16,9 @@
     "firebase-admin": "^8.0.0",
     "http-errors": "~1.7.2",
     "morgan": "~1.9.1",
-    "pug": "2.0.3"
+    "pug": "2.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
