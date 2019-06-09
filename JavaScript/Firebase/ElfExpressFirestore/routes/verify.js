@@ -3,7 +3,7 @@ var admin = require('firebase-admin');
 let loggedIn = false;
 
 //'firebase-adminsdk-2p1h1@prog270-calvert.iam.gserviceaccount.com';
-function init(url) {
+function init() {
     loggedIn = true;
     const firebaseApp = admin.initializeApp({
         credential: admin.credential.applicationDefault(),
