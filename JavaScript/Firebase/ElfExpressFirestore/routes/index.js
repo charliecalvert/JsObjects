@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const {verifyToken, init} = require('./verify');
 const firebase = require("firebase");
-const admin = require('firebase-admin');
 require("firebase/firestore");
 
 let db = null;
@@ -84,6 +83,5 @@ router.get('/read', (req, res) => {
             res.send(result.documentData);
         })
 });
-
 
 module.exports = router;
