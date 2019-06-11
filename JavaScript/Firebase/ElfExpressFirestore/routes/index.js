@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {verifyToken, init} = require('./verify');
+const {verifyToken, init} = require('./verify-db');
 const firebase = require("firebase");
 require("firebase/firestore");
 
