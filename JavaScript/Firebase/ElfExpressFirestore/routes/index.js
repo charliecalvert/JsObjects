@@ -33,7 +33,7 @@ const writeData = (user, db) => {
     });
 };
 
-const getData = (docName) => {
+const readData = (docName) => {
     return new Promise(function (resolve, reject) {
         var docRef = db.collection("user").doc(docName);
 
@@ -78,7 +78,7 @@ router.get('/read', (req, res) => {
     if(!db) {
         db = init();
     }
-    getData('TempRecord')
+    readData('TempRecord')
         .then(result => {
             res.send(result.documentData);
         })
