@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {verifyToken, init} = require('./verify-db');
+const {init} = require('./verify-db');
 const firebase = require("firebase");
 require("firebase/firestore");
 
@@ -33,7 +33,7 @@ const writeData = (user, db) => {
     });
 };
 
-const readData = (docName) => {
+const readData = (docName, db) => {
     return new Promise(function (resolve, reject) {
         var docRef = db.collection("user").doc(docName);
 
@@ -59,7 +59,6 @@ const userData = {
 };
 
 router.get('/write', (req, res) => {
-    console.log('VERIFY, INIT', verifyToken, init);
     if(!db) {
         db = init();
     }
@@ -74,11 +73,10 @@ router.get('/write', (req, res) => {
 });
 
 router.get('/read', (req, res) => {
-    console.log('VERIFY, INIT', verifyToken, init);
     if(!db) {
         db = init();
     }
-    readData('TempRecord')
+    readData('TempRecord', db)
         .then(result => {
             res.send(result.documentData);
         })
