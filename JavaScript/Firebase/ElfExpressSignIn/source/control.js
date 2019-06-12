@@ -1,16 +1,14 @@
 //import { renderAppTool } from './TheTheme';
 import loadAddress from './load-address';
 import ElfApp from './ElfApp';
-import {FirebaseLogin} from './FirebaseLogin';
+import {FirebaseLogout} from './FirebaseLogout';
 import {initApp} from './elf-firebase';
 import React from "react";
 import ReactDOM from "react-dom";
 
-'./elf-firebase';
-
 const APPS = {
     ElfApp,
-    FirebaseLogin,
+    FirebaseLogout: FirebaseLogout,
 };
 
 function renderAppInElement(choice) {
