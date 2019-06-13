@@ -3,6 +3,7 @@ var router = express.Router();
 const {init} = require('./verify-db');
 const firebase = require("firebase");
 require("firebase/firestore");
+const {writeBatchData, readSnapshot} = require('./batch');
 
 let db = null;
 
@@ -79,6 +80,46 @@ router.get('/read', (req, res) => {
     readData('TempRecord', db)
         .then(result => {
             res.send(result.documentData);
+        })
+});
+
+router.get('/write-batch', (req, res) => {
+    const items = [
+        {id: '0', data: 'foo00' },
+        {id: '1', data: 'foo01' },
+        {id: '2', data: 'foo02' },
+        {id: '3', data: 'foo03' },
+        {id: '4', data: 'foo04' }
+    ];
+
+    console.log('WRITE-BATCH CALLED');
+    if(!db) {
+        db = init();
+    }
+
+    writeBatchData(items, db)
+        .then(result => {
+            res.send(result);
+        })
+        .catch(ex => {
+            res.send(ex);
+        })
+});
+
+router.get('/read-snapshot', (req, res) => {
+    console.log('READ SNAPSHOT CALLED');
+
+    if(!db) {
+        db = init();
+    }
+
+    readSnapshot(db)
+        .then(snapshot => {
+            const data = snapshot.docs.map(doc => doc.data());
+            res.send(data);
+        })
+        .catch(ex => {
+            res.send(ex);
         })
 });
 
