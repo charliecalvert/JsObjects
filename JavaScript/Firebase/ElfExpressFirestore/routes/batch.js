@@ -22,7 +22,7 @@ const writeBatchData = (items, db) => {
                 resolve({'result': 'success', dbData: dbData});
             })
             .catch(function (error) {
-                console.log('ERROR');
+                console.log('ERROR', error);
                 reject({"error: ": error, text: 'error writing document'});
             });
 

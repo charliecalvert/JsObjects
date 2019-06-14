@@ -85,9 +85,9 @@ router.get('/read', (req, res) => {
 
 router.get('/write-batch', (req, res) => {
     const items = [
-        {id: '0', data: 'foo00' },
+        {id: '0', data: 'foo00', bar: 'barso' },
         {id: '1', data: 'foo01' },
-        {id: '2', data: 'foo02' },
+        {id: '2', data: 'foo02', bar: 'barfoo' },
         {id: '3', data: 'foo03' },
         {id: '4', data: 'foo04' }
     ];
