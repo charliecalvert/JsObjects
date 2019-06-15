@@ -33,67 +33,67 @@ function message {
 }
 
 function removeDir {
-	if [ -d $ESLINT_DIR ]; then
-		rm -rf $ESLINT_DIR
-		echo "Deleted " $ESLINT_DIR
-	fi
+    if [ -d $ESLINT_DIR ]; then
+        rm -rf $ESLINT_DIR
+        echo "Deleted " $ESLINT_DIR
+    fi
 }
 
 function getRepo() {
-	removeDir
-	git clone $1 $ESLINT_DIR
+    removeDir
+    git clone $1 $ESLINT_DIR
 }
 
 function getGist() {
-	removeDir
-	git clone $1 $ESLINT_DIR
-	echo -e "NUMBER 2 = $2"
-	cp -v $ESLINT_DIR/$2 .
+    removeDir
+    git clone $1 $ESLINT_DIR
+    echo -e "NUMBER 2 = $2"
+    cp -v $ESLINT_DIR/$2 .
 }
 
 function runCommand() {
-	# REMOVE_ALL='rm .esl* installEslintPackages  prettier .prettier*'
-	INSTALL_ESLINT_PACKAGES=installEslintPackages
-	case $1 in
-		"elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
-		"eslintrc")
-			getGist $GIST_ESLINTRC .eslintrc.json
-			echo 'npm install -g babel-eslint eslint-plugin-react' >> $INSTALL_ESLINT_PACKAGES
-			chmod +x $INSTALL_ESLINT_PACKAGES
-			./$INSTALL_ESLINT_PACKAGES
-			;;\
-		"eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
-		"prettier") 
-			getGist $GIST_PRETTIER prettier 
-			echo '**/build/**' >> .prettierignore
-			echo '**/serviceWorker.js' >> .prettierignore
+    # REMOVE_ALL='rm .esl* installEslintPackages  prettier .prettier*'
+    INSTALL_ESLINT_PACKAGES=installEslintPackages
+    case $1 in
+        "elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
+        "eslintrc")
+            getGist $GIST_ESLINTRC .eslintrc.json
+            echo 'npm install -g babel-eslint eslint-plugin-react' >> $INSTALL_ESLINT_PACKAGES
+            chmod +x $INSTALL_ESLINT_PACKAGES
+            ./$INSTALL_ESLINT_PACKAGES
+            ;;\
+        "eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
+        "prettier") 
+            getGist $GIST_PRETTIER prettier 
+            echo '**/build/**' >> .prettierignore
+            echo '**/serviceWorker.js' >> .prettierignore
             echo '**/bower_components/**' >> .prettierignore
-			chmod +x prettier
-			;;\
-		"prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
-		"reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;\
-		"setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
-		"setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
-		"elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
+            chmod +x prettier
+            ;;\
+        "prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
+        "reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;\
+        "setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
+        "setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
+        "elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
         "reactcontrol") getGist $GIST_REACT_CONTROL control.js ;;\
         "reactclass") getGist $GIST_REACT_CLASS ElfApp.js ;;
         "elven-local-storage") getGist $GIST_ELVEN_LOCAL_STORAGE elf-local-storage.js ;;
-		"elven-systemd-tools") 
-			getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
-			cp -v $ESLINT_DIR/temp.service .
-			cp -v $ESLINT_DIR/edit-package-json.js .
-			;;
-		"elven-create-concur") 
-			getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
-			cp -v $ESLINT_DIR/start-client.js .
-			cp -v $ESLINT_DIR/edit-package-json.js .
+        "elven-systemd-tools") 
+            getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
+            cp -v $ESLINT_DIR/temp.service .
+            cp -v $ESLINT_DIR/edit-package-json.js .
+            ;;
+        "elven-create-concur") 
+            getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
+            cp -v $ESLINT_DIR/start-client.js .
+            cp -v $ESLINT_DIR/edit-package-json.js .
             if [ -f package.json ]; then                
                 echo -e ${YELLOW}"package.json already exists"${NC}
             else
                 echo -e ${YELLOW}"Adding package.json"${NC}
                 cp -v $ESLINT_DIR/package.json .
             fi
-			;;
+            ;;
         "elven-firebase")
             getRepo $REPO_ELVEN_FIREBASE
             
@@ -105,36 +105,36 @@ function runCommand() {
                 cp -vp $ESLINT_DIR/FirebaseLogout.js source/.
                 cp -vp $ESLINT_DIR/elf-firebase.js source/.
             fi    
-	esac
-	# removeDir
+    esac
+    # removeDir
 }
 
 #function runGitCommand() {
-#	case $1 in
-#	"elven-node-tools") 
-#		getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
-#			cp -v $ESLINT_DIR/eip.service .	
-#			;;\
-#	esac
+#   case $1 in
+#   "elven-node-tools") 
+#       getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
+#           cp -v $ESLINT_DIR/eip.service . 
+#           ;;\
+#   esac
 #}
 
 function runAll() {
-	runCommand "elfdebug"
-	runCommand "eslintrc"
-	runCommand "eslintignore"
-	runCommand "prettier"
-	runCommand "prettierrc"
-	runCommand "reactcomp"
-	runCommand "setrnen"
-	runCommand "setrney"
-	runCommand "elvenlogger"
+    runCommand "elfdebug"
+    runCommand "eslintrc"
+    runCommand "eslintignore"
+    runCommand "prettier"
+    runCommand "prettierrc"
+    runCommand "reactcomp"
+    runCommand "setrnen"
+    runCommand "setrney"
+    runCommand "elvenlogger"
 }
 
 function runEsLintAndPrettier() {
-	runCommand "eslintrc"
-	runCommand "eslintignore"
-	runCommand "prettier"
-	runCommand "prettierrc"
+    runCommand "eslintrc"
+    runCommand "eslintignore"
+    runCommand "prettier"
+    runCommand "prettierrc"
 }
 
 while true; do
