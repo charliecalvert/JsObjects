@@ -1,9 +1,4 @@
-//const qux = require('qux');
-
-//console.log(qux.bar);
-
-//const foo = { bar: 1 };
-//console.log(foo1.bar);
+// Won't work because we do not pass an object to bar. This error happens a lot, and this example shows how it happens.
 
 function bar(foo) {
     console.log(foo.bar);
