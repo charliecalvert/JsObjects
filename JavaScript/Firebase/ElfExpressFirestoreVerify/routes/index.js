@@ -22,75 +22,6 @@ router.get('/worker', (request, response) => {
     });
 });
 
-const writeData = (user, db) => {
-    return new Promise(function (resolve, reject) {
-
-        console.log('WRITE DATA CALLED:\n' + JSON.stringify(user, null, 4));
-
-        db.collection("user").doc(user.uid).set({
-            name: user.displayName,
-            email: user.email,
-            photoUrl: user.photoURL
-        })
-            .then(function (dbData) {
-                resolve({'result': 'success'});
-            })
-            .catch(function (error) {
-                reject({"error: ": error, text: 'error writing document'});
-            });
-    });
-};
-
-const readData = (docName, db) => {
-    return new Promise(function (resolve, reject) {
-        var docRef = db.collection("user").doc(docName);
-
-        docRef.get()
-            .then(function (doc) {
-                if (doc.exists) {
-                    resolve({"documentData": doc.data()});
-                } else {
-                    resolve({documentData: "No such document!"});
-                }
-            })
-            .catch(function (error) {
-                reject({error: error});
-            });
-    });
-};
-
-const userData = {
-    uid: 'TempRecord',
-    displayName: 'Temp DisplayName',
-    email: 'qux@bar.com',
-    photoURL: 'https://qux.net/photo.png'
-};
-
-router.get('/write', (req, res) => {
-    if (!db) {
-        db = init();
-    }
-    writeData(userData, db)
-        .then(result => {
-            console.log('WRITE RESULT', result);
-            res.send(result);
-        })
-        .catch(ex => {
-            res.send(ex)
-        })
-});
-
-router.get('/read', (req, res) => {
-    if (!db) {
-        db = init();
-    }
-    readData('TempRecord', db)
-        .then(result => {
-            res.send(result.documentData);
-        })
-});
-
-
 router.get('/write-batch', (request, response) => {
     const items = [
         {id: '0', data: 'foo00', bar: 'barso'},
@@ -114,9 +45,6 @@ router.get('/write-batch', (request, response) => {
                     .then(result => {
                         response.send(result);
                     })
-                    .catch(ex => {
-                        response.send(ex);
-                    })
             }
         )
         .catch(ex => {
@@ -125,20 +53,23 @@ router.get('/write-batch', (request, response) => {
         })
 });
 
-router.get('/read-snapshot', (req, res) => {
+router.get('/read-snapshot', (request, response) => {
     console.log('READ SNAPSHOT CALLED');
 
     if (!db) {
         db = init();
     }
 
-    readSnapshot(db)
-        .then(snapshot => {
-            const data = snapshot.docs.map(doc => doc.data());
-            res.send(data);
+    verifyToken(request.query.token)
+        .then((decodedToken) => {
+            readSnapshot(db)
+                .then(snapshot => {
+                    const data = snapshot.docs.map(doc => doc.data());
+                    response.send(data);
+                })
         })
         .catch(ex => {
-            res.send(ex);
+            response.send(ex);
         })
 });
 

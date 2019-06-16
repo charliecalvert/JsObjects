@@ -72,10 +72,6 @@ class App extends Component {
 
                 <h2>Writes</h2>
                 <p><b>Result</b>: {this.state.result}</p>
-                <h2>Reads</h2>
-                <p><b>Name</b>: {this.state.name}</p>
-                <p><b>Email</b>: {this.state.email}</p>
-                <p><b>Photo URL</b>: {this.state.photoUrl}</p>
 
                 <h2>Reads</h2>
                 <p><b>ID</b>: {this.state.items[0].id}</p>
