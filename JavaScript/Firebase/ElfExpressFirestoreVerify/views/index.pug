@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+
+    #root
+
+    .__react-root(id="App" data-app="App")
+
+    p#sign-in-status
+
+    p#sign-in
+
+    p#account-details
+
+    script(src="bundle.js")

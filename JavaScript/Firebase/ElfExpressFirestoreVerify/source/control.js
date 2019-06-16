@@ -1,13 +1,11 @@
-//import { renderAppTool } from './TheTheme';
-import loadAddress from './load-address';
-import ElfApp from './ElfApp';
-import {FirebaseLogout} from './FirebaseLogout';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+import {FirebaseLogout} from "./FirebaseLogout";
 import {initApp} from './elf-firebase';
-import React from "react";
-import ReactDOM from "react-dom";
 
 const APPS = {
-    ElfApp,
+    App,
     FirebaseLogout
 };
 
@@ -27,19 +25,16 @@ const doRender = () => {
 };
 
 window.onload = function () {
-    ReactDOM.render(<ElfApp/>, document.getElementById('root'));
     initApp(() => {
         if (window.firebase.auth().currentUser) {
-            loadAddress()
-                .then(result => {
-                    console.log('LOAD STATUS', result.status);
-                    doRender();
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        } else {
             doRender();
         }
-    });
+    })
 };
+
+/*
+window.onload = function() {
+    ReactDOM.render(<ElfApp/>, document.getElementById('root'));
+};
+*/
+

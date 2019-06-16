@@ -15,6 +15,13 @@ router.get('/', function (req, res) {
     });
 });
 
+router.get('/worker', (request, response) => {
+    'use strict';
+    response.render('worker', {
+        title: request.query.title
+    });
+});
+
 const writeData = (user, db) => {
     return new Promise(function (resolve, reject) {
 
@@ -60,7 +67,7 @@ const userData = {
 };
 
 router.get('/write', (req, res) => {
-    if(!db) {
+    if (!db) {
         db = init();
     }
     writeData(userData, db)
@@ -74,7 +81,7 @@ router.get('/write', (req, res) => {
 });
 
 router.get('/read', (req, res) => {
-    if(!db) {
+    if (!db) {
         db = init();
     }
     readData('TempRecord', db)
@@ -83,33 +90,45 @@ router.get('/read', (req, res) => {
         })
 });
 
-router.get('/write-batch', (req, res) => {
+
+router.get('/write-batch', (request, response) => {
     const items = [
-        {id: '0', data: 'foo00', bar: 'barso' },
-        {id: '1', data: 'foo01' },
-        {id: '2', data: 'foo02', bar: 'barfoo' },
-        {id: '3', data: 'foo03' },
-        {id: '4', data: 'foo04' }
+        {id: '0', data: 'foo00', bar: 'barso'},
+        {id: '1', data: 'foo01'},
+        {id: '2', data: 'foo02', bar: 'barfoo'},
+        {id: '3', data: 'foo03'},
+        {id: '4', data: 'foo04'}
     ];
 
-    console.log('WRITE-BATCH CALLED');
-    if(!db) {
-        db = init();
-    }
+    console.log('WRITE BATCH', request.query);
 
-    writeBatchData(items, db)
-        .then(result => {
-            res.send(result);
-        })
+    verifyToken(request.query.token)
+        .then((decodedToken) => {
+
+                console.log('WRITE-BATCH CALLED');
+                if (!db) {
+                    db = init();
+                }
+
+                writeBatchData(items, db)
+                    .then(result => {
+                        response.send(result);
+                    })
+                    .catch(ex => {
+                        response.send(ex);
+                    })
+            }
+        )
         .catch(ex => {
-            res.send(ex);
+            console.log('error', ex);
+            response.send({'error': ex});
         })
 });
 
 router.get('/read-snapshot', (req, res) => {
     console.log('READ SNAPSHOT CALLED');
 
-    if(!db) {
+    if (!db) {
         db = init();
     }
 
