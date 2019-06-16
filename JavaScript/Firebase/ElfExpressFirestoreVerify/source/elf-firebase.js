@@ -10,13 +10,13 @@
 // find the Settings Gear, choose Project Settings, and scroll down a bit.
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBQvsXRu3H4A-ikfJFkjQKVS2aVMl2Yqs4",
-    authDomain: "prog270-calvert.firebaseapp.com",
-    databaseURL: "https://prog270-calvert.firebaseio.com",
-    projectId: "prog270-calvert",
-    storageBucket: "prog270-calvert.appspot.com",
-    messagingSenderId: "839059130275",
-    appId: "1:839059130275:web:1dd6d418357cce12"
+    apiKey: "YOUR CONFIG HERE",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 // Initialize Firebase
 window.firebase.initializeApp(firebaseConfig);
