@@ -13,10 +13,10 @@ function init() {
     return admin.firestore();
 }
 
-function verifyToken(token, url) {
+function verifyToken(token) {
     return new Promise(function (resolve, reject) {
         if (!loggedIn) {
-            init(url);
+            init();
         }
         admin
             .auth()

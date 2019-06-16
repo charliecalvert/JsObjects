@@ -8,7 +8,7 @@ import ReactDOM from "react-dom";
 
 const APPS = {
     ElfApp,
-    FirebaseLogout: FirebaseLogout,
+    FirebaseLogout
 };
 
 function renderAppInElement(choice) {

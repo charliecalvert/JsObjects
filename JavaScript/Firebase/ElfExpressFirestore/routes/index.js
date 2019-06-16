@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {init} = require('./verify-db');
+const {init, verifyToken} = require('./verify-db');
 const firebase = require("firebase");
 require("firebase/firestore");
 const {writeBatchData, readSnapshot} = require('./batch');
