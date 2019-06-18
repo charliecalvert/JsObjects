@@ -44,6 +44,7 @@ alias go="npm install && bower install && npm start"
 alias elfgo="npm install && bower install"
 alias fbgo="firebase serve --port 30025"
 alias fbs="cd functions && npm i && cd .. && firebase serve --port=30025"
+alias fbsp="npm i && npm run build && cd functions && npm i && cd .. && npm start"
 alias runnpm="npm install && npm start"
 alias runexpress='npm install && bower install && grunt check'
 alias runy='yarn install && bower install && yarn start'
