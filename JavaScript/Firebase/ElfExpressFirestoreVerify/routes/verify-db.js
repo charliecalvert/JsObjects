@@ -5,7 +5,7 @@ let loggedIn = false;
 //'firebase-adminsdk-2p1h1@prog270-calvert.iam.gserviceaccount.com';
 function init() {
     loggedIn = true;
-    if (admin.apps.length === 0) {
+    if (!admin.apps.length) {
         admin.initializeApp({
             credential: admin.credential.applicationDefault(),
         });
