@@ -25,10 +25,12 @@ const doRender = () => {
 };
 
 window.onload = function () {
-    ReactDOM.render(<App/>, document.getElementById('root'));
     initApp(() => {
         if (window.firebase.auth().currentUser) {
+            document.getElementById('root').innerHTML = "";
             doRender();
+        } else {
+            ReactDOM.render(<App/>, document.getElementById('root'));
         }
     })
 };
