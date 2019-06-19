@@ -10,7 +10,13 @@
 // find the Settings Gear, choose Project Settings, and scroll down a bit.
 
 const firebaseConfig = {
-    // INSERT YOUR CONFIG HERE
+    apiKey: "YOUR CONFIG HERE",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 
 // Initialize Firebase
