@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./App";
-import {FirebaseLogout} from "./FirebaseLogout";
-import {initApp} from './elf-firebase';
+import App from './App';
+import { FirebaseLogout } from './FirebaseLogout';
+import { initApp } from './elf-firebase';
 
 const APPS = {
     App,
@@ -14,9 +14,7 @@ function renderAppInElement(choice) {
     if (!AppTool) return;
     const props = Object.assign({}, choice.dataset);
     //renderAppTool(AppTool, props, choice);
-    ReactDOM.render(
-        <AppTool {...props} />, choice
-    )
+    ReactDOM.render(<AppTool {...props} />, choice);
 }
 
 const doRender = () => {
@@ -24,15 +22,15 @@ const doRender = () => {
     selectors.forEach(renderAppInElement);
 };
 
-window.onload = function () {
+window.onload = function() {
     initApp(() => {
         if (window.firebase.auth().currentUser) {
-            document.getElementById('root').innerHTML = "";
+            document.getElementById('root').innerHTML = '';
             doRender();
         } else {
-            ReactDOM.render(<App/>, document.getElementById('root'));
+            ReactDOM.render(<App />, document.getElementById('root'));
         }
-    })
+    });
 };
 
 /*
@@ -40,4 +38,3 @@ window.onload = function() {
     ReactDOM.render(<ElfApp/>, document.getElementById('root'));
 };
 */
-

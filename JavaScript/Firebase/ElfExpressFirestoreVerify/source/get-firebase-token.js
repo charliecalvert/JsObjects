@@ -16,11 +16,14 @@ const getFirebaseToken = () => {
     });
 };
 
-const makeParams = (params) => {
+const makeParams = params => {
     var esc = encodeURIComponent;
-    return '?' + Object.keys(params)
-        .map(k => esc(k) + '=' + esc(params[k]))
-        .join('&');
+    return (
+        '?' +
+        Object.keys(params)
+            .map(k => esc(k) + '=' + esc(params[k]))
+            .join('&')
+    );
 };
 
-export {getFirebaseToken, makeParams};
+export { getFirebaseToken, makeParams };
