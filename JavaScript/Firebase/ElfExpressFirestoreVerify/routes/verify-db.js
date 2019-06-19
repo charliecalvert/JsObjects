@@ -7,26 +7,26 @@ function init() {
     loggedIn = true;
     if (!admin.apps.length) {
         admin.initializeApp({
-            credential: admin.credential.applicationDefault(),
+            credential: admin.credential.applicationDefault()
         });
     }
     return admin.firestore();
 }
 
 function verifyToken(token) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         if (!loggedIn) {
             init();
         }
         admin
             .auth()
             .verifyIdToken(token)
-            .then(function (decodedToken) {
+            .then(function(decodedToken) {
                 console.log('UID', JSON.stringify(decodedToken, null, 4));
                 console.log('MAIN SERVER QUX YOU RANG CALLED');
                 resolve(decodedToken);
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 console.log(error);
                 reject(error);
             });

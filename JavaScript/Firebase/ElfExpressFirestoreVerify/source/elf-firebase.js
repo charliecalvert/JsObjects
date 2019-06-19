@@ -10,14 +10,9 @@
 // find the Settings Gear, choose Project Settings, and scroll down a bit.
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBQvsXRu3H4A-ikfJFkjQKVS2aVMl2Yqs4",
-    authDomain: "prog270-calvert.firebaseapp.com",
-    databaseURL: "https://prog270-calvert.firebaseio.com",
-    projectId: "prog270-calvert",
-    storageBucket: "prog270-calvert.appspot.com",
-    messagingSenderId: "839059130275",
-    appId: "1:839059130275:web:1dd6d418357cce12"
+    // INSERT YOUR CONFIG HERE
 };
+
 // Initialize Firebase
 window.firebase.initializeApp(firebaseConfig);
 
@@ -38,12 +33,14 @@ const initApp = function(callback) {
 
                 // getIdToken passes accessToken to it's call back but I don't include it since we don't use it
                 user.getIdToken().then(function() {
-                    document.getElementById('sign-in-status').textContent = 'Signed in';
+                    document.getElementById('sign-in-status').textContent =
+                        'Signed in';
                     document.getElementById('sign-in').textContent = '';
                 });
             } else {
                 // User is signed out.
-                document.getElementById('sign-in-status').textContent = 'Status: Signed out';
+                document.getElementById('sign-in-status').textContent =
+                    'Status: Signed out';
                 document.getElementById('sign-in').textContent = '';
                 document.getElementById('account-details').textContent = '';
                 //document.getElementById('sign-out').style.visibility = 'hidden';
@@ -56,7 +53,7 @@ const initApp = function(callback) {
     );
 };
 
-export {initApp}
+export { initApp };
 
 /*
 window.addEventListener('load', function() {
