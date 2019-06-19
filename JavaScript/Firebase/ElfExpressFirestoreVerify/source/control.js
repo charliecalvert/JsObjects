@@ -25,6 +25,7 @@ const doRender = () => {
 };
 
 window.onload = function () {
+    ReactDOM.render(<App/>, document.getElementById('root'));
     initApp(() => {
         if (window.firebase.auth().currentUser) {
             doRender();
