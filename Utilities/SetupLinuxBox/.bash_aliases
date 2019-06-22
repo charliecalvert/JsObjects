@@ -52,6 +52,7 @@ alias runs='yarn install && yarn start'
 alias runl='ln -s ~/tmp/node_modules . && npm start'
 alias runcln='cd client && npm i && cd ../server && npm i && bower install && cd .. && npm i'
 alias runmicros='cd git-gist && npm i && cd ../qux && pwd && npm i && bower install && cd ../git-user && pwd && npm i && bower install && cd ..'
+alias runa="runcln && cd micros && runmicros && cd ../project-sanity-tests && runtest"
 alias runtest='npm i && npm test'
 alias runcs='cd client && npm i && cd ../server && npm i && npm start'
 alias yni="yarn install"
@@ -65,6 +66,7 @@ alias cpfavi="cp -v $ELF_TEMPLATES/Images/favicon.ico ."
 alias cpfavp="cp -v $ELF_TEMPLATES/Images/favicon.png ."
 alias gss="git status"
 alias gitlog="git log --pretty=format:'%h: %ad'"
+alias cleanpj="rm -r node_modules/ && rm package-lock.json && cd client && rm -r node_modules && rm package-lock.json"
 alias pj="git co package.json"
 alias plj="git co package-lock.json package.json"
 alias elf-server="nodemon ${PWD}/server/bin/www"
