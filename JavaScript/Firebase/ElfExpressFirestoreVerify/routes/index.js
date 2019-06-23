@@ -5,7 +5,7 @@ const firebase = require('firebase');
 require('firebase/firestore');
 const { writeBatchData, readSnapshot } = require('./batch');
 
-let db = null;
+let db = init();
 
 /* GET home page. */
 router.get('/', function(req, res) {

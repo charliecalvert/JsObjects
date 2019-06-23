@@ -1,7 +1,7 @@
-const getFirebaseToken = () => {
+const getFirebaseToken = (setData) => {
     return new Promise((resolve, reject) => {
         if (!window.firebase.auth().currentUser) {
-            this.setData({ result: 'You need to log in.' });
+            setData({ result: 'You need to log in.' });
             reject({ result: 'You need to log in (env export?).' });
         }
         window.firebase

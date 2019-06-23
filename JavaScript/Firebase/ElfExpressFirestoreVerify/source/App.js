@@ -15,17 +15,21 @@ class App extends Component {
         };
     }
 
+    setData = (result) => {
+        console.log('FETCH RESULT', result);
+        this.setState(result);
+    };
+
     runQuery = event => {
         const url = event.currentTarget.dataset.url;
-        getFirebaseToken()
+        getFirebaseToken(this.setData)
             .then(response => {
                 fetch(url + makeParams({ token: response.token }))
                     .then(response => {
                         return response.json();
                     })
                     .then(result => {
-                        console.log('FETCH RESULT', result);
-                        this.setState(result);
+                        this.setData(result);
                     })
                     .catch(ex => {
                         console.log(ex);
@@ -39,14 +43,14 @@ class App extends Component {
 
     runBatchRead = event => {
         const url = event.currentTarget.dataset.url;
-        getFirebaseToken()
+        getFirebaseToken(this.setData)
             .then(response => {
                 fetch(url + makeParams({ token: response.token }))
                     .then(response => {
                         return response.json();
                     })
                     .then(result => {
-                        this.setState({ items: result });
+                        this.setData({ items: result });
                     })
                     .catch(ex => {
                         console.log(ex);
