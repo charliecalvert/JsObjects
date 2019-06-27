@@ -1,6 +1,8 @@
 /* global Crafty: true */
 /* jshint browser: true */
 
+import Crafty from 'craftyjs';
+
 function startGame() {'use strict';
 	var game = {
 

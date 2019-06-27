@@ -1,6 +1,8 @@
 .metadata
 platforms
 babel_cache
+bundle.js*
+*.hot-update.js*
 components
 Thumbs.db
 *.apk

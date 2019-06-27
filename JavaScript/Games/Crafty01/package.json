@@ -1,0 +1,35 @@
+{
+  "name": "crafty01",
+  "version": "1.0.0",
+  "description": "Start learning crafty",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx webpack-dev-server --port=30025",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "game",
+    "learn"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "craftyjs": "^0.9.0",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5"
+  }
+}
