@@ -34,7 +34,12 @@ export const FirebaseLogout = function() {
                 {currentUser.providerId}
             </Typography>
 
-            <img src={currentUser.photoURL} alt="user" width="100" height="100" />
+            <img
+                src={currentUser.photoURL}
+                alt="user"
+                width="100"
+                height="100"
+            />
             <Paper>
                 <Button
                     variant="contained"

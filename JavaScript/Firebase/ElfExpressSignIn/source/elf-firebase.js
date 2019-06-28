@@ -10,13 +10,13 @@
 // find the Settings Gear, choose Project Settings, and scroll down a bit.
 
 const firebaseConfig = {
-    apiKey: "YOUR CONFIG HERE",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: 'YOUR CONFIG HERE',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
 };
 // Initialize Firebase
 window.firebase.initializeApp(firebaseConfig);
@@ -38,12 +38,14 @@ const initApp = function(callback) {
 
                 // getIdToken passes accessToken to it's call back but I don't include it since we don't use it
                 user.getIdToken().then(function() {
-                    document.getElementById('sign-in-status').textContent = 'Signed in';
+                    document.getElementById('sign-in-status').textContent =
+                        'Signed in';
                     document.getElementById('sign-in').textContent = '';
                 });
             } else {
                 // User is signed out.
-                document.getElementById('sign-in-status').textContent = 'Status: Signed out';
+                document.getElementById('sign-in-status').textContent =
+                    'Status: Signed out';
                 document.getElementById('sign-in').textContent = '';
                 document.getElementById('account-details').textContent = '';
                 //document.getElementById('sign-out').style.visibility = 'hidden';
@@ -56,7 +58,7 @@ const initApp = function(callback) {
     );
 };
 
-export {initApp}
+export { initApp };
 
 /*
 window.addEventListener('load', function() {

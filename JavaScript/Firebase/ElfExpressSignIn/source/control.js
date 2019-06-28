@@ -1,10 +1,10 @@
 //import { renderAppTool } from './TheTheme';
 import loadAddress from './load-address';
 import ElfApp from './ElfApp';
-import {FirebaseLogout} from './FirebaseLogout';
-import {initApp} from './elf-firebase';
-import React from "react";
-import ReactDOM from "react-dom";
+import { FirebaseLogout } from './FirebaseLogout';
+import { initApp } from './elf-firebase';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const APPS = {
     ElfApp,
@@ -16,9 +16,7 @@ function renderAppInElement(choice) {
     if (!AppTool) return;
     const props = Object.assign({}, choice.dataset);
     //renderAppTool(AppTool, props, choice);
-    ReactDOM.render(
-        <AppTool {...props} />, choice
-    )
+    ReactDOM.render(<AppTool {...props} />, choice);
 }
 
 const doRender = () => {
@@ -26,8 +24,8 @@ const doRender = () => {
     selectors.forEach(renderAppInElement);
 };
 
-window.onload = function () {
-    ReactDOM.render(<ElfApp/>, document.getElementById('root'));
+window.onload = function() {
+    ReactDOM.render(<ElfApp />, document.getElementById('root'));
     initApp(() => {
         if (window.firebase.auth().currentUser) {
             loadAddress()

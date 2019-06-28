@@ -34,22 +34,20 @@ const elfQuery = response => {
 };
 
 const loadAddress = () => {
-        return new Promise((resolve, reject) => {
-            if (!dataLoaded()) {
-                getFirebaseToken()
-                    .then(elfQuery)
-                    .then(json => {
-                        setLocalStorage(json);
-                        resolve({ status: 'ok', address: json });
-                    })
-                    .catch(ex => {
-                        reject(ex.message);
-                    });
-            } else {
-                resolve({ status: 'already loaded' });
-            }
-        });
-    }
-;
-
+    return new Promise((resolve, reject) => {
+        if (!dataLoaded()) {
+            getFirebaseToken()
+                .then(elfQuery)
+                .then(json => {
+                    setLocalStorage(json);
+                    resolve({ status: 'ok', address: json });
+                })
+                .catch(ex => {
+                    reject(ex.message);
+                });
+        } else {
+            resolve({ status: 'already loaded' });
+        }
+    });
+};
 export default loadAddress;
