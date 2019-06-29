@@ -32,9 +32,3 @@ window.onload = function() {
         }
     });
 };
-
-/*
-window.onload = function() {
-    ReactDOM.render(<ElfApp/>, document.getElementById('root'));
-};
-*/

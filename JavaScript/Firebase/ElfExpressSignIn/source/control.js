@@ -15,7 +15,6 @@ function renderAppInElement(choice) {
     const AppTool = APPS[choice.dataset.app];
     if (!AppTool) return;
     const props = Object.assign({}, choice.dataset);
-    //renderAppTool(AppTool, props, choice);
     ReactDOM.render(<AppTool {...props} />, choice);
 }
 
@@ -34,7 +33,8 @@ window.onload = function() {
                     doRender();
                 })
                 .catch(err => {
-                    console.log(err);
+                    alert(err);
+                    doRender();
                 });
         } else {
             doRender();

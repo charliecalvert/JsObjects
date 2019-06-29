@@ -1,5 +1,5 @@
 {
-  "name": "phaser",
+  "name": "phaser-starter",
   "version": "1.0.0",
   "description": "Game test",
   "main": "index.js",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "phaser3-project-template": "^1.0.1"
+    "phaser": "^3.18.1",
+    "phaser3-project-template": "^1.0.9"
   }
 }
