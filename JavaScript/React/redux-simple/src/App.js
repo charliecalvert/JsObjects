@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -10,13 +9,12 @@ class App extends Component {
         };
 
         this.props.store.subscribe(() => {
-            this.setState((prevState) => {
+            this.setState(prevState => {
                 const storeState = this.props.store.getState();
                 console.log(storeState);
-                return {statement: storeState.statement}
+                return { statement: storeState.statement };
             });
         });
-
     }
 
     verifyStatement = () => {
@@ -31,26 +29,25 @@ class App extends Component {
         this.props.store.dispatch({ type: 'NO COMMENT' });
     };
 
-  render() {
-
-      return (
-      <div className="App">
-        <div className="App-intro">
-          <h2>Welcome to React and Redux App</h2>
-        </div>
-        <p className="App-intro">
-          This component uses Redux and receives <strong>store</strong> as <strong>props</strong>.
-        </p>
-          <h1>Political Science</h1>
-          {this.state.statement}
-          <hr />
-          <button onClick={this.verifyStatement}>Verify</button>
-          <button onClick={this.denyEverything}>Deny</button>
-          <button onClick={this.noComment}>No Comment</button>
-
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <div className="App-intro">
+                    <h2>Welcome to React and Redux App</h2>
+                </div>
+                <p className="App-intro">
+                    This component uses Redux and receives{' '}
+                    <strong>store</strong> as <strong>props</strong>.
+                </p>
+                <h1>Political Science</h1>
+                {this.state.statement}
+                <hr />
+                <button onClick={this.verifyStatement}>Verify</button>
+                <button onClick={this.denyEverything}>Deny</button>
+                <button onClick={this.noComment}>No Comment</button>
+            </div>
+        );
+    }
 }
 
 export default App;

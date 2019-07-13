@@ -13,7 +13,7 @@ describe('App tests', function() {
 
     beforeEach(() => {
         global.fetch = jest.fn().mockImplementation(() => {
-            const promise = new Promise((resolve) => {
+            const promise = new Promise(resolve => {
                 resolve({
                     ok: true,
                     json: function() {

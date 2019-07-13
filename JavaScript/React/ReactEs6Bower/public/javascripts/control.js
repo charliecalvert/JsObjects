@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 */
 
-$(document).ready(function() { 'use strict';
+$(document).ready(function() {
+    'use strict';
 
     class SimpleReact extends React.Component {
-
         getTwo(x) {
             console.log(x);
             return 2 * x;
@@ -18,13 +18,9 @@ $(document).ready(function() { 'use strict';
                     <div>This is a react component</div>
                     <p>Here is the number two: {this.getTwo(3)}</p>
                 </div>
-            )
-        };
+            );
+        }
     }
 
-    ReactDOM.render(
-        <SimpleReact/>,
-        document.getElementById('root')
-    );
-
+    ReactDOM.render(<SimpleReact />, document.getElementById('root'));
 });

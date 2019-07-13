@@ -10,7 +10,6 @@ const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js');
 configure({ adapter: new Adapter() });
 
 describe('FetchServer Tests', function() {
-
     elfLogger.off();
 
     it('renders without crashing', () => {
@@ -28,29 +27,26 @@ describe('FetchServer Tests', function() {
 
     it('renders state.result before button click', () => {
         const wrapper = shallow(<FetchServer />);
-        const nineSign = (
-            <p className="App-intro">Result: unknown</p>
-        );
+        const nineSign = <p className="App-intro">Result: unknown</p>;
         elfDebugEnzyme.getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toBe(true);
     });
 
     it('renders state by calling fetchServer directly', () => {
         const wrapper = shallow(<FetchServer />);
-        const statusParagraph = (
-            <p className="App-intro">Result: success</p>
-        );
-        wrapper.instance().fetchServer()
+        const statusParagraph = <p className="App-intro">Result: success</p>;
+        wrapper
+            .instance()
+            .fetchServer()
             .then(() => {
                 console.log(wrapper.debug());
                 wrapper.update();
                 try {
                     expect(wrapper.contains(statusParagraph)).toBe(true);
-                } catch(ex) {
+                } catch (ex) {
                     console.error(ex);
                 }
             });
-
     });
 
     it('calls fetchServer button click', () => {
@@ -63,9 +59,7 @@ describe('FetchServer Tests', function() {
 
     it('renders state.result after button click with setImmediate', () => {
         const wrapper = shallow(<FetchServer />);
-        const statusParagraph = (
-            <p className="App-intro">Result: success</p>
-        );
+        const statusParagraph = <p className="App-intro">Result: success</p>;
         wrapper.find('#fetchServer').simulate('click');
         setImmediate(() => {
             wrapper.update();

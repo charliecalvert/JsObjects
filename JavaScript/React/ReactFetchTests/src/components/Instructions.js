@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/App.css';
 
 class Instructions extends Component {
     showServerInfo = () => {
         const info = {
-            result: 'success',
+            result: 'success'
         };
         return JSON.stringify(info, null, 4);
     };
@@ -16,11 +16,11 @@ class Instructions extends Component {
         return JSON.stringify(info, null, 4);
     };
 
-    getUrls = (offset) => {
+    getUrls = offset => {
         const urls = [
-            "http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#create-mock-data",
-            "http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#mocking-fetch",
-            "http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#working-with-create-react-app"
+            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#create-mock-data',
+            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#mocking-fetch',
+            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#working-with-create-react-app'
         ];
         return urls[offset];
     };
@@ -36,29 +36,50 @@ class Instructions extends Component {
                     <p className="Code">
                         This program assumes you have a server running. The
                         server should respond to queries to these routes:{' '}
-                        <strong>/api/foo</strong> and <strong>/api/numbers</strong>. When that endpoint is called,
-                        the server should send at least this much information:
+                        <strong>/api/foo</strong> and{' '}
+                        <strong>/api/numbers</strong>. When that endpoint is
+                        called, the server should send at least this much
+                        information:
                     </p>
-                    <p>For <strong>/api/foo</strong>:</p>
+                    <p>
+                        For <strong>/api/foo</strong>:
+                    </p>
                     <pre className="Code">{this.showServerInfo()}</pre>
-                    <p>For <strong>/numbers</strong>:</p>
+                    <p>
+                        For <strong>/numbers</strong>:
+                    </p>
                     <pre className="Code">{this.showNumbersInfo()}</pre>
-                    <p>See also the <strong>__mocks__</strong> directory and <strong>src/setupTests.js</strong>.</p>
+                    <p>
+                        See also the <strong>__mocks__</strong> directory and{' '}
+                        <strong>src/setupTests.js</strong>.
+                    </p>
                     <ul>
-                        <li><a
-                            href={this.getUrls(0)}
-                            target="_blank"
-                            rel="noopener noreferrer">Mocking
-                            Data</a></li>
-                        <li><a
-                            href={this.getUrls(1)}
-                            target="_blank"
-                            rel="noopener noreferrer">Mocking
-                            Fetch</a></li>
-                        <li><a
-                            href={this.getUrls(2)}
-                            target="_blank"
-                            rel="noopener noreferrer">Setup</a>
+                        <li>
+                            <a
+                                href={this.getUrls(0)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Mocking Data
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href={this.getUrls(1)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Mocking Fetch
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href={this.getUrls(2)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Setup
+                            </a>
                         </li>
                     </ul>
                 </div>

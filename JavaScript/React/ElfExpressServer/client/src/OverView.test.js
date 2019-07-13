@@ -18,7 +18,7 @@ const elfDebugEnzyme = new ElfDebugEnzyme(true, 'App.test.js');
 //class OverviewDummyWrapper extends React.Component {}
 
 describe('Test overview', () => {
-//    let wrapper;
+    //    let wrapper;
 
     /*beforeEach(() => {
         wrapper = shallow(

@@ -30,24 +30,27 @@ module.exports = {
         })
     ],
     module: {
-        rules: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    "presets": ["react", "es2015", "stage-0", "react-hmre"]
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react', 'es2015', 'stage-0', 'react-hmre']
+                    }
                 }
-            }
-        },
+            },
             {
                 test: /\.json?$/,
                 use: {
                     loader: 'json'
                 }
-            }, {
+            },
+            {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
-            }]
+                use: ['style-loader', 'css-loader']
+            }
+        ]
     }
 };

@@ -6,14 +6,14 @@ import MaterialSlider from './material-slider';
 class SimpleReact extends React.Component {
     render() {
         return <div>This is a react component.</div>;
-    };
+    }
 }
 
 $(document).ready(function() {
     'use strict';
     ReactDOM.render(
         <div>
-            <MaterialSlider/>
+            <MaterialSlider />
         </div>,
         document.getElementById('reactStuff')
     );

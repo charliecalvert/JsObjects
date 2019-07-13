@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/App.css';
 
 class FetchServerInfo extends Component {
@@ -27,7 +27,7 @@ class FetchServerInfo extends Component {
                 console.log('ERROR', ex.message);
                 console.log('ERROR', ex.stack);
                 console.log('ERROR', JSON.stringify(ex, null, 4));
-                that.setState({error: ex.message});
+                that.setState({ error: ex.message });
             });
     }
 
@@ -35,15 +35,15 @@ class FetchServerInfo extends Component {
         console.log('RENDER FETCH NUMBERS', this.state);
         return (
             <div className="App">
-                {this.state.numbers.map((value) => {
-                    return <p key={value}>{value}</p>
+                {this.state.numbers.map(value => {
+                    return <p key={value}>{value}</p>;
                 })}
                 <p className="App-intro">Error: {this.state.error}</p>
                 <button id="fetchNumbers" onClick={this.fetchNumbers}>
                     Fetch Numbers
                 </button>
 
-                <hr/>
+                <hr />
             </div>
         );
     }

@@ -12,14 +12,14 @@
         <pre key={i}> [ {JSON.stringify(item, null, 4)}] </pre> )}
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class ShowReduxState extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            reduxState: {},
+            reduxState: {}
         };
 
         /*
@@ -28,7 +28,6 @@ class ShowReduxState extends Component {
          * In the render method, our state is the Redux state
          */
         this.props.store.subscribe(() => {
-
             this.setState({
                 reduxState: this.getReduxState()
             });
@@ -45,11 +44,12 @@ class ShowReduxState extends Component {
             <div>
                 <h1>The Redux State</h1>
                 <p>Here is the current Redux state:</p>
-                <pre key={0}>{JSON.stringify(this.state.reduxState, null, 4)}</pre>
+                <pre key={0}>
+                    {JSON.stringify(this.state.reduxState, null, 4)}
+                </pre>
             </div>
         );
     }
 }
 
 export default ShowReduxState;
-

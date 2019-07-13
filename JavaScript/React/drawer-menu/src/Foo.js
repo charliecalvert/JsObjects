@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 class Foo extends Component {
     render() {
-        return (<h1>You Picked Foo</h1>)
+        return <h1>You Picked Foo</h1>;
     }
 }
 

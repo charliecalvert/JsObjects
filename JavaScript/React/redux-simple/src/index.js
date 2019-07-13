@@ -9,27 +9,28 @@ import DispactchComponentConnect from './DispatchComponentConnect';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import spokesman from './spokesman';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 let store = createStore(spokesman);
 
 ReactDOM.render(
     <div>
         <Provider store={store}>
             <div>
-                <AppConnect/>
+                <AppConnect />
                 <hr /> <hr />
-                <AppConnectMaps/>
+                <AppConnectMaps />
                 <hr /> <hr />
-                <DispactchComponentConnect/>
+                <DispactchComponentConnect />
                 <hr /> <hr />
-                <DispatchConnect/>
+                <DispatchConnect />
                 <hr /> <hr />
-                <App store={store}/>
+                <App store={store} />
                 <hr /> <hr />
                 <SimpleRedux />
             </div>
         </Provider>
     </div>,
-    document.getElementById('root'));
+    document.getElementById('root')
+);
 registerServiceWorker();

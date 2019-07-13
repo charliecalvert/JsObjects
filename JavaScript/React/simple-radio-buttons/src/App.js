@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
@@ -10,12 +10,14 @@ class App extends Component {
         };
     }
 
-    handleRadioChange = (event) => {
-        this.setState({checkedRadioButton: event.target.value});
+    handleRadioChange = event => {
+        this.setState({ checkedRadioButton: event.target.value });
     };
 
     useButtonSelection = () => {
-        this.setState({message: "You've chosen " + this.state.checkedRadioButton});
+        this.setState({
+            message: "You've chosen " + this.state.checkedRadioButton
+        });
     };
 
     render() {
@@ -29,7 +31,9 @@ class App extends Component {
                     checked={this.state.checkedRadioButton === 'RadioOne'}
                     onChange={this.handleRadioChange}
                 />
-                <label htmlFor="radio-one" className="book-radio">Book Radio 2</label>
+                <label htmlFor="radio-one" className="book-radio">
+                    Book Radio 2
+                </label>
                 <input
                     type="radio"
                     name="book-radio"
@@ -38,19 +42,25 @@ class App extends Component {
                     checked={this.state.checkedRadioButton === 'RadioTwo'}
                     onChange={this.handleRadioChange}
                 />
-                <label htmlFor="radio-two" className="book-radio">Book Radio 2</label>
+                <label htmlFor="radio-two" className="book-radio">
+                    Book Radio 2
+                </label>
             </div>
         );
 
         return (
             <div className="App">
                 <section>
-                    <hr/>
+                    <hr />
                     {bookRadios}
-                    <hr/>
-                    <p>Selected radio button: {this.state.checkedRadioButton}</p>
+                    <hr />
+                    <p>
+                        Selected radio button: {this.state.checkedRadioButton}
+                    </p>
                     <p>Message: {this.state.message}</p>
-                    <button type="button" onClick={this.useButtonSelection}>Use Radio Button to set the message</button>
+                    <button type="button" onClick={this.useButtonSelection}>
+                        Use Radio Button to set the message
+                    </button>
                 </section>
             </div>
         );

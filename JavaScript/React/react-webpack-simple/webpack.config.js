@@ -11,15 +11,17 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                cacheDirectory: 'babel_cache',
-                presets: ['react', 'es2015']
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    cacheDirectory: 'babel_cache',
+                    presets: ['react', 'es2015']
+                }
             }
-        }]
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({

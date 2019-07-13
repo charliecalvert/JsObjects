@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../css/App.css';
 
 class FetchServer extends Component {
@@ -27,7 +27,7 @@ class FetchServer extends Component {
                 console.log('ERROR', ex.message);
                 console.log('ERROR', ex.stack);
                 console.log('ERROR', JSON.stringify(ex, null, 4));
-                that.setState({error: ex.message});
+                that.setState({ error: ex.message });
             });
     }
 

@@ -32,13 +32,17 @@ if (isDeveloping) {
 
     app.get('/', function response(req, res) {
         console.log('GETTING ROOT');
-        res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+        res.write(
+            middleware.fileSystem.readFileSync(
+                path.join(__dirname, 'dist/index.html')
+            )
+        );
         res.end();
     });
 
     app.get('/get-nine-from-server', function(request, response) {
         console.log('Get Nine called');
-        response.send({'result': 'Success message sent from server.', 'nine': 9});
+        response.send({ result: 'Success message sent from server.', nine: 9 });
     });
 } else {
     console.log('Production in server.js');
@@ -52,5 +56,9 @@ app.listen(port, '0.0.0.0', function onStart(err) {
     if (err) {
         console.log(err);
     }
-    console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
+    console.info(
+        '==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.',
+        port,
+        port
+    );
 });

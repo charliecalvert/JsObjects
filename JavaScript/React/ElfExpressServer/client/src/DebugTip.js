@@ -9,7 +9,9 @@ class DebugTip extends React.Component {
                     To get started debugging your webpack, add this to the{' '}
                     <strong>webpack.config.js</strong> config file:
                 </p>
-                <pre>devtool: <b>source-map</b>,</pre>
+                <pre>
+                    devtool: <b>source-map</b>,
+                </pre>
                 <p>Open the debugger and go webpack in the navigation pane.</p>
                 <img src="debug-web.png" alt="debugging" />
             </div>

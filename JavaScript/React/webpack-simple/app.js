@@ -8,5 +8,7 @@ import $ from 'jquery';
 $('<h1>Countries</h1>').appendTo('body');
 const ul = $('<ul></ul>').appendTo('body');
 for (const country of countries) {
-    $('<li></li>').text(country).appendTo(ul);
+    $('<li></li>')
+        .text(country)
+        .appendTo(ul);
 }

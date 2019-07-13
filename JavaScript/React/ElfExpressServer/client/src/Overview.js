@@ -24,8 +24,9 @@ class Overview extends React.Component {
                     Redux data like the <strong>date</strong> and the{' '}
                     <strong>counter</strong> are shared across multiple modules.
                     The various sections of the main page are broken up into
-                    separate React modules. The goal is <b>divide and conquor</b>.
-                    Each object should be short and do only one thing.
+                    separate React modules. The goal is{' '}
+                    <b>divide and conquor</b>. Each object should be short and
+                    do only one thing.
                 </p>
 
                 <p>

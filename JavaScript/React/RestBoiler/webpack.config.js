@@ -30,22 +30,23 @@ module.exports = {
         })
     ],
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                "presets": ["react", "es2015", "stage-0", "react-hmre"]
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015', 'stage-0', 'react-hmre']
+                }
+            },
+            {
+                test: /\.json?$/,
+                loader: 'json'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
-        }, {
-            test: /\.json?$/,
-            loader: 'json'
-        }, {
-            test: /\.css$/,
-            use: [
-                "style-loader",
-                "css-loader"
-            ]
-        }]
+        ]
     }
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 
-let AppConnect = ({statement, deny, verify, noComment}) => {
-
+let AppConnect = ({ statement, deny, verify, noComment }) => {
     return (
         <div className="App">
             <p className="App-intro">
-                This AppConnect component uses Redux and connect.
-                The connect bits are in a separate file called <strong>AppConnectMaps</strong>.
+                This AppConnect component uses Redux and connect. The connect
+                bits are in a separate file called{' '}
+                <strong>AppConnectMaps</strong>.
             </p>
             <h1>App Connect JSX Only</h1>
             {statement}
@@ -20,4 +20,3 @@ let AppConnect = ({statement, deny, verify, noComment}) => {
 };
 
 export default AppConnect;
-

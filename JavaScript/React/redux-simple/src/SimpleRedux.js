@@ -17,7 +17,7 @@ class SimpleRedux extends Component {
     state = spokesman(undefined, {});
 
     dispatch(action) {
-        this.setState( (prevState) => spokesman(prevState, action));
+        this.setState(prevState => spokesman(prevState, action));
     }
 
     verifyStatement = () => {
@@ -37,14 +37,17 @@ class SimpleRedux extends Component {
             <div>
                 <h1>Political Science Fake Redux</h1>
 
-                <p>This component does not use redux. It uses something redux-like.</p>
+                <p>
+                    This component does not use redux. It uses something
+                    redux-like.
+                </p>
                 {this.state.statement}
                 <hr />
                 <button onClick={this.verifyStatement}>Verify</button>
                 <button onClick={this.denyEverything}>Deny</button>
                 <button onClick={this.noComment}>No Comment</button>
             </div>
-        )
+        );
     }
 }
 

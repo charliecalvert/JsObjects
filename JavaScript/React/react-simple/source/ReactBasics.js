@@ -3,7 +3,6 @@ import React from 'react';
 //process.env.NODE_ENV = 'development';
 
 export class ReactBasics extends React.Component {
-
     getTwo(x) {
         console.log(x);
         return 2 * x;
@@ -18,5 +17,3 @@ export class ReactBasics extends React.Component {
         );
     }
 }
-
-

@@ -14,20 +14,19 @@
  * If you pass false to the constructor, but true to one of the individual methods, then
  * you see the output from only that method. For instance, the true in the call to getLast
  * overrides the false in the constructor:
- *   
+ *
  *   const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js');
- * 
+ *
  *   it('renders and reads H1 text', () => {
  *      const wrapper = shallow(<App />);
  *      const welcome = <h1>Waiting</h1>;
  *      elfDebugEnzyme.getLast(wrapper, 'h1', true);
  *      expect(wrapper.contains(welcome)).toEqual(true);
  *   });
- * 
+ *
  */
 
 export default class ElfDebugEnzyme {
-
     /**
      * @param showData: Whether or not to display output
      *
@@ -36,7 +35,7 @@ export default class ElfDebugEnzyme {
      * the console includes the name of the class that is
      * requesting to see the output.
      */
-    constructor(showData=false, callerName = '') {
+    constructor(showData = false, callerName = '') {
         this.showData = showData;
         this.callerName = callerName + ':\n';
     }
@@ -51,7 +50,7 @@ export default class ElfDebugEnzyme {
             this.display(paragraphData);
         }
     }
-    
+
     getAllDive(wrapper, showMe) {
         if (this.showData || showMe) {
             const paragraphData = wrapper.dive().debug();
@@ -68,23 +67,31 @@ export default class ElfDebugEnzyme {
 
     getFirst(wrapper, element, showMe) {
         if (this.showData || showMe) {
-            const paragraphData = wrapper.find(element).first().debug();
+            const paragraphData = wrapper
+                .find(element)
+                .first()
+                .debug();
             this.display(paragraphData);
         }
     }
 
     getIndex(wrapper, element, index, showMe) {
         if (this.showData || showMe) {
-            var paragraphData = wrapper.find(element).childAt(index).debug();
+            var paragraphData = wrapper
+                .find(element)
+                .childAt(index)
+                .debug();
             this.display(paragraphData);
         }
     }
 
     getLast(wrapper, element, showMe) {
         if (this.showData || showMe) {
-            const paragraphData = wrapper.find(element).last().debug();
+            const paragraphData = wrapper
+                .find(element)
+                .last()
+                .debug();
             this.display(this.callerName + paragraphData);
         }
-
     }
 }

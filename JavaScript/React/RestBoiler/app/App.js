@@ -17,10 +17,12 @@ export default class App extends React.Component {
         fetch('/get-nine-from-server')
             .then(function(response) {
                 return response.json();
-            }).then(function(json) {
+            })
+            .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(() => (json));
-            }).catch(function(ex) {
+                that.setState(() => json);
+            })
+            .catch(function(ex) {
                 console.log('parsing failed', ex);
             });
     }
@@ -30,7 +32,9 @@ export default class App extends React.Component {
             <div className={styles.app}>
                 <h1>Elf Rest Boiler</h1>
                 <p>Boilerplate for React application with hot reloading.</p>
-                <button id="getNine" onClick={this.getNine}>Get Nine</button>
+                <button id="getNine" onClick={this.getNine}>
+                    Get Nine
+                </button>
                 <p>NINE: {this.state.nine}</p>
                 <p>FOO: {this.state.result}</p>
             </div>
