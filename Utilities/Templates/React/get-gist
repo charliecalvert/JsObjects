@@ -68,6 +68,7 @@ function runCommand() {
             echo '**/build/**' >> .prettierignore
             echo '**/serviceWorker.js' >> .prettierignore
             echo '**/bower_components/**' >> .prettierignore
+            echo '**/materialize.min.js' >> .prettierignore
             chmod +x prettier
             ;;\
         "prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
