@@ -16,7 +16,7 @@ class App extends Component {
 
     useButtonSelection = () => {
         this.setState({
-            message: "You've chosen " + this.state.checkedRadioButton
+            message: 'You\'ve chosen ' + this.state.checkedRadioButton
         });
     };
 
