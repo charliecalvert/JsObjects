@@ -17,13 +17,13 @@
     "pug": "~2.0.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "serve-favicon": "~2.5.0",
-    "watchify": "^3.11.1"
+    "serve-favicon": "~2.5.0"    
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "watchify": "^3.11.1"
   }
 }

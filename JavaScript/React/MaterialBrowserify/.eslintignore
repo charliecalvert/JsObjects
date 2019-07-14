@@ -7,7 +7,7 @@
 **/coverage/**
 **/build/**
 **/static/**
-**/elf-gatsby-site/**
 **/manifest.json
 **/precache-manifest.*.js
 **/service-worker.js
+public/javascripts/basics.js
