@@ -11,7 +11,12 @@ const ElfComponent = ({ className, id }) => (
 );
 
 ElfComponent.propTypes = {
-    className: PropTypes.string
+    /**
+     * Description of prop "className".
+     */
+    className: PropTypes.string,
+    /** The id of the div wrapping the output */
+    id: PropTypes.number
 };
 
 export default ElfComponent;
