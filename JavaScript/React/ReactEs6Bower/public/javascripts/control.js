@@ -15,8 +15,8 @@ $(document).ready(function() {
         render() {
             return (
                 <div>
-                    <div>This is a react component</div>
-                    <p>Here is the number two: {this.getTwo(3)}</p>
+                    <h1>This is a react component</h1>
+                    <p>Here is the number two times three: {this.getTwo(3)}</p>
                 </div>
             );
         }
