@@ -57,7 +57,7 @@ describe('FetchNumbers Tests', function() {
         const wrapper = shallow(<FetchNumbers />);
         const statusParagraph = <p>One</p>;
         wrapper.find('#fetchNumbers').simulate('click');
-        setImmediate(() => {
+        setTimeout(() => {
             wrapper.update();
             elfDebugEnzyme.getFirst(wrapper, 'p');
             try {
@@ -65,6 +65,6 @@ describe('FetchNumbers Tests', function() {
             } catch (e) {
                 console.error(e);
             }
-        });
+        }, 0);
     });
 });

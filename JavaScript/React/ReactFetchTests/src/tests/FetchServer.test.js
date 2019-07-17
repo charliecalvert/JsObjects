@@ -61,7 +61,7 @@ describe('FetchServer Tests', function() {
         const wrapper = shallow(<FetchServer />);
         const statusParagraph = <p className="App-intro">Result: success</p>;
         wrapper.find('#fetchServer').simulate('click');
-        setImmediate(() => {
+        setTimeout(() => {
             wrapper.update();
             elfDebugEnzyme.getFirst(wrapper, 'p');
             try {
@@ -69,6 +69,6 @@ describe('FetchServer Tests', function() {
             } catch (e) {
                 console.error(e);
             }
-        });
+        }, 0);
     });
 });

@@ -15,7 +15,8 @@
         "no-cond-assign": ["error", "always"],
 
         // disable rules from base configurations
-        "no-console": "off"
+        "no-console": "off",
+        "no-control-regex": "warn"
     },
     "parser":  "babel-eslint",
     "parserOptions": {
@@ -30,5 +31,11 @@
         "node": true,
         "jest": true,
         "es6": true
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "16.6.0"
+        }
     }
 }

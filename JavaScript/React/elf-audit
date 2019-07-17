@@ -36,10 +36,10 @@ function get-directories-containing-package-json {
 #check-dir ./ElfExpressServer/server
 #check-dir ./higher-order-component
 #check-dir ./MaterialBrowserify
-#check-dir ./ReactBasics
-#check-dir ./ReactEs6Bower
-check-dir ./ReactEs6Browserify
-#check-dir ./ReactFetchTests
+#check-dir ./ReactEs6/ReactBasics
+#check-dir ./ReactEs6/ReactEs6Bower
+#check-dir ./ReactEs6/ReactEs6Browserify
+check-dir ./ReactFetchTests
 #check-dir ./react-native-test
 #check-dir ./ReactNativeTesting/EnzymeBasics
 #check-dir ./ReactNativeTesting/SnapShotBasics
