@@ -34,10 +34,9 @@ function get-directories-containing-package-json {
 #check-dir ./ElfExpressServer
 #check-dir ./ElfExpressServer/client
 #check-dir ./ElfExpressServer/server
-check-dir ./hoc
+#check-dir ./higher-order-component
 #check-dir ./MaterialBrowserify
-#check-dir ./OldBoilerPlate
-#check-dir ./ReactBasics
+check-dir ./ReactBasics
 #check-dir ./ReactEs6Bower
 #check-dir ./ReactEs6Browserify
 #check-dir ./ReactFetchTests

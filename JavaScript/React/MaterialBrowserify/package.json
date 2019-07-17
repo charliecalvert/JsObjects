@@ -13,7 +13,6 @@
         "cookie-parser": "~1.4.4",
         "debug": "~4.1.1",
         "express": "~4.17.1",
-        "materialize-css": "^1.0.0",
         "morgan": "~1.9.1",
         "pug": "~2.0.4",
         "react": "^16.8.6",
