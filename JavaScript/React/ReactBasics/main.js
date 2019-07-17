@@ -5,7 +5,8 @@ import { ReactBasicsStatelessFunction } from './ReactBasicsStatelessFunctional';
 
 ReactDOM.render(
     <div>
-        <ReactBasics />,
+        <ReactBasics />
+
         <ReactBasicsStatelessFunction />
     </div>,
     document.getElementById('root')

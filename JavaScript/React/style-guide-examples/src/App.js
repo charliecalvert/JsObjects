@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {MyComponent} from './components/MyComponent';
+import { MyComponent } from './components/MyComponent';
 import ElfComponent from './components/ElfComponent';
 
 class App extends Component {
@@ -14,7 +14,8 @@ class App extends Component {
                 </header>
 
                 <p className="App-intro">
-                    To see the style guide, try: <b>npm run bar</b>. Click on <b>Props & Methods</b> or click on <b>View Code</b>.
+                    To see the style guide, try: <b>npm run bar</b>. Click on{' '}
+                    <b>Props & Methods</b> or click on <b>View Code</b>.
                 </p>
                 <MyComponent className="elfview" />
                 <ElfComponent className="elfview" id="elf12" />

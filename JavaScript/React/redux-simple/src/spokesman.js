@@ -8,7 +8,7 @@ const spokesman = (state = { statement: 'No comment' }, action) => {
             return { statement: 'We stand by it. In fact, we invented it.' };
         case 'DENY':
             return {
-                statement: 'We deny everything. We\'ve never heard of it.'
+                statement: "We deny everything. We've never heard of it."
             };
         case 'NO COMMENT':
             return { statement: 'No comment.' };

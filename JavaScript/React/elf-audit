@@ -54,4 +54,4 @@ check-dir ./ReactBasics
 #check-dir ./style-guide-examples
 #check-dir ./todo-redux
 #check-dir ./webpack-simple
-#check-dir ./elf-gatsby-site
+#check-dir ./gatsby-site

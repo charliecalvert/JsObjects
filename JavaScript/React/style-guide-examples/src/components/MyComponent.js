@@ -13,5 +13,3 @@ MyComponent.propTypes = {
      */
     className: PropTypes.string
 };
-
-

@@ -10,9 +10,9 @@ export class ReactBasics extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>An H1 element in a React Component</h1>
-                <p>{this.getTwo(3)}</p>
+            <div class="elf-border">
+                <h1>An H1 element in a React Class Component</h1>
+                <p>We called getTwo(3) and got: {this.getTwo(3)}</p>
             </div>
         );
     }
