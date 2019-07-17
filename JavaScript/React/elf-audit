@@ -39,11 +39,11 @@ function get-directories-containing-package-json {
 #check-dir ./ReactEs6/ReactBasics
 #check-dir ./ReactEs6/ReactEs6Bower
 #check-dir ./ReactEs6/ReactEs6Browserify
-check-dir ./ReactFetchTests
+#check-dir ./ReactFetchTests
 #check-dir ./react-native-test
 #check-dir ./ReactNativeTesting/EnzymeBasics
 #check-dir ./ReactNativeTesting/SnapShotBasics
-#check-dir ./react-simple
+check-dir ./react-simple
 #check-dir ./react-webpack-simple
 #check-dir ./redux-simple
 #check-dir ./RestBoiler

@@ -18,9 +18,9 @@ class Instructions extends Component {
 
     getUrls = offset => {
         const urls = [
-            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#create-mock-data',
-            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#mocking-fetch',
-            'http://www.ccalvert.net/books/CloudNotes/Assignments/React/ReactPropsMocks.html#working-with-create-react-app'
+            'https://www.elvenware.com/teach/assignments/react/ReactPropsMocks.html#create-mock-data',
+            'https://www.elvenware.com/teach/assignments/react/ReactPropsMocks.html#mocking-fetch',
+            'https://www.elvenware.com/teach/assignments/react/ReactPropsMocks.html#working-with-create-react-app'
         ];
         return urls[offset];
     };
@@ -30,6 +30,9 @@ class Instructions extends Component {
             <section>
                 <div className="Instructions">
                     <h2 className="Code">Instructions</h2>
+                    <p className="Code">
+                        A server for this program is found in <strong>ElfExpressServer/server</strong>.
+                    </p>
                     <p className="Code">
                         See the proxy key in <strong>package.json</strong>.
                     </p>

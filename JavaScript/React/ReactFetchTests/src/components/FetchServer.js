@@ -13,7 +13,7 @@ class FetchServer extends Component {
 
     fetchServer() {
         const that = this;
-        return fetch('/api/foo')
+        return fetch('/fetch-tests/get-info')
             .then(response => response.json())
             .then(function(result) {
                 console.log(result);
@@ -38,7 +38,7 @@ class FetchServer extends Component {
                 <p className="App-intro">Result: {this.state.result}</p>
                 <p className="App-intro">Error: {this.state.error}</p>
                 <button id="fetchServer" onClick={this.fetchServer}>
-                    Fetch ApiFoo
+                    Fetch Server Information
                 </button>
                 <hr />
             </div>

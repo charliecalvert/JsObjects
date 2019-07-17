@@ -1,6 +1,13 @@
 body {
+  background-color: #d6e9c6;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.elf-show {
+  border: #00b3ee dashed thick;
+  padding: 25px;
+  background-color: #feffcb;
 }
 
 a {

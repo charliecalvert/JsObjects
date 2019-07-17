@@ -14,7 +14,7 @@ class FetchServerInfo extends Component {
 
     fetchNumbers() {
         const that = this;
-        return fetch('/api/numbers')
+        return fetch('/fetch-tests/numbers')
             .then(response => response.json())
             .then(function(result) {
                 console.log(result);
