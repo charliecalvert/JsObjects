@@ -4,21 +4,27 @@
   "description": "webpack test",
   "main": "index.js",
   "scripts": {
-    "start": "node public/bundle.js",
+    "start": "npx webpack --watch & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/webpack"
+    "build": "npx webpack"
   },
   "author": "Charlie",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-react": "^6.23.0"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.3.6"
   },
   "dependencies": {
-    "jquery": "^3.2.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.36.1"
   }
 }
