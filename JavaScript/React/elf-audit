@@ -44,7 +44,7 @@ function get-directories-containing-package-json {
 #check-dir ./ReactNativeTesting/EnzymeBasics
 #check-dir ./ReactNativeTesting/SnapShotBasics
 #check-dir ./react-simple
-check-dir ./react-webpack-simple
+#check-dir ./react-webpack-simple
 #check-dir ./redux-simple
 #check-dir ./RestBoiler
 #check-dir ./RestExpress
