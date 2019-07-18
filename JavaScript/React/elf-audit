@@ -47,9 +47,9 @@ function get-directories-containing-package-json {
 #check-dir ./react-webpack-simple
 #check-dir ./redux-simple
 #check-dir ./RestBoiler
-check-dir ./RestExpress
+#check-dir ./RestExpress
 #check-dir ./simple-components
-#check-dir ./simple-radio-buttons
+check-dir ./simple-radio-buttons
 #check-dir ./simple-state
 #check-dir ./style-guide-examples
 #check-dir ./todo-redux

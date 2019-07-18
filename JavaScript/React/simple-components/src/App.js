@@ -1,22 +1,107 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import {blueGrey} from "@material-ui/core/colors";
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
+
+const useStyles = makeStyles(theme => ({
+    button: {
+        margin: theme.spacing(1),
+    },
+    input: {
+        display: 'none',
+    },
+    paper: {
+        padding: theme.spacing(3, 12),
+        backgroundColor: blueGrey
+    },
+}));
+
+function App() {
+
+    const classes = useStyles();
+    return (
+        <div className="App">
+            <Grid container spacing={3}>
+                <header>
+                    <Grid item xs={12} md={8}>
+                        <Grid container spacing={2} direction="column" alignItems="center">
+                            <Paper className={classes.paper}>
+                                <h1 className="App-title">Welcome to React</h1>
+                                <p>With Material UI buttons and grids.</p>
+                            </Paper>
+                        </Grid>
+                    </Grid>
                 </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to
-                    reload.
-                </p>
-            </div>
-        );
-    }
+
+                <Grid item xs={12} md={12}>
+                    <Grid container spacing={1} direction="column" alignItems="center">
+                        <Paper className={classes.paper}>
+                            <Button variant="contained" className={classes.button}>
+                                Default
+                            </Button>
+                            <Button variant="contained" color="primary" className={classes.button}>
+                                Primary
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={12}>
+
+
+                    <Grid item>
+                        <Paper className={classes.paper}>
+                            <ButtonGroup size="small" aria-label="Small outlined button group">
+                                <Button>One Elf</Button>
+                                <Button>Two Elves</Button>
+                                <Button>Three Elves</Button>
+                            </ButtonGroup>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <Paper className={classes.paper}>
+                        <Grid container spacing={1} direction="column" alignItems="center">
+                            <Grid item>
+                                <ButtonGroup variant="contained" size="small" aria-label="Small contained button group">
+                                    <Button>Elf One</Button>
+                                    <Button>Elf Two</Button>
+                                    <Button>Elf Three</Button>
+                                </ButtonGroup>
+                            </Grid>
+                            <Grid item>
+                                <ButtonGroup
+                                    variant="contained"
+                                    color="primary"
+                                    aria-label="Full-width contained primary button group"
+                                >
+                                    <Button>Elven One</Button>
+                                    <Button>Elven Two</Button>
+                                    <Button>Elven Three</Button>
+                                </ButtonGroup>
+                            </Grid>
+                            <Grid item>
+                                <ButtonGroup
+                                    variant="contained"
+                                    color="secondary"
+                                    size="large"
+                                    aria-label="Large contained secondary button group"
+                                >
+                                    <Button>Alpha</Button>
+                                    <Button>Beta</Button>
+                                    <Button>Echo</Button>
+                                </ButtonGroup>
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+    );
+
 }
 
 export default App;
