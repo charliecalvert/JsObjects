@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './App.css';
-import 'whatwg-fetch';
+import './App.css';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -29,7 +28,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div className={styles.app}>
+            <div className="app">
                 <h1>Elf Rest Boiler</h1>
                 <p>Boilerplate for React application with hot reloading.</p>
                 <button id="getNine" onClick={this.getNine}>
