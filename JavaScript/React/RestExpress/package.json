@@ -7,25 +7,25 @@
         "build": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
-        "cookie-parser": "~1.4.3",
-        "debug": "~4.1.0",
-        "express": "~4.16.4",
-        "http-errors": "~1.7.1",
+        "cookie-parser": "~1.4.4",
+        "debug": "~4.1.1",
+        "express": "~4.17.1",
+        "http-errors": "~1.7.3",
         "morgan": "~1.9.1",
-        "pug": "2.0.3",
-        "react": "^16.6.3",
-        "react-dom": "^16.6.3"
+        "pug": "2.0.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
     },
     "devDependencies": {
-        "@babel/core": "^7.2.0",
-        "@babel/plugin-proposal-class-properties": "^7.2.1",
-        "@babel/preset-env": "^7.2.0",
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
         "@babel/preset-react": "^7.0.0",
-        "babel-loader": "^8.0.4",
-        "css-loader": "^1.0.1",
+        "babel-loader": "^8.0.6",
+        "css-loader": "^3.1.0",
         "style-loader": "^0.23.1",
-        "webpack": "^4.27.0",
-        "webpack-cli": "^3.1.2",
-        "webpack-dev-server": "^3.1.10"
+        "webpack": "^4.36.1",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
     }
 }
