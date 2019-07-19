@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import {blueGrey} from "@material-ui/core/colors";
+import Typography from "@material-ui/core/Typography";
 
 
 const useStyles = makeStyles(theme => ({
@@ -26,17 +27,21 @@ function App() {
     return (
         <div className="App">
             <Grid container spacing={3}>
-                <header>
-                    <Grid item xs={12} md={8}>
-                        <Grid container spacing={2} direction="column" alignItems="center">
-                            <Paper className={classes.paper}>
-                                <h1 className="App-title">Welcome to React</h1>
-                                <p>With Material UI buttons and grids.</p>
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                </header>
+                
+                    <Grid item xs={12} md={12}>
 
+
+                        <Grid container spacing={1} direction="column" alignItems="center">
+                                <Paper className={classes.paper}>
+                                <Typography variant="h1" gutterBottom>Welcome to React</Typography>
+                                <Typography variant="body1" gutterBottom>With Material UI buttons and grids.</Typography>
+                                </Paper>
+                        </Grid>
+
+                    </Grid>
+
+            </Grid>
+            <Grid container spacing={3}>
                 <Grid item xs={12} md={12}>
                     <Grid container spacing={1} direction="column" alignItems="center">
                         <Paper className={classes.paper}>
