@@ -49,9 +49,9 @@ function get-directories-containing-package-json {
 #check-dir ./RestBoiler
 #check-dir ./RestExpress
 #check-dir ./material-button-components
-check-dir ./simple-radio-buttons
+#check-dir ./simple-radio-buttons
 #check-dir ./simple-state
 #check-dir ./style-guide-examples
-#check-dir ./todo-redux
+check-dir ./todo-redux
 #check-dir ./webpack-simple
 #check-dir ./gatsby-site

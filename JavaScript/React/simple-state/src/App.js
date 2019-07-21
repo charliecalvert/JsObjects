@@ -17,7 +17,7 @@ class App extends Component {
         return (
             <div className="App">
                 <section>
-                    <p>Checked radio: {this.state.firstName}</p>
+                    <p>First name: {this.state.firstName}</p>
                     <button onClick={this.handleClick} type="button">
                         Click Me
                     </button>
