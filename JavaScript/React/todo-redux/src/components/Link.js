@@ -8,7 +8,7 @@ const Link = ({ active, children, onClick }) => {
 
     return (
         <a
-            href="#"
+            href="#ignore_me"
             onClick={e => {
                 e.preventDefault();
                 onClick();

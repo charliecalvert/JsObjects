@@ -113,11 +113,11 @@ function App() {
             </Grid>
 
             <Grid container spacing={1} justify={"center"}>
-                <Grid item xs={12} md={12}>
+                <Grid item xs={12} md={6}>
 
                     <Paper className={classes.paper}>
                         <Typography variant="h2" gutterBottom>Third Container</Typography>
-
+                        <Typography variant="body1" gutterBottom>The container height is determined by the content. </Typography>
                         <Button variant="contained" className={classes.button}>
                             Default
                         </Button>
@@ -127,12 +127,12 @@ function App() {
                     </Paper>
 
                 </Grid>
-            </Grid>
-            <Grid container spacing={3} justify={"center"}>
-                <Grid item xs={12} md={12}>
+
+                <Grid item xs={12} md={6}>
                     <Grid item>
                         <Paper className={classes.paper}>
                             <Typography variant="h2" gutterBottom>Fourth Container</Typography>
+                            <Typography variant="body1" gutterBottom>The third and fourth containers are side by side unless we are smaller than <b>md</b>, then they take up the whole row.</Typography>
                             <ButtonGroup size="small" aria-label="Small outlined button group">
                                 <Button>One Elf</Button>
                                 <Button>Two Elves</Button>
