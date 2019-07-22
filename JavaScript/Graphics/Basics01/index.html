@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
 
-        <title>index</title>
-        <meta name="description" content="Demo basics of HTML5 Canvas Object" />
-        <meta name="author" content="Charlie Calvert" />
+    <title>index</title>
+    <meta name="description" content="Demo basics of HTML5 Canvas Object"/>
+    <meta name="author" content="Charlie Calvert"/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <script src="jquery.js"></script>
-        <script src="index.js"></script>
-    </head>
+    <script src="index.js"></script>
+    <style>
+        main {
+            border: aquamarine dashed thick;
+            background-color: honeydew;
+            display: flex;
+        }
+        section {
+            border: aquamarine solid thin;
+        }
+        .one {
+            flex: 2 1 auto;
+        }
+        .two {
+            flex: 1 2 0;
+        }
+        .three {
+            flex: 2 1 auto;
+        }
+        
+    </style>
+</head>
 
-    <body>
-        <div>
-            <header>
-                <h1>Graphics Demo: HTML 5 Canvas</h1>
-            </header>
-       
-            <div>
-                <canvas id="mainCanvas" width="300" height="300">
-                    This text is displayed if your browser does not support HTML5 Canvas.
-                </canvas>
-            </div>
+<body>
+<div>
+    <header>
+        <h1>Graphics Demo: HTML 5 Canvas</h1>
+    </header>
 
-            <footer>
-                <p id="debugs"> </p>
-            </footer>
-        </div>
-    </body>
+    <main>
+        <section class="one"></section>
+        <section class="two">
+
+            <canvas id="mainCanvas" height="300px">
+                This text is displayed if your browser does not support HTML5 Canvas.
+            </canvas>
+
+        </section>
+        <section class="three"></section>
+    </main>
+
+    <footer>
+        <p id="debugs"></p>
+        <p><em>by Elvenware</em></p>
+    </footer>
+</div>
+</body>
 </html>

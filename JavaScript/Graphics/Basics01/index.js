@@ -1,83 +1,87 @@
-
-
-var App = (function() {
+const App = (function() {
 
 	// Private variables (in closure)
-	var context = null;
-	var rectSize = 25;
-	var width = -1;
-	var height = -1;
-	var count = 0;
+	let context = null;
+	const rectSize = 25;
+	let width = -1;
+	let height = -1;
+	let count = 1;
 
-	// Constructor has Caps, must be called with new, returned from App
+	// Constructor has Caps, must be called with new
 	function App() {
 		context = getCanvas();
-
 	}
 
-	var getCanvas = function() {
-		canvas = document.getElementById('mainCanvas');
+	const getCanvas = function() {
+		const canvas = document.getElementById('mainCanvas');
 		if (canvas !== null) {
 			width = canvas.width;
 			height = canvas.height;
 			context = canvas.getContext('2d');
-			setInterval(draw, 1000);
+			setInterval(draw, 500);
 			return context;
 		} else {
-			$("#debugs").css({
-				backgroundColor : "blue",
-				color: "yellow"
-			});
-			$("#debugs").html("Could not retrieve Canvas");
+			const debugs = document.getElementById('debugs');
+			debugs.style.color = "rgb(0,0,255)";
+			debugs.style.backgroundColor = "yellow";
+			debugs.style.fontSize = "x-large";
+			debugs.style.fontWeight = "bold";
+			debugs.textContent = "Could not retrieve Canvas!";
 			return null;
 		}
-	}
-	var draw = function() {
+	};
+
+	const draw = function() {
 		clear();
 		drawRectangle();
 		drawPyramid();
 		circle(10, 10, 5);
 		drawNpc(4, 2);
 		drawGreen(5, 3);
+		if (count > 6) { count = 1; }
 		drawRed(6, 4 + count++);
-	}
-	var drawImage = function() {
-		var sources = this.loadBitmap();
-
-		that.loadImages(sources, function() {
-			for (var i = 0; i < 12; i++) {
-				context.drawImage(images.darthVader, 0, 0, rectSize, rectSize, rectSize * i, 0, rectSize, rectSize);
-			}
-		});
+		//drawImage();
 	};
 
-	var circle = function(x, y, r) {
+	/*const drawImage = function() {
+		const sources = this.loadBitmap();
+
+		that.loadImages(sources, function() {
+			for (let i = 0; i < 12; i++) {
+				context.drawImage(images.darthVader, 0, 0,
+					rectSize, rectSize, rectSize * i,
+					0, rectSize, rectSize);
+			}
+		});
+	};*/
+
+	const circle = function(x, y, r) {
 		context.fillStyle = "rgb(0,15,122)";
 		context.beginPath();
 		context.arc(x, y, r, 0, Math.PI * 2, true);
 		context.fill();
 	};
 
-	var clear = function() {
+	const clear = function() {
 		context.clearRect(0, 0, width, height);
 	};
 
-	var drawNpc = function(row, col) {
+	const drawNpc = function(row, col) {
 		context.fillStyle = "rgb(0,0,255)";
 		context.fillRect(row * rectSize, col * rectSize, rectSize, rectSize);
 	};
 
-	var drawGreen = function(row, col) {
+	const drawGreen = function(row, col) {
 		context.fillStyle = "rgb(0,255,0)";
 		context.fillRect(row * rectSize, col * rectSize, rectSize, rectSize);
 	};
 
-	var drawRed = function(row, col) {
+	const drawRed = function(row, col) {
 		context.fillStyle = "rgb(255,0,0)";
 		context.fillRect(row * rectSize, col * rectSize, rectSize, rectSize);
 	};
 
-	var drawPyramid = function() {
+	const drawPyramid = function() {
 		context.fillStyle = "rgb(255, 15, 0)";
 		context.beginPath();
 		context.moveTo(rectSize, rectSize);
@@ -86,7 +90,7 @@ var App = (function() {
 		context.fill();
 	};
 
-	var drawRectangle = function() {
+	const drawRectangle = function() {
 		context.fillStyle = "rgb(23,255,22)";
 		context.fillRect(130, 130, 150, 150);
 	};
@@ -95,6 +99,7 @@ var App = (function() {
 
 })();
 
-$(document).ready(function() {"use strict";
+window.onload = () => {
+	"use strict";
 	new App();
-});
+};
