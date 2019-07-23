@@ -1,26 +1,26 @@
 /*jshint jquery: true, browser: true, strict: true, devel: true */
 
-var App = (function() { 'use strict';
+const App = (function() { 'use strict';
 
-	var context = null;
-	var rectSizeX = 400;
-	var rectSizeY = 300;
-	var pictures = {};
-	var path = 'images/';
+	let context = null;
+	const rectSizeX = 400;
+	const rectSizeY = 300;
+	const pictures = {};
+	const path = 'images/';
 
 	function App() {
 		context = getCanvas();
 		makeImageData();
 	}
 
-	var draw = function() {
-		var countX = 0;
-		var countY = 0;
-		for (var imageName in pictures) {
-			var xFactor = (countX++ * rectSizeX);
-			var yFactor = (countY * rectSizeY);
-			context.drawImage(pictures[imageName], 
-					0, 0, rectSizeX, rectSizeY, 
+	const draw = function() {
+		let countX = 0;
+		let countY = 0;
+		for (const imageName in pictures) {
+			const xFactor = (countX++ * rectSizeX);
+			const yFactor = (countY * rectSizeY);
+			context.drawImage(pictures[imageName],
+					0, 0, rectSizeX, rectSizeY,
 					0 + xFactor, 0 + yFactor, rectSizeX, rectSizeY);
 			if (countX === 2) {
 				countX = 0;
@@ -29,47 +29,48 @@ var App = (function() { 'use strict';
 		}
 	};
 
-	var makeImageData = function() {
-		var images = ["IMG_2721-400.jpg", "IMG_2726-400.jpg", "IMG_2728-400.jpg", "IMG_2729-400.jpg"];
+	const makeImageData = function() {
+		const images = ["IMG_2721-400.jpg", "IMG_2726-400.jpg", "IMG_2728-400.jpg", "IMG_2729-400.jpg"];
 		loadImages(images, function(pictures, a) {
 		});
 	};
 
-	var loadImages = function(images, callback) {
-	
-		var a = 0;
-		
+	const loadImages = function(images, callback) {
+
+		let a = 0;
+
 		function onload() {
 			callback(pictures, a++);
-		}		
-		
-		for (var i = 0; i < images.length; i++) {
-			var fileName = images[i];
+		}
+
+		for (let i = 0; i < images.length; i++) {
+			const fileName = images[i];
 			pictures[fileName] = new Image();
-			pictures[fileName].onload = onload; 
+			pictures[fileName].onload = onload;
 			pictures[fileName].src = path + fileName;
 		}
 	};
 
-	var getCanvas = function() {
-		var canvas = document.getElementById('mainCanvas');
+	const getCanvas = function() {
+		const canvas = document.getElementById('mainCanvas');
 		if (canvas !== null) {
-			var context = canvas.getContext('2d');
+			const context = canvas.getContext('2d');
 			setInterval(draw, 100);
 			return context;
 		} else {
-			$("#debugs").css({
-				backgroundColor : "blue",
-				color: "yellow"
-			});
-			$("#debugs").html("Could not retrieve canvas");
+			const debugs = document.getElementById('debugs');
+			debugs.style.color = "rgb(0,0,255)";
+			debugs.style.backgroundColor = "yellow";
+			debugs.style.fontSize = "x-large";
+			debugs.style.fontWeight = "bold";
+			debugs.textContent = "Could not retrieve Canvas!";
 			return null;
 		}
 	};
-	
+
 	return App;
 })();
 
-$(document).ready(function() {'use strict';
+window.onload = () => {'use strict';
 	new App();
-});
+};

@@ -1,27 +1,29 @@
-var App = (function() {
+const App = (function() {
 
-	var context = null;
-	var rectSize = 25;
-	var pictures = {};
+	let context = null;
+	const rectSize = 25;
+	const pictures = {};
 
 	function App() {
 		context = getCanvas();
 		makeImageData();
 	}
 
-	var makeImageData = function() {
-		var images = ["cscGarden01.gif", "cscGarden02.gif"];
-		var x = 10;
+	const makeImageData = function() {
+		const images = ["cscGarden01.gif", "cscGarden02.gif"];
+		const x = 10;
 		loadImages(images, function(pictures, a) {
-			var fileName = images[a];
-			context.drawImage(pictures[fileName], 0, rectSize, rectSize, rectSize, rectSize * (a + 1), 10, rectSize, rectSize);
+			const fileName = images[a];
+			context.drawImage(pictures[fileName], 0,
+				rectSize, rectSize, rectSize,
+				rectSize * (a + 1), 10, rectSize, rectSize);
 		});
 	};
 
-	var loadImages = function(images, callback) {
-		var a = 0;
-		for (var i = 0; i < images.length; i++) {
-			var fileName = images[i];
+	const loadImages = function(images, callback) {
+		let a = 0;
+		for (let i = 0; i < images.length; i++) {
+			const fileName = images[i];
 			pictures[fileName] = new Image();
 			pictures[fileName].onload = function() {
 				callback(pictures, a++);
@@ -30,23 +32,17 @@ var App = (function() {
 		}
 	};
 
-	var getCanvas = function() {
-		var canvas = document.getElementById('mainCanvas');
+	const getCanvas = function() {
+		const canvas = document.getElementById('mainCanvas');
 		if (canvas !== null) {
-			var context = canvas.getContext('2d');
-			return context;
+			return canvas.getContext('2d');
 		} else {
-			$("#debugs").css({
-				backgroundColor : "blue",
-				color: "yellow"
-			});
-			$("#debugs").html("No Canvas");
 			return null;
 		}
-	}
+	};
 	return App;
 })();
 
-$(document).ready(function() {'use strict';
+window.onload = () => {'use strict';
 	new App();
-});
+};
