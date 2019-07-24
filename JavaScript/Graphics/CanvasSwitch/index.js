@@ -98,7 +98,12 @@ const App = (function () {
         context.strokeRect(0, 0, myCanvas.width, myCanvas.height);
         context.fillStyle = "green";
         context.font = "24px Comic Sans MS";
-        context.fillText("The big cat walked far", 20, 35);
+        //context.fillText("The big cat walked far through the tangled underbrush", 20, 35);
+        wrapText(
+            context, "The big cat walked far through the tangled underbrush.",
+            20, 35,
+            myCanvas.width - 25,
+            25);
     };
 
     return App;

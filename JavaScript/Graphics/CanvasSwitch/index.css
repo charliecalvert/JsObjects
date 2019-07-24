@@ -8,6 +8,24 @@
 	flex: 0;
 }
 
+.elf-header {
+	flex: 1 2 auto;
+}
+
+.elf-buttons {
+	flex: 2 1 auto;
+}
+
+.container > div {
+	flex: 1;
+	background-color: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+
 #div01 {
 	border: darkred solid thick;
 	margin: 1%;
