@@ -1,3 +1,14 @@
+.page {
+    display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 5em 5em 1fr 5em;
+	grid-template-areas:
+		"header header header"
+		"buttons buttons buttons"
+		"main main main"
+		"footer footer footer";
+}
+
 
 .container {
 	display: flex;
@@ -9,11 +20,22 @@
 }
 
 .elf-header {
-	flex: 1 2 auto;
+	grid-area: header;
+	background: azure;
 }
 
 .elf-buttons {
-	flex: 2 1 auto;
+	grid-area: buttons;
+	background: azure;
+	border: #f1f1f1 thin solid;
+}
+
+.elf-main {
+	grid-area: main;
+}
+
+elf-footer {
+	grid-area: footer;
 }
 
 .container > div {
