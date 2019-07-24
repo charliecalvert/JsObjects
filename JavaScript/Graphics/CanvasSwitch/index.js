@@ -1,73 +1,110 @@
-var App = (function() {
+const App = (function () {
     'use static';
 
-    var myCanvas;
-    var context;
+    let myCanvas;
+    let context;
 
     function App() {
-        base();
-        bar();
-        $("#switch01").click(foo);
-        $("#switch02").click(bar);
+        createCanvas();
+        drawBlue();
+        const switch01 = document.getElementById('switch01');
+        const switch02 = document.getElementById('switch02');
+        switch01.onclick = drawGreen;
+        switch02.onclick = drawBlue;
+        window.onresize = () => {
+            const div = document.getElementById('div01');
+            var oldcanv = document.getElementById('myCanvas');
+            div.removeChild(oldcanv);
+            createCanvas();
+            drawBlue();
+        };
+
     }
 
-    var base = function() {
-        $("body").css("overflow", "hidden");
-        myCanvas = $('<canvas />');
-        //myCanvas[0].height = 200;
-        //myCanvas[0].width = 300;
-        //var scrollX = window.pageXOffset;
-        //var scrollY = window.pageYOffset;
-        $(myCanvas).css({
-            //position : "absolute",
-            left : 0,
-            // top : scrollY
-        });
+    const createCanvas = function () {
+        const body = document.body;
+        body.style.overflow = "hidden";
+        myCanvas = document.createElement("canvas");
+        myCanvas.id = "myCanvas";
 
-        var div = $('#div01');
-        $(div).append(myCanvas);
 
-        context = myCanvas.get(0).getContext("2d");
-        myCanvas.attr("width", $(div).get(0).clientWidth);
-        myCanvas.attr("height", $(div).get(0).clientHeight);
+        const div = document.getElementById('div01');
+
+        div.append(myCanvas);
+        myCanvas.width = div.clientWidth;
+        myCanvas.height = div.clientHeight;
+
+
+        context = myCanvas.getContext("2d");
+
     };
-    
-    var bar = function() {
 
-        context.lineWidth = 35;
+    function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+
+        for(var n = 0; n < words.length; n++) {
+            var testLine = line + words[n] + ' ';
+            var metrics = context.measureText(testLine);
+            var testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0) {
+                context.fillText(line, x, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+            }
+            else {
+                line = testLine;
+            }
+        }
+        context.fillText(line, x, y);
+    }
+
+    const drawBlue = function () {
+
+        context.lineWidth = 20;
         context.strokeStyle = "blue";
-        context.fillStyle = "lightblue";
-        context.fillRect(0, 0, myCanvas.width(), myCanvas.height());
-        context.strokeRect(0, 0, myCanvas.width(), myCanvas.height());
+        context.fillStyle = "aqua";
+        context.fillRect(0, 0, myCanvas.width, myCanvas.height);
+        context.strokeRect(0, 0, myCanvas.width, myCanvas.height);
 
         context.fillStyle = "blue";
-        context.font = "24px Comic Sans MS";
-            context.fillText("The bird flew through the jungle", 50, 100);
-    };
-    
-    var hide = function() {
+        context.font = "24px Comic Sans MS ";
 
-        $(myCanvas).click(function() {
-            $(myCanvas).hide();
-            $("body").css("overflow", "auto");
-        });
-    };
-    
-    var foo = function() {
+        //const w = myCanvas.width / 10;
+        //context.fillText("The bird flew through the jungle", 20, 35);
 
-        context.lineWidth = 35;
+        wrapText(
+            context,
+            "The bird flew through the jungle on golden wings.",
+            20,
+            35,
+            myCanvas.width - 25,
+            25);
+    };
+
+    /*const hide = function() {
+        myCanvas.click = function() {
+            myCanvas.style.display = 'none';
+            document.body.style.overflow = "auto";
+        };
+    };*/
+
+    const drawGreen = function () {
+
+        context.lineWidth = 20;
         context.strokeStyle = "green";
         context.fillStyle = "lightgreen";
-        context.fillRect(0, 0, myCanvas.width(), myCanvas.height());
-        context.strokeRect(0, 0, myCanvas.width(), myCanvas.height());
+        context.fillRect(0, 0, myCanvas.width, myCanvas.height);
+        context.strokeRect(0, 0, myCanvas.width, myCanvas.height);
         context.fillStyle = "green";
         context.font = "24px Comic Sans MS";
-        context.fillText("The big cat walked far", 100, 100);
+        context.fillText("The big cat walked far", 20, 35);
     };
 
     return App;
 })();
 
-$(document).ready(function() {'use strict';
+window.onload = () => {
+    'use strict';
     new App();
-});
+};

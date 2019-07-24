@@ -1,7 +1,16 @@
 
+.container {
+	display: flex;
+	flex-direction: row;
+}
+
+.grid1 {
+	flex: 0;
+}
 
 #div01 {
-	width: 500px;
-	height: 300px;
+	border: darkred solid thick;
+	margin: 1%;
+
 	background-color: lightblue;
 }
