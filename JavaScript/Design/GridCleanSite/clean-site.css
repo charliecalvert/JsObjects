@@ -1,0 +1,57 @@
+@media screen and (max-width: 600px) {
+
+    .page {
+        grid-template-columns: 2fr 1fr 1fr;
+
+        grid-template-areas:
+                "title title title"
+                "main nav widget"
+                "comments comments comments"
+                "footer footer footer";
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .page {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: auto 3fr 1fr 1fr;
+        grid-template-areas:
+                "title title title"
+                "main nav widget"
+                "comments comments comments"
+                "footer footer footer";
+    }
+}
+
+.site-header {
+    grid-area: title;
+    background: azure;
+}
+
+.main-content {
+    background: wheat;
+    grid-area: main;
+}
+
+.post-navigation {
+    grid-area: nav;
+    background: coral;
+}
+
+.comments-area {
+    grid-area: comments;
+    background: darkgray;
+}
+
+.widget-area {
+    grid-area: widget;
+    background: darkred;
+    color: white;
+}
+
+.site-footer {
+    grid-area: footer;
+    background: green;
+}
+
