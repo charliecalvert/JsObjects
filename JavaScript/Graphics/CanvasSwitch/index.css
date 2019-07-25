@@ -1,27 +1,41 @@
+/* CSS Grid */
+
+body {
+	height: 100%;
+}
+
+.page-container {
+	display: grid;
+	justify-content: center;
+	overflow-y: scroll;
+}
+
 .page {
-    display: grid;
+	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 5em 5em 1fr 5em;
+	grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 0.5fr;
 	grid-template-areas:
 		"header header header"
+		"content content content"
 		"buttons buttons buttons"
 		"main main main"
 		"footer footer footer";
-}
-
-
-.container {
-	display: flex;
-	flex-direction: row;
+	height: 100vh;
+	background: azure;
 }
 
 .grid1 {
 	flex: 0;
 }
 
+.elf-content {
+	grid-area: content;
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+}
+
 .elf-header {
 	grid-area: header;
-	background: azure;
 }
 
 .elf-buttons {
@@ -34,8 +48,17 @@
 	grid-area: main;
 }
 
-elf-footer {
+.elf-footer {
 	grid-area: footer;
+	background-color: azure;
+
+}
+
+/* Flex Box */
+
+.container {
+	display: flex;
+	flex-direction: row;
 }
 
 .container > div {
