@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .wrapper
+    header.main-head Canonical
+    nav.main-nav
+      ul
+        li
+          a(href='index.html') Nav 1
+        li
+          a(href='canonical02.html') Nav 2
+        li
+          a(href='canonical03.html') Nav 3
+    article.content
+      h1 Canonical Two
+      p
+        | This is an example layout
+        |
+        a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Realizing_common_layouts_using_CSS_Grid_Layout#A_responsive_layout_with_1_to_3_fluid_columns_using_grid-template-areas') found on MDN
+        | .
+      p
+        | We try to avoid reinventing the wheel. As a rule, most of the layouts you need have been created by someone else. Find where they are done right, and use them.
+      p
+        | In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.
+    aside.side
+      b Sidebar:
+      |
+      |
+      i
+        | Elvenware and JsObjects are the places where Charlie Calvert keeps notes and examples.
+    .ad
+      b Advertising:
+      |
+      |
+      i What is advertising?
+    footer.main-footer
+      | by
+      |
+      a(href='https://elvenware.com') Elvenware
+
+  script(src="bundle.js")
