@@ -1,0 +1,96 @@
+#! /usr/bin/env bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+START_DIR=$HOME'/Git/JsObjects/JavaScript/Design/'
+
+function check-return-value {
+    retVal=$?
+    if [ $retVal -ne 0 ]; then
+        echo -e ${LIGHT_RED}"Error"${NC}
+    else
+        echo -e ${LIGHT_GREEN}"Ok"${NC}
+    fi
+}
+
+function check-dir {
+    cd $START_DIR
+    cd $1
+    pwd
+    npm audit --json > elf-audit.json
+    check-return-value
+}
+
+function get-directories-containing-package-json {
+    FindNp package.json | xargs -I{} dirname {} | xargs printf "check-dir %s\n" | sort
+}
+
+# check-dir ./AngBootUi
+# check-dir ./AngUiControl01
+# check-dir ./Angular00
+# check-dir ./Angular01
+# check-dir ./Angular02
+# check-dir ./Angular03
+# check-dir ./AngularButton
+# check-dir ./AngularCalculator
+# check-dir ./AngularCalculatorWithScope
+# check-dir ./AngularDirective
+# check-dir ./AngularInclude01
+# check-dir ./AngularListFactory
+# check-dir ./AngularListProvider
+# check-dir ./AngularListService
+# check-dir ./AngularListValue
+# check-dir ./AngularModularKarma
+# check-dir ./AngularNpc01
+# check-dir ./AngularRepeartEdit
+# check-dir ./AngularRepeater
+# check-dir ./AngularResolve
+# check-dir ./AngularRoutingView
+# check-dir ./AngularSearch
+# check-dir ./AngularSearch02
+# check-dir ./AngularSignIn
+# check-dir ./AngularTestBackend
+# check-dir ./AngularTestController
+# check-dir ./AngularTestControllerAs
+# check-dir ./AngularTestDirectives
+# check-dir ./AngularTestTimeOut
+# check-dir ./AngularThreeModules01
+# check-dir ./AngularThreeModules02
+# check-dir ./AngularThreeModules03
+# check-dir ./AngularThreeModules04
+# check-dir ./AngularThreeModules05
+# check-dir ./AngularUnitTest02
+# check-dir ./BridgeSailor
+# check-dir ./CleanSite
+# check-dir ./DecorateSailor
+# check-dir ./ElfRoutes01
+# check-dir ./ElfRoutes02
+# check-dir ./FactoryInterface
+# check-dir ./FactorySimple01
+# check-dir ./GridCanonical
+# check-dir ./GridCleanSite
+# check-dir ./GridExpress
+# check-dir ./GridExpressFetch
+# check-dir ./GridTwelveCols
+# check-dir ./IBitDay2016
+# check-dir ./JadeMixinComplete
+# check-dir ./JadeMixinSimple
+# check-dir ./JsonFromServer
+# check-dir ./JsonFromServer02
+# check-dir ./Knockout01
+check-dir ./MaterialComponents
+# check-dir ./PubSubTopic01
+# check-dir ./PubSubTopic02
+# check-dir ./PubSubTopic03
+# check-dir ./PubSubTopic04
+# check-dir ./Ractive
+# check-dir ./RequireBoat
+# check-dir ./RequireCrafty
+# check-dir ./RequireJs01
+# check-dir ./SimpleQueue
+# check-dir ./Singleton

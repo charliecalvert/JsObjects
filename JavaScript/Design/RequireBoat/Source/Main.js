@@ -4,7 +4,7 @@
 
 require.config({
   paths: {
-    "jquery": "http://code.jquery.com/jquery-1.11.0.min",     
+    "jquery": "https://code.jquery.com/jquery-3.4.1.slim.min",
   }
 });
 
