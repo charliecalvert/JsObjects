@@ -3,27 +3,28 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "DEBUG=my.application node ./bin/www"
+    "start": "DEBUG=my.application node ./bin/www",
+    "test": "node TestRunner.js"
   },
   "dependencies": {
-    "express": "~4.0.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0"
+    "body-parser": "~1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "static-favicon": "~1.0.2"
   },
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-compress": "^0.8.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-jasmine": "^0.6.3",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-jasmine-node-coverage": "^0.1.10",
-    "grunt-jsbeautifier": "^0.2.7",
-    "js-beautify": "^1.4.2",
-    "node-static": "~0.7.3"
+    "grunt": "^1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-compress": "^1.5.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jasmine": "^2.1.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-jasmine-node-coverage": "^2.0.1",
+    "grunt-jsbeautifier": "^0.2.13",
+    "js-beautify": "^1.10.1",
+    "node-static": "~0.7.11"
   }
 }

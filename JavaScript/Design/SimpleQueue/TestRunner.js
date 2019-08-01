@@ -10,7 +10,7 @@ app.use(favicon());
 
 var port = process.env.PORT || 30025;
 
-/// error handlers 
+/// error handlers
 // The point is the signature: err, req, res, next. If the call does not have that
 // signature, then these handlers won't be called.
 
@@ -54,4 +54,5 @@ app.use("/", express.static(__dirname + '/tests'));
 app.use("/", express.static(__dirname + '/public'));
 
 app.listen(port);
+console.log('Using Jasmine to test. Open browser to view results.');
 console.log('Listening on port :' + port);
