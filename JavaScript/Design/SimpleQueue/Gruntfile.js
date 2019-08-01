@@ -6,34 +6,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         zipFile: zipFile,
 
-        jshint: {
-            files: ['**/*.js'],
 
-            options: {
-                ignores: [
-                    '*/**/jquery-?.?.?.min.js',
-                    '**/coverage/**',
-                    '**/node_modules/**',
-                    '**/tests/jasmine/**'
-                ],
-                reporter: 'checkstyle',
-                reporterOutput: 'result.xml',
-                strict: true,
-                newcap: false,
-                globals: {
-                    describe: true,
-                    afterEach: true,
-                    beforeEach: true,
-                    inject: true,
-                    it: true,
-                    jasmine: true,
-                    expect: true,
-                    angular: true,
-                    module: true,
-                    Crafty: true
-                }
-            }
-        },
 
         clean: {
             work: {
@@ -123,30 +96,17 @@ module.exports = function(grunt) {
             }
         },
 
-        jsbeautifier: {
-            files: ["**/*.js", '!**/node_modules/**',
-                '!**/coverage/**',
-                '!**/tests/jasmine/**'
-            ],
-            options: {
-                js: {
-                    jslintHappy: false
-                }
-            }
-        }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-jasmine-node-coverage');
-    grunt.loadNpmTasks('grunt-jsbeautifier');
 
     grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main', 'jasmine', 'jasmine_node']);
-    grunt.registerTask('check', ['jshint', 'jasmine_node']);
+    grunt.registerTask('check', ['jasmine_node']);
     grunt.registerTask('deploy', ['copy:deploy']);
     grunt.registerTask('deployTests', ['copy:deployTests']);
-    grunt.registerTask('pretty', ['jsbeautifier']);
 };

@@ -1,14 +1,14 @@
-var express = require('express');
-var app = express();
-var fs = require('fs');
+const express = require('express');
+const app = express();
+const fs = require('fs');
 
-var logger = require('morgan');
-var favicon = require('static-favicon');
+const logger = require('morgan');
+const favicon = require('static-favicon');
 
 app.use(logger('dev'));
 app.use(favicon());
 
-var port = process.env.PORT || 30025;
+const port = process.env.PORT || 30025;
 
 /// error handlers
 // The point is the signature: err, req, res, next. If the call does not have that
@@ -41,7 +41,7 @@ app.use(function(err, req, res, next) {
 app.get('/', function(request, response) {
     'use strict';
 
-    var html = fs.readFileSync(__dirname + '/tests/QueueSpec.html');
+    const html = fs.readFileSync(__dirname + '/tests/QueueSpec.html');
     response.writeHeader(200, {
         "Content-Type": "text/html"
     });
