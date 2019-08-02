@@ -2,76 +2,82 @@
  * New node file
  */
 
-define([ 'SailorBridgeExpert', 'SailorBridge', 'Sloop', 'Ketch', 'Yawl',
-		"Utilities" ], function(SailorBridgeExpert, SailorBridge, sloop, ketch,
-		yawl, utilities) {
-	'use strict';
+import {elf} from './Elf'
+import {utilities} from "./Utilities";
+import SailorBridge from './SailorBridge';
+import SailorBridgeExpert from "./SailorBridgeExpert";
+import Sloop from './boats/Sloop';
+import ketch from './boats/Ketch';
+import yawl from './boats/Yawl';
 
-	var Control = (function() {
 
-		var elf;
 
-		// Constructor
-		function Control(elfInit) {
-			console.log("Control called.");
+var Control = (function () {
 
-			elf = elfInit;
+    // Constructor
+    function Control(elfInit) {
+        console.log("Control called.");
 
-			elf.sloop = sloop;
-			elf.ketch = ketch;
-			elf.yawl = yawl;
+        elf.utilities = utilities;
+        elf.sloop = new Sloop();
+        elf.ketch = ketch;
+        elf.yawl = yawl;
 
-			elf.sailorBridge = new SailorBridge();
-			elf.SailorBridgeExpert = new SailorBridgeExpert();
+        elf.sailorBridge = new SailorBridge();
+        elf.SailorBridgeExpert = new SailorBridgeExpert();
 
-			$("#sailor").click(this.runSailor);
-			$("#sailorExpert").click(runSailExpert);
-			$("#unitTest").click(unitTest);
-			$("#readMe").click(readMe);
-		}
+        const sailorAction = document.getElementById('sailor');
+        const sailorExpertAction = document.getElementById('sailorExpert');
+        const unitTestAction = document.getElementById('unitTest');
+        const readMeAction = document.getElementById('readMe');
+        sailorAction.onclick = this.runSailor;
 
-		Control.prototype.runSailor = function(bridge) {
-			setBridge(elf.sailorBridge);
-		};
+        sailorExpertAction.onclick = runSailExpert;
+        unitTestAction.onclick = unitTest;
+        readMeAction.onclick = readMe;
+    }
 
-		var runSailExpert = function() {
-			setBridge(elf.SailorBridgeExpert);
-		};
+    Control.prototype.runSailor = function (bridge) {
+        setBridge(elf.sailorBridge);
+    };
 
-		var setBridge = function(bridge) {
-			bridge.setBoat(elf.sloop);
-			runBridge(bridge, "Sloop", true);
+    var runSailExpert = function () {
+        setBridge(elf.SailorBridgeExpert);
+    };
 
-			bridge.setBoat(elf.yawl);
-			runBridge(bridge, "Yawl", false);
+    var setBridge = function (bridge) {
+        bridge.setBoat(elf.sloop);
+        runBridge(bridge, "Sloop", true);
 
-			bridge.setBoat(elf.ketch);
-			runBridge(bridge, "Ketch", false);
-		};
+        bridge.setBoat(elf.yawl);
+        runBridge(bridge, "Yawl", false);
 
-		var runBridge = function(bridge, message, clearList) {
-			if (clearList) {
-				elf.utilities.clear();
-			}
+        bridge.setBoat(elf.ketch);
+        runBridge(bridge, "Ketch", false);
+    };
 
-			elf.utilities.banner(message);
-			elf.utilities.show(bridge.tack());
-			elf.utilities.show(bridge.tack());
-			elf.utilities.show(bridge.tack());
-		};
+    var runBridge = function (bridge, message, clearList) {
+        if (clearList) {
+            elf.utilities.clear();
+        }
 
-		var unitTest = function() {
-			window.open('/UnitTest');
-		};
+        elf.utilities.banner(message);
+        elf.utilities.show(bridge.tack());
+        elf.utilities.show(bridge.tack());
+        elf.utilities.show(bridge.tack());
+    };
 
-		var readMe = function() {
-			window.open('https://github.com/charliecalvert/JsObjects/blob/master/JavaScript/Design/BridgeSailor/README.md');
-		};
-		
-		return Control;
+    var unitTest = function () {
+        window.open('/UnitTest');
+    };
 
-	}());
+    var readMe = function () {
+        window.open('https://github.com/charliecalvert/JsObjects/blob/master/JavaScript/Design/BridgeSailor/README.md');
+    };
 
-	return Control;
+    return Control;
 
-});
+}());
+
+new Control();
+
