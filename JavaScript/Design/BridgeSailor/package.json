@@ -3,32 +3,22 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npx webpack --watch & nodemon ./bin/www",
+    "test": "npx jasmine"
   },
   "dependencies": {
-    "express": "~4.17.1",
-    "static-favicon": "~1.0.2",
-    "morgan": "~1.9.1",
-    "cookie-parser": "~1.4.4",
     "body-parser": "~1.19.0",
+    "cookie-parser": "~1.4.4",
     "debug": "~4.1.1",
-    "jade": "~1.11.0"
+    "express": "~4.17.1",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "static-favicon": "~1.0.2",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   },
   "devDependencies": {
-    "requirejs": "^2.3.6",
-    "karma": "^4.2.0",
-    "karma-jasmine": "^2.0.1",
-    "karma-requirejs": "^1.1.0",
-    "karma-chrome-launcher": "^3.0.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "amdefine": "^1.0.1",
-    "grunt": "^1.0.4",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^2.1.0",
-    "grunt-contrib-compress": "^1.5.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jasmine": "^2.1.0",
-    "grunt-jasmine-node-coverage": "^2.0.1",
-    "grunt-jsbeautifier": "^0.2.13"
+    "jasmine": "^3.4.0",
+    "requirejs": "^2.3.6"
   }
 }
