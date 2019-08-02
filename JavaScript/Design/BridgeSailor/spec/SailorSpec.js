@@ -1,4 +1,4 @@
-const SailorBridge = require('../public/javascripts/SailorBridge');
+const SailorBridge = require('../src/SailorBridge');
 
 describe("Simple Sailor Suite", function () {
 

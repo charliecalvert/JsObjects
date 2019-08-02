@@ -28,6 +28,10 @@ complex because we have two different kinds of bridges: a
 **sailorBridge** and a **sailorBridgeExpert**. The essence of the
 pattern, however, is caught in the code above.
 
+## Babel
+
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+
 ## Bridges
 
 Why does the bridge pattern exist?
