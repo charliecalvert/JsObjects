@@ -1,10 +1,7 @@
 /**
+ * Base elf object.
+ *
  * @author Charlie Calvert
  */
 
-define(function(require) {'use strict';
-
-    var elf = {};    
-
-    return elf;
-}); 
+export const elf = {};

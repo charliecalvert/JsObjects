@@ -2,38 +2,36 @@
  * New node file
  */
 
-define(function(require) {'use strict';
+var Sloop = function () {
 
-	var Sloop = function() {
+};
 
-	};
+Sloop.prototype = {
 
-	Sloop.prototype = {
+    getBoatType: function () {
+        return 'Sloop';
+    },
 
-		getBoatType : function() {
-			return 'Sloop';
-		},
+    tack: function () {
+        return "Sloop tack called.";
+    },
 
-		tack : function() {
-			return "Sloop tack called.";
-		},
+    luff: function () {
+        return "Sloop luff called.";
+    },
 
-		luff : function() {
-			return "Sloop luff called.";
-		},
+    reach: function () {
+        return "Sloop reach called.";
+    },
 
-		reach : function() {
-			return "Sloop reach called.";
-		},
+    anchor: function () {
+        return "Sloop anchor called.";
+    },
 
-		anchor : function() {
-			return "Sloop anchor called.";
-		},
+    dock: function () {
+        return "Sloop dock called.";
+    }
+};
 
-		dock : function() {
-			return "Sloop dock called.";
-		}
-	};
+export default Sloop;
 
-	return new Sloop();
-});

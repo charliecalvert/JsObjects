@@ -2,15 +2,12 @@
  * New node file
  */
 
-define(function(require) {
-	'use strict';
-
     var Yawl = function() {
 
     };
 
     Yawl.prototype = {
-    
+
         getBoatType: function() {
             return 'Yawl';
         },
@@ -36,5 +33,5 @@ define(function(require) {
         }
     };
 
-    return new Yawl();
-});
+export default new Yawl();
+

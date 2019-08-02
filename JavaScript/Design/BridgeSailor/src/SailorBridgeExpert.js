@@ -1,39 +1,39 @@
-define([ "SailorBridge" ], function(Sailor) {
-	'use strict';
-	
-	var SailorBridgeExpert = (function() {
+'use strict';
 
-		var tack = [ 'port', 'starboard' ];
+import Sailor from "./SailorBridge";
 
-		function SailorBridgeExpert(boat) {
-			this.index = 0;
-			this.currentTack = tack[this.index];
-			this.setBoat(boat);
-		}
+const SailorBridgeExpert = (function () {
 
-		SailorBridgeExpert.prototype = new Sailor();
+    var tack = ['port', 'starboard'];
 
-		SailorBridgeExpert.prototype.tack = function() {
-			this.currentTack = tack[this.index];
-			console.log("Tacking to " + this.currentTack);
-			return "Expert Says that " + this.boat.tack() + " Tacking to " + this.currentTack + ".";
-		};
+    function SailorBridgeExpert(boat) {
+        this.index = 0;
+        this.currentTack = tack[this.index];
+        this.setBoat(boat);
+    }
 
-		SailorBridgeExpert.prototype.tackPort = function() {
-			return this.tack(0);
-		};
+    SailorBridgeExpert.prototype = new Sailor();
 
-		SailorBridgeExpert.prototype.tackStarboard = function() {
-			return this.tack(1);
-		};
+    SailorBridgeExpert.prototype.tack = function () {
+        this.currentTack = tack[this.index];
+        console.log("Tacking to " + this.currentTack);
+        return "Expert Says that " + this.boat.tack() + " Tacking to " + this.currentTack + ".";
+    };
 
-		SailorBridgeExpert.prototype.getCurrentTack = function() {
-			return "This " + this.boat.getBoatType() + " is on the " + this.currentTack + " tack.";
-		};
+    SailorBridgeExpert.prototype.tackPort = function () {
+        return this.tack(0);
+    };
 
-		return SailorBridgeExpert;
+    SailorBridgeExpert.prototype.tackStarboard = function () {
+        return this.tack(1);
+    };
 
-	}());
+    SailorBridgeExpert.prototype.getCurrentTack = function () {
+        return "This " + this.boat.getBoatType() + " is on the " + this.currentTack + " tack.";
+    };
 
-	return SailorBridgeExpert;
-});
+    return SailorBridgeExpert;
+
+}());
+
+export default SailorBridgeExpert;

@@ -2,9 +2,6 @@
  * New node file
  */
 
-define(function(require) {
-	'use strict';
-    
     var Ketch = function() {
 
     };
@@ -14,7 +11,7 @@ define(function(require) {
         getBoatType: function() {
             return 'Ketch';
         },
-        
+
         tack : function() {
             return "Ketch tack called.";
         },
@@ -36,6 +33,4 @@ define(function(require) {
         },
     };
 
-    return new Ketch();
-});
-// exports.Ketch = Ketch;
+export default new Ketch();

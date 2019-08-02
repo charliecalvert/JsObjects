@@ -1,33 +1,31 @@
 /**
+ * Sailor Bridge
  * @author Charlie Calvert
  */
 
-define(function(require) {'use strict';
+const Sailor = (function () {
 
-    var Sailor = (function() {
-    
-        function Sailor(boat) {
-            this.setBoat(boat);
-        }
-        
-        Sailor.prototype.setBoat = function(boat) {
-            this.boat = boat;
-        };
+    function Sailor(boat) {
+        this.setBoat(boat);
+    }
 
-        Sailor.prototype.tack = function() {
-            return this.boat.tack();
-        };
+    Sailor.prototype.setBoat = function (boat) {
+        this.boat = boat;
+    };
 
-        Sailor.prototype.luff = function() {
-            return this.boat.luff();
-        };
+    Sailor.prototype.tack = function () {
+        return this.boat.tack();
+    };
 
-        Sailor.prototype.anchor = function(ch) {
-            return this.boat.anchor();
-        };
-        
-        return Sailor;
-    }());
+    Sailor.prototype.luff = function () {
+        return this.boat.luff();
+    };
+
+    Sailor.prototype.anchor = function (ch) {
+        return this.boat.anchor();
+    };
 
     return Sailor;
-}); 
+}());
+
+export default Sailor;

@@ -2,27 +2,28 @@
  * New node file
  */
 
-define(["Elf"], function(elf) {
-	'use strict';
 
-	elf.utilities = {
-		clear : function() {
-			$("#boatList").empty();
-		},
+'use strict';
 
-		show : function(value) {
-			console.log(value);
-			$("#boatList").append("<li>" + value + "</li>");
-		},
+const boatList = document.getElementById('boatList');
 
-		banner : function(message) {
-			this.show("===============");
-			this.show(message);
-			this.show("===============");
-		}
+export const utilities = {
+    clear: function () {
+        boatList.innerHTML = '';
+    },
 
-	};
+    show: function (value) {
+        console.log(value);
+		var entry = document.createElement('li');
+		entry.appendChild(document.createTextNode(value));
+		boatList.appendChild(entry);
+    },
 
-	return elf;
+    banner: function (message) {
+        this.show("===============");
+        this.show(message);
+        this.show("===============");
+    }
 
-});
+};
+
