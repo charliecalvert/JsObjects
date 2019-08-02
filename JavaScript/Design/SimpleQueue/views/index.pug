@@ -1,10 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  
-  button#showQueue Show Queue
-  button#showStack Show Stack
-  
-  ul#queueList
+  .wrapper
+    header.main-head
+      h1= title
+
+    article.content
+      p Welcome to #{title}. Here we show both a simple Queue and Stack. The
+        | implementations for these data structures are found in:
+      ul
+        li <b>public/javascripts/SimpleQueue.js</b>.
+        li <b>public/javascripts/SimpleStack.js</b>.
+      p There are also tests to be viewed in a browser. Type <b>npm test</b>
+        |
+        | to run them. Folks don't tend to run tests in a browser any longer,
+        | but I've kept this code as it is nice to see how it was done. The
+        | Jasmine files are kept in <b>tests/jasmine</b> and are copied from
+        | from the version of Jasmine installed to <b>node_modules</b> in the
+        | <b>jasmine-core/lib/jasmine-core</b> directory.
+      button#showQueue Show Queue
+      button#showStack Show Stack
+
+    .side
+      ul#queueList
