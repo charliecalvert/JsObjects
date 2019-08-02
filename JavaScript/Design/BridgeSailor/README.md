@@ -1,4 +1,4 @@
-#Bridge Sailor
+# Bridge Sailor
 
 This program demonstrates how to use the bridge pattern to form
 a bridge between the body of a program and three classes that
@@ -28,7 +28,7 @@ complex because we have two different kinds of bridges: a
 **sailorBridge** and a **sailorBridgeExpert**. The essence of the
 pattern, however, is caught in the code above.
 
-##Bridges
+## Bridges
 
 Why does the bridge pattern exist?
 
@@ -43,7 +43,7 @@ classes created in BridgeSailor are made properties of the **elf**
 object. As a result, you can inspect this one object in the debugger
 and get an overview of the current state of the program.
 
-##Details
+## Details
 
 Use the bridge pattern and also a decorator. But the main point is to
 use the Bridge pattern.
@@ -58,7 +58,7 @@ The Sailer object that can:
 - Luff
 - Anchor
 
-##Emulation
+## Emulation
 
 Note that we have:
 
