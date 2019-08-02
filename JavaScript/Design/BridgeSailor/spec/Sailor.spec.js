@@ -1,8 +1,24 @@
 import SailorBridge from '../src/SailorBridge';
+import Sloop from '../src/boats/Sloop';
+import Yawl from "../src/boats/Yawl";
+import Ketch from "../src/boats/Ketch";
+import SailorBridgeExpert from "../src/SailorBridgeExpert";
 
 describe("Simple Sailor Suite", function () {
 
-    fit("proves we can run a test", function () {
+    let sloop, ketch, yawl;
+
+    beforeEach(() => {
+        sloop = new Sloop();
+        ketch = new Ketch();
+        yawl = new Yawl();
+    });
+
+    afterEach(() => {
+        sloop = null;
+    });
+
+    it("proves we can run a test", function () {
         expect(true).toBe(true);
     });
 

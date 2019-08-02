@@ -32,6 +32,34 @@ pattern, however, is caught in the code above.
 
 npm install -D babel-loader @babel/core @babel/preset-env webpack
 
+You don't need to put this in **webpack.config.js** if you are using **.babelrc**:
+
+    module: {
+        rules: [
+            {
+                test: /.js?$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+Just do this in **.babelrc**:
+
+
+    {
+        "presets": ["@babel/preset-env"]
+    }
+
+
+
 ## Bridges
 
 Why does the bridge pattern exist?

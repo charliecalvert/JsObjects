@@ -33,5 +33,5 @@
         }
     };
 
-export default new Yawl();
+export default Yawl;
 

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",
-    "test": "npx jasmine"
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "~1.19.0",
@@ -18,7 +18,11 @@
     "webpack-cli": "^3.3.6"
   },
   "devDependencies": {
-    "jasmine": "^3.4.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.8.0",
     "requirejs": "^2.3.6"
   }
 }

@@ -33,4 +33,4 @@
         },
     };
 
-export default new Ketch();
+export default Ketch;

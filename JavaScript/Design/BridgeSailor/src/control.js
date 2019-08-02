@@ -7,8 +7,8 @@ import {utilities} from "./Utilities";
 import SailorBridge from './SailorBridge';
 import SailorBridgeExpert from "./SailorBridgeExpert";
 import Sloop from './boats/Sloop';
-import ketch from './boats/Ketch';
-import yawl from './boats/Yawl';
+import Ketch from './boats/Ketch';
+import Yawl from './boats/Yawl';
 
 
 
@@ -20,8 +20,8 @@ var Control = (function () {
 
         elf.utilities = utilities;
         elf.sloop = new Sloop();
-        elf.ketch = ketch;
-        elf.yawl = yawl;
+        elf.ketch = new Ketch();
+        elf.yawl = new Yawl();
 
         elf.sailorBridge = new SailorBridge();
         elf.SailorBridgeExpert = new SailorBridgeExpert();
