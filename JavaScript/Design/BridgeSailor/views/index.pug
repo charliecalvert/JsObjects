@@ -1,14 +1,20 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+    .wrapper
+        header.main-head
+            h1= title
 
-    button#sailor Show Sailor
-    button#sailorExpert Show SailorExpert
-    button#unitTest Unit Tests
-    button#readMe Read Me
+        article.content
+            p Welcome to #{title}
 
-    ul#boatList
+            button#sailor Show Sailor
+            button#sailorExpert Show SailorExpert
+            p Select this button if you want to view the README on GitHub:
+
+            button#readMe Read Me
+
+        .side
+            ul#boatList
 
     script(src="bundle.js")

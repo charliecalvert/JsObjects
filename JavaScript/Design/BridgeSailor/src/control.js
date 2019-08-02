@@ -28,12 +28,10 @@ var Control = (function () {
 
         const sailorAction = document.getElementById('sailor');
         const sailorExpertAction = document.getElementById('sailorExpert');
-        const unitTestAction = document.getElementById('unitTest');
         const readMeAction = document.getElementById('readMe');
-        sailorAction.onclick = this.runSailor;
 
+        sailorAction.onclick = this.runSailor;
         sailorExpertAction.onclick = runSailExpert;
-        unitTestAction.onclick = unitTest;
         readMeAction.onclick = readMe;
     }
 
