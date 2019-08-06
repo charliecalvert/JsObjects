@@ -76,5 +76,9 @@ cd $GIT_HOME/isit322-calvert-2018
 checkStatus
 
 echo "================"
+cd $GIT_HOME/elf-timer
+checkStatus
+
+echo "================"
 cd $GIT_HOME/writings
 checkStatus
