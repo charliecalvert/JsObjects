@@ -1,0 +1,29 @@
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.blue {
+  color: #0000FF;
+}
+
+.bordered {
+  border: thin black solid;
+}
+li {
+  list-style-type: disc;
+}
+
+.preference {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: .5rem;
+}
+
+input, label {
+  margin: .1rem;
+}

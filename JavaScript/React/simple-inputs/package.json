@@ -1,0 +1,29 @@
+{
+  "name": "simple-inputs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx webpack --watch & nodemon ./bin/www",
+    "build": "npx webpack"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~4.1.1",
+    "express": "~4.16.4",
+    "http-errors": "~1.7.2",
+    "morgan": "~1.9.1",
+    "pug": "2.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  }
+}
