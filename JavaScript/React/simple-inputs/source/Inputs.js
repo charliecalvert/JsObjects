@@ -1,24 +1,8 @@
 import React from 'react';
+import Radios from "./Radios";
+import CheckBoxes from "./CheckBoxes";
 
 export default class Inputs extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            checkedRadioButton: 'none',
-            message: 'none'
-        };
-    }
-
-    handleRadioChange = event => {
-        this.setState({ checkedRadioButton: event.target.value });
-    };
-
-    useButtonSelection = () => {
-        this.setState({
-            message: "You've chosen " + this.state.checkedRadioButton
-        });
-    };
 
     render() {
         return (
@@ -45,57 +29,9 @@ export default class Inputs extends React.Component {
                     <input type="number" id="time-search" defaultValue="0"></input>
                 </div>
 
-                <h3>Appearance Type:</h3>
+                <CheckBoxes/>
+                <Radios/>
 
-                <div className="preference">
-                    <label htmlFor="borders">Borders</label>
-                    <input
-                        checked={this.state.checkedRadioButton === 'RadioOne'}
-                        onChange={this.handleRadioChange}
-                        type="checkbox" name="borders" id="borders"/>
-                </div>
-
-                <div className="preference">
-                    <label htmlFor="colors">Colors</label>
-                    <input
-                        type="checkbox" name="colors" id="colorss"/>
-                </div>
-
-                <h3>Sound Type:</h3>
-
-                <div  className="preference">
-                    <label htmlFor="scales">Ring</label>
-                    <input
-                        type="radio"
-                        id="scales"
-                        name="design"
-                        value="RadioOne"
-                        checked={this.state.checkedRadioButton === 'RadioOne'}
-                        onChange={this.handleRadioChange}
-                    />
-                </div>
-
-                <div  className="preference">
-                    <label htmlFor="horns">Beep</label>
-                    <input
-                        type="radio"
-                        id="horns"
-                        name="design"
-                        value="RadioTwo"
-                        checked={this.state.checkedRadioButton === 'RadioTwo'}
-                        onChange={this.handleRadioChange}
-                    />
-                </div>
-
-
-                <hr />
-                <p>
-                    Selected radio button: {this.state.checkedRadioButton}
-                </p>
-                <p>Message: {this.state.message}</p>
-                <button type="button" onClick={this.useButtonSelection}>
-                    Use Radio Button to set the message
-                </button>
             </form>
         );
     }
