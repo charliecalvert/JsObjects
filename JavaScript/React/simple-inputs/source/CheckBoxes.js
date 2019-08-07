@@ -4,35 +4,15 @@ export default class CheckBoxes extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            checkedCount: 0,
-            selected: 'none'
-        };
-        this.checkBoxes = [];
     }
 
     componentDidMount() {
-        this.checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+        const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
-        for (let i = 0; i < this.checkBoxes.length; i++) {
-            this.checkBoxes[i].addEventListener('click', this.report);
+        for (let i = 0; i < checkBoxes.length; i++) {
+            checkBoxes[i].addEventListener('click', this.props.checkBoxReport);
         }
     }
-
-    report = () => {
-        let checkedCount = 0;
-        let selected = '';
-        for (let i = 0; i < this.checkBoxes.length; i++) {
-            if (this.checkBoxes[i].checked) {
-                checkedCount++;
-                selected += this.checkBoxes[i].name
-                console.log('checked', checkedCount, this.checkBoxes[i].name);
-            } else {
-                console.log('checked', checkedCount);
-            }
-            this.setState({selected: selected})
-        }
-    };
 
     render() {
         return (

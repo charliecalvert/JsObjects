@@ -9,6 +9,8 @@ export default class Display extends Component {
                     Selected radio button: {this.props.checkedRadioButton}
                 </p>
                 <p>Message: {this.props.message}</p>
+                <p>Checked: {this.props.checkedCount}</p>
+                <p>Check Selected: {this.props.checkSelected}</p>
             </Fragment>
         )
     }

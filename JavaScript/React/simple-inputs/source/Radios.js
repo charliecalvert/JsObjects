@@ -5,21 +5,8 @@ export default class Radios extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            checkedRadioButton: 'none',
-            message: 'none'
-        };
     }
 
-    handleRadioChange = event => {
-        this.setState({ checkedRadioButton: event.target.value });
-    };
-
-    useButtonSelection = () => {
-        this.setState({
-            message: "You've chosen " + this.state.checkedRadioButton
-        });
-    };
 
     render() {
         return (
@@ -33,8 +20,8 @@ export default class Radios extends Component {
                         id="scales"
                         name="design"
                         value="RadioOne"
-                        checked={this.state.checkedRadioButton === 'RadioOne'}
-                        onChange={this.handleRadioChange}
+                        checked={this.props.checkedRadioButton === 'RadioOne'}
+                        onChange={this.props.handleRadioChange}
                     />
                 </div>
 
@@ -45,15 +32,14 @@ export default class Radios extends Component {
                         id="horns"
                         name="design"
                         value="RadioTwo"
-                        checked={this.state.checkedRadioButton === 'RadioTwo'}
-                        onChange={this.handleRadioChange}
+                        checked={this.props.checkedRadioButton === 'RadioTwo'}
+                        onChange={this.props.handleRadioChange}
                     />
                 </div>
 
 
                 <hr/>
-                <Display checkedRadioButton={this.state.checkedRadioButton} message={this.state.message}/>
-                <button type="button" onClick={this.useButtonSelection}>
+                <button type="button" onClick={this.props.useButtonSelection}>
                     Use Radio Button to set the message
                 </button>
             </React.Fragment>
