@@ -20,7 +20,7 @@ export default class Radios extends Component {
                         id="scales"
                         name="design"
                         value="RadioOne"
-                        checked={this.props.checkedRadioButton === 'RadioOne'}
+                        checked={this.props.radioChecked === 'RadioOne'}
                         onChange={this.props.handleRadioChange}
                     />
                 </div>
@@ -32,14 +32,14 @@ export default class Radios extends Component {
                         id="horns"
                         name="design"
                         value="RadioTwo"
-                        checked={this.props.checkedRadioButton === 'RadioTwo'}
+                        checked={this.props.radioChecked === 'RadioTwo'}
                         onChange={this.props.handleRadioChange}
                     />
                 </div>
 
 
                 <hr/>
-                <button type="button" onClick={this.props.useButtonSelection}>
+                <button type="button" onClick={this.props.radioSelection}>
                     Use Radio Button to set the message
                 </button>
             </React.Fragment>

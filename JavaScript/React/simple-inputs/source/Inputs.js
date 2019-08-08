@@ -8,8 +8,8 @@ export default class Inputs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkedRadioButton: 'none',
-            message: 'none',
+            radioChecked: 'none',
+            radioMessage: 'none',
             checkBoxes: {borders: false, colors: false},
             checkedCount: 0,
             checkSelected: 'none'
@@ -17,12 +17,12 @@ export default class Inputs extends React.Component {
     }
 
     handleRadioChange = event => {
-        this.setState({checkedRadioButton: event.target.value});
+        this.setState({radioChecked: event.target.value});
     };
 
-    useButtonSelection = () => {
+    radioSelection = () => {
         this.setState({
-            message: "You've chosen " + this.state.checkedRadioButton
+            radioMessage: "You've chosen " + this.state.radioChecked
         });
     };
 
@@ -57,13 +57,13 @@ export default class Inputs extends React.Component {
 
                 <Radios
                     handleRadioChange={this.handleRadioChange}
-                    useButtonSelection={this.useButtonSelection}
-                    checkedRadioButton={this.state.checkedRadioButton}
-                    message={this.state.message}/>
+                    radioSelection={this.radioSelection}
+                    radioChecked={this.state.radioChecked}
+                    radioMessage={this.state.radioMessage}/>
 
                 <Display
-                    checkedRadioButton={this.state.checkedRadioButton}
-                    message={this.state.message}
+                    radioChecked={this.state.radioChecked}
+                    radioMessage={this.state.radioMessage}
                     checkSelected={this.state.checkSelected}
                     checkedCount={this.state.checkedCount}
                 />
