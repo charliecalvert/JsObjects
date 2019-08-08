@@ -1,17 +1,10 @@
-import React, {Component, Fragment} from 'react';
-import Display from "./Display";
+import React, { Component } from 'react';
 
 export default class Radios extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         return (
             <React.Fragment>
-                <h3>Sound Type:</h3>
+                <h3>Radio Inputs</h3>
 
                 <div className="preference">
                     <label htmlFor="scales">Ring</label>
@@ -20,7 +13,7 @@ export default class Radios extends Component {
                         id="scales"
                         name="design"
                         value="RadioOne"
-                        checked={this.props.radioChecked === 'RadioOne'}
+                        checked={this.props.selectedRadio === 'RadioOne'}
                         onChange={this.props.handleRadioChange}
                     />
                 </div>
@@ -32,16 +25,10 @@ export default class Radios extends Component {
                         id="horns"
                         name="design"
                         value="RadioTwo"
-                        checked={this.props.radioChecked === 'RadioTwo'}
+                        checked={this.props.selectedRadio === 'RadioTwo'}
                         onChange={this.props.handleRadioChange}
                     />
                 </div>
-
-
-                <hr/>
-                <button type="button" onClick={this.props.radioSelection}>
-                    Use Radio Button to set the message
-                </button>
             </React.Fragment>
         );
     }

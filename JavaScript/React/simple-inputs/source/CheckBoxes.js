@@ -1,11 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 
 export default class CheckBoxes extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -17,21 +12,21 @@ export default class CheckBoxes extends Component {
     render() {
         return (
             <Fragment>
-                <h3>Appearance Type:</h3>
+                <h3>CheckBox Inputs</h3>
 
                 <fieldset>
                     <legend>Choose your interests</legend>
                     <div className="preference">
                         <label htmlFor="borders">Borders</label>
-                        <input type="checkbox" name="borders" id="borders"/>
+                        <input type="checkbox" name="borders" id="borders" />
                     </div>
 
                     <div className="preference">
                         <label htmlFor="colors">Colors</label>
-                        <input type="checkbox" name="colors" id="colors"/>
+                        <input type="checkbox" name="colors" id="colors" />
                     </div>
                 </fieldset>
             </Fragment>
-        )
+        );
     }
 }

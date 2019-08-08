@@ -20,10 +20,14 @@ li {
 .preference {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 95%;
   margin: .5rem;
 }
 
 input, label {
   margin: .1rem;
+}
+
+.inputs {
+  padding: 1rem;
 }
