@@ -1,5 +1,5 @@
 {
-  "name": "simple-inputs",
+  "name": "bit-dev-test",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,15 @@
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@bit/ccalvert.elven-inputs.radios": "^1.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~4.1.1",
     "express": "~4.16.4",
     "http-errors": "~1.7.2",
     "morgan": "~1.9.1",
     "pug": "2.0.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -25,12 +26,5 @@
     "babel-loader": "^8.0.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1"
-  },
-  "bit": {
-    "env": {
-      "compiler": "bit.envs/compilers/react@1.0.2"
-    },
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
   }
 }
