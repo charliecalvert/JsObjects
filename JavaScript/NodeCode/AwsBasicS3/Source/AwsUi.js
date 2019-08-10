@@ -113,8 +113,27 @@ define(['jquery'], function() {
         return false;
     };
 
+    const makeParams = (params) => {
+        var esc = encodeURIComponent;
+        return '?' + Object.keys(params)
+            .map(k => esc(k) + '=' + esc(params[k]))
+            .join('&');
+    };
+
     var listBuckets = function() {
-        $.getJSON("/listBuckets", {
+        fetch('/listBuckets?' + makeParams(options[dataIndex]))
+            .then((response) => response.json())
+            .then((data) => {
+                $("#buckets").empty();
+                if (Array.isArray(data)) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#buckets").append("<li>" + data[i] + "</li>");
+                    }
+                } else {
+                    $("#buckets").append(data.message);
+                }
+            });
+        /*$.getJSON("/listBuckets", {
             options: JSON.stringify(options[dataIndex])
         }, function(data) {
             $("#buckets").empty();
@@ -125,7 +144,7 @@ define(['jquery'], function() {
             } else {
                 $("#buckets").append(data.message);
             }
-        });
+        });*/
     };
 
     return AwsUi;

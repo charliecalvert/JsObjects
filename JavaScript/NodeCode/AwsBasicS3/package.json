@@ -7,29 +7,30 @@
     "url": "http://github.com/charliecalvert/JsObjects.git"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "zipIt": "node zip-it.js"
   },
   "dependencies": {
-    "express": "~4.17.1",
-    "static-favicon": "~1.0.2",
-    "morgan": "~1.9.1",
-    "cookie-parser": "~1.4.4",
-    "body-parser": "~1.19.0",
-    "debug": "~4.1.1",
-    "walk": "2.3.14",
     "aws-sdk": "~2.507.0",
-    "jade": "~1.11.0"
+    "body-parser": "~1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~4.1.1",
+    "elven-code": "^4.6.3",
+    "express": "~4.17.1",
+    "install": "^0.13.0",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "static-favicon": "~1.0.2",
+    "walk": "2.3.14"
   },
   "devDependencies": {
-    "winston": "~3.2.1",
-    "minimist": "1.2.0",
+    "archiver": "^3.1.1",
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^2.1.0",
-    "grunt-contrib-compress": "^1.5.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-strip-code": "^1.0.6",
+    "minimist": "1.2.0",
     "request": "~2.88.0",
-    "grunt-jsbeautifier": "^0.2.13"
+    "winston": "~3.2.1"
   }
 }
