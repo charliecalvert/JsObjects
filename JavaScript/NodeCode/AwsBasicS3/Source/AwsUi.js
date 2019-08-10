@@ -121,7 +121,7 @@ define(['jquery'], function() {
     };
 
     var listBuckets = function() {
-        fetch('/listBuckets?' + makeParams(options[dataIndex]))
+        fetch('/listBuckets' + makeParams(options[dataIndex]))
             .then((response) => response.json())
             .then((data) => {
                 $("#buckets").empty();

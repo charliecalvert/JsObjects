@@ -99,9 +99,9 @@ app.get('/getOptions', function(request, response) {
 
 app.get('/listBuckets', function(request, response) {
     'use strict';
-    console.log("ListBuckets called");
-    console.log(request.query);
-    var options = JSON.parse(request.query.options);
+    console.log("LISTBUCKETS CALLED", request.query);
+    var options = request.query;
+    console.log('OPTIONS', options);
     console.log("ListBuckets Path to Config: ", options.pathToConfig);
     if (s3Code.loadConfig(options.pathToConfig)) {
         console.log('LOADED CONFIG ABOUT TO CALL S3CODE LISTBUCKETS');
