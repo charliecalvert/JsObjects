@@ -32,7 +32,7 @@ app.set('view engine', 'jade');
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'Source')));
@@ -72,12 +72,12 @@ app.use(function(err, req, res, next) {
 //app.get('/users', user.list);
 
 /*
- * You will need to edit one or more objects in Options.json. 
+ * You will need to edit one or more objects in Options.json.
  * They have this general format
 
 var options = {
-		pathToConfig: '/home/charlie/config.json',		
-		reallyWrite: true, 
+		pathToConfig: process.env.HOME + '/.config/aws-config.json',
+		reallyWrite: true,
 		bucketName: 'bucket01.elvenware.com',
 		folderToWalk: "Files",
 		s3RootFolder: "FilesTwo",
@@ -85,14 +85,15 @@ var options = {
 		createIndex: true,
 		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
 };
- 
- * Before filling it out, see the README file for this project. 
+
+ * Before filling it out, see the README file for this project.
  */
 
 app.get('/getOptions', function(request, response) {
     'use strict';
     var options = fs.readFileSync(__dirname + "/Options.json", 'utf8');
     options = JSON.parse(options);
+    options[0].pathToConfig = process.env.HOME + options[0].pathToConfig;
     response.send(options);
 });
 
@@ -101,8 +102,9 @@ app.get('/listBuckets', function(request, response) {
     console.log("ListBuckets called");
     console.log(request.query);
     var options = JSON.parse(request.query.options);
-    console.log("ListBuckets: ", options.pathToConfig);
+    console.log("ListBuckets Path to Config: ", options.pathToConfig);
     if (s3Code.loadConfig(options.pathToConfig)) {
+        console.log('LOADED CONFIG ABOUT TO CALL S3CODE LISTBUCKETS');
         s3Code.listBuckets(response, true);
     } else {
         console.log("There was an error in listBuckets");

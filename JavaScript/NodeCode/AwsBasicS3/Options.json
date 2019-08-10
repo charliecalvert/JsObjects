@@ -1,6 +1,6 @@
 [
 	{
-		"pathToConfig": "/home/charlie/config.json",
+		"pathToConfig": "/.config/aws-config.json",
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "/var/www/bc",
@@ -18,7 +18,7 @@
 		"createIndex": true,
 		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
 	}, {
-		"pathToConfig": "/home/charlie/config.json",
+		"pathToConfig": "/home/charlie/.config/config.json",
 		"reallyWrite": true,
 		"bucketName": "bucket01.elvenware.com",
 		"folderToWalk": "CloudNotes",

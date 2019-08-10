@@ -4,37 +4,37 @@ block content
   img(src="favicon.png")
   h1= title
   p Welcome to #{title}
-  
-  
-  
+
+
+
   button#buildAll Transform and copy
   button#tranformBackButton &lt;&lt;
   button#transformForwardButton &gt;&gt;
-  div.displayKing    
+  div.displayKing
     label(for='pathToPython') Path to Python
     p#pathToPython -
     label(for='copyFrom') Copy from
     p#copyFrom -
-    label(for='copyTo') Copy to 
+    label(for='copyTo') Copy to
     p#copyTo -
     label(for='filesToCopy') Files to copy
     p#filesToCopy -
-  
+
   hr
-  button#listBuckets Get Buckets
+  button#listBuckets List Buckets
   button#copyToS3 Copy to S3
   button#getOptions Get Options
   button#backButton &lt;&lt;
   button#forwardButton &gt;&gt;
-  
+
   ul#buckets
   p#copyResult
-  div.displayKing    
+  div.displayKing
     label(for='documentCount') Document Count
     p#documentCount -
     label(for='currentDocument') Current Document
     p#currentDocument -
-    label(for='pathToConfig') pathToConfig 
+    label(for='pathToConfig') pathToConfig
     p#pathToConfig -
     label(for='reallyWrite') reallyWrite
     p#reallyWrite -
@@ -50,7 +50,7 @@ block content
     p#createIndex -
     label(for='filesToIgnore') filesToIgnore
     p#filesToIgnore -
-    
+
   div.displayKing
     h2 Files Copied
     ul#buildData -

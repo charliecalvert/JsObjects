@@ -9,11 +9,11 @@ var configLoaded = false;
 
 function loadConfig(pathToConfig) {
     'use strict';
-    console.log("Load config called");
+    console.log("S3CODE.LOADCONFIG CALLED TO INIT S3.");
     var result = true;
     try {
         AWS.config.loadFromPath(pathToConfig);
-        s3 = new AWS.S3();
+        s3 = new AWS.S3({apiVersion: '2006-03-01'});
         configLoaded = true;
     } catch (e) {
         console.log(e);
@@ -31,29 +31,35 @@ function configMessage() {
 
 function listBuckets(response, useResponse) {
     'use strict';
-    console.log("calling listBuckets");
+    console.log("S3CODE LISTBUCKETS CALLED");
     if (!configLoaded) {
         configMessage();
     } else {
-        s3.client.listBuckets(function(err, data) {
-            if (err) {
-                console.log(err);
-            } else {
-                var bucketData = [];
-                for (var index in data.Buckets) {
-                    var bucket = data.Buckets[index];
-                    var bucketDetails = "Bucket: " + bucket.Name + ' : ' + bucket.CreationDate;
-                    if (!useResponse) {
-                        console.log(bucketDetails);
-                    } else {
-                        bucketData.push(bucketDetails);
+        if (s3.listBuckets) {
+            s3.listBuckets(function (err, data) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    var bucketData = [];
+                    for (var index in data.Buckets) {
+                        var bucket = data.Buckets[index];
+                        var bucketDetails = "Bucket: " + bucket.Name + ' : ' + bucket.CreationDate;
+                        if (!useResponse) {
+                            console.log(bucketDetails);
+                        } else {
+                            bucketData.push(bucketDetails);
+                        }
+                    }
+                    if (useResponse) {
+                        response.send(bucketData);
                     }
                 }
-                if (useResponse) {
-                    response.send(bucketData);
-                }
-            }
-        });
+            });
+        } else {
+            console.log()
+            console.log('KEYS', Object.keys(s3));
+            throw Error('s3 Object not constructed properly in S3Code.listBuckets');
+        }
     }
 }
 
@@ -66,7 +72,7 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
         return;
     }
 
-    fs.readFile(localFileName, function(err, data) {
+    fs.readFile(localFileName, function (err, data) {
         if (err) {
             throw err;
         }
@@ -115,7 +121,7 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
                 Key: nameOnS3,
                 Body: data,
                 ContentType: contentType
-            }, function(resp) {
+            }, function (resp) {
                 console.log(resp);
                 console.log('Successfully uploaded package: ' + nameOnS3 + ' Content Type: ' + contentType);
             });
