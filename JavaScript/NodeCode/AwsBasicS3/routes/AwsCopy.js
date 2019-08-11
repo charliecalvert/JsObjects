@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
 	'use strict';
 	res.render('AwsCopy', {
-		title : 'AwsBasicS3'
+		title : 'AwsBasicS3asdf'
 	});
 });
 

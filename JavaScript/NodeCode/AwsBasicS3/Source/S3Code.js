@@ -115,7 +115,7 @@ function writeFile(localFileName, bucketName, nameOnS3, binary) {
         if (false) {
             console.log("Writing: " + bucketName + "/" + nameOnS3);
         } else {
-            s3.client.putObject({
+            s3.putObject({
                 ACL: 'public-read',
                 Bucket: bucketName,
                 Key: nameOnS3,

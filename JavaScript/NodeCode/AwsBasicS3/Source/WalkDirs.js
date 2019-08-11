@@ -49,7 +49,7 @@ function setupWinston() {
         }
     };
 
-    var logger = new(winston.Logger)({
+    var logger = winston.createLogger({
         transports: [
             new(winston.transports.Console)({
                 level: 'debug',

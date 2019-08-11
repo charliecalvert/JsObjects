@@ -1,7 +1,7 @@
 [
     {
-        "pathToPython": "C:\\Python\\Python33\\Python.exe",
-        "copyFrom": "C:\\Users\\charlie\\Dropbox\\Elvenware\\CloudNotes\\Prog282",
+        "pathToPython": "/usr/bin/python",
+        "copyFrom": "/home/charlie/Git/CloudNotes/Prog282",
         "copyTo": "C:\\Src\\Web\\Elvenware\\charlie\\books\\CloudNotes\\Prog282",
         "htmlPieces": [
             "StartLinux.html",

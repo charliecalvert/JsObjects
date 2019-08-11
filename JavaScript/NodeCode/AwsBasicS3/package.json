@@ -7,7 +7,7 @@
     "url": "http://github.com/charliecalvert/JsObjects.git"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon ./bin/www",
     "zipIt": "node zip-it.js"
   },
   "dependencies": {

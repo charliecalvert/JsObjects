@@ -71,6 +71,7 @@ define(['jquery'], function() {
             alert(JSON.stringify(a));
         });
     };
+
     var getOptions = function() {
         $.getJSON("/getOptions", function(optionsInit) {
             options = optionsInit;
