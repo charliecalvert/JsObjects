@@ -5,13 +5,34 @@ block content
     h1= title
     p You are Welcome to #{title}
 
+    img(src="Bar02.png")
 
-    hr
-    button#listBuckets List Buckets
-    button#copyToS3 Copy to S3
-    button#getOptions Get Options
-    button#backButton &lt;&lt;
-    button#forwardButton &gt;&gt;
+    p
+        | You will need to set up your AWS Access keys in your
+        | <b>$HOME/.config directory</b>. See <b>/routes/Options.json</b>
+        | to customize the location of the file. Go to your Security
+        | Credentials on AWS to set up the keys.
+        |
+        a(href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html" target="_blank" rel="noreferrer") AWS Docs
+
+
+    p
+        | Press <b>listBuckets</b> to view the buckets you have on
+        | AWS S3. This is also a way to confirm you have configured
+        | the AWS keys properly.
+
+    p
+        | Copy files to S3 using the options specified in
+        | <b>/routes/Options.json</b>. Note that you can use the
+        | the arrow buttons to iterate over the options you have
+        | set up in <b>/routes/Options.json</b>.
+
+    div
+        button#listBuckets List Buckets
+        button#copyToS3 Copy to S3
+        button#getOptions Get Options
+        button#backButton &lt;&lt;
+        button#forwardButton &gt;&gt;
 
     ul#buckets
     p#copyResult
@@ -41,6 +62,11 @@ block content
         h2 Files Copied
         ul#buildData -
 
+    img(src="Bar02.png")
+
+    h2 Transform and Copy
+
+    p This section is no longer used. I'm just no ready to delete it yet.
 
     button#buildAll Transform and copy
     button#tranformBackButton &lt;&lt;
