@@ -7,23 +7,31 @@
     "url": "http://github.com/charliecalvert/JsObjects.git"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "npx webpack --watch & nodemon ./bin/www",
     "zipIt": "node zip-it.js"
   },
   "dependencies": {
     "aws-sdk": "~2.507.0",
+    "babel-loader": "^8.0.6",
     "body-parser": "~1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~4.1.1",
-    "elven-code": "^4.6.3",
+    "elven-code": "^4.7.0",
     "express": "~4.17.1",
     "install": "^0.13.0",
+    "jest": "^24.8.0",
     "morgan": "~1.9.1",
     "pug": "^2.0.4",
     "static-favicon": "~1.0.2",
-    "walk": "2.3.14"
+    "supertest": "^4.0.2",
+    "walk": "2.3.14",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "archiver": "^3.1.1",
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",

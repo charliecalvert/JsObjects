@@ -70,7 +70,7 @@ router.get('/listBuckets', function (request, response) {
 
 router.get('/copyToS3', function (request, response) {
     'use strict';
-    var options = JSON.parse(request.query.options);
+    const options = request.query;
     console.log('COPY TO S3 OPTIONS', options);
     try {
         walkDirs(options, response);
@@ -124,7 +124,7 @@ router.get('/buildAll', function (request, response) {
 router.get('/getBuildConfig', function (request, response) {
     'use strict';
     console.log('getBuildConfig CALLED');
-    const fileName = __dirname + "/MarkdownTransformConfig.json";
+    const fileName = __dirname + "/transform/MarkdownTransformConfig.json";
     try {
         var options = fs.readFileSync(fileName, 'utf8');
     } catch (error) {
