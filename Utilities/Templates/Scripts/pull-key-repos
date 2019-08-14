@@ -8,6 +8,11 @@ function message {
     echo
 }
 
+message "Pulling JsObjects on $HOSTNAME"
+cd $HOME/Git/JsObjects
+pwd
+git pull
+
 message "Pulling Prog 109 Nodes on $HOSTNAME"
 cd $HOME/Git/prog109-notes
 pwd
@@ -20,10 +25,5 @@ git pull
 
 message "Pulling CloudNotes on $HOSTNAME"
 cd $HOME/Git/CloudNotes
-pwd
-git pull
-
-message "Pulling JsObjects on $HOSTNAME"
-cd $HOME/Git/JsObjects
 pwd
 git pull
