@@ -13,7 +13,7 @@ cd $HOME/Git/JsObjects
 pwd
 git pull
 
-message "Pulling Prog 109 Nodes on $HOSTNAME"
+message "Pulling Prog 109 Notes on $HOSTNAME"
 cd $HOME/Git/prog109-notes
 pwd
 git pull
