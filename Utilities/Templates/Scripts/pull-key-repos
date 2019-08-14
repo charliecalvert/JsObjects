@@ -8,6 +8,11 @@ function message {
     echo
 }
 
+message "Pulling Prog 109 Nodes on $HOSTNAME"
+cd $HOME/Git/prog109-notes
+pwd
+git pull
+
 message "Pulling charliecalvert.github.io on $HOSTNAME" 
 cd $HOME/Git/charliecalvert.github.io
 pwd
