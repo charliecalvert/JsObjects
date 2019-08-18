@@ -64,11 +64,12 @@ function runCommand() {
             ;;\
         "eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
         "prettier") 
-            getGist $GIST_PRETTIER prettier 
+            getGist $GIST_PRETTIER prettier
+            echo '**/bower_components/**' >> .prettierignore      
             echo '**/build/**' >> .prettierignore
-            echo '**/serviceWorker.js' >> .prettierignore
-            echo '**/bower_components/**' >> .prettierignore
+            echo '**/coverage/**' >> .prettierignore
             echo '**/materialize.min.js' >> .prettierignore
+            echo '**/serviceWorker.js' >> .prettierignore            
             chmod +x prettier
             ;;\
         "prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
