@@ -1,5 +1,5 @@
-var request = require('request');
-var setServer = require('../set-server');
+const request = require('request');
+const setServer = require('../set-server');
 require('request-debug')(request);
 const menu = require('./menu');
 
