@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "build": "node_modules/.bin/webpack --watch",
+    "start": "npx webpack --watch & nodemon ./bin/www",
+    "build": "npx webpack --watch",
     "test": "jest --watch"
   },
   "dependencies": {
@@ -18,15 +18,15 @@
     "http-errors": "~1.7.3",
     "morgan": "~1.9.1",
     "pug": "2.0.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6"
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   }
 }
