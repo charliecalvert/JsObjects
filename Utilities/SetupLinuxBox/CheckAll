@@ -40,6 +40,10 @@ cd $GIT_HOME/prog109-notes
 checkStatus
 
 echo "================"
+cd $GIT_HOME/isit320-calvert-2019
+checkStatus
+
+echo "================"
 cd $GIT_HOME/isit322-calvert-2019
 checkStatus
 
@@ -69,10 +73,6 @@ checkStatus
 
 echo "================"
 cd $GIT_HOME/elven-firebase
-checkStatus
-
-echo "================"
-cd $GIT_HOME/isit320-calvert-2019
 checkStatus
 
 echo "================"
