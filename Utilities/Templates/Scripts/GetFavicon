@@ -1,3 +1,4 @@
 #! /bin/bash
 
 cp -v $ELF_TEMPLATES/Images/favicon.png .
+cp -v $ELF_TEMPLATES/Images/favicon.ico .
