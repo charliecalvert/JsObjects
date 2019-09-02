@@ -71,8 +71,8 @@ alias elfweb="cd ~/Git/elven-web/server"
 
 # Isit Courses
 
-alias i3='cd $GIT_HOME/isit322-2019'
-alias i3c='cd $GIT_HOME/isit322-calvert-2019'
+alias i3='cd $GIT_HOME/isit320-2019'
+alias i3c='cd $GIT_HOME/isit320-calvert-2019'
 
 # Prog Courses
 alias p2='cd $GIT_HOME/prog272-2019'
