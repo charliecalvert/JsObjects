@@ -10,21 +10,21 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "express": "4.17.1",
     "sql.js": "1.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@babel/node": "^7.5.0",
-    "babel-eslint": "10.0.1",
-    "concurrently": "4.1.1",
-    "eslint-config-google": "^0.13.0",
-    "eslint-plugin-import": "2.18.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "babel-eslint": "10.0.3",
+    "concurrently": "4.1.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.3"
   }
 }
