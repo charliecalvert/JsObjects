@@ -3,10 +3,10 @@
 file=$1
 shift
 for var in "$@"
-do
+do  
   found=`grep "$var" $file`
   if [[ -z $found ]]
   then
-   echo $var
+   echo $var | sed 's/^\^\(.*\)/\1/'
   fi
 done
