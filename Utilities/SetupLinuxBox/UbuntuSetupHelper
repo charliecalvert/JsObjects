@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# This script will set up a node development environment on Ubuntu based
+# distros such as Ubuntu, Lubuntu and Mint. 
+
 # RED='\033[0;31m'
 LIGHT_RED='\033[1;31m'
 LIGHT_GREEN='\033[1;32m'
