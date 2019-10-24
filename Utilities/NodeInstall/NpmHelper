@@ -16,7 +16,8 @@ function clean() {
 
 function essentials() {
     message "Installing Essentials"
-    npm install -g eslint babel-eslint 
+    npm install -g eslint babel-eslint
+    npm install -g eslint-plugin-react
     npm install -g create-react-app
     npm install -g grunt-cli bower
     npm install -g elf-express-generator express-generator    
