@@ -71,6 +71,7 @@ createLink "$ELF_TEMPLATES"/FindScripts/ FindNpDir
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNpPrettier
 createLink "$ELF_TEMPLATES"/FindScripts/ package-json-test
 createLink "$ELF_TEMPLATES"/React/ get-gist
+createLink "$ELF_TEMPLATES"/React/ build-concurrency
 createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
 createLink "$ELF_SCRIPTS"/ ShowPath

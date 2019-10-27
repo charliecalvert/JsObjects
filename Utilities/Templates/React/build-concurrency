@@ -1,0 +1,14 @@
+#!/bin/bash
+PROJECT_ROOT="$(pwd)"
+
+# Install packages in root
+echo "Running 'npm install' in root of project"
+cd "$PROJECT_ROOT" && npm i
+
+# Install packages in client
+echo "Running 'npm install' in client"
+cd "$PROJECT_ROOT/client" && npm i
+
+# Install packages in server
+echo "Running 'npm install' in server"
+cd "$PROJECT_ROOT/server" && npm i
