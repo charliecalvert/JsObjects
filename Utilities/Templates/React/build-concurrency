@@ -2,13 +2,30 @@
 PROJECT_ROOT="$(pwd)"
 
 # Install packages in root
-echo "Running 'npm install' in root of project"
-cd "$PROJECT_ROOT" && npm i
+if [ -f "$PROJECT_ROOT/package.json" ]; then
+    echo "Running 'npm install' in root of project"
+    cd "$PROJECT_ROOT" && npm i
+fi
 
 # Install packages in client
-echo "Running 'npm install' in client"
-cd "$PROJECT_ROOT/client" && npm i
+if [ -d "$PROJECT_ROOT/client" ]; then
+    echo "Running 'npm install' in client"
+    cd "$PROJECT_ROOT/client" && npm i
+fi
 
 # Install packages in server
-echo "Running 'npm install' in server"
-cd "$PROJECT_ROOT/server" && npm i
+if [ -d "$PROJECT_ROOT/server" ]; then
+    echo "Running 'npm install' in server"
+    cd "$PROJECT_ROOT/server" && npm i
+fi
+
+if [ -d "$PROJECT_ROOT/qux" ]; then
+    echo "Running 'npm install' in qux"
+    cd "$PROJECT_ROOT/qux" && npm i
+fi
+
+if [ -d "$PROJECT_ROOT/system-environment" ]; then
+    echo "Running 'npm install' in system-environment"
+    cd "$PROJECT_ROOT/system-environment" && npm i
+fi
+
