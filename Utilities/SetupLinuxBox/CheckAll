@@ -88,5 +88,9 @@ cd $GIT_HOME/elf-timer
 checkStatus
 
 echo "================"
+cd $GIT_HOME/git-ignore-tests
+checkStatus
+
+echo "================"
 cd $GIT_HOME/writings
 checkStatus
