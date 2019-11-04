@@ -37,6 +37,10 @@ alias killnode="killall node"
 
 # Commands
 alias sshadd="ssh-add $ELF_SSH_DIR/main-key"
+alias bcy="build-concurrency"
+alias dsee="docker container ls -a && docker image ls -a"
+alias drmc="docker ps -a -q | xargs docker container rm"
+alias drmi="docker image ls | grep 'week04' | xargs docker image rm"
 alias gossh="cd $ELF_SSH_DIR/"
 alias ba="less ~/.bash_aliases"
 alias platform="cordova platform add android"
