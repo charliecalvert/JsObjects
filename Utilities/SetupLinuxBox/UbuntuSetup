@@ -136,7 +136,16 @@ function runBasics() {
     gitSetup
     setBashAliasAndSymbolicLinks
     setupBashRc "$1"
+    sudo apt install ssh -y
     # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+}
+
+function installGuiApps() {
+    sudo apt-get install meld -y
+    sudo snap install chromium
+    sudo snap install geany-gtk --edge
+    sudo snap install atom --classic
+    sudo snap install webstorm --classic
 }
 
 function runAll() {
@@ -156,9 +165,10 @@ while true; do
     echo -e "$LIGHT_GREEN Ubuntu"
     echo -e "$LIGHT_GREEN  a) Run All (Basic and Node Related)"
     echo -e "$LIGHT_GREEN  b) Run Basic Setup (All but Node Related)"
+    echo -e "$LIGHT_GREEN  c) Install GUI Apps (for Desktop only)"
     echo -e "$BLUE Cloud Nine"
-    echo -e "$BLUE  c) Run All (Basic and Node Related)"
-    echo -e "$BLUE  d) Run Basic Setup  (All but Node Related)"
+    echo -e "$BLUE  d) Run All (Basic and Node Related)"
+    echo -e "$BLUE  e) Run Basic Setup  (All but Node Related)"
     echo -e "$YELLOW Other"
     echo -e "$YELLOW  n) Install Node"
     echo -e "$YELLOW  p) Install Node Packages"
@@ -169,8 +179,9 @@ while true; do
     case $eotuyx in
         [Aa]* ) runAll false; continue;;
         [Bb]* ) runBasics false; continue;;
-        [Cc]* ) runAll true; continue;;
-        [Dd]* ) runBasics true; continue;;
+        [Cc]* ) installGuiApps; continue;;
+        [Dd]* ) runAll true; continue;;
+        [Ee]* ) runBasics true; continue;;
         [Nn]* ) nodeSetup; continue;;
         [Pp]* ) nodePackages; continue;;
         [Rr]* ) clean; continue;;
