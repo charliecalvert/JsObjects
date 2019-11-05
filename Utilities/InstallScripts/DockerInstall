@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 # Updated December 2018, reviewed in April 2019
 # See https://docs.docker.com/install/linux/docker-ce/ubuntu/
 function PartOne() {
-    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common    
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -27,4 +27,23 @@ function PartOne() {
     echo "joined is properly registered."
 }
 
-PartOne
+function for1910() {
+    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common    
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        disco \
+        stable"
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    sudo groupadd docker
+    sudo usermod -aG docker $USER    
+    sudo systemctl enable docker
+    echo "============================================="
+    echo -e ${LIGHT_GREEN}"You should now log out and then log in again."${NC}
+    echo "This should ensure that the docker group you"
+    echo "joined is properly registered."
+}
+
+# PartOne
+for1910
