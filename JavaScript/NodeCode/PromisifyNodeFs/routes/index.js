@@ -6,7 +6,7 @@ const fsPromises = require('fs').promises;
 router.get('/', function (req, res) {
     'use strict';
     res.render('index', {
-        title: 'Promisify Exec'
+        title: 'Promisify Node fs'
     });
 });
 
