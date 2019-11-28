@@ -1,4 +1,5 @@
 #!/bin/bash
+
 PROJECT_ROOT="$(pwd)"
 
 # Install packages in root
