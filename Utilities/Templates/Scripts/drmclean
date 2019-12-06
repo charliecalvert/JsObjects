@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+# key_text='week04'
+key_text='midterm'
+
+docker ps -a -q | xargs docker container stop
+docker ps -a -q | xargs docker container rm
+docker image ls | grep ${key_text} | xargs docker image rm
+docker volume ls | xargs docker volume rm
+docker network ls | grep ${key_text} | xargs docker network rm
