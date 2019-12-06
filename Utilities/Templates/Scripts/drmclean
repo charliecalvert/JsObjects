@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
-# key_text='week04'
-key_text='midterm'
+key_text='week04'
+# key_text='midterm'
 
 docker ps -a -q | xargs docker container stop
 docker ps -a -q | xargs docker container rm
