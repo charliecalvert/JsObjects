@@ -15,6 +15,7 @@ class Utils {
         return fileName.substr(0, fileName.lastIndexOf('.'));
     }
 }
+
 router.get('/:id', function(req, res) {
     'use strict';
     res.render(Utils.stripExtension(req.params.id), {
