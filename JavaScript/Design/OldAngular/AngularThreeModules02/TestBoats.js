@@ -24,19 +24,18 @@ describe('TestBoats', function() {
     });
 
     it('Simple Boat', function() {
-        expect(boatController.boat).toEqual('I\'m a simple boat.');
+        expect(boatController.boat).toEqual("I'm a simple boat.");
     });
 
     it('Sailboat from Controller', function() {
-        expect(boatController.sailboat).toEqual('I\'m a sailboat.');
+        expect(boatController.sailboat).toEqual("I'm a sailboat.");
     });
 
     it('SailBoat Description', inject(function(sailboat) {
-        expect(sailboat.description).toEqual('I\'m a sailboat.');
+        expect(sailboat.description).toEqual("I'm a sailboat.");
     }));
 
     it('SailBoat getNine', inject(function(sailboat) {
         expect(sailboat.getNine()).toEqual(9);
     }));
-
 });

@@ -3,7 +3,6 @@
  */
 
 describe('Test MainController Suite', function() {
-
     'use strict';
 
     var mainController;
@@ -25,5 +24,4 @@ describe('Test MainController Suite', function() {
     it('can get nine', function() {
         expect(scope.getNine()).toBe(9);
     });
-
 });

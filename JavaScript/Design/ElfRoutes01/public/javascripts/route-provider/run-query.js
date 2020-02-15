@@ -9,9 +9,9 @@ define(function(require) {
         const controller = $q.getController();
         if (query) {
             fetch(query)
-                .then((result) => result.json())
-                .then((json) => controller(query, json))
-                .catch((error) => console.log(error));
+                .then(result => result.json())
+                .then(json => controller(query, json))
+                .catch(error => console.log(error));
         } else {
             controller(null, $q);
         }

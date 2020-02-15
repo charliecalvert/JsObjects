@@ -2,27 +2,28 @@
  * @author Charlie
  */
 
-describe("Test Greet Timeout", function() {'use strict';
+describe('Test Greet Timeout', function() {
+    'use strict';
     var greet, $timeout, $log;
-    
-    
-	beforeEach(module('async'));
-	
+
+    beforeEach(module('async'));
+
     beforeEach(inject(function(_greet_, _$timeout_, _$log_) {
         greet = _greet_;
         $timeout = _$timeout_;
-        $log = _$log_;         
+        $log = _$log_;
     }));
-   
-    it("Should greet", function() {
+
+    it('Should greet', function() {
         greet.say('World!', 999999);
         $timeout.flush();
-        
+
         expect($log.info.logs).toContain(['Hello World!']);
     });
 });
 
-(function() {'use strict';
+(function() {
+    'use strict';
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.updateInterval = 1000;
 
@@ -46,5 +47,4 @@ describe("Test Greet Timeout", function() {'use strict';
     function execJasmine() {
         jasmineEnv.execute();
     }
-
 })();

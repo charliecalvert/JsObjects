@@ -24,7 +24,7 @@ class App extends Component {
             return (
                 <ListItem id={id}>
                     <ListItemIcon>
-                        <StarIcon/>
+                        <StarIcon />
                     </ListItemIcon>
                     <ListItemText>{text}</ListItemText>
                 </ListItem>
@@ -36,14 +36,15 @@ class App extends Component {
          * doesn't support this out of the box, so we use the very
          * popular classNames library. We use it below in Section Two.
          */
-        const elfParagraph = classNames(classes.elfTypography, classes.elfParagraph);
+        const elfParagraph = classNames(
+            classes.elfTypography,
+            classes.elfParagraph
+        );
 
         return (
             <React.Fragment>
-
                 <div className={classes.layout}>
                     <Grid container spacing={24}>
-
                         <Grid item xs={12}>
                             {/*This empty Grid puts space before the first section*/}
                         </Grid>
@@ -66,8 +67,9 @@ class App extends Component {
                                     align="left"
                                     variant="body1"
                                 >
-                                    In <b>src/index.js</b> we create a theme and wrap the entire app in
-                                    the theme. We also use <b>CssBaseline</b>.
+                                    In <b>src/index.js</b> we create a theme and
+                                    wrap the entire app in the theme. We also
+                                    use <b>CssBaseline</b>.
                                 </Typography>
 
                                 <Typography
@@ -75,8 +77,9 @@ class App extends Component {
                                     align="left"
                                     variant="body1"
                                 >
-                                    View the source of this component to see how we wrap our content
-                                    in the following elements:
+                                    View the source of this component to see how
+                                    we wrap our content in the following
+                                    elements:
                                 </Typography>
                                 <List>
                                     {getListItem('layout', 'lo')}
@@ -90,10 +93,9 @@ class App extends Component {
                                     align="left"
                                     variant="body1"
                                 >
-                                    Inside the four items we create
-                                    one or more sections for our
-                                    document. Each section has this
-                                    structure:
+                                    Inside the four items we create one or more
+                                    sections for our document. Each section has
+                                    this structure:
                                 </Typography>
                                 <List>
                                     {getListItem(
@@ -111,11 +113,8 @@ class App extends Component {
                                 </List>
                             </Paper>
                         </Grid>
-
                     </Grid>
-
                 </div>
-
             </React.Fragment>
         );
     }

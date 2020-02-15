@@ -8,7 +8,8 @@ elfApp.controller('MainController', function($scope) {
     'use strict';
     var mainController = this;
     mainController.mainData = 'Main Data';
-    $scope.scopeData = 'We will need to use Scope when creating controller in text';
+    $scope.scopeData =
+        'We will need to use Scope when creating controller in text';
 });
 
 elfApp.controller('OnlyControllerAs', function() {

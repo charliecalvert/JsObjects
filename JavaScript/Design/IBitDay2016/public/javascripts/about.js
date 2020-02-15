@@ -4,5 +4,4 @@ elfApp.controller('AboutController', function($scope) {
     'use strict';
 
     $scope.description = 'About Controller';
-
 });

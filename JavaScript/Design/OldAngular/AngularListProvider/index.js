@@ -4,91 +4,95 @@
 
 var angularNotify = angular.module('AngularNotify', []);
 
-angularNotify
-.controller('NoteController', function($scope, noteService) { 'use strict';
+angularNotify.controller('NoteController', function($scope, noteService) {
+    'use strict';
 
-	var count = 1;
-	$scope.noteData = "I'm the Note Controller";
-	$scope.debug = "Debug";
-	$scope.note = "Test 0";
+    var count = 1;
+    $scope.noteData = "I'm the Note Controller";
+    $scope.debug = 'Debug';
+    $scope.note = 'Test 0';
 
-	$scope.addNote = function() {
-		noteService.push($scope.note);
-		$scope.note = 'Test' + ' ' + count++;
-		$scope.archiveCount = 'ArchiveCount: ' + noteService.getArchiveCount();
-	};
+    $scope.addNote = function() {
+        noteService.push($scope.note);
+        $scope.note = 'Test' + ' ' + count++;
+        $scope.archiveCount = 'ArchiveCount: ' + noteService.getArchiveCount();
+    };
 
-	$scope.getNotes = function() {
-		return noteService.getNotes();
-	};
+    $scope.getNotes = function() {
+        return noteService.getNotes();
+    };
 
-	$scope.getArchive = function() {
-		return noteService.getArchive();
-	};
-
+    $scope.getArchive = function() {
+        return noteService.getArchive();
+    };
 });
 
 // Provide example to show ability to configure
-angularNotify.provider('noteService', function() {  'use strict';
-	var config = {
-		maxNotes : 3
-	};
+angularNotify
+    .provider('noteService', function() {
+        'use strict';
+        var config = {
+            maxNotes: 3
+        };
 
-	var noteArray = [];
+        var noteArray = [];
 
-	return {
-		setMaxLen : function(maxLen) {
-			config.maxLen = maxLen || config.maxLen;
-		},
+        return {
+            setMaxLen: function(maxLen) {
+                config.maxLen = maxLen || config.maxLen;
+            },
 
-		$get : function(noteArchive) {
-			return {
-				push : function(note) {
-					var noteToArchive;
-					// Add item to beginning of array
-					var newLen = noteArray.unshift(note);
-					if (newLen > config.maxNotes) {
-						noteToArchive = noteArray.pop();
-						noteArchive.archive(noteToArchive);
-					}
-				},
-				
-				getNotes : function() {
-					return noteArray;
-				},
+            $get: function(noteArchive) {
+                return {
+                    push: function(note) {
+                        var noteToArchive;
+                        // Add item to beginning of array
+                        var newLen = noteArray.unshift(note);
+                        if (newLen > config.maxNotes) {
+                            noteToArchive = noteArray.pop();
+                            noteArchive.archive(noteToArchive);
+                        }
+                    },
 
-				getArchiveCount : function() {
-					return noteArchive.itemCount();
-				},
+                    getNotes: function() {
+                        return noteArray;
+                    },
 
-				getArchive : function() {
-					return noteArchive.getArchive();
-				},
+                    getArchiveCount: function() {
+                        return noteArchive.itemCount();
+                    },
 
-				description : "I'm from the factory"
-			};
-		}
-	};
-}).config(function(noteServiceProvider) { 'use strict';
-	noteServiceProvider.setMaxLen(5);
-});
+                    getArchive: function() {
+                        return noteArchive.getArchive();
+                    },
 
-angularNotify.factory('noteArchive', function() { 'use strict';
+                    description: "I'm from the factory"
+                };
+            }
+        };
+    })
+    .config(function(noteServiceProvider) {
+        'use strict';
+        noteServiceProvider.setMaxLen(5);
+    });
 
-	var description = "noteArchive text";
-	var archive = [];
+angularNotify.factory('noteArchive', function() {
+    'use strict';
 
-	return {
-		archive : function(item) {
-			archive.push(item);
-		},
+    var description = 'noteArchive text';
+    var archive = [];
 
-		itemCount : function() {
-			return archive.length;
-		},
+    return {
+        archive: function(item) {
+            archive.push(item);
+        },
 
-		getArchive : function() {
-			return archive;
-		}
-	};
+        itemCount: function() {
+            return archive.length;
+        },
+
+        getArchive: function() {
+            return archive;
+        }
+    };
 });

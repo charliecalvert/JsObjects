@@ -2,43 +2,41 @@
  * @author Charlie Calvert
  */
 
-angular.module('tools', [])
-.factory('boat', function() {  'use strict';
-	this.Boat = (function() {
-		var description = "I'm a boat.";
+angular
+    .module('tools', [])
+    .factory('boat', function() {
+        'use strict';
+        this.Boat = (function() {
+            var description = "I'm a boat.";
 
-		function Boat() {
+            function Boat() {}
 
-		}
+            Boat.prototype.getDescription = function() {
+                return description;
+            };
 
-		Boat.prototype.getDescription = function() {
-			return description;
-		};
+            return Boat;
+        })();
 
-		return Boat;
-	})();
+        return new this.Boat();
+    })
+    .factory('sailboat', function() {
+        'use strict';
+        this.SailBoat = (function() {
+            var description = "I'm a sailboat";
 
-	return new this.Boat();
-})
-.factory('sailboat', function() { 'use strict';
-	this.SailBoat = (function() {
-		var description = "I'm a sailboat";
+            function SailBoat() {}
 
-		function SailBoat() {
+            SailBoat.prototype.getNine = function() {
+                return 9;
+            };
 
-		}
+            SailBoat.prototype.getDescription = function() {
+                return description;
+            };
 
-		SailBoat.prototype.getNine = function() {
-			return 9;
-		};
+            return SailBoat;
+        })();
 
-		SailBoat.prototype.getDescription = function() {
-			return description;
-		};
-
-		return SailBoat;
-	})();
-
-	return new this.SailBoat();
-});
-
+        return new this.SailBoat();
+    });

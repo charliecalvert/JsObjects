@@ -7,18 +7,22 @@ var myModule = angular.module('elfApp', ['ngRoute']);
 myModule.config(function($routeProvider, $locationProvider) {
     'use strict';
 
-    $routeProvider.when('/', {
-        templateUrl: 'home-page',
-        controller: 'HomeController'
-    }).when('/first', {
-        templateUrl: 'first-page',
-        controller: 'FirstController'
-    }).when('/about', {
-        templateUrl: 'about-page',
-        controller: 'AboutController'
-    }).otherwise({
-        redirectTo: '/'
-    });
+    $routeProvider
+        .when('/', {
+            templateUrl: 'home-page',
+            controller: 'HomeController'
+        })
+        .when('/first', {
+            templateUrl: 'first-page',
+            controller: 'FirstController'
+        })
+        .when('/about', {
+            templateUrl: 'about-page',
+            controller: 'AboutController'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
 });
 
 $(document).ready(function() {
@@ -27,4 +31,3 @@ $(document).ready(function() {
         $('.navbar-collapse').collapse('hide');
     });
 });
-

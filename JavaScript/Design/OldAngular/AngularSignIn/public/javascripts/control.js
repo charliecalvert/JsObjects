@@ -3,28 +3,25 @@
  */
 
 (function() {
+    var app = angular.module('elvenApp');
 
-	var app = angular.module('elvenApp');
+    app.controller('MainController', function(mongoFactory) {
+        var mainController = this;
+        mainController.error = '';
 
-	app.controller('MainController', function(mongoFactory) {
-		
-		var mainController = this;
-		mainController.error = '';
+        mainController.selectScientist = function(scientist) {
+            mongoFactory.getScientistById(scientist.id, mainController);
+        };
 
-		mainController.selectScientist = function(scientist) {
-			mongoFactory.getScientistById(scientist.id, mainController)
-		};
+        mainController.insertValidCollection = function() {
+            mongoFactory.insertValidCollection(mainController);
+        };
 
-		mainController.insertValidCollection = function() {
-			mongoFactory.insertValidCollection(mainController);
-		};
+        mainController.emptyCollection = function() {
+            mongoFactory.emptyCollection(mainController);
+        };
 
-		mainController.emptyCollection = function() {
-			mongoFactory.emptyCollection(mainController);
-		};
-
-		mongoFactory.getScientists(mainController);
-		// console.log(mainController.scientists);
-	});
-
+        mongoFactory.getScientists(mainController);
+        // console.log(mainController.scientists);
+    });
 })();

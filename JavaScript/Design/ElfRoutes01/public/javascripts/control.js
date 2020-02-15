@@ -1,16 +1,16 @@
-define(['Route', 'queryController'],
-    function(Route, queryController) {
-        'use strict';
+define(['Route', 'queryController'], function(Route, queryController) {
+    'use strict';
 
-        var findRoutes = (function($routeProvider) {
-            $routeProvider.when('/home', {
+    var findRoutes = function($routeProvider) {
+        $routeProvider
+            .when('/home', {
                 templateUrl: '/home',
                 controller: queryController
-            }).otherwise({
+            })
+            .otherwise({
                 redirectTo: '/home'
             });
-        });
+    };
 
-        return findRoutes;
-
-    });
+    return findRoutes;
+});

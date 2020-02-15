@@ -59,8 +59,8 @@ function get-directories-containing-package-json {
 check-dir ./BridgeSailor
 check-dir ./DecorateSailor
 check-dir ./ElfRoutes01
-# check-dir ./ElfRoutes02
-# check-dir ./FactoryInterface
+check-dir ./ElfRoutes02
+check-dir ./FactoryInterface
 # check-dir ./FactorySimple01
 # check-dir ./GridExpress
 # check-dir ./GridExpressFetch

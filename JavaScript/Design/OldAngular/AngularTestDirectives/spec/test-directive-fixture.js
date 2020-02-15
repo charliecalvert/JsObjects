@@ -3,7 +3,6 @@
  */
 
 describe('Test Directive Fixture Suite', function() {
-
     'use strict';
     var scope;
     var $compile;
@@ -18,7 +17,12 @@ describe('Test Directive Fixture Suite', function() {
         loadFixtures('car.html');
     });
 
-    beforeEach(inject(function(_$compile_, _$rootScope_, _$templateCache_, _$controller_) {
+    beforeEach(inject(function(
+        _$compile_,
+        _$rootScope_,
+        _$templateCache_,
+        _$controller_
+    ) {
         scope = _$rootScope_.$new();
         $compile = _$compile_;
         $templateCache = _$templateCache_;
@@ -75,5 +79,4 @@ describe('Test Directive Fixture Suite', function() {
         // Check that the compiled element contains the templated content
         expect(element.text()).toContain('Bart Main Data');
     });
-
 });

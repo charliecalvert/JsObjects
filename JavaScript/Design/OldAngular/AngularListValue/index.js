@@ -6,7 +6,7 @@ var angularNotify = angular.module('AngularNotify', ['noteArchive']);
 
 // angularNotify.constant('MAX_LEN', 3);
 
-// Value objects 
+// Value objects
 // Value Objects cannot depend on another service. There is no place to do that.
 angularNotify.value('noteArchive', new NoteArchive());
 
@@ -63,6 +63,7 @@ angularNotify.provider('noteService', function() {
 	};
 }); */
 
-var NoteController = function($scope, noteArchive) { 'use strict';
-	$scope.noteData = "DataMy " + noteArchive.description;
+var NoteController = function($scope, noteArchive) {
+    'use strict';
+    $scope.noteData = 'DataMy ' + noteArchive.description;
 };

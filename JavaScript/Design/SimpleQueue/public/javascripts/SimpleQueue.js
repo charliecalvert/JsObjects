@@ -6,7 +6,7 @@ var SimpleQueue = (function() {
     function SimpleQueue() {
         dataStore = [];
 
-        Object.defineProperty(this, "length", {
+        Object.defineProperty(this, 'length', {
             get: function() {
                 return dataStore.length;
             },
@@ -14,7 +14,7 @@ var SimpleQueue = (function() {
             configurable: true
         });
 
-        Object.defineProperty(this, "back", {
+        Object.defineProperty(this, 'back', {
             get: function() {
                 if (this.empty()) {
                     throw new Error("Can't call back on an empty queue.");
@@ -26,7 +26,7 @@ var SimpleQueue = (function() {
             configurable: false
         });
 
-        Object.defineProperty(this, "front", {
+        Object.defineProperty(this, 'front', {
             get: function() {
                 return dataStore[0];
             },
@@ -56,34 +56,33 @@ var SimpleQueue = (function() {
     };
 
     SimpleQueue.prototype.addDefaultItems = function() {
-        this.enqueue("Alpha");
-        this.enqueue("Bravo");
-        this.enqueue("Charlie");
-        this.enqueue("Delta");
-        this.enqueue("Echo");
-        this.enqueue("Foxtrot");
-        this.enqueue("Golf");
-        this.enqueue("Hotel");
-        this.enqueue("India");
-        this.enqueue("Juliet");
-        this.enqueue("Kilo");
-        this.enqueue("Lima");
-        this.enqueue("Mike");
-        this.enqueue("November");
-        this.enqueue("Oscar");
-        this.enqueue("Papa");
-        this.enqueue("Quebec");
-        this.enqueue("Romeo");
-        this.enqueue("Sierra");
-        this.enqueue("Tango");
-        this.enqueue("Uniform");
-        this.enqueue("Victory");
-        this.enqueue("Whiskey");
-        this.enqueue("Xray");
-        this.enqueue("Yankee");
-        this.enqueue("Zulu");
+        this.enqueue('Alpha');
+        this.enqueue('Bravo');
+        this.enqueue('Charlie');
+        this.enqueue('Delta');
+        this.enqueue('Echo');
+        this.enqueue('Foxtrot');
+        this.enqueue('Golf');
+        this.enqueue('Hotel');
+        this.enqueue('India');
+        this.enqueue('Juliet');
+        this.enqueue('Kilo');
+        this.enqueue('Lima');
+        this.enqueue('Mike');
+        this.enqueue('November');
+        this.enqueue('Oscar');
+        this.enqueue('Papa');
+        this.enqueue('Quebec');
+        this.enqueue('Romeo');
+        this.enqueue('Sierra');
+        this.enqueue('Tango');
+        this.enqueue('Uniform');
+        this.enqueue('Victory');
+        this.enqueue('Whiskey');
+        this.enqueue('Xray');
+        this.enqueue('Yankee');
+        this.enqueue('Zulu');
     };
 
     return SimpleQueue;
-
-}());
+})();

@@ -5,18 +5,18 @@ var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res){
-  "use strict";
-  res.sendFile(__dirname + '/index.html');
+app.get('/', function(req, res) {
+    'use strict';
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/dir', function(req, res) {
-  res.send({ "dirName": __dirname });
+    res.send({ dirName: __dirname });
 });
 
 var port = process.env.PORT || 30025;
 
-http.listen(port, function(){
-  "use strict";
-  console.log('listening on ', port);
+http.listen(port, function() {
+    'use strict';
+    console.log('listening on ', port);
 });

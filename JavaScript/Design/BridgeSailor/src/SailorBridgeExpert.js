@@ -1,9 +1,8 @@
 'use strict';
 
-import Sailor from "./SailorBridge";
+import Sailor from './SailorBridge';
 
-const SailorBridgeExpert = (function () {
-
+const SailorBridgeExpert = (function() {
     var tack = ['port', 'starboard'];
 
     function SailorBridgeExpert(boat) {
@@ -14,26 +13,37 @@ const SailorBridgeExpert = (function () {
 
     SailorBridgeExpert.prototype = new Sailor();
 
-    SailorBridgeExpert.prototype.tack = function () {
+    SailorBridgeExpert.prototype.tack = function() {
         this.currentTack = tack[this.index];
-        console.log("Tacking to " + this.currentTack);
-        return "Expert Says that " + this.boat.tack() + " Tacking to " + this.currentTack + ".";
+        console.log('Tacking to ' + this.currentTack);
+        return (
+            'Expert Says that ' +
+            this.boat.tack() +
+            ' Tacking to ' +
+            this.currentTack +
+            '.'
+        );
     };
 
-    SailorBridgeExpert.prototype.tackPort = function () {
+    SailorBridgeExpert.prototype.tackPort = function() {
         return this.tack(0);
     };
 
-    SailorBridgeExpert.prototype.tackStarboard = function () {
+    SailorBridgeExpert.prototype.tackStarboard = function() {
         return this.tack(1);
     };
 
-    SailorBridgeExpert.prototype.getCurrentTack = function () {
-        return "This " + this.boat.getBoatType() + " is on the " + this.currentTack + " tack.";
+    SailorBridgeExpert.prototype.getCurrentTack = function() {
+        return (
+            'This ' +
+            this.boat.getBoatType() +
+            ' is on the ' +
+            this.currentTack +
+            ' tack.'
+        );
     };
 
     return SailorBridgeExpert;
-
-}());
+})();
 
 export default SailorBridgeExpert;

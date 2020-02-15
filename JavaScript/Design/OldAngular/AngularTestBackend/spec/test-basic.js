@@ -3,7 +3,6 @@
  */
 
 describe('Test Basic Suite', function() {
-
     'use strict';
 
     var $compile;
@@ -18,14 +17,18 @@ describe('Test Basic Suite', function() {
         loadFixtures('car.html');
     });
 
-    beforeEach(inject(function(_$compile_, _$rootScope_, _$templateCache_, _$controller_) {
+    beforeEach(inject(function(
+        _$compile_,
+        _$rootScope_,
+        _$templateCache_,
+        _$controller_
+    ) {
         $compile = _$compile_;
         scope = _$rootScope_.$new();
         $templateCache = _$templateCache_;
         mainController = _$controller_('MainController', {
             $scope: scope
         });
-
     }));
 
     it('expects true to be true', function() {
@@ -82,5 +85,4 @@ describe('Test Basic Suite', function() {
         // Check that the compiled element contains the templated content
         expect(element.text()).toContain('Bart Main Data');
     });
-
 });

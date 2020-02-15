@@ -2,16 +2,13 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-
         pkg: '<json:package.json>',
 
         jshint: {
             files: ['**/*.js'],
 
             options: {
-                ignores: [
-                    '**/node_modules/**', '**/components/**'
-                ],
+                ignores: ['**/node_modules/**', '**/components/**'],
                 reporter: require('jshint-stylish'),
                 strict: true,
                 jasmine: true
@@ -29,8 +26,7 @@ module.exports = function(grunt) {
             options: {
                 config: '.jscsrc'
             }
-        },
-
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');

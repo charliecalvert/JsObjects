@@ -7,7 +7,12 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'TestBoats.js', 'test/**/*.js'],
+            files: [
+                'Gruntfile.js',
+                'src/**/*.js',
+                'TestBoats.js',
+                'test/**/*.js'
+            ],
             options: {
                 globals: {
                     jQuery: true
@@ -28,10 +33,10 @@ module.exports = function(grunt) {
             }
         },
 
-        'jsbeautifier': {
+        jsbeautifier: {
             files: ['**/*.js', '!**/node_modules/**', '!**/components/**'],
             options: {
-                'indentSize': 4
+                indentSize: 4
             }
         }
     });
@@ -43,5 +48,4 @@ module.exports = function(grunt) {
     grunt.registerTask('beautify', ['jsbeautifier']);
     grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
     grunt.registerTask('default', ['jshint']);
-
 };

@@ -3,12 +3,14 @@
  */
 
 function setActiveMenuItem() {
-    $(".nav li").removeClass("active");
+    $('.nav li').removeClass('active');
 
     // var menuItem = $('a[href=".' + this.location.pathname + '"]');
     var name = this.location.pathname;
     var name = name.slice(1, name.length).trim();
-    if (name.length === 0) { name = 'home'; }
+    if (name.length === 0) {
+        name = 'home';
+    }
     var menuItem1 = $('#' + name);
 
     menuItem1.addClass('active');
@@ -16,7 +18,7 @@ function setActiveMenuItem() {
 
 $(document).ready(function() {
     setActiveMenuItem();
-    $("#target").submit(function(event) {
+    $('#target').submit(function(event) {
         event.preventDefault();
         var userFormData = $(this).serialize();
         $('#formResults').html(userFormData);

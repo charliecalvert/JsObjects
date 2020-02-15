@@ -2,35 +2,34 @@
  * New node file
  */
 
-if ( typeof define !== 'function') {
+if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {'use strict';
+define(function(require) {
+    'use strict';
 
-    var Yawl = function() {
-
-    };
+    var Yawl = function() {};
 
     Yawl.prototype = {
-        tack : function() {
-            return "Yawl tack called.";
+        tack: function() {
+            return 'Yawl tack called.';
         },
 
-        luff : function() {
-            return "Yawl luff called.";
+        luff: function() {
+            return 'Yawl luff called.';
         },
 
-        reach : function() {
-            return "Yawl reach called.";
+        reach: function() {
+            return 'Yawl reach called.';
         },
 
-        anchor : function() {
-            return "Yawl anchor called.";
+        anchor: function() {
+            return 'Yawl anchor called.';
         },
 
-        dock : function() {
-            return "Yawl dock called.";
+        dock: function() {
+            return 'Yawl dock called.';
         }
     };
 

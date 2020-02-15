@@ -2,35 +2,32 @@
  * New node file
  */
 
-    var Ketch = function() {
+var Ketch = function() {};
 
-    };
+Ketch.prototype = {
+    getBoatType: function() {
+        return 'Ketch';
+    },
 
-    Ketch.prototype = {
+    tack: function() {
+        return 'Ketch tack called.';
+    },
 
-        getBoatType: function() {
-            return 'Ketch';
-        },
+    luff: function() {
+        return 'Ketch luff called.';
+    },
 
-        tack : function() {
-            return "Ketch tack called.";
-        },
+    reach: function() {
+        return 'Ketch reach called.';
+    },
 
-        luff : function() {
-            return "Ketch luff called.";
-        },
+    anchor: function() {
+        return 'Ketch anchor called.';
+    },
 
-        reach : function() {
-            return "Ketch reach called.";
-        },
-
-        anchor : function() {
-            return "Ketch anchor called.";
-        },
-
-        dock : function() {
-            return "Ketch dock called.";
-        },
-    };
+    dock: function() {
+        return 'Ketch dock called.';
+    }
+};
 
 export default Ketch;

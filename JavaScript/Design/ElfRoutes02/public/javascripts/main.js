@@ -13,13 +13,13 @@
 requirejs.config({
     baseUrl: '.',
     paths: {
-        'jquery': '/bower_components/jquery/dist/jquery',
-        'bootstrap': '/bower_components/bootstrap/dist/js/bootstrap.min',
-        'control': '/javascripts/control',
-        'queryController': '/javascripts/controllers/query-controller',
-        'aboutController': '/javascripts/controllers/about-controller',
-        'Route': '/javascripts/route-provider/route',
-        'runQuery': '/javascripts/route-provider/run-query'
+        jquery: '/bower_components/jquery/dist/jquery',
+        bootstrap: '/bower_components/bootstrap/dist/js/bootstrap.min',
+        control: '/javascripts/control',
+        queryController: '/javascripts/controllers/query-controller',
+        aboutController: '/javascripts/controllers/about-controller',
+        Route: '/javascripts/route-provider/route',
+        runQuery: '/javascripts/route-provider/run-query'
     }
 });
 
@@ -31,7 +31,6 @@ function setHover() {
     });
 
     function setActiveMenuItem(event) {
-
         $('nav li').removeClass('active');
 
         // var menuItem = $('a[href=".' + this.location.pathname + '"]');

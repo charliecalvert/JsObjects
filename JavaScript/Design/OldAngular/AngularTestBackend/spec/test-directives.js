@@ -17,7 +17,12 @@ describe('Test Directives Suite', function() {
         loadFixtures('car.html');
     });
 
-    beforeEach(inject(function(_$compile_, _$templateCache_, $controller, $rootScope) {
+    beforeEach(inject(function(
+        _$compile_,
+        _$templateCache_,
+        $controller,
+        $rootScope
+    ) {
         scope = $rootScope;
         $compile = _$compile_;
         $templateCache = _$templateCache_;
@@ -42,5 +47,4 @@ describe('Test Directives Suite', function() {
         //console.log(element.html());
         expect(element.text()).toContain('Cart Scope Data');
     });
-
 });

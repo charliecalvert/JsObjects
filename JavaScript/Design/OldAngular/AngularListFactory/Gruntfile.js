@@ -1,14 +1,15 @@
-module.exports = function(grunt) { 'use strict';
+module.exports = function(grunt) {
+    'use strict';
 
-	grunt.initConfig({
-		jshint: {
-			files: ['*.js'],
+    grunt.initConfig({
+        jshint: {
+            files: ['*.js'],
 
-			options: {
-				ignores: ['angular.js']
-			}
-		}
-	});
+            options: {
+                ignores: ['angular.js']
+            }
+        }
+    });
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 };

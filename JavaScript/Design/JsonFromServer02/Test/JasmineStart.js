@@ -2,7 +2,8 @@
  * @author Charlie Calvert
  */
 
-(function() {'use strict';
+(function() {
+    'use strict';
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.updateInterval = 1000;
 
@@ -26,5 +27,4 @@
     function execJasmine() {
         jasmineEnv.execute();
     }
-
 })();

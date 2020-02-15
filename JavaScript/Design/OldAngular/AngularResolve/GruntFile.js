@@ -5,7 +5,6 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-
         jshint: {
             files: ['**/*.js'],
 
@@ -47,12 +46,13 @@ module.exports = function(grunt) {
 
         clean: {
             work: {
-                src: ["**/node_modules/**"]
+                src: ['**/node_modules/**']
             }
         },
 
         jsbeautifier: {
-            files: ["**/*.js",
+            files: [
+                '**/*.js',
                 '!**/node_modules/**',
                 '!**/coverage/**',
                 '!**/jasmine-2.0.0/**',
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             ],
             options: {
                 js: {
-                    mode: "VERIFY_AND_WRITE"
+                    mode: 'VERIFY_AND_WRITE'
                 }
             }
         }

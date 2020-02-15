@@ -5,16 +5,16 @@ var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res){
-  "use strict";
-  res.sendFile(__dirname + '/index.html');
+app.get('/', function(req, res) {
+    'use strict';
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/dir', function(req, res) {
-  res.send({ "dirName": __dirname });
+    res.send({ dirName: __dirname });
 });
 
-http.listen(30025, function(){
-  "use strict";
-  console.log('listening on *:30025');
+http.listen(30025, function() {
+    'use strict';
+    console.log('listening on *:30025');
 });

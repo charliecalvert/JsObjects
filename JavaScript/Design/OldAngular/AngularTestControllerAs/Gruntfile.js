@@ -2,7 +2,6 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-
         pkg: '<json:package.json>',
 
         jshint: {
@@ -10,7 +9,8 @@ module.exports = function(grunt) {
 
             options: {
                 ignores: [
-                    '**/node_modules/**', '**/components/**',
+                    '**/node_modules/**',
+                    '**/components/**',
                     '**/bower_components/**'
                 ],
                 reporter: require('jshint-stylish'),
@@ -32,12 +32,15 @@ module.exports = function(grunt) {
             }
         },
 
-        'jsbeautifier': {
-            files: ['**/*.js', '!**/node_modules/**', '!**/components/**',
+        jsbeautifier: {
+            files: [
+                '**/*.js',
+                '!**/node_modules/**',
+                '!**/components/**',
                 '!**/bower_components/**'
             ],
             options: {
-                'indentSize': 4
+                indentSize: 4
             }
         },
 
@@ -46,7 +49,6 @@ module.exports = function(grunt) {
                 configFile: 'karma.conf.js'
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');

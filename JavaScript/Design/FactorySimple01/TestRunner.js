@@ -24,12 +24,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname + '/Tests')));
 
-
 app.get('/', function(request, response) {
     'use strict';
     var html = fs.readFileSync(__dirname + '/Tests/BoatFactorySpec.html');
     response.writeHeader(200, {
-        "Content-Type": "text/html"
+        'Content-Type': 'text/html'
     });
     response.write(html);
     response.end();
@@ -37,7 +36,7 @@ app.get('/', function(request, response) {
 
 var port = process.env.PORT || 30025;
 
-/// error handlers 
+/// error handlers
 // The point is the signature: err, req, res, next. If the call does not have that
 // signature, then these handlers won't be called.
 
@@ -65,7 +64,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-console.log("DirName: " + __dirname);
+console.log('DirName: ' + __dirname);
 
 app.listen(port);
 console.log('Listening on port :' + port);

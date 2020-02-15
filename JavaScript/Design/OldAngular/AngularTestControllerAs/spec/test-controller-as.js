@@ -3,7 +3,6 @@
  */
 
 describe('Test ControllerAs with no Locals Suite', function() {
-
     'use strict';
 
     var mainController;
@@ -23,11 +22,9 @@ describe('Test ControllerAs with no Locals Suite', function() {
     it('can access controllerAs variable', function() {
         expect(mainController.sample).toContain('No locals');
     });
-
 });
 
 describe('Test MainController as ControllerAs with Scope Locals Suite', function() {
-
     'use strict';
 
     var mainController;
@@ -43,5 +40,4 @@ describe('Test MainController as ControllerAs with Scope Locals Suite', function
     it('can access controllerAs variable', function() {
         expect(mainController.mainData).toBe('Main Data');
     });
-
 });

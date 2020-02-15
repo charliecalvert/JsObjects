@@ -2,15 +2,14 @@
  * @author Charlie Calvert
  */
 
-if (typeof define !== 'function') { var define = require('amdefine')(module); }
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
 
 define(function() {
+    function exportMe() {
+        return 'exportMe';
+    }
 
-	function exportMe() {
-		return "exportMe";
-	}
-
-	return exportMe;
+    return exportMe;
 });
-
-

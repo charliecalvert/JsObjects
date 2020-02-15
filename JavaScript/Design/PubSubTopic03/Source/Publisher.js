@@ -3,46 +3,45 @@
  */
 
 // Publisher
-define([ 'jquery', 'tinyPubSub' ], function() {
-	'use strict';
-	
-	function publisher() {
-		console.log("Publisher constructor called.");
-		$("#privateButton01").click(privateMethod01);
-		$("#privateButton02").click(privateMethod02);
-		$.publish('debugDetail01', {
-			message : "Publisher Constructor Called"
-		});
-	}
+define(['jquery', 'tinyPubSub'], function() {
+    'use strict';
 
-	var privateMethod01 = function() {
-		console.log("Publisher private method called.");
+    function publisher() {
+        console.log('Publisher constructor called.');
+        $('#privateButton01').click(privateMethod01);
+        $('#privateButton02').click(privateMethod02);
+        $.publish('debugDetail01', {
+            message: 'Publisher Constructor Called'
+        });
+    }
 
-		$.publish('debugDetail02', {
-			sender : 'publisher.privateMethod01',
-			callback : function(reply) {
-				$("#message02").html(reply);
-			}
-		});
-	};
+    var privateMethod01 = function() {
+        console.log('Publisher private method called.');
 
-	var getMessage = function() {
-		return {
-			sender : 'publisher.privateMethod02',
-			value: parseInt($("#input01").val()),
-			callback : function(reply, value) {
-				$("#message03").html(reply + "\nThe value is now: " + value);				
-			}
-		};
-	};
+        $.publish('debugDetail02', {
+            sender: 'publisher.privateMethod01',
+            callback: function(reply) {
+                $('#message02').html(reply);
+            }
+        });
+    };
 
-	var privateMethod02 = function() {
-		console.log("Publisher private method called.");
-		$.publish('debugDetail03', getMessage());
-	};
+    var getMessage = function() {
+        return {
+            sender: 'publisher.privateMethod02',
+            value: parseInt($('#input01').val()),
+            callback: function(reply, value) {
+                $('#message03').html(reply + '\nThe value is now: ' + value);
+            }
+        };
+    };
 
-	return {
-		publisher : publisher
-	};
+    var privateMethod02 = function() {
+        console.log('Publisher private method called.');
+        $.publish('debugDetail03', getMessage());
+    };
 
+    return {
+        publisher: publisher
+    };
 });

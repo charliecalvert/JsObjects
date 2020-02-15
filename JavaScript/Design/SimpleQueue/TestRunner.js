@@ -43,15 +43,14 @@ app.get('/', function(request, response) {
 
     const html = fs.readFileSync(__dirname + '/tests/QueueSpec.html');
     response.writeHeader(200, {
-        "Content-Type": "text/html"
+        'Content-Type': 'text/html'
     });
     response.write(html);
     response.end();
 });
 
-
-app.use("/", express.static(__dirname + '/tests'));
-app.use("/", express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/tests'));
+app.use('/', express.static(__dirname + '/public'));
 
 app.listen(port);
 console.log('Using Jasmine to test. Open browser to view results.');

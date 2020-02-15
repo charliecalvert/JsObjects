@@ -45,11 +45,11 @@ module.exports = function(config) {
         // Set to false to watch files for changes
         singleRun: false,
 
-        plugins: ['karma-jasmine',
+        plugins: [
+            'karma-jasmine',
             // 'karma-chrome-launcher',
             'karma-spec-reporter',
             'karma-phantomjs-launcher'
         ]
-
     });
 };

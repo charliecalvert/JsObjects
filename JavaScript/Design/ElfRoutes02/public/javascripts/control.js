@@ -1,22 +1,27 @@
-define(['Route', 'queryController', 'aboutController'],
-    function(Route, queryController, aboutController) {
-        'use strict';
+define(['Route', 'queryController', 'aboutController'], function(
+    Route,
+    queryController,
+    aboutController
+) {
+    'use strict';
 
-        var findRoutes = (function($routeProvider) {
-            $routeProvider.when('/home', {
+    var findRoutes = function($routeProvider) {
+        $routeProvider
+            .when('/home', {
                 templateUrl: '/home',
                 controller: queryController
-            }).when('/about', {
+            })
+            .when('/about', {
                 templateUrl: '/about',
                 controller: aboutController,
                 resolve: {
                     result: aboutController.about
                 }
-            }).otherwise({
+            })
+            .otherwise({
                 redirectTo: '/home'
             });
-        });
+    };
 
-        return findRoutes;
-
-    });
+    return findRoutes;
+});

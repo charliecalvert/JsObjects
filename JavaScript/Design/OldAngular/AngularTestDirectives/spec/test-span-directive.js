@@ -3,7 +3,6 @@
  */
 
 describe('Test Span Directive Suite', function() {
-
     'use strict';
 
     var $compile;
@@ -33,7 +32,8 @@ describe('Test Span Directive Suite', function() {
         var spanDirective = getSpanDirective();
         var spanElement = spanDirective.find('span');
         expect(spanElement).toBeDefined();
-        expect(spanElement.text()).toEqual('There is a span in this directive.');
+        expect(spanElement.text()).toEqual(
+            'There is a span in this directive.'
+        );
     });
-
 });

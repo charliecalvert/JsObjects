@@ -2,36 +2,32 @@
  * New node file
  */
 
-    var Yawl = function() {
+var Yawl = function() {};
 
-    };
+Yawl.prototype = {
+    getBoatType: function() {
+        return 'Yawl';
+    },
 
-    Yawl.prototype = {
+    tack: function() {
+        return 'Yawl tack called.';
+    },
 
-        getBoatType: function() {
-            return 'Yawl';
-        },
+    luff: function() {
+        return 'Yawl luff called.';
+    },
 
-        tack : function() {
-            return "Yawl tack called.";
-        },
+    reach: function() {
+        return 'Yawl reach called.';
+    },
 
-        luff : function() {
-            return "Yawl luff called.";
-        },
+    anchor: function() {
+        return 'Yawl anchor called.';
+    },
 
-        reach : function() {
-            return "Yawl reach called.";
-        },
-
-        anchor : function() {
-            return "Yawl anchor called.";
-        },
-
-        dock : function() {
-            return "Yawl dock called.";
-        }
-    };
+    dock: function() {
+        return 'Yawl dock called.';
+    }
+};
 
 export default Yawl;
-

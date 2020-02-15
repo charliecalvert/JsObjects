@@ -6,7 +6,7 @@ var SimpleStack = (function() {
     function SimpleStack() {
         dataStore = [];
 
-        Object.defineProperty(this, "length", {
+        Object.defineProperty(this, 'length', {
             get: function() {
                 return dataStore.length;
             },
@@ -15,7 +15,6 @@ var SimpleStack = (function() {
             // We can't delete it
             // writable: false // We can't add writable if we use accessors like get
         });
-
     }
 
     SimpleStack.prototype.push = function(value) {
@@ -24,7 +23,7 @@ var SimpleStack = (function() {
 
     SimpleStack.prototype.pop = function() {
         if (dataStore.length === 0) {
-            throw new Error("Foo");
+            throw new Error('Foo');
         } else {
             return dataStore.pop();
         }
@@ -51,7 +50,7 @@ var SimpleStack = (function() {
         }
         var result = this.toPopString();
         console.log('palindrome = ', value, result);
-        return (result === value);
+        return result === value;
     };
 
     SimpleStack.prototype.removeItem = function(itemToRemove) {
@@ -61,33 +60,33 @@ var SimpleStack = (function() {
     };
 
     SimpleStack.prototype.addDefaultItems = function() {
-        this.push("Alpha");
-        this.push("Bravo");
-        this.push("Charlie");
-        this.push("Delta");
-        this.push("Echo");
-        this.push("Foxtrot");
-        this.push("Golf");
-        this.push("Hotel");
-        this.push("India");
-        this.push("Juliet");
-        this.push("Kilo");
-        this.push("Lima");
-        this.push("Mike");
-        this.push("November");
-        this.push("Oscar");
-        this.push("Papa");
-        this.push("Quebec");
-        this.push("Romeo");
-        this.push("Sierra");
-        this.push("Tango");
-        this.push("Uniform");
-        this.push("Victory");
-        this.push("Whiskey");
-        this.push("Xray");
-        this.push("Yankee");
-        this.push("Zulu");
+        this.push('Alpha');
+        this.push('Bravo');
+        this.push('Charlie');
+        this.push('Delta');
+        this.push('Echo');
+        this.push('Foxtrot');
+        this.push('Golf');
+        this.push('Hotel');
+        this.push('India');
+        this.push('Juliet');
+        this.push('Kilo');
+        this.push('Lima');
+        this.push('Mike');
+        this.push('November');
+        this.push('Oscar');
+        this.push('Papa');
+        this.push('Quebec');
+        this.push('Romeo');
+        this.push('Sierra');
+        this.push('Tango');
+        this.push('Uniform');
+        this.push('Victory');
+        this.push('Whiskey');
+        this.push('Xray');
+        this.push('Yankee');
+        this.push('Zulu');
     };
 
     return SimpleStack;
-}());
+})();

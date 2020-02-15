@@ -3,30 +3,31 @@
  */
 
 // Publisher
-PubSub.Publisher = (function() { 'use strict';
+PubSub.Publisher = (function() {
+    'use strict';
 
-	function Publisher() {
-		$("#privateButton").click(privateMethod);
-		var event = {
-			message : 'Publisher constructor Called',
-			acknowledge : function(value) {
-				$("#response").html(value);
-			}
-		};
-		$.Topic('debug').publish(event);
-	}
+    function Publisher() {
+        $('#privateButton').click(privateMethod);
+        var event = {
+            message: 'Publisher constructor Called',
+            acknowledge: function(value) {
+                $('#response').html(value);
+            }
+        };
+        $.Topic('debug').publish(event);
+    }
 
-	var privateMethod = function() {
-		$.Topic('debugDetail').publish(
-				'Publisher privateMethod called by Pub Sub');
-	};
+    var privateMethod = function() {
+        $.Topic('debugDetail').publish(
+            'Publisher privateMethod called by Pub Sub'
+        );
+    };
 
-	return Publisher;
-
-}());
+    return Publisher;
+})();
 
 $(document).ready(function() {
-	'use strict';
-	new PubSub.Subscriber();
-	new PubSub.Publisher();
+    'use strict';
+    new PubSub.Subscriber();
+    new PubSub.Publisher();
 });

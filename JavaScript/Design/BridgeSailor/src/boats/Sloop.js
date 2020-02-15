@@ -2,36 +2,32 @@
  * New node file
  */
 
-var Sloop = function () {
-
-};
+var Sloop = function() {};
 
 Sloop.prototype = {
-
-    getBoatType: function () {
+    getBoatType: function() {
         return 'Sloop';
     },
 
-    tack: function () {
-        return "Sloop tack called.";
+    tack: function() {
+        return 'Sloop tack called.';
     },
 
-    luff: function () {
-        return "Sloop luff called.";
+    luff: function() {
+        return 'Sloop luff called.';
     },
 
-    reach: function () {
-        return "Sloop reach called.";
+    reach: function() {
+        return 'Sloop reach called.';
     },
 
-    anchor: function () {
-        return "Sloop anchor called.";
+    anchor: function() {
+        return 'Sloop anchor called.';
     },
 
-    dock: function () {
-        return "Sloop dock called.";
+    dock: function() {
+        return 'Sloop dock called.';
     }
 };
 
 export default Sloop;
-

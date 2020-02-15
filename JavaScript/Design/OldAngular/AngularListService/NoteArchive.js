@@ -2,15 +2,14 @@
  * @author Charlie Calvert
  */
 angular.module('noteArchive', []);
- 
-var NoteArchive = function() { 'use strict';
-	this.notes = [];
 
-	this.archive = function(item) {
-		this.notes.push(item);
-	};
+var NoteArchive = function() {
+    'use strict';
+    this.notes = [];
 
-	
-	this.description = "noteArchive text";
- };
- 
+    this.archive = function(item) {
+        this.notes.push(item);
+    };
+
+    this.description = 'noteArchive text';
+};
