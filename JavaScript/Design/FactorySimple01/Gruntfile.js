@@ -1,46 +1,10 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     'use strict';
 
     var zipFile = 'FactorySimple01.zip';
 
     grunt.initConfig({
         zipFile: zipFile,
-
-        jshint: {
-            files: ['**/*.js'],
-
-            options: {
-                ignores: [
-                    '**/coverage/**',
-                    '**/node_modules/**',
-                    '**/Tests/Jasmine-2.0.0/**',
-                    '**/bootstrap.min.js',
-                    '**/jquery-2.?.?.min.js'
-                ],
-                reporter: 'checkstyle',
-                reporterOutput: 'result.xml',
-                strict: true,
-                newcap: false,
-                globals: {
-                    describe: true,
-                    afterEach: true,
-                    beforeEach: true,
-                    inject: true,
-                    it: true,
-                    jasmine: true,
-                    expect: true,
-                    angular: true,
-                    module: true,
-                    Crafty: true
-                }
-            }
-        },
-
-        clean: {
-            work: {
-                src: ['**/node_modules/**', zipFile]
-            }
-        },
 
         jasmine_node: {
             coverage: {},
@@ -109,27 +73,12 @@ module.exports = function(grunt) {
             }
         },
 
-        jsbeautifier: {
-            files: [
-                '**/*.js',
-                '!**/node_modules/**',
-                '!**/coverage/**',
-                '!**/Tests/Jasmine-2.0.0/**'
-            ],
-            options: {
-                js: {
-                    jslintHappy: false
-                }
-            }
-        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('dist', [
@@ -139,6 +88,5 @@ module.exports = function(grunt) {
         'jasmine',
         'jasmine_node'
     ]);
-    grunt.registerTask('check', ['jshint', 'jasmine_node']);
-    grunt.registerTask('pretty', ['jsbeautifier']);
+    grunt.registerTask('check', [jasmine_node']);
 };

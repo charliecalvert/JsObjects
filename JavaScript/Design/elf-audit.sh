@@ -61,14 +61,14 @@ check-dir ./DecorateSailor
 check-dir ./ElfRoutes01
 check-dir ./ElfRoutes02
 check-dir ./FactoryInterface
-# check-dir ./FactorySimple01
-# check-dir ./GridExpress
-# check-dir ./GridExpressFetch
-# check-dir ./IBitDay2016
-# check-dir ./JadeMixinComplete
-# check-dir ./JadeMixinSimple
-# check-dir ./JsonFromServer
-# check-dir ./JsonFromServer02
+check-dir ./FactorySimple01
+check-dir ./GridExpress
+check-dir ./GridExpressFetch
+check-dir ./IBitDay2016
+check-dir ./JadeMixinComplete
+check-dir ./JadeMixinSimple
+check-dir ./JsonFromServer
+check-dir ./JsonFromServer02
 # check-dir ./MaterialComponents
 # check-dir ./OldAngular/AngularCalculator
 # check-dir ./OldAngular/AngularCalculatorWithScope
@@ -85,7 +85,7 @@ check-dir ./FactoryInterface
 # check-dir ./OldAngular/AngularTestControllerAs
 # check-dir ./OldAngular/AngularTestDirectives
 # check-dir ./OldAngular/AngularThreeModules02
-# check-dir ./PubSubTopic04
-# check-dir ./RequireCrafty
+check-dir ./PubSubTopic04
+check-dir ./RequireCrafty
 # check-dir ./SimpleQueue
 # check-dir ./Singleton
