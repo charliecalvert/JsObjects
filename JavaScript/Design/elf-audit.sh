@@ -69,7 +69,7 @@ check-dir ./JadeMixinComplete
 check-dir ./JadeMixinSimple
 check-dir ./JsonFromServer
 check-dir ./JsonFromServer02
-# check-dir ./MaterialComponents
+check-dir ./MaterialComponents
 # check-dir ./OldAngular/AngularCalculator
 # check-dir ./OldAngular/AngularCalculatorWithScope
 # check-dir ./OldAngular/AngularInclude01
@@ -87,5 +87,5 @@ check-dir ./JsonFromServer02
 # check-dir ./OldAngular/AngularThreeModules02
 check-dir ./PubSubTopic04
 check-dir ./RequireCrafty
-# check-dir ./SimpleQueue
-# check-dir ./Singleton
+check-dir ./SimpleQueue
+check-dir ./Singleton
