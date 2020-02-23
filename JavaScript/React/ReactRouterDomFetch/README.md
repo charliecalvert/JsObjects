@@ -2,7 +2,7 @@
 
 To create this app, I used a custom tool called **elf-express** which I installed like this:
 
-        npm i -g elf-express
+        npm i -g elf-express-generator
 
 
 So create a directory called ~/Source or whathaveyou. Navigate into it. Then issue this command:
@@ -11,8 +11,10 @@ So create a directory called ~/Source or whathaveyou. Navigate into it. Then iss
         cd test
         npm i
         npm start
-        If you don't have elf-express then:
-        npm i -g elf-express        
+
+If you don't have elf-express then:
+
+        npm i -g elf-express-generator
          
 ## Node Server
 
