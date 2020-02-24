@@ -1,20 +1,17 @@
 ## Overview
 
-To create this app, I used a custom tool called **elf-express** which I installed like this:
+To create this app, I used a custom tool called **elf-express** which should be installed automatically as part of Pristine Lubuntu. If that is not the case, it can be installed like this:
 
         npm i -g elf-express-generator
 
+The app should end up in **~/npm/bin**.
 
-So create a directory called ~/Source or whathaveyou. Navigate into it. Then issue this command:
+Create a directory called ~/Source or whathaveyou. Navigate into it. Then issue these commands:
 
         elf-express test
         cd test
         npm i
         npm start
-
-If you don't have elf-express then:
-
-        npm i -g elf-express-generator
          
 ## Node Server
 
@@ -55,4 +52,3 @@ Create react function components **Part One** and **Part Two**.
 The usual Node JS code in **views** and **routes**.
 
 Note **root** in **index.pug**.
-
