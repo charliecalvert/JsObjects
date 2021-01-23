@@ -53,6 +53,14 @@ if [ ! -d "$ELF_WRITE" ]; then
 	exit 1
 fi
 
+if [ ! -d "$ELVEN_WEB/routes" ]; then
+	echo $ELVEN_WEB/routes does not exist
+	echo creating:
+	echo "ln -s $ELVEN_WEB/server/routes $ELVEN_WEB/routes"
+	ln -s $ELVEN_WEB/server/routes $ELVEN_WEB/routes
+	exit 1
+fi
+
 ln -s $GIT_HOME/CloudNotes CloudNotes
 ln -s $ELF_WRITE/Elvenware Elvenware
 ln -s $GIT_HOME/prog109-notes prog109
