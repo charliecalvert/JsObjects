@@ -40,18 +40,18 @@ if [ -z "$CLOUDNOTES" ]; then
 	exit 1
 fi
 
-if [ -z "$ELF_WRITE" ]; then
-	echo "Need to set ELF_WRITE"
-	echo "Is .bash_aliases set up?"
-	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
-	exit 1
-fi
+#if [ -z "$ELF_WRITE" ]; then
+#	echo "Need to set ELF_WRITE"
+#	echo "Is .bash_aliases set up?"
+#	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+#	exit 1
+#fi
  
 
-if [ ! -d "$ELF_WRITE" ]; then
-	echo $ELF_WRITE does not exist
-	exit 1
-fi
+#if [ ! -d "$ELF_WRITE" ]; then
+#	echo $ELF_WRITE does not exist
+#	exit 1
+#fi
 
 if [ ! -d "$ELVEN_WEB/routes" ]; then
 	echo $ELVEN_WEB/routes does not exist
@@ -62,7 +62,7 @@ if [ ! -d "$ELVEN_WEB/routes" ]; then
 fi
 
 ln -s $GIT_HOME/CloudNotes CloudNotes
-ln -s $ELF_WRITE/Elvenware Elvenware
+ln -s $GIT_HOME/CloudNotes/elvenware Elvenware
 ln -s $GIT_HOME/prog109-notes prog109
 
 # ln -s $GIT_HOME/CloudNotes $CONTENT/CloudNotes
