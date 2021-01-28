@@ -56,6 +56,8 @@ alias cnar='cd $CLOUDNOTES/Assignments/React'
 # Elven Web
 alias ew='cd $ELVEN_WEB'
 alias ewc='cd $ELVEN_WEB/Content'
+alias ewe='cd $ELVEN_WEB/Ec2Code'
+
   
 
 # My Programs
