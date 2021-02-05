@@ -8,25 +8,25 @@
     "test": "jest --watch"
   },
   "dependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "cookie-parser": "~1.4.4",
-    "debug": "~4.1.1",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
+    "@babel/cli": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "cookie-parser": "~1.4.5",
+    "debug": "~4.3.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "express": "~4.17.1",
-    "http-errors": "~1.7.3",
-    "morgan": "~1.9.1",
-    "pug": "2.0.4",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "http-errors": "~1.8.0",
+    "morgan": "~1.10.0",
+    "pug": "3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
   }
 }

@@ -65,6 +65,7 @@ alias runcln='cd client && npm i && cd ../server && npm i && bower install && cd
 alias runmicros='cd git-gist && npm i && cd ../qux && pwd && npm i && bower install && cd ../git-user && pwd && npm i && bower install && cd ..'
 alias runa="runcln && cd micros && runmicros && cd ../project-sanity-tests && runtest"
 alias runtest='npm i && npm test'
+alias runew="npm i && cd server/ && npm i && cd .."
 alias runcs='cd client && npm i && cd ../server && npm i && npm start'
 alias yni="yarn install"
 alias runt="yarn && yarn test"
