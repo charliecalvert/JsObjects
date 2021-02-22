@@ -13,6 +13,8 @@ if [ -z "$JSOBJECTS" ]; then
 	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
 	echo "git clone https://github.com/charliecalvert/JsObjects.git"
 	exit 1
+else
+	echo "JsObjects already set."
 fi
 
 if [ -z "$GIT_HOME" ]; then

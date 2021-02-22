@@ -1,5 +1,7 @@
 #! /bin/bash
 
+npm i react
+npm i react-dom
 cd views
 sed -i '/\p Welcome to #{title}/a \\n  #root' index.pug
 cd ..
