@@ -17,6 +17,7 @@ export ELF_AA_BACKUP_DIR="$ELF_AA_CODE"/AAMeeting/DataBackUps/
 export WEBCRAFTS=$GIT_HOME/WebCrafts
 export CLOUDNOTES="$GIT_HOME"/CloudNotes
 export ELVEN_WEB="$GIT_HOME"/elven-web
+export ELF_HYPER="$GIT_HOME"/hyperv-stuff
 
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
@@ -58,6 +59,8 @@ alias ew='cd $ELVEN_WEB'
 alias ewc='cd $ELVEN_WEB/Content'
 alias ewe='cd $ELVEN_WEB/Ec2Code'
 
+# Hyper-V
+alias hy='cd $ELF_HYPER'
   
 
 # My Programs
