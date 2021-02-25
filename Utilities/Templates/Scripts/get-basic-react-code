@@ -1,22 +1,8 @@
 #! /bin/bash
 
-ESLINT_DIR=/tmp/eslint-dir
-REPO_REACT_SIMPLE=https://github.com/charliecalvert/JsObjects.git
 REACT_SIMPLE_DIR=$JSOBJECTS/JavaScript/React/react-simple
 REACT_SIMPLE_SOURCE=$REACT_SIMPLE_DIR/source
 REACT_SIMPLE_PUBLIC=$REACT_SIMPLE_DIR/public
-
-function removeDir {
-    if [ -d $ESLINT_DIR ]; then
-        rm -rf $ESLINT_DIR
-        echo "Deleted " $ESLINT_DIR
-    fi
-}
-
-function getRepo() {
-    removeDir
-    git clone $1 $ESLINT_DIR
-}
 
 # getRepo $REPO_REACT_SIMPLE
 cp -v $REACT_SIMPLE_SOURCE/* source/.
