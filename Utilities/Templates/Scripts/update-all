@@ -17,7 +17,7 @@ function message {
     echo
 }
 
-if [ ! -f /var/run/reboot-required ]; then
+if [ -f /var/run/reboot-required ]; then
   message "$LIGHT_RED Reboot required $NC"
 else
   message "$LIGHT_GREEN All done $NC"
