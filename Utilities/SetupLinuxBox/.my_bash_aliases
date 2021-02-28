@@ -61,6 +61,12 @@ alias ewe='cd $ELVEN_WEB/Ec2Code'
 
 # Hyper-V
 alias hy='cd $ELF_HYPER'
+
+# Windows Terminal
+alias wtq="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/qux/ && npm i && npm start"
+alias wtgg="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-user/ && npm i && npm start"
+alias wtgu="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-gist/ && npm i && npm start"
+
   
 
 # My Programs
