@@ -32,7 +32,7 @@ alias wtme="cd $ELF_WRITE/Tech/Markdown/ElvenSiteTools"
 alias wtpl="cd $ELF_WRITE/Tech/Games/ThreePointerLock"
 alias wtjs='cd $ELF_WRITE/Tech/JsSyntax/'
 alias wtnt="cd $ELF_WRITE/Tech/Network"
-alias wtp="cd $ELF_WRITE/Tech/Programmable"
+# alias wtp="cd $ELF_WRITE/Tech/Programmable"
 alias wtu="cd $ELF_WRITE/UnitTests/Js"
 alias wte="cd $ELF_WRITE/Elvenware"
 alias wted="cd $ELF_WRITE/Elvenware/development"
@@ -68,6 +68,7 @@ alias wts="cd ~/Git/isit322-calvert-2019/GitExplorer/server/ && npm i && npm sta
 alias wtq="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/qux/ && npm i && npm start"
 alias wtgg="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-user/ && npm i && npm start"
 alias wtgu="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-gist/ && npm i && npm start"
+alias wtp="cd ~/Git/platform-samples/api/javascript/es2015-nodejs/"
 
 # My Programs
 alias drmt="docker image ls | grep 'charliecalvert/gitignore' | xargs docker image rm && docker image prune"   
