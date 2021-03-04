@@ -63,11 +63,11 @@ alias ewe='cd $ELVEN_WEB/Ec2Code'
 alias hy='cd $ELF_HYPER'
 
 # Windows Terminal
+alias wtc="cd ~/Git/isit322-calvert-2019/GitExplorer/client/ && npm i && npm start"
+alias wts="cd ~/Git/isit322-calvert-2019/GitExplorer/server/ && npm i && npm start"
 alias wtq="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/qux/ && npm i && npm start"
 alias wtgg="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-user/ && npm i && npm start"
 alias wtgu="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-gist/ && npm i && npm start"
-
-  
 
 # My Programs
 alias drmt="docker image ls | grep 'charliecalvert/gitignore' | xargs docker image rm && docker image prune"   
