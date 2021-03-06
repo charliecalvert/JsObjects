@@ -35,6 +35,9 @@ alias killchromium="pkill -9 chromium"
 alias killnode="killall node"
 #alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
 
+# bashrc and bash_aliases
+alias sb="source ~/.bashrc"
+
 # Commands
 alias sshadd="ssh-add $ELF_SSH_DIR/main-key"
 alias bcy="build-concurrency"

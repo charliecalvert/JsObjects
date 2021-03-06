@@ -90,9 +90,14 @@ alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 alias elfweb="cd ~/Git/elven-web/server"
 
 # Isit Courses
+alias i3i7='cd $GIT_HOME/isit320-calvert-2017'
+alias i318='cd $GIT_HOME/isit320-calvert-2018'
+alias i319='cd $GIT_HOME/isit320-calvert-2019'
 
-alias i3='cd $GIT_HOME/isit320-2019'
-alias i3c='cd $GIT_HOME/isit322-calvert-2020'
+alias i217='cd $GIT_HOME/isit322-calvert-2017'
+alias i218='cd $GIT_HOME/isit322-calvert-2018'
+alias i219='cd $GIT_HOME/isit322-calvert-2019'
+alias i220='cd $GIT_HOME/isit322-calvert-2020'
 
 # Prog Courses
 alias p2='cd $GIT_HOME/prog272-2019'
