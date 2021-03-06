@@ -66,8 +66,8 @@ alias hy='cd $ELF_HYPER'
 alias wtc="cd ~/Git/isit322-calvert-2019/GitExplorer/client/ && npm i && npm start"
 alias wts="cd ~/Git/isit322-calvert-2019/GitExplorer/server/ && npm i && npm start"
 alias wtq="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/qux/ && npm i && npm start"
-alias wtgg="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-user/ && npm i && npm start"
-alias wtgu="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-gist/ && npm i && npm start"
+alias wtgg="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-gist/ && npm i && npm start"
+alias wtgu="cd ~/Git/isit322-calvert-2019/GitExplorer/micros/git-user/ && npm i && npm start"
 alias wtp="cd ~/Git/platform-samples/api/javascript/es2015-nodejs/"
 
 # My Programs
