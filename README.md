@@ -19,7 +19,7 @@ cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects.git
 ```
 
-A more complete script looks like this:
+A more complete script would run my **UbuntuSetup** to set up node development with a JsObjects style. It will install node and add a number of global npm utilities. The script looks like this:
 
 ```bash
 #! /usr/bin/env bash
@@ -35,7 +35,9 @@ cd JsObjects/Utilities/SetupLinuxBox/
 ./UbuntuSetup
 ```
 
-Comment out **cd ~/.** if you don't want to start in the home directory. You comment with the hash mark: **# cd ~/.**.
+Comment out **cd ~/.** if you don't want to start in the home directory. You comment with the hash mark: 
+
+**# cd ~/.**
 
 I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
 
