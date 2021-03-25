@@ -19,6 +19,24 @@ cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects.git
 ```
 
+A more complete script looks like this:
+
+```bash
+#! /usr/bin/env bash
+
+cd ~/.
+
+mkdir -p Git
+
+cd Git
+
+git clone https://github.com/charliecalvert/JsObjects.git
+cd JsObjects/Utilities/SetupLinuxBox/
+./UbuntuSetup
+```
+
+Comment out **cd ~/.** if you don't want to start in the home directory. You comment with the hash mark: **# cd ~/.**.
+
 I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license.
