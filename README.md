@@ -39,6 +39,10 @@ Comment out **cd ~/.** if you don't want to start in the home directory. You com
 
 **# cd ~/.**
 
+To download, do this:
+
+    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects
+
 I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license.
