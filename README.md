@@ -43,6 +43,23 @@ To download, do this:
 
     curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects
 
+
+### Setup SSH
+
+```bash
+#! /bin/bash
+
+cd
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+Download it:
+
+    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects
+
+## Overview
+
 I have many different example programs stored in this repository. Note especially the Utilities and JavaScript directories. And many other things as well.
 
 All the code in JsObjects is released under the MIT license.
