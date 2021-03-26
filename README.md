@@ -19,6 +19,8 @@ cd ~/Git
 git clone https://github.com/charliecalvert/JsObjects.git
 ```
 
+### Get JsObjects
+
 A more complete script would run my **UbuntuSetup** to set up node development with a JsObjects style. It will install node and add a number of global npm utilities. The script looks like this:
 
 ```bash
@@ -35,7 +37,7 @@ cd JsObjects/Utilities/SetupLinuxBox/
 ./UbuntuSetup
 ```
 
-Comment out **cd ~/.** if you don't want to start in the home directory. You comment with the hash mark: 
+Comment out **cd ~/.** if you don't want to start in the home directory. Insert a comment with the hash mark: 
 
 **# cd ~/.**
 
@@ -43,8 +45,17 @@ To download, do this:
 
     curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects
 
+This will echo it to the screen to rite it to a file do something like this:
+
+    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects > get-jsobjects
+
+To make it executable, do this:
+
+    chmod +x get-jsobjects
 
 ### Setup SSH
+
+This will set up your ssh directory:
 
 ```bash
 #! /bin/bash
@@ -56,7 +67,14 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 Download it:
 
-    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/get-jsobjects
+    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/ssh-setup
+
+
+Sometimes you need to install openssh:
+
+    sudo apt install ssh
+
+More details are [here](http://google.com/?q=install+ssh+openserver).
 
 ## Overview
 
