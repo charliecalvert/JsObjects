@@ -68,6 +68,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 Download it:
 
     curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/ssh-setup
+    curl https://s3.amazonaws.com/bucket01.elvenware.com/JsObjects/ssh-setup > ssh-setup
 
 
 Sometimes you need to install openssh:
