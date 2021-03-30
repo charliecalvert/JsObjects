@@ -46,24 +46,6 @@ module.exports = function(grunt) {
             }
         },
 
-        jasmine_node: {
-            coverage: {},
-            options: {
-                forceExit: true,
-                match: '.',
-                matchall: false,
-                extensions: 'js',
-                specNameMatcher: 'Spec',
-                captureExceptions: true,
-                junitreport: {
-                    report: false,
-                    savePath: "./reports/jasmine/",
-                    useDotNotation: true,
-                    consolidate: true
-                }
-            }
-        },
-
         compress: {
             FactorySimple01: {
                 options: {
@@ -112,11 +94,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
     grunt.loadNpmTasks('grunt-jsbeautifier');
 
-    grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main', 'jasmine', 'jasmine_node']);
-    grunt.registerTask('check', ['jshint', 'jasmine_node']);
+    grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main']);
+    grunt.registerTask('check', ['jshint']);
     grunt.registerTask('pretty', ['jsbeautifier']);
 };
