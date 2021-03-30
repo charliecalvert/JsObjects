@@ -25,7 +25,7 @@
     "dependencies": {
         "elven-code": "^4.4.0",
         "express": "^4.16.3",
-        "jquery": "^3.3.1",
+        "jquery": "^3.5.0",
         "serve-static": "^1.13.2"
     }
 }
