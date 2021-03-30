@@ -3,29 +3,16 @@
     "version": "0.0.1",
     "scripts": {
         "start": "nodemon app.js",
-        "grunt-check": "grunt check",
-        "test": "node spec/run-jasmine.js",
-        "tester": "node_modules/.bin/jasmine",
+        "test": "node_modules/.bin/jest",
         "dev": "browserify --debug public/control.js > public/bundle.js"
     },
     "devDependencies": {
-        "grunt": "~1.0.2",
-        "grunt-contrib-jshint": "~1.1.0",
-        "grunt-karma": "^2.0.0",
-        "jasmine": "^3.1.0",
-        "jasmine-core": "^3.1.0",
-        "jasmine-spec-reporter": "^4.2.1",
-        "jshint-stylish": "^2.2.1",
-        "karma": "~2.0.0",
-        "karma-jasmine": "~1.1.1",
-        "karma-phantomjs-launcher": "~1.0.4",
-        "karma-spec-reporter": "0.0.32",
-        "watchify": "^3.11.0"
+        "jest": "^26.6.3"
     },
     "dependencies": {
-        "elven-code": "^4.4.0",
-        "express": "^4.16.3",
-        "jquery": "^3.3.1",
-        "serve-static": "^1.13.2"
+        "elven-code": "^4.7.1",
+        "express": "^4.17.1",
+        "jquery": "^3.6.0",
+        "serve-static": "^1.14.1"
     }
 }
