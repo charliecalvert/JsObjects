@@ -1,0 +1,5 @@
+**/bower_components/**
+**/build/**
+**/coverage/**
+**/materialize.min.js
+**/serviceWorker.js
