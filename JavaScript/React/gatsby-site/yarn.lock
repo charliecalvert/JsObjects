@@ -6150,10 +6150,10 @@
     "semver" "^7.3.4"
     "sharp" "^0.27.0"
 
-"gatsby@^3.0.0-next.0", "gatsby@^3.2.0":
-  "integrity" "sha512-eVaAR6LQA4D7bPeN1/2Hzk5kt7QJzb0DoPUuBy9daxZy3oPR1Zf6wfdV6RQcW6+ABLpG073h5uOTMxANAlm66A=="
-  "resolved" "https://registry.npmjs.org/gatsby/-/gatsby-3.2.0.tgz"
-  "version" "3.2.0"
+"gatsby@^3.0.0-next.0", "gatsby@^3.2.1":
+  "integrity" "sha512-nakOINSniWsBPfbZE5HJOoEwC2/bBoJAYxGYNG/P7M8mM9JVbsIsnAylTe205/MsO0qpcTpqRm0usxzyvF3yYw=="
+  "resolved" "https://registry.npmjs.org/gatsby/-/gatsby-3.2.1.tgz"
+  "version" "3.2.1"
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/core" "^7.12.3"
