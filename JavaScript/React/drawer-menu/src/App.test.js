@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Bar from './Bar';
 import Foo from './Foo';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import ElfDebugEnzyme from './ElfDebugEnzyme';
-
+import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
 const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js');
 
 configure({ adapter: new Adapter() });
