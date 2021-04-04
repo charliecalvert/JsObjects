@@ -15,7 +15,7 @@
     "jasmine-jquery": "^2.1.1",
     "jquery": "^3.3.1",
     "minimist": "^1.2.0",
-    "mongodb": "^3.0.3",
+    "mongodb": "^3.1.13",
     "morgan": "^1.9.0",
     "requirejs": "^2.3.5",
     "serve-favicon": "^2.4.5"
