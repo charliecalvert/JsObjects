@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Foo from './Foo';
 import Bar from './Bar';
 import AppBar from '@material-ui/core/AppBar';
@@ -35,82 +35,82 @@ const paperStyle = {
     display: 'inline-block',
 };
 
-class App extends Component {
-    classes = useStyles();
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false,
-            show: null,
-        };
-    }
+function App() {
+    const classes = useStyles();
 
-    handleToggle = () => this.setState({ open: !this.state.open });
+    /* this.state = {
+        open: false,
+        show: null,
+    }; */
 
-    showBar = () => {
-        this.setState({ show: 'bar', open: false });
+    const [open, setOpen] = useState(true);
+    const [show, setShow] = useState(null);
+
+    const handleToggle = () => this.setState({ open: !this.state.open });
+
+    const showBar = () => {
+        setOpen(false);
+        setShow('bar');
+        //this.setState({ show: 'bar', open: false });
     };
 
-    showFoo = () => {
-        this.setState({ show: 'foo', open: false });
+    const showFoo = () => {
+        setOpen(false);
+        setShow('foo');
+        //this.setState({ show: 'foo', open: false });
     };
 
-    render() {
-        let content = null;
+    let content = null;
 
-        switch (this.state.show) {
-            case 'foo':
-                content = <Foo />;
-                break;
+    switch (show) {
+        case 'foo':
+            content = <Foo />;
+            break;
 
-            case 'bar':
-                content = <Bar />;
-                break;
+        case 'bar':
+            content = <Bar />;
+            break;
 
-            default:
-                content = <h1>Waiting</h1>;
-        }
-
-        return (
-            <div className="App">
-                <AppBar
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
-                    title="Learn about Drawer, MenuItem and Paper"
-                    onLeftIconButtonClick={this.handleToggle}
-                />
-                <Drawer
-                    docked={false}
-                    width={200}
-                    open={this.state.open}
-                    onRequestChange={(open) => this.setState({ open })}
-                >
-                    <AppBar title="AppBar" />
-                    <MenuItem id="showFooId" onClick={this.showFoo}>
-                        Show Foo
-                    </MenuItem>
-                    <MenuItem id="showBarId" onClick={this.showBar}>
-                        Show Bar
-                    </MenuItem>
-                </Drawer>
-                <Paper style={paperStyle} zDepth={5}>
-                    <Toolbar style={{ justifyContent: 'center' }}>
-                        <Typography
-                            className={classes.title}
-                            variant="h6"
-                            noWrap
-                        >
-                            Material UI
-                        </Typography>
-                    </Toolbar>
-                    {content}
-                    <p>
-                        Click the icon on the AppBar to open the Drawer and then
-                        pick a menu item. The text above should change.
-                    </p>
-                </Paper>
-            </div>
-        );
+        default:
+            content = <h1>Waiting</h1>;
     }
+
+    return (
+        <div className="App">
+            <AppBar
+                iconClassNameRight="muidocs-icon-navigation-expand-more"
+                title="Learn about Drawer, MenuItem and Paper"
+                onLeftIconButtonClick={handleToggle}
+            />
+            <Drawer
+                docked={false}
+                width={200}
+                open={open}
+                onRequestChange={(open) => this.setState( open )}
+            >
+                <AppBar title="AppBar" />
+                <MenuItem id="showFooId" onClick={showFoo}>
+                    Show Foo
+                </MenuItem>
+                <MenuItem id="showBarId" onClick={showBar}>
+                    Show Bar
+                </MenuItem>
+            </Drawer>
+            <Paper style={paperStyle} zDepth={5}>
+                <Toolbar style={{ justifyContent: 'center' }}>
+                    <Typography className={classes.title} variant="h6" noWrap>
+                        Material UI
+                    </Typography>
+                </Toolbar>
+                {content}
+                <p>
+                    Click the icon on the AppBar to open the Drawer and then
+                    pick a menu item. The text above should change. Refresh the
+                    screen to start over.
+                </p>
+            </Paper>
+        </div>
+    );
 }
 
 export default App;
