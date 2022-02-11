@@ -35,7 +35,7 @@
         "grunt-contrib-compress": "~0.13.0",
         "grunt-contrib-copy": "~0.8.0",
         "grunt-contrib-jshint": "~0.11.2",
-        "karma": "~0.13.3",
+        "karma": "~6.3.14",
         "karma-chrome-launcher": "~0.2.0",
         "karma-commonjs": "0.0.13",
         "karma-coverage": "~0.4.2",
