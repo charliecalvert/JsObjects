@@ -1,6 +1,12 @@
 #!/bin/bash
 
 # When passing wildcards, put them in quotes: FindNp "*.js"
+NOTS='-not -path "**/node_modules/**" -not -path "**/bower_components/**"'
+echo -e find . -iname "$1" ${NOTS}
+find . -iname "$1" ${NOTS}
 
-find . -iname "$1" -not -path "**/node_modules/**" -not -path "**/bower_components/**" 
+
+# When passing wildcards, put them in quotes: FindNp "*.js"
+
+# find . -iname "$1" -not -path "**/node_modules/**" -not -path "**/bower_components/**" 
 
