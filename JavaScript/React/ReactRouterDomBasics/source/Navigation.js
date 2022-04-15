@@ -10,8 +10,10 @@ function Navigation() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/part-one">Part One</Link></li>
                     <li><Link to="/part-two">Part Two</Link></li>
+                    <li><Link to="/part-three/part-two">Part Three</Link></li>
+                    <li><Link to="/part-four/part-one">Part Four</Link></li>
                 </ul>
-            </nav>;
+            </nav>
             <Outlet />
         </div>
     )

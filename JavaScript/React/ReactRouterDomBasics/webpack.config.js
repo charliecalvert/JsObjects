@@ -3,7 +3,7 @@
 console.log(__dirname);
 module.exports = {
     mode: 'development',
-    entry: './source/index.js',
+    entry: './source/index.jsx',
     output: {
         path: __dirname + '/public/',
         filename: 'bundle.js'
@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.js?$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
