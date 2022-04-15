@@ -36,6 +36,9 @@ Install:
         npm i react-router-dom
         npm i style-loader css-loader
 
+
+        npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks
+
 ## Client Side
 
 Start your client side code by editing **source/control.js** and adding **react-dom**.

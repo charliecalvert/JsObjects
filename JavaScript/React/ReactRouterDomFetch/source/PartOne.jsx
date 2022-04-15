@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 function PartOne() {
-
     const [fetchedJson, setFetchedJson] = useState('unknown');
 
     async function getJson() {
@@ -13,14 +12,17 @@ function PartOne() {
     }
 
     return (
-        <React.Fragment>
+        <>
             <h1>Part One</h1>
             <p>A simple react functional component. See console output after pushing button.</p>
 
             <button onClick={getJson}>Get JSON</button>
 
-            <p>Output: {fetchedJson}</p>
-        </React.Fragment>
+            <p>
+                Output:
+                {fetchedJson}
+            </p>
+        </>
     );
 }
 
