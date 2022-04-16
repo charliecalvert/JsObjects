@@ -2,11 +2,11 @@ function bar1(a) {
     console.log(a);
 }
 
-var bar = a => console.log(a);
+const bar = (a) => console.log(a);
 
-//bar('foo');
+// bar('foo');
 
-var bar2 = a => b => {
+const bar2 = (a) => (b) => {
     console.log('here');
     console.log(typeof a);
     a(b);

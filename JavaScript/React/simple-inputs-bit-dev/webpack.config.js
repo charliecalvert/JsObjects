@@ -1,12 +1,12 @@
-//var path = require('path');
-//var webpack = require('webpack');
+// var path = require('path');
+// var webpack = require('webpack');
 console.log(__dirname);
 module.exports = {
     mode: 'development',
     entry: './source/control.js',
     output: {
-        path: __dirname + '/public/',
-        filename: 'bundle.js'
+        path: `${__dirname}/public/`,
+        filename: 'bundle.js',
     },
     devtool: 'source-map',
     module: {
@@ -18,11 +18,11 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react']
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                        },
+                    },
+                ],
+            },
+        ],
+    },
 };

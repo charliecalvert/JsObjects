@@ -6,7 +6,7 @@ import todoApp from './reducers';
 import App from './components/App';
 import ShowReduxState from './components/ShowReduxState';
 
-let store = createStore(todoApp);
+const store = createStore(todoApp);
 
 render(
     <div>
@@ -16,5 +16,5 @@ render(
         <ShowReduxState store={store} />
     </div>,
 
-    document.getElementById('root')
+    document.getElementById('root'),
 );

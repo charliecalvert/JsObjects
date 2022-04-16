@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
-let AddTodo = ({ dispatch }) => {
+function AddTodo({ dispatch }) {
     let input;
 
     return (
         <div>
             <form
-                onSubmit={e => {
+                onSubmit={(e) => {
                     e.preventDefault();
                     if (!input.value.trim()) {
                         return;
@@ -18,7 +18,7 @@ let AddTodo = ({ dispatch }) => {
                 }}
             >
                 <input
-                    ref={node => {
+                    ref={(node) => {
                         input = node;
                     }}
                 />
@@ -26,7 +26,7 @@ let AddTodo = ({ dispatch }) => {
             </form>
         </div>
     );
-};
+}
 AddTodo = connect()(AddTodo);
 
 export default AddTodo;

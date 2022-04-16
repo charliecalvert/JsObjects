@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from "react-router-dom";
-
+import { Link, Outlet } from 'react-router-dom';
 
 function Navigation() {
     return (
@@ -16,7 +15,7 @@ function Navigation() {
             </nav>
             <Outlet />
         </div>
-    )
+    );
 }
 
 export default Navigation;

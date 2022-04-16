@@ -1,21 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
 import App from './App';
 import Bar from './Bar';
 import Foo from './Foo';
-import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
+
 const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js');
 
 configure({ adapter: new Adapter() });
 
-describe('App Tests', function() {
+describe('App Tests', () => {
     it('renders App without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <MuiThemeProvider>
                 <App />
             </MuiThemeProvider>,
-            div
+            div,
         );
     });
 
@@ -30,7 +31,7 @@ describe('App Tests', function() {
         const wrapper = mount(
             <MuiThemeProvider>
                 <App />
-            </MuiThemeProvider>
+            </MuiThemeProvider>,
         );
         const welcome = <h1>You Picked Foo</h1>;
         wrapper
@@ -45,7 +46,7 @@ describe('App Tests', function() {
         const wrapper = mount(
             <MuiThemeProvider>
                 <App />
-            </MuiThemeProvider>
+            </MuiThemeProvider>,
         );
         const welcome = <h1>You Picked Bar</h1>;
         wrapper
@@ -57,7 +58,7 @@ describe('App Tests', function() {
     });
 });
 
-describe('Bar Tests', function() {
+describe('Bar Tests', () => {
     it('renders Bar without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Bar />, div);
@@ -71,7 +72,7 @@ describe('Bar Tests', function() {
     });
 });
 
-describe('Foo Tests', function() {
+describe('Foo Tests', () => {
     it('renders Foo without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Foo />, div);

@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Radios from '@bit/ccalvert.elven-inputs.radios';
 
 class ElfApp extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -11,13 +10,13 @@ class ElfApp extends Component {
         };
     }
 
-    handleRadioChange = event => {
+    handleRadioChange = (event) => {
         this.setState({ selectedRadio: event.target.value });
     };
 
     radioSelection = () => {
         this.setState({
-            radioMessage: "You've chosen " + this.state.selectedRadio
+            radioMessage: `You've chosen ${this.state.selectedRadio}`,
         });
     };
 
@@ -26,8 +25,14 @@ class ElfApp extends Component {
             <div>
                 <h1>Welcome to Elf App</h1>
 
-                <p>Selected: {this.state.selectedRadio}</p>
-                <p>Message: {this.state.radioMessage}</p>
+                <p>
+                    Selected:
+                    {this.state.selectedRadio}
+                </p>
+                <p>
+                    Message:
+                    {this.state.radioMessage}
+                </p>
                 <Radios
                     handleRadioChange={this.handleRadioChange}
                     selectedRadio={this.state.selectedRadio}

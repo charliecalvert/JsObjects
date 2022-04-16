@@ -15,13 +15,13 @@ export default function LinksScreen() {
 }
 
 LinksScreen.navigationOptions = {
-    title: 'Links'
+    title: 'Links',
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 15,
-        backgroundColor: '#fff'
-    }
+        backgroundColor: '#fff',
+    },
 });

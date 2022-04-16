@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import {
     createStackNavigator,
-    createBottomTabNavigator
+    createBottomTabNavigator,
 } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -12,14 +12,14 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
-    default: {}
+    default: {},
 });
 
 const HomeStack = createStackNavigator(
     {
-        Home: HomeScreen
+        Home: HomeScreen,
     },
-    config
+    config,
 );
 
 HomeStack.navigationOptions = {
@@ -33,16 +33,16 @@ HomeStack.navigationOptions = {
                     : 'md-information-circle'
             }
         />
-    )
+    ),
 };
 
 HomeStack.path = '';
 
 const LinksStack = createStackNavigator(
     {
-        Links: LinksScreen
+        Links: LinksScreen,
     },
-    config
+    config,
 );
 
 LinksStack.navigationOptions = {
@@ -52,16 +52,16 @@ LinksStack.navigationOptions = {
             focused={focused}
             name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
         />
-    )
+    ),
 };
 
 LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
     {
-        Settings: SettingsScreen
+        Settings: SettingsScreen,
     },
-    config
+    config,
 );
 
 SettingsStack.navigationOptions = {
@@ -71,7 +71,7 @@ SettingsStack.navigationOptions = {
             focused={focused}
             name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
         />
-    )
+    ),
 };
 
 SettingsStack.path = '';
@@ -79,7 +79,7 @@ SettingsStack.path = '';
 const tabNavigator = createBottomTabNavigator({
     HomeStack,
     LinksStack,
-    SettingsStack
+    SettingsStack,
 });
 
 tabNavigator.path = '';

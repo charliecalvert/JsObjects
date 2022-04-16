@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 // We change state by "dispatching" an action.
 // You can log, serialize or store actions.
 
-let AppConnect = ({ statement, deny, verify, noComment }) => {
+function AppConnect({
+    statement, deny, verify, noComment,
+}) {
     return (
         <div className="App">
             <div className="App-header">
@@ -13,10 +15,22 @@ let AppConnect = ({ statement, deny, verify, noComment }) => {
                 <h2>Welcome to React and Redux</h2>
             </div>
             <p className="App-intro">
-                This AppConnect component <strong>mapStateToProps</strong> and{' '}
-                <strong>mapDispatchToProps</strong>. It uses an{' '}
-                <strong>arrow</strong> function rather than{' '}
-                <strong>class</strong> syntax.
+                This AppConnect component
+                {' '}
+                <strong>mapStateToProps</strong>
+                {' '}
+                and
+                {' '}
+                <strong>mapDispatchToProps</strong>
+                . It uses an
+                {' '}
+                <strong>arrow</strong>
+                {' '}
+                function rather than
+                {' '}
+                <strong>class</strong>
+                {' '}
+                syntax.
             </p>
             <h1>Political Science</h1>
             {statement}
@@ -26,32 +40,28 @@ let AppConnect = ({ statement, deny, verify, noComment }) => {
             <button onClick={noComment}>No Comment</button>
         </div>
     );
-    //}
-};
+    // }
+}
 
-const mapStateToProps = state => {
-    return {
-        statement: state.statement
-    };
-};
+const mapStateToProps = (state) => ({
+    statement: state.statement,
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        deny: () => {
-            dispatch({ type: 'DENY' });
-        },
-        verify: () => {
-            dispatch({ type: 'VERIFY' });
-        },
-        noComment: () => {
-            dispatch({ type: 'NO COMMENT' });
-        }
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    deny: () => {
+        dispatch({ type: 'DENY' });
+    },
+    verify: () => {
+        dispatch({ type: 'VERIFY' });
+    },
+    noComment: () => {
+        dispatch({ type: 'NO COMMENT' });
+    },
+});
 
 AppConnect = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(AppConnect);
 
 export default AppConnect;

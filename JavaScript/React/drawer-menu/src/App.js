@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Foo from './Foo';
-import Bar from './Bar';
 import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,7 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-//import { Toolbar, ToolbarTitle } from '@material-ui/core/Toolbar';
+import Bar from './Bar';
+import Foo from './Foo';
+// import { Toolbar, ToolbarTitle } from '@material-ui/core/Toolbar';
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,28 +51,28 @@ function App() {
     const showBar = () => {
         setOpen(false);
         setShow('bar');
-        //this.setState({ show: 'bar', open: false });
+        // this.setState({ show: 'bar', open: false });
     };
 
     const showFoo = () => {
         setOpen(false);
         setShow('foo');
-        //this.setState({ show: 'foo', open: false });
+        // this.setState({ show: 'foo', open: false });
     };
 
     let content = null;
 
     switch (show) {
-        case 'foo':
-            content = <Foo />;
-            break;
+    case 'foo':
+        content = <Foo />;
+        break;
 
-        case 'bar':
-            content = <Bar />;
-            break;
+    case 'bar':
+        content = <Bar />;
+        break;
 
-        default:
-            content = <h1>Waiting</h1>;
+    default:
+        content = <h1>Waiting</h1>;
     }
 
     return (
@@ -86,7 +86,7 @@ function App() {
                 docked={false}
                 width={200}
                 open={open}
-                onRequestChange={(open) => this.setState( open )}
+                onRequestChange={(open) => this.setState(open)}
             >
                 <AppBar title="AppBar" />
                 <MenuItem id="showFooId" onClick={showFoo}>
