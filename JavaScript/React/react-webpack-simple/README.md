@@ -6,3 +6,9 @@ Some installs:
     npm i webpack
 
     npm i babel-loader
+
+    npm i -D eslint-config-airbnb \
+          eslint-plugin-import \
+          eslint-plugin-react \
+          eslint-plugin-react-hooks \
+          babel-eslint jest

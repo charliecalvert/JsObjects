@@ -37,7 +37,11 @@ Install:
         npm i style-loader css-loader
 
 
-        npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks
+        npm i -D eslint-config-airbnb \
+          eslint-plugin-import \
+          eslint-plugin-react \
+          eslint-plugin-react-hooks \
+          babel-eslint jest
 
 ## Client Side
 

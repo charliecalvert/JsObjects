@@ -1,0 +1,18 @@
+
+/home/ubuntu/Git/JsObjects/JavaScript/React/react-webpack-simple/ElfComponent.js
+  5:1   error  Prefer default export                           import/prefer-default-export
+  5:8   error  Component should be written as a pure function  react/prefer-stateless-function
+  7:62  error  JSX not allowed in files with extension '.js'   react/jsx-filename-extension
+  7:71  error  Do not use Array index in keys                  react/no-array-index-key
+
+/home/ubuntu/Git/JsObjects/JavaScript/React/react-webpack-simple/app.js
+  11:5  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+
+/home/ubuntu/Git/JsObjects/JavaScript/React/react-webpack-simple/babel.config.js
+  1:18  warning  Unexpected unnamed function  func-names
+
+/home/ubuntu/Git/JsObjects/JavaScript/React/react-webpack-simple/index.js
+  13:24  warning  Unexpected console statement  no-console
+
+✖ 7 problems (5 errors, 2 warnings)
+

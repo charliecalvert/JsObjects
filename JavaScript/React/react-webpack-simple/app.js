@@ -1,19 +1,14 @@
-/**
- * Created by charlie on 3/26/17.
- */
+const express = require('express');
+const path = require('path');
 
-import React, { Fragment } from 'react';
-import ReactDOM from 'react-dom';
-import { ElfComponent } from './ElfComponent';
-import './styles.css';
+const app = express();
+const port = 30025;
 
-ReactDOM.render(
-    <>
-        <div className="elf-show">
-            <h1>Elvenware, South America!</h1>
-            <p>This is JSX.</p>
-        </div>
-        <ElfComponent />
-    </>,
-    document.getElementById('root'),
-);
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html');
+});
+
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
