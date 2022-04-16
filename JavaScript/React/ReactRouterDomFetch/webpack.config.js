@@ -1,6 +1,6 @@
 // var path = require('path');
 // var webpack = require('webpack');
-console.log(__dirname);
+// console.log(__dirname);
 module.exports = {
     mode: 'development',
     entry: './source/control.jsx',
