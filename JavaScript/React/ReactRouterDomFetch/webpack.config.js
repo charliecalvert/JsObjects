@@ -1,6 +1,3 @@
-// var path = require('path');
-// var webpack = require('webpack');
-// console.log(__dirname);
 module.exports = {
     mode: 'development',
     entry: './source/control.jsx',
@@ -28,5 +25,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
 };

@@ -2,24 +2,25 @@
  * Created by charlie on 3/26/17.
  */
 
-const path = require('path');
-
 module.exports = {
     mode: 'development',
-    entry: './index.js',
+    entry: './src/index.jsx',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: `${__dirname}/public/`,
         filename: 'bundle.js',
     },
     devtool: 'source-map',
     module: {
         rules: [
             {
-                test: /.js?$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
                         loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                        },
                     },
                 ],
             },
@@ -28,5 +29,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
 };

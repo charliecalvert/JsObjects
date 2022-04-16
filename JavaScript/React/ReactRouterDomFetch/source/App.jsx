@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
-import PartOne from './PartOne.jsx';
-import PartTwo from './PartTwo.jsx';
-import Header from "./Header.jsx";
+import PartOne from './PartOne';
+import PartTwo from './PartTwo';
+import Header from './Header';
 
 function App() {
     return (
