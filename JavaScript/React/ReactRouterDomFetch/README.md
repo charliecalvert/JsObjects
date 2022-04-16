@@ -12,7 +12,11 @@ Create a directory called ~/Source or whathaveyou. Navigate into it. Then issue 
         cd test
         npm i
         npm start
-         
+
+We need to add axe-core for accessibility
+
+        https://github.com/dequelabs/axe-core-npm
+
 ## Node Server
 
 Basic node server with support for:

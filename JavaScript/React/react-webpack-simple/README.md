@@ -6,6 +6,10 @@ If you can't find JSX files without including their extension then try adding th
         extensions: ['.js', '.jsx'],
     },
 
+We need to add axe-core for accessibility
+
+        https://github.com/dequelabs/axe-core-npm
+
 ## Some installs
 
     npm i -D @babel/cli @babel/core @babel/preset-env @babel/preset-react

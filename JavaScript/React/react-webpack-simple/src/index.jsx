@@ -1,7 +1,6 @@
 /**
  * Created by charlie on 3/26/17.
  */
-
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import ElfComponent from './ElfComponent';

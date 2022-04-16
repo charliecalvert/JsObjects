@@ -2,11 +2,13 @@
     "name": "reactrouterdombasics",
     "version": "1.0.0",
     "description": "webpack test",
+    "author": "Charlie",
+    "license": "MIT",
     "private": true,
     "scripts": {
         "start": "npx webpack --watch & nodemon ./bin/www",
-        "build": "npx webpack",
         "test": "jest",
+        "build": "npx webpack",
         "lint": "eslint --fix -o eslint-report.txt ."
     },
     "dependencies": {
@@ -35,7 +37,6 @@
         "eslint-config-airbnb": "^19.0.4",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jest": "^26.1.4",
-        "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.29.4",
         "eslint-plugin-react-hooks": "^4.4.0",
         "jest": "^27.5.1",
