@@ -36,6 +36,36 @@ function ElfComponent() {
 
 /***/ }),
 
+/***/ "./src/countries.js":
+/*!**************************!*\
+  !*** ./src/countries.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Created by charlie on 3/26/17.
+ */
+var countries = [{
+  id: 0,
+  name: 'Argentina'
+}, {
+  id: 1,
+  name: 'Brazil'
+}, {
+  id: 2,
+  name: 'Chile'
+}, {
+  id: 3,
+  name: 'Ecuador'
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countries);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles.css":
 /*!**************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
@@ -33630,36 +33660,6 @@ function styleTagTransform(css, styleElement) {
 }
 
 module.exports = styleTagTransform;
-
-/***/ }),
-
-/***/ "./src/countries.js":
-/*!**************************!*\
-  !*** ./src/countries.js ***!
-  \**************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/**
- * Created by charlie on 3/26/17.
- */
-var countries = [{
-  id: 0,
-  name: 'Argentina'
-}, {
-  id: 1,
-  name: 'Brazil'
-}, {
-  id: 2,
-  name: 'Chile'
-}, {
-  id: 3,
-  name: 'Ecuador'
-}];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countries);
 
 /***/ })
 

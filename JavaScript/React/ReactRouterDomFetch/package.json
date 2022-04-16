@@ -1,6 +1,7 @@
 {
     "name": "reactrouterdombasics",
-    "version": "0.0.0",
+    "version": "1.0.0",
+    "description": "webpack test",
     "private": true,
     "scripts": {
         "start": "npx webpack --watch & nodemon ./bin/www",

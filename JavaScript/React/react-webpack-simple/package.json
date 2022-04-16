@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "webpack test",
     "main": "src/index.jsx",
-    "type": "module",
     "scripts": {
         "start": "npx webpack --watch & nodemon src/index.jsx",
         "test": "echo \"Error: no test specified\" && exit 1",
