@@ -5,7 +5,7 @@
     "author": "Charlie",
     "license": "MIT",
     "scripts": {
-        "start": "npx webpack --watch & nodemon src/index.jsx",
+        "start": "npx webpack --watch & nodemon app.js",
         "test": "jest",
         "build": "npx webpack"
     },

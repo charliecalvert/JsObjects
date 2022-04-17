@@ -1,18 +1,12 @@
 /**
  * Created by charlie on 3/26/17.
  */
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import ElfComponent from './ElfComponent';
+import App from './App';
 import './styles.css';
 
 ReactDOM.render(
-    <>
-        <div className="elf-show">
-            <h1>Elvenware, South America!</h1>
-            <p>This is JSX.</p>
-        </div>
-        <ElfComponent />
-    </>,
+    <App />,
     document.getElementById('root'),
 );

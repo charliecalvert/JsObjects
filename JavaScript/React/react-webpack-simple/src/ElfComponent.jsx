@@ -9,7 +9,11 @@ function ElfComponent() {
     return (
         <div className="elf-show">
             <h1>Countries</h1>
-            <p>This is a React Component with a map from a list of countries:</p>
+            <p>
+                This React Component is a child of the App component.
+                It has an array with a map method that uses a callback
+                function to help it iterate a list of countries:
+            </p>
             <ul>{listItems}</ul>
         </div>
     );
