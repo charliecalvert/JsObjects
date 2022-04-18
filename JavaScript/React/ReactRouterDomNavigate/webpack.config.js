@@ -1,6 +1,10 @@
+/**
+ * Created by charlie on 3/26/17.
+ */
+
 module.exports = {
     mode: 'development',
-    entry: './source/index.jsx',
+    entry: './src/index.jsx',
     output: {
         path: `${__dirname}/public/`,
         filename: 'bundle.js',

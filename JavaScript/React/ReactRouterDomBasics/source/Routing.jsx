@@ -11,6 +11,7 @@ function Routing() {
     return (
         <Routes>
             <Route path="/" element={<App />}>
+                <Route index element={<PartOne />} />
                 <Route path="/part-one" element={<PartOne />} />
                 <Route path="/part-two" element={<PartTwo />} />
                 <Route path="/part-three/:id" element={<PartThree />} />
