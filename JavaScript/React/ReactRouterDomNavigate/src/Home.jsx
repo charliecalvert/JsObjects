@@ -10,6 +10,7 @@ function Home() {
                     <ul>
                         <li><Link to="/profile">Profiles</Link></li>
                         <li><Link to="/profile/other">Other Profile</Link></li>
+                        <li><Link to="/profile/another">Another Profile</Link></li>
                     </ul>
                 </nav>
             </div>

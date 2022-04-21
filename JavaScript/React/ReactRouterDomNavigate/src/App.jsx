@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Profile from './Profile';
 import Home from './Home';
 
-function Routing() {
+function App() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
@@ -12,4 +12,4 @@ function Routing() {
     );
 }
 
-export default Routing;
+export default App;
