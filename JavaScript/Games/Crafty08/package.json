@@ -30,7 +30,7 @@
         "karma": "~0.13.3",
         "karma-commonjs": "0.0.13",
         "karma-junit-reporter": "~0.3.3",
-        "grunt": "~0.4.1",
+        "grunt": "~1.5.2",
         "grunt-contrib-jshint": "~0.11.2",
         "grunt-contrib-clean": "~0.6.0",
         "grunt-contrib-compress": "~0.13.0",
