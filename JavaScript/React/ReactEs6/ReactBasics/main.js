@@ -9,5 +9,5 @@ ReactDOM.render(
 
         <ReactBasicsStatelessFunction />
     </div>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );

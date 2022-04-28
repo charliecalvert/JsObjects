@@ -74,6 +74,7 @@ alias wtp="cd ~/Git/platform-samples/api/javascript/es2015-nodejs/"
 # Voice
 alias GR="cd ~/Git/Geeks-React/"
 alias EG="cd ~/Git/ElvenGreek/"
+alias EGW="cd ~/Git/ElvenGreek/elf-web01"
 alias EGS="cd ~/Source/Geeks-React-v1.1.0/"
 alias egs="cd ~/Source/Geeks-React-v1.1.0/"
 

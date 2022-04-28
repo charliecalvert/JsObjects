@@ -1,0 +1,6 @@
+[0m[0m
+[0m[4m/home/ubuntu/Git/JsObjects/JavaScript/React/ReactRouterDomFetch/webpack.config.js[24m[0m
+[0m  [2m3:1[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
+[0m[0m
+[0m[33m[1m✖ 1 problem (0 errors, 1 warning)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m

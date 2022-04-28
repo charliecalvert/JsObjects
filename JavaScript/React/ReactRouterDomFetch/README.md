@@ -12,7 +12,11 @@ Create a directory called ~/Source or whathaveyou. Navigate into it. Then issue 
         cd test
         npm i
         npm start
-         
+
+We need to add axe-core for accessibility
+
+        https://github.com/dequelabs/axe-core-npm
+
 ## Node Server
 
 Basic node server with support for:
@@ -35,6 +39,13 @@ Install:
         npm i react react-dom
         npm i react-router-dom
         npm i style-loader css-loader
+
+
+        npm i -D eslint-config-airbnb \
+          eslint-plugin-import \
+          eslint-plugin-react \
+          eslint-plugin-react-hooks \
+          babel-eslint jest
 
 ## Client Side
 

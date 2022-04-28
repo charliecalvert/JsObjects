@@ -46,13 +46,13 @@ sudo apt-get install curl
 # The new setup script for Node.js v14.X
 # curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-# The new setup script for Node.js v14.X
+# The new setup script for Node.js v15.X
 # curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 
-# The new setup script for Node.js v14.X
+# The new setup script for Node.js v16.X
 # curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
-# The new setup script for Node.js v14.X
+# The new setup script for Node.js v17.X
 curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 
 # Install node
