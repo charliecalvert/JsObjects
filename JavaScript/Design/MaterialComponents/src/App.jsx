@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { styles } from './elf-styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import StarIcon from '@material-ui/icons/Star';
+// import PropTypes from 'prop-types';
+// import { withStyles } from '@mui/styles';
+// import { styles } from './elf-styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import StarIcon from '@mui/icons-material/Star';
 import classNames from 'classnames';
 
 class App extends Component {
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         /*
          * We want to be dry, so we create this function to avoid
@@ -36,21 +36,21 @@ class App extends Component {
          * doesn't support this out of the box, so we use the very
          * popular classNames library. We use it below in Section Two.
          */
-        const elfParagraph = classNames(
+ /*        const elfParagraph = classNames(
             classes.elfTypography,
             classes.elfParagraph
-        );
+        ); */
 
         return (
             <React.Fragment>
-                <div className={classes.layout}>
+                <div>
                     <Grid container spacing={24}>
                         <Grid item xs={12}>
                             {/*This empty Grid puts space before the first section*/}
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Paper className={classes.paperLion}>
+                            <Paper>
                                 <Typography variant="h4">
                                     Section One
                                 </Typography>
@@ -58,12 +58,12 @@ class App extends Component {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Paper className={classes.paperLion}>
+                            <Paper>
                                 <Typography variant="h6">
                                     Section Two
                                 </Typography>
                                 <Typography
-                                    className={elfParagraph}
+                                    // className={elfParagraph}
                                     align="left"
                                     variant="body1"
                                 >
@@ -73,7 +73,7 @@ class App extends Component {
                                 </Typography>
 
                                 <Typography
-                                    className={classes.elfTypography}
+                                    //
                                     align="left"
                                     variant="body1"
                                 >
@@ -89,7 +89,7 @@ class App extends Component {
                                     )}
                                 </List>
                                 <Typography
-                                    className={classes.elfTypography}
+                                    //
                                     align="left"
                                     variant="body1"
                                 >
@@ -120,8 +120,8 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
+/* App.propTypes = {
     classes: PropTypes.object.isRequired
-};
+}; */
 
-export default withStyles(styles)(App);
+export default App;

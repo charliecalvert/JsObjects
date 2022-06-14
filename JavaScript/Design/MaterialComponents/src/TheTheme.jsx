@@ -1,11 +1,11 @@
 import React from 'react';
 import App from './App';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import blue from '@material-ui/core/colors/blue';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import green from '@mui/material/colors/green';
+import blue from '@mui/material/colors/blue';
+import CssBaseline from '@mui/material/CssBaseline';
 
-const themePurple = createMuiTheme({
+const themePurple = createTheme({
     typography: {
         useNextVariants: true
     },
@@ -30,10 +30,10 @@ const themePurple = createMuiTheme({
 // See : https://material-ui.com/customization/default-theme/
 export const TheTheme = () => {
     return (
-        <MuiThemeProvider theme={themePurple}>
+        <ThemeProvider theme={themePurple}>
             <CssBaseline />
             <App />
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
 };
 
