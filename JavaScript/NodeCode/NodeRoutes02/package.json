@@ -7,8 +7,8 @@
     "start": "DEBUG=NodeRoutes02 nodemon bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
+    "body-parser": "~1.20.1",
     "debug": "~2.6.3",
-    "express": "~4.15.2"
+    "express": "~4.15.5"
   }
 }
