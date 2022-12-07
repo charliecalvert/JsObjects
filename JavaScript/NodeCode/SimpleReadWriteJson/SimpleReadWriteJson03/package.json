@@ -13,7 +13,7 @@
         "bundle": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
-        "body-parser": "^1.18.2",
+        "body-parser": "^1.20.1",
         "concurrently": "^3.5.1",
         "express": "latest",
         "serve-favicon": "^2.4.5"
