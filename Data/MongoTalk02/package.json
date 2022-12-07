@@ -7,7 +7,7 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"express": "^4.16.2",
+		"express": "^4.17.3",
 		"mongodb": "^3.0.3"
 	}
 }
