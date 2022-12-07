@@ -9,7 +9,7 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "debug": "^3.1.0",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "jade": "^1.11.0",
     "jasmine": "^3.1.0",
     "jasmine-jquery": "^2.1.1",
