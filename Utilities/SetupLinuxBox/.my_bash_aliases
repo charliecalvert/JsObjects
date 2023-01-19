@@ -16,6 +16,7 @@ export ELF_AA_SCRIPT_DIR="$ELF_AA_CODE"/Scripts
 export ELF_AA_BACKUP_DIR="$ELF_AA_CODE"/AAMeeting/DataBackUps/
 export WEBCRAFTS=$GIT_HOME/WebCrafts
 export CLOUDNOTES="$GIT_HOME"/CloudNotes
+export CODERZENDO=${GIT_HOME}/coderzendo.github.io
 export ELVEN_WEB="$GIT_HOME"/elven-web
 export ELF_HYPER="$GIT_HOME"/hyperv-stuff
 
@@ -53,6 +54,9 @@ alias eplug='cd /var/www/html/wordpress/wp-content/plugins/meeting-search'
 alias cn='cd $CLOUDNOTES'
 alias cna='cd $CLOUDNOTES/Assignments'
 alias cnar='cd $CLOUDNOTES/Assignments/React'
+
+# CODERZENDO
+alias cz='cd $CODERZENDO'
 
 # Elven Web
 alias ew='cd $ELVEN_WEB'
