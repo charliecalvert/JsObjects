@@ -11,7 +11,7 @@
         "cookie-parser": "~1.4.3",
         "debug": "~4.1.1",
         "express": "~4.16.4",
-        "handlebars": "^4.0.12",
+        "handlebars": "^4.7.7",
         "jade": "~1.11.0",
         "morgan": "~1.9.1",
         "nano": "^7.1.1",
@@ -30,7 +30,7 @@
         "grunt-shell": "^3.0.1",
         "jasmine-core": "^3.3.0",
         "jshint-stylish": "^2.2.1",
-        "karma": "~3.1.4",
+        "karma": "~6.4.1",
         "karma-jasmine": "~2.0.1",
         "karma-phantomjs-launcher": "^1.0.4",
         "karma-spec-reporter": "~0.0.32"
