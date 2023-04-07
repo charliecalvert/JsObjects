@@ -10,14 +10,14 @@ import React, { Component } from 'react';
 import spokesman from './spokesman';
 
 class SimpleRedux extends Component {
-    /*constructor() {
+    /* constructor() {
         super();
         this.
-    }*/
+    } */
     state = spokesman(undefined, {});
 
     dispatch(action) {
-        this.setState(prevState => spokesman(prevState, action));
+        this.setState((prevState) => spokesman(prevState, action));
     }
 
     verifyStatement = () => {

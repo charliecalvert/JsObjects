@@ -19,7 +19,7 @@ class ShowReduxState extends Component {
         super(props);
 
         this.state = {
-            reduxState: {}
+            reduxState: {},
         };
 
         /*
@@ -29,7 +29,7 @@ class ShowReduxState extends Component {
          */
         this.props.store.subscribe(() => {
             this.setState({
-                reduxState: this.getReduxState()
+                reduxState: this.getReduxState(),
             });
         });
     }

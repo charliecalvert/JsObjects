@@ -1,0 +1,22 @@
+{
+    "users": {
+        "calvert": {
+            "base-dir": "/home/ubuntu/",
+            "site-dirs": [
+                "Documents/AllTest",
+                "Git/CloudNotes/Assignments"
+            ],
+            "most-recent-date": "02/22/22",
+            "bootswatch": true
+        },
+        "smith": {
+            "base-dir": "/home/ubuntu/",
+            "site-dirs": [
+                "Documents/AllTest",
+                "Git/CloudNotes/Assignments"
+            ]
+        }
+    },
+    "selectedElvenImages": [],
+    "elvenImages": []
+}

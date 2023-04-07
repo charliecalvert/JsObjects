@@ -6,21 +6,21 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.3",
-    "cookie-parser": "~1.4.3",
-    "debug": "~4.1.1",
-    "express": "~4.16.4",
-    "morgan": "~1.9.1",
-    "pug": "^2.0.3",
+    "body-parser": "~1.19.2",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.3",
+    "express": "~4.17.3",
+    "morgan": "~1.10.0",
+    "pug": "^3.0.2",
     "serve-favicon": "~2.5.0"
   },
   "devDependencies": {
-    "grunt": "~1.0.3",
+    "grunt": "~1.4.1",
     "grunt-develop": "~0.4.0",
-    "grunt-contrib-sass": "~1.0.0",
+    "grunt-contrib-sass": "~2.0.0",
     "grunt-contrib-watch": "~1.1.0",
     "request": "~2.88.0",
     "time-grunt": "~2.0.0",
-    "load-grunt-tasks": "~4.0.0"
+    "load-grunt-tasks": "~5.1.0"
   }
 }

@@ -22,7 +22,7 @@ export default class ElfDebugEnzyme {
      */
     constructor(showData = false, callerName = '') {
         this.showData = showData;
-        this.callerName = callerName + ':\n';
+        this.callerName = `${callerName}:\n`;
     }
 
     display(value) {
@@ -55,7 +55,7 @@ export default class ElfDebugEnzyme {
 
     getIndex(wrapper, element, index, showMe) {
         if (this.showData || showMe) {
-            var paragraphData = wrapper
+            const paragraphData = wrapper
                 .find(element)
                 .childAt(index)
                 .debug();

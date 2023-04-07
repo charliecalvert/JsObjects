@@ -1,6 +1,6 @@
 import React from 'react';
 
-//process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'development';
 
 export class ReactBasics extends React.Component {
     getTwo(x) {
@@ -10,9 +10,12 @@ export class ReactBasics extends React.Component {
 
     render() {
         return (
-            <div class="elf-border">
+            <div className="elf-border">
                 <h1>An H1 element in a React Class Component</h1>
-                <p>We called getTwo(3) and got: {this.getTwo(3)}</p>
+                <p>
+                    We called getTwo(3) and got:
+                    {this.getTwo(3)}
+                </p>
             </div>
         );
     }

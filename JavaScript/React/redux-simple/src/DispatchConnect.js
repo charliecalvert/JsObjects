@@ -5,7 +5,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 
-let DispatchConnect = ({ dispatch, statement }) => {
+function DispatchConnect({ dispatch, statement }) {
     const verifyStatement = () => {
         dispatch({ type: 'VERIFY' });
     };
@@ -22,8 +22,13 @@ let DispatchConnect = ({ dispatch, statement }) => {
         <div className="App">
             <h1>Dispatch Connect</h1>
             <p className="App-intro">
-                This component uses connect and <strong>mapStateToProps</strong>
-                . It uses arrow functions instead of <strong>class</strong>{' '}
+                This component uses connect and
+                {' '}
+                <strong>mapStateToProps</strong>
+                . It uses arrow functions instead of
+                {' '}
+                <strong>class</strong>
+                {' '}
                 syntax.
             </p>
 
@@ -36,13 +41,11 @@ let DispatchConnect = ({ dispatch, statement }) => {
             </div>
         </div>
     );
-};
+}
 
-const mapStateToProps = state => {
-    return {
-        statement: state.statement
-    };
-};
+const mapStateToProps = (state) => ({
+    statement: state.statement,
+});
 
 DispatchConnect = connect(mapStateToProps)(DispatchConnect);
 

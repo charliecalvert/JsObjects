@@ -23,13 +23,28 @@ class DispatchComponentConnect extends Component {
             <div className="App">
                 <h1>Dispatch Component Connect</h1>
                 <p className="App-intro">
-                    This component uses <strong>connect</strong> and{' '}
-                    <strong>mapStateToProps</strong>. It uses{' '}
-                    <strong>class</strong> syntax rather than{' '}
-                    <strong>arrow</strong> functions.
+                    This component uses
+                    {' '}
+                    <strong>connect</strong>
+                    {' '}
+                    and
+                    {' '}
+                    <strong>mapStateToProps</strong>
+                    . It uses
+                    {' '}
+                    <strong>class</strong>
+                    {' '}
+                    syntax rather than
+                    {' '}
+                    <strong>arrow</strong>
+                    {' '}
+                    functions.
                 </p>
 
-                <p>SpokesPerson: {this.props.statement}</p>
+                <p>
+                    SpokesPerson:
+                    {this.props.statement}
+                </p>
                 <hr />
                 <button onClick={this.verifyStatement}>Verify</button>
                 <button onClick={this.denyEverything}>Deny</button>
@@ -39,11 +54,9 @@ class DispatchComponentConnect extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        statement: state.statement
-    };
-};
+const mapStateToProps = (state) => ({
+    statement: state.statement,
+});
 
 DispatchComponentConnect = connect(mapStateToProps)(DispatchComponentConnect);
 

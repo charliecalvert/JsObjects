@@ -4,13 +4,21 @@ block content
     h1= title
     p Welcome to #{title}
     p
-        i Copyright &copy; 2018 by #{author}
+        i Copyright &copy; 2022 by #{author}
 
     p
-        | Look in routes/RouteParams.js to see why these urls respond as they do.
-        | The point is that you don't need to have a route for every URL. There
+        | Look in <strong>routes/RouteParams.js</strong> to see why these urls respond as they do.
+        | You don't need to have a route for every URL. There
         | are parameters wild cards you can use to handle multiple URLs on a single
         | route.
+
+    p Run <strong>browser-sync</strong> in separate terminal for hot reloading. Like this: 
+    
+    p Terminal 1: <strong>npm start</strong>.
+    
+    p Terminal 2: <strong>npm run ui</strong>.
+
+    p  wt.exe -p "Ubuntu-20.04" -d ~/Git/JsObjects/JavaScript/NodeCode/NodeRoutesQuery/
 
     h2 Response Area
     div.response

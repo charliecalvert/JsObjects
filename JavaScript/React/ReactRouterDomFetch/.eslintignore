@@ -1,0 +1,4 @@
+cypress/integration/1-getting-started/*.js
+cypress/integration/2-advanced-examples/*.js
+**/bundle.js
+**/serviceWorker.js

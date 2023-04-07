@@ -1,14 +1,13 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import {blueGrey, green, red} from "@material-ui/core/colors";
-import Typography from "@material-ui/core/Typography";
+import { blueGrey, green, red } from '@material-ui/core/colors';
+import Typography from '@material-ui/core/Typography';
 
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         [theme.breakpoints.up('xs')]: {
             backgroundColor: red.A700,
@@ -27,40 +26,40 @@ const useStyles = makeStyles(theme => ({
 
         },
     },
-    "@global": {
+    '@global': {
         html: {
             fontSize: 8,
             [theme.breakpoints.up('xs')]: {
-                fontSize: 10
+                fontSize: 10,
             },
             [theme.breakpoints.up('sm')]: {
-                fontSize: 14
+                fontSize: 14,
             },
             [theme.breakpoints.up('md')]: {
-                fontSize: 18
+                fontSize: 18,
             },
             [theme.breakpoints.up('lg')]: {
-                fontSize: 24
+                fontSize: 24,
             },
         },
     },
     // Displays the global font-size
     message: {
-        "&::before": {
+        '&::before': {
             content: "'Global font size: 16px'",
-            [theme.breakpoints.up("xs")]: {
-                content: "'Global font size: 10px'"
+            [theme.breakpoints.up('xs')]: {
+                content: "'Global font size: 10px'",
             },
-            [theme.breakpoints.up("sm")]: {
-                content: "'Global font size: 14px'"
+            [theme.breakpoints.up('sm')]: {
+                content: "'Global font size: 14px'",
             },
-            [theme.breakpoints.up("md")]: {
-                content: "'Global font size: 18px'"
+            [theme.breakpoints.up('md')]: {
+                content: "'Global font size: 18px'",
             },
-            [theme.breakpoints.up("lg")]: {
-                content: "'Global font size: 24px'"
-            }
-        }
+            [theme.breakpoints.up('lg')]: {
+                content: "'Global font size: 24px'",
+            },
+        },
     },
     button: {
         margin: theme.spacing(1),
@@ -70,17 +69,16 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         padding: theme.spacing(1, 1),
-        backgroundColor: blueGrey
+        backgroundColor: blueGrey,
     },
 }));
 
 function App() {
-
     const classes = useStyles();
     return (
         <div className={classes.root}>
 
-            <Grid container spacing={1} justify={"center"}>
+            <Grid container spacing={1} justify="center">
 
                 <Grid item xs={9}>
 
@@ -96,23 +94,24 @@ function App() {
 
                 </Grid>
 
-
             </Grid>
 
-            <Grid container spacing={1} justify={"space-evenly"} direction="row">
+            <Grid container spacing={1} justify="space-evenly" direction="row">
 
-                {[0, 1, 2, 3, 4].map(value => (
+                {[0, 1, 2, 3, 4].map((value) => (
                     <Grid key={value} item xs={2}>
                         <Paper className={classes.paper}>
-                            <Typography variant="body1" gutterBottom>v={value}</Typography>
+                            <Typography variant="body1" gutterBottom>
+                                v=
+                                {value}
+                            </Typography>
                         </Paper>
                     </Grid>
                 ))}
 
-
             </Grid>
 
-            <Grid container spacing={1} justify={"center"}>
+            <Grid container spacing={1} justify="center">
                 <Grid item xs={12} md={6}>
 
                     <Paper className={classes.paper}>
@@ -132,7 +131,11 @@ function App() {
                     <Grid item>
                         <Paper className={classes.paper}>
                             <Typography variant="h2" gutterBottom>Fourth Container</Typography>
-                            <Typography variant="body1" gutterBottom>The third and fourth containers are side by side unless we are smaller than <b>md</b>, then they take up the whole row.</Typography>
+                            <Typography variant="body1" gutterBottom>
+                                The third and fourth containers are side by side unless we are smaller than
+                                <b>md</b>
+                                , then they take up the whole row.
+                            </Typography>
                             <ButtonGroup size="small" aria-label="Small outlined button group">
                                 <Button>One Elf</Button>
                                 <Button>Two Elves</Button>
@@ -185,7 +188,6 @@ function App() {
             </Grid>
         </div>
     );
-
 }
 
 export default App;
