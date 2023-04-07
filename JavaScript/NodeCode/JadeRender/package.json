@@ -24,6 +24,6 @@
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
     "jade": "^1.9.1",
-    "marked": "^0.3.3"
+    "marked": "^4.3.0"
   }
 }

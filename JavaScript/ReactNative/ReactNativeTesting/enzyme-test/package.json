@@ -10,18 +10,18 @@
     "test:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand"
   },
   "dependencies": {
-    "expo": "^40.0.1",
-    "react": "17.0.2",
-    "react-dom": "^17.0.2",
+    "expo": "^48.0.10",
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "react-native-web": "^0.15.5"
+    "react-native-web": "^0.19.2"
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.3.0",
+    "babel-preset-expo": "^9.3.2",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "jest-expo": "^40.0.2",
-    "react-test-renderer": "^17.0.2"
+    "enzyme-adapter-react-16": "^1.15.7",
+    "jest-expo": "^48.0.2",
+    "react-test-renderer": "^18.2.0"
   },
   "private": true,
   "jest": {

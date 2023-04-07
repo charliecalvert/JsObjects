@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "requirejs": "^2.1.15"
+    "requirejs": "^2.3.6"
   },
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "mocha": "^10.2.0"
   }
 }

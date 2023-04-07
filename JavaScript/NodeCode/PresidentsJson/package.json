@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "3.1",
-    "simpledb": ">0.0.7"
+    "express": "4.18",
+    "simpledb": ">=0.2.0"
   }
 }
