@@ -1,9 +1,9 @@
 {
-    "name": "OpenId01", 
-	"version": "0.0.1",
-	"private": true,
-	"dependencies": {
-		"openid": "latest",
-		"express": "latest"
-	}
+    "name": "open-id-01",
+    "version": "0.1.1",
+    "private": true,
+    "dependencies": {
+        "openid": "2.0.10",
+        "express": "4.18.2"
+    }
 }
