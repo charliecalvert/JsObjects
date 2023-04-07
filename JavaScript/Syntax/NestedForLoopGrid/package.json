@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "serve-static": "^1.14.1"
   },
   "devDependencies": {
