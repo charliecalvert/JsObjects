@@ -13,7 +13,7 @@
     "jade": "^1.11.0",
     "jasmine": "^4.6.0",
     "jasmine-jquery": "^2.1.1",
-    "jquery": "^3.6.4",
+    "jquery": "^3.5.0",
     "minimist": "^1.2.8",
     "mongodb": "^5.2.0",
     "morgan": "^1.10.0",
