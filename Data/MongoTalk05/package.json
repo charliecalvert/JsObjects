@@ -14,7 +14,7 @@
     "jasmine": "^3.1.0",
     "jasmine-jquery": "^2.1.1",
     "jquery": "^3.3.1",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "mongodb": "^3.0.3",
     "morgan": "^1.9.0",
     "requirejs": "^2.3.5",
