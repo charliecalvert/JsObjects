@@ -1,6 +1,6 @@
 {
   "name": "forloopnested",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Learn about for loops and simple express servers",
   "main": "server.js",
   "scripts": {
