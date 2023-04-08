@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "browser-sync": "^2.29.1",
-        "grunt": "~1.6.1",
+        "grunt": "~1.5.3",
         "grunt-contrib-watch": "~1.1.0",
         "grunt-develop": "~0.4.0",
         "load-grunt-tasks": "~5.1.0",
