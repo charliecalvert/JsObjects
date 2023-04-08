@@ -4,12 +4,12 @@
     "private": true,
     "devDependencies": {
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.6",
-        "enzyme-to-json": "^3.6.1",
-        "jest-expo": "~40.0.2",
+        "enzyme-adapter-react-16": "^1.15.7",
+        "enzyme-to-json": "^3.6.2",
+        "jest-expo": "~48.0.2",
         "jest-serializer-enzyme": "^1.0.0",
         "react-addons-test-utils": "^15.6.2",
-        "react-test-renderer": "17.0.2"
+        "react-test-renderer": "18.2.0"
     },
     "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
     "scripts": {
@@ -29,9 +29,9 @@
         ]
     },
     "dependencies": {
-        "expo": "^40.0.1",
-        "react": "17.0.2",
-        "react-dom": "^17.0.2",
-        "react-native": "~0.64.0"
+        "expo": "^48.0.10",
+        "react": "18.2.0",
+        "react-dom": "^18.2.0",
+        "react-native": "~0.71.6"
     }
 }

@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "phaser": "^3.18.1",
+    "phaser": "^3.55.2",
     "phaser3-project-template": "^1.0.9"
   }
 }

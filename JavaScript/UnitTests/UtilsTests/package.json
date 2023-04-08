@@ -11,7 +11,7 @@
     "test": "./RunMe.sh"
   },
   "dependencies": {
-    "mkdirp": "~0.5.1",
+    "mkdirp": "~2.1.6",
     "require": "^2.4.20",
     "guid": "0.0.12"
   },

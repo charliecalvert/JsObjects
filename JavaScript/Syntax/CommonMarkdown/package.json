@@ -1,6 +1,6 @@
 {
   "name": "common-markdown",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Test CommonMarkdown API",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "commonmark": "^0.29.3"
+    "commonmark": "^0.30.0"
   }
 }

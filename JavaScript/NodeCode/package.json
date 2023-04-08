@@ -2,8 +2,8 @@
   "name": "GruntForNodeCode",
   "version": "0.1.1",
   "devDependencies": {
-    "grunt": "~1.0.3",
-    "grunt-contrib-jshint": "~2.0.0",
+    "grunt": "~1.6.1",
+    "grunt-contrib-jshint": "~3.2.0",
     "grunt-jsbeautifier": "^0.2.13"
   }
 }

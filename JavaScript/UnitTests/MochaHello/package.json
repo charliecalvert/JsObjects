@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simplest possible Mocha test",
   "dependencies": {
-    "chai": "^1.10.0"
+    "chai": "^4.3.7"
   },
   "devDependencies": {},
   "scripts": {
