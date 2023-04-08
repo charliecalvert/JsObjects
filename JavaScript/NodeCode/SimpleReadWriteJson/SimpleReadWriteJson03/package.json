@@ -1,7 +1,7 @@
 {
     "name": "SimpleReadWriteJson",
     "description": "Simple Reading and writing of JSON",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "config": {
         "port": "30026"
@@ -19,8 +19,8 @@
         "serve-favicon": "^2.5.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.16.0",
-        "@babel/preset-env": "^7.16.0",
+        "@babel/core": "^7.21.4",
+        "@babel/preset-env": "^7.21.4",
         "webpack": "^5.78.0",
         "webpack-dev-server": "^4.13.2"
     }
