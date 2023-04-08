@@ -15,7 +15,7 @@
         "express": "~4.18.2",
         "material-ui": "^0.20.0",
         "morgan": "~1.10.0",
-        "pug": "3.0.2",
+        "pug": "3.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "serve-favicon": "~2.5.0"
