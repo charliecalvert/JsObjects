@@ -1,6 +1,6 @@
 {
   "name": "Week05-JadeMixinBasics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
@@ -14,14 +14,8 @@
     "pug": "^3.0.2",
     "serve-favicon": "^2.5.0"
   },
-  "devDependencies": {    
+  "devDependencies": {
     "jasmine-core": "^4.6.0",
-    "jasmine-jquery": "^2.1.1",
-    "jshint-stylish": "^2.2.1",
-    "karma": "^6.4.1",
-    "karma-jasmine": "^5.1.0",
-    "karma-chrome-launcher": "^3.1.1",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-spec-reporter": "^0.0.36"
+    "jasmine-jquery": "^2.1.1"
   }
 }
