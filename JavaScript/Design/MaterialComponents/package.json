@@ -9,7 +9,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
-        "vite": "^4.2.1"
+        "vite": "^2.9.13"
     },
     "dependencies": {
         "@emotion/react": "^11.10.6",
