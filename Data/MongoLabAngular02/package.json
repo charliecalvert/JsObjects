@@ -7,7 +7,7 @@
         "pugger": "pug ./views/index --out ./public"
     },
     "dependencies": {
-        "angular": "^1.6.9",
+        "angular": "^1.8.3",
         "angular-resource": "^1.6.9",
         "body-parser": "^1.20.2",
         "bootstrap": "^5.2.3",
