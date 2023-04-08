@@ -13,7 +13,7 @@
     "express-session": "~1.17.3",
     "jade": "~1.11.0",
     "morgan": "~1.10.0",
-    "redis": "~4.6.5",
+    "redis": "~3.1.1",
     "serve-favicon": "~2.5.0",
     "uuid": "~9.0.0"
   }
