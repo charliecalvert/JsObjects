@@ -1,2 +1,0 @@
-# bar
-by Charlie Calvert
