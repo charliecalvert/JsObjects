@@ -14,7 +14,7 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.6.9",
+    "angular": "^1.8.3",
     "angular-mocks": "^1.8.3",
     "angular-resource": "^1.6.9",
     "bootstrap": "^5.2.3",
