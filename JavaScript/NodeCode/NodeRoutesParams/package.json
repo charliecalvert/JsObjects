@@ -15,7 +15,7 @@
     "serve-favicon": "~2.5.0"
   },
   "devDependencies": {
-    "grunt": "~1.6.1",
+    "grunt": "~1.5.3",
     "grunt-develop": "~0.4.0",
     "grunt-contrib-sass": "~2.0.0",
     "grunt-contrib-watch": "~1.1.0",
