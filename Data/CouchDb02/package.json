@@ -7,11 +7,11 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "chalk": "^2.4.1",
+        "chalk": "^5.2.0",
         "clear": "^0.1.0",
-        "elven-code": "^4.5.0",
-        "figlet": "^1.2.1",
-        "inquirer": "^6.2.1",
+        "elven-code": "^4.13.1",
+        "figlet": "^1.6.0",
+        "inquirer": "^9.1.5",
         "request": "~2.88.0"
     }
 }

@@ -6,8 +6,8 @@
         "start": "node Server02.js"
     },
     "dependencies": {
-        "express": "^4.16.2",
-        "mongodb": "^3.0.3"
+        "express": "^4.18.2",
+        "mongodb": "^5.2.0"
     },
     "devDependencies": {}
 }

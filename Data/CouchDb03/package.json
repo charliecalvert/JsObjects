@@ -7,12 +7,12 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@octokit/rest": "^16.28.7",
-    "chalk": "^2.4.2",
+    "@octokit/rest": "^19.0.7",
+    "chalk": "^5.2.0",
     "clear": "^0.1.0",
-    "elven-code": "^4.7.0",
-    "figlet": "^1.2.3",
-    "inquirer": "^6.5.1",
+    "elven-code": "^4.13.1",
+    "figlet": "^1.6.0",
+    "inquirer": "^9.1.5",
     "request": "~2.88.0",
     "request-debug": "^0.2.0"
   }

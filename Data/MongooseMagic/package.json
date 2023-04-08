@@ -4,7 +4,7 @@
   "description": "Parse Magic Cards",
   "main": "ParseMagic.js",
   "dependencies": {
-    "mongoose": "^4.0.4"
+    "mongoose": "^7.0.3"
   },
   "devDependencies": {},
   "scripts": {
