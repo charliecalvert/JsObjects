@@ -1,7 +1,7 @@
 {
     "name": "Couch02",
     "description": "Learn about CouchDB",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "scripts": {
         "start": "node server.js"
@@ -12,6 +12,6 @@
         "elven-code": "^4.13.1",
         "figlet": "^1.6.0",
         "inquirer": "^9.1.5",
-        "request": "~2.88.0"
+        "request": "^2.88.2"
     }
 }
