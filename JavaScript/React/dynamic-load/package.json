@@ -1,6 +1,6 @@
 {
     "name": "03-loading-components-on-demand",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "keywords": [],
     "main": "src/index.js",
@@ -8,17 +8,10 @@
         "nanoid": "^4.0.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "react-scripts": "5.0.1",
         "styled-components": "5.3.9"
     },
     "devDependencies": {
         "typescript": "5.0.4"
-    },
-    "scripts": {
-        "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
-        "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
-        "test": "DISABLE_ESLINT_PLUGIN=true react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
     },
     "browserslist": [
         ">0.2%",
