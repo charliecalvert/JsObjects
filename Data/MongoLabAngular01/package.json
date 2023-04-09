@@ -10,7 +10,7 @@
         "angular": "^1.6.9",
         "angular-resource": "^1.6.9",
         "body-parser": "~1.18.2",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.3.1",
         "cookie-parser": "~1.4.3",
         "debug": "~2.6.9",
         "express": "~4.15.5",
