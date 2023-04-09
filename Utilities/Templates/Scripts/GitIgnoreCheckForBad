@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+find . -iname bundle.js
+find . -iname "*.js.map"
+find . -iname node_modules
+find . -iname .vscode
+find . -iname ".idea"
+find . -iname bower_components

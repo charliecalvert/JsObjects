@@ -1,0 +1,1 @@
+find . -iname ".bowerrc" -not -path "**/node_modules/**" -exec grep -H "components" {} \;

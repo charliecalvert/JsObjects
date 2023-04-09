@@ -1,0 +1,9 @@
+body {
+    background-color: beige;
+}
+.elf-show {
+    border: #61dafb thick dashed;
+    padding: 25px;
+    margin: 12px;
+    background-color: antiquewhite;
+}

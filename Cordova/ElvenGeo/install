@@ -2,5 +2,6 @@
 
 cordova build android
 adb uninstall com.elvenware.elven_geo
-adb install platforms/android/build/outputs/apk/android-debug.apk
+# adb install platforms/android/build/outputs/apk/android-debug.apk
+find . -iname app-debug.apk -exec adb install {} \;
 

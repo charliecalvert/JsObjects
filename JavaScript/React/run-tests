@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+cd drawer-menu
+npm i
+npm test
+cd ..

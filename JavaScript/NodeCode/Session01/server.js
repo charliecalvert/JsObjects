@@ -1,86 +1,49 @@
-// http://blog.modulus.io/nodejs-and-express-sessions
+var createError = require('http-errors');
 var express = require('express');
-var path=require('path');
+var path = require('path');
 var app = express();
-var fs = require('fs');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 var port = process.env.PORT || 30025;
-
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'pug');
+
 app.use(cookieParser());
+
+var indexRouter = require('./routes/index');
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* app.use(session({
-    secret: '1234567890QWERTY'
-})); */
+const uuid = require('uuid');
 
-var uuid = require('uuid');
+app.use(
+    session({
+        genid: () => {
+            return uuid.v4(); // use UUIDs for session.pug IDs
+        },
+        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        resave: true,
+        saveUninitialized: true
+    })
+);
 
-app.use(session({
-    genid: function(req) {
-        return uuid.v4(); // use UUIDs for session IDs
-    },
-    secret: process.env.SESSION_SECRET || 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
-}));
+app.use('/', indexRouter);
 
-var previous = 'Previously you visited: ';
-
-app.get('/', function(request, response) {
-    'use strict';
-    var html = fs.readFileSync('public/index.html');
-    response.writeHeader(200, {
-        "Content-Type": "text/html"
-    });
-    console.log(html);
-    response.end(html);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    next(createError(404));
 });
 
-var home = '<br /><a href="/">Home</a>';
+// error handler
+app.use(function(err, req, res) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-app.get('/page01', function(req, res) {
-    'use strict';
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
-    }
-
-    req.session.lastPage = '/page01';
-    res.send('Welcome to Page01.<br />' + info + home);
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
-app.get('/page02', function(req, res) {
-    'use strict';
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
-    }
-
-    req.session.lastPage = '/page02';
-    res.send('Welcome to Page02.<br />' + info + home);
-});
-
-app.get('/page03', function(req, res) {
-    'use strict';
-    console.log(req.session);
-    var info = "";
-    if (req.session.lastPage) {
-        info = previous + req.session.lastPage + '. ';
-    }
-
-    req.session.lastPage = '/page03';
-    res.send('Welcome to Page03.<br />' + info + home);
-});
-
-app.use('/', express.static(__dirname + '/public'));
-console.log('Listening on port: ', port);
-app.listen(port);
+app.listen(port, () => console.log('Session01 listening on port', port + '.'));

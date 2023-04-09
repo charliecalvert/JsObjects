@@ -1,0 +1,89 @@
+#! /usr/bin/env bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+ESLINT_DIR=/tmp/eslint-dir
+SANITY_APP_TEST=https://gist.github.com/charliecalvert/64d2a63ed40e116dd20f55e98116baa6
+ELVEN_SANITY_TESTS=https://github.com/charliecalvert/elven-sanity.git
+
+function message {
+    echo
+    echo =======================
+    echo "$1"
+    echo =======================
+    echo
+}
+
+function removeDir {
+    if [ -d $ESLINT_DIR ]; then
+        rm -rf $ESLINT_DIR
+        echo "Deleted " $ESLINT_DIR
+    fi
+}
+
+function getGist() {
+    removeDir
+    git clone $1 $ESLINT_DIR
+    echo -e "NUMBER 2 = $2"
+    cp -v $ESLINT_DIR/$2 .
+}
+
+function runCommand() {
+    case $1 in
+        "reactPropsSanityTest") getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/client/Sanity.App.test.js ;;
+        "gitSimpleAddress") getGist $ELVEN_SANITY_TESTS address-simple/Sanity.*.test.js ;;
+        "gitAddressReact") getGist $ELVEN_SANITY_TESTS address-react/Sanity.App.test.js ;;
+        'isit322-2019-ProjectSanity')
+            getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/project-sanity-tests/*
+            cp -vr $ESLINT_DIR/isit322-midterm-2019/project-sanity-tests/lib .
+            cp -vr $ESLINT_DIR/isit322-midterm-2019/project-sanity-tests/__tests__ .
+            cp -v $ESLINT_DIR/isit322-midterm-2019/project-sanity-tests/.babelrc .
+        ;;
+        'isit322-2019-Client') getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/client/* ;;
+        'isit322-2019-gist-gist') getGist $ELVEN_SANITY_TESTS isit322-midterm-2019/git-gist/*.js ;;
+        'prog272-midterm-2019') getGist $ELVEN_SANITY_TESTS prog272-midterm-2019/Sanity.*.test.js
+            cp -vr $ESLINT_DIR/prog272-midterm-2019/test-data.js .
+        ;;
+    esac    
+}
+
+function runAll() {
+    runCommand "restBasicsAppTest"
+}
+
+
+while true; do
+    message "Get Test Menu"
+    echo -e "$LIGHT_GREEN Tests"
+    echo -e "$LIGHT_GREEN  a) Does nothing for now"
+    echo -e "$LIGHT_GREEN  b) React Props Sanity Test"
+    echo -e "$LIGHT_GREEN  c) Address Simple File"
+    echo -e "$LIGHT_GREEN  d) Address React"
+    echo -e "$LIGHT_GREEN  e) Isit322 Midterm Project Sanity"
+    echo -e "$LIGHT_GREEN  f) Isit322 Midterm Client"
+    echo -e "$LIGHT_GREEN  g) Isit322 Midterm Git Gist"
+    echo -e "$LIGHT_GREEN  h) Prog272 Midterm 2019"
+    
+    echo -e "$LIGHT_RED  x) Exit"
+    echo -e "\n$NC"
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+        [Aa]* ) echo "I don't do anything"; continue;;
+        [Bb]* ) runCommand "reactPropsSanityTest"; continue;;
+        [Cc]* ) runCommand "gitSimpleAddress"; continue;;
+        [Dd]* ) runCommand "gitAddressReact"; continue;;
+        [Ee]* ) runCommand "isit322-2019-ProjectSanity"; continue;;
+        [Ff]* ) runCommand "isit322-2019-Client"; continue;;
+        [Gg]* ) runCommand "isit322-2019-gist-gist"; continue;;
+        [Hh]* ) runCommand "prog272-midterm-2019"; continue;;
+        [XxQq]* ) break;;
+        * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
+    esac
+done
+
+echo "All Done"

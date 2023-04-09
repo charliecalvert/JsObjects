@@ -1,0 +1,8 @@
+**/build/**
+**/serviceWorker.js
+**/bower_components/**
+**/materialize.min.js
+**/gatsby-site/**
+**/coverage/**
+ReactEs6Browserify/public/javascripts/basics.js
+MaterialBrowserify/public/javascripts/basics.js

@@ -4,10 +4,7 @@
 
 Elf = {};
 
-Elf.Utils = {
-
-};
-
+Elf.Utils = {};
 
 // Based on http://stackoverflow.com/a/16436975
 Elf.Utils.arraysEqual = function(array01, array02) {
@@ -36,10 +33,12 @@ Elf.Utils.padNumber = function(numberToPad, width, padValue) {
     if (numberToPad.length >= width) {
         return numberToPad;
     } else {
-        return new Array(width - numberToPad.length + 1).join(padValue) + numberToPad;
+        return (
+            new Array(width - numberToPad.length + 1).join(padValue) +
+            numberToPad
+        );
     }
 };
-
 
 Elf.Utils.stripWhiteSpace = function(value) {
     'use strict';

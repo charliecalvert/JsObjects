@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    p
+        i Copyright &copy; 2022 by #{author}
+
+    p
+        | Look in <strong>routes/RouteParams.js</strong> to see why these urls respond as they do.
+        | You don't need to have a route for every URL. There
+        | are parameters wild cards you can use to handle multiple URLs on a single
+        | route.
+
+    p Run <strong>browser-sync</strong> in separate terminal for hot reloading. Like this: 
+    
+    p Terminal 1: <strong>npm start</strong>.
+    
+    p Terminal 2: <strong>npm run ui</strong>.
+
+    p  wt.exe -p "Ubuntu-20.04" -d ~/Git/JsObjects/JavaScript/NodeCode/NodeRoutesQuery/
+
+    h2 Response Area
+    div.response
+        p.compact#clientRoute clientRoute
+        p.compact#route route
+        p.compact#result
+        p.compact#query
+        p.compact#params
+        p.compact#id
+
+    div
+        h2 Normal
+        button#root root
+        button#routeParams(data-query="?custom=routeParams") /routeParams
+        button#able(data-query="?custom=able") /routeParams/able
+        button#bravo(data-query="?custom=bravo") /routeParams/bravo
+        button#crick(data-query="?first=Francis&last=Crick") /routeParams/charlie
+
+    div
+        h2 Cats
+        button#catAction /routeParams/cat
+        button#aCatAction /routeParams/acat
+        button#ableAction /routeParams/able
+
+
+
+    h2 Debug Area
+    div.debug
+        p#debug

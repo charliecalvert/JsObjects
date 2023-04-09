@@ -5,9 +5,9 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    mode: 'development',
+    devtool: 'source-map',
     entry: [
-        'whatwg-fetch',
         'webpack-hot-middleware/client?reload=true',
         path.join(__dirname, 'app/main.js')
     ],
@@ -17,34 +17,33 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'app/index.tpl.html',
-            inject: 'body',
-            filename: 'index.html'
+            template: 'app/index.tpl.html'
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            'process.env.NODE_ENV': JSON.stringify('development')
         })
     ],
     module: {
-        loaders: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                "presets": ["react", "es2015", "stage-0", "react-hmre"]
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.json?$/,
+                loader: 'json'
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
-        }, {
-            test: /\.json?$/,
-            loader: 'json'
-        }, {
-            test: /\.css$/,
-            use: [
-                "style-loader",
-                "css-loader"
-            ]
-        }]
+        ]
     }
 };

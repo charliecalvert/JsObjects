@@ -2,14 +2,14 @@
 // By BoatFactorySpec.html
 
 require.config({
-    paths : {
-        'SailBoatFactory' : '../Factory/SailBoatFactory',
-        'Sloop': '../Factory/Sloop',
-        'Yawl': '../Factory/Yawl'
+    paths: {
+        SailBoatFactory: '../Factory/SailBoatFactory',
+        Sloop: '../Factory/Sloop',
+        Yawl: '../Factory/Yawl'
     }
 });
 
-require(["SimpleTests", "BoatFactoryTests"], function() {
-	'use strict';
-	console.log("Main called.");
+require(['SimpleTests', 'BoatFactoryTests'], function() {
+    'use strict';
+    console.log('Main called.');
 });

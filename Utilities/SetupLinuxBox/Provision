@@ -1,0 +1,73 @@
+#! /usr/bin/env bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+GET_STARTED=GetStarted
+DEST_HOME=/home/ubuntu/
+GET_STARTED_DEST="$DEST_HOME/$GET_STARTED"
+UBUNTU_SETUP="$DEST_HOME/RunUbuntuSetup"
+EC2_CONFIG=ec2-bc
+
+function message {
+    echo
+    echo =======================
+    echo "$1"
+    echo =======================
+    echo
+}
+
+function directions {
+	message Directions
+	echo "Be sure you have an ~/.ssh/config file that contains a HOST called ec2-bc"
+	echo "Learn about SSH config here: https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/"
+	echo "------"
+	echo "This script assumes you are trying to configure an EC2 ubuntu instance"
+	echo "where the user does not need to type a password to run sudo commands."
+	echo "If you are trying to configure something else, such as Pristine"
+	echo "Ubuntu Server, see how to temporarily turn off sudo password prompts"
+	echo "by reading this AskUbuntu post: https://askubuntu.com/a/147265/130778"
+	echo "Here is a brief summary of the AskUbuntu post. In Pristine Ubuntu type this "
+	echo -e $YELLOW"sudo visudo"$NC
+	echo "At the bottom of the file that visudo loads add something like this:"
+	echo -e $YELLOW"bcuser ALL=(ALL) NOPASSWD: ALL"$NC
+	echo "------"
+	echo "When you are finished running both parts of this script, "
+	echo "remove the line or comment it out with a hash mark:"
+	echo "# bcuser ALL=(ALL) NOPASSWD: ALL"
+	echo "Now you should once again be prompted for passwords again when you type sudo."
+	echo -e $RED"Press enter to continue"$NC
+	read -p " "
+}
+
+function run-get-started {
+    scp $SETUP_LINUXBOX/$GET_STARTED "$EC2_CONFIG:$DEST_HOME/."
+    ssh $EC2_CONFIG "$GET_STARTED_DEST"
+}
+
+function run-ubuntu-setup {
+    ssh $EC2_CONFIG "$UBUNTU_SETUP"
+}   
+
+while true; do
+    message "Menu"
+    echo -e "$LIGHT_GREEN  a) Directions"
+    echo -e "$LIGHT_GREEN  b) Run Get Started"
+    echo -e "$LIGHT_GREEN  c) Run UbuntuSetup"
+    echo -e "$LIGHT_RED    x) Exit"
+    echo -e "$LIGHT_RED    q) Exit"
+    echo -e "\n$NC"
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+		[Aa]* ) directions false; continue;;
+        [Bb]* ) run-get-started false; continue;;
+        [Cc]* ) run-ubuntu-setup false; continue;;
+        [XxQq]* ) break;;
+        * )  -e "\n$NC" + "Please answer with c, r or x.";;
+    esac
+done
+

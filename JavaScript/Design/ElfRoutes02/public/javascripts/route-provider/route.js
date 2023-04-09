@@ -5,7 +5,7 @@
 define(['runQuery'], function(runQuery) {
     'use strict';
 
-    var that;
+    let that;
 
     function Route() {
         this.route = '';
@@ -23,14 +23,14 @@ define(['runQuery'], function(runQuery) {
     }
 
     Route.prototype.resolveRequest = function(control) {
-        var resolver = {
+        const resolver = {
             getController: function() {
                 return control.controller;
             }
         };
 
         if (control.resolve) {
-            for (var funcName in control.resolve) {
+            for (let funcName in control.resolve) {
                 control.resolve[funcName](resolver);
             }
         } else {
@@ -55,5 +55,4 @@ define(['runQuery'], function(runQuery) {
     };
 
     return Route;
-
 });

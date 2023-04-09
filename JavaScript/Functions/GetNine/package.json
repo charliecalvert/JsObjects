@@ -6,6 +6,6 @@
     "start": "node NodeStatic.js"
   },
   "dependencies": {
-    "node-static": "~0.7.3"
+    "node-static": "~0.7.11"
   }
 }

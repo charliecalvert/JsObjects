@@ -3,20 +3,19 @@
  * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
 
 (function($) {
-	'use strict';
-	
-	var o = $({});
+    'use strict';
 
-	$.subscribe = function() {
-		o.on.apply(o, arguments);
-	};
+    var o = $({});
 
-	$.unsubscribe = function() {
-		o.off.apply(o, arguments);
-	};
+    $.subscribe = function() {
+        o.on.apply(o, arguments);
+    };
 
-	$.publish = function() {
-		o.trigger.apply(o, arguments);
-	};
+    $.unsubscribe = function() {
+        o.off.apply(o, arguments);
+    };
 
-}(jQuery)); 
+    $.publish = function() {
+        o.trigger.apply(o, arguments);
+    };
+})(jQuery);

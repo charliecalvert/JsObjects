@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .wrapper
+    header.main-head Canonical
+    nav.main-nav
+      ul
+        li
+          a(href='index.html') Home
+        li
+          a(href='canonical02.html') Page Two
+        li
+          a(href='canonical03.html') Nav 3
+    article.content
+
+      #example-layout
+
+    aside.side
+      b Sidebar:
+      i
+        |
+        | Elvenware and JsObjects are the places where Charlie Calvert keeps notes and examples.
+
+    .ad
+      | Advertising:
+      |
+      i What is advertising?
+
+    footer.main-footer
+      | by
+      |
+      a(href='https://elvenware.com') Elvenware
+
+  script(src="bundle.js")

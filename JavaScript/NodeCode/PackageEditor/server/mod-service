@@ -1,0 +1,33 @@
+#! /bin/bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+function setupSymbolicLink() {
+    if [[ -L "$HOME/bin/$SYSTEMD_PROJECT_NAME" ]]; then
+        echo -e 'Deleting old symbolic link' $YELLOW"$HOME/bin/$SYSTEMD_PROJECT_NAME"$NC
+        rm "$HOME/bin/$SYSTEMD_PROJECT_NAME"
+    fi
+    echo -e 'Creating symbolic link' $LIGHT_GREEN"$HOME/bin/$SYSTEMD_PROJECT_NAME"$NC
+    ln -s $PWD "$HOME/bin/$SYSTEMD_PROJECT_NAME"
+}
+
+# Check that user setup and ran *source setup-environment-service*
+[ -z "$SERVICE_FILE" ] && echo "You need to set SERVICE_FILE in setup-environment" && exit 1;
+
+# Create the symbolic link
+setupSymbolicLink
+
+# Modify scripts so they are cusomized for our project.
+sed -i "s/home\/\([^/]*\)/home\/$USER/g" $SERVICE_FILE
+sed -i "s/SYSTEMD_PROJECT_NAME/$SYSTEMD_PROJECT_NAME/g" $SERVICE_FILE
+sed -i "s/SERVICE_FILE/$SERVICE_FILE/g" setup-service start-service stop-service
+sed -i "s/SYSTEMD_DESCRIPTION/$SYSTEMD_DESCRIPTION/g" $SERVICE_FILE
+sed -i "s/SYSTEMD_PORT/$SYSTEMD_PORT/g" $SERVICE_FILE
+sed -i "s/User\=\([^/]*\)/User\=$USER/g" $SERVICE_FILE
+sed -i "s/Group\=\([^/]*\)/Group\=$USER/g" $SERVICE_FILE
+node edit-package-json.js

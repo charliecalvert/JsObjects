@@ -1,0 +1,22 @@
+#! /bin/bash
+
+REACT_SIMPLE_DIR=$JSOBJECTS/JavaScript/React/react-simple
+REACT_SIMPLE_SOURCE=$REACT_SIMPLE_DIR/source
+REACT_SIMPLE_PUBLIC=$REACT_SIMPLE_DIR/public
+
+# getRepo $REPO_REACT_SIMPLE
+cp -v $REACT_SIMPLE_SOURCE/* source/.
+cp -v $REACT_SIMPLE_PUBLIC/stylesheets/* public/stylesheets/.
+npm i react
+npm i react-dom
+
+FILE=views/index.pug
+if grep -q "  #root" "$FILE"; then
+  echo "root already in views/index.pug"
+else
+  echo "adding root in views/index.pug"
+  cd views
+  pwd
+  sed -i '/\p Welcome to #{title}/a \\n  #root' index.pug
+  cd ..
+fi

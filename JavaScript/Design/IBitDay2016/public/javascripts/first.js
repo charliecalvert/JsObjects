@@ -10,10 +10,9 @@ elfApp.controller('FirstController', function($scope, $http) {
     $scope.description = 'First Controller Description';
 
     $scope.loadData = function() {
-        $http.get('Presidents.json')
-            .then(function(presidents) {
-                $scope.presidents = JSON.stringify(presidents, null, 4);
-            });
+        $http.get('Presidents.json').then(function(presidents) {
+            $scope.presidents = JSON.stringify(presidents, null, 4);
+        });
     };
 
     $scope.loadData();
@@ -34,4 +33,3 @@ elfApp.directive('firstData', function() {
         templateUrl: 'first-data'
     };
 });
-

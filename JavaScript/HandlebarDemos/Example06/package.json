@@ -3,6 +3,6 @@
 	"version": "0.0.1",
 	"private": true,
 	"dependencies": {
-		"handlebars": "1.0.10"
+		"handlebars": "4.7.7"
 	}
 }

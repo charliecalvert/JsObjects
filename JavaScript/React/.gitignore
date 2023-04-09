@@ -1,5 +1,7 @@
 foo
 basic
 food-lookup-demo
+!components/
 bundle.js
-bundle.js.map
+after.txt
+before.txt

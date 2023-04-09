@@ -1,48 +1,49 @@
-var App = (function() {
+const App = (function() {
 
-	var context = null;
-	var rectSize = 25;
-	var images = {};
+	let context = null;
+	const rectSize = 25;
+	const images = {};
 
 	function App() {
 		context = getCanvas();
 		makeImageData();
 	}
 
-	var makeImageData = function() {
-		var image01 = "cscGarden.gif"
+	const makeImageData = function() {
+		const image01 = "cscGarden.gif";
 
 		loadImage(image01, function(image, x, y) {
-			context.drawImage(image, rectSize, 0, rectSize, rectSize, 
+			context.drawImage(image, rectSize, 0, rectSize, rectSize,
 				x, y, rectSize, rectSize);
 		});
 	};
 
-	var loadImage = function(fileName, callback) {
-		var image = new Image();
+	const loadImage = function(fileName, callback) {
+		const image = new Image();
 		image.onload = function() {
 			callback(image, 10, 10);
 		};
 		image.src = fileName;
 	};
 
-	var getCanvas = function() {
-		var canvas = document.getElementById('mainCanvas');
+	const getCanvas = function() {
+		const canvas = document.getElementById('mainCanvas');
 		if (canvas !== null) {
-			var context = canvas.getContext('2d');
+			context = canvas.getContext('2d');
 			return context;
 		} else {
-			$("#debugs").css({
-				backgroundColor : "blue",
-				color : "yellow"
-			});
-			$("#debugs").html("No Canvas");
+			const debugs = document.getElementById('debugs');
+			debugs.style.color = "rgb(0,0,255)";
+			debugs.style.backgroundColor = "yellow";
+			debugs.style.fontSize = "x-large";
+			debugs.style.fontWeight = "bold";
+			debugs.textContent = "Could not retrieve Canvas!";
 			return null;
 		}
-	}
+	};
 	return App;
 })();
 
-$(document).ready(function() {'use strict';
+window.onload = () => {
 	new App();
-});
+};

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+    <script src="Presidents.js"></script>
+    <script src="index.js"></script>
+    <script src="Address.js"></script>
+</head>
+
+<body ng-app="customResourceDemo">
+
+    <h1>Presidents</h1>
+
+    <p>Learn how to query MongoDb and how to create an Angular custom resource. Not for use in production as it is not secure.</p>
+
+    <p>At the top of index.js is this declaration. The value of each property may need to be modified:</p>
+
+    <pre>
+    .constant('CONFIG', {
+        DB_NAME: 'YOUR DB NAME',
+        MONGO_URL: 'YOUR MONGO LAB URL PREFIX',
+        API_KEY: 'PUT YOUR MLAB API KEY HERE'
+    })
+   </pre>
+
+    <div ng-controller="CustomResourceCtrl">
+
+        <h1>Presidents via HTTP</h1>
+        <button ng-click="addPresident()">Add John Quincy</button>
+        <button ng-click="deletePresident()">Delete John Quincy</button>
+        <ul ng-repeat="president in presidents">
+            <li>{{president.presidentName}}</li>
+        </ul>
+
+    </div>
+
+    <div ng-controller="addressController">
+        <h1>Address via HTTP</h1>
+        <p>Address Count: {{addressData.length}}</p>
+        <ul ng-repeat="item in addressData">
+            <li>{{item.firstName}} {{item.lastName}} {{item.address}} {{item.city}} {{item.state}} {{item.zip}}</li>
+        </ul>
+        <button ng-click="save()">Save</button>
+        <button ng-click="remove()">Delete</button>
+        <hr />
+        <div class='inputDiv'>
+            <input type='text' ng-model='firstName' placeholder='firstName'><br />
+            <input type='text' ng-model='lastName' placeholder='lastName'><br />
+            <input type='text' ng-model='address' placeholder='address'><br />
+            <input type='text' ng-model='city' placeholder='city'><br />
+            <input type='text' ng-model='state' placeholder='state'><br />
+            <input type='text' ng-model='zip' placeholder='zip'><br />
+            <input type='text' ng-model='phoneHome' placeholder='phoneHome'><br />
+            <input type='text' ng-model='phoneMobile' placeholder='phoneMobile'><br />
+            <input type='text' ng-model='email' placeholder='email'><br />
+            <input id="indexSelection" type='number' ng-change="indexChange()" ng-model='userIndexSelection' min="0" max="{{presidentsLength-1}}"> <br />
+            <p>Rows in DB: {{presidentsLength}}</p>
+            <!-- button ng-click='addPresident()'>Add President</button -->
+            <button ng-click='updateRow()'>Update</button>
+            <button ng-click='deleteRow()'>Delete</button>
+            <button ng-click='defaultData()'>Default</button>
+            <p>{{selectedIndex}}</p>
+
+        </div>
+    </div>
+</body>
+
+</html>

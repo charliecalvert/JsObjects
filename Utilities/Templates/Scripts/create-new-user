@@ -1,0 +1,1 @@
+sudo useradd -s /bin/bash -d /home/$1/ -m -G sudo $1 

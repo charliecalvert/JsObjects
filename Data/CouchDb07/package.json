@@ -1,10 +1,13 @@
 {
   "name": "SimpleReadWriteJson",
   "description": "Simple Reading and writing of JSON",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
     "express": "latest",
     "nano": "latest"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

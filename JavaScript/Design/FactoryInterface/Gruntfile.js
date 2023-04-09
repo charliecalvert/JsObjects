@@ -36,10 +36,7 @@ module.exports = function(grunt) {
 
         clean: {
             work: {
-                src: [
-                    "**/node_modules/**",
-                    zipFile
-                ]
+                src: ['**/node_modules/**', zipFile]
             }
         },
 
@@ -54,7 +51,7 @@ module.exports = function(grunt) {
                 captureExceptions: true,
                 junitreport: {
                     report: false,
-                    savePath: "./reports/jasmine/",
+                    savePath: './reports/jasmine/',
                     useDotNotation: true,
                     consolidate: true
                 }
@@ -67,24 +64,33 @@ module.exports = function(grunt) {
                     archive: '<%= zipFile %>',
                     mode: 'zip'
                 },
-                files: [{
-                    src: './*.js*'
-                }, {
-                    src: './Tests/**'
-                }, {
-                    src: './LICENSE'
-                }, {
-                    src: './README.md'
-                }]
+                files: [
+                    {
+                        src: './*.js*'
+                    },
+                    {
+                        src: './Tests/**'
+                    },
+                    {
+                        src: './LICENSE'
+                    },
+                    {
+                        src: './README.md'
+                    }
+                ]
             }
         },
 
         copy: {
             deploy: {
-                src: ['Server.js', 'Ketch.js', 'Sloop.js', 'Yawl.js',
+                src: [
+                    'Server.js',
+                    'Ketch.js',
+                    'Sloop.js',
+                    'Yawl.js',
                     'Interface.js'
                 ],
-                dest: 'Deploy/',
+                dest: 'Deploy/'
             },
             main: {
                 src: '<%= zipFile %>',
@@ -93,7 +99,9 @@ module.exports = function(grunt) {
         },
 
         jsbeautifier: {
-            files: ["**/*.js", '!**/node_modules/**',
+            files: [
+                '**/*.js',
+                '!**/node_modules/**',
                 '!**/coverage/**',
                 '!**/Tests/Jasmine-2.0.0/**'
             ],
@@ -113,7 +121,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jasmine-node-coverage');
     grunt.loadNpmTasks('grunt-jsbeautifier');
 
-    grunt.registerTask('dist', ['clean:zip', 'compress:angularCalculator', 'copy:main', 'jasmine', 'jasmine_node']);
+    grunt.registerTask('dist', [
+        'clean:zip',
+        'compress:angularCalculator',
+        'copy:main',
+        'jasmine',
+        'jasmine_node'
+    ]);
     grunt.registerTask('check', ['jshint', 'jasmine_node']);
     grunt.registerTask('pretty', ['jsbeautifier']);
 };

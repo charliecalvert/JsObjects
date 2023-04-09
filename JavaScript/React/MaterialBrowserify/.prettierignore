@@ -1,0 +1,5 @@
+**/build/**
+**/serviceWorker.js
+**/bower_components/**
+**/materialize.min.js
+public/javascripts/basics.js

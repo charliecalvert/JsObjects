@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cat $ELF_SCRIPTS/patterns.txt | xargs GitIgnoreTester .gitignore
+
+# TOFIND="^bower_components|^npm-debug.log|^bundle.js|^\*.js.map|^node_modules|^Thumbs.db|^coverage"
+# egrep "$1" $TOFIND .gitignore

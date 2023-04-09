@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+        script(src="/scripts/jquery.js")
+        script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+
+        // Firebase
+        script(defer='', src='https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js')
+        script(defer='', src='https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js')
+        script(defer='', src='https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js')
+
+        script(src="javascripts/control.js")
+        script(src="javascripts/elven-fire-login.js")
+        script(src="javascripts/elven-fire-data.js")
+    body
+        block content

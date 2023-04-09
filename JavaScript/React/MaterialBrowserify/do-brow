@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+npx browserify -t [ babelify --presets [ @babel/preset-react ] ] src/*.js -o public/javascripts/basics.js
+# npx watchify -t [ babelify --presets [ @babel/preset-react ] ] src/*.js -o public/javascripts/basics.js

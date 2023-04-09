@@ -1,0 +1,190 @@
+#! /usr/bin/env bash
+
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+LIGHT_GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;36m'
+NC='\033[0m' # No Color
+
+ESLINT_DIR=/tmp/eslint-dir
+GIST_REACT_COMPONENT=https://gist.github.com/0d154b7186410a2947eaffaf4b8de8d6.git
+GIST_REACT_CONTROL=https://gist.github.com/add450e42ccd7b12ec892292eaa3612a.git
+GIST_REACT_CLASS=https://gist.github.com/7d2095c8f1d222858a16471030781cc5.git
+GIST_ELF_HTML=https://gist.github.com/a646390a06306c568f0b2ab26641685e.git
+GIST_ELF_DEBUG_ENZYME=https://gist.github.com/51daef341699943b07c9570c3ad2cbab.git
+GIST_ESLINTRC=https://gist.github.com/c5952541925c04479150bbd8c40feac6.git
+GIST_ESLINTIGNORE=https://gist.github.com/bf7c7f9ab52c55a42a6d184019fc1550.git
+GIST_PRETTIER=https://gist.github.com/f19ea847f81f8634b37ef2b9c12a77e0.git
+GIST_PRETTIERRC=https://gist.github.com/2470c97a763ac6791e66f6cb7ff9ae23.git
+GIST_REACT_NATIVE_ENZYME_NPM=https://gist.github.com/5688f8461bfe0ec284261acf6103a12b.git
+GIST_REACT_NATIVE_ENZYME_YARN=https://gist.github.com/11b2fd40c87d0671acfa5b39be0b0321.git
+GIST_ELVEN_LOGGER=https://gist.github.com/de2d66151f70690c0d641108c157b407.git
+GIST_ELVEN_SYSTEMD_TOOLS=https://github.com/charliecalvert/elven-systemd-tools.git
+GIST_ELVEN_CREATE_CONCUR=https://github.com/charliecalvert/elven-create-concurrently.git
+GIST_ELVEN_LOCAL_STORAGE=https://gist.github.com/charliecalvert/d8404b826ee22702c501368335624622
+REPO_ELVEN_FIREBASE=https://github.com/charliecalvert/elven-firebase.git
+
+function message {
+    echo
+    echo =======================
+    echo "$1"
+    echo =======================
+    echo
+}
+
+function removeDir {
+    if [ -d $ESLINT_DIR ]; then
+        rm -rf $ESLINT_DIR
+        echo "Deleted " $ESLINT_DIR
+    fi
+}
+
+function getRepo() {
+    removeDir
+    git clone $1 $ESLINT_DIR
+}
+
+function getGist() {
+    removeDir
+    git clone $1 $ESLINT_DIR
+    echo -e "NUMBER 2 = $2"
+    cp -v $ESLINT_DIR/$2 .
+}
+
+function runCommand() {
+    # REMOVE_ALL='rm .esl* installEslintPackages  prettier .prettier*'
+    INSTALL_ESLINT_PACKAGES=installEslintPackages
+    case $1 in
+        "elfdebug") getGist $GIST_ELF_DEBUG_ENZYME ElfDebugEnzyme.js ;;
+        "eslintrc")
+            getGist $GIST_ESLINTRC .eslintrc.json
+            echo 'npm install -g babel-eslint eslint-plugin-react' >> $INSTALL_ESLINT_PACKAGES
+            chmod +x $INSTALL_ESLINT_PACKAGES
+            ./$INSTALL_ESLINT_PACKAGES
+            ;;\
+        "eslintignore") getGist $GIST_ESLINTIGNORE .eslintignore ;;
+        "prettier") 
+            getGist $GIST_PRETTIER prettier
+            echo '**/bower_components/**' >> .prettierignore      
+            echo '**/build/**' >> .prettierignore
+            echo '**/coverage/**' >> .prettierignore
+            echo '**/materialize.min.js' >> .prettierignore
+            echo '**/serviceWorker.js' >> .prettierignore            
+            chmod +x prettier
+            ;;\
+        "prettierrc") getGist $GIST_PRETTIERRC .prettierrc ;;
+        "reactcomp") getGist $GIST_REACT_COMPONENT ReactComponent.js ;;\
+        "setrnen") getGist $GIST_REACT_NATIVE_ENZYME_NPM  setup-enzyme-react-native-npm ;;\
+        "setrney") getGist $GIST_REACT_NATIVE_ENZYME_YARN  setup-enzyme-react-native-yarn ;;\
+        "elvenlogger") getGist $GIST_ELVEN_LOGGER elven-logger.js ;;\
+        "reactcontrol") getGist $GIST_REACT_CONTROL control.js ;;\
+        "reactclass") getGist $GIST_REACT_CLASS ElfApp.js ;;
+        "elven-html") getGist $GIST_ELF_HTML elf-index.html;;
+        "elven-local-storage") getGist $GIST_ELVEN_LOCAL_STORAGE elf-local-storage.js ;;
+        "elven-systemd-tools") 
+            getGist $GIST_ELVEN_SYSTEMD_TOOLS "*-service"
+            cp -v $ESLINT_DIR/temp.service .
+            cp -v $ESLINT_DIR/edit-package-json.js .
+            ;;
+        "elven-create-concur") 
+            getGist $GIST_ELVEN_CREATE_CONCUR elf-* .
+            cp -v $ESLINT_DIR/start-client.js .
+            cp -v $ESLINT_DIR/edit-package-json.js .
+            if [ -f package.json ]; then                
+                echo -e ${YELLOW}"package.json already exists"${NC}
+            else
+                echo -e ${YELLOW}"Adding package.json"${NC}
+                cp -v $ESLINT_DIR/package.json .
+            fi
+            ;;
+        "elven-firebase")
+            getRepo $REPO_ELVEN_FIREBASE
+            
+            cp -vp $ESLINT_DIR/elf-sign-in.html public/.
+            if [ -d src ]; then
+                cp -vp $ESLINT_DIR/FirebaseLogout.js src/components/.
+                cp -vp $ESLINT_DIR/elf-firebase.js public/.
+            else
+                cp -vp $ESLINT_DIR/FirebaseLogout.js source/.
+                cp -vp $ESLINT_DIR/elf-firebase.js source/.
+            fi    
+    esac
+    # removeDir
+}
+
+#function runGitCommand() {
+#   case $1 in
+#   "elven-node-tools") 
+#       getGist $GIST_ELVEN_SYSTEMD_TOOLS *-service  
+#           cp -v $ESLINT_DIR/eip.service . 
+#           ;;\
+#   esac
+#}
+
+function runAll() {
+    runCommand "elfdebug"
+    runCommand "eslintrc"
+    runCommand "eslintignore"
+    runCommand "prettier"
+    runCommand "prettierrc"
+    runCommand "reactcomp"
+    runCommand "setrnen"
+    runCommand "setrney"
+    runCommand "elvenlogger"
+}
+
+function runEsLintAndPrettier() {
+    runCommand "eslintrc"
+    runCommand "eslintignore"
+    runCommand "prettier"
+    runCommand "prettierrc"
+}
+
+while true; do
+    message "Menu"
+    echo -e "$LIGHT_GREEN Gists"
+    echo -e "$LIGHT_GREEN  a) Install ESLintRc and Prettier in cwd (cdef)"
+    echo -e "$LIGHT_GREEN  b) ElfDebugEnzyme"
+    echo -e "$LIGHT_GREEN  c) .eslintrc"
+    echo -e "$LIGHT_GREEN  d) .eslintignore"
+    echo -e "$LIGHT_GREEN  e) prettier"
+    echo -e "$LIGHT_GREEN  f) .prettierrc"
+    echo -e "$LIGHT_GREEN  g) Default React Component"    
+    echo -e "$LIGHT_GREEN  h) Setup React Native Enzyme Npm"
+    echo -e "$LIGHT_GREEN  i) Setup React Native Enzyme Yarn"
+    echo -e "$LIGHT_GREEN  j) ElvenLogger"
+    echo -e "$LIGHT_GREEN  k) Elven Node systemd Tools"
+    echo -e "$LIGHT_GREEN  l) Elven Create Concurrently"
+    echo -e "$LIGHT_GREEN  m) React Control Component for elf-express"
+    echo -e "$LIGHT_GREEN  n) Simple React Class Component"
+    echo -e "$LIGHT_GREEN  o) Elf Basic HTML Starter Page"
+    echo -e "$LIGHT_GREEN  p) Elf Local Storage"
+    echo -e "$LIGHT_GREEN  r) Elf Firebase"
+    echo -e "$LIGHT_RED  x) Exit"
+    echo -e "\n$NC"
+    read -p "Please make a selection: " eotuyx
+    case $eotuyx in
+        [Aa]* ) runEsLintAndPrettier false; continue;;
+        [Bb]* ) runCommand "elfdebug"; continue;;
+        [Cc]* ) runCommand "eslintrc"; continue;;
+        [Dd]* ) runCommand "eslintignore"; continue;;
+        [Ee]* ) runCommand "prettier"; continue;;
+        [Ff]* ) runCommand "prettierrc"; continue;;
+        [Gg]* ) runCommand "reactcomp"; continue;;
+        [Hh]* ) runCommand "setrnen"; continue;;
+        [Ii]* ) runCommand "setrney"; continue;;
+        [Jj]* ) runCommand "elvenlogger"; continue;;
+        [Kk]* ) runCommand "elven-systemd-tools"; continue;;
+        [Ll]* ) runCommand "elven-create-concur"; continue;;
+        [Mm]* ) runCommand "reactcontrol"; continue;;
+        [Nn]* ) runCommand "reactclass"; continue;;
+        [Oo]* ) runCommand "elven-html"; continue;;
+        [Pp]* ) runCommand "elven-local-storage"; continue;;
+        [Rr]* ) runCommand "elven-firebase"; continue;;
+        [XxQq]* ) break;;
+        * )  -e "\n$NC" + "Please answer with a, b, c or x.";;
+    esac
+done
+
+echo "All Done"

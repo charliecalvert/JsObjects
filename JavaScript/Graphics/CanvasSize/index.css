@@ -1,5 +1,12 @@
 #myCanvas {
-	background-color: blue;
-	width: 800px;
-	height: 600px;
+	background-color: azure;
+	width: 100%;
+	height: 100%;
+}
+
+#canvasSpace {
+	margin: 10%;
+	width: 80%;
+	height: 80%;
+	border: solid darkred thick;
 }

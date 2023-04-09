@@ -1,0 +1,25 @@
+{
+    "name": "materialcomponents",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^4.2.1"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.10.6",
+        "@emotion/styled": "^11.10.6",
+        "@fontsource/roboto": "^4.5.8",
+        "@mui/icons-material": "^5.11.16",
+        "@mui/material": "^5.11.16",
+        "@vitejs/plugin-react": "^3.1.0",
+        "classnames": "^2.3.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}

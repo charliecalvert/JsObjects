@@ -1,0 +1,13 @@
+{
+  "name": "com.elvenware.resourceicons",
+  "version": "0.0.1",
+  "displayName": "ResourceIcons",
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "^11.0.0"
+  }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './App.css';
-import 'whatwg-fetch';
 
 export default class GetNine extends React.Component {
     constructor(props) {
@@ -24,10 +23,12 @@ export default class GetNine extends React.Component {
         fetch('/nine')
             .then(function(response) {
                 return response.json();
-            }).then(function(json) {
+            })
+            .then(function(json) {
                 console.log('parsed json', json);
-                that.setState(() => (json));
-            }).catch(function(ex) {
+                that.setState(() => json);
+            })
+            .catch(function(ex) {
                 console.log('parsing failed', ex);
             });
     }
@@ -35,11 +36,19 @@ export default class GetNine extends React.Component {
     render() {
         return (
             <div className={styles.app}>
-                <button id='getNine' onClick={this.getNine}>Get Nine</button>
                 <p>{this.state.nine}</p>
+                <a id="getNine" className="button elf" onClick={this.getNine}>
+                    Get Nine
+                </a>
                 <hr />
-                <button id='getNineParse' onClick={this.getNineFromServer}>Get Nine Parse</button>
                 <p>{this.state.serverNine}</p>
+                <a
+                    id="getNineParse"
+                    className="button elf"
+                    onClick={this.getNineFromServer}
+                >
+                    Get Nine Parse
+                </a>
                 <hr />
             </div>
         );

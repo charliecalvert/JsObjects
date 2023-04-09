@@ -1,0 +1,30 @@
+{
+  "name": "person",
+  "version": "1.0.0",
+  "description": "Create a Person class",
+  "main": "Person.js",
+  "scripts": {
+    "start": "node Person.js",
+    "complex": "node es5/Person.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "Class",
+    "ES6"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4"
+  }
+}

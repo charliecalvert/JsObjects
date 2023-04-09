@@ -1,0 +1,16 @@
+mixin baseButton(id, text)
+    button(id=id).mdc-button.mdc-button--raised.mdc-ripple-surface(data-mdc-auto-init='MDCRipple') #{text}
+
+
+mixin signIn
+    main.mdl-layout__content.mdl-color--grey-100
+        +baseButton('elf-sign-in', 'Sign in with Google')
+
+        p#load Firebase SDK Loading…
+
+        p Firebase sign-in status:
+            span#elf-sign-in-status Unknown
+
+        <pre><code id="elf-user">null</code></pre>
+        <pre><code id="elf-details">null</code></pre>
+        img#elfPhoto(src='favicon.png', alt='', width="10%", min-width="120px")

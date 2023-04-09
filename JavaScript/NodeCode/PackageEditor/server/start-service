@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo systemctl enable package-editor.service
+sudo systemctl start package-editor.service

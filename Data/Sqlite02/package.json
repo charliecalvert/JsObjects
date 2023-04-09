@@ -1,0 +1,26 @@
+{
+  "name": "sqlite02",
+  "version": "1.0.1",
+  "description": "Learn SqlLite",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "SqLite"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "dependencies": {
+    "sqlite": "^4.1.2"
+  }
+}

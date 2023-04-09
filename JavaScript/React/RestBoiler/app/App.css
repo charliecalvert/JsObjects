@@ -1,10 +1,9 @@
 .app {
-  background-color: lightseagreen;
-  height: 100px;
-  border: 1px solid blue;
+  background-color: antiquewhite;
+  border: thick solid gainsboro;
+  padding: 25px;
 }
 
-.bap {
-  background-color: red;
-  height: 35px;
+body {
+  background-color: beige;
 }

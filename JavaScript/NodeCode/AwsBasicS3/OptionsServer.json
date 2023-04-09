@@ -1,9 +1,9 @@
 {
-    "pathToConfig": "/home/charlie/config.json",
+    "pathToConfig": "/home/charlie/.config/aws-config.json",
     "reallyWrite": true,
     "bucketName": "bucket01.elvenware.com",
-    "folderToWalk": "/var/www/bc",
-    "s3RootFolder": "FilesNine",
+    "folderToWalk": "/home/charlie/Documents/TestCopy",
+    "s3RootFolder": "TestCopyServer",
     "createFolderToWalkOnS3": true,
     "createIndex": false,
     "filesToIgnore": [

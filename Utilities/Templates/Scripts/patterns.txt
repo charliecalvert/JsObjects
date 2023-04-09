@@ -1,0 +1,10 @@
+^bower_components
+^npm-debug.log
+^bundle.js
+^\*.js.map
+^node_modules
+^coverage
+^.idea
+^.vscode
+^.c9
+

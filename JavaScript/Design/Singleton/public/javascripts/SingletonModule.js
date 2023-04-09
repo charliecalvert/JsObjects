@@ -3,34 +3,31 @@
  */
 
 define(function() {
+    var elf = {};
 
-	var elf = {};
+    elf.SingletonModule = (function() {
+        'use strict';
 
-	elf.SingletonModule = (function() {
-		'use strict';
+        var _instance = null;
 
-		var _instance = null;
+        function SingletonModule() {
+            if (_instance === null) {
+                _instance = this;
+            } else {
+                return _instance;
+            }
+        }
 
-		function SingletonModule() {
+        SingletonModule.prototype.publicMethod = function() {
+            return "I'm the SingletonModule.publicMethod.";
+        };
 
-			if (_instance === null) {
-				_instance = this;
-			} else {
-				return _instance;
-			}
-		}
+        SingletonModule.prototype.display = function(value) {
+            $('#debug01').append('<li>' + value + '</li>');
+        };
 
-		SingletonModule.prototype.publicMethod = function() {
-			return "I'm the SingletonModule.publicMethod.";
-		};
+        return SingletonModule;
+    })();
 
-		SingletonModule.prototype.display = function(value) {
-			$('#debug01').append('<li>' + value + '</li>');
-		};
-	
-		return SingletonModule;
-
-	}());
-
-	return elf.SingletonModule;
+    return elf.SingletonModule;
 });

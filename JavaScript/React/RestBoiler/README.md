@@ -36,3 +36,9 @@ Both Node server and frontend code runs with Babel. And all of it is linted. Wit
 
 ### Beautify
 With a beautify package installed in your editor it will also do that
+
+
+## Some installs:
+
+    npm i -D @babel/cli @babel/core @babel/preset-env @babel/preset-react
+    npm remove babel-core babel-preset-es2015 babel-preset-react

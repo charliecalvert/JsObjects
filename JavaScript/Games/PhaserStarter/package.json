@@ -1,0 +1,26 @@
+{
+  "name": "phaser-starter",
+  "version": "1.0.0",
+  "description": "Game test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/charliecalvert/JsObjects.git"
+  },
+  "keywords": [
+    "games"
+  ],
+  "author": "Charlie Calvert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecalvert/JsObjects/issues"
+  },
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
+  "dependencies": {
+    "phaser": "^3.55.2",
+    "phaser3-project-template": "^1.0.9"
+  }
+}

@@ -6,11 +6,11 @@ import AddGet from './AddGet.js';
 import AddPost from './AddPost.js';
 
 ReactDOM.render(
-  <div>
-  <App />
-  <GetNine />
-  <AddGet />
-  <AddPost />
-  </div>,
-  document.getElementById('root')
+    <div>
+        <App />
+        <GetNine />
+        <AddGet />
+        <AddPost />
+    </div>,
+    document.getElementById('root')
 );

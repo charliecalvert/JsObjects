@@ -1,0 +1,25 @@
+body {
+	background: #00FF55;
+}
+
+#game {
+	width: 400px;
+	height: 400px;
+	background-color: #00BB88;
+}
+
+#textDisplay, #gameBoard {
+	float: left;
+}
+
+#textDisplay {
+	width: 2px;
+	background-color: #00AA44;
+	margin-left: 0px;
+	padding: 2px;
+	border: solid black 1px;
+}
+
+.message {
+	width: 250px;
+}

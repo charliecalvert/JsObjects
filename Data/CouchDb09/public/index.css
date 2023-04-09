@@ -1,10 +1,11 @@
 p {
-	width: 425px;	
+	width: 425px;
 }
 
 label {
 	display: block;
 	width: 150px;
+	clear: both;
 	float: left;
 	text-align: right;
 	padding-right: 10px;

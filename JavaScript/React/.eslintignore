@@ -1,0 +1,15 @@
+**/registerServiceWorker.js
+**/serviceWorker.js
+**/bundle.js
+.git
+**/node_modules/**
+**/bower_components/**
+**/coverage/**
+**/build/**
+**/static/**
+**/elf-gatsby-site/**
+**/manifest.json
+**/precache-manifest.*.js
+**/service-worker.js
+ReactEs6Browserify/public/javascripts/basics.js
+MaterialBrowserify/public/javascripts/basics.js

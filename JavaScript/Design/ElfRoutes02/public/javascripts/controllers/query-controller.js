@@ -16,7 +16,9 @@ define(['runQuery'], function(runQuery) {
         });
 
         $('#help').click(function() {
-            $('#charlie').html('<strong>Help Text</strong>: Select some controls and press the Submit button.');
+            $('#charlie').html(
+                '<strong>Help Text</strong>: Select some controls and press the Submit button.'
+            );
         });
     }
 
@@ -25,5 +27,4 @@ define(['runQuery'], function(runQuery) {
     };
 
     return queryController;
-
 });

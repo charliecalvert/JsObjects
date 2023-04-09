@@ -6,23 +6,12 @@ define(function(require) {
     'use strict';
 
     function runQuery(query, $q) {
-        var controller = $q.getController();
+        const controller = $q.getController();
         if (query) {
-            $.getJSON(query, function(json) {
-                controller(query, json);
-            }).fail(function(jqxhr, textStatus, error) {
-                var response = {
-                    error: 'Unknown. Is program running?'
-                };
-                if (jqxhr.responseText) {
-                    response = JSON.parse(jqxhr.responseText);
-                    response.genericError = error;
-                    response.statusText = textStatus;
-                }
-                controller({
-                    'requestFailed': response
-                });
-            });
+            fetch(query)
+                .then(result => result.json())
+                .then(json => controller(query, json))
+                .catch(error => console.log(error));
         } else {
             controller(null, $q);
         }

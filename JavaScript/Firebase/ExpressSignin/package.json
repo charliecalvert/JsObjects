@@ -1,0 +1,17 @@
+{
+  "name": "expresssignin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "express": "~4.18.2",
+    "http-errors": "~2.0.0",
+    "jquery": "^3.6.4",
+    "morgan": "~1.10.0",
+    "pug": "3.0.2"
+  }
+}

@@ -5,12 +5,11 @@ var fs = require('fs');
 var getNine = require('../source/GetNine');
 var addingMachine = require('../source/AddingMachine');
 
-
 router.get('/', function(request, response) {
     'use strict';
     var html = fs.readFileSync(__dirname + '/../public/index.html');
     response.writeHeader(200, {
-        "Content-Type": "text/html"
+        'Content-Type': 'text/html'
     });
     response.write(html);
     response.end();
@@ -20,7 +19,7 @@ router.get('/getNine', function(request, response) {
     'use strict';
     console.log('getNine called');
     response.send({
-        "result": getNine.getNine()
+        result: getNine.getNine()
     });
 });
 
@@ -33,7 +32,7 @@ router.get('/add', function(request, response) {
     var operandB = parseInt(request.query.operandB);
     var result = addingMachine.myObject.add(operandA, operandB);
     response.send({
-        "result": result
+        result: result
     });
 });
 
@@ -47,11 +46,8 @@ router.post('/add', function(request, response) {
     var operandB = parseInt(request.body.operandB);
     var result = addingMachine.myObject.add(operandA, operandB);
     response.send({
-        "result": result
+        result: result
     });
 });
 
 module.exports = router;
-
-
-

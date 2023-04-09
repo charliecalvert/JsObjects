@@ -1,0 +1,23 @@
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    border: 5px solid red;
+}
+
+.container {
+    width: 45%;
+}
+
+.main-content {
+    background: blue;
+    color: wheat;
+}
+
+.other-content {
+    background: purple;
+}
+
+.sidebar {
+    width: 45%;
+    background: green;
+}

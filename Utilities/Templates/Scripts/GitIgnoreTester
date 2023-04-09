@@ -1,0 +1,12 @@
+#!/bin/bash
+
+file=$1
+shift
+for var in "$@"
+do  
+  found=`grep "$var" $file`
+  if [[ -z $found ]]
+  then
+   echo $var | sed 's/^\^\(.*\)/\1/'
+  fi
+done

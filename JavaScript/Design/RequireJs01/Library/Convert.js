@@ -4,9 +4,8 @@
 
 define({
     feetInMile: 5280,
-    feetInYard : 3,
+    feetInYard: 3,
     milesToFeet: function(numMiles) {
-    	return this.feetInMile * numMiles;
+        return this.feetInMile * numMiles;
     }
 });
-

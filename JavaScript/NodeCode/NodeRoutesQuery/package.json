@@ -1,0 +1,33 @@
+{
+    "name": "noderoutespage",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www",
+        "debug": "echo install jest",
+        "starter": "nodemon ./bin/www",
+        "prestart": "npx sass public/scss/:public/css/",
+        "ui-old": "npx browser-sync start -s -f views --no-ui --port=30025",
+        "ui": "browser-sync start --proxy localhost:30025 --files=**/*  --ignore=node_modules --reload-delay 100 --no-ui --no-inject-changes"
+
+    },
+    "dependencies": {
+        "body-parser": "~1.20.2",
+        "cookie-parser": "~1.4.6",
+        "debug": "~4.3.4",
+        "express": "~4.18.2",
+        "morgan": "~1.10.0",
+        "pug": "^3.0.2",
+        "serve-favicon": "~2.5.0"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.29.1",
+        "grunt": "~1.6.1",
+        "grunt-contrib-watch": "~1.1.0",
+        "grunt-develop": "~0.4.0",
+        "load-grunt-tasks": "~5.1.0",
+        "request": "~2.88.0",
+        "sass": "^1.61.0",
+        "time-grunt": "~2.0.0"
+    }
+}

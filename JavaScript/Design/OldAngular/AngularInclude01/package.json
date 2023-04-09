@@ -1,0 +1,7 @@
+{
+  "name": "barebones",
+  "version": "0.0.0",
+  "devDependencies": {
+    "selenium-webdriver": "~4.8.2"
+  }
+}

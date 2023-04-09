@@ -1,0 +1,45 @@
+#!/bin/bash
+
+PROJECT_ROOT="$(pwd)"
+
+# Install packages in root
+if [ -f "$PROJECT_ROOT/package.json" ]; then
+    echo "Running 'npm install' in root of project"
+    cd "$PROJECT_ROOT" && npm i
+fi
+
+# Install packages in client
+if [ -d "$PROJECT_ROOT/client" ]; then
+    echo "Running 'npm install' in client"
+    cd "$PROJECT_ROOT/client" && npm i
+fi
+
+# Install packages in main
+if [ -d "$PROJECT_ROOT/main" ]; then
+    echo "Running 'npm install' in main"
+    cd "$PROJECT_ROOT/main" && npm i && npm run build --if-present 
+fi
+
+# Install packages in server
+if [ -d "$PROJECT_ROOT/server" ]; then
+    echo "Running 'npm install' in server"
+    cd "$PROJECT_ROOT/server" && npm i && npm run build --if-present
+fi
+
+# Install packages in qux
+if [ -d "$PROJECT_ROOT/qux" ]; then
+    echo "Running 'npm install' in qux"
+    cd "$PROJECT_ROOT/qux" && npm i &&  npm run build --if-present 
+fi
+
+# Install packages in system-environment
+if [ -d "$PROJECT_ROOT/system-environment" ]; then
+    echo "Running 'npm install' in system-environment"
+    cd "$PROJECT_ROOT/system-environment"  && npm i && npm run build --if-present
+fi
+
+# Install packages in route-tester
+if [ -d "$PROJECT_ROOT/route-tester" ]; then
+    echo "Running 'npm install' in route-tester"
+    cd "$PROJECT_ROOT/route-tester" && npm i && npm run build --if-present
+fi

@@ -7,7 +7,9 @@ define(['runQuery'], function(runQuery) {
 
     function init() {
         $('#aboutCharlie').click(function() {
-            $('#charlie').html('This is a note about Charlie made visible when the user clicked the button.');
+            $('#charlie').html(
+                'This is a note about Charlie made visible when the user clicked the button.'
+            );
         });
     }
 

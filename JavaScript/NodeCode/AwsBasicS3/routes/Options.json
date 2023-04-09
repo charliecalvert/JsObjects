@@ -1,0 +1,30 @@
+[
+	{
+		"pathToConfig": "/.config/aws-config.json",
+		"reallyWrite": true,
+		"bucketName": "bucket01.elvenware.com",
+		"folderToWalk": "/home/charlie/Documents/TestCopy",
+		"s3RootFolder": "TestCopy",
+		"createFolderToWalkOnS3": true,
+		"createIndex": false,
+		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
+	}, {
+		"pathToConfig": "c:\\src\\config\\config.json",
+		"reallyWrite": true,
+		"bucketName": "bucket01.elvenware.com",
+		"folderToWalk": "Files",
+		"s3RootFolder": "FilesNine",
+		"createFolderToWalkOnS3": true,
+		"createIndex": true,
+		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
+	}, {
+		"pathToConfig": "/home/charlie/.config/config.json",
+		"reallyWrite": true,
+		"bucketName": "bucket01.elvenware.com",
+		"folderToWalk": "CloudNotes",
+		"s3RootFolder": "FilesFive",
+		"createFolderToWalkOnS3": true,
+		"createIndex": true,
+		"filesToIgnore": ["Thumbs.db", ".gitignore", "MyFile.html"]
+	}
+]

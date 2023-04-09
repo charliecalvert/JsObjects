@@ -49,7 +49,7 @@ function setupWinston() {
         }
     };
 
-    var logger = new(winston.Logger)({
+    var logger = winston.createLogger({
         transports: [
             new(winston.transports.Console)({
                 level: 'debug',
@@ -248,10 +248,8 @@ function walkDirs(serverOptions, response) {
         }
 
         if (typeof response != 'undefined') {
-            winston.info("Sending response possible");
-            response.send({
-                result: "Success"
-            });
+            response.send({result: "Success"});
+            winstonLog.info("Sending response possible");
         }
 
         /* if (serverOptions.createFolderToWalkOnS3) {

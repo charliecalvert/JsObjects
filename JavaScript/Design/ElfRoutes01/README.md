@@ -1,5 +1,7 @@
 # ElfRoutes01
 
+_by [Charlie Calvert](http://www.elvenware.com)_
+
 Programs in this series:
 
 - [ElfRoutes01 is the simplest project][elfroutes01]

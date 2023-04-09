@@ -47,7 +47,7 @@ router.post('/add', function(request, response) {
     var operandB = parseInt(request.body.operandB);
     var result = addingMachine.myObject.add(operandA, operandB);
     response.send({
-        "result": result
+        "status": result
     });
 });
 

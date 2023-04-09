@@ -1,0 +1,29 @@
+{
+    "name": "reactes6babel",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "nodemon ./bin/www",
+        "builda": "babel src -d public/javascripts",
+        "build": "./do-brow"
+    },
+    "dependencies": {
+        "babelify": "^10.0.0",
+        "body-parser": "~1.20.2",
+        "cookie-parser": "~1.4.6",
+        "debug": "~4.3.4",
+        "express": "~4.18.2",
+        "morgan": "~1.10.0",
+        "pug": "~3.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "serve-favicon": "~2.5.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.4",
+        "@babel/preset-env": "^7.21.4",
+        "@babel/preset-react": "^7.18.6",
+        "watchify": "^4.0.0"
+    }
+}

@@ -18,7 +18,7 @@ router.get('/user-form', function(request, response) {
     response.send(result);
 });
 
-/* Generic Jade/Pug Renderer */
+/* Generic Jade/Pug renderer */
 router.get('/:id', function(request, response) {
     'use strict';
     response.render(request.params.id, {

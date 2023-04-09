@@ -22,3 +22,11 @@ console.log(stringResult);
 // Verify our results
 var result = stringResult === '["B","C","D"]';
 console.log(result);
+
+const mapper = {a: 1, b: 2};
+console.log(mapper);
+console.log(Object.entries(mapper));
+const foo = { a: mapper.a};
+
+console.log(foo);
+

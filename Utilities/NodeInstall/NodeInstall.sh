@@ -23,7 +23,41 @@ sudo apt-get install curl
 # curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # The new setup script for Node.js v7.X
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
+# The new setup script for Node.js v8.X
+# curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+# The new setup script for Node.js v9.X
+# curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+
+# The new setup script for Node.js v10.X
+# curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
+# The new setup script for Node.js v11.X
+# curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+
+# The new setup script for Node.js v12.X
+# curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+# The new setup script for Node.js v13.X
+# curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+
+# The new setup script for Node.js v14.X
+# curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+
+# The new setup script for Node.js v15.X
+# curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+
+# The new setup script for Node.js v16.X
+# curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+# The new setup script for Node.js v17.X
+# curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+
+# The new setup script for Node.js v18.X
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+
 
 # Install node
 sudo apt-get install -y nodejs

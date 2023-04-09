@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DEST="$HOME/Source/MakeHtml"
+RENEW="$HOME/Source/renewMakeHtml"
+
+if [ -d $DEST ]; then
+	rm -r "$DEST"
+fi
+
+if [ -f $RENEW ]; then
+	rm "$RENEW"
+fi
+
+rm $HOME/Source/package-lock.json

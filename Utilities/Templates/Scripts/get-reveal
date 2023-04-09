@@ -1,0 +1,12 @@
+#! /bin/bash
+SRCDIR_CSS="$HOME/Git/reveal.js/css"
+SRCDIR_JS="$HOME/Git/reveal.js/js"
+SRCDIR_LIB="$HOME/Git/reveal.js/lib"
+SRCDIR_PLUGIN="$HOME/Git/reveal.js/plugin"
+
+# cp -vr *.html $DESTDIR/.
+
+rsync -avu --delete --exclude=.git --exclude=.idea --exclude=old "$SRCDIR_CSS" .
+rsync -avu --delete --exclude=.git --exclude=.idea --exclude=old "$SRCDIR_JS" .
+rsync -avu --delete --exclude=.git --exclude=.idea --exclude=old "$SRCDIR_LIB" .
+rsync -avu --delete --exclude=.git --exclude=.idea --exclude=old "$SRCDIR_PLUGIN" .

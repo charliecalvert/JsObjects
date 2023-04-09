@@ -1,0 +1,12 @@
+extends layout
+include mixins
+
+block content
+    h1= title
+    p Welcome to #{title}
+    +signIn
+    +baseButton('elfFireDataPush', 'Push Data')
+    +baseButton('elfFireDataUpdate', 'Update Oates')
+    +baseButton('elfFireDataRemove', 'Delete Oates')
+    +baseButton('elfFireDataRemoveAll', 'Delete All')
+    ul#writersList

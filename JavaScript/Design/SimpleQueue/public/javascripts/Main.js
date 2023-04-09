@@ -5,11 +5,11 @@
 Elf.Main = (function() {
     'use strict';
 
-    var queueList = "#queueList";
+    var queueList = '#queueList';
 
     function Main() {
-        $("#showQueue").click(showQueue);
-        $("#showStack").click(showStack);
+        $('#showQueue').click(showQueue);
+        $('#showStack').click(showStack);
     }
 
     var clear = function() {
@@ -24,7 +24,6 @@ Elf.Main = (function() {
         while (simpleQueue.length > 0) {
             $(queueList).append('<li>' + simpleQueue.dequeue() + '</li>');
         }
-
     };
 
     var showStack = function() {
@@ -38,8 +37,7 @@ Elf.Main = (function() {
     };
 
     return Main;
-
-}());
+})();
 
 $(document).ready(function() {
     'use strict';

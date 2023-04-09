@@ -35,10 +35,13 @@ if (isDeveloping) {
     app.use(webpackHotMiddleware(compiler));
 
     app.get('/', function response(req, res) {
-        res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.html')));
+        res.write(
+            middleware.fileSystem.readFileSync(
+                path.join(__dirname, 'public/index.html')
+            )
+        );
         res.end();
     });
-
 } else {
     console.log('Production in server.js');
     app.use(express.static(__dirname + '/dist'));
@@ -49,7 +52,7 @@ if (isDeveloping) {
 
 app.get('/nine', function(request, response) {
     console.log('getNine called');
-    response.send({'serverNine': '99'});
+    response.send({ serverNine: '99' });
 });
 
 app.get('/add', function(request, response) {
@@ -60,7 +63,7 @@ app.get('/add', function(request, response) {
     var operandB = parseInt(request.query.operandB);
     var result = operandA + operandB;
     response.send({
-        'addResult': result
+        addResult: result
     });
 });
 
@@ -74,7 +77,7 @@ app.post('/add-json', function(request, response) {
     var operandB = parseInt(request.body.operandB);
     var result = operandA + operandB;
     response.send({
-        'addResultPost': result
+        addResultPost: result
     });
 });
 
@@ -82,7 +85,11 @@ app.listen(port, '0.0.0.0', function onStart(err) {
     if (err) {
         console.log(err);
     }
-    console.info('==> 🌎 Listening on port %s. Open http://localhost:%s/', port, port);
+    console.info(
+        '==> 🌎 Listening on port %s. Open http://localhost:%s/',
+        port,
+        port
+    );
 });
 
 /*var express = require('express');

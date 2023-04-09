@@ -10,8 +10,8 @@ var fs = require("fs");
  * You will need to edit OptionsServer.json. It has this format
 
 var options = {
-		pathToConfig: '/home/charlie/config.json',		
-		reallyWrite: true, 
+		pathToConfig: '/home/charlie/config.json',
+		reallyWrite: true,
 		bucketName: 'bucket01.elvenware.com',
 		folderToWalk: "Files",
 		s3RootFolder: "FilesTwo",
@@ -19,8 +19,8 @@ var options = {
 		createIndex: true,
 		filesToIgnore: ['Thumbs.db', '.gitignore', 'MyFile.html']
 };
- 
- * Before filling it out, see the README file for this project. 
+
+ * Before filling it out, see the README file for this project.
  */
 
 function explain() {
@@ -45,12 +45,14 @@ function explain() {
 
 if (process.argv.length >= 3) {
     var option = minimist(process.argv.slice(2));
+    var options = fs.readFileSync("OptionsServer.json", 'utf8');
+    options = JSON.parse(options);
     if (option.l) {
         s3Code.loadConfig(options.pathToConfig);
         s3Code.listBuckets(null, false);
     } else if (option.u) {
-        var options = fs.readFileSync("OptionsServer.json", 'utf8');
-        options = JSON.parse(options);
+        //var options = fs.readFileSync("OptionsServer.json", 'utf8');
+        //options = JSON.parse(options);
         walkDirs(options);
     } else {
         explain();

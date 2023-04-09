@@ -1,10 +1,19 @@
-/*
- * GET home page.
- */
+var express = require('express');
+var router = express.Router();
 
-exports.index = function(req, res) {
+router.get('/', function (req, res, next) {
     'use strict';
     res.render('index', {
-        title: 'Prog282'
+        title: 'Elvenware at BC'
     });
-};
+});
+
+router.get('/about', function(request, response) {
+   response.render('about');
+});
+
+router.get('/links', function(request, response) {
+    response.render('about');
+});
+
+module.exports = router;

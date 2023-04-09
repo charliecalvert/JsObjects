@@ -1,12 +1,37 @@
+
+#==================#
+#=== Elven Code ===#
+#==================#
+
 if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent` 
+    eval `ssh-agent`
 fi
 
+set-node-path () {
+    if ! echo "$NODE_PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        export NODE_PATH="$1:$NODE_PATH"
+    fi
+}
+
+set-system-path () {
+    if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        export PATH="$1:$PATH"
+    fi
+}
+
+# General
+set-system-path "$HOME/bin"
 export CHROME_BIN=/usr/bin/chromium-browser
 
-export NODE_PATH=:$HOME/npm/lib/node_modules
-export PATH="$PATH:$HOME/npm/bin"
-export PYTHONPATH=${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/:$HOME/bin/pynao
+# Node Support
+set-node-path "$HOME/npm/lib/node_modules"
+set-system-path "$HOME/npm/bin"
+
+# Yarn Support
+set-system-path "$HOME/.config/yarn/global/node_modules/.bin"
+
+# Python Support
+export PYTHONPATH="${PYTHONPATH}:$JSOBJECTS/Python/:$JSOBJECTS/Python/Utils/"
 
 # Java Path Support
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
@@ -14,5 +39,21 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 # Android Path Support
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_PLATFORM_TOOLS="$HOME/Android/Sdk/platform-tools"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS:
+set-system-path "$ANDROID_HOME/tools:$ANDROID_PLATFORM_TOOLS"
+
+export PORT=30025
+export SERVER_PORT=30026
+# export BROWSER=chromium-browser
+# export BROWSER=google-chrome
+
+# Edit and uncomment to load ssh main-key automatically.
+#ssh-add -l | grep -q "main-key"
+#if [ $? -eq 0 ]; then
+#   echo main-key already loaded
+#else
+#   echo loading main-key
+#   ssh-add ~/.ssh/main-key
+#fi
+
+# === End Elven Code === #
 

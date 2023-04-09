@@ -2,35 +2,34 @@
  * New node file
  */
 
-if ( typeof define !== 'function') {
+if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(function(require) {'use strict';
+define(function(require) {
+    'use strict';
 
-    var Sloop = function() {
-
-    };
+    var Sloop = function() {};
 
     Sloop.prototype = {
-        tack : function() {
-            return "Sloop tack called.";
+        tack: function() {
+            return 'Sloop tack called.';
         },
 
-        luff : function() {
-            return "Sloop luff called.";
+        luff: function() {
+            return 'Sloop luff called.';
         },
 
-        reach : function() {
-            return "Sloop reach called.";
+        reach: function() {
+            return 'Sloop reach called.';
         },
 
-        anchor : function() {
-            return "Sloop anchor called.";
+        anchor: function() {
+            return 'Sloop anchor called.';
         },
 
-        dock : function() {
-            return "Sloop dock called.";
+        dock: function() {
+            return 'Sloop dock called.';
         }
     };
 

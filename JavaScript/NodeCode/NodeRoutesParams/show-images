@@ -1,0 +1,1 @@
+docker images --format "{{.ID}}: {{.Tag}} {{.Repository}}"

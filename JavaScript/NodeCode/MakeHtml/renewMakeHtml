@@ -1,12 +1,13 @@
 #! /bin/bash
 
-INSTALL_DIR=$HOME/Source
-MAKE_HTML=$INSTALL_DIR/MakeHtml
+INSTALL_DIR="$HOME/Source"
+MAKE_HTML="$INSTALL_DIR/MakeHtml"
 CONFIG_NAME=ElvenConfig.json
-CONFIG_FILE=$MAKE_HTML/config/$CONFIG_NAME
-TEMP_DIR=$HOME/temp
-TEMP_CONFIG_FILE=$TEMP_DIR/$CONFIG_NAME
-
+CONFIG_DIR="$MAKE_HTML/config"
+CONFIG_FILE="$CONFIG_DIR/$CONFIG_NAME"
+TEMP_DIR="$HOME/temp"
+TEMP_CONFIG_FILE="$TEMP_DIR/$CONFIG_NAME"
+SOURCE_DIR="$JSOBJECTS/JavaScript/NodeCode/MakeHtml"
 
 TODAY=`date +%Y-%m-%d.%H:%M:%S`
 TEMP_CONFIG_DATE_FILE=$TEMP_DIR/$CONFIG_NAME-$TODAY
@@ -16,7 +17,7 @@ function checkDir() {
         echo "$1 exists"
     else
         echo "$1 does not exist. Creating it."
-        mkdir $1
+        mkdir -p $1
     fi
 }
 
@@ -24,17 +25,22 @@ function backupConfig() {
     if [ -f "$CONFIG_FILE" ]; then
         echo "$CONFIG_FILE exists."
         echo "Copying it to $TEMP_DIR"
-        cp -v $CONFIG_FILE $TEMP_DIR/.
-        cp -v $CONFIG_FILE $TEMP_CONFIG_DATE_FILE
+        cp -v "$CONFIG_FILE" "$TEMP_DIR/."
+        cp -v "$CONFIG_FILE" "$TEMP_CONFIG_DATE_FILE"
     else
         echo "$CONFIG_FILE" does not exist
+        checkDir "$CONFIG_DIR"
+        cp "$SOURCE_DIR/config/ElvenConfig.json" "$CONFIG_FILE"
+        sed -i "s/bcuser/${USER}/g" "$CONFIG_FILE"
     fi
 }
 
 function restoreConfig() {
+    echo "IN RESTORE CONFIG"
     if [ -f "$TEMP_CONFIG_DATE_FILE" ]; then
         echo "The Config file ($TEMP_CONFIG_DATE_FILE) exists."
         echo "Copying it to $CONFIG_FILE"
+        checkDir $MAKE_HTML/config
         cp -v $TEMP_CONFIG_DATE_FILE $CONFIG_FILE
     else
         echo "$TEMP_CONFIG_DATE_FILE" does not exist.
@@ -42,7 +48,7 @@ function restoreConfig() {
 }
 
 function deleteMakeHtml() {
-    if [ -d "$MAKE_HTML" ]; then
+    if [ -d "$MAKE_HTML/views" ]; then
         echo "Deleting $MAKE_HTML"
         rm -r "$MAKE_HTML"
     else
@@ -51,10 +57,21 @@ function deleteMakeHtml() {
 }
 
 function buildMakeHtml() {
-    cp -r $JSOBJECTS/JavaScript/NodeCode/MakeHtml/ .
+    echo "Building MakeHtml New"
+    checkDir "$MAKE_HTML"
+    cd "$MAKE_HTML"
+    echo "Current Directory: "
+    pwd
+    # Exclude config sub-directory but include files
+    rsync -a -f"- config" -f"+ *" "$SOURCE_DIR/" "$MAKE_HTML/"
+
+    # cp -v "${JSOBJECTS}"/JavaScript/NodeCode/MakeHtml/* "$MAKE_HTML"/.
+    # checkDir "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views"
+    # echo "About to copy views"
+    # cp -r "$JSOBJECTS/JavaScript/NodeCode/MakeHtml/views/* ."
+    # echo "Copied views"
     cd MakeHtml
     npm install
-    npm start
 }
 
 function linkToRenewMakeHtml() {
@@ -62,7 +79,7 @@ function linkToRenewMakeHtml() {
     if [ -f "$RMH" ]; then
         rm -v "$RMH"
     fi
-    ln -s $HOME/Git/JsObjects/JavaScript/NodeCode/MakeHtml/renewMakeHtml $HOME/Source/renewMakeHtml
+    ln -s "$SOURCE_DIR/renewMakeHtml" $HOME/Source/renewMakeHtml
 }
 
 function run() {
@@ -79,6 +96,7 @@ function run() {
     buildMakeHtml
     restoreConfig
     linkToRenewMakeHtml
+    npm start
 }
 
 run

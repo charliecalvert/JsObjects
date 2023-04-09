@@ -1,0 +1,29 @@
+#! /bin/bash
+
+function message {
+    echo
+    echo =======================
+    echo "$1"
+    echo =======================
+    echo
+}
+
+message "Pulling JsObjects on $HOSTNAME"
+cd $HOME/Git/JsObjects
+pwd
+git pull
+
+message "Pulling Prog 109 Notes on $HOSTNAME"
+cd $HOME/Git/prog109-notes
+pwd
+git pull
+
+message "Pulling charliecalvert.github.io on $HOSTNAME" 
+cd $HOME/Git/charliecalvert.github.io
+pwd
+git pull
+
+message "Pulling CloudNotes on $HOSTNAME"
+cd $HOME/Git/CloudNotes
+pwd
+git pull
