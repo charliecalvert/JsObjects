@@ -1,13 +1,12 @@
 {
   "name": "lookup-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "proxy": "http://localhost:30026/",
   "config": {
     "port": "30025"
   },
-  "devDependencies": {
-      },
+  "devDependencies": {},
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

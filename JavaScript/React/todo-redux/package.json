@@ -1,6 +1,6 @@
 {
     "name": "todo-redux",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "dependencies": {
         "prop-types": "^15.8.1",
@@ -10,9 +10,7 @@
         "react-scripts": "5.0.1",
         "redux": "^4.2.1"
     },
-    "devDependencies": {
-
-    },
+    "devDependencies": {},
     "scripts": {
         "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
         "build": "react-scripts build",
