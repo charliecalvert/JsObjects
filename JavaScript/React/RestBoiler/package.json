@@ -1,6 +1,6 @@
 {
   "name": "webpack-express-boilerplate",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "description": "A boilerplate for running a Webpack workflow in Node express",
   "main": "server.js",
   "repository": {
@@ -39,14 +39,12 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "express": "^4.18.2",
-    "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^5.5.0",
     "jsdom": "^21.1.1",
     "json-loader": "^0.5.7",
     "mocha": "^10.2.0",
     "mocha-jsdom": "^2.0.0",
     "postcss-loader": "^7.2.4",
-    "react-addons-test-utils": "^15.6.2",
     "react-transform-hmr": "^1.0.4",
     "rimraf": "^4.4.1",
     "sinon": "^15.0.3",
