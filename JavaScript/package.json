@@ -1,12 +1,13 @@
 {
-  "name": "GruntJavaScript",
+  "name": "javascript-clean-code",
   "version": "0.1.1",
-  "description": "Elven Code",
+  "description": "Elven Code for cleaning up JavaScript code",
   "license": "MIT",
   "repository": "http://github.com/charliecalvert/JsObjects",
-  "devDependencies": {
-    "grunt": "^1.0.4",
-    "grunt-contrib-clean": "^2.0.0"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "delete_node_modules"
   },
+  "devDependencies": {},
   "dependencies": {}
 }
