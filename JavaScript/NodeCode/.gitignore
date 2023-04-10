@@ -3,6 +3,7 @@ BuildConfig.java
 .classpath
 project.properties
 bundle.js
+bundle.js.map
 *.map
 *.hot-update.js*
 package-lock.json
