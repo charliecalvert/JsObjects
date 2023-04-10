@@ -2,46 +2,44 @@
  * @author Charlie Calvert
  */
 
-const ArrayAll = (function() {
+const ArrayAll = (function () {
     'use strict';
 
-    function ArrayAll() {
+    function ArrayAll() {}
 
-    }
-
-    ArrayAll.prototype.emptyArray = function() {
+    ArrayAll.prototype.emptyArray = function () {
         return [];
     };
 
-    ArrayAll.prototype.emptyArrayCount = function() {
+    ArrayAll.prototype.emptyArrayCount = function () {
         const empty = [];
         return empty.length;
     };
 
-    ArrayAll.prototype.letterArray = function() {
+    ArrayAll.prototype.letterArray = function () {
         //const empty = [];
         const letters = ['a', 'b', 'c'];
         return letters.length;
     };
 
-    ArrayAll.prototype.arrayConstructor = function() {
+    ArrayAll.prototype.arrayConstructor = function () {
         return new Array(1, 2, 3, 4, 5);
     };
 
-    ArrayAll.prototype.mixedArray = function() {
+    ArrayAll.prototype.mixedArray = function () {
         return ['a', 23, false, 'mixed types in one array'];
     };
 
-    ArrayAll.prototype.convertTextToArray = function(text) {
-        return text.split(" ");
+    ArrayAll.prototype.convertTextToArray = function (text) {
+        return text.split(' ');
     };
 
     // If you pass in [a, b, c] it will return a and leave [b, c]
-    ArrayAll.prototype.takeFirst = function(myArray) {
+    ArrayAll.prototype.takeFirst = function (myArray) {
         return myArray.shift();
     };
 
-    ArrayAll.prototype.isEqual = function(one, two) {
+    ArrayAll.prototype.isEqual = function (one, two) {
         if (one === two) return true;
 
         if (one === null || two === null) return false;
@@ -60,8 +58,6 @@ const ArrayAll = (function() {
     };
 
     return ArrayAll;
-
-}());
+})();
 
 module.exports = ArrayAll;
-

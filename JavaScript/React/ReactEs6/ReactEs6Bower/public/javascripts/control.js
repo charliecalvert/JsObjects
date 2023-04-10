@@ -3,9 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 */
 
-$(document).ready(function() {
-    'use strict';
-
+$(document).ready(() => {
     class SimpleReact extends React.Component {
         getTwo(x) {
             console.log(x);
@@ -16,7 +14,10 @@ $(document).ready(function() {
             return (
                 <div>
                     <h1>This is a react component</h1>
-                    <p>Here is the number two times three: {this.getTwo(3)}</p>
+                    <p>
+                        Here is the number two times three:
+                        {this.getTwo(3)}
+                    </p>
                 </div>
             );
         }

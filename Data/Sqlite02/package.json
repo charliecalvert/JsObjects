@@ -1,6 +1,6 @@
 {
   "name": "sqlite02",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Learn SqlLite",
   "main": "server.js",
   "scripts": {
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "sqlite": "^2.9.1"
+    "sqlite": "^4.1.2"
   }
 }

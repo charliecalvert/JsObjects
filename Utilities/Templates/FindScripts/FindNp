@@ -1,6 +1,17 @@
-#!/bin/bash
+BAR="'${1}'"
+# echo -e B A R ${BAR}
+# When passing wildcards, put them in quotes: FindNp "*.js"
+
+NM="'**/node_modules/**'"
+NOTS='-not -path "**/node_modules/**" -not -path "**/bower_components/**"'
+# find . -iname "$@" ${NOTS}
 
 # When passing wildcards, put them in quotes: FindNp "*.js"
 
-find . -iname "$1" -not -path "**/node_modules/**" -not -path "**/bower_components/**" 
+find . -iname "$1" -not -path "**/node_modules/**" -not -path "**/bower_components/**" -not -path "**/.git/**"
+
+echo -e -------------------------------------
+echo -e  "This was the command that was run:"
+echo -e -------------------------------------
+echo -e find . -iname ${BAR} ${NOTS}
 

@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 Basic node server with support for:
 
@@ -9,17 +9,34 @@ Basic node server with support for:
 
 To run:
 
-    npm i
-    npm run build
-    npm start
+```bash
+npm i
+npm run build
+npm start
+```
+
+## Gotchya
+
+I kept getting: "Module not found: Error: Can't resolve './Routing' in '/home/ubuntu/Git/JsObjects/JavaScript/React/ReactRouterDomBasics/source'"
+
+I sorted it ou with this in webpack.config.js:
+
+```javascript
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+```
 
 ## React Router DOM
 
 Install:
 
-        npm i react react-dom
-        npm i react-router-dom
-        npm i style-loader css-loader
+```bash
+# npm i react react-dom
+npm i react-router-dom
+npm i style-loader css-loader
+npm i @babel/plugin-transform-runtime
+```
 
 ## Client Side
 
@@ -37,4 +54,3 @@ Create react function components **Part One** and **Part Two**.
 The usual Node JS code in **views** and **routes**.
 
 Note **root** in **index.pug**.
-

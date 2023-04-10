@@ -35,16 +35,19 @@ alias killchromium="pkill -9 chromium"
 alias killnode="killall node"
 #alias killchrome2="kill -9 `ps -A | grep chrome | cut -d "?" -f1`"
 
+# bashrc and bash_aliases
+alias sb="source ~/.bashrc"
+
 # Commands
 alias sshadd="ssh-add $ELF_SSH_DIR/main-key"
 alias bcy="build-concurrency"
 alias dsee="docker container ls -a && echo 'Docker Images:' && docker image ls -a && echo 'Docker Volumes:' && docker volume ls && echo Docker networks: && docker network ls"
 alias drms="docker ps -a -q | xargs docker container stop"
 alias drmc="docker ps -a -q | xargs docker container rm"
-alias drmi="docker image ls | grep 'week04' | xargs docker image rm"
+alias drmi="docker image ls | grep 'micro-qux' | xargs docker image rm"
 alias drmg="docker image ls | grep 'git-tester' | xargs docker image rm && docker image prune"
 alias drmv="docker volume ls | xargs docker volume rm"
-alias drmn="docker network ls | grep 'week04' | xargs docker network rm"
+alias drmn="docker network ls | grep 'micros' | xargs docker network rm"
 alias drip="docker image prune"
 alias drsp='docker system prune --all --force --volumes'
 alias gossh="cd $ELF_SSH_DIR/"
@@ -65,7 +68,8 @@ alias runcln='cd client && npm i && cd ../server && npm i && bower install && cd
 alias runmicros='cd git-gist && npm i && cd ../qux && pwd && npm i && bower install && cd ../git-user && pwd && npm i && bower install && cd ..'
 alias runa="runcln && cd micros && runmicros && cd ../project-sanity-tests && runtest"
 alias runtest='npm i && npm test'
-alias runcs='cd client && npm i && cd ../server && npm i && npm start'
+alias runew="npm i && cd server/ && npm i && cd .."
+alias runcs='cd client && npm i && cd ../server && cd .. && npm i && npm start'
 alias yni="yarn install"
 alias runt="yarn && yarn test"
 alias gck='npm install && bower install && grunt check'
@@ -97,6 +101,7 @@ alias joj="cd $JSOBJECTS/JavaScript"
 alias joui="cd $JSOBJECTS/Utilities/InstallScripts"
 alias jon="cd $JSOBJECTS/JavaScript/NodeCode"
 alias jop="cd $JSOBJECTS/Python"
+alias jor="cd $JSOBJECTS/JavaScript/React"
 alias jos="cd $JSOBJECTS/JavaScript/Syntax"
 alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"

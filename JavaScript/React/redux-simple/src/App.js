@@ -5,11 +5,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            statement: 'No comment'
+            statement: 'No comment',
         };
 
         this.props.store.subscribe(() => {
-            this.setState(prevState => {
+            this.setState((prevState) => {
                 const storeState = this.props.store.getState();
                 console.log(storeState);
                 return { statement: storeState.statement };
@@ -36,8 +36,13 @@ class App extends Component {
                     <h2>Welcome to React and Redux App</h2>
                 </div>
                 <p className="App-intro">
-                    This component uses Redux and receives{' '}
-                    <strong>store</strong> as <strong>props</strong>.
+                    This component uses Redux and receives
+                    {' '}
+                    <strong>store</strong>
+                    {' '}
+                    as
+                    <strong>props</strong>
+                    .
                 </p>
                 <h1>Political Science</h1>
                 {this.state.statement}

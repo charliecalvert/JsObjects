@@ -1,9 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-    'use strict';
+router.get('/', (req, res) => {
     res.send('respond with a resource');
 });
 

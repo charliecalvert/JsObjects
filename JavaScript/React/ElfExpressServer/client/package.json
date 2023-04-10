@@ -1,32 +1,18 @@
 {
   "name": "lookup-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "proxy": "http://localhost:30026/",
   "config": {
     "port": "30025"
   },
-  "devDependencies": {
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "react-scripts": "3.1.1",
-    "redux-devtools": "^3.5.0",
-    "redux-devtools-dock-monitor": "^1.1.3",
-    "redux-devtools-log-monitor": "^1.4.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-redux": "^4.0.8",
-    "redux": "^4.0.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "redux": "^4.2.1"
   },
   "browserslist": [
     ">0.2%",

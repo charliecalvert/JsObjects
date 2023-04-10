@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "mkdirp": "^0.5.0"
+    "mkdirp": "^2.1.6"
   }
 }

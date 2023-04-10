@@ -1,0 +1,34 @@
+{
+  "name": "foo",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "jest-serializer-enzyme": "^1.0.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-native-scripts": "2.0.1",
+    "react-test-renderer": "18.2.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "!node_modules/react-runtime"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "expo": "^48.0.10",
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "~0.71.6"
+  }
+}

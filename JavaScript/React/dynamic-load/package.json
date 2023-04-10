@@ -1,0 +1,22 @@
+{
+    "name": "03-loading-components-on-demand",
+    "version": "1.0.2",
+    "description": "",
+    "keywords": [],
+    "main": "src/index.js",
+    "dependencies": {
+        "nanoid": "^4.0.2",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "styled-components": "5.3.9"
+    },
+    "devDependencies": {
+        "typescript": "5.0.4"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}

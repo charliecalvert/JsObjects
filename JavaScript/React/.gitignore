@@ -2,5 +2,6 @@ foo
 basic
 food-lookup-demo
 !components/
-before.txt
+bundle.js
 after.txt
+before.txt

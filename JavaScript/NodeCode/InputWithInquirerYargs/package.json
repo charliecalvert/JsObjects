@@ -10,8 +10,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.9.0",
+    "commander": "^10.0.0",
     "terminal-menu": "^2.1.1",
-    "yargs": "^4.2.0"
+    "yargs": "^17.7.1"
   }
 }

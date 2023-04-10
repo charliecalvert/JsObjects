@@ -4,7 +4,7 @@
   "description": "Log arrays with ES6",
   "main": "work.js",
   "scripts": {
-	  "start": "node bundle/work.js",
+    "start": "node bundle/work.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/babel work.js -d bundle"
   },
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1"
   }
 }

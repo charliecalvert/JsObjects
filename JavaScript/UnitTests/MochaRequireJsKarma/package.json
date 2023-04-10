@@ -21,16 +21,16 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "requirejs": "^2.1.15"
+    "requirejs": "^2.3.6"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
-    "karma": "^0.12.31",
+    "chai": "^4.3.7",
+    "karma": "^6.4.1",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-mocha": "^0.1.10",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-mocha": "^2.0.1",
     "karma-phantomjs-launcher": "^0.1.4",
-    "karma-requirejs": "^0.2.2",
-    "mocha": "^2.1.0"
+    "karma-requirejs": "^1.1.0",
+    "mocha": "^10.2.0"
   }
 }

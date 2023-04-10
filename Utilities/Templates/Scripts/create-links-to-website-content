@@ -6,25 +6,65 @@ CONTENT_LINK=$HOME/Content
 #	mkdir $CONTENT
 #fi
 
-if [ -z "$ELF_WRITE" ]; then
-	echo "Need to set ELF_WRITE"
-	echo "Is .bash_aliases set up?"
+if [ -z "$JSOBJECTS" ]; then
+	echo "Need to set JSOBJECTS"
+	echo "Are .bash_aliases and .my_bash_aliases set up?"
+	echo "ln -s $SETUP_LINUXBOX/.bash_aliases ~/.bash_aliases"
+	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+	echo "git clone https://github.com/charliecalvert/JsObjects.git"
 	exit 1
+else
+	echo "JsObjects already set."
 fi
 
 if [ -z "$GIT_HOME" ]; then
 	echo "Need to set GIT_HOME"
 	echo "Is .bash_aliases set up?"
+	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+	echo "git clone https://github.com/charliecalvert/JsObjects.git"
+	echo "ln -s $SETUP_LINUXBOX/.bash_aliases ~/.bash_aliases"
 	exit 1
-fi 
+fi
 
-if [ ! -d "$ELF_WRITE" ]; then
-	echo $ELF_WRITE does not exist
+if [ -z "$JSOBJECTS" ]; then
+	echo "Need to set JSOBJECTS"
+	echo "Are .bash_aliases and .my_bash_aliases set up?"
+	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+	echo "git clone https://github.com/charliecalvert/JsObjects.git"
+	exit 1
+fi
+
+if [ -z "$CLOUDNOTES" ]; then
+	echo "Need to set CLOUDNOTES"
+	echo "Are .bash_aliases and .my_bash_aliases set up?"
+	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+	echo "git clone git@github.com:charliecalvert/CloudNotes"
+	exit 1
+fi
+
+#if [ -z "$ELF_WRITE" ]; then
+#	echo "Need to set ELF_WRITE"
+#	echo "Is .bash_aliases set up?"
+#	echo "ln -s $SETUP_LINUXBOX/.my_bash_aliases ~/.my_bash_aliases"
+#	exit 1
+#fi
+ 
+
+#if [ ! -d "$ELF_WRITE" ]; then
+#	echo $ELF_WRITE does not exist
+#	exit 1
+#fi
+
+if [ ! -d "$ELVEN_WEB/routes" ]; then
+	echo $ELVEN_WEB/routes does not exist
+	echo creating:
+	echo "ln -s $ELVEN_WEB/server/routes $ELVEN_WEB/routes"
+	ln -s $ELVEN_WEB/server/routes $ELVEN_WEB/routes
 	exit 1
 fi
 
 ln -s $GIT_HOME/CloudNotes CloudNotes
-ln -s $ELF_WRITE/Elvenware Elvenware
+ln -s $GIT_HOME/CloudNotes/elvenware Elvenware
 ln -s $GIT_HOME/prog109-notes prog109
 
 # ln -s $GIT_HOME/CloudNotes $CONTENT/CloudNotes

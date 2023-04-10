@@ -1,10 +1,10 @@
 {
   "name": "ParseMagic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse Magic Cards",
   "main": "ParseMagic.js",
   "dependencies": {
-    "mongoose": "^4.0.4"
+    "mongoose": "^7.0.3"
   },
   "devDependencies": {},
   "scripts": {

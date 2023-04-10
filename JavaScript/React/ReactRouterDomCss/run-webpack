@@ -1,0 +1,5 @@
+npx webpack
+echo ---------------------------------------
+echo -- Alternative to this script ---------
+echo -- npm run build ----------------------
+echo ---------------------------------------

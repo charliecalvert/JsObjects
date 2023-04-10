@@ -5,7 +5,7 @@ const app = {
     arrayAll: null,
     csvToArray: null,
 
-    init: function() {
+    init: function () {
         'use strict';
         if (!this.arrayAll) {
             this.arrayAll = new ArrayAll();
@@ -15,7 +15,7 @@ const app = {
             this.csvToArray = new CsvToArray();
         }
         return this.arrayAll;
-    }
+    },
 };
 
 module.exports = app;

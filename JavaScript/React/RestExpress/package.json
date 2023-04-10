@@ -1,31 +1,31 @@
 {
     "name": "restexpress",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": true,
     "scripts": {
         "start": "nodemon ./bin/www",
         "build": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
-        "cookie-parser": "~1.4.4",
-        "debug": "~4.1.1",
-        "express": "~4.17.1",
-        "http-errors": "~1.7.3",
-        "morgan": "~1.9.1",
-        "pug": "2.0.4",
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "cookie-parser": "~1.4.6",
+        "debug": "~4.3.4",
+        "express": "~4.18.2",
+        "http-errors": "~2.0.0",
+        "morgan": "~1.10.0",
+        "pug": "3.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.6.0",
-        "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "@babel/preset-env": "^7.6.0",
-        "@babel/preset-react": "^7.0.0",
-        "babel-loader": "^8.0.6",
-        "css-loader": "^3.2.0",
-        "style-loader": "^1.0.0",
-        "webpack": "^4.39.3",
-        "webpack-cli": "^3.3.8",
-        "webpack-dev-server": "^3.8.0"
+        "@babel/core": "^7.21.4",
+        "@babel/plugin-proposal-class-properties": "^7.18.6",
+        "@babel/preset-env": "^7.21.4",
+        "@babel/preset-react": "^7.18.6",
+        "babel-loader": "^9.1.2",
+        "css-loader": "^6.7.3",
+        "style-loader": "^3.3.2",
+        "webpack": "^5.78.0",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.13.2"
     }
 }

@@ -1,12 +1,12 @@
-//var path = require('path');
-//var webpack = require('webpack');
+// var path = require('path');
+// var webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
     entry: './main.js',
     output: {
         path: __dirname,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     devtool: 'source-map',
     module: {
@@ -16,10 +16,10 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
-                        loader: 'babel-loader'
-                    }
-                ]
-            }
-        ]
-    }
+                        loader: 'babel-loader',
+                    },
+                ],
+            },
+        ],
+    },
 };

@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+ESLINT_DIR=/tmp/eslint-dir
+
+function removeDir {
+    if [ -d $ESLINT_DIR ]; then
+        rm -rf $ESLINT_DIR
+        echo "Deleted " $ESLINT_DIR
+    fi
+}
+
+function getGist() {
+    removeDir
+    git clone $1 $ESLINT_DIR
+    echo -e "NUMBER 2 = $2"
+    cp -v $ESLINT_DIR/$2 .
+}
+
+getGist $1 $2
