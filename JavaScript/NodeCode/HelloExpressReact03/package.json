@@ -27,6 +27,6 @@
         "babel-preset-stage-0": "^6.24.1",
         "css-loader": "^6.7.3",
         "style-loader": "^3.3.2",
-        "webpack": "^5.78.0"
+        "webpack": "^5.79.0"
     }
 }

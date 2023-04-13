@@ -11,7 +11,7 @@
     "zipIt": "node zip-it.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.1353.0",
+    "aws-sdk": "^2.1357.0",
     "babel-loader": "^9.1.2",
     "body-parser": "~1.20.2",
     "cookie-parser": "~1.4.6",
@@ -25,7 +25,7 @@
     "static-favicon": "~1.0.2",
     "supertest": "^6.3.3",
     "walk": "2.3.15",
-    "webpack": "^5.78.0",
+    "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1"
   },
   "devDependencies": {

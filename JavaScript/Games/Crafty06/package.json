@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "walk": "2.3.15",
-    "aws-sdk": ">=2.1353.0"
+    "aws-sdk": ">=2.1357.0"
   },
   "devDependencies": {
     "karma-script-launcher": "~1.0.0",
