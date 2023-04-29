@@ -1,11 +1,44 @@
 #! /usr/bin/env bash
 
-npm i -g eslint eslint-plugin-flowtype eslint-plugin-import
-npm i -g eslint-plugin-jsx-a11y eslint-plugin-react
-npm i -g babel-eslint eslint-plugin-react-hooks
-npm i -g eslint-config-react-app eslint-config-airbnb-base
-npm i -g eslint-config-fortech-react eslint-plugin-react
+COLORS="${ELF_SCRIPTS}"/Colors.sh
 
+echo -e ${COLORS}
+# Load Colors
+if [ -f ${COLORS} ]; then
+    # echo -e Turning on colors
+    . "${COLORS}"
+    # echo -e "${Green}Colors file loaded${Color_Off}"
+else
+    echo -e "${Red}Colors file not found${Color_Off}"
+    exit 1  # Stop the script
+fi
+
+function install() {
+    echo -e "${Green}"Installing old eslint packages${Color_Off}
+    npm config set prefix ~/npm
+    npm i -g eslint eslint-plugin-flowtype eslint-plugin-import
+    npm i -g eslint-plugin-jsx-a11y eslint-plugin-react
+    npm i -g babel-eslint eslint-plugin-react-hooks
+    npm i -g eslint-config-react-app eslint-config-airbnb-base
+    npm i -g eslint-config-fortech-react eslint-plugin-react
+}
+
+function uninstall() {
+    echo -e "${Blue}"Uninstalling old eslint packages${Color_Off}
+    npm r -g eslint eslint-plugin-flowtype eslint-plugin-import
+    npm r -g eslint-plugin-jsx-a11y eslint-plugin-react
+    npm r -g babel-eslint eslint-plugin-react-hooks
+    npm r -g eslint-config-react-app eslint-config-airbnb-base
+    npm r -g eslint-config-fortech-react eslint-plugin-react
+}
 # npm remove -g eslint eslint-config-react-app eslint-plugin-flowtype eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint eslint-plugin-react-hooks eslint-config-airbnb-base eslint-config-fortech-react
 
 # npm install -g @typescript-eslint/eslint-plugin @typescript-eslint/parser
+
+while [ "$1" != "" ]; do
+    case $1 in
+        [Ii]* ) install; shift;;
+        [Uu]* ) uninstall; shift;;
+        [Xx]* ) break;;
+    esac
+done

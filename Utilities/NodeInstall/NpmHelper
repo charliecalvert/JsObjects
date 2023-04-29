@@ -5,7 +5,7 @@ npm config set prefix ~/npm
 function message {
     echo
     echo =======================
-    echo $1
+    echo "$1"
     echo =======================
     echo
 }
@@ -16,22 +16,38 @@ function clean() {
 
 function essentials() {
     message "Installing Essentials"
+    npm install -g npm@latest nodemon npm-check-updates
+}
+
+function essentials_old() {
+    message "Installing Old Essentials"
     npm install -g eslint babel-eslint
     npm install -g eslint-plugin-react
     npm install -g create-react-app
     npm install -g grunt-cli bower
     npm install -g elf-express-generator express-generator    
-    npm install -g jade pug-cli
+    npm install -g pug-cli
     npm install -g prettier js-beautify html-beautify
-    npm install -g npm@latest nodemon npm-check-updates
-    $NODE_UTILS/EsLintInstall
+    "${NODE_UTILS}"/EsLintInstall
+}
+
+function uninstall_essentials_old() {
+    message "Installing Old Essentials"
+    npm uninstall -g eslint babel-eslint
+    npm uninstall -g eslint-plugin-react
+    npm uninstall -g create-react-app
+    npm uninstall -g grunt-cli bower
+    npm uninstall -g elf-express-generator express-generator    
+    npm uninstall -g pug-cli
+    npm uninstall -g prettier js-beautify html-beautify
+    "${NODE_UTILS}"/EsLintInstall
 }
 
 function unitTests {
     message "Installing Unit Test related code"
-    npm install -g mocha
-    npm install -g karma-cli
-    npm install -g phantomjs-prebuilt
+    # npm install -g mocha
+    # npm install -g karma-cli
+    # npm install -g phantomjs-prebuilt
 }
 
 echo "You start with $# positional parameters"
@@ -40,6 +56,8 @@ while [ "$1" != "" ]; do
     case $1 in
         [Cc]* ) clean; shift;;
         [Ee]* ) essentials; shift;;
+        [Oo]* ) essentials_old; shift;;
+        [Rr]* ) uninstall_essentials_old; shift;;
         [Uu]* ) unitTests; shift;;
         [Xx]* ) break;;
     esac
