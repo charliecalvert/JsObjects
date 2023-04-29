@@ -29,56 +29,57 @@ function message {
     echo
 }
 
-function gitSetup() {
-    if [ ! -d "$GIT_HOME" ]; then
-        echo "=> Creating Git directory"
-        mkdir ~/Git
-    else
-        echo "=> Git directory already exists"
-    fi
-    cd ~/Git || exit
-    if [ ! -d "$JSOBJECTS" ]; then
-        echo "=> Cloning JsObjects"
-        git clone https://github.com/charliecalvert/JsObjects.git
-    else
-        echo "=> JsObjects already exists"
-    fi
-}
+# Clone JsObjects
+# function gitSetup() {
+#     if [ ! -d "$GIT_HOME" ]; then
+#         echo "=> Creating Git directory"
+#         mkdir ~/Git
+#     else
+#         echo "=> Git directory already exists"
+#     fi
+#     cd ~/Git || exit
+#     if [ ! -d "$JSOBJECTS" ]; then
+#         echo "=> Cloning JsObjects"
+#         git clone https://github.com/charliecalvert/JsObjects.git
+#     else
+#         echo "=> JsObjects already exists"
+#     fi
+# }
 
-function setBashAliasAndSymbolicLinks() {
-    if [ -f "$BASH_ALIAS_LINK" ]; then
-        echo "=> Moving old ~/.bash_aliases to ~/.bash_aliases.old"
-        mv "$BASH_ALIAS_LINK" "$BASH_ALIAS_LINK.old"
-        echo "=> Done"
-    else
-        echo "=> The ~/.bash_aliases does not exist"
-    fi
+# function setBashAliasAndSymbolicLinks() {
+#     if [ -f "$BASH_ALIAS_LINK" ]; then
+#         echo "=> Moving old ~/.bash_aliases to ~/.bash_aliases.old"
+#         mv "$BASH_ALIAS_LINK" "$BASH_ALIAS_LINK.old"
+#         echo "=> Done"
+#     else
+#         echo "=> The ~/.bash_aliases does not exist"
+#     fi
 
-    if [ ! -L "$BASH_ALIAS_LINK" ]; then
-        echo "=> Creating ~/.bash_aliases symbolic link"
-        ln -s "$BASH_ALIAS" "$BASH_ALIAS_LINK"
-        echo "=> Done"
-    else
-        echo "=> ~/.bash_aliases already exists"
-    fi
-    shopt -s expand_aliases
-    /bin/bash "$SETUP_LINUXBOX"/CreateSymbolicLinks
-}
+#     if [ ! -L "$BASH_ALIAS_LINK" ]; then
+#         echo "=> Creating ~/.bash_aliases symbolic link"
+#         ln -s "$BASH_ALIAS" "$BASH_ALIAS_LINK"
+#         echo "=> Done"
+#     else
+#         echo "=> ~/.bash_aliases already exists"
+#     fi
+#     shopt -s expand_aliases
+#     /bin/bash "$SETUP_LINUXBOX"/CreateSymbolicLinks
+# }
 
-function setupBashRc() {
-    if grep -Fq "NODE_PATH" "$BASHRC"
-    then
-        echo "=> Found NODE_PATH in .bashrc. No changes"
-    else
-        echo "=> Did not find NODE_PATH in .bashrc. Adding it."
-        cp "$BASHRC" "$BASHRC.old"
-        if [ "$1" = true ]; then
-            cat "$CNBRE" >> "$BASHRC"
-        else
-            cat "$BASH_RC_EXTRAS" >> "$BASHRC"
-        fi
-    fi
-}
+# function setupBashRc() {
+#     if grep -Fq "NODE_PATH" "$BASHRC"
+#     then
+#         echo "=> Found NODE_PATH in .bashrc. No changes"
+#     else
+#         echo "=> Did not find NODE_PATH in .bashrc. Adding it."
+#         cp "$BASHRC" "$BASHRC.old"
+#         if [ "$1" = true ]; then
+#             cat "$CNBRE" >> "$BASHRC"
+#         else
+#             cat "$BASH_RC_EXTRAS" >> "$BASHRC"
+#         fi
+#     fi
+# }
 
 function clean() {
     if [ -d "$GIT_HOME" ]; then
@@ -133,9 +134,9 @@ function nodePackages() {
 
 function runBasics() {
 	#$SETUP_LINUXBOX/UbuntuSetupHelper b
-    gitSetup
-    setBashAliasAndSymbolicLinks
-    setupBashRc "$1"
+    # gitSetup
+    # setBashAliasAndSymbolicLinks
+    # setupBashRc "$1"
     sudo apt install ssh -y
     # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 }
@@ -150,9 +151,9 @@ function installGuiApps() {
 
 function runAll() {
     "$SETUP_LINUXBOX"/UbuntuSetupHelper a
-    runBasics "$1"
-    nodeSetup
-    nodePackages
+    # runBasics "$1"
+    # nodeSetup
+    # nodePackages
 }
 
 if [ "$1" = "b" ]; then

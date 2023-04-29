@@ -136,6 +136,7 @@ function runBasics() {
     gitSetup
     setBashAliasAndSymbolicLinks
     setupBashRc "$1"
+    sudo apt install ssh -y
 }
 
 function runAll() {
