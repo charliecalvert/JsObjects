@@ -91,3 +91,4 @@ createLink "$ELF_SCRIPTS"/ drmclean
 createLink "$ELF_SCRIPTS"/ show-gist
 createLink "$ELF_SCRIPTS"/ get-basic-react-code
 createLink "$ELF_UTILS"/SetupLinuxBox/ Provision
+createLink "$ELF_SCRIPTS"/ run-copy-to-aws.sh
