@@ -60,10 +60,10 @@ createLink "$ELF_UTILS"/SetupLinuxBox/ strip-triple-spaces
 createLink "$ELF_UTILS"/SetupLinuxBox/ StartPythonWebServer
 createLink "$ELF_UTILS"/NodeInstall/ TestReady
 createLink "$ELF_UTILS"/NodeInstall/ TestCheck
-createLink "$ELF_UTILS"/GrepScripts/ elfgrepcomps
-createLink "$ELF_UTILS"/GrepScripts/ elfgrephtml
-createLink "$ELF_UTILS"/GrepScripts/ elfgrepmd
-createLink "$ELF_UTILS"/GrepScripts/ CheckBower
+createLink "$ELF_TEMPLATES"/GrepScripts/ elfgrepcomps
+createLink "$ELF_TEMPLATES"/GrepScripts/ elfgrephtml
+createLink "$ELF_TEMPLATES"/GrepScripts/ elfgrepmd
+createLink "$ELF_TEMPLATES"/GrepScripts/ CheckBower
 createLink "$ELF_TEMPLATES"/UnitTest/ FixtureReady
 createLink "$ELF_TEMPLATES"/React/ ReactNpm
 createLink "$ELF_TEMPLATES"/FindScripts/ FindNp
