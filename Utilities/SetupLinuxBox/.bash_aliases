@@ -3,7 +3,6 @@
 # Exports
 
 export GIT_HOME=$HOME/Git
-export GIT_HUB_IO=$GIT_HOME/charliecalvert.github.io
 export JSOBJECTS=$GIT_HOME/JsObjects
 export ELF_UTILS=$JSOBJECTS/Utilities
 export NODE_UTILS=$JSOBJECTS/Utilities/NodeInstall
