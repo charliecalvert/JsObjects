@@ -1,3 +1,13 @@
-# aws s3 cp s3://s3bucket01.elvenware.com/dev-images/cloud-images/Node01.png .
-aws s3 cp s3://s3bucket01.elvenware.com/dev-images/cloud-images/ /home/ubuntu/Git/charliecalvert.github.io/assets/images/. --recursive --exclude "*" --include "Node0*"
-# aws s3 cp s3://s3bucket01.elvenware.com/dev-images/cloud-images/ . --exclude "*" --include "Node0*" 
+#! /bin/bash
+
+S3_CLOUD_IMAGES=s3://s3bucket01.elvenware.com/dev-images/cloud-images/
+DESTINATION=${CHARLIE_IO}/assets/images/.
+
+# FLAGS=--recursive --exclude "*" --include "Node0*"
+FLAGS='--recursive --exclude "*" --include "Azure*"'
+COMMAND="aws s3 cp ${S3_CLOUD_IMAGES} ${DESTINATION} ${FLAGS}"
+
+echo ${COMMAND}
+${COMMAND}
+# aws ${COMMAND}
+# aws s3 cp ${S3_CLOUD_IMAGES} ${DESTINATION} ${FLAGS}
