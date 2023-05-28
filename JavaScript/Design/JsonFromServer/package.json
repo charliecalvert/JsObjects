@@ -1,16 +1,24 @@
 {
   "name": "JsonFromServer",
   "version": "0.1.0",
+  "description": "A simple app to get json from server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "grunt build",
+    "testg": "grunt test"
+  },
   "devDependencies": {
     "karma-script-launcher": "~1.0.0",
     "karma-firefox-launcher": "~2.1.2",
-    "karma-chrome-launcher": "~3.1.1",
+    "karma-chrome-launcher": "~3.2.0",
     "karma-html2js-preprocessor": "~1.1.0",
     "karma-requirejs": "~1.1.0",
     "karma-jasmine": "~5.1.0",
     "karma-coffee-preprocessor": "~1.0.1",
     "karma-phantomjs-launcher": "~1.0.4",
-    "karma": "~6.4.1",
+    "karma": "~6.4.2",
     "karma-commonjs": "1.0.0",
     "karma-junit-reporter": "~2.0.1",
     "grunt": "~1.6.1",

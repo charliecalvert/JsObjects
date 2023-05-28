@@ -24,7 +24,7 @@ function processFile(fileInfo, readFile = false) {
     debug('fullPath', fullPath);
     debug('directory', directory);
     debug('fileName', fileName);
-    allDirectories.push(fullPath);
+    allDirectories.push(directory);
 }
 
 async function walk(directory, ext) {
@@ -43,7 +43,7 @@ async function walk(directory, ext) {
             processFile(fileInfo)
         }
     }
-    const jsonFile = `${process.env.JSOBJECTS}/JavaScript/all-directories.json`;
+    const jsonFile = `${process.env.JSOBJECTS}/JavaScript/all-directories.txt`;
     // writeFileSync(jsonFile, JSON.stringify(allDirectories, null, 4));
     const allDirectoriesString = allDirectories.join('\n');
     writeFileSync(jsonFile, `${allDirectoriesString}\n`);

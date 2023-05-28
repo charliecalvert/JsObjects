@@ -8,9 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "delete_node_modules",
-    "start": "DEBUG=joj:clean-all node clean-all.js"
+    "start": "DEBUG=joj:clean-all node find-package-json.js"
   },
   "dependencies": {
+    "chalk": "^5.2.0",
     "elven-code": "^4.14.2",
     "walk-directories": "^4.2.0"
   }
