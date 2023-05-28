@@ -8,7 +8,17 @@ const debug = createDebugMessages('joj:run-npm-start');
 const debugContents = createDebugMessages('joj:run-npm-start:contents');
 
 if (argv.length < 3) {
-    throw new UserException('Usage: node run-npm-start.js <directory>');
+    throw new UserException('Usage: node run-npm-start.js <directory>, or --help');
+}
+if (argv[2] === '--help') {
+    console.log('Usage: node run-npm-start.js <directory>');
+    console.log(`The program looks in directories listed in ${chalk.greenBright('all-directories.txt')} for
+directories that contain the string you provide.`);
+    console.log(`It then runs ${chalk.greenBright('npm install')} in those directories.`);
+    console.log(`It skips directories that contain ${chalk.greenBright('node_modules')} or ${chalk.greenBright('.git.')}`);
+    console.log(`If you pass in ${chalk.greenBright('Design')} then it will run ${chalk.greenBright('npm install')} in
+all the sub-directories of ${chalk.greenBright('Design')} that contain a ${chalk.greenBright('package.json')}.`);
+    process.exit(0);
 }
 
 function checkDirectory(testing = false) {
