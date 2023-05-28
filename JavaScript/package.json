@@ -2,12 +2,16 @@
   "name": "javascript-clean-code",
   "version": "0.1.1",
   "description": "Elven Code for cleaning up JavaScript code",
+  "type": "module",
   "license": "MIT",
   "repository": "http://github.com/charliecalvert/JsObjects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "delete_node_modules"
+    "clean": "delete_node_modules",
+    "start": "DEBUG=joj:clean-all node clean-all.js"
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "elven-code": "^4.14.2",
+    "walk-directories": "^4.2.0"
+  }
 }

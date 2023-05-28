@@ -20,14 +20,14 @@
 	// 	"description": "Log output to console"
 	// }
 	"Print to console": {
-		"prefix": "loggerElf",
+		"prefix": "elven-log",
 		"body": [
 			"console.log('$1');",
 			"$2"
 		],
 	},
 	"Imports": {
-		"prefix": "imports",
+		"prefix": "elven-imports",
 		"body": [
 			"import fs from 'node:fs';",
 			"import fs, { readFileSync } from 'node:fs';",
@@ -41,7 +41,7 @@
 	 * "description": "Log output to console"
 	 */
 	"Import readFileSync": {
-		"prefix": "readFileSync",
+		"prefix": "elven-readFileSync",
 		"body": [
 			"import fs, { readFileSync } from 'node:fs';",
 			"import { readFileSync } from 'node:fs';",
@@ -51,7 +51,7 @@
 		"description": "Log output to console"
 	},
 	"import_writeFileSync": {
-		"prefix": "writeFileSync",
+		"prefix": "elven-writeFileSync",
 		"body": [
 			"import { writeFileSync } from 'node:fs';",
 			"writeFileSync(new URL('./data.proto', import.meta.url), buffer);",
@@ -60,10 +60,11 @@
 		"description": "Log output to console"
 	},
 	"Import walkDirectories": {
-		"prefix": "walkDirectories",
+		"prefix": "elven-walkDirectories",
 		"body": [
 			"import { walkDirectories } from 'walk-directories';",
 			"import { writeFileSync } from 'node:fs';",
+			"import { UserException } from 'elven-code';",
 			"const directory = `${process.env.CLOUDNOTES}/elvenware/development`;",
 			"const ext = '.md';",
 			"const fileInfos = await walkDirectories(directory, ext)",
@@ -82,7 +83,7 @@
 		"description": "Log output to console"
 	},
 	"elven-walkSimple": {
-		"prefix": "walkSimple",
+		"prefix": "elven-walkSimple",
 		"body": [
 			"import { walkSimple } from 'walk-directories';",
 			"import { writeFileSync } from 'node:fs';",
@@ -103,5 +104,13 @@
 			"}",
 			"}"
 		]
+	},
+	"createDebugMessages": {
+		"prefix": "elven-createDebugMessages",
+		"body": [
+			"import createDebugMessages from 'debug';",
+			"const debug = createDebugMessages('dir:filename');"
+		],
+		"description": "debug for imports"
 	}
 }
