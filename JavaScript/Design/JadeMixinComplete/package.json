@@ -15,11 +15,5 @@
     "serve-favicon": "~2.5.0"
   },
   "devDependencies": {
-    "grunt": "~1.6.1",
-    "grunt-develop": "~0.4.0",
-    "grunt-contrib-watch": "~1.1.0",
-    "request": "~2.88.2",
-    "time-grunt": "~2.0.0",
-    "load-grunt-tasks": "~5.1.0"
   }
 }

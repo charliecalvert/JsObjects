@@ -24,6 +24,7 @@ all the sub-directories of ${chalk.greenBright('Design')} that contain a ${chalk
 function checkDirectory(command, checkResult, testing = false) {
     debug('searching for', argv[2]);
     const directories = getDirectoriesList();
+    const brokenDirs = [];
     for (const directory of directories) {
         if (directory.includes(argv[2])) {
             debug('directory', directory);
@@ -42,6 +43,8 @@ function checkDirectory(command, checkResult, testing = false) {
                             execSync('ncu -u');
                         } else if (command === 'npm install') {
                             execSync('npm audit fix');
+                            console.log('npm audit fix', directory);
+                            brokenDirs.push(directory);
                         }
                         continue
                     }
@@ -51,6 +54,9 @@ function checkDirectory(command, checkResult, testing = false) {
                 }
             }
         }
+    }
+    if (brokenDirs.length > 0) {
+        console.log('Broken directories', brokenDirs);
     }
 }
 

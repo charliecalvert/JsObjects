@@ -9,7 +9,7 @@ function checkResultInstall(result, directory) {
     if (!result.toString().includes('found 0 vulnerabilities')) {
         console.log(chalk.redBright('ERROR'), result.toString());
         console.log(chalk.greenBright('directory-b'), directory);
-        return true;
+        return false;
     }
     return true;
 }
