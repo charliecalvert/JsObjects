@@ -40,6 +40,8 @@ function checkDirectory(command, checkResult, testing = false) {
                     if (!checkResult(result, directory)) {
                         if (command === 'ncu') {
                             execSync('ncu -u');
+                        } else if (command === 'npm install') {
+                            execSync('npm audit fix');
                         }
                         continue
                     }
@@ -63,6 +65,8 @@ if (commandType === commandTypes[0]) {
     command = 'ncu';
     checkResult = checkResultNcu
 }
+debug('command', command);
+debug('checkResult', checkResult);
 checkDirectory(command, checkResult);
 
 
