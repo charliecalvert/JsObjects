@@ -20,8 +20,8 @@
     "grunt-contrib-pug": "^3.0.0",
     "grunt-contrib-jasmine": "^4.0.0",
     "grunt-exec": "^3.0.0",
-    "jasmine-core": "^4.6.0",
-    "karma": "^6.4.1",
+    "jasmine-core": "^5.0.0",
+    "karma": "^6.4.2",
     "karma-jasmine": "^5.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-spec-reporter": "^0.0.36"

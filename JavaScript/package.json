@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "delete_node_modules",
-    "start": "DEBUG=joj:clean-all node find-package-json.js"
+    "start": "DEBUG=joj:clean-all node find-package-json.js",
+    "ncu": "DEBUG=joj:run-npm-start node run-npm-install.js Design ncu"
   },
   "dependencies": {
     "chalk": "^5.2.0",

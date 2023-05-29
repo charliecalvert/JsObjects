@@ -15,7 +15,7 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "jasmine-core": "^4.6.0",
+    "jasmine-core": "^5.0.0",
     "jasmine-jquery": "^2.1.1"
   }
 }

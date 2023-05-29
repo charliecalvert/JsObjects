@@ -9,7 +9,7 @@
     "build": "npm i"
   },
   "devDependencies": {
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^29.5.0",
     "requirejs": "~2.3.6"
   },
   "dependencies": {

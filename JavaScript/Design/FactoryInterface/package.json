@@ -23,7 +23,7 @@
     "grunt-contrib-jasmine": "~4.0.0",
     "grunt-jasmine-node-coverage": "~2.0.1",
     "grunt-jsbeautifier": "^0.2.13",
-    "karma": "^6.4.1",
+    "karma": "^6.4.2",
     "grunt-karma": "^4.0.2"
   }
 }
