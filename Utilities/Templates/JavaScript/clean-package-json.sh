@@ -8,6 +8,7 @@ FLAGS='--exclude=bundle.js --exclude=package-lock.json \
 
 LOOKA='grunt-contrib*[^\"]*.|grunt-jasmine*[^\"]*.|grunt-jscs*[^\"]*.'
 LOOKB='phantomjs*[^\"]*.|grunt-lib-phantomjs\"|grunt-karma\"|grunt-jsbeautifier\"'
+LOOKC='node-static\"'
 
 grep -roh --include="*.json" \
     --exclude=bundle.js --exclude=package-lock.json \
@@ -50,4 +51,4 @@ grep -Eroh --include="*.json" \
     --exclude-dir=bower_components \
     --exclude-dir=.config --exclude-dir=.mozilla \
     --exclude-dir=.metadata \
-    "\"(${LOOKA}|${LOOKB})"| xargs -r npm rm
+    "\"(${LOOKA}|${LOOKB}|${LOOKC})"| xargs -r npm rm

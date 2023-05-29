@@ -16,7 +16,7 @@
     "static-favicon": "~1.0.2"
   },
   "devDependencies": {
-    "jasmine": "^5.0.0",
-    "node-static": "~0.7.11"
+    "jest": "^29.5.0",
+    "jest-cli": "^29.5.0"
   }
 }
