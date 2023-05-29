@@ -35,10 +35,10 @@ grep -roh --include="*.json" \
     --exclude-dir=.metadata "\"jade-*[^\"]*." \
     | xargs -r npm rm && npm i pug
 
-grep -roh --include="*.json" \
+grep -Eroh --include="*.json" \
     --exclude=bundle.js --exclude=package-lock.json \
     --exclude-dir=node_modules --exclude-dir=static \
     --exclude-dir=bower_components \
     --exclude-dir=.config --exclude-dir=.mozilla \
-    --exclude-dir=.metadata "\"grunt-jscs*[^\"]*." \
+    --exclude-dir=.metadata "\"(grunt-jscs*[^\"]*.|phantomjs*[^\"]*.|grunt-lib-phantomjs\")" \
     | xargs -r npm rm

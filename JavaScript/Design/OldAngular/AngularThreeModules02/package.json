@@ -20,6 +20,10 @@
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-jsbeautifier": "^0.2.13",
-    "grunt-jscs": "^3.0.1"
+    "jest": "^29.5.0",
+    "jest-cli": "^29.5.0"
+  },
+  "dependencies": {
+    "pug": "^3.0.2"
   }
 }
