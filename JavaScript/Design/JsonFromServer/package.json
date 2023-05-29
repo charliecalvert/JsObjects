@@ -4,29 +4,15 @@
   "description": "A simple app to get json from server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "grunt build",
-    "testg": "grunt test"
+    "test": "jest",
+    "start": "node Server.js",
+    "build": "npm i"
   },
   "devDependencies": {
-    "karma-script-launcher": "~1.0.0",
-    "karma-firefox-launcher": "~2.1.2",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-html2js-preprocessor": "~1.1.0",
-    "karma-requirejs": "~1.1.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-coffee-preprocessor": "~1.0.1",
-    "karma-phantomjs-launcher": "~1.0.4",
-    "karma": "~6.4.2",
-    "karma-commonjs": "1.0.0",
-    "karma-junit-reporter": "~2.0.1",
-    "grunt": "~1.6.1",
-    "grunt-contrib-jshint": "~3.2.0",
-    "grunt-contrib-clean": "~2.0.1",
-    "grunt-contrib-compress": "~2.0.0",
-    "grunt-contrib-copy": "~1.0.0",
-    "requirejs": "~2.3.6",
-    "karma-coverage": "~2.2.0"
+    "babel-jest": "^24.1.0",
+    "requirejs": "~2.3.6"
+  },
+  "dependencies": {
+    "jest": "^29.5.0"
   }
 }
