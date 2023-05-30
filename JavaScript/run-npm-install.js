@@ -1,14 +1,16 @@
 import { exec, execSync } from 'child_process';
 import chalk from 'chalk';
-import { UserException, elfFiles } from 'elven-code';
+import { exceptions } from 'elven-code';
 import createDebugMessages from 'debug';
 import { argv } from 'process';
 import { getDirectoriesList } from './getDirectoriesList.js';
 import { checkResultInstall, checkResultNcu } from './checkResult.js';
+import { log } from 'console';
+import { writeFileSync } from 'fs';
 const debug = createDebugMessages('joj:run-npm-start');
 
 if (argv.length < 3) {
-    throw new UserException('Usage: node run-npm-start.js <directory>, or --help');
+    throw new exceptions.UserException('Usage: node run-npm-start.js <directory>, or --help');
 }
 if (argv[2] === '--help') {
     console.log('Usage: node run-npm-start.js <directory>');
@@ -33,6 +35,7 @@ function checkDirectory(command, checkResult, testing = false) {
                 continue;
             }
             console.log('Running npm install in', directory);
+
             if (!testing) {
                 try {
                     process.chdir(directory);
@@ -51,7 +54,15 @@ function checkDirectory(command, checkResult, testing = false) {
                         continue
                     }
                 } catch (error) {
+                    const cleanPackageJson = `${process.env.ELF_TEMPLATES}/JavaScript/clean-package-json.sh`;
+                    const go = `${process.env.JSOBJECTS}/JavaScript/go.sh`
                     console.log(chalk.redBright(`${command} ERROR:`), error);
+                    console.log(chalk.redBright('ERROR directory: cd'), directory);
+                    console.log(chalk.redBright('ERROR directory: pwd'), execSync('pwd').toString());
+                    console.log(chalk.redBright('Fix it:'), cleanPackageJson );
+                    writeFileSync(go, `cd ${directory}\nsh ${cleanPackageJson}\n`);
+                    log(chalk.redBright('wrote:'), go);
+                    console.log(chalk.redBright('Run:'), 'sh go.sh');
                     process.exit(1);
                 }
             }
