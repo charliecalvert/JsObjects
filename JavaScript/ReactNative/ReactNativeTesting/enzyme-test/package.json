@@ -10,7 +10,7 @@
     "test:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand"
   },
   "dependencies": {
-    "expo": "^48.0.10",
+    "expo": "^48.0.17",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",

@@ -12,7 +12,9 @@
     "ncud": "DEBUG=joj:run-npm-start node run-npm-install.js Design ncu",
     "ncus": "DEBUG=joj:run-npm-start node run-npm-install.js Syntax ncu",
     "npmid": "DEBUG=joj:run-npm-start node run-npm-install.js Design install",
-    "npmis": "DEBUG=joj:run-npm-start node run-npm-install.js Syntax install"
+    "npmis": "DEBUG=joj:run-npm-start node run-npm-install.js Syntax install",
+    "ncur": "DEBUG=joj:run-npm-start node run-npm-install.js React ncu",
+    "npmr": "DEBUG=joj:run-npm-start node run-npm-install.js React install"
   },
   "dependencies": {
     "chalk": "^5.2.0",

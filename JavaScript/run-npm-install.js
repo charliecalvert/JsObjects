@@ -37,7 +37,7 @@ function checkDirectory(command, checkResult, testing = false) {
                 try {
                     process.chdir(directory);
                     const result = execSync(command);
-                    console.log('result', result.toString());
+                    console.log(chalk.bgYellowBright('Command run result:'), result.toString());
                     if (!checkResult(result, directory)) {
                         if (command === 'ncu') {
                             execSync('ncu -u');
@@ -51,7 +51,7 @@ function checkDirectory(command, checkResult, testing = false) {
                         continue
                     }
                 } catch (error) {
-                    console.log('ERROR', error);
+                    console.log(chalk.redBright(`${command} ERROR:`), error);
                     process.exit(1);
                 }
             }
