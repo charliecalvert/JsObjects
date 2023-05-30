@@ -43,6 +43,8 @@ function checkDirectory(command, checkResult, testing = false) {
                             execSync('ncu -u');
                         } else if (command === 'npm install') {
                             execSync('npm audit fix');
+                            // TODO: if audit fix fails, run clean-package-json.sh
+                            // execSync('${ELF_TEMPLATES}/JavaScript/clean-package-json.sh');
                             console.log('npm audit fix', directory);
                             brokenDirs.push(directory);
                         }
