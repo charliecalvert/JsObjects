@@ -134,9 +134,6 @@
 /home/ubuntu/Git/JsObjects/JavaScript/React/redux-simple
 /home/ubuntu/Git/JsObjects/JavaScript/React/simple-inputs-bit-dev
 /home/ubuntu/Git/JsObjects/JavaScript/React/dynamic-load
-/home/ubuntu/Git/JsObjects/JavaScript/ReactNative/ReactNativeTesting/EnzymeBasics
-/home/ubuntu/Git/JsObjects/JavaScript/ReactNative/ReactNativeTesting/enzyme-test
-/home/ubuntu/Git/JsObjects/JavaScript/ReactNative/ReactNativeTesting/SnapShotBasics
 /home/ubuntu/Git/JsObjects/JavaScript/UnitTests/JasmineJQueryTest
 /home/ubuntu/Git/JsObjects/JavaScript/UnitTests/AngularJasmineChai
 /home/ubuntu/Git/JsObjects/JavaScript/UnitTests/Grunt01

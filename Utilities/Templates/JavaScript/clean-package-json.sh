@@ -16,7 +16,7 @@ grep -roh --include="*.json" ${FLAGS} \
     | xargs -r npm rm
 
 grep -Eroh --include="*.json" ${FLAGS} \
-    "(\"jasmine-*[^\"]*.|\"mocha*[^\"]*.\"|\"chai*[^\"]*.|\"sinon*[^\"]*.)" \
+    "(\"jasmine-*[^\"]*.|\"mocha*[^\"]*.\"|\"chai*[^\"]*.|\"sinon*[^\"]*.|\"jest-serializer-enzyme\")" \
     | xargs -r npm rm && npm i jest --save-dev \
     && npm i jest-cli --save-dev \
     && mkdir -p __tests__ \
