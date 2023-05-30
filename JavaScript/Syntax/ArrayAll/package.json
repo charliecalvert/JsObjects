@@ -13,12 +13,12 @@
         "cookie-parser": "~1.4.6",
         "debug": "~4.3.4",
         "express": "~4.18.2",
-        "jquery": "^3.6.4",
+        "jquery": "^3.7.0",
         "morgan": "~1.10.0",
         "static-favicon": "~2.0.0-alpha"
     },
     "devDependencies": {
         "jest": "^29.5.0",
-        "prettier": "^2.8.7"
+        "prettier": "^2.8.8"
     }
 }

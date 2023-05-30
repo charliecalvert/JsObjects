@@ -21,7 +21,7 @@
         "grunt-contrib-jshint": "^3.2.0",
         "grunt-exec": "^3.0.0",
         "grunt-shell": "^4.0.0",
-        "jasmine-core": "^4.6.0",
+        "jasmine-core": "^5.0.0",
         "jasmine-jquery": "^2.1.1",
         "jest": "^29.5.0",
         "jshint-stylish": "^2.2.1"
