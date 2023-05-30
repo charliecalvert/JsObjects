@@ -15,8 +15,8 @@ grep -roh --include="*.json" ${FLAGS} \
     "\"karma-*[^\"]*." \
     | xargs -r npm rm
 
-grep -roh --include="*.json" ${FLAGS} \
-    "\"jasmine-*[^\"]*." \
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"jasmine-*[^\"]*.|\"mocha*[^\"]*.\"|\"chai*[^\"]*.|\"sinon*[^\"]*.)" \
     | xargs -r npm rm && npm i jest --save-dev \
     && npm i jest-cli --save-dev \
     && mkdir -p __tests__ \
@@ -31,5 +31,18 @@ grep -Eroh --include="*.json" ${FLAGS} \
     "\"(${LOOKA}|${LOOKB}|${LOOKC})"| xargs -r npm rm
 
 grep -Eroh --include="*.json" ${FLAGS} \
-    "(\"babel-cli\"|\"babel-core\")" \
+    "(\"babel-cli\"|\"babel-core\"|\"react-addons-test-utils\")" \
     | xargs -r npm rm && npm i @babel/cli @babel/core --save-dev
+
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"react-addons-test-utils\")" \
+    | xargs -r npm rm \
+    && npm i --save-dev @testing-library/react
+
+# grep -Eroh --include="*.json" ${FLAGS} \
+#     "(\"babel-preset-es2015\"|\"babel-preset-react\")" \
+#     | xargs -r npm rm && npm i @babel/preset-env @babel/preset-react --save-dev
+
+# grep -Eroh --include="*.json" ${FLAGS} \
+#     "(\"babel-preset-stage-0\"|\"babel-preset-stage-1\")" \
+#     | xargs -r npm rm && npm i @babel/preset-stage-0 @babel/preset-stage-1 --save-dev
