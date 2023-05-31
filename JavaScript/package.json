@@ -16,7 +16,10 @@
     "ncur": "DEBUG=joj:run-npm-start node run-npm-install.js React ncu",
     "npmr": "DEBUG=joj:run-npm-start node run-npm-install.js React install",
     "ncun": "DEBUG=joj:run-npm-start node run-npm-install.js NodeCode ncu",
-    "npmn": "DEBUG=joj:run-npm-start node run-npm-install.js NodeCode install"
+    "npmn": "DEBUG=joj:run-npm-start node run-npm-install.js NodeCode install",
+    "ncue": "DEBUG=joj:run-npm-start node run-npm-install.js EcmaScript6 ncu",
+    "npme": "DEBUG=joj:run-npm-start node run-npm-install.js EcmaScript6 install"
+
   },
   "dependencies": {
     "chalk": "^5.2.0",
