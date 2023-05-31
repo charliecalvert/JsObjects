@@ -39,6 +39,16 @@ grep -Eroh --include="*.json" ${FLAGS} \
     | xargs -r npm rm \
     && npm i --save-dev @testing-library/react
 
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"sessionstore\")" \
+    | xargs -r npm rm \
+    && npm i --save-dev connect-redis
+
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"styles\"|\"cradle\")" \
+    | xargs -r npm rm
+
+
 # grep -Eroh --include="*.json" ${FLAGS} \
 #     "(\"babel-preset-es2015\"|\"babel-preset-react\")" \
 #     | xargs -r npm rm && npm i @babel/preset-env @babel/preset-react --save-dev

@@ -21,13 +21,13 @@
         "serve-favicon": "~2.5.0"
     },
     "devDependencies": {
-        "browser-sync": "^2.29.1",
+        "browser-sync": "^2.29.3",
         "grunt": "~1.6.1",
         "grunt-contrib-watch": "~1.1.0",
         "grunt-develop": "~0.4.0",
         "load-grunt-tasks": "~5.1.0",
         "request": "~2.88.0",
-        "sass": "^1.62.0",
+        "sass": "^1.62.1",
         "time-grunt": "~2.0.0"
     }
 }

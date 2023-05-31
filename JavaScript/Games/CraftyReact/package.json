@@ -10,7 +10,7 @@
         "bundle": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
-        "aws-sdk": ">=2.1386.0",
+        "aws-sdk": ">=2.1387.0",
         "babel-loader": "^9.1.2",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",

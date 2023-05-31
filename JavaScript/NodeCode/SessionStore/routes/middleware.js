@@ -6,22 +6,37 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var parseurl = require('parseurl');
-var sessionstore = require('sessionstore');
+var RedisStore = require('connect-redis');
+import {createClient} from "redis"
 
-var sessionStore = sessionstore.createSessionStore({
+// Initialize client.
+let redisClient = createClient()
+redisClient.connect().catch(console.error)
+
+// Initialize store.
+let redisStore = new RedisStore({
+  client: redisClient,
+  prefix: "myapp:",
+})
+
+/* var sessionStore = sessionstore.createSessionStore({
     type: 'couchdb',
     host: 'http://192.168.2.19',  // optional
     port: 5984,                // optional
     dbName: 'sessionstore-calvert',// optional
     collectionName: 'sessions',// optional
     timeout: 10000             // optional
-});
+}); */
+
+
 
 router.use(session({
     secret: process.env.SESSION_SECRET || 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    store: sessionStore
+    //resave: true,
+    //saveUninitialized: true,
+    resave: false, // required: force lightweight session keep alive (touch)
+    saveUninitialized: false, // recommended: only save session when data exists
+    store: RedisStore
 }));
 
 

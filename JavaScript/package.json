@@ -14,7 +14,9 @@
     "npmid": "DEBUG=joj:run-npm-start node run-npm-install.js Design install",
     "npmis": "DEBUG=joj:run-npm-start node run-npm-install.js Syntax install",
     "ncur": "DEBUG=joj:run-npm-start node run-npm-install.js React ncu",
-    "npmr": "DEBUG=joj:run-npm-start node run-npm-install.js React install"
+    "npmr": "DEBUG=joj:run-npm-start node run-npm-install.js React install",
+    "ncun": "DEBUG=joj:run-npm-start node run-npm-install.js NodeCode ncu",
+    "npmn": "DEBUG=joj:run-npm-start node run-npm-install.js NodeCode install"
   },
   "dependencies": {
     "chalk": "^5.2.0",

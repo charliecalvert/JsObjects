@@ -16,12 +16,12 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "elven-code": "^4.13.1",
+    "elven-code": "^4.14.2",
     "elven-site-tools": "^8.5.0",
-    "inquirer": "^9.1.5",
+    "inquirer": "^9.2.6",
     "lwip": "0.0.9",
-    "marked": "^4.3.0",
-    "mkdirp": "^3.0.0"
+    "marked": "^5.0.4",
+    "mkdirp": "^3.0.1"
   },
   "devDependencies": {
     "grunt": "~1.6.1",
@@ -29,7 +29,7 @@
     "grunt-contrib-jshint": "~3.2.0",
     "grunt-jsbeautifier": "^0.2.13",
     "grunt-jscs": "^3.0.1",
-    "jasmine-core": "^4.6.0",
+    "jasmine-core": "^5.0.0",
     "jasmine-spec-reporter": "^7.0.0",
     "jshint-stylish": "^2.2.1"
   }
