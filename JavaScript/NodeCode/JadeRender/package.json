@@ -23,7 +23,16 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "jade": "^1.9.1",
-    "marked": "^5.0.4"
+    "marked": "^5.0.4",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@testing-library/react": "^14.0.0",
+    "connect-redis": "^7.1.0",
+    "jest": "^29.5.0",
+    "jest-cli": "^29.5.0",
+    "uuid": "^9.0.0"
   }
 }

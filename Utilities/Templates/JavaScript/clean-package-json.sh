@@ -44,10 +44,15 @@ grep -Eroh --include="*.json" ${FLAGS} \
     | xargs -r npm rm \
     && npm i --save-dev connect-redis
 
+// Just get rid of it.
 grep -Eroh --include="*.json" ${FLAGS} \
-    "(\"styles\"|\"cradle\")" \
+    "(\"styles\"|\"cradle\"|\"simpledb\"|\"request\"|\"jshint-stylish\")" \
     | xargs -r npm rm
 
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"node-uuid\")" \
+|   xargs -r npm rm \
+    && npm i --save-dev uuid
 
 # grep -Eroh --include="*.json" ${FLAGS} \
 #     "(\"babel-preset-es2015\"|\"babel-preset-react\")" \

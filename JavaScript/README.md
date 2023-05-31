@@ -16,3 +16,9 @@ The **clean-package-json.sh** program removes obsolete packages from the **devDe
 @see [run-npm-install.js](run-npm-install.js)
 @see [clean-package-json.sh](clean-package-json.sh)
 @see [package.json](package.json) the scripts section
+
+## Delete node_modules
+
+MakeHtml
+
+- /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/MakeHtml

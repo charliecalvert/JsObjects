@@ -9,7 +9,6 @@
         "prestart": "npx sass public/scss/:public/css/",
         "ui-old": "npx browser-sync start -s -f views --no-ui --port=30025",
         "ui": "browser-sync start --proxy localhost:30025 --files=**/*  --ignore=node_modules --reload-delay 100 --no-ui --no-inject-changes"
-
     },
     "dependencies": {
         "body-parser": "~1.20.2",
@@ -21,12 +20,16 @@
         "serve-favicon": "~2.5.0"
     },
     "devDependencies": {
+        "@babel/cli": "^7.21.5",
+        "@babel/core": "^7.22.1",
+        "@testing-library/react": "^14.0.0",
         "browser-sync": "^2.29.3",
+        "connect-redis": "^7.1.0",
         "grunt": "~1.6.1",
-        "grunt-contrib-watch": "~1.1.0",
         "grunt-develop": "~0.4.0",
+        "jest": "^29.5.0",
+        "jest-cli": "^29.5.0",
         "load-grunt-tasks": "~5.1.0",
-        "request": "~2.88.0",
         "sass": "^1.62.1",
         "time-grunt": "~2.0.0"
     }

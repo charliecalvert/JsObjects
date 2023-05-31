@@ -40,7 +40,6 @@
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/SimpleReadWriteJson/SimpleReadWriteJson02
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/TwoHtmlFiles
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/ReactBasics
-/home/ubuntu/Git/JsObjects/JavaScript/NodeCode/MakeHtml
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/ExpressLink
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/HelloExpressReact04
 /home/ubuntu/Git/JsObjects/JavaScript/NodeCode/ExpressUser02
