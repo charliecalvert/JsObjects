@@ -9,7 +9,6 @@
   "dependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@material-ui/core": "^4.0.2",
     "cookie-parser": "~1.4.6",
     "debug": "~4.3.4",
     "express": "~4.18.2",
@@ -23,6 +22,7 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
+    "@mui/codemod": "^5.13.3",
     "babel-loader": "^9.1.2",
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1"

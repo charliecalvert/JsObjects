@@ -54,6 +54,12 @@ grep -Eroh --include="*.json" ${FLAGS} \
 |   xargs -r npm rm \
     && npm i --save-dev uuid
 
+
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"@material-ui/core\")" \
+|   xargs -r npm rm \
+    && npm i --save-dev @mui/codemod
+
 # grep -Eroh --include="*.json" ${FLAGS} \
 #     "(\"babel-preset-es2015\"|\"babel-preset-react\")" \
 #     | xargs -r npm rm && npm i @babel/preset-env @babel/preset-react --save-dev

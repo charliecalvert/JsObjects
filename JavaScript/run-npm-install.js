@@ -56,7 +56,13 @@ function checkDirectory(command, checkResult, testing = false) {
                 } catch (error) {
                     const cleanPackageJson = `${process.env.ELF_TEMPLATES}/JavaScript/clean-package-json.sh`;
                     const go = `${process.env.JSOBJECTS}/JavaScript/go.sh`
-                    console.log(chalk.redBright(`${command} ERROR:`), error);
+                    console.log(chalk.redBright(`${command} ERROR MESSAGE:`), error.message);
+                    console.log(chalk.redBright(`${command} ERROR KEYS:`), Object.keys(error));
+                    console.log(chalk.redBright(`${command} ERROR Status:`), error.status);
+                    console.log(chalk.redBright(`${command} ERROR Signal:`), error.signal);
+                    console.log(chalk.redBright(`${command} ERROR STDOUT:`), error.stdout.toString());
+                    console.log(chalk.redBright(`${command} ERROR STDERR LENGTH:`), error.stderr.length);
+                    console.log(chalk.redBright('ERROR directory: process.cwd()'), process.cwd());
                     console.log(chalk.redBright('ERROR directory: cd'), directory);
                     console.log(chalk.redBright('ERROR directory: pwd'), execSync('pwd').toString());
                     console.log(chalk.redBright('Fix it:'), cleanPackageJson );
