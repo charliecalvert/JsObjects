@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "elven-code": "^4.13.1"
+    "elven-code": "^4.14.2"
   }
 }
