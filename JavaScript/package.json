@@ -22,7 +22,11 @@
     "ncuf": "DEBUG=joj:run-npm-start node run-npm-install.js Firebase ncu",
     "npmf": "DEBUG=joj:run-npm-start node run-npm-install.js Firebase install",
     "ncufu": "DEBUG=joj:run-npm-start node run-npm-install.js Functions ncu",
-    "npmfu": "DEBUG=joj:run-npm-start node run-npm-install.js Functions install"
+    "npmfu": "DEBUG=joj:run-npm-start node run-npm-install.js Functions install",
+    "ncug": "DEBUG=joj:run-npm-start node run-npm-install.js Games ncu",
+    "npmg": "DEBUG=joj:run-npm-start node run-npm-install.js Games install",
+    "ncurx": "DEBUG=joj:run-npm-start node run-npm-install.js RegEx ncu",
+    "npmrx": "DEBUG=joj:run-npm-start node run-npm-install.js RegEx install"
 
   },
   "dependencies": {

@@ -10,7 +10,7 @@
         "bundle": "node_modules/.bin/webpack --watch"
     },
     "dependencies": {
-        "aws-sdk": ">=2.1387.0",
+        "aws-sdk": ">=2.1388.0",
         "babel-loader": "^9.1.2",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
@@ -25,7 +25,7 @@
         "react-dom": "^18.2.0",
         "serve-favicon": "~2.5.0",
         "walk": "2.3.15",
-        "webpack": "^5.84.1"
+        "webpack": "^5.85.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.21.5",
