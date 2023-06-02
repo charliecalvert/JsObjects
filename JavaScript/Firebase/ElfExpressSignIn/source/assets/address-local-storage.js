@@ -1,10 +1,13 @@
 import { saveByIndex } from './elf-local-storage';
 
+if (typeof process !== 'undefined'  && typeof process.env !== 'undefined') {
 const debug =
     process.env.REACT_APP_ELF_LOGGER === 'sanity-learn-local'
         ? console.log
         : () => {};
-
+} else {
+    const debug = () => {};
+}
 const KEY_SET = ['elven-store', 'elven-count'];
 
 function setLocalStorage(addresses) {

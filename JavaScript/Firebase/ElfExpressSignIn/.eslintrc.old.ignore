@@ -1,0 +1,25 @@
+// Write a simple eslint configuration file.
+// It should have the following rules:
+// - no-console: 0
+// - no-unused-vars: 0
+// - quotes: [2, "double"]
+// - semi: [2, "always"]
+// - no-trailing-spaces: 0
+// - eol-last: 0
+{
+    "rules": {
+        "no-console": 0,
+        "no-unused-vars": 0,
+        "quotes": [
+            2,
+            "single"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "no-trailing-spaces": 0,
+        "eol-last": 0
+    },
+    "parser": "@babel/eslint-parser"
+}

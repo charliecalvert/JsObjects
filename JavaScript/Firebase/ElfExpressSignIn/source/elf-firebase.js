@@ -1,15 +1,29 @@
 /*
  * This file contains edited copies of boilerplate code given by Firebase
  * to help with logging in and out. I have made a few change , and moved
- * them into this file so that they are easier to use.
+ * them into this file so that they are easier to use. I also added
+ * configuration.js to the .gitignore file so that I don't accidentally
+ * commit my configuration.js file to GitHub. You should do the same.
+ * @see assets/.gitignore to see that configuration.js is not included
+ * @see assets/configuation.js for the firebaseConfig object
+ * References:
+ * @see https://firebase.google.com/docs/auth/web/start
+ * @see https://firebase.google.com/docs/auth/web/manage-users
+ * @see https://firebase.google.com/docs/auth/web/password-auth
+ * @see https://firebase.google.com/docs/auth/web/google-signin
+ * @see https://firebase.google.com/docs/auth/web/facebook-login
+ * @see https://firebase.google.com/docs/auth/web/github-auth
+ * @see https://firebase.google.com/docs/auth/web/twitter-login
  */
 
-// Replace this code with your app's Firebase configuration
-// To learn more: https://firebase.google.com/docs/web/setup#config-web-app
-// To get the code shown below, go to the Firebase console. Find your app,
-// find the Settings Gear, choose Project Settings, and scroll down a bit.
+import { firebaseConfig } from "./assets/configuration";
+/* import createDebugMessages from 'debug';
+const debug = createDebugMessages('source:elf-firebase');
 
-const firebaseConfig = {
+debug('firebaseConfig', firebaseConfig); */
+console.log('firebaseConfig', firebaseConfig);
+
+/* const firebaseConfig = {
     apiKey: 'YOUR CONFIG HERE',
     authDomain: '',
     databaseURL: '',
@@ -17,9 +31,16 @@ const firebaseConfig = {
     storageBucket: '',
     messagingSenderId: '',
     appId: ''
-};
+}; */
+
 // Initialize Firebase
-window.firebase.initializeApp(firebaseConfig);
+// indow.firebase.initializeApp(firebaseConfig);
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const app = initializeApp(firebaseConfig);
+console.log('app', app);
+// const analytics = getAnalytics(app);
 
 const initApp = function(callback) {
     window.elvenFireBaseData = {};

@@ -65,6 +65,11 @@ grep -Eroh --include="*.json" ${FLAGS} \
 |   xargs -r npm rm \
     && npm i --save-dev node-calls-python
 
+grep -Eroh --include="*.json" ${FLAGS} \
+    "(\"babel-eslint\")" \
+|   xargs -r npm rm \
+    && npm i --save-dev @babel/eslint-parser
+
 # grep -Eroh --include="*.json" ${FLAGS} \
 #     "(\"babel-preset-es2015\"|\"babel-preset-react\")" \
 #     | xargs -r npm rm && npm i @babel/preset-env @babel/preset-react --save-dev

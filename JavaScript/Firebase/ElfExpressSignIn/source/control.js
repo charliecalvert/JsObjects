@@ -6,6 +6,8 @@ import { initApp } from './elf-firebase';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { createRoot } from 'react-dom/client';
+
 const APPS = {
     ElfApp,
     FirebaseLogout
@@ -15,7 +17,10 @@ function renderAppInElement(choice) {
     const AppTool = APPS[choice.dataset.app];
     if (!AppTool) return;
     const props = Object.assign({}, choice.dataset);
-    ReactDOM.render(<AppTool {...props} />, choice);
+    const container = document.getElementById('root');
+    const root = createRoot(container);
+    root.render(<AppTool {...props} />, choice);
+    // ReactDOM.render(<AppTool {...props} />, choice);
 }
 
 const doRender = () => {
@@ -24,7 +29,10 @@ const doRender = () => {
 };
 
 window.onload = function() {
-    ReactDOM.render(<ElfApp />, document.getElementById('root'));
+    const container = document.getElementById('root');
+    const root = createRoot(container);
+    root.render(<ElfApp />);
+    // ReactDOM.render(<ElfApp />, );
     initApp(() => {
         if (window.firebase.auth().currentUser) {
             loadAddress()

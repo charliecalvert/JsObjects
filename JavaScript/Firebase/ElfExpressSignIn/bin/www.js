@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+import app from '../app.js';
+import chalk from 'chalk';
 
-var app = require('../app');
-var debug = require('debug')('elf-express-sign-in:server');
-var http = require('http');
+// var debug = require('debug')('elf-express-sign-in:server');
+import createDebugMessages from 'debug';
+const debug = createDebugMessages('elf-express-sign-in:server');
+import http from 'http';
+//
+// const chalk = require('chalk');
+// const chalk = (...args) => import('chalk').then(({default: chalk}) => chalk(...args));
+
 
 /**
  * Get port from environment and store in Express.
@@ -25,7 +29,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, () => { console.log("running on port", port); });
+server.listen(port, () => { console.log(chalk.green("running on port"), port); });
 server.on('error', onError);
 server.on('listening', onListening);
 

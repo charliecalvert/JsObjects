@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ElfApp extends Component {
     login = () => {
-        window.open('elf-sign-in.html');
+       // window.open('elf-sign-in.html');
     };
 
     render() {
