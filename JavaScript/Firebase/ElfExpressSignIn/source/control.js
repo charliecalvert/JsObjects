@@ -3,7 +3,7 @@
 import loadAddress from './load-address.js';
 import ElfApp from './ElfApp.js';
 import { FirebaseLogout } from './FirebaseLogout.js';
-import { initApp, auth } from './elf-firebase.js';
+import { initApp, auth } from './elf-firebase.cjs';
 import React from 'react';
 // import ReactDOM from 'react-dom';
 

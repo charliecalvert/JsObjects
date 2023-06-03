@@ -16,7 +16,8 @@
  * @see https://firebase.google.com/docs/auth/web/twitter-login
  */
 
-import { firebaseConfig } from './assets/configuration.js';
+// import { firebaseConfig } from './assets/configuration.js';
+const { firebaseConfig } = require('./assets/configuration.js');
 /* import createDebugMessages from 'debug';
 const debug = createDebugMessages('source:elf-firebase');
 
@@ -35,16 +36,18 @@ console.log('firebaseConfig', firebaseConfig);
 
 // Initialize Firebase
 // indow.firebase.initializeApp(firebaseConfig);
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+const { initializeApp } = require('firebase/app');
+const { getAuth, GoogleAuthProvider } = require('firebase/auth');
 
 // const firebase = getAuth(initializeApp(firebaseConfig));
 // import { getAnalytics } from 'firebase/analytics';
 
-const app = initializeApp(firebaseConfig);
+
 console.log('app', app);
 // const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 
 // const provider = new GoogleAuthProvider();
 if (auth.currentUser) {
@@ -96,7 +99,7 @@ const initApp = function(callback) {
     );
 };
 
-export { initApp, auth };
+exports = { initApp, auth };
 
 /*
 window.addEventListener('load', function() {
