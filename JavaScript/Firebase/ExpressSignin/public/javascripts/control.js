@@ -1,3 +1,10 @@
+/**
+ * Created by Administrator on 2017/6/6.
+ * @see: https://developer.mozilla.org/en-US/blog/javascript-shape-drawing-function/
+ * @see: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+ * @see: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
+ * 
+ */
 $(document).ready(function() { 'use strict';
 
 const canvas = document.querySelector("canvas");
