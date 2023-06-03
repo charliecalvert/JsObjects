@@ -1,10 +1,15 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
+// import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+// import Paper from '@mui/material/Paper';
+import { Button, Paper, Typography } from '@mui/material';
 
 export const FirebaseLogout = function() {
-    let currentUser = window.firebase.auth().currentUser;
+    const currentUser = window.firebase.auth().currentUser;
+    /**
+     * Sign out of Firebase
+     * @see https://firebase.google.com/docs/auth/web/password-auth#next_steps
+     */
     function signOut() {
         window.firebase
             .auth()
@@ -16,7 +21,7 @@ export const FirebaseLogout = function() {
                 },
                 function(error) {
                     console.error('Sign Out Error', error);
-                }
+                },
             );
     }
 

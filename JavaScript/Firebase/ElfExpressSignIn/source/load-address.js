@@ -1,34 +1,36 @@
-import { dataLoaded, setLocalStorage } from './assets/address-local-storage';
+import { dataLoaded, setLocalStorage } from './assets/address-local-storage.js';
 
 const getFirebaseToken = () => {
     return new Promise((resolve, reject) => {
         if (!window.firebase.auth().currentUser) {
             this.setData({ result: 'You need to log in.' });
-            reject({ result: 'You need to log in (env export?).' });
+            reject(new Error({ result: 'You need to log in (env export?).' }));
         }
         window.firebase
             .auth()
             .currentUser.getIdToken(/* forceRefresh */ true)
-            .then(idToken => {
+            .then((idToken) => {
                 resolve({ token: idToken });
             })
-            .catch(err => {
+            .catch((err) => {
                 reject(err);
             });
     });
 };
 
-const elfQuery = response => {
+const elfQuery = (response) => {
     return new Promise((resolve, reject) => {
         fetch('/address-list?token=' + response.token)
-            .then(response => {
+            .then((response) => {
                 return response.json();
             })
-            .then(json => {
+            .then((json) => {
                 resolve(json);
             })
-            .catch(function(ex) {
-                reject('parsing failed, URL bad, network down, or similar', ex);
+            .catch(function(err) {
+                err.message = 'parsing failed, URL bad, network down, etc: ' +
+                    err.message;
+                reject(err);
             });
     });
 };
@@ -38,11 +40,11 @@ const loadAddress = () => {
         if (!dataLoaded()) {
             getFirebaseToken()
                 .then(elfQuery)
-                .then(json => {
+                .then((json) => {
                     setLocalStorage(json);
                     resolve({ status: 'ok', address: json });
                 })
-                .catch(ex => {
+                .catch((ex) => {
                     reject(ex.message);
                 });
         } else {

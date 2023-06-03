@@ -1,18 +1,23 @@
-//import { renderAppTool } from './TheTheme';
-import loadAddress from './load-address';
-import ElfApp from './ElfApp';
-import { FirebaseLogout } from './FirebaseLogout';
-import { initApp } from './elf-firebase';
+// import { renderAppTool } from './TheTheme';
+
+import loadAddress from './load-address.js';
+import ElfApp from './ElfApp.js';
+import { FirebaseLogout } from './FirebaseLogout.js';
+import { initApp, auth } from './elf-firebase.js';
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 import { createRoot } from 'react-dom/client';
 
 const APPS = {
     ElfApp,
-    FirebaseLogout
+    FirebaseLogout,
 };
 
+/**
+ * Render object in the root element of the DOM
+ * @param {*} choice
+ */
 function renderAppInElement(choice) {
     const AppTool = APPS[choice.dataset.app];
     if (!AppTool) return;
@@ -34,13 +39,13 @@ window.onload = function() {
     root.render(<ElfApp />);
     // ReactDOM.render(<ElfApp />, );
     initApp(() => {
-        if (window.firebase.auth().currentUser) {
+        if (auth.currentUser) {
             loadAddress()
-                .then(result => {
+                .then((result) => {
                     console.log('LOAD STATUS', result.status);
                     doRender();
                 })
-                .catch(err => {
+                .catch((err) => {
                     alert(err);
                     doRender();
                 });

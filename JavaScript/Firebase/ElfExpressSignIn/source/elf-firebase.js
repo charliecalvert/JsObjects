@@ -16,7 +16,7 @@
  * @see https://firebase.google.com/docs/auth/web/twitter-login
  */
 
-import { firebaseConfig } from "./assets/configuration";
+import { firebaseConfig } from './assets/configuration.js';
 /* import createDebugMessages from 'debug';
 const debug = createDebugMessages('source:elf-firebase');
 
@@ -35,16 +35,30 @@ console.log('firebaseConfig', firebaseConfig);
 
 // Initialize Firebase
 // indow.firebase.initializeApp(firebaseConfig);
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+
+// const firebase = getAuth(initializeApp(firebaseConfig));
+// import { getAnalytics } from 'firebase/analytics';
 
 const app = initializeApp(firebaseConfig);
 console.log('app', app);
 // const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+// const provider = new GoogleAuthProvider();
+if (auth.currentUser) {
+    const provider = new auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/plus.login');
+    auth.signInWithRedirect(provider);
+} else {
+    auth.signOut();
+}
+// 66document.getElementById('elf-sign-in').disabled = true;
 
 const initApp = function(callback) {
     window.elvenFireBaseData = {};
-    window.firebase.auth().onAuthStateChanged(
+    auth.onAuthStateChanged(
         function(user) {
             if (user) {
                 // User is signed in.
@@ -57,7 +71,8 @@ const initApp = function(callback) {
                 efdata.phoneNumber = user.phoneNumber;
                 efdata.providerData = user.providerData;
 
-                // getIdToken passes accessToken to it's call back but I don't include it since we don't use it
+                // getIdToken passes accessToken to it's call back
+                // but I don't include it since we don't use it
                 user.getIdToken().then(function() {
                     document.getElementById('sign-in-status').textContent =
                         'Signed in';
@@ -69,17 +84,19 @@ const initApp = function(callback) {
                     'Status: Signed out';
                 document.getElementById('sign-in').textContent = '';
                 document.getElementById('account-details').textContent = '';
-                //document.getElementById('sign-out').style.visibility = 'hidden';
+                // document
+                //   .getElementById('sign-out')
+                //   .style.visibility = 'hidden';
             }
             callback();
         },
         function(error) {
             console.log(error);
-        }
+        },
     );
 };
 
-export { initApp };
+export { initApp, auth };
 
 /*
 window.addEventListener('load', function() {

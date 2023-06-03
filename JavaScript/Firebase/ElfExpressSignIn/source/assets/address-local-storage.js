@@ -1,15 +1,22 @@
-import { saveByIndex } from './elf-local-storage';
+import { saveByIndex } from './elf-local-storage.js';
 
-if (typeof process !== 'undefined'  && typeof process.env !== 'undefined') {
-const debug =
-    process.env.REACT_APP_ELF_LOGGER === 'sanity-learn-local'
-        ? console.log
-        : () => {};
+let debug;
+if (typeof process !== 'undefined' && typeof process.env !== 'undefined') {
+    debug =
+        process.env.REACT_APP_ELF_LOGGER === 'sanity-learn-local' ?
+            console.log :
+            () => { };
 } else {
-    const debug = () => {};
+    debug = () => { };
 }
 const KEY_SET = ['elven-store', 'elven-count'];
 
+/**
+ * Save addresses to local storage
+ * @param {*} addresses
+ * @return {object} the addresses
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ */
 function setLocalStorage(addresses) {
     debug('SET LOCAL', addresses);
     localStorage.setItem(KEY_SET[0], '1');
@@ -20,6 +27,11 @@ function setLocalStorage(addresses) {
     return addresses;
 }
 
+/**
+ * Check if data is loaded
+ * @return {boolean} true if data is loaded
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+ */
 function dataLoaded() {
     const elvenStore = localStorage.getItem(KEY_SET[0]);
     return elvenStore === '1';
