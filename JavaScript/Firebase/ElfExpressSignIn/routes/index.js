@@ -1,18 +1,19 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+// eslint-disable-next-line new-cap
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
     'use strict';
     res.render('index', {
-        title: 'Elf-Express'
+        title: 'Elf-Express',
     });
 });
 
 router.get('/worker', (request, response) => {
     'use strict';
     response.render('worker', {
-        title: request.query.title
+        title: request.query.title,
     });
 });
 
@@ -27,7 +28,7 @@ const addresList = [
         phone: '202-224-4944',
         website: 'https://www.alexander.senate.gov/public',
         email: '',
-        contact: 'http://www.alexander.senate.gov/public/index.cfm?p=Email'
+        contact: 'http://www.alexander.senate.gov/public/index.cfm?p=Email',
     },
     {
         firstName: 'Susan',
@@ -39,7 +40,7 @@ const addresList = [
         phone: '202-224-2523',
         website: 'https://www.collins.senate.gov',
         email: '',
-        contact: 'http://www.collins.senate.gov/contact'
+        contact: 'http://www.collins.senate.gov/contact',
     },
     {
         firstName: 'John',
@@ -51,8 +52,8 @@ const addresList = [
         phone: '202-224-2934',
         website: 'https://www.cornyn.senate.gov',
         email: '',
-        contact: 'https://www.cornyn.senate.gov/contact'
-    }
+        contact: 'https://www.cornyn.senate.gov/contact',
+    },
 ];
 
 router.get('/address-list', function(req, res) {
@@ -61,4 +62,4 @@ router.get('/address-list', function(req, res) {
     res.send(addresList);
 });
 
-module.exports = router;
+export default router;
