@@ -2,6 +2,7 @@
   "name": "expresssignin",
   "version": "0.0.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
