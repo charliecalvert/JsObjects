@@ -1,7 +1,8 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+/* import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper'; */
+import { Paper, Button, Typography } from '@mui/material';
 
 export const FirebaseLogout = function() {
     let currentUser = window.firebase.auth().currentUser;
