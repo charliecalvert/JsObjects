@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npx webpack --watch & nodemon ./bin/www",
+    "start": "DEBUG=elf-express npx webpack --watch & nodemon ./bin/www",
     "build": "npx webpack"
   },
   "dependencies": {
@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.3",
     "babel-loader": "^9.1.2",
-    "webpack": "^5.85.0",
-    "webpack-cli": "^5.1.1"
+    "webpack": "^5.85.1",
+    "webpack-cli": "^5.1.3"
   }
 }

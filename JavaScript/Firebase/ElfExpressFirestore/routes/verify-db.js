@@ -1,14 +1,20 @@
 var admin = require('firebase-admin');
 
 let loggedIn = false;
-
+const keyPath = '/home/ubuntu/.config/elves/elfexpress-elven-firebase-adminsdk-dfh1j-100b4d9430.json';
 //'firebase-adminsdk-2p1h1@prog270-calvert.iam.gserviceaccount.com';
+
 function init() {
     loggedIn = true;
     if (!admin.apps.length) {
+        var serviceAccount = require(keyPath);
+
         admin.initializeApp({
-            credential: admin.credential.applicationDefault(),
+            credential: admin.credential.cert(serviceAccount)
         });
+        /* admin.initializeApp({
+            credential: admin.credential.applicationDefault(),
+        }); */
     }
     return admin.firestore();
 }

@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const {init, verifyToken} = require('./verify-db');
-const firebase = require("firebase");
+const debug = require('debug')('elf-express');
+// const firebase = require("firebase");
 require("firebase/firestore");
 const {writeBatchData, readSnapshot} = require('./batch');
+const { log } = require('elven-code/elf-log');
 
 let db = init();
+const collectionName = 'users';
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -20,7 +23,7 @@ const writeData = (user, db) => {
 
         console.log('WRITE DATA CALLED:\n' + JSON.stringify(user, null, 4));
 
-        db.collection("user").doc(user.uid).set({
+        db.collection(collectionName).doc(user.uid).set({
             name: user.displayName,
             email: user.email,
             photoUrl: user.photoURL
@@ -36,7 +39,7 @@ const writeData = (user, db) => {
 
 const readData = (docName, db) => {
     return new Promise(function (resolve, reject) {
-        var docRef = db.collection("user").doc(docName);
+        var docRef = db.collection(collectionName).doc(docName);
 
         docRef.get()
             .then(function (doc) {
@@ -74,12 +77,18 @@ router.get('/write', (req, res) => {
 });
 
 router.get('/read', (req, res) => {
+    console.log('READ CALLED');
+    debug('READ CALLED');
     if(!db) {
         db = init();
     }
     readData('TempRecord', db)
         .then(result => {
             res.send(result.documentData);
+        }).catch(ex => {
+            console.log('READ ERROR', ex);
+            debug('READ ERROR', ex);
+            res.send(ex)
         })
 });
 
@@ -107,7 +116,7 @@ router.get('/write-batch', (req, res) => {
 });
 
 router.get('/read-snapshot', (req, res) => {
-    console.log('READ SNAPSHOT CALLED');
+    debug('READ SNAPSHOT CALLED');
 
     if(!db) {
         db = init();

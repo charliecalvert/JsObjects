@@ -16,7 +16,9 @@ class ElfApp extends Component {
     }
 
     runQuery = (event) => {
+        console.log('RUN QUERY CALLED');
         const url = event.currentTarget.dataset.url;
+        console.log('RUN QUERY URL', url);
         fetch(url)
             .then(response => {
                 return response.json();
