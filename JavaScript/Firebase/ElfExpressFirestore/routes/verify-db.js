@@ -1,16 +1,24 @@
-var admin = require('firebase-admin');
+/* eslint-disable require-jsdoc */
+
+const admin = require('firebase-admin');
 
 let loggedIn = false;
-const keyPath = '/home/ubuntu/.config/elves/elfexpress-elven-firebase-adminsdk-dfh1j-100b4d9430.json';
-//'firebase-adminsdk-2p1h1@prog270-calvert.iam.gserviceaccount.com';
+const fileName = 'YOUR-SERVICE-FILE-NAME-HERE.json';
+const keyPath = `/home/ubuntu/.config/elves/${fileName}`;
+
+/**
+ * @see https://firebase.google.com/docs/admin/setup
+ * Charlie only:
+ * @see ~/Git/jekyll-private
+ */
 
 function init() {
     loggedIn = true;
     if (!admin.apps.length) {
-        var serviceAccount = require(keyPath);
+        const serviceAccount = require(keyPath);
 
         admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount)
+            credential: admin.credential.cert(serviceAccount),
         });
         /* admin.initializeApp({
             credential: admin.credential.applicationDefault(),
@@ -20,19 +28,19 @@ function init() {
 }
 
 function verifyToken(token) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         if (!loggedIn) {
             init();
         }
         admin
             .auth()
             .verifyIdToken(token)
-            .then(function (decodedToken) {
+            .then(function(decodedToken) {
                 console.log('UID', JSON.stringify(decodedToken, null, 4));
                 console.log('MAIN SERVER QUX YOU RANG CALLED');
                 resolve(decodedToken);
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 console.log(error);
                 reject(error);
             });
