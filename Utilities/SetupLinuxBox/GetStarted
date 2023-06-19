@@ -18,7 +18,7 @@ sudo apt-get update
 # https://askubuntu.com/a/147079/130778
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
-sudo apt-get install build-essential -y
+sudo apt-get install build-essential zip unzip git -y
 
 # Git
 mkdir ~/Git
@@ -43,7 +43,10 @@ echo -e './UbuntuSetupHelper a' >> $RUS
 chmod +x $RUS
 
 echo -e "=================================================="
-echo -e "You should run ${LIGHT_GREEN}sudo reboot${NC} to re-start the system."
-echo -e "Then ssh back in and execute ${LIGHT_GREEN}~/RunUbuntuSetup${NC}"
+echo -e "${LIGHT_GREEN}sudo reboot${NC} was run re-start the system."
+echo -e "You can ssh back in and execute ${LIGHT_GREEN}~/RunUbuntuSetup${NC}"
+echo -e "to continue the setup process. You will want to run:"
+echo -e "scp ${ELF_TEMPLATES}/GitScript/big-git-install-2023-05-08.sh aws-spot:/home/ubuntu/Git/."
+echo -e "scp /mnt/g/Shared/AwsConfigAll.zip /home/ubuntu/.ssh/."
 echo -e "=================================================="
 sudo shutdown -r now
