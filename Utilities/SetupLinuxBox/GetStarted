@@ -45,8 +45,10 @@ chmod +x $RUS
 echo -e "=================================================="
 echo -e "${LIGHT_GREEN}sudo reboot${NC} was run re-start the system."
 echo -e "You can ssh back in and execute ${LIGHT_GREEN}~/RunUbuntuSetup${NC}"
-echo -e "to continue the setup process. You will want to run:"
+echo -e "to continue the setup process. If you did not already run **get-started-copies.sh**"
+echo -e "you will want to run:"
 echo -e "scp ${ELF_TEMPLATES}/GitScript/big-git-install-2023-05-08.sh aws-spot:/home/ubuntu/Git/."
-echo -e "scp /mnt/g/Shared/AwsConfigAll.zip /home/ubuntu/.ssh/."
+echo -e "scp /mnt/g/Shared/AwsConfigAll.zip aws-spot:/home/ubuntu/.ssh/."
+echo -e "https://ubuntu.com/tutorials/install-and-configure-nginx#1-overview"
 echo -e "=================================================="
 sudo shutdown -r now
