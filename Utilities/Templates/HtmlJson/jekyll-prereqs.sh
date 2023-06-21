@@ -8,7 +8,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[1;36m'
 NC='\033[0m' # No Color
 
-if [ -f ${ELF_SCRIPTS}/Colords ]; then
+if [ -f ${ELF_SCRIPTS}/Colors ]; then
     echo -e "${LIGHT_GREEN}Found ${ELF_SCRIPTS}/Colors${NC}"
     source ${ELF_SCRIPTS}/Colors
 else
