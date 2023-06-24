@@ -21,3 +21,6 @@ lsb_release -a
 
 message "do-release-upgrade -c"
 do-release-upgrade -c
+
+message "Don't forget NewFetch
+
