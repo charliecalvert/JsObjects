@@ -7,6 +7,15 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
 fi
 
+# Consider deleting previous lines like
+# this found above and using this instead:
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\n$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
 set-node-path () {
     if ! echo "$NODE_PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
         export NODE_PATH="$1:$NODE_PATH"
