@@ -1,6 +1,8 @@
 #! /bin/bash
 
-GREP='grep -r --include=*.md --exclude=bundle.js --exclude-dir=node_modules --exclude-dir=static --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata'
+# Consider adding only matching text: grep -r -o
+
+GREP='grep -r --include=*.md --include=*.markdown --exclude=bundle.js --exclude-dir=node_modules --exclude-dir=static --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata'
 C=''
 for i in "$@"; do 
     C="$C \"${i//\"/\\\"}\""

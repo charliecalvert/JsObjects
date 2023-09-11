@@ -108,6 +108,7 @@ alias gcm='git checkout master'
 alias link-new="ln -s ~/temp/newmods/node_modules/ ."
 alias link-old="ln -s ~/temp/oldmods/node_modules/ ."
 alias elfweb="cd ~/Git/elven-web/server"
+alias td="cd /home/ubuntu/Git/tiled-demos"
 
 # Isit Courses
 alias i3i7='cd $GIT_HOME/isit320-calvert-2017'
