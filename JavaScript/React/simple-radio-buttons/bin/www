@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-import App from '../src/App.js';
+import app from '../src/App.js';
 // var app = require('../src/App.js');
 // var debug = require('debug')('simple-inputs:server');
 import createDebugMessages from 'debug';

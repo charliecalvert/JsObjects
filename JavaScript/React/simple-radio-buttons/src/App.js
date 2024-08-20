@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+import React, { Component, Fragment } from 'react';
+// import ReactDOM from 'react-dom'
+import { log } from './logger.js';
 import './App.css';
+
+log('App component loaded');
 
 class App extends Component {
     constructor(props) {
         super(props);
+        log('App component constructor');
         this.state = {
             checkedRadioButton: 'none',
             message: 'none'
@@ -21,35 +25,37 @@ class App extends Component {
         });
     };
 
-    render() {
-        var bookRadios = (
-            <div>
-                <input
-                    type="radio"
-                    name="book-radio"
-                    value="RadioOne"
-                    id="radio-one"
-                    checked={this.state.checkedRadioButton === 'RadioOne'}
-                    onChange={this.handleRadioChange}
-                />
-                <label htmlFor="radio-one" className="book-radio">
-                    Book Radio 2
-                </label>
-                <input
-                    type="radio"
-                    name="book-radio"
-                    value="RadioTwo"
-                    id="radio-two"
-                    checked={this.state.checkedRadioButton === 'RadioTwo'}
-                    onChange={this.handleRadioChange}
-                />
-                <label htmlFor="radio-two" className="book-radio">
-                    Book Radio 2
-                </label>
-            </div>
-        );
+    bookRadios = (
+    <div>
+        <input
+            type="radio"
+            name="book-radio"
+            value="RadioOne"
+            id="radio-one"
+            checked={this.state.checkedRadioButton === 'RadioOne'}
+            onChange={this.handleRadioChange}
+        />
+        <label htmlFor="radio-one" className="book-radio">
+            Book Radio 2
+        </label>
+        <input
+            type="radio"
+            name="book-radio"
+            value="RadioTwo"
+            id="radio-two"
+            checked={this.state.checkedRadioButton === 'RadioTwo'}
+            onChange={this.handleRadioChange}
+        />
+        <label htmlFor="radio-two" className="book-radio">
+            Book Radio 2
+        </label>
+    </div>
+);
 
-        return (
+render() {
+
+    return (
+        <Fragment>
             <div className="App">
                 <section>
                     <hr />
@@ -64,8 +70,9 @@ class App extends Component {
                     </button>
                 </section>
             </div>
-        );
-    }
+        </Fragment>
+    );
+}
 }
 
 export default App;
