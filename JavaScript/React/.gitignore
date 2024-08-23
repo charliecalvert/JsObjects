@@ -5,3 +5,4 @@ food-lookup-demo
 bundle.js
 after.txt
 before.txt
+node_modules/
