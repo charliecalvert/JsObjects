@@ -1,0 +1,17 @@
+{
+  "name": "simple-express-jest",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "config": {
+    "jest": {
+      "testEnvironment": "node"
+    }
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
