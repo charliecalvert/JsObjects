@@ -1,0 +1,13 @@
+diff webpack.config.js ~/Source/webpack-client-server/client/webpack.config.js
+diff app.js ~/Source/webpack-client-server/client/app.js
+diff package.json ~/Source/webpack-client-server/client/package.json
+diff nodemon.json ~/Source/webpack-client-server/client/nodemon.json
+diff .babelrc ~/Source/webpack-client-server/client/.babelrc
+diff .gitignore ~/Source/webpack-client-server/client/.gitignore
+diff .eslintrc ~/Source/webpack-client-server/client/.eslintrc
+diff .eslintignore ~/Source/webpack-client-server/client/.eslintignore
+diff source/App.js ~/Source/webpack-client-server/client/source/App.js
+diff views/error.pug ~/Source/webpack-client-server/client/views/error.pug
+diff views/error.pug ~/Source/webpack-client-server/client/views/index.pug
+diff views/index.pug ~/Source/webpack-client-server/client/views/index.pug
+diff views/layout.pug ~/Source/webpack-client-server/client/views/layout.pug
