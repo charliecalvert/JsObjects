@@ -1,58 +1,62 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, Component, Fragment } from 'react';
 // import ReactDOM from 'react-dom'
 import { log } from './logger.js';
 import './App.css';
 
 log('App component loaded');
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        log('App component constructor', props);
-        this.state = {
-            checkedRadioButton: 'none',
-            message: 'none'
-        };
-    }
+// class App extends Component {
+function App() {
+    log('App component loaded');
+    // log('App component loaded', props
+    /*     constructor(props) {
+            super(props);
+            log('App component constructor', props);
+            this.state = {
+                checkedRadioButton: 'none',
+                message: 'none'
+            };
+            this.useState({ checkedRadioButton: 'none', message: 'none' });
+        } */
 
-    handleRadioChange = event => {
-        this.setState({ checkedRadioButton: event.target.value });
+    const [checkedRadioButton, setCheckedRadioButton] = useState('none');
+    const [message, setMessage] = useState('none');
+
+    const handleRadioChange = event => {
+        setCheckedRadioButton(event.target.value);
     };
 
-    useButtonSelection = () => {
-        this.setState({
-            message: "You've chosen " + this.state.checkedRadioButton
-        });
+    const useButtonSelection = () => {
+        setMessage("You've chosen " + checkedRadioButton);
     };
 
-    bookRadios = (
-    <div>
-        <input
-            type="radio"
-            name="book-radio"
-            value="RadioOne"
-            id="radio-one"
-            checked={this.state.checkedRadioButton === 'RadioOne'}
-            onChange={this.handleRadioChange}
-        />
-        <label htmlFor="radio-one" className="book-radio">
-            Book Radio 2
-        </label>
-        <input
-            type="radio"
-            name="book-radio"
-            value="RadioTwo"
-            id="radio-two"
-            checked={this.state.checkedRadioButton === 'RadioTwo'}
-            onChange={this.handleRadioChange}
-        />
-        <label htmlFor="radio-two" className="book-radio">
-            Book Radio 2
-        </label>
-    </div>
-);
 
-render() {
+    const bookRadios = (
+        <div>
+            <input
+                type="radio"
+                name="book-radio"
+                value="RadioOne"
+                id="radio-one"
+                checked={checkedRadioButton === 'RadioOne'}
+                onChange={handleRadioChange}
+            />
+            <label htmlFor="radio-one" className="book-radio">
+                Book Radio 1
+            </label>
+            <input
+                type="radio"
+                name="book-radio"
+                value="RadioTwo"
+                id="radio-two"
+                checked={checkedRadioButton === 'RadioTwo'}
+                onChange={handleRadioChange}
+            />
+            <label htmlFor="radio-two" className="book-radio">
+                Book Radio 2
+            </label>
+        </div>
+    );
 
     return (
         <Fragment>
@@ -62,17 +66,16 @@ render() {
                     {bookRadios}
                     <hr />
                     <p>
-                        Selected radio button: {this.state.checkedRadioButton}
+                        Selected radio button: {checkedRadioButton}
                     </p>
-                    <p>Message: {this.state.message}</p>
-                    <button type="button" onClick={this.useButtonSelection}>
+                    <p>Message: {message}</p>
+                    <button type="button" onClick={useButtonSelection}>
                         Use Radio Button to set the message
                     </button>
                 </section>
             </div>
         </Fragment>
     );
-}
 }
 
 export default App;
