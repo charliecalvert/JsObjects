@@ -15,7 +15,8 @@ The following package eliminated warnings about import statements in my files:
 npm i -D @babel/eslint-parser
 ```
 
-I copied in a views folder for pug.
+I copied in the views (for pug)and routes (for express) folders and the file ./app.js
+(for pug).
 
 I copied in a components .babelrc
 
@@ -30,4 +31,30 @@ module: {
         }
     ]
 }
+```
+
+## Install Babel
+
+``` bash
+npm i @babel/cli
+npm i @babel/plugin-proposal-class-properties
+npm i -D @babel/core
+npm i -D @babel/eslint-parser
+npm i -D @babel/preset-env
+npm i -D @babel/preset-react
+npm i -D babel-loader
+```
+
+## Remove Babel
+
+``` bash
+npm rm @babel/cli
+npm rm @babel/*
+npm rm @babel/plugin-transform-class-properties
+npm rm @babel/core
+npm rm @babel/eslint-parser
+npm rm @babel/preset-env
+npm rm @babel/preset-react
+npm rm babel-loader
+npm rm babel-eslint
 ```

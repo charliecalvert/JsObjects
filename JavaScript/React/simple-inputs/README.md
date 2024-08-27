@@ -9,9 +9,23 @@ Basic node server with support for:
 
 To run:
 
-    npm i
-    npm run build
-    npm start
+````bash
+npm i
+npm run build
+npm start
+```
+
+## Install Babel
+
+```bash
+npm i @babel/cli
+npm i @babel/plugin-proposal-class-properties
+npm i -D @babel/core
+npm i -D @babel/eslint-parser
+npm i -D @babel/preset-env
+npm i -D @babel/preset-react
+npm i -D babel-loader
+```
 
 ## Client Side
 
@@ -32,7 +46,7 @@ Start with elf-express. Add at least three React Components, the first of which 
 Create a React component called **DayBoxes** with three checkBoxes:
 
 - Sunday
-- Monday 
+- Monday
 - Tuesday
 
 Display the selected radioBoxes in a separate React component called **Display**.
@@ -41,6 +55,6 @@ Create a React component called **EcmaRadios** with three radioButtons:
 
 - EcmaScript 4
 - EcmaScript 5
-- EcmaScript 6 
+- EcmaScript 6
 
 Display the selected radioButton in a separate React Control Called **Display**.

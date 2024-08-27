@@ -8,7 +8,7 @@ log('App component loaded');
 class App extends Component {
     constructor(props) {
         super(props);
-        log('App component constructor');
+        log('App component constructor', props);
         this.state = {
             checkedRadioButton: 'none',
             message: 'none'

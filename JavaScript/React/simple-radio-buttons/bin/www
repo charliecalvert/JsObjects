@@ -3,13 +3,15 @@
 /**
  * Module dependencies.
  */
-import app from '../src/App.js';
-// var app = require('../src/App.js');
-// var debug = require('debug')('simple-inputs:server');
+
+var app = require('../app');
+var debug = require('debug')('simple-inputs:server');
+var http = require('http');
+
+/* import app from '../src/App.js';
 import createDebugMessages from 'debug';
 const debug = createDebugMessages('simple-radio-buttons');
-import http from 'http';
-// var http = require('http');
+import http from 'http'; */
 
 /**
  * Get port from environment and store in Express.

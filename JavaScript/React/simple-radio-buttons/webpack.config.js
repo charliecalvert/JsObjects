@@ -1,6 +1,6 @@
 //var path = require('path');
 //var webpack = require('webpack')
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 console.log(__dirname);
 module.exports = {
@@ -14,12 +14,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.(js|jsx)?$/,
+                test: /.(js)?$/,
                 use: {
-                    loader: 'esbuild-loader',
+                    loader: 'babel-loader',
                     options: {
-                        loader: 'jsx',
-                        target: 'es2015'
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react'
+                        ]
                     }
                 },
                 exclude: /(node_modules|bower_components)/,
@@ -30,15 +32,6 @@ module.exports = {
                     'style-loader',
                     'css-loader']
             },
-            resolve: {
-                extensions: ['.js', '.jsx']
-            },
         ],
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: './src/index.html'
-            })
-        ]
-
     }
 };
