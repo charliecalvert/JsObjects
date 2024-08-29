@@ -87,4 +87,11 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+ /*  process.on('SIGINT', () => {
+    console.log('Received SIGINT. Closing server gracefully...');
+    // Perform cleanup tasks here (e.g., close database connections)
+    process.exit(0); // Exit with success code
+  }); */
 }
+

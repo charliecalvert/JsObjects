@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",
-    "build": "npx webpack --watch",
+    "build": "npm i && npx webpack",
     "test": "jest --watch"
   },
   "dependencies": {

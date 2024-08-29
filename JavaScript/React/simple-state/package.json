@@ -6,7 +6,7 @@
     "start": "npx webpack --watch & nodemon ./bin/www",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "npx webpack"
+    "build": "npm i && npx webpack"
   },
   "dependencies": {
     "@babel/cli": "^7.24.8",
