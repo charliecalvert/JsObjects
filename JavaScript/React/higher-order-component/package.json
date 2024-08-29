@@ -2,6 +2,10 @@
   "name": "hoc",
   "version": "0.1.2",
   "private": true,
+  "scripts": {
+    "start": "echo 'no start'",
+    "build": "echo 'no build'"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

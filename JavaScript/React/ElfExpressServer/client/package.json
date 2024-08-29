@@ -6,6 +6,9 @@
   "config": {
     "port": "30025"
   },
+  "scripts": {
+    "start": ""
+  },
   "devDependencies": {},
   "dependencies": {
     "react": "^18.3.1",

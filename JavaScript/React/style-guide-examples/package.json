@@ -7,8 +7,8 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "foo": "npx styleguidist build",
-    "bar": "npx styleguidist server"
+    "build": "npx styleguidist build",
+    "start": "npx styleguidist server"
   },
   "devDependencies": {
     "react-styleguidist": "^13.1.1"

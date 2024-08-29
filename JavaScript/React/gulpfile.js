@@ -52,9 +52,9 @@ gulp.task('RestExpress', (cb) => {
     exec('npm run build', { cwd: 'RestExpress' }, cb);
 });
 
-gulp.task('drawer-menu', (cb) => {
+/* gulp.task('drawer-menu', (cb) => {
     exec('npm run build', { cwd: 'drawer-menu' }, cb);
-});
+}); */
 
 gulp.task('dynamic-load', (cb) => {
     exec('npm run build', { cwd: 'dynamic-load' }, cb);
@@ -64,16 +64,12 @@ gulp.task('gatsby-site', (cb) => {
     exec('npm run build', { cwd: 'gatsby-site' }, cb);
 });
 
-gulp.task('higher-order-component', (cb) => {
+/* gulp.task('higher-order-component', (cb) => {
     exec('npm run build', { cwd: 'higher-order-component' }, cb);
-});
+}); */
 
 gulp.task('material-button-components', (cb) => {
     exec('npm run build', { cwd: 'material-button-components' }, cb);
-});
-
-gulp.task('node_modules', (cb) => {
-    exec('npm run build', { cwd: 'node_modules' }, cb);
 });
 
 gulp.task('react-app-create', (cb) => {
@@ -135,4 +131,31 @@ simple-state
 style-guide-examples
 todo-redux */
 
-exports.default = gulp.parallel('BuildElfExpressServer', 'MaterialBrowserify', 'ReactEs6', 'ReactFetchTests', 'ReactRouterDomBasics', 'ReactRouterDomCss', 'ReactRouterDomFetch', 'ReactRouterDomNavigate', 'RestBoiler', 'RestExpress', 'drawer-menu', 'dynamic-load', 'gatsby-site', 'higher-order-component', 'material-button-components', 'node_modules', 'react-app-create', 'build-react-simple', 'react-webpack-simple', 'redux-simple', 'simple-express-jest', 'simple-inputs-bit-dev', 'simple-inputs', 'simple-radio-buttons', 'build-simple-state', 'style-guide-examples', 'todo-redux');
+exports.default = gulp.parallel(
+    'BuildElfExpressServer',
+    'MaterialBrowserify',
+    'ReactEs6',
+    'ReactFetchTests',
+    'ReactRouterDomBasics',
+    'ReactRouterDomCss',
+    'ReactRouterDomFetch',
+    'ReactRouterDomNavigate',
+    'RestBoiler',
+    'RestExpress',
+    // 'drawer-menu',
+    'dynamic-load',
+    'gatsby-site',
+    // 'higher-order-component',
+    'material-button-components',
+    'react-app-create',
+    'build-react-simple',
+    'react-webpack-simple',
+    'redux-simple',
+    'simple-express-jest',
+    'simple-inputs-bit-dev',
+    'simple-inputs',
+    'simple-radio-buttons',
+    'build-simple-state',
+    'style-guide-examples',
+    'todo-redux',
+);

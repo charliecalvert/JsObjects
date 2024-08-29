@@ -2,6 +2,7 @@
   "name": "simple-express-jest",
   "scripts": {
     "start": "node app.js",
+    "build": "echo \"No build step\" && exit 0",
     "test": "jest"
   },
   "config": {

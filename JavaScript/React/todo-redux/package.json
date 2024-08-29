@@ -2,6 +2,10 @@
     "name": "todo-redux",
     "version": "0.1.2",
     "private": true,
+    "scripts": {
+        "build": "echo \"Error: no build specified\" && exit 0",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
     "dependencies": {
         "prop-types": "^15.8.1",
         "react": "^18.2.0",

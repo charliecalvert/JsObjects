@@ -3,6 +3,11 @@
   "version": "0.1.1",
   "private": true,
   "proxy": "http://localhost:30026",
+  "scripts": {
+    "start": "echo 'no start'",
+    "build": "echo 'no build'",
+    "test": "echo 'no tests'"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

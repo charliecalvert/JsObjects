@@ -2,6 +2,10 @@
   "name": "simple-components",
   "version": "0.1.3",
   "private": true,
+  "scripts": {
+    "build": "echo \"Error: no build specified\" && exit 0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
