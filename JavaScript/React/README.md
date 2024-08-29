@@ -2,7 +2,47 @@
 
 -- RestExpress: Simple Express Project + React. No create-react-app
 
-## Introduction
+## Installation
+
+Building on [Dennis Williamson's answer](https://stackoverflow.com/a/3294514/253576) we can get only the directory name from a particular subdirectory:
+
+```bash
+
+```bash
+ls -d /home/$USER/Git/React/*/  |  while read line; do
+   echo "$(basename $line)"
+done
+```
+
+Suppose JsObjects has 7 subdirecties:
+
+```bash
+$ ls -d /home/$USER/Git/JsObjects/*/
+/home/ubuntu/Git/JsObjects/Cordova/            /home/ubuntu/Git/JsObjects/JavaScript/
+/home/ubuntu/Git/JsObjects/Data/               /home/ubuntu/Git/JsObjects/Python/
+/home/ubuntu/Git/JsObjects/HtmlCssJavascript/  /home/ubuntu/Git/JsObjects/Utilities/
+/home/ubuntu/Git/JsObjects/JQueryMobile/
+```
+
+We can get the directory names like this:
+
+```bash
+$ ls -d /home/$USER/Git/JsObjects/*/  |  while read line; do
+   echo "$(basename $line)"
+done
+Cordova
+Data
+HtmlCssJavascript
+JQueryMobile
+JavaScript
+Python
+Utilities
+```
+
+```
+
+## React Simple
+
 
 ```json
 {
