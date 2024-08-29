@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd server && npx webpack",
     "server": "babel-node server/bin/www",
     "client": "babel-node start-client.js",
     "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",

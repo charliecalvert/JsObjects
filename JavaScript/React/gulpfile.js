@@ -134,3 +134,5 @@ simple-radio-buttons
 simple-state
 style-guide-examples
 todo-redux */
+
+exports.default = gulp.parallel('BuildElfExpressServer', 'MaterialBrowserify', 'ReactEs6', 'ReactFetchTests', 'ReactRouterDomBasics', 'ReactRouterDomCss', 'ReactRouterDomFetch', 'ReactRouterDomNavigate', 'RestBoiler', 'RestExpress', 'drawer-menu', 'dynamic-load', 'gatsby-site', 'higher-order-component', 'material-button-components', 'node_modules', 'react-app-create', 'build-react-simple', 'react-webpack-simple', 'redux-simple', 'simple-express-jest', 'simple-inputs-bit-dev', 'simple-inputs', 'simple-radio-buttons', 'build-simple-state', 'style-guide-examples', 'todo-redux');

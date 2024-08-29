@@ -4,6 +4,11 @@
     "description": "",
     "keywords": [],
     "main": "src/index.js",
+    "scripts": {
+        "start": "webpack serve --mode development",
+        "tryme": "webpack serve --mode development",
+        "build": "npm i && npx webpack"
+    },
     "dependencies": {
         "nanoid": "^4.0.2",
         "react": "18.2.0",
