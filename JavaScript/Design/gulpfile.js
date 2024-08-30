@@ -1,6 +1,8 @@
 // gulpfile.js
 const gulp = require('gulp');
+const fs = require('fs');
 const { exec } = require('child_process');
+const { log } = require('elven-code/elf-log');
 
 const directories = [
     'BridgeSailor',
@@ -35,17 +37,29 @@ const directories = [
 ];
 
 directories.forEach(dir => {
-    gulp.task(`ncu-${dir}`, (cb) => {
-        exec('ncu', { cwd: dir }, (err, stdout, stderr) => {
-            if (err) {
-                console.error(`Error in ${dir}:`, stderr);
-                cb(err);
-            } else {
-                console.log(`Output from ${dir}:`, stdout);
-                cb();
-            }
+
+    const path = `./${dir}/package.json`;
+
+    if (fs.existsSync(path)) {
+        console.log('File exists', path);
+        gulp.task(`ncu`, (cb) => {
+            console.log('executing ncu', cb);
+
+            exec('ncu', { cwd: dir }, (err, stdout, stderr) => {
+                if (err) {
+                    console.error(`Error in ${dir}:`, stderr);
+                    cb(err);
+                } else {
+                    console.log(`Output from ${dir}:`, stdout);
+                    cb();
+                }
+            });
         });
-    });
+    } else {
+        console.log('File not found', path);
+    }
+
+
 });
 
 gulp.task('ncu-all', gulp.series(directories.map(dir => `ncu-${dir}`)));

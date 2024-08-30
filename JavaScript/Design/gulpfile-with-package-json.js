@@ -1,6 +1,8 @@
 // gulpfile.js
 const gulp = require('gulp');
 const { exec } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const directories = [
     'BridgeSailor',
@@ -36,16 +38,22 @@ const directories = [
 
 directories.forEach(dir => {
     gulp.task(`ncu-${dir}`, (cb) => {
-
-        exec('ncu -j', { cwd: dir }, (err, stdout, stderr) => {
-            if (err) {
-                console.error(`Error in ${dir}:`, stderr);
-                cb(err);
-            } else {
-                console.log(`Output from ${dir}:`, stdout);
-                cb();
-            }
-        });
+        const packageJsonPath = path.join(dir, 'package.json');
+        if (fs.existsSync(packageJsonPath)) {
+            console.log(`Running ncu in ${dir}`);
+            exec('ncu -j > temp.json', { cwd: dir }, (err, stdout, stderr) => {
+                if (err) {
+                    console.error(`Error in ${dir}:`, stderr);
+                    cb(err);
+                } else {
+                    console.log(`Output from ${dir}:`, stdout);
+                    cb();
+                }
+            });
+        } else {
+            console.log(`No package.json found in ${dir}`);
+            cb();
+        }
     });
 });
 
