@@ -1,3 +1,78 @@
+# Overview
+
+```text
+Create a gulpfile.js that visits the following directories and runs
+this command: "ncu -j" and writes the output to temp.json
+if there is a package.json file in the directory.
+
+BridgeSailor
+DecorateSailor
+ElfRoutes01
+ElfRoutes02
+FactoryInterface
+FactorySimple01
+GridCanonical
+GridCleanSite
+GridExpress
+GridExpressFetch
+GridTwelveCols
+IBitDay2016
+JadeMixinComplete
+JadeMixinSimple
+JsonFromServer
+JsonFromServer02
+Knockout01
+MaterialComponents
+OldAngular
+PubSubTopic01
+PubSubTopic02
+PubSubTopic03
+PubSubTopic04
+Ractive
+RequireBoat
+RequireCrafty
+RequireJs01
+SimpleQueue
+Singleton
+```
+
+## JavaScript
+
+```text
+Create a gulpfile.js that visits the following directories
+and copies temp.json to package.json if temp.json exists.
+
+BridgeSailor
+DecorateSailor
+ElfRoutes01
+ElfRoutes02
+FactoryInterface
+FactorySimple01
+GridCanonical
+GridCleanSite
+GridExpress
+GridExpressFetch
+GridTwelveCols
+IBitDay2016
+JadeMixinComplete
+JadeMixinSimple
+JsonFromServer
+JsonFromServer02
+Knockout01
+MaterialComponents
+OldAngular
+PubSubTopic01
+PubSubTopic02
+PubSubTopic03
+PubSubTopic04
+Ractive
+RequireBoat
+RequireCrafty
+RequireJs01
+SimpleQueue
+Singleton
+```
+
 ## Angular
 
 - [Angular00 Hello](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/Angular00)
