@@ -1,25 +1,25 @@
 {
-    "name": "materialcomponents",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview"
-    },
-    "devDependencies": {
-        "vite": "^4.3.9"
-    },
-    "dependencies": {
-        "@emotion/react": "^11.11.0",
-        "@emotion/styled": "^11.11.0",
-        "@fontsource/roboto": "^5.0.1",
-        "@mui/icons-material": "^5.11.16",
-        "@mui/material": "^5.13.3",
-        "@vitejs/plugin-react": "^4.0.0",
-        "classnames": "^2.3.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-    }
+  "name": "materialcomponents",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/roboto": "^5.0.14",
+    "@mui/icons-material": "^6.0.1",
+    "@mui/material": "^6.0.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "classnames": "^2.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
 }
