@@ -1,0 +1,37 @@
+## Parsing package.json
+
+```bash
+npm i eslint-plugin-jest gulp nodemon react
+npm i -D babel-eslint eslint-config-airbnb eslint-plugin-import \
+    eslint-plugin-react eslint-plugin-react-hooks jest npm-run-all
+```
+
+```bash
+npm i @babel/cli @babel/plugin-proposal-class-properties cookie-parser debug express http-errors morgan pug react react-dom
+
+npm i -D @babel/core @babel/eslint-parser @babel/preset-env @babel/preset-react babel-loader css-loader style-loader webpack webpack-cli
+```
+
+"dependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.6",
+    "express": "~4.19.2",
+    "http-errors": "~2.0.0",
+    "morgan": "~1.10.0",
+    "pug": "3.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  },
