@@ -8,3 +8,10 @@ Cordova
 proguard*
 *-CordovaLib*
 plugins
+
+# Ignore everything outside the current directory
+# ../*
+# $GIT_HOME/JsObjects/Javascript/*
+~/Git/JsObjects/Javascript/*
+../Javascript/*
+# Ignore all files in the build directory
