@@ -4,7 +4,16 @@
 npm i eslint-plugin-jest gulp nodemon react
 npm i -D babel-eslint eslint-config-airbnb eslint-plugin-import \
     eslint-plugin-react eslint-plugin-react-hooks jest npm-run-all
+
+Add them:
+
+```bash
+npm rm @babel/cli @babel/plugin-proposal-class-properties cookie-parser debug express http-errors morgan pug react react-dom
+
+npm rm @babel/core @babel/eslint-parser @babel/preset-env @babel/preset-react babel-loader css-loader style-loader webpack webpack-cli
 ```
+
+Remove them:
 
 ```bash
 npm i @babel/cli @babel/plugin-proposal-class-properties cookie-parser debug express http-errors morgan pug react react-dom
