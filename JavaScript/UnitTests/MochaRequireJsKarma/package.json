@@ -1,6 +1,6 @@
 {
   "name": "MochaRequireJs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Mocha and RequireJs",
   "main": "Test01.js",
   "scripts": {

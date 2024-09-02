@@ -1,7 +1,7 @@
 {
     "name": "SimpleReadWriteJson",
     "description": "Simple Reading and writing of JSON",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "private": true,
     "config": {
         "port": "30026"

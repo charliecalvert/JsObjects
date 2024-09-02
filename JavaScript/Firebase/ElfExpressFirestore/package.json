@@ -1,6 +1,6 @@
 {
   "name": "elfexpressfirestore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "DEBUG=elf-express npx webpack --watch & nodemon ./bin/www",

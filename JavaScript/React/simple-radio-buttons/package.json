@@ -1,6 +1,6 @@
 {
   "name": "simple-radio-buttons",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",

@@ -1,6 +1,6 @@
 {
     "name": "03-loading-components-on-demand",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "",
     "keywords": [],
     "main": "src/index.js",

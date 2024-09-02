@@ -1,7 +1,7 @@
 {
   "name": "MakeDirectory",
   "description": "Make a Directory, Copy a File",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "express": "latest",

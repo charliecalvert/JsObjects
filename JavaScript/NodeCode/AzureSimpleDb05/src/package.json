@@ -1,7 +1,7 @@
 {
   "name": "Presidents",
   "description": "Unit Test the Presidents",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "express": "4.19.2",

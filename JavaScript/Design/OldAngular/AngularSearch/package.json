@@ -1,6 +1,6 @@
 {
   "name": "crafty-demo03",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "devDependencies": {
     "selenium-webdriver": "~4.24.0"
   }

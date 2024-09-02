@@ -1,7 +1,7 @@
 {
   "name": "PresidentsJSON",
   "description": "Pass Data to Server",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "express": "4.19",

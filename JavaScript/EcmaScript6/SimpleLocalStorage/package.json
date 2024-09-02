@@ -1,6 +1,6 @@
 {
   "name": "simplelocalstorage",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",

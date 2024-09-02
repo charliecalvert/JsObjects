@@ -1,6 +1,6 @@
 {
   "name": "eslint-test",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",

@@ -1,6 +1,6 @@
 {
   "name": "redux-simple",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "build": "echo \"Error: no build specified\" && exit 0",

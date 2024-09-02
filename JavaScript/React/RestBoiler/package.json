@@ -1,6 +1,6 @@
 {
   "name": "webpack-express-boilerplate",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "A boilerplate for running a Webpack workflow in Node express",
   "main": "server.js",
   "repository": {

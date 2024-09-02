@@ -1,6 +1,6 @@
 {
     "name": "arrays-equal",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "scripts": {
         "start": "nodemon app.js",
         "test": "node_modules/.bin/jest",

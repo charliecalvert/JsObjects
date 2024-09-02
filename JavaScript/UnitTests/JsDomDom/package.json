@@ -1,6 +1,6 @@
 {
   "name": "jsdomdom",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "jsdom",
   "main": "foo.js",
   "scripts": {

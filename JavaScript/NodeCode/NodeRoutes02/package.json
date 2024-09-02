@@ -1,7 +1,7 @@
 {
   "name": "NodeRoutes02",
   "description": "Simple Reading and writing of JSON",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "start": "DEBUG=NodeRoutes02 nodemon bin/www"

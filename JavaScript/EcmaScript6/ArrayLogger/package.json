@@ -1,6 +1,6 @@
 {
   "name": "arraylogger",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Log arrays with ES6",
   "main": "work.js",
   "scripts": {

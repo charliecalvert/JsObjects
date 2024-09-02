@@ -1,7 +1,7 @@
 {
   "name": "expressSend",
   "description": "Work with express and sending information",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "nodemon server.js"

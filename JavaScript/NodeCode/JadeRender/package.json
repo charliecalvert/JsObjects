@@ -1,6 +1,6 @@
 {
   "name": "JadeRender",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "How to create HTML from Jade",
   "main": "Render.js",
   "scripts": {

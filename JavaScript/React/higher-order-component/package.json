@@ -1,6 +1,6 @@
 {
   "name": "hoc",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "echo 'no start'",

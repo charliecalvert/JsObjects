@@ -1,6 +1,6 @@
 {
     "name": "open-id-01",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "private": true,
     "dependencies": {
         "openid": "2.0.12",

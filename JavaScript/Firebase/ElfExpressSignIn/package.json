@@ -1,6 +1,6 @@
 {
   "name": "elf-express-sign-in",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "npx webpack --watch & nodemon ./bin/www",

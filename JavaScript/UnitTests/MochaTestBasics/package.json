@@ -1,6 +1,6 @@
 {
   "name": "TestBasicDemos",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Demos for the UnitTestingBasics Slide Deck",
   "dependencies": {
     "chai": "^5.1.1"

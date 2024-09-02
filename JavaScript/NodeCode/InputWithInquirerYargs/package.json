@@ -1,6 +1,6 @@
 {
   "name": "yargs-test",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Learn to use yargs",
   "main": "yarg-test.js",
   "scripts": {

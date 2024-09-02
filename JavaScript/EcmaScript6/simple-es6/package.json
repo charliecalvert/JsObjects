@@ -1,6 +1,6 @@
 {
   "name": "simple-es6",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simple Es6 with Babel",
   "main": "index.js",
   "scripts": {

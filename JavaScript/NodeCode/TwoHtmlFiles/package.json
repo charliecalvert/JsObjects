@@ -1,7 +1,7 @@
 {
   "name": "TwoHtmlFIles",
   "description": "Launch a second HTML file from a Node Server",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "express": "latest"

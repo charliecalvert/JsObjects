@@ -26,5 +26,6 @@
   "private": true,
   "jest": {
     "preset": "jest-expo"
-  }
+  },
+  "version": "0.0.1"
 }

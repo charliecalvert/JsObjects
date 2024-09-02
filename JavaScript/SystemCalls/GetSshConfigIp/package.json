@@ -1,6 +1,6 @@
 {
   "name": "getip",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Get IP from from SSH config",
   "main": "getip.js",
   "scripts": {
