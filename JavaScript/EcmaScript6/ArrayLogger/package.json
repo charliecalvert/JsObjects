@@ -1,6 +1,6 @@
 {
   "name": "arraylogger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Log arrays with ES6",
   "main": "work.js",
   "scripts": {
@@ -28,17 +28,17 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.22.1",
-    "@testing-library/react": "^14.0.0",
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@testing-library/react": "^16.0.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
-    "connect-redis": "^7.1.0",
-    "jest": "^29.5.0",
-    "jest-cli": "^29.5.0",
-    "uuid": "^9.0.0"
+    "connect-redis": "^7.1.1",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "uuid": "^10.0.0"
   },
   "dependencies": {
-    "pug": "^3.0.2"
+    "pug": "^3.0.3"
   }
 }

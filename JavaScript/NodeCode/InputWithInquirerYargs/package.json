@@ -1,6 +1,6 @@
 {
   "name": "yargs-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Learn to use yargs",
   "main": "yarg-test.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^10.0.1",
+    "commander": "^12.1.0",
     "terminal-menu": "^2.1.1",
     "yargs": "^17.7.2"
   }

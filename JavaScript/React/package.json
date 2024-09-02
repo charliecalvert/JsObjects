@@ -1,6 +1,6 @@
 {
   "name": "react-jsobjects",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Check React Code",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects#readme",
   "dependencies": {
-    "eslint-plugin-jest": "^28.8.0",
+    "eslint-plugin-jest": "^28.8.2",
     "gulp": "^5.0.0",
     "nodemon": "^3.1.4",
     "react": "^18.3.1"

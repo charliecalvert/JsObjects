@@ -1,9 +1,9 @@
 {
   "name": "MochaHello",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simplest possible Mocha test",
   "dependencies": {
-    "chai": "^4.3.7"
+    "chai": "^5.1.1"
   },
   "devDependencies": {},
   "scripts": {

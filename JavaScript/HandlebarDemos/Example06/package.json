@@ -1,8 +1,8 @@
 {
-    "name": "Example06", 
-	"version": "0.0.1",
-	"private": true,
-	"dependencies": {
-		"handlebars": "4.7.7"
-	}
+    "name": "Example06",
+    "version": "0.0.2",
+    "private": true,
+    "dependencies": {
+        "handlebars": "4.7.8"
+    }
 }

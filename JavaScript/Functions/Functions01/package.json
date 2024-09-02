@@ -1,6 +1,6 @@
 {
     "name": "Grunt01Sample",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "devDependencies": {
         "grunt": "~1.6.1",
         "grunt-contrib-clean": "~2.0.1",

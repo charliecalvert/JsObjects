@@ -1,6 +1,6 @@
 {
   "name": "UtilsTest",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tests basic utilitity functions",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
     "test": "./RunMe.sh"
   },
   "dependencies": {
-    "mkdirp": "~3.0.0",
+    "mkdirp": "~3.0.1",
     "require": "^2.4.20",
     "guid": "0.0.12"
   },

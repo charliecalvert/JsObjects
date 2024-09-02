@@ -1,6 +1,6 @@
 {
   "name": "JsonFromServer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "http://github.com/charliecalvert/JsObjects.git"
@@ -12,15 +12,15 @@
   "devDependencies": {
     "grunt": "~1.6.1",
     "grunt-contrib-jshint": "~3.2.0",
-    "jasmine-core": "^4.6.0",
+    "jasmine-core": "^5.2.0",
     "jasmine-jquery": "^2.1.1",
-    "karma": "~6.4.1",
-    "karma-chrome-launcher": "~3.1.1",
-    "karma-coverage": "~2.2.0",
+    "karma": "~6.4.4",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
-    "karma-phantomjs-launcher": "~1.0.0",
+    "karma-phantomjs-launcher": "~1.0.4",
     "karma-script-launcher": "~1.0.0",
     "karma-spec-reporter": "0.0.36",
-    "requirejs": "~2.3.6"
+    "requirejs": "~2.3.7"
   }
 }

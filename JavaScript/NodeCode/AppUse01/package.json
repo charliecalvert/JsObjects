@@ -1,9 +1,9 @@
 {
   "name": "jsonRead",
   "description": "Simple Reading of JSON",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
-    "express": "~4.18"
+    "express": "~4.19"
   }
 }

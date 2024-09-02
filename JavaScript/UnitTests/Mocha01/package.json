@@ -1,6 +1,6 @@
 {
   "name": "Mocha01",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Test Exmple",
   "main": "App.js",
   "directories": {
@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "mkdirp": "^3.0.0"
+    "mkdirp": "^3.0.1"
   }
 }

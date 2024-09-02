@@ -1,21 +1,21 @@
 {
   "name": "GetNine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "start": "node NodeStatic.js"
   },
   "dependencies": {
-    "pug": "^3.0.2"
+    "pug": "^3.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.22.1",
-    "@mui/codemod": "^5.13.3",
-    "@testing-library/react": "^14.0.0",
-    "connect-redis": "^7.1.0",
-    "jest": "^29.5.0",
-    "jest-cli": "^29.5.0",
-    "uuid": "^9.0.0"
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@mui/codemod": "^6.0.1",
+    "@testing-library/react": "^16.0.1",
+    "connect-redis": "^7.1.1",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "uuid": "^10.0.0"
   }
 }

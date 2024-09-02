@@ -1,6 +1,6 @@
 {
   "name": "MochaRequireJs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mocha and RequireJs",
   "main": "Test01.js",
   "scripts": {
@@ -21,16 +21,16 @@
   },
   "homepage": "https://github.com/charliecalvert/JsObjects",
   "dependencies": {
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.7"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
-    "karma": "^6.4.1",
+    "chai": "^5.1.1",
+    "karma": "^6.4.4",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^3.1.1",
+    "karma-chrome-launcher": "^3.2.0",
     "karma-mocha": "^2.0.1",
-    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
-    "mocha": "^10.2.0"
+    "mocha": "^10.7.3"
   }
 }

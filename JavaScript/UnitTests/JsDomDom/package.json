@@ -1,6 +1,6 @@
 {
   "name": "jsdomdom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jsdom",
   "main": "foo.js",
   "scripts": {
@@ -12,6 +12,6 @@
   "author": "Charlie Calvert",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^21.1.1"
+    "jsdom": "^25.0.0"
   }
 }

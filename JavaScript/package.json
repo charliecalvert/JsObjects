@@ -1,6 +1,6 @@
 {
   "name": "javascript-clean-code",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Elven Code for cleaning up JavaScript code",
   "type": "module",
   "license": "MIT",
@@ -29,11 +29,10 @@
     "npmrx": "DEBUG=joj:run-npm-start node run-npm-install.js RegEx install",
     "ncusc": "DEBUG=joj:run-npm-start node run-npm-install.js SystemCalls ncu",
     "npmsc": "DEBUG=joj:run-npm-start node run-npm-install.js SystemCalls install"
-
   },
   "dependencies": {
-    "chalk": "^5.2.0",
+    "chalk": "^5.3.0",
     "elven-code": "^4.14.2",
-    "walk-directories": "^4.2.0"
+    "walk-directories": "^4.2.1"
   }
 }

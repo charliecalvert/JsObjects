@@ -1,6 +1,6 @@
 {
   "name": "JsonFromServer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple app to get json from server",
   "main": "index.js",
   "scripts": {

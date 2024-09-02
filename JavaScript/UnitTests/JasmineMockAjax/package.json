@@ -1,6 +1,6 @@
 {
   "name": "JasmineNoRequireExpress",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
@@ -8,10 +8,10 @@
   "dependencies": {
     "body-parser": "~1.20.2",
     "cookie-parser": "~1.4.6",
-    "debug": "~4.3.4",
-    "express": "~4.18.2",
+    "debug": "~4.3.6",
+    "express": "~4.19.2",
     "jade": "~1.11.0",
-    "karma-chrome-launcher": "^3.1.1",
+    "karma-chrome-launcher": "^3.2.0",
     "morgan": "~1.10.0",
     "serve-favicon": "~2.5.0"
   },
@@ -19,11 +19,11 @@
     "grunt": "~1.6.1",
     "grunt-contrib-jshint": "~3.2.0",
     "grunt-karma": "^4.0.2",
-    "jasmine-core": "^4.6.0",
-    "karma": "~6.4.1",
+    "jasmine-core": "^5.2.0",
+    "karma": "~6.4.4",
     "karma-jasmine": "~5.1.0",
-    "karma-phantomjs-launcher": "~0.2.1",
+    "karma-phantomjs-launcher": "~1.0.4",
     "karma-spec-reporter": "0.0.36",
-    "phantomjs": "^1.9.20"
+    "phantomjs": "^2.1.7"
   }
 }

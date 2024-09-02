@@ -1,11 +1,11 @@
 {
   "name": "Grunt01Sample",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "grunt": "~1.6.1",
     "grunt-contrib-clean": "~2.0.1",
     "grunt-contrib-jshint": "~3.2.0",
     "grunt-jsbeautifier": "^0.2.13",
-    "jasmine": "^4.6.0"
+    "jasmine": "^5.2.0"
   }
 }

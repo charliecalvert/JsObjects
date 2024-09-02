@@ -1,6 +1,6 @@
 {
   "name": "FactorySimple01",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/charliecalvert/JsObjects"
@@ -10,8 +10,8 @@
     "grunt-contrib-jshint": "~3.2.0",
     "grunt-contrib-clean": "~2.0.1",
     "grunt-contrib-compress": "~2.0.0",
-    "grunt-contrib-copy": "~1.0.0",    
-    "js-beautify": "^1.14.7",
-    "grunt-jsbeautifier": "^0.2.13"    
+    "grunt-contrib-copy": "~1.0.0",
+    "js-beautify": "^1.15.1",
+    "grunt-jsbeautifier": "^0.2.13"
   }
 }

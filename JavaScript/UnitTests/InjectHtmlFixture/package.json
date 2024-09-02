@@ -1,16 +1,16 @@
 {
   "name": "karma-seed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "test": "karma start karma.conf.js"
   },
   "devDependencies": {
-    "jasmine-core": "^4.6.0",
-    "karma": "^6.4.1",    
+    "jasmine-core": "^5.2.0",
+    "karma": "^6.4.4",
     "karma-jasmine": "^5.1.0",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.20",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs": "^2.1.7",
     "karma-spec-reporter": "0.0.36"
   }
 }

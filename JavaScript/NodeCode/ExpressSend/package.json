@@ -1,12 +1,12 @@
 {
   "name": "expressSend",
   "description": "Work with express and sending information",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "express": "~4.18.2"
+    "express": "~4.19.2"
   }
 }

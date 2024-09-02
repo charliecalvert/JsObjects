@@ -1,25 +1,25 @@
 {
   "name": "mochaintegrationtest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "~4.18.2",
+    "express": "~4.19.2",
     "serve-favicon": "~2.5.0",
     "morgan": "~1.10.0",
     "cookie-parser": "~1.4.6",
     "body-parser": "~1.20.2",
-    "debug": "~4.3.4",
-    "jade": "~1.9.1"
+    "debug": "~4.3.6",
+    "jade": "~1.11.0"
   },
   "devDependencies": {
     "grunt": "~1.6.1",
     "grunt-develop": "~0.4.0",
     "grunt-contrib-watch": "~1.1.0",
-    "request": "~2.51.0",
-    "time-grunt": "~1.4.0",
+    "request": "~2.88.2",
+    "time-grunt": "~2.0.0",
     "load-grunt-tasks": "~5.1.0"
   }
 }

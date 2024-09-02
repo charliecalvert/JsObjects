@@ -1,7 +1,7 @@
 {
   "name": "NodeRoutes01",
   "description": "Simple Reading and writing of JSON",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "start": "nodemon server.js",
@@ -9,22 +9,22 @@
   },
   "dependencies": {
     "body-parser": "^1.20.2",
-    "express": "^4.18.2",
-    "jquery": "^3.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "express": "^4.19.2",
+    "jquery": "^3.7.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.1",
-    "@babel/preset-env": "^7.22.4",
-    "@babel/preset-react": "^7.22.3",
-    "babel-loader": "^9.1.2",
-    "css-loader": "^6.8.1",
-    "html-webpack-plugin": "^5.5.1",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.84.1",
-    "webpack-dev-middleware": "^6.1.1",
-    "webpack-hot-middleware": "^2.25.3"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-dev-middleware": "^7.4.2",
+    "webpack-hot-middleware": "^2.26.1"
   }
 }
