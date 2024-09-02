@@ -79,6 +79,8 @@ createLink "$ELF_TEMPLATES"/React/ build-concurrency
 createLink "$ELF_TEMPLATES/" get-template
 createLink "$JSOBJECTS"/Python/Utils/ InsertJadeExecGrunt.py
 createLink "$ELF_SCRIPTS"/ ShowPath
+createLink "$ELF_SCRIPTS"/ clean-packages-compile.sh
+createLink "$ELF_SCRIPTS"/ cleanpl.sh
 createLink "$ELF_SCRIPTS"/ GetFavicon
 createLink "$ELF_SCRIPTS"/ GitIgnoreCheckForBad
 createLink "$ELF_SCRIPTS"/ GitIgnoreTest
