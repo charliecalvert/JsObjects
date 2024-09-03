@@ -46,30 +46,3 @@ function getPackages() {
 
 // Export the getPackages function
 module.exports = getPackages;
-
-/*
-const fs = require('fs').promises;
-const path = require('path');
-
-function getPackages() {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const packageJsonPath = path.join(__dirname, 'package.json');
-            const packageJsonData = await fs.readFile(packageJsonPath, 'utf8');
-            const packageJson = JSON.parse(packageJsonData);
-
-            const dependencies = packageJson.dependencies || {};
-            const devDependencies = packageJson.devDependencies || {};
-
-            const allPackages = { ...dependencies, ...devDependencies };
-
-            resolve(allPackages);
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
-
-getPackages()
-    .then(packages => console.log(packages))
-    .catch(error => console.error('Error:', error)); */

@@ -26,18 +26,6 @@ function getPackages() {
     log(`packageJson keys ${Object.keys(packageJson)}`);
     log(packageJson);
     return packageJson;
-    /* console.log('packageJson deps', packageJson.dependencies);
-    console.log('packageJson devdeps', packageJson.devDependencies);
-    // log(`packageJson deps ${packageJson.dependencies}`);
-    const dependencies = packageJson.dependencies || {};
-    log(`packageJson dependencies ${dependencies}`);
-    const devDependencies = packageJson.devDependencies || {};
-    log(`packageJson devDependencies ${devDependencies}`);
-
-    const allPackages = { ...dependencies, ...devDependencies };
-    log(`packageJson all allPackages ${allPackages}`);
-
-    return allPackages; */
 }
 
 function getPackagesPromise() {

@@ -20,8 +20,10 @@ function getDevDeps() {
     const dependencies = Object.keys(packageJson.dependencies || {});
     const devDependencies = Object.keys(packageJson.devDependencies || {});
 
+    /*
     console.log('Dependencies\n npm i', dependencies.join(' '));
     console.log('DevDependencies:\n npm i -D', devDependencies.join(' '));
+    */
     return dependencies.join(' ') + devDependencies.join(' ');
   });
 }
