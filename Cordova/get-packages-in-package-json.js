@@ -1,15 +1,28 @@
 const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
-const {log} = require('./logger');
+const { log } = require('./logger');
 
+// Define the function to get all the packages in the package.json file
+/*
+ * Read the package.json file located in the same directory as the
+ * script using the fs.promises.readFile method, which returns a promise.
+ * Parse the package.json file. Convert it from a JSON string to a JavaScript object.
+ * Extract the dependencies and devDependencies properties from the JSON object. If these properties are not present, it defaults to an empty object.
+ * Combine the dependencies and devDependencies objects into a single object using the spread operator.
+ * returns a promise that resolves with the combined dependencies object or rejects with an error if any step fails.
+ */
 function getPackages() {
+    /*
+ * Read the package.json file located in the same directory as the
+ * script using the fs.promises.readFile method, which returns a promise.
+ */
     log('getPackages starting');
     const packageJsonPath = path.join(__dirname, 'package.json');
     log(`packageJsonPath ${packageJsonPath}`);
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     // console.log('packageJson', packageJson);
-    log
+
     log(`packageJson keys ${Object.keys(packageJson)}`);
     log(packageJson);
     return packageJson;
