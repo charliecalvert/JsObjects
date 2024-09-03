@@ -18,7 +18,7 @@ function getPackages() {
  * script using the fs.promises.readFile method, which returns a promise.
  */
     log('getPackages starting');
-    const packageJsonPath = path.join(__dirname, 'package.json');
+    const packageJsonPath = path.join(__dirname, '../package.json');
     log(`packageJsonPath ${packageJsonPath}`);
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     // console.log('packageJson', packageJson);
@@ -44,7 +44,7 @@ function getPackagesPromise() {
     return new Promise(async (resolve, reject) => {
         try {
             log('getPackages starting');
-            const packageJsonPath = path.join(__dirname, 'package.json');
+            const packageJsonPath = path.join(__dirname, '../package.json');
             log(`packageJsonPath ${packageJsonPath}`);
 
             const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf8');
@@ -66,6 +66,7 @@ function getPackagesPromise() {
 }
 
 console.log('call getPackages', getPackages());
+module.exports = getPackages, getPackagesPromise;
 /* getPackagesPromise()
     .then(packages => console.log('call getPackages', packages))
     .catch(error => console.error('Error:', error));

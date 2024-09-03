@@ -1,9 +1,9 @@
 {
   "source": {
     "include": [".","src"],
-    "exclude": ["node_modules,CordovaResourceIcons/node_modules,ElvenGeo/node_modules"],
+    "exclude": ["node_modules,CordovaInput"],
     "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+    "excludePattern": "cordova.js"
   },
   "opts": {
     "destination": "./docs",

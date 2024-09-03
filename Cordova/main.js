@@ -1,5 +1,13 @@
-const getPackages = require('./get-packages');
+const getPackages = require('./src/get-packages');
+const getDevDeps = require('./src/get-deps-devdeps.js');
+const getPackagesPackageJsons = require('./src/get-packages-in-package-json.js');
 
+
+
+// Call the getPackages function and log the result
+// to the console.
+getPackagesPackageJsons();
+getDevDeps();
 /*
 * Call the getPackages function and log the result
 * to the console.
