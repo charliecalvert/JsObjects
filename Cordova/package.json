@@ -11,8 +11,9 @@
     "simpleInputs": "cd simple-inputs && npm start",
     "simpleRadioButtons": "cd simple-radio-buttons && npm start",
     "build-all": "npm run build --prefix react-simple && npm run build --prefix simple-state",
-    "run-all": "npm-run-all -p reactSimple simpleState simpleInputs simpleRadioButtons"
-  },
+    "run-all": "npm-run-all -p reactSimple simpleState simpleInputs simpleRadioButtons",
+    "doc": "jsdoc -c jsdoc.json"
+    },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/charliecalvert/JsObjects.git"

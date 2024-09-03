@@ -2,6 +2,10 @@ const fs = require('fs').promises;
 const path = require('path');
 
             /*
+            * Reads the package.json file and returns all dependencies and devDependencies.
+ * @returns {Promise<Object>} A promise that resolves to an object containing all dependencies and devDependencies.
+*
+            *
             * Read the package.json file located in the same directory as the
             * script using the fs.promises.readFile method, which returns a promise.
             *
