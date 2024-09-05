@@ -11,8 +11,11 @@ const path = require('path');
 const { promisify } = require('util');
 
 const readFile = promisify(fs.readFile);
+
 function colorTrace(msg, color) {
-    console.log("%c" + msg, "color:" + color + ";font-weight:bold;");
+    console.log("=================");
+    console.log('Current directory: ' + process.cwd());// pwd
+    console.log(msg);
 }
 
 function elflog(msg, color) {
@@ -69,19 +72,25 @@ async function parseJson(filename) {
 }
 
 function getAudit() {
-    parseJson(process.argv[2]).then(data => {
+    try {
+        parseJson(process.argv[2]).then(data => {
        /*  console.log(data.metadata);
         console.log(data.metadata.vulnerabilities);
-        console.log(data.metadata.vulnerabilities.total); 
-        elflog('Total vulnerabilities: ' + 
-            data.metadata.vulnerabilities.total, 
+        console.log(data.metadata.vulnerabilities.total);
+        elflog('Total vulnerabilities: ' +
+            data.metadata.vulnerabilities.total,
             'warning');*/
-            
-            
-        colorTrace('Total vulnerabilities: ' +  
-            data.metadata.vulnerabilities.total, 
-            "red");    
-    });
+
+        if (data.metadata && data.metadata.vulnerabilities && data.metadata.vulnerabilities.total > 0) {
+            colorTrace('Total vulnerabilities: ' + data.metadata.vulnerabilities.total, "red");
+        }
+/*             colorTrace('Total vulnerabilities: ' +
+            data.metadata.vulnerabilities.total,
+            "red"); */
+        });
+    } catch (err) {
+            console.error("Failed to parse JSON:", err);
+    };
 }
 
 function getPackage() {
@@ -99,7 +108,7 @@ function showArgs() {
 }
 
 // getPackage();
-// showArgs(); 
+// showArgs();
 
 getAudit();
 
