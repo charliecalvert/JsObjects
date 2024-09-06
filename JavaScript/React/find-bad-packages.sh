@@ -10,4 +10,6 @@
 find . -name package.json \
  -not -path '*/node_modules/*' \
  -not -path '*/.git/*' \
- -execdir sh -c 'pwd && echo "Processing file: $1" && run-parse-json.sh' _ {} \;
+ -execdir sh -c 'pwd && \
+     echo "Processing file: $1" && \
+     run-parse-json.sh' _ {} \;
