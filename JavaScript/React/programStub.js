@@ -1,5 +1,5 @@
 const filePath = process.argv[2];
 
-console.log(`Received file path: ${filePath}`);
+console.log(`programStub got: ${filePath}`);
 
 // Add your logic here to handle the file

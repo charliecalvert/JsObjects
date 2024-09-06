@@ -30,11 +30,22 @@ async function parseJson(filename) {
 
 // getAudit();
 // Print the total number of vulnerabilities from audit.json
-function getAudit() {
-    log("argv2", process.argv[2]);
+function getAudit(auditName) {
+    log("in getAudit auditName", auditName);
+   /*  log("in getAudit argv[0]", process.argv[0]);
+    log("in getAudit argv[1]", process.argv[1]);
+    log("in getAudit argv[2]", process.argv[2]);
+    log("in getAudit argv[3]", process.argv[3]);
+    log("in getAudit argv2", process.argv[2]); */
     try {
-        parseJson(process.argv[2]).then(data => {
+        parseJson(auditName).then(data => {
+            /* if (data.metadata && data.metadata.vulnerabilities && data.metadata.vulnerabilities.total > 0) {
+
+            } */
+
+
             if (data.metadata && data.metadata.vulnerabilities && data.metadata.vulnerabilities.total > 0) {
+                console.log('getAudit data:', data);
                 colorTrace('Total vulnerabilities: ' +
                     data.metadata.vulnerabilities.total,
                     "red");
@@ -46,7 +57,7 @@ function getAudit() {
 }
 
 // getAudit();
-getAudit();
+// getAudit();
 
 
 module.exports = { getAudit, parseJson, colorTrace };

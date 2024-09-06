@@ -3,6 +3,8 @@ const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
+const useDebug = false;
+
 async function searchFile(dir, fileName, programToRun) {
     const entries = await fs.promises.readdir(dir, { withFileTypes: true });
     if (programToRun === undefined) {
@@ -18,24 +20,26 @@ async function searchFile(dir, fileName, programToRun) {
         if (entry.isDirectory() && ['node_modules', '.git', 'bower_components'].includes(entry.name)) {
             return;
         }
-        if (false && entry.name === fileName) {
+        if (useDebug && entry.name === fileName) {
             log(`Checking: ${fullPath}`);
         }
 
         if (entry.isDirectory()) {
             await searchFile(fullPath, fileName, programToRun);
         } else if (entry.isFile() && entry.name === fileName) {
-            console.log(`File found: ${fullPath}`);
+            if (useDebug) {
+                log(`File found: ${fullPath}`);
+            }
             exec(`node ${programToRun} ${fullPath}`, (error, stdout, stderr) => {
                 if (error) {
-                    console.error(`Error executing ${programToRun}: ${error.message}`);
+                    console.error(`Error executing ${programToRun}: ${error.message} for ${fullPath}`);
                     return;
                 }
                 if (stderr) {
                     console.error(`stderr: ${stderr}`);
                     return;
                 }
-                console.log(`stdout: ${stdout}`);
+                console.log(`exec shows stdout: ${stdout}`);
             });
         }
     }));
@@ -43,8 +47,15 @@ async function searchFile(dir, fileName, programToRun) {
 
 const directoryToSearch = './'; // Change this to the directory you want to search
 const fileNameToSearch = 'package.json'; // Change this to the file name you are looking for
-const programToRun = 'programStub.js'; // Change this to the program you want to run
+
+let programToRun;
+if (useDebug) {
+    programToRun = 'programStub.js';
+} else {
+    programToRun = '~/bin/run-parse-json.js';
+}
+
 log(`Searching for ${fileNameToSearch} in ${directoryToSearch} with program ${programToRun}`);
 searchFile(directoryToSearch, fileNameToSearch, programToRun)
-    .then(() => console.log('Search completed'))
+    .then(() => console.log('call to searchFile completed successfully.'))
     .catch((err) => console.error(`Error: ${err.message}`));

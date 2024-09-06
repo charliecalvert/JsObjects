@@ -1,15 +1,24 @@
 const { exec } = require('child_process');
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
 // Define the paths
 const auditFilePath = '/home/ubuntu/temp/audit.json';
-const parseJsonScriptPath = '/home/ubuntu/Git/JsObjects/Utilities/Templates/JavaScript/parse-json-func.js';
+const parseJsonScriptPath = process.env.ELF_TEMPLATES + '/JavaScript/parse-json-func.js';
+
+log("in run-parse-json argv[1]", process.argv[1]);
+log("in run-parse-json argv[2]", process.argv[2]);
+
+packageJson = process.argv[2];
+const packageJsonPath = path.dirname(packageJson);
+log("Package JSON path:", packageJsonPath);
+// get path from packageJson
 
 // Run npm audit and save  the output to a file
-exec('npm audit --summary --json', (error, stdout, stderr) => {
+exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
     if (error) {
-        console.error(`Error executing npm audit: ${error.message}`);
+        console.error(`Error executing npm audit: ${error.message} for ${packageJsonPath}`);
         return;
     }
     if (stderr) {
@@ -17,6 +26,7 @@ exec('npm audit --summary --json', (error, stdout, stderr) => {
         return;
     }
 
+    // log(`run parse json stdout: ${stdout}`);
     // Write the audit output to a file
     fs.writeFile(auditFilePath, stdout, (err) => {
         if (err) {
@@ -28,7 +38,8 @@ exec('npm audit --summary --json', (error, stdout, stderr) => {
         const { getAudit } = require(parseJsonScriptPath);
         console.log('parseJson:', typeof getAudit);
 
+
         // parseJson(auditFilePath);
-        getAudit();
+        getAudit(auditFilePath);
     });
 });
