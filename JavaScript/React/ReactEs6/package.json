@@ -1,13 +1,32 @@
 {
-  "name": "reactes6",
-  "version": "1.0.1",
-  "main": "index.js",
+  "name": "react-es6",
+  "version": "0.0.5",
+  "private": true,
   "scripts": {
-    "build": "echo \"Error: no build specified\" && exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd server && npx webpack",
+    "server": "babel-node server/bin/www",
+    "client": "babel-node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",
+    "lint": "eslint ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "babel-loader": "9.1.3",
+    "express": "4.19.2",
+    "sql.js": "1.11.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "babel-eslint": "10.1.0",
+    "concurrently": "8.2.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-jsx-a11y": "6.10.0",
+    "eslint-plugin-react": "^7.35.2"
+  }
 }
