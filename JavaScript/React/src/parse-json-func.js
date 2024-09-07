@@ -5,11 +5,11 @@ import path from 'path';
 import { promisify } from 'util'; */
 
 const { log } = require('console');
-const fs = require('fs');
+// const fs = require('fs');
+const { existsSync, readFileSync } = require('fs');
 // const path = require('path');
-const { promisify } = require('util');
-
-const readFile = promisify(fs.readFile);
+// const { promisify } = require('util');
+// const readFile = promisify(fs.readFile);
 const useDebug = false;
 
 function colorTrace(msg, color) {
@@ -24,13 +24,17 @@ async function parseJson(filename) {
     // const filePath = path.join(__dirname, filename);
     // console.log("parseJson filename: " + filename);
 
-    const fileContents = await readFile(filename, 'utf8');
-    if (useDebug) {
-        // console.log('fileContents:', fileContents);
-        log('filename:', filename);
+    if (existsSync(filename)) {
+        const fileContents = readFileSync(filename, 'utf8');
+        if (useDebug) {
+            // console.log('fileContents:', fileContents);
+            log('filename:', filename);
+        }
+        return JSON.parse(fileContents);
     }
 
-    return JSON.parse(fileContents);
+    console.error('File does not exist:', filename);
+    return null;
 }
 
 // getAudit();
@@ -54,10 +58,10 @@ function getAudit(auditName) {
             } */
 
             if (data.metadata
-                 && data.metadata.vulnerabilities
-                 && data.metadata.vulnerabilities.total > 0) {
+                && data.metadata.vulnerabilities
+                && data.metadata.vulnerabilities.total > 0) {
                 console.log('getAudit data:', data);
-                colorTrace(`Total vulnerabilities: ${data.metadata.vulnerabilities.total}`, 'red');
+                colorTrace(`Total vulnerabilities: ${data.metadata.vulnerabilities.total} `, 'red');
             }
         });
     } catch (err) {
