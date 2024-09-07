@@ -30,6 +30,8 @@ async function parseJson(filename) {
             // console.log('fileContents:', fileContents);
             log('filename:', filename);
         }
+        // if this fails it's because ~/temp/audit.json
+        // is not a valid JSON file
         return JSON.parse(fileContents);
     }
 
