@@ -1,12 +1,10 @@
-/* import { exec } from 'child_process';
-import { log } from 'console';
-import { writeFile } from 'fs';
-import { dirname } from 'path'; */
 const { exec } = require('child_process');
 const { log } = require('console');
 const { writeFile } = require('fs');
 const { dirname } = require('path');
+// const { stdout } = require('process');
 const { getAudit } = require('./parse-json-func');
+const { getCurrentDateTime } = require('./utils');
 // const { parseJson } = require('./parse-json-func');
 
 const useDebug = false;
@@ -24,8 +22,8 @@ async function runParseJson(packageJson) {
     // log('in run-parse-json argv[2]', process.argv[2]);
 
     // packageJson = process.argv[2];
-    const packageJsonPath = dirname(packageJson);
-    log('Package JSON path:', packageJsonPath);
+    const packageJsonPath = `${dirname(packageJson)}/`;
+    log('CSCPackage JSON path:', packageJsonPath);
     // get path from packageJson
 
     // Run npm audit and save  the output to a file
@@ -39,9 +37,15 @@ async function runParseJson(packageJson) {
             return;
         }
 
+        const auditDataReport = stdout;
+        const currentDateTime = getCurrentDateTime();
+        const aPathDateData = `${packageJsonPath}, ${currentDateTime}`;
+        const auditReport = [currentDateTime, packageJsonPath, auditDataReport];
+        log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
+        log(`auditReport:, ${auditReport}`);
         // log(`run parse json stdout: ${stdout}`);
         // Write the audit output to a file
-        writeFile(auditFilePath, stdout, (err) => {
+        writeFile(auditFilePath, auditDataReport, (err) => {
             if (err) {
                 console.error(`Error writing audit file: ${err.message}`);
                 return;
