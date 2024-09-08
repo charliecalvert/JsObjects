@@ -1,15 +1,8 @@
 #!/usr/bin/env node
 
-/* import fs from 'fs';
-import path from 'path';
-import { promisify } from 'util'; */
-
 const { log } = require('console');
-// const fs = require('fs');
 const { existsSync, readFileSync } = require('fs');
-// const path = require('path');
-// const { promisify } = require('util');
-// const readFile = promisify(fs.readFile);
+
 const useDebug = false;
 
 function colorTrace(msg, color) {
@@ -70,8 +63,5 @@ function getAudit(auditName) {
         console.error('Failed to parse JSON:', err);
     }
 }
-
-// getAudit();
-// getAudit();
 
 module.exports = { getAudit, parseJson, colorTrace };
