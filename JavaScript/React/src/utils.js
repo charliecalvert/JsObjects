@@ -1,3 +1,20 @@
+const { writeFile } = require('fs');
+
+const useDebug = false;
+
+function writeAuditDataReport(auditDataReports) {
+    writeFile('/home/ubuntu/temp/auditDataReports.txt', auditDataReports.toString(), (err) => {
+        if (err) {
+            console.error(`Error writing audit file: ${err.message}`);
+            return;
+        }
+
+        if (useDebug) {
+            console.log('parseJson:', typeof getAudit);
+        }
+    });
+}
+
 const getCurrentDateTime = () => {
     const date = new Date();
 
@@ -13,4 +30,4 @@ const getCurrentDateTime = () => {
 
 console.log(getCurrentDateTime());
 
-module.exports = { getCurrentDateTime };
+module.exports = { getCurrentDateTime, writeAuditDataReport };

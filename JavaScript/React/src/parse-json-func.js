@@ -13,6 +13,7 @@ function colorTrace(msg, color) {
 
 // We pass in the name of audit.json;
 // usually ~/temp/audit.json
+// This function reads the file and returns the parsed JSON
 async function parseJson(filename) {
     // const filePath = path.join(__dirname, filename);
     // console.log("parseJson filename: " + filename);

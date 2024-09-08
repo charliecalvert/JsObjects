@@ -5,6 +5,7 @@ const path = require('path');
 const { debugParams } = require('./src/debugParams');
 const { programStub } = require('./src/programStub');
 const { runParseJson } = require('./src/run-parse-json');
+const { writeAuditDataReport } = require('./src/utils');
 
 /*
  * This script searches for a file in a directory and its subdirectories.
@@ -12,6 +13,7 @@ const { runParseJson } = require('./src/run-parse-json');
  * The program is expected to parse the file and do something with it.
  */
 const useDebug = false;
+const auditDataReports = [];
 
 if (debugParams === undefined) {
     throw new Error('debugParams is not defined');
@@ -23,6 +25,9 @@ if (runParseJson === undefined) {
     throw new Error('runParseJson is not defined');
 }
 
+// A recursive function that searches for package.json
+// in a directory and its subdirectories
+// call runParseJson when the file is found.
 async function go(entries, dir, fileName, programToRun) {
     await Promise.all(entries.map(async (entry) => {
         const fullPath = path.join(dir, entry.name);
@@ -40,8 +45,9 @@ async function go(entries, dir, fileName, programToRun) {
             if (useDebug) {
                 log(`Directory found: ${fullPath}`);
             }
+
+            // Recursively search the subdirectory
             await go(newEntries, fullPath, fileName, programToRun);
-            // await go(entries, fullPath, fileName, programToRun);
         } else if (entry.isFile() && entry.name === fileName) {
             if (useDebug) {
                 log(`File found: ${fullPath}`);
@@ -54,28 +60,21 @@ async function go(entries, dir, fileName, programToRun) {
                 if (useDebug) {
                     log(`Executing program: ${programToRun.name} ${fullPath}`);
                 }
-                runParseJson(fullPath);
+                runParseJson(fullPath, auditDataReports);
             }
-
-            // Execute the program with the file as an argument
-            /*  exec(`node ${programToRun} ${fullPath}`, (error, stdout, stderr) => {
-                if (error) {
-                    console.error(`Error executing ${programToRun}: ${error.message} ` +
-                                  `for ${fullPath}`);
-                    return;
-                }
-                if (stderr) {
-                    console.error(`stderr: ${stderr}`);
-                    return;
-                }
-                console.log(`exec shows stdout: ${stdout}`);
-            }); */
         }
     }));
 }
 
+/*
+ * This function searches for instances of package.js
+ * in a directory and its subdirectories.
+ * When the file is found, it executes an audit on it.
+ * The program looks for errors recorded in the audit.
+ */
 function start() {
     async function searchFile(directoryToSearch, fileName, programToRun) {
+        // Find all subdirectories in the directoryToSearch
         const entries = await fs.promises.readdir(directoryToSearch, { withFileTypes: true });
         if (programToRun === undefined) {
             throw new Error('Program to run is not defined');
@@ -89,9 +88,9 @@ function start() {
 
         await go(entries, directoryToSearch, fileName, programToRun);
     }
-    // searchFile(directoryToSearch, fileName, programToRun);
-    const directoryToSearch = './'; // Change this to the directory you want to search
-    const fileNameToSearch = 'package.json'; // Change this to the file name you are looking for
+
+    const directoryToSearch = './'; // The directory we want to search
+    const fileNameToSearch = 'package.json'; // The file name we are looking for
 
     let programToRun;
     if (useDebug) {
@@ -103,7 +102,11 @@ function start() {
 
     log(`Searching for ${fileNameToSearch} in ${directoryToSearch} with program ${programToRun.name}`);
     searchFile(directoryToSearch, fileNameToSearch, programToRun)
-        .then(() => console.log('call to searchFile completed successfully.'))
+        .then(() => {
+            console.log('call to searchFile completed successfully.');
+            writeAuditDataReport(auditDataReports);
+            log('Audit data reports written to file');
+        })
         .catch((err) => console.error(`Error: ${err.message}`));
 }
 

@@ -9,7 +9,7 @@ const { getCurrentDateTime } = require('./utils');
 
 const useDebug = false;
 
-async function runParseJson(packageJson) {
+async function runParseJson(packageJson, auditDataReports) {
     /* const start = '/home/ubuntu/Git/JsObjects/Utilities/Templates';
     const end = '/JavaScript/parse-json-func.js';
     const parseJsonFuncPath = `${start}${end}`; */
@@ -41,11 +41,13 @@ async function runParseJson(packageJson) {
         const currentDateTime = getCurrentDateTime();
         const aPathDateData = `${packageJsonPath}, ${currentDateTime}`;
         const auditReport = [currentDateTime, packageJsonPath, auditDataReport];
-        log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
-        log(`auditReport:, ${auditReport}`);
+        // log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
+        // log(`auditReport:, ${auditReport}`);
+        log(`auditDataReport: ${aPathDateData}`);
+        auditDataReports.push(auditReport);
         // log(`run parse json stdout: ${stdout}`);
         // Write the audit output to a file
-        writeFile(auditFilePath, auditDataReport, (err) => {
+        /*         writeFile(auditFilePath, auditDataReport, (err) => {
             if (err) {
                 console.error(`Error writing audit file: ${err.message}`);
                 return;
@@ -61,8 +63,8 @@ async function runParseJson(packageJson) {
             }
 
             // parseJson(auditFilePath);
-            getAudit(auditFilePath);
-        });
+            // getAudit(auditFilePath);
+        }); */
     });
 }
 
