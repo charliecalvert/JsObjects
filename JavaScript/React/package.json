@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run simpleState && npm run simpleInputs && npm run simpleRadioButtons",
+    "start": "node find-bad-packages.js",
+    "go01": "npm run simpleState && npm run simpleInputs && npm run simpleRadioButtons",
     "reactSimple": "cd react-simple && npm start",
     "simpleState": "cd simple-state && npm start",
     "simpleInputs": "cd simple-inputs && npm start",
     "simpleRadioButtons": "cd simple-radio-buttons && npm start",
     "build-all": "npm run build --prefix react-simple && npm run build --prefix simple-state",
-    "run-all": "npm-run-all -p reactSimple simpleState simpleInputs simpleRadioButtons"
+    "run-all": "npm-run-all -p reactSimple simpleState simpleInputs simpleRadioButtons",
+    "go": "node find-bad-packages.js"
   },
   "repository": {
     "type": "git",

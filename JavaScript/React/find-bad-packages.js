@@ -7,14 +7,15 @@ const { programStub } = require('./src/programStub');
 const { runParseJson } = require('./src/run-parse-json');
 const { writeAuditDataReport } = require('./src/utils');
 
+let newEntriesLength = 0;
 /*
  * This script searches for a file in a directory and its subdirectories.
  * When the file is found, it executes a program with the file as an argument.
  * The program is expected to parse the file and do something with it.
  */
 const useDebug = false;
-const auditDataReports = [];
 
+log('Audit data reports type:', typeof auditDataReports);
 if (debugParams === undefined) {
     throw new Error('debugParams is not defined');
 }
@@ -28,7 +29,7 @@ if (runParseJson === undefined) {
 // A recursive function that searches for package.json
 // in a directory and its subdirectories
 // call runParseJson when the file is found.
-async function go(entries, dir, fileName, programToRun) {
+async function go(entries, dir, fileName, programToRun, auditDataReports) {
     await Promise.all(entries.map(async (entry) => {
         const fullPath = path.join(dir, entry.name);
 
@@ -42,12 +43,13 @@ async function go(entries, dir, fileName, programToRun) {
 
         if (entry.isDirectory()) {
             const newEntries = await fs.promises.readdir(fullPath, { withFileTypes: true });
+            newEntriesLength += 1;
             if (useDebug) {
-                log(`Directory found: ${fullPath}`);
+                log(`Directory found: ${fullPath} ${newEntries.length}`);
             }
 
             // Recursively search the subdirectory
-            await go(newEntries, fullPath, fileName, programToRun);
+            await go(newEntries, fullPath, fileName, programToRun, auditDataReports);
         } else if (entry.isFile() && entry.name === fileName) {
             if (useDebug) {
                 log(`File found: ${fullPath}`);
@@ -57,11 +59,18 @@ async function go(entries, dir, fileName, programToRun) {
                 log(`Executing program: ${programStub} ${fullPath}`);
                 programStub(fullPath);
             } else {
-                if (useDebug) {
-                    log(`Executing program: ${programToRun.name} ${fullPath}`);
-                }
-                runParseJson(fullPath, auditDataReports);
+                log(`Executing program: ${programToRun.name} ${fullPath}`);
             }
+            if (auditDataReports === undefined) {
+                throw new Error('auditDataReports is not defined');
+            } else {
+                auditDataReports.push(fullPath);
+            }
+
+            // Why can't I pass auditDataReports to runParseJson? I want to update it.
+            // log('Audit data reports type2:', typeof auditDataReports);
+            log('before runParse Audit data reports length:', auditDataReports.length);
+            // await r
         }
     }));
 }
@@ -72,7 +81,10 @@ async function go(entries, dir, fileName, programToRun) {
  * When the file is found, it executes an audit on it.
  * The program looks for errors recorded in the audit.
  */
-function start() {
+async function start(auditDataReports) {
+    if (auditDataReports === undefined) {
+        throw new Error('auditDataReports is not defined in start');
+    }
     async function searchFile(directoryToSearch, fileName, programToRun) {
         // Find all subdirectories in the directoryToSearch
         const entries = await fs.promises.readdir(directoryToSearch, { withFileTypes: true });
@@ -86,7 +98,7 @@ function start() {
         }
         if (useDebug) { debugParams(directoryToSearch, fileName, programToRun, entries); }
 
-        await go(entries, directoryToSearch, fileName, programToRun);
+        await go(entries, directoryToSearch, fileName, programToRun, auditDataReports);
     }
 
     const directoryToSearch = './'; // The directory we want to search
@@ -101,15 +113,28 @@ function start() {
     }
 
     log(`Searching for ${fileNameToSearch} in ${directoryToSearch} with program ${programToRun.name}`);
-    searchFile(directoryToSearch, fileNameToSearch, programToRun)
+    await searchFile(directoryToSearch, fileNameToSearch, programToRun)
         .then(() => {
             console.log('call to searchFile completed successfully.');
-            writeAuditDataReport(auditDataReports);
-            log('Audit data reports written to file');
+            // log('Audit data reports length:', auditDataReports.length);
+            /* writeAuditDataReport(auditDataReports);
+            log('Audit data reports written to file'); */
         })
         .catch((err) => console.error(`Error: ${err.message}`));
+    // log('after searcfFile Audit data reports length:', auditDataReports.length);
 }
 
-start();
+async function run() {
+    log('run', newEntriesLength);
+    const auditDataReports = [];
+    await start(auditDataReports);
+    log('run Audit data reports length:', auditDataReports.length);
+    // convert the array to valid JSON
+    const auditDataReportsJson = JSON.stringify(auditDataReports);
+    writeAuditDataReport(auditDataReportsJson);
+    log('Audit data reports written to file');
+}
+run();
+// log('Audit data reports length:', auditDataReports.length);
 
 // End of file

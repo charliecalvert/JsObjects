@@ -1,9 +1,12 @@
 const { writeFile } = require('fs');
+const { log } = require('console');
+const { exec } = require('child_process');
+const { dirname } = require('path/posix');
 
 const useDebug = false;
 
-function writeAuditDataReport(auditDataReports) {
-    writeFile('/home/ubuntu/temp/auditDataReports.txt', auditDataReports.toString(), (err) => {
+function writeAuditDataReport(auditDataReportsJson) {
+    writeFile('/home/ubuntu/temp/auditDataReports.json', auditDataReportsJson, (err) => {
         if (err) {
             console.error(`Error writing audit file: ${err.message}`);
             return;
@@ -30,4 +33,61 @@ const getCurrentDateTime = () => {
 
 console.log(getCurrentDateTime());
 
-module.exports = { getCurrentDateTime, writeAuditDataReport };
+function checks() {
+    console.log('checks');
+    /* const start = '/home/ubuntu/Git/JsObjects/Utilities/Templates';
+    const end = '/JavaScript/parse-json-func.js';
+    const parseJsonFuncPath = `${start}${end}`; */
+
+    // const { getAudit } = require(parseJsonFuncPath);
+    // Define the paths
+    // const auditFilePath = '/home/ubuntu/temp/audit.json';
+
+    log('in run-parse-json argv[1]', process.argv[1]);
+    log('in run-parse-json argv[2]', process.argv[2]);
+
+    // packageJson = process.argv[2];
+}
+
+async function runParseJson(packageJson, auditDataReports, newEntriesLength) {
+    log('Audit data reports type inside runparse:', typeof auditDataReports);
+    const packageJsonPath = `${dirname(packageJson)}/`;
+    log('CSCPackage JSON path:', packageJsonPath);
+    log(`newEntriesLength: ${newEntriesLength}`);
+
+    // Run npm audit and save  the output to a file
+    async function runExec() {
+        exec('npm audit --summary --json', { cwd: packageJsonPath }, async (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error executing npm audit: ${error.message} for ${packageJsonPath}`);
+                return;
+            }
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                return;
+            }
+
+            const auditDataReport = stdout;
+            const currentDateTime = getCurrentDateTime();
+            const aPathDateData = `${packageJsonPath}, ${currentDateTime}`;
+            const auditReport = [currentDateTime, packageJsonPath, auditDataReport];
+            // log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
+            // log(`auditReport:, ${auditReport}`);
+            log(`auditDataReport: ${aPathDateData}`);
+            auditDataReports.push(auditReport);
+            log(`execa auditDataReports len: ${auditDataReports.length}`);
+            if (auditDataReports.length === newEntriesLength) {
+                writeAuditDataReport(auditDataReports);
+            }
+        });
+    }
+    runExec();
+}
+
+// const { parseJson } = require('./parse-json-func');
+// const useDebug = false;
+// await runExec();
+
+module.exports = {
+    getCurrentDateTime, writeAuditDataReport, checks, runParseJson,
+};
