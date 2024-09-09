@@ -73,3 +73,46 @@ Utilities
   }
 }
 ```
+
+TODO: Put the code and text show below on Elvenware
+
+## AI Promise Sample Preferred
+
+This is the preferred way to write the code. It is more
+readable and easier to understand.
+
+```JavaScript
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data fetched!");
+    }, 1000);
+  });
+};
+
+const getData = async () => {
+  const data = await fetchData();
+  console.log(data); // Output: Data fetched!
+};
+
+getData();
+```
+
+## AI Promise Sample Suggestion 1
+
+This is the way the code can be written. It is not as
+readable as the preferred way shown above.
+
+```JavaScript
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data fetched!");
+    }, 1000);
+  });
+};
+
+fetchData().then((data) => {
+  console.log(data); // Output: Data fetched!
+});
+```

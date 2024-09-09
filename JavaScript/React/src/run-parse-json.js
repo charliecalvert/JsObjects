@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const { log } = require('console');
 const { dirname } = require('path');
-const { writeAuditDataReport } = require('./utils');
+// const { writeAuditDataReport } = require('./utils');
 // const { stdout } = require('process');
 // const { getAudit } = require('./parse-json-func');
 const { getCurrentDateTime } = require('./utils');
@@ -9,14 +9,14 @@ const { getCurrentDateTime } = require('./utils');
 
 // const useDebug = false;
 
-async function runParseJson(fullPath, auditDataReports, newEntriesLength) {
+async function runParseJson(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
-    const packageJsonPath = `${dirname(fullPath)}/`;
-    log('CSCPackage JSON path:', packageJsonPath);
-    log(`newEntriesLength: ${newEntriesLength}`);
+    const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
+    log('CSCPackage JSON path:', fullPathToPackageJson);
+    // log(`newEntriesLength: ${newEntriesLength}`);
 
     // Run npm audit and save  the output to a file
-    function execPromise(command) {
+    function execPromise(reports) {
         return new Promise((resolve, reject) => {
             // How can I wait for this call to exec to finish?
             exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
@@ -38,20 +38,20 @@ async function runParseJson(fullPath, auditDataReports, newEntriesLength) {
                 // log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
                 // log(`auditReport:, ${auditReport}`);
                 log(`auditDataReport: ${aPathDateData}`);
-                auditDataReports.push(auditReport);
-                log(`execa auditDataReports len: ${auditDataReports.length}`);
-                if (auditDataReports.length === newEntriesLength) {
-                    log('writing auditDataReports:', auditDataReports.length);
-                    writeAuditDataReport(auditDataReports);
-                }
-                resolve(stdout);
+                reports.push(auditReport);
+                log(`execa auditDataReports len: ${reports.length}`);
+                /* if (reports.length === newEntriesLength) {
+                    log('writing auditDataReports:', reports.length);
+                    // writeAuditDataReport(auditDataReports);
+                } */
+                resolve(auditReport);
             });
         });
     }
 
-    async function runCommand() {
+    async function runCommand(reports) {
         try {
-            const result = await execPromise('node yourProgram.js yourArguments');
+            const result = await execPromise(reports);
             console.log('Command output:', result);
         } catch (error) {
             console.error('Error executing command:', error);
@@ -60,7 +60,7 @@ async function runParseJson(fullPath, auditDataReports, newEntriesLength) {
     }
 
     // Call the async function
-    runCommand().then(() => {
+    runCommand(auditDataReports).then(() => {
         console.log('Command execution completed.');
     });
 }
