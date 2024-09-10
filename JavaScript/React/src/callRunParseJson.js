@@ -30,6 +30,7 @@ const callRunParseJson = async () => {
             const fullPathToPackageJson = `${cwd()}/${fileNames[0]}`;
             log('fullPathToPackageJson:', fullPathToPackageJson);
             result = await runParseJson(auditDataReports, fullPathToPackageJson);
+            result = JSON.parse(result);
             log('result:', result || 'No result yet');
         }
         // console.log('fileNames:', fileNames);
