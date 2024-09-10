@@ -122,3 +122,107 @@ fetchData().then((data) => {
   console.log(data); // Output: Data fetched!
 });
 ```
+
+## AI Promise Sample Suggestion 2
+
+```javascript
+const { exec } = require('child_process');
+const { log } = require('console');
+const fs = require('fs');
+const path = require('path');
+
+function execPromise() {
+    return new Promise((resolve, reject) => {
+        exec('ncu -u', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error executing ncu -u in execPromise: ${error.message} for ${packageJsonPath}`);
+                reject(error);
+                return;
+            }
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                reject(stderr);
+                return;
+            }
+
+            const currentDateTime = getCurrentDateTime();
+            const result = `[\n"${currentDateTime}",\n${stdout}\n]`;
+            log(`Command output: ${result}`);
+            resolve(result);
+        });
+    });
+}
+
+// Function to check for the presence of a string in a file
+function checkStringInFile(filePath, searchString) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(`Error reading file: ${err.message}`);
+            return;
+        }
+
+        if (data.includes(searchString)) {
+            // console.log(`The string "${searchString}" is present in the file.`);
+            function execPromise() {
+                return new Promise((resolve, reject) => {
+                    exec('ncu -u', (error, stdout, stderr) => {
+                        if (error) {
+                            console.error(`Error executing ncu -u in execPromise: ${error.message}`);
+                            reject(error);
+                            return;
+                        }
+                        if (stderr) {
+                            console.error(`stderr: ${stderr}`);
+                            reject(stderr);
+                            return;
+                        }
+
+                        const currentDateTime = getCurrentDateTime();
+                        const result = `[\n"${currentDateTime}",\n${stdout}\n]`;
+                        log(`Command output: ${result}`);
+                        resolve(result);
+                    });
+                });
+            }
+
+            // Function to check for the presence of a string in a file
+            function checkStringInFile(filePath, searchString) {
+                fs.readFile(filePath, 'utf8', (err, data) => {
+                    if (err) {
+                        console.error(`Error reading file: ${err.message}`);
+                        return;
+                    }
+
+                    if (data.includes(searchString)) {
+                        console.log(`The string "${searchString}" is present in the file.`);
+                        runExecPromise();
+                    } else {
+                        console.log(`The string "${searchString}" is not present in the file.`);
+                    }
+                });
+            }
+
+            async function runExecPromise() {
+                try {
+                    const result = await execPromise();
+                    console.log('Command output:', result);
+                    return result;
+                } catch (error) {
+                    console.error('Error executing command in runExecPromise:', error);
+                    process.exit(1);
+                }
+            }
+
+            // Example usage
+            const filePath = path.join(__dirname, 'ncu-output.txt'); // Replace with your file path
+            const searchString = 'Run ncu -u to upgrade package.json'; // Replace with the string you want to search for
+
+            checkStringInFile(filePath, searchString);
+            return null;
+            // execPromise();
+        } else {
+            console.log(`The string "${searchString}" is not present in the file.`);
+        }
+    });
+}
+```
