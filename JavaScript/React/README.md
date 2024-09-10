@@ -78,6 +78,8 @@ TODO: Put the code and text show below on Elvenware
 
 ## AI Promise Sample Preferred
 
+// How can I wait for this call to exec to finish?
+
 This is the preferred way to write the code. It is more
 readable and easier to understand.
 
@@ -99,6 +101,10 @@ getData();
 ```
 
 ## AI Promise Sample Suggestion 1
+
+// When I call runParseJson from another file or module
+// how can I wait for the call to execPromise to finish
+// and return the result of the call to execPromise?
 
 This is the way the code can be written. It is not as
 readable as the preferred way shown above.

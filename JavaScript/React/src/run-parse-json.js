@@ -3,14 +3,9 @@ const { log } = require('console');
 const { dirname } = require('path');
 const { getCurrentDateTime } = require('./utils');
 
-// When I call runParseJson from another file or module
-// how can I wait for the call to execPromise to finish
-// and return the result of the call to execPromise?
-
 // Run npm audit and save  the output to a file
 function execPromise(reports, packageJsonPath) {
     return new Promise((resolve, reject) => {
-        // How can I wait for this call to exec to finish?
         exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing npm audit in execPromise: ${error.message} for ${packageJsonPath}`);
