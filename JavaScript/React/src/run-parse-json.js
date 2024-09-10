@@ -1,13 +1,7 @@
 const { exec } = require('child_process');
 const { log } = require('console');
 const { dirname } = require('path');
-// const { writeAuditDataReport } = require('./utils');
-// const { stdout } = require('process');
-// const { getAudit } = require('./parse-json-func');
 const { getCurrentDateTime } = require('./utils');
-// const { parseJson } = require('./parse-json-func');
-
-// const useDebug = false;
 
 // When I call runParseJson from another file or module
 // how can I wait for the call to execPromise to finish
@@ -19,7 +13,7 @@ function execPromise(reports, packageJsonPath) {
         // How can I wait for this call to exec to finish?
         exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
             if (error) {
-                console.error(`Error executing npm audit: ${error.message} for ${packageJsonPath}`);
+                console.error(`Error executing npm audit in execPromise: ${error.message} for ${packageJsonPath}`);
                 reject(error);
                 return;
             }
@@ -32,19 +26,13 @@ function execPromise(reports, packageJsonPath) {
             const auditDataReport = stdout;
             log(`initial auditDataReport (from stdout): ${auditDataReport}`);
             const currentDateTime = getCurrentDateTime();
-            const pathDate = `[\n"${packageJsonPath}",\n"${currentDateTime}",\n${auditDataReport}\n]`;
-            log(`pathDate: ${pathDate}`);
+            const auditReport = `[\n"${packageJsonPath}",\n"${currentDateTime}",\n${auditDataReport}\n]`;
 
-            const auditReport = pathDate;
-            // log(`auditData:, ${aPathDateData} \n ${auditDataReport}`);
             log(`final auditReport:, ${auditReport}`);
 
             reports.push(auditReport);
-            log(`execa auditDataReports len: ${reports.length}`);
-            /* if (reports.length === newEntriesLength) {
-                log('writing auditDataReports:', reports.length);
-                // writeAuditDataReport(auditDataReports);
-            } */
+            log(`auditReports len: ${reports.length}`);
+
             resolve(auditReport);
         });
     });
@@ -61,25 +49,10 @@ async function runParseJson(auditDataReports, fullPathToPackageJson) {
         console.log('Command output:', result);
         return result;
     } catch (error) {
-        console.error('Error executing command:', error);
+        console.error('Error executing command in runParseJson:', error);
+        process.exit(1);
     }
     return null;
-    /* async function runCommand(reports, fileToTest) {
-        try {
-            // How can I wait for this call to exec to finish and return is result?
-            const result = await execPromise(reports, fileToTest);
-            console.log('Command output:', result);
-            return result;
-        } catch (error) {
-            console.error('Error executing command:', error);
-        }
-        return null;
-    }
- */
-    // Call the async function
-    /*  return runCommand(auditDataReports, fullPathToPackageJson).then(() => {
-        console.log('Command execution completed.');
-    }); */
 }
 
 module.exports = { runParseJson };
