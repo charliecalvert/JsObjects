@@ -43,9 +43,9 @@ const callRunParseJson = async () => {
                 const fullPathToPackageJson = `${cwd()}/${fileNames[i]}`;
                 log('fullPathToPackageJson:', fullPathToPackageJson);
                 runCommand(auditDataReports, fullPathToPackageJson);
-                if (i >= 5) {
+                /* if (i >= 5) {
                     break;
-                }
+                } */
             }
             /* const fullPathToPackageJson = `${cwd()}/${fileNames[1]}`;
             log('fullPathToPackageJson:', fullPathToPackageJson);
