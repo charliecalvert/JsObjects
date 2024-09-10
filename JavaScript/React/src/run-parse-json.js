@@ -9,6 +9,9 @@ const { getCurrentDateTime } = require('./utils');
 
 // const useDebug = false;
 
+// When I call runParseJson from another file or module
+// how can I wait for the call to execPromise to finish
+// and return the result of the call to execPromise?
 async function runParseJson(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
     const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
@@ -49,20 +52,22 @@ async function runParseJson(auditDataReports, fullPathToPackageJson) {
         });
     }
 
-    async function runCommand(reports) {
+    /* async function runCommand(reports, fileToTest) {
         try {
-            const result = await execPromise(reports);
+            // How can I wait for this call to exec to finish and return is result?
+            const result = await execPromise(reports, fileToTest);
             console.log('Command output:', result);
+            return result;
         } catch (error) {
             console.error('Error executing command:', error);
         }
-        // await runExec();
+        return null;
     }
-
+ */
     // Call the async function
-    runCommand(auditDataReports).then(() => {
+    /*  return runCommand(auditDataReports, fullPathToPackageJson).then(() => {
         console.log('Command execution completed.');
-    });
+    }); */
 }
 
 module.exports = { runParseJson };

@@ -1,5 +1,6 @@
 const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
+const { cwd } = require('process');
 const { runParseJson } = require('./run-parse-json');
 
 const useDebug = false;
@@ -23,11 +24,15 @@ const callRunParseJson = async () => {
         if (useDebug) {
             log('Test run.');
         } else {
-            log('Running audit in runParseJson.');
-            const result = await runParseJson(auditDataReports, reportPath);
-            log('result:', result);
+            log(`In runParseJson we found ${fileNames.length} copies of package.json`);
+
+            let result = null;
+            const fullPathToPackageJson = `${cwd()}/${fileNames[0]}`;
+            log('fullPathToPackageJson:', fullPathToPackageJson);
+            result = await runParseJson(auditDataReports, fullPathToPackageJson);
+            log('result:', result || 'No result yet');
         }
-        console.log('fileNames:', fileNames);
+        // console.log('fileNames:', fileNames);
     }
 };
 
