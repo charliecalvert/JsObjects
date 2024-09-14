@@ -15,6 +15,27 @@ In the other: **npm start**
  npm install --save-dev jest
 ```
 
+## Run
+
+Switch between App.js and AppCopy.js by changing the import statement in src/index.js.
+
+```bash
+sed -i 's/App/AppCopy/g' src/index.js
+sed -i 's/AppCopy/App/g' src/index.js
+```
+
+In src/index.js:
+
+```javascript
+import App from './AppCopy';
+```
+
+or
+
+```javascript
+import App from './App';
+```
+
 ## CSS to Center Horizontally and Vertically
 
 ```css

@@ -5,7 +5,8 @@
     "scripts": {
         "start": "npx webpack && nodemon ./bin/www",
         "build": "node_modules/.bin/webpack --watch",
-        "test": "jest"
+        "test": "jest",
+        "app-copy": "nodemon ./bin/www"
     },
     "dependencies": {
         "cookie-parser": "~1.4.6",

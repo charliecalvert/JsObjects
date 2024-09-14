@@ -1,19 +1,8 @@
 const React = require('react');
-// const { useState, useEffect } = React;
-// require('./App.css');
+const { useState, useEffect } = React;
+require('./App.css');
 
-
-// import { render } from '@testing-library/react';
-
-const title = 'Hello React';
-
-function App() {
-  return <div>{title}</div>;
-}
-
-/* export default App;
-
-const App = () => {
+const AppCopy = () => {
     const [title, setTitle] = useState('CSC');
 
     const fetchJsonAndShowTitle = () => {
@@ -43,6 +32,6 @@ const App = () => {
             <button onClick={fetchJsonAndShowTitle}>Call fetchJsonAndShowTitle</button>
         </div>
     );
-}; */
+}; // AppCopy
 
-export default App;
+export default AppCopy;

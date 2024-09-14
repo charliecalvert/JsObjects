@@ -1,6 +1,6 @@
 const React = require('react');
 const { render, screen } = require('@testing-library/react');
-const App = require('../src/App');
+const App = require('../src/AppCopy');
 // const prettyDOM = require("pretty-dom");
 
 describe('App', () => {
