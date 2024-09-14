@@ -1,34 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+const React = require('react');
 
-const App = () => {
-    const [title, setTitle] = useState('');
+const title = 'Hello React';
 
-    const callFoo = () => {
-        fetch('/foo')
-            .then(response => response.json())
-            .then(json => {
-                console.log('parsed json', json);
-                setTitle(json.title);
-            })
-            .catch(ex => {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
+function App() {
+  return <div>{title}</div>;
+}
 
-    useEffect(() => {
-        // Any side effects or initial data fetching can be done here
-    }, []);
-
-    return (
-        <div>
-            <h1>{title}</h1>
-            <button onClick={callFoo}>Call Foo</button>
-        </div>
-    );
-};
-
-export default App;
+module.exports = App;
