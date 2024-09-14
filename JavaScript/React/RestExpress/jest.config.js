@@ -1,4 +1,5 @@
 /** @type {import('jest').Config} */
+/** @type {import('jest').Config} */
 module.exports = {
     // ... your configuration options
     // "global.IS_REACT_ACT_ENVIRONMENT": true,
@@ -9,5 +10,9 @@ module.exports = {
         html: '<html lang="zh-cmn-Hant"></html>',
         url: 'https://jestjs.io/',
         userAgent: 'Agent/007',
+    },
+    transform: {
+        '\\.[jt]sx?$': 'babel-jest',
+        '\\.css$': 'jest-transform-css',
     },
 };

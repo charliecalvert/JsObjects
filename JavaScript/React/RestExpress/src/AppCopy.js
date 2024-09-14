@@ -1,6 +1,5 @@
-const React = require('react');
-const { useState, useEffect } = React;
-require('./App.css');
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 const AppCopy = () => {
     const [title, setTitle] = useState('CSC');
@@ -34,4 +33,4 @@ const AppCopy = () => {
     );
 }; // AppCopy
 
-export default AppCopy;
+module.exports = AppCopy;
