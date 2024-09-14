@@ -1,25 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: ''
-        };
-    }
+const App = () => {
+    const [title, setTitle] = useState('');
 
-    callFoo = () => {
-        const that = this;
+    const callFoo = () => {
         fetch('/foo')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
+            .then(response => response.json())
+            .then(json => {
                 console.log('parsed json', json);
-                that.setState(json);
+                setTitle(json.title);
             })
-            .catch(function(ex) {
+            .catch(ex => {
                 console.log(
                     'parsing failed, URL bad, network down, or similar',
                     ex
@@ -27,22 +19,16 @@ class App extends Component {
             });
     };
 
-    render() {
-        return (
-            <div className="App">
-                <header>
-                    <h1>Simple React and Express</h1>
-                    <p>Welcome to {this.state.title}</p>
-                </header>
-                <main>
-                    <button onClick={this.callFoo}>Call Foo</button>
-                </main>
-                <footer>
-                    <p>&copy; by Charlie Calvert</p>
-                </footer>
-            </div>
-        );
-    }
-}
+    useEffect(() => {
+        // Any side effects or initial data fetching can be done here
+    }, []);
+
+    return (
+        <div>
+            <h1>{title}</h1>
+            <button onClick={callFoo}>Call Foo</button>
+        </div>
+    );
+};
 
 export default App;
