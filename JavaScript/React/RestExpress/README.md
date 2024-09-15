@@ -59,3 +59,36 @@ import App from './App';
     flex-direction: column;
 }
 ```
+
+## Doesn't Work
+
+```javascript
+const { defaults } = require('jest-config');
+
+/** @type {import('jest').Config} */
+/** @type {import('jest').Config} */
+
+module.exports = {
+    // ... your configuration options
+
+    "testRegex": "((\\.|/*.)(spec|test))\\.js?$",
+    verbose: true,
+    testEnvironment: 'jsdom',
+    testEnvironmentOptions: {
+        html: '<html lang="zh-cmn-Hant"></html>',
+        url: 'https://jestjs.io/',
+        userAgent: 'Agent/007',
+    },
+    transform: {
+        '\\.[jt]sx?$': 'babel-jest',
+        '\\.css$': 'jest-transform-css',
+    },
+    // toBeInTheDocument: true,
+    "setupFilesAfterEnv": ["./jest.setup.js"],
+
+    /*  compilerOptions: {
+         "types": ["@testing-library/jest-dom"]
+     },
+      */
+};
+```
