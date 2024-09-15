@@ -22,7 +22,7 @@ describe('App', () => {
         render(<App />);
         screen.debug();
         const heading = screen.getByText(/Hello/i);
-        console.log('linkElement:', heading);
+        // console.log('linkElement:', heading);
         // Why can't i use toBeInTheDocument here?
         // console.log("toBeInTheD", (heading).toBeInTheDocument());
         expect(heading).toBeInTheDocument();

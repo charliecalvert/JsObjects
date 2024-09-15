@@ -1,4 +1,4 @@
-import React, { useState, Component, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 // import ReactDOM from 'react-dom'
 import { log } from './logger.js';
 import './App.css';

@@ -33,4 +33,4 @@ const AppCopy = () => {
     );
 }; // AppCopy
 
-module.exports = AppCopy;
+export default AppCopy;
