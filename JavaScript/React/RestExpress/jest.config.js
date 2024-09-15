@@ -1,5 +1,8 @@
+const { defaults } = require('jest-config');
+// require('@testing-library/jest-dom/extend-expect');
 /** @type {import('jest').Config} */
 /** @type {import('jest').Config} */
+
 module.exports = {
     // ... your configuration options
     // "global.IS_REACT_ACT_ENVIRONMENT": true,
@@ -15,4 +18,8 @@ module.exports = {
         '\\.[jt]sx?$': 'babel-jest',
         '\\.css$': 'jest-transform-css',
     },
+   /*  compilerOptions: {
+        "types": ["@testing-library/jest-dom"]
+    },
+    setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"], */
 };
