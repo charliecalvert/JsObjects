@@ -11,6 +11,10 @@ npm i "@testing-library/dom" "@testing-library/jest-dom" "@testing-library/react
 @babel/preset-react @babel/preset-env @babel/core
 ```
 
+``` bash
+ npm i -D @babel/eslint-parser @babel/plugin-proposal-class-properties @testing-library/dom @babel/preset-react @babel/preset-env
+```
+
 ## Install Babel
 
 ``` bash

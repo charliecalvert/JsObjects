@@ -1,13 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>React App</title>
-	</head>
-
-	<body>
-		<div id="root"></div>
-	</body>
-</html>
+<head><script defer src="bundle.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ./node_modules/babel-loader/lib/index.js):
+  SyntaxError: /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/public/index.html: Missing semicolon. (1:52)
+  
+  > 1 | <head><script defer src=  "bundle.js"></script></head  [39m>Html Webpack Plugin:
+      |                                                     ^
+    2 | <pre>
+    3 |   Error: Child compilation failed:
+    4 |   Module build failed (from ./node_modules/babel  m-loader/lib/index.js):
+      at constructor (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/index.js:36  2:19)
+      at JSXParserMixin.raise (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/in  dex.js:3260:19)
+      at JSXParserMixin.semicolon (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/li  b/index.js:3586:10)
+      at JSXParserMixin.parseExpressionStatement (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@  babel/parser/lib/index.js:12761:10)
+      at JSXParserMixin.parseStatementContent (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@bab  el/parser/lib/index.js:12376:19)
+      at JSXParserMixin.parseStatementLike (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/  parser/lib/index.js:12239:17)
+      at JSXParserMixin.parseModuleItem (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/par  ser/lib/index.js:12216:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_module  s/@babel/parser/lib/index.js:12792:36)
+      at JSXParserMixin.parseBlockBody (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/pars  er/lib/index.js:12785:10)
+      at JSXParserMixin.parseProgram (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser  /lib/index.js:12113:10)
+      at JSXParserMixin.parseTopLevel (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parse  r/lib/index.js:12103:25)
+      at JSXParserMixin.parse (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/in  dex.js:13915:10)
+      at parse (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/index.js:13949:38  )
+      at parser (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/parser/index.js:41  :34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transformat  ion/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transformation/index.  js:21:50)
+      at run.next (<anonymous>)
+      at transform (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transform.js:22  :33)
+      at transform.next (<anonymous>)
+      at step (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.js:261:32)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.j  s:223:11)
+  ModuleBuildError: Module build failed (from ./node_modules/babel-loader/lib/index.js):
+  SyntaxError: /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/public/index.html: Missing semicolon. (1:52)
+  
+  > 1 | <head><script defer src=  "bundle.js"></script></head  [39m>Html Webpack Plugin:
+      |                                                     ^
+    2 | <pre>
+    3 |   Error: Child compilation failed:
+    4 |   Module build failed (from ./node_modules/babel  m-loader/lib/index.js):
+      at constructor (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/index.js:36  2:19)
+      at JSXParserMixin.raise (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/in  dex.js:3260:19)
+      at JSXParserMixin.semicolon (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/li  b/index.js:3586:10)
+      at JSXParserMixin.parseExpressionStatement (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@  babel/parser/lib/index.js:12761:10)
+      at JSXParserMixin.parseStatementContent (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@bab  el/parser/lib/index.js:12376:19)
+      at JSXParserMixin.parseStatementLike (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/  parser/lib/index.js:12239:17)
+      at JSXParserMixin.parseModuleItem (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/par  ser/lib/index.js:12216:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_module  s/@babel/parser/lib/index.js:12792:36)
+      at JSXParserMixin.parseBlockBody (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/pars  er/lib/index.js:12785:10)
+      at JSXParserMixin.parseProgram (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser  /lib/index.js:12113:10)
+      at JSXParserMixin.parseTopLevel (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parse  r/lib/index.js:12103:25)
+      at JSXParserMixin.parse (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/in  dex.js:13915:10)
+      at parse (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/parser/lib/index.js:13949:38  )
+      at parser (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/parser/index.js:41  :34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transformat  ion/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transformation/index.  js:21:50)
+      at run.next (<anonymous>)
+      at transform (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/@babel/core/lib/transform.js:22  :33)
+      at transform.next (<anonymous>)
+      at step (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.js:261:32)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/gensync/index.j  s:223:11)
+      at processResult (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModule.js  :885:19)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModule.js:1026:5
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/loader-runner/lib/LoaderRunner.js:400:11
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/loader-runner/lib/LoaderRunner.js:252:18
+      at context.callback (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/loader-runner/lib/Loader  Runner.js:124:13)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/babel-loader/lib/index.js:39:103
+  
+  - index.js:362 constructor
+    [RestExpress]/[@babel]/parser/lib/index.js:362:19
+  
+  - index.js:3260 JSXParserMixin.raise
+    [RestExpress]/[@babel]/parser/lib/index.js:3260:19
+  
+  - index.js:3586 JSXParserMixin.semicolon
+    [RestExpress]/[@babel]/parser/lib/index.js:3586:10
+  
+  - index.js:12761 JSXParserMixin.parseExpressionStatement
+    [RestExpress]/[@babel]/parser/lib/index.js:12761:10
+  
+  - index.js:12376 JSXParserMixin.parseStatementContent
+    [RestExpress]/[@babel]/parser/lib/index.js:12376:19
+  
+  - index.js:12239 JSXParserMixin.parseStatementLike
+    [RestExpress]/[@babel]/parser/lib/index.js:12239:17
+  
+  - index.js:12216 JSXParserMixin.parseModuleItem
+    [RestExpress]/[@babel]/parser/lib/index.js:12216:17
+  
+  - index.js:12792 JSXParserMixin.parseBlockOrModuleBlockBody
+    [RestExpress]/[@babel]/parser/lib/index.js:12792:36
+  
+  - index.js:12785 JSXParserMixin.parseBlockBody
+    [RestExpress]/[@babel]/parser/lib/index.js:12785:10
+  
+  - index.js:12113 JSXParserMixin.parseProgram
+    [RestExpress]/[@babel]/parser/lib/index.js:12113:10
+  
+  - index.js:12103 JSXParserMixin.parseTopLevel
+    [RestExpress]/[@babel]/parser/lib/index.js:12103:25
+  
+  - index.js:13915 JSXParserMixin.parse
+    [RestExpress]/[@babel]/parser/lib/index.js:13915:10
+  
+  - index.js:13949 parse
+    [RestExpress]/[@babel]/parser/lib/index.js:13949:38
+  
+  - index.js:41 parser
+    [RestExpress]/[@babel]/core/lib/parser/index.js:41:34
+  
+  - parser.next
+  
+  - normalize-file.js:64 normalizeFile
+    [RestExpress]/[@babel]/core/lib/transformation/normalize-file.js:64:37
+  
+  - normalizeFile.next
+  
+  - index.js:21 run
+    [RestExpress]/[@babel]/core/lib/transformation/index.js:21:50
+  
+  - run.next
+  
+  - transform.js:22 transform
+    [RestExpress]/[@babel]/core/lib/transform.js:22:33
+  
+  - transform.next
+  
+  - index.js:261 step
+    [RestExpress]/[gensync]/index.js:261:32
+  
+  - index.js:273 
+    [RestExpress]/[gensync]/index.js:273:13
+  
+  - index.js:223 async.call.result.err.err
+    [RestExpress]/[gensync]/index.js:223:11
+  
+  - ModuleBuildError: Module build failed (from ./node_modules/babel-loader/lib/index.js):
+  
+  - SyntaxError: /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/public/index.html: Missing semicolon. (1:52)
+  
+  - > 1 | <head><script defer src    m="bundle.js"></script></h    ead>Html Webpack Plugin:
+  
+  -    |                                                     ^
+  
+  -  2 | <pre>
+  
+  -  3 |   Error: Child compilation failed:
+  
+  -  4 |   Module build failed (from ./node_modules/babel    3m-loader/lib/index.js):
+  
+  - index.js:362 constructor
+    [RestExpress]/[@babel]/parser/lib/index.js:362:19
+  
+  - index.js:3260 JSXParserMixin.raise
+    [RestExpress]/[@babel]/parser/lib/index.js:3260:19
+  
+  - index.js:3586 JSXParserMixin.semicolon
+    [RestExpress]/[@babel]/parser/lib/index.js:3586:10
+  
+  - index.js:12761 JSXParserMixin.parseExpressionStatement
+    [RestExpress]/[@babel]/parser/lib/index.js:12761:10
+  
+  - index.js:12376 JSXParserMixin.parseStatementContent
+    [RestExpress]/[@babel]/parser/lib/index.js:12376:19
+  
+  - index.js:12239 JSXParserMixin.parseStatementLike
+    [RestExpress]/[@babel]/parser/lib/index.js:12239:17
+  
+  - index.js:12216 JSXParserMixin.parseModuleItem
+    [RestExpress]/[@babel]/parser/lib/index.js:12216:17
+  
+  - index.js:12792 JSXParserMixin.parseBlockOrModuleBlockBody
+    [RestExpress]/[@babel]/parser/lib/index.js:12792:36
+  
+  - index.js:12785 JSXParserMixin.parseBlockBody
+    [RestExpress]/[@babel]/parser/lib/index.js:12785:10
+  
+  - index.js:12113 JSXParserMixin.parseProgram
+    [RestExpress]/[@babel]/parser/lib/index.js:12113:10
+  
+  - index.js:12103 JSXParserMixin.parseTopLevel
+    [RestExpress]/[@babel]/parser/lib/index.js:12103:25
+  
+  - index.js:13915 JSXParserMixin.parse
+    [RestExpress]/[@babel]/parser/lib/index.js:13915:10
+  
+  - index.js:13949 parse
+    [RestExpress]/[@babel]/parser/lib/index.js:13949:38
+  
+  - index.js:41 parser
+    [RestExpress]/[@babel]/core/lib/parser/index.js:41:34
+  
+  - parser.next
+  
+  - normalize-file.js:64 normalizeFile
+    [RestExpress]/[@babel]/core/lib/transformation/normalize-file.js:64:37
+  
+  - normalizeFile.next
+  
+  - index.js:21 run
+    [RestExpress]/[@babel]/core/lib/transformation/index.js:21:50
+  
+  - run.next
+  
+  - transform.js:22 transform
+    [RestExpress]/[@babel]/core/lib/transform.js:22:33
+  
+</pre>

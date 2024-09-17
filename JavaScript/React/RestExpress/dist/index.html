@@ -1,13 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>React App</title>
-	<script defer src="index_bundle.js"></script></head>
-
-	<body>
-		<div id="root"></div>
-	</body>
-</html>
+<head><script defer src="index_bundle.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module not found: Error: Can't resolve '/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/public/index.html' in   '/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress'
+  ModuleNotFoundError: Module not found: Error: Can't resolve '/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/p  ublic/index.html' in '/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress'
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/Compilation.js:2109:28
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:908:13
+      at eval (eval at create (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/tapable/lib/HookCode  Factory.js:33:10), <anonymous>:10:1)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:333:22
+      at eval (eval at create (/home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/tapable/lib/HookCode  Factory.js:33:10), <anonymous>:9:1)
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:512:22
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:150:10
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:775:25
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:992:8
+      at /home/ubuntu/Git/JsObjects/JavaScript/React/RestExpress/node_modules/webpack/lib/NormalModuleFactory.js:1121:5
+  
+  - Compilation.js:2109 
+    [RestExpress]/[webpack]/lib/Compilation.js:2109:28
+  
+  - NormalModuleFactory.js:908 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:908:13
+  
+  
+  - NormalModuleFactory.js:333 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:333:22
+  
+  
+  - NormalModuleFactory.js:512 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:512:22
+  
+  - NormalModuleFactory.js:150 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:150:10
+  
+  - NormalModuleFactory.js:775 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:775:25
+  
+  - NormalModuleFactory.js:992 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:992:8
+  
+  - NormalModuleFactory.js:1121 
+    [RestExpress]/[webpack]/lib/NormalModuleFactory.js:1121:5
+  
+  - child-compiler.js:174 
+    [RestExpress]/[html-webpack-plugin]/lib/child-compiler.js:174:18
+  
+  - Compiler.js:627 finalCallback
+    [RestExpress]/[webpack]/lib/Compiler.js:627:5
+  
+  - Compiler.js:662 
+    [RestExpress]/[webpack]/lib/Compiler.js:662:11
+  
+  - Compiler.js:1348 
+    [RestExpress]/[webpack]/lib/Compiler.js:1348:17
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [RestExpress]/[tapable]/lib/Hook.js:18:14
+  
+  - Compiler.js:1344 
+    [RestExpress]/[webpack]/lib/Compiler.js:1344:33
+  
+  - Compilation.js:2925 finalCallback
+    [RestExpress]/[webpack]/lib/Compilation.js:2925:11
+  
+  - Compilation.js:3238 
+    [RestExpress]/[webpack]/lib/Compilation.js:3238:11
+  
+  
+</pre>

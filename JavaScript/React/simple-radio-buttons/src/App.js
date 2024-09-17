@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 // import ReactDOM from 'react-dom'
 import { log } from './logger.js';
-import './App.css';
+// import './App.css';
 
 log('App component loaded');
 

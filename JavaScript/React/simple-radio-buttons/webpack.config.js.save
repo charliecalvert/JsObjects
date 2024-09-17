@@ -1,0 +1,40 @@
+//var path = require('path');
+//var webpack = require('webpack')
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+// const @babel/preset-env = require('@babel/preset-env');
+// const @babel/preset-react = require('@babel/preset-react');
+
+console.log(__dirname);
+module.exports = {
+    mode: 'development',
+    entry: './src/index.js',
+    output: {
+        path: __dirname + '/public/',
+        filename: 'bundle.js'
+    },
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /.(js)?$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react'
+                        ]
+                    }
+                },
+                exclude: /(node_modules|bower_components)/,
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader']
+            },
+        ],
+    }
+};
