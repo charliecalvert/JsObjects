@@ -1,0 +1,12 @@
+--- /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js	2024-09-17 14:15:39.210093794 -0700
++++ /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js	2024-09-17 09:10:52.995850816 -0700
+@@ -1,7 +1,7 @@
+-import React, { useState, Component, Fragment } from 'react';
++import React, { useState, Fragment } from 'react';
+ // import ReactDOM from 'react-dom'
+ import { log } from './logger.js';
+-import './App.css';
++// import './App.css';
+ 
+ log('App component loaded');
+ 
