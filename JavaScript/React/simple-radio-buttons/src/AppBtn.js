@@ -1,17 +1,17 @@
 import React, { useState, Fragment } from 'react';
 // import ReactDOM from 'react-dom'
 import { log } from './logger.js';
-// import './App.css';
+import './AppBtn.css';
 
-log('App component loaded');
+log('AppBtn component loaded');
 
-// class App extends Component {
-function App() {
-    log('App component loaded');
-    // log('App component loaded', props
+// class AppBtn extends Component {
+function AppBtn() {
+    log('AppBtn component loaded');
+    // log('AppBtn component loaded', props
     /*     constructor(props) {
             super(props);
-            log('App component constructor', props);
+            log('AppBtn component constructor', props);
             this.state = {
                 checkedRadioButton: 'none',
                 message: 'none'
@@ -60,7 +60,7 @@ function App() {
 
     return (
         <Fragment>
-            <div className="App">
+            <div className="AppBtn">
                 <section>
                     <hr />
                     {bookRadios}
@@ -78,4 +78,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppBtn;

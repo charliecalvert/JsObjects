@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App.js';
+import AppBtn from './AppBtn.js';
 import * as serviceWorker from './serviceWorker';
 import { log } from './logger.js';
 
@@ -13,7 +13,7 @@ window.onload = function () {
     log('ReactDOM.createRoot called', root);
     root.render(
         <div>
-            <App checkedRadioButton='RadioOne' />
+            <AppBtn checkedRadioButton='RadioOne' />
         </div>
     );
 };
