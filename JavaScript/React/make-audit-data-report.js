@@ -3,8 +3,9 @@ const { log } = require('console');
 const fsp = require('fs/promises');
 const { debugParams } = require('./src/debugParams');
 const { programStub } = require('./src/programStub');
-const { createAuditDataReport } = require('./src/create-audit-data-report');
-const { writeAuditDataReport, execProgram } = require('./src/utils');
+// const { setupAuditCheck } = require('./src/audit-check/perform-audit-check');
+// const { writeAuditDataReport } = require('./src/utils');
+const { createAuditDataReport, writeAuditDataReport } = require('./src/create-audit-data-report');
 
 /*
  * This script searches for a file in a directory and its subdirectories.
@@ -35,11 +36,7 @@ async function setupCallToExecProgram(auditDataReports) {
     if (auditDataReports === undefined) {
         throw new Error('auditDataReports is not defined in start');
     }
-    async function readDirectory(directoryToSearch, packageJson, programToRun) {
-        if (programToRun === undefined) {
-            throw new Error('Program to run is not defined');
-        }
-
+    async function readDirectory(directoryToSearch) {
         // Find all subdirectories in the directoryToSearch
         const directoryEntries = await fsp.readdir(directoryToSearch, { withFileTypes: true });
 
@@ -47,34 +44,33 @@ async function setupCallToExecProgram(auditDataReports) {
         if (directoryEntries.length === 0) {
             log(`No entries found in ${directoryToSearch}`);
         } else {
-            log(`Entries found in ${directoryToSearch} ${packageJson}: ${directoryEntries.length}`);
+            log(`Entries found in ${directoryToSearch}: ${directoryEntries.length}`);
         }
         if (useDebug) {
-            debugParams(directoryToSearch, packageJson, programToRun, directoryEntries);
+            debugParams(directoryToSearch, directoryEntries);
         }
 
         // Parameters to pass to execProgram
         const params = [
-            directoryEntries, directoryToSearch, packageJson, programToRun, auditDataReports,
+            directoryEntries, directoryToSearch, auditDataReports,
         ];
 
         // Execute the programToRun on packageJson
         // in directoryToSearch and its subdirectories.
-        await execProgram(...params);
+        await createAuditDataReport(...params);
     }
 
     const directoryToSearch = './'; // The directory we want to search
-    const packageJson = 'package.json'; // The file name we are looking for
 
-    let programToRun;
+    /*     let programToRun;
     if (useDebug) {
         programToRun = 'programStub.js';
     } else {
-        programToRun = createAuditDataReport;
-    }
+        programToRun = setupAuditCheck;
+    } */
 
-    log(`Searching for ${packageJson} in ${directoryToSearch} with program ${programToRun.name}`);
-    await readDirectory(directoryToSearch, packageJson, programToRun)
+    // log(`Searching in ${directoryToSearch}`);
+    await readDirectory(directoryToSearch)
         .then(() => {
             console.log('call to searchFile completed successfully.');
         })

@@ -1,53 +1,69 @@
-const { exec } = require('child_process');
+const path = require('path');
 const { log } = require('console');
-const { dirname } = require('path');
-const { getCurrentDateTime } = require('./utils');
+const fsp = require('fs/promises');
+const { writeFile } = require('fs');
+// const { useDebug } = require('./utils');
 
-// Run npm audit and save  the output to a file
-function execPromise(reports, packageJsonPath) {
-    return new Promise((resolve, reject) => {
-        exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error executing npm audit in execPromise: ${error.message} for ${packageJsonPath}`);
-                reject(error);
-                return;
-            }
-            if (stderr) {
-                console.error(`stderr: ${stderr}`);
-                reject(stderr);
-                return;
-            }
+const useDebug = false;
+let newEntriesLength = 0;
+const packageJson = 'package.json'; // The file name we are looking for
 
-            const auditDataReport = stdout;
-            log(`initial auditDataReport (from stdout): ${auditDataReport}`);
-            const currentDateTime = getCurrentDateTime();
-            const auditReport = `[\n"${packageJsonPath}",\n"${currentDateTime}",\n${auditDataReport}\n]`;
+function writeAuditDataReport(auditDataReportsJson) {
+    writeFile('/home/ubuntu/temp/auditDataReports.json', auditDataReportsJson, (err) => {
+        if (err) {
+            console.error(`Error writing audit file: ${err.message}`);
+            return;
+        }
 
-            log(`final auditReport:, ${auditReport}`);
-
-            reports.push(auditReport);
-            log(`auditReports len: ${reports.length}`);
-
-            resolve(auditReport);
-        });
+        if (useDebug) {
+            console.log('parseJson:', typeof getAudit);
+        }
     });
 }
 
-async function createAuditDataReport(auditDataReports, fullPathToPackageJson) {
-    log('Audit data reports type inside runparse:', typeof auditDataReports);
-    const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
-    log('CSCPackage JSON path:', fullPathToPackageJson);
-    log(`packageJsonPath: ${packageJsonPath}`);
-    try {
-        // How can I wait for this call to exec to finish and return is result?
-        const result = await execPromise(auditDataReports, packageJsonPath);
-        console.log('Command output:', result);
-        return result;
-    } catch (error) {
-        console.error('Error executing command in runParseJson:', error);
-        process.exit(1);
-    }
-    return null;
-}
+// A recursive function that searches for package.json
+// in a directory and its subdirectories
+// call programToRun when the file is found.
+async function createAuditDataReport(entries, dir, auditDataReports) {
+    log('newEntriesLength:', newEntriesLength);
+    await Promise.all(entries.map(async (entry) => {
+        const fullPath = path.join(dir, entry.name);
 
-module.exports = { createAuditDataReport };
+        // Skip directories that are not needed
+        if (entry.isDirectory() && ['node_modules', '.git', 'bower_components'].includes(entry.name)) {
+            return;
+        }
+        if (useDebug && entry.name === packageJson) {
+            log(`Checking: ${fullPath}`);
+        }
+
+        if (entry.isDirectory()) {
+            const newEntries = await fsp.readdir(fullPath, { withFileTypes: true });
+            newEntriesLength += 1;
+            if (useDebug) {
+                log(`Directory found: ${fullPath} ${newEntries.length}`);
+            }
+
+            // Recursively search the subdirectory
+            await createAuditDataReport(newEntries, fullPath, auditDataReports);
+        } else if (entry.isFile() && entry.name === packageJson) {
+            if (useDebug) {
+                log(`File found: ${fullPath}`);
+            }
+
+            // log(`Executing program: ${programToRun.name} ${fullPath}`);
+
+            if (auditDataReports === undefined) {
+                throw new Error('auditDataReports is not defined');
+            } else {
+                auditDataReports.push(fullPath);
+            }
+
+            // Why can't I pass auditDataReports to runParseJson? I want to update it.
+            // log('Audit data reports type2:', typeof auditDataReports);
+            log('before runParse Audit data reports length:', auditDataReports.length);
+        }
+    }));
+} // createAuditDataReport
+
+module.exports = { createAuditDataReport, writeAuditDataReport };

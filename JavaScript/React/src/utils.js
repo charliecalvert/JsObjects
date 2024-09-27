@@ -1,24 +1,7 @@
-const path = require('path');
-const { writeFile } = require('fs');
-const fsp = require('fs/promises');
 const { log } = require('console');
 const { exec } = require('child_process');
 const { dirname } = require('path/posix');
-
-const useDebug = false;
-
-function writeAuditDataReport(auditDataReportsJson) {
-    writeFile('/home/ubuntu/temp/auditDataReports.json', auditDataReportsJson, (err) => {
-        if (err) {
-            console.error(`Error writing audit file: ${err.message}`);
-            return;
-        }
-
-        if (useDebug) {
-            console.log('parseJson:', typeof getAudit);
-        }
-    });
-}
+const { writeAuditDataReport } = require('./create-audit-data-report');
 
 const getCurrentDateTime = () => {
     const date = new Date();
@@ -86,53 +69,9 @@ async function runParseJson(packageJson, auditDataReports, newEntriesLength) {
     runExec();
 }
 
-let newEntriesLength = 0;
-
-// A recursive function that searches for package.json
-// in a directory and its subdirectories
-// call programToRun when the file is found.
-async function execProgram(entries, dir, packageJson, programToRun, auditDataReports) {
-    log('newEntriesLength:', newEntriesLength);
-    await Promise.all(entries.map(async (entry) => {
-        const fullPath = path.join(dir, entry.name);
-
-        // Skip directories that are not needed
-        if (entry.isDirectory() && ['node_modules', '.git', 'bower_components'].includes(entry.name)) {
-            return;
-        }
-        if (useDebug && entry.name === packageJson) {
-            log(`Checking: ${fullPath}`);
-        }
-
-        if (entry.isDirectory()) {
-            const newEntries = await fsp.readdir(fullPath, { withFileTypes: true });
-            newEntriesLength += 1;
-            if (useDebug) {
-                log(`Directory found: ${fullPath} ${newEntries.length}`);
-            }
-
-            // Recursively search the subdirectory
-            await execProgram(newEntries, fullPath, packageJson, programToRun, auditDataReports);
-        } else if (entry.isFile() && entry.name === packageJson) {
-            if (useDebug) {
-                log(`File found: ${fullPath}`);
-            }
-
-            log(`Executing program: ${programToRun.name} ${fullPath}`);
-
-            if (auditDataReports === undefined) {
-                throw new Error('auditDataReports is not defined');
-            } else {
-                auditDataReports.push(fullPath);
-            }
-
-            // Why can't I pass auditDataReports to runParseJson? I want to update it.
-            // log('Audit data reports type2:', typeof auditDataReports);
-            log('before runParse Audit data reports length:', auditDataReports.length);
-        }
-    }));
-} // execProgram
-
 module.exports = {
-    getCurrentDateTime, writeAuditDataReport, checks, runParseJson, execProgram,
+    getCurrentDateTime,
+    writeAuditDataReport,
+    checks,
+    runParseJson,
 };

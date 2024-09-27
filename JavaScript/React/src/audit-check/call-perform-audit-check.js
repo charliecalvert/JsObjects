@@ -1,7 +1,7 @@
 const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
 const { cwd } = require('process');
-const { createAuditDataReport } = require('./create-audit-data-report');
+const { createAuditDataReport } = require('./perform-audit-check');
 
 const useDebug = false;
 
