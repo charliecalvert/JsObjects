@@ -3,7 +3,7 @@ const { log } = require('console');
 const fsp = require('fs/promises');
 const { debugParams } = require('./src/debugParams');
 const { programStub } = require('./src/programStub');
-const { runParseJson } = require('./src/run-parse-json');
+const { createAuditDataReport } = require('./src/create-audit-data-report');
 const { writeAuditDataReport, execProgram } = require('./src/utils');
 
 /*
@@ -21,8 +21,8 @@ if (debugParams === undefined) {
 if (programStub === undefined) {
     throw new Error('programStub is not defined');
 }
-if (runParseJson === undefined) {
-    throw new Error('runParseJson is not defined');
+if (createAuditDataReport === undefined) {
+    throw new Error('createAuditDataReport is not defined');
 }
 
 /*
@@ -70,7 +70,7 @@ async function setupCallToExecProgram(auditDataReports) {
     if (useDebug) {
         programToRun = 'programStub.js';
     } else {
-        programToRun = runParseJson;
+        programToRun = createAuditDataReport;
     }
 
     log(`Searching for ${packageJson} in ${directoryToSearch} with program ${programToRun.name}`);

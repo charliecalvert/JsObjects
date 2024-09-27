@@ -72,8 +72,6 @@ function checkStringInFile(filePath, searchString) {
     });
 }
 
-
-
 // Example usage
 const filePath = path.join(__dirname, 'ncu-output.txt'); // Replace with your file path
 const searchString = 'Run ncu -u to upgrade package.json'; // Replace with the string you want to search for
@@ -112,7 +110,7 @@ function runNcu() {
 
   console.log(upgraded)
   */
- module.exports.runNcu = runNcu
- module.exports.runExecPromise = runExecPromise;
- module.exports.checkStringInFile = checkStringInFile;
- module.exports.execPromise = execPromise;
+module.exports.runNcu = runNcu;
+module.exports.runExecPromise = runExecPromise;
+module.exports.checkStringInFile = checkStringInFile;
+module.exports.execPromise = execPromise;

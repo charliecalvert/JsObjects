@@ -2,14 +2,41 @@
 
 -- RestExpress: Simple Express Project + React. No create-react-app
 
+## The JavaScript Scripts
+
+In "/home/ubuntu/Git/JsObjects/JavaScript/React":
+
+```text
+find-bad-packages.js
+gulpfile.js
+logger.js
+make-gulp-files.js
+run-ncu.js
+```
+
+In "/home/ubuntu/Git/JsObjects/JavaScript/React/src":
+
+```text
+callRunParseJson.js
+debugParams.js
+exec-ncu.js
+parse-json-func.js
+programStub.js
+run-exec-ncu.js
+run-parse-json.js
+utils.js
+```
+
 ## Installation
 
-Building on [Dennis Williamson's answer](https://stackoverflow.com/a/3294514/253576) we can get only the directory name from a particular subdirectory:
+Building on [Dennis Williamson's answer](https://stackoverflow.com/a/3294514/253576).
 
 ```bash
+#!/bin/bash
 
-```bash
-ls -d /home/$USER/Git/React/*/  |  while read line; do
+Get only the directory name from a subdirectory:
+
+ls -d ${JSOBJECTS}/JavaScript/React/*/  |  while read line; do
    echo "$(basename $line)"
 done
 ```
@@ -39,10 +66,7 @@ Python
 Utilities
 ```
 
-```
-
 ## React Simple
-
 
 ```json
 {

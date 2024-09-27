@@ -33,7 +33,7 @@ function execPromise(reports, packageJsonPath) {
     });
 }
 
-async function runParseJson(auditDataReports, fullPathToPackageJson) {
+async function createAuditDataReport(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
     const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
     log('CSCPackage JSON path:', fullPathToPackageJson);
@@ -50,4 +50,4 @@ async function runParseJson(auditDataReports, fullPathToPackageJson) {
     return null;
 }
 
-module.exports = { runParseJson };
+module.exports = { createAuditDataReport };

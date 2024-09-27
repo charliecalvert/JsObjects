@@ -1,12 +1,12 @@
 const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
 const { cwd } = require('process');
-const { runParseJson } = require('./run-parse-json');
+const { createAuditDataReport } = require('./create-audit-data-report');
 
 const useDebug = false;
 
 async function runCommand(auditDataReports, fullPathToPackageJson) {
-    const result = await runParseJson(auditDataReports, fullPathToPackageJson);
+    const result = await createAuditDataReport(auditDataReports, fullPathToPackageJson);
     log('Vanilla Result:', result);
     const parsedResult = JSON.parse(result);
     log('DoIt Parsed result:', parsedResult || 'No result yet');
@@ -20,7 +20,7 @@ async function runCommand(auditDataReports, fullPathToPackageJson) {
 const callRunParseJson = async () => {
     const auditDataReports = [];
 
-    function readReport(filename) {
+    function readAuditDataReport(filename) {
         if (existsSync(filename)) {
             const fileContents = readFileSync(filename, 'utf8');
             const jsonReport = JSON.parse(fileContents);
@@ -31,16 +31,16 @@ const callRunParseJson = async () => {
         return false;
     }
     const reportPath = `${process.env.HOME}/temp/auditDataReports.json`;
-    const fileNames = readReport(reportPath);
-    if (fileNames) {
+    const auditDataReportNames = readAuditDataReport(reportPath);
+    if (auditDataReportNames) {
         if (useDebug) {
             log('Test run.');
         } else {
-            log(`In runParseJson we found ${fileNames.length} copies of package.json`);
+            log(`In runParseJson we found ${auditDataReportNames.length} copies of package.json`);
 
             // let result = null;
-            for (let i = 0; i < fileNames.length; i += 1) {
-                const fullPathToPackageJson = `${cwd()}/${fileNames[i]}`;
+            for (let i = 0; i < auditDataReportNames.length; i += 1) {
+                const fullPathToPackageJson = `${cwd()}/${auditDataReportNames[i]}`;
                 log('fullPathToPackageJson:', fullPathToPackageJson);
                 runCommand(auditDataReports, fullPathToPackageJson);
                 /* if (i >= 5) {
