@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node find-bad-packages.js",
+    "start": "node make-audit-data-report.js",
     "go01": "npm run simpleState && npm run simpleInputs && npm run simpleRadioButtons",
     "reactSimple": "cd react-simple && npm start",
     "simpleState": "cd simple-state && npm start",
@@ -13,8 +13,7 @@
     "simpleRadioButtons": "cd simple-radio-buttons && npm start",
     "build-all": "npm run build --prefix react-simple && npm run build --prefix simple-state",
     "run-all": "npm-run-all -p reactSimple simpleState simpleInputs simpleRadioButtons",
-    "go": "node find-bad-packages.js",
-    "audit": "node src/callRunParseJson.js"
+    "audit": "node src/audit-check/call-perform-audit-check.js"
   },
   "repository": {
     "type": "git",

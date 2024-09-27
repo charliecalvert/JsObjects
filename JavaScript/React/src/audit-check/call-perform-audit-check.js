@@ -1,12 +1,12 @@
 const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
 const { cwd } = require('process');
-const { createAuditDataReport } = require('./perform-audit-check');
+const { setupAuditCheck } = require('./perform-audit-check');
 
 const useDebug = false;
 
 async function runCommand(auditDataReports, fullPathToPackageJson) {
-    const result = await createAuditDataReport(auditDataReports, fullPathToPackageJson);
+    const result = await setupAuditCheck(auditDataReports, fullPathToPackageJson);
     log('Vanilla Result:', result);
     const parsedResult = JSON.parse(result);
     log('DoIt Parsed result:', parsedResult || 'No result yet');
