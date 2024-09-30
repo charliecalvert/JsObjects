@@ -15,12 +15,16 @@ function getCurrentDateTime() {
     return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
 }
 
+function getCurrentWorkingDirectory() {
+    return process.cwd();
+}
+
 function replaceLines(data) {
     let newData = data;
     // Define the substrings to be replaced and their replacements
     const replacements = [
-        { searchValue: /__REPLACE_ME_01__/g, replaceValue: 'newSubstring1' },
-        { searchValue: /__REPLACE_ME_02__/g, replaceValue: 'newSubstring2' },
+        { searchValue: /__REPLACE_ME_01__/g, replaceValue: getCurrentWorkingDirectory() },
+        { searchValue: /__REPLACE_ME_02__/g, replaceValue: getCurrentWorkingDirectory() },
     ];
 
     // Replace the substrings using the defined replacements

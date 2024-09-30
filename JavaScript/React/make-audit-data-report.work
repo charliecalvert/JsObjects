@@ -71,8 +71,8 @@ async function setupCallToExecProgram(auditDataReports) {
         await createAuditDataReport(...params);
     }
 
-    log('home: ', `${process.env.HOME}/__REPLACE_ME_01__/`);
-    const directoryToSearch = `${process.env.HOME}/__REPLACE_ME_02__/`; // The directory we want to search
+    log('home: ', '__REPLACE_ME_01__/');
+    const directoryToSearch = '__REPLACE_ME_02__/'; // The directory we want to search
 
     /*     let programToRun;
     if (useDebug) {
