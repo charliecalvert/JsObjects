@@ -27,6 +27,10 @@ run-parse-json.js
 utils.js
 ```
 
+## Set up code for use in a specific directory
+
+```bash
+
 Example of copying files from one directory to another
 if you want to copy the files from the React directory to the src directory
 
@@ -44,10 +48,12 @@ if you want to try a dry run, add the -n flag:
 ```bash
 #!/bin/bash
 
+CDSN=`${JSOBJECTS}/JavaScript/React/src/create-directory-specific-ncu-script.js'
+
 # Copy files from React to src directory
 # Dry run. No files will be copied.
 rsync -aunv ~/Git/JsObjects/JavaScript/React/src/* src/.
-rsync -av `${CDSN}` src/.rsync -av `${CDSN}` src/.
+rsync -anv `${CDSN}` src/.rsync -av `${CDSN}` src/.
 ```
 
 ## Installation
