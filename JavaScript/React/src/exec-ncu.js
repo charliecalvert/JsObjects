@@ -49,6 +49,7 @@ async function runExecPromise() {
     } catch (error) {
         console.error('Error executing command in runExecPromise:', error);
         // process.exit(1);
+        return error;
     }
 }
 
