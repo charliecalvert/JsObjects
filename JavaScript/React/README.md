@@ -29,6 +29,10 @@ utils.js
 
 ## Set up code for use in a specific directory
 
+In the long run I will probably want to convert
+these bash scripts into javascript. But for now,
+I will use bash scripts.
+
 ```bash
 
 Example of copying files from one directory to another
