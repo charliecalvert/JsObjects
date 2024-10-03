@@ -41,10 +41,25 @@ if you want to copy the files from the React directory to the src directory
 ```bash
 #!/bin/bash
 
-CDSN=`${JSOBJECTS}/JavaScript/React/src/create-directory-specific-ncu-script.js'
+CDSN=${JSOBJECTS_JAVASCRIPT_REACT}/src/create-directory-specific-ncu-script.js
 
-rsync -auv ~/Git/JsObjects/JavaScript/React/src/* src/.
-rsync -av `${CDSN}` src/.
+# A function that takes the first parameter to this
+# script as a directory name and ensures that it exists.
+# If the directory does not exist, throw an
+# error and exit.
+ensure_directory_exists() {
+    if [ ! -d "$1" ]; then
+        echo "Error: Directory $1 does not exist."
+        exit 1
+    fi
+}
+
+ensure_directory_exists "$1"
+
+# Copy files from React to src directory
+# Dry run. No files will be copied.
+rsync -auv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
+rsync -av ${CDSN} "$1"
 ```
 
 if you want to try a dry run, add the -n flag:
@@ -52,12 +67,25 @@ if you want to try a dry run, add the -n flag:
 ```bash
 #!/bin/bash
 
-CDSN=`${JSOBJECTS}/JavaScript/React/src/create-directory-specific-ncu-script.js'
+CDSN=${JSOBJECTS_JAVASCRIPT_REACT}/src/create-directory-specific-ncu-script.js
+
+# A function that takes the first parameter
+# as a directory name and ensures that the directory
+# exists. If the directory does not exist, throw an
+# error and exit.
+ensure_directory_exists() {
+    if [ ! -d "$1" ]; then
+        echo "Error: Directory $1 does not exist."
+        exit 1
+    fi
+}
+
+ensure_directory_exists "$1"
 
 # Copy files from React to src directory
 # Dry run. No files will be copied.
-rsync -aunv ~/Git/JsObjects/JavaScript/React/src/* src/.
-rsync -anv `${CDSN}` src/.rsync -av `${CDSN}` src/.
+rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
+rsync -anv ${CDSN} "$1"
 ```
 
 ## Installation
