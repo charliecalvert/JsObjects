@@ -16,10 +16,10 @@ ensure_directory_exists() {
     fi
 }
 
-ensure_directory_exists "$1"
+ensure_directory_exists "$1"/src
 
 # Copy files from React to src directory
 # Dry run. No files will be copied.
-rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
-rsync -anv ${CDSN} ${MAKE_AUDIT_DR} "$1"
-# rsync -anv ${MAKE_AUDIT_DR} "$1"
+rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"/src/
+rsync -anv ${CDSN} "$1"/src/
+rsync -anv ${MAKE_AUDIT_DR} "$1"
