@@ -45,6 +45,8 @@ async function setupAuditCheck(auditDataReports, fullPathToPackageJson) {
         return result;
     } catch (error) {
         console.error('Error executing elf command in setupAuditCheck:', error);
+        log('Try \ncd', packageJsonPath);
+        log('ncu -u\nnpm i\ncd -\nnode call-perform-audit-check.js');
         process.exit(1);
     }
     return null;
