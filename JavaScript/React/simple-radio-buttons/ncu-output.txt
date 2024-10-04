@@ -1,0 +1,7 @@
+Checking /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json
+
+ debug     ~4.3.6  →   ~4.3.7
+ express  ~4.19.2  →  ~4.20.0
+ sass     ^1.77.8  →  ^1.78.0
+
+Run ncu -u to upgrade package.json

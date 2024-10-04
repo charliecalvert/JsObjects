@@ -1,0 +1,53 @@
+{
+	"name": "blog-code-references",
+	"version": "1.0.0",
+	"description": "This branch contains code mentioned in the article [HERE](https://dev.to/yvad60/how-to-create-a-react-app-without-using-create-react-app-a-step-by-step-guide-30nl)",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack-dev-server .",
+		"build": "webpack .",
+		"test": "jest",
+		"coverage": "jest --coverage",
+		"lint": "eslint . --fix --max-warnings=0",
+		"format": "prettier . --write",
+		"prepare": "husky"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Yvad60/blog-code-references.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Yvad60/blog-code-references/issues"
+	},
+	"homepage": "https://github.com/Yvad60/blog-code-references#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.25.6",
+		"@babel/core": "^7.25.2",
+		"@babel/preset-env": "^7.25.4",
+		"@babel/preset-react": "^7.24.7",
+		"@testing-library/jest-dom": "^6.5.0",
+		"@testing-library/react": "^16.0.1",
+		"babel-loader": "^9.2.1",
+		"eslint": "^9.10.0",
+		"html-webpack-plugin": "^5.6.0",
+		"husky": "^9.1.6",
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"lint-staged": "^15.2.10",
+		"prettier": "3.3.3",
+		"webpack": "^5.94.0",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^5.1.0"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"lint-staged": {
+		"*.js": "npm run lint",
+		"*.{js,css,md,html,json}": "npm run format"
+	}
+}

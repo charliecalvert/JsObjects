@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     res.render('index', { title: 'RestExpress' });
 });
 
-router.get('/foo', function(req, res) {
+router.get('/get-title', function(req, res) {
     'use strict';
     res.send({ title: 'RestExpress' });
 });

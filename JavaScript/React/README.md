@@ -2,14 +2,102 @@
 
 -- RestExpress: Simple Express Project + React. No create-react-app
 
+## The JavaScript Scripts
+
+In "/home/ubuntu/Git/JsObjects/JavaScript/React":
+
+```text
+gulpfile.js
+logger.js
+make-audit-data-report.js: Create auditDataReports.jsondwwddddddddddddddd
+make-gulp-files.js
+run-ncu.js
+```
+
+In "/home/ubuntu/Git/JsObjects/JavaScript/React/src":
+
+```text
+callRunParseJson.js
+debugParams.js
+exec-ncu.js
+parse-json-func.js
+programStub.js
+run-exec-ncu.js
+run-parse-json.js
+utils.js
+```
+
+## Set up code for use in a specific directory
+
+In the long run I will probably want to convert
+these bash scripts into javascript. But for now,
+I will use bash scripts.
+
+```bash
+
+Example of copying files from one directory to another
+if you want to copy the files from the React directory to the src directory
+
+```bash
+#!/bin/bash
+
+CDSN=${JSOBJECTS_JAVASCRIPT_REACT}/src/create-directory-specific-ncu-script.js
+
+# A function that takes the first parameter to this
+# script as a directory name and ensures that it exists.
+# If the directory does not exist, throw an
+# error and exit.
+ensure_directory_exists() {
+    if [ ! -d "$1" ]; then
+        echo "Error: Directory $1 does not exist."
+        exit 1
+    fi
+}
+
+ensure_directory_exists "$1"
+
+# Copy files from React to src directory
+# Dry run. No files will be copied.
+rsync -auv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
+rsync -av ${CDSN} "$1"
+```
+
+if you want to try a dry run, add the -n flag:
+
+```bash
+#!/bin/bash
+
+CDSN=${JSOBJECTS_JAVASCRIPT_REACT}/src/create-directory-specific-ncu-script.js
+
+# A function that takes the first parameter
+# as a directory name and ensures that the directory
+# exists. If the directory does not exist, throw an
+# error and exit.
+ensure_directory_exists() {
+    if [ ! -d "$1" ]; then
+        echo "Error: Directory $1 does not exist."
+        exit 1
+    fi
+}
+
+ensure_directory_exists "$1"
+
+# Copy files from React to src directory
+# Dry run. No files will be copied.
+rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
+rsync -anv ${CDSN} "$1"
+```
+
 ## Installation
 
-Building on [Dennis Williamson's answer](https://stackoverflow.com/a/3294514/253576) we can get only the directory name from a particular subdirectory:
+Building on [Dennis Williamson's answer](https://stackoverflow.com/a/3294514/253576).
 
 ```bash
+#!/bin/bash
 
-```bash
-ls -d /home/$USER/Git/React/*/  |  while read line; do
+Get only the directory name from a subdirectory:
+
+ls -d ${JSOBJECTS}/JavaScript/React/*/  |  while read line; do
    echo "$(basename $line)"
 done
 ```
@@ -39,10 +127,7 @@ Python
 Utilities
 ```
 
-```
-
 ## React Simple
-
 
 ```json
 {
@@ -78,6 +163,8 @@ TODO: Put the code and text show below on Elvenware
 
 ## AI Promise Sample Preferred
 
+// How can I wait for this call to exec to finish?
+
 This is the preferred way to write the code. It is more
 readable and easier to understand.
 
@@ -100,6 +187,10 @@ getData();
 
 ## AI Promise Sample Suggestion 1
 
+// When I call runParseJson from another file or module
+// how can I wait for the call to execPromise to finish
+// and return the result of the call to execPromise?
+
 This is the way the code can be written. It is not as
 readable as the preferred way shown above.
 
@@ -115,4 +206,108 @@ const fetchData = () => {
 fetchData().then((data) => {
   console.log(data); // Output: Data fetched!
 });
+```
+
+## AI Promise Sample Suggestion 2
+
+```javascript
+const { exec } = require('child_process');
+const { log } = require('console');
+const fs = require('fs');
+const path = require('path');
+
+function execPromise() {
+    return new Promise((resolve, reject) => {
+        exec('ncu -u', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error executing ncu -u in execPromise: ${error.message} for ${packageJsonPath}`);
+                reject(error);
+                return;
+            }
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                reject(stderr);
+                return;
+            }
+
+            const currentDateTime = getCurrentDateTime();
+            const result = `[\n"${currentDateTime}",\n${stdout}\n]`;
+            log(`Command output: ${result}`);
+            resolve(result);
+        });
+    });
+}
+
+// Function to check for the presence of a string in a file
+function checkStringInFile(filePath, searchString) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(`Error reading file: ${err.message}`);
+            return;
+        }
+
+        if (data.includes(searchString)) {
+            // console.log(`The string "${searchString}" is present in the file.`);
+            function execPromise() {
+                return new Promise((resolve, reject) => {
+                    exec('ncu -u', (error, stdout, stderr) => {
+                        if (error) {
+                            console.error(`Error executing ncu -u in execPromise: ${error.message}`);
+                            reject(error);
+                            return;
+                        }
+                        if (stderr) {
+                            console.error(`stderr: ${stderr}`);
+                            reject(stderr);
+                            return;
+                        }
+
+                        const currentDateTime = getCurrentDateTime();
+                        const result = `[\n"${currentDateTime}",\n${stdout}\n]`;
+                        log(`Command output: ${result}`);
+                        resolve(result);
+                    });
+                });
+            }
+
+            // Function to check for the presence of a string in a file
+            function checkStringInFile(filePath, searchString) {
+                fs.readFile(filePath, 'utf8', (err, data) => {
+                    if (err) {
+                        console.error(`Error reading file: ${err.message}`);
+                        return;
+                    }
+
+                    if (data.includes(searchString)) {
+                        console.log(`The string "${searchString}" is present in the file.`);
+                        runExecPromise();
+                    } else {
+                        console.log(`The string "${searchString}" is not present in the file.`);
+                    }
+                });
+            }
+
+            async function runExecPromise() {
+                try {
+                    const result = await execPromise();
+                    console.log('Command output:', result);
+                    return result;
+                } catch (error) {
+                    console.error('Error executing command in runExecPromise:', error);
+                    process.exit(1);
+                }
+            }
+
+            // Example usage
+            const filePath = path.join(__dirname, 'ncu-output.txt'); // Replace with your file path
+            const searchString = 'Run ncu -u to upgrade package.json'; // Replace with the string you want to search for
+
+            checkStringInFile(filePath, searchString);
+            return null;
+            // execPromise();
+        } else {
+            console.log(`The string "${searchString}" is not present in the file.`);
+        }
+    });
+}
 ```

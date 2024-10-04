@@ -1,0 +1,1000 @@
+ 1053  npm i
+ 1054  npm run build
+ 1055  "jest": "^29.7.0",
+ 1056  cleanpl
+ 1057  npm run build
+ 1058  npm i -D @babel/core
+ 1059  npm i -D @babel/preset-react
+ 1060  npm run build
+ 1061  FindNp "*bundle*"
+ 1062  rm dist/index.bundle.js 
+ 1063  rm public/bundle.js
+ 1064  rm public/bundle.js.map 
+ 1065  npm run build
+ 1066  cleanpl
+ 1067  npm run build
+ 1068  exit
+ 1069  cd temp/
+ 1070  git clone https://github.com/do-community/doggy-directory
+ 1071  ll
+ 1072  cd doggy-directory/
+ 1073  ll
+ 1074  ncu
+ 1075  npm i
+ 1076  code .
+ 1077  cd1
+ 1078  ll
+ 1079  git clone git@github.com:charliecalvert/JsObjects.git
+ 1080  cd JsObjects/
+ 1081  ll
+ 1082  git br
+ 1083  git br -a
+ 1084  cd JavaScript/React/RestExpress/
+ 1085  git br -a
+ 1086  git co it-works-09-10-2024
+ 1087  git pull
+ 1088  git co it-works-09-10-2024
+ 1089  git co it-works-08-09-10-2024 
+ 1090  cat webpack.config.js 
+ 1091  npm i -D 'postcss-loader'
+ 1092  npm i -D autoprefixer
+ 1093  exit
+ 1094  cd Source/
+ 1095  mv /mnt/c/Users/charl/Downloads/testing-lib/ testing-lib/.
+ 1096  cd testing-lib/
+ 1097  ll
+ 1098  cd testing-lib/
+ 1099  ll
+ 1100  code .
+ 1101  ll
+ 1102  ncu
+ 1103  npm i
+ 1104  ll
+ 1105  npm test
+ 1106  ncu -
+ 1107  ncu -u
+ 1108  npm i
+ 1109  ncu
+ 1110  ll
+ 1111  code .
+ 1112  ll
+ 1113  cd node_modules/react-scripts/
+ 1114  ll
+ 1115  cd config/
+ 1116  ll
+ 1117  cd jest/
+ 1118  ll
+ 1119  cat fileTransform.js 
+ 1120  cd1
+ 1121  ll
+ 1122  FindNp "jest.config.js"
+ 1123  cd3
+ 1124  FindNp "jest.config.js"
+ 1125  find . -iname 'jest.config.js' -not -path "**/bower_components/**"
+ 1126  cd2
+ 1127  git clone git@github.com:Yvad60/blog-code-references.git
+ 1128  ll
+ 1129  cd blog-code-references/
+ 1130  ll
+ 1131  cat README.md 
+ 1132  git br
+ 1133  git br -a
+ 1134  git co setup-jest-and-react-testing-library 
+ 1135  ll
+ 1136  code .
+ 1137  npm run build
+ 1138  npm i
+ 1139  npm run build
+ 1140  npm test
+ 1141  cp -v jest.*.js ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1142  cp -v webpack.config.js ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1143  ll
+ 1144  cp -v .babelrc ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1145  cp -v .eslintrc.json ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1146  cp -v .prettierrc.json ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1147  cp -v index.jsx ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1148  ll
+ 1149  cp -v --no-clobber .gitignore ~/Git/JsObjects/JavaScript/React/RestExpress/.
+ 1150  git br -a
+ 1151  git co setup-tailwind-css 
+ 1152  grep -r --include=*.sh --exclude-dir=node_modules --exclude-dir=static --exclude-dir=bower_components --exclude-dir=.config --exclude-dir=.mozilla --exclude-dir=.metadata "audit.json"
+ 1153  diff webpack.config.js ~/Git/JsObjects/JavaScript/React/RestExpress/webpack.config.js 
+ 1154  npm test
+ 1155  ncu
+ 1156  ncu -u
+ 1157  cleanpl
+ 1158  ll ../
+ 1159  cd1
+ 1160  ll
+ 1161  cd1
+ 1162  ll
+ 1163  rm package-lock.json 
+ 1164  ll
+ 1165  cd Source/blog-code-references/
+ 1166  cleanpl
+ 1167  npm i
+ 1168  cat /home/ubuntu/.npm/_logs/2024-09-15T22_22_17_479Z-eresolve-report.txt
+ 1169  ll
+ 1170  cat .eslintrc.json 
+ 1171  exit
+ 1172  jor
+ 1173  cd RestExpress/
+ 1174  ls -lrt
+ 1175  cod .
+ 1176  code .
+ 1177  mkdir ~/Source/testing-lib/
+ 1178  ./build.sh 
+ 1179  npm test
+ 1180  npm test app.test
+ 1181  npm i -D @testing-library/jest-dom/extend-expect
+ 1182  ./build.sh 
+ 1183  npm i
+ 1184  npm test app.test
+ 1185  npm install @testing-library/jest-dom --save-dev
+ 1186  npm test app.test
+ 1187  git log
+ 1188  npm i
+ 1189  npm run build
+ 1190  npm i html-webpack-plugin
+ 1191  npm run build
+ 1192  npm test
+ 1193  npm run build
+ 1194  npm test
+ 1195  git remote -v
+ 1196  npm test App.test.jsx
+ 1197  npm test app.test.js
+ 1198  npm test app.test.jsx
+ 1199  npm test try.test.jsx
+ 1200  npm test app.test.jsx
+ 1201  npm test
+ 1202  ll
+ 1203  npm test
+ 1204  npm i tailwindcss
+ 1205  npm i postcss-loader
+ 1206  npm i -D tailwindcss
+ 1207  npm i
+ 1208  cleanpl
+ 1209  npm run build
+ 1210  npm i -D autoprefixer
+ 1211  npm run build
+ 1212  npm i
+ 1213  npm test
+ 1214  cleanpol
+ 1215  cleanpl
+ 1216  npm test
+ 1217  ncu
+ 1218  cd1
+ 1219  ll
+ 1220  cd simple-radio-buttons/
+ 1221  cat webpack.config.js
+ 1222  cleanpl
+ 1223  npm start
+ 1224  code .
+ 1225  npm i
+ 1226  npm run build
+ 1227  cd ../RestExpress/
+ 1228  npm i
+ 1229  npm start
+ 1230  mv -v --no-clobber public/index.html ~/temp/.
+ 1231  npm start
+ 1232  cleanpl
+ 1233  npm run build
+ 1234  exit
+ 1235  gosrc
+ 1236  ll
+ 1237  cd blog-code-references/
+ 1238  ls -lrt
+ 1239  git -br
+ 1240  git br
+ 1241  git co setup-jest-and-react-testing-library 
+ 1242  mkdir /temp/back
+ 1243  mkdir ~/temp/back/
+ 1244  cp -v package.json ~/temp/back/.
+ 1245  git co package.json
+ 1246  gss
+ 1247  git co package-lock.json
+ 1248  git co setup-jest-and-react-testing-library 
+ 1249  cp -v webpack.config.js ~/temp/back/.
+ 1250  git co webpack.config.js
+ 1251  gss
+ 1252  git co setup-jest-and-react-testing-library 
+ 1253  ll /bin/
+ 1254  ll ~/bin/
+ 1255  cp -v --no-clobber /home/ubuntu/Git/JsObjects/Utilities/Templates/FindScripts/package-json-test .
+ 1256  code .
+ 1257  ./package-json-test.sh 
+ 1258  ./package-json-test.sh "devDependencies"
+ 1259  ./package-json-list-dependencies.sh 
+ 1260  man jq
+ 1261  ./package-json-list-dependencies.sh 
+ 1262  cat package-names.txt 
+ 1263  cat package.json | jq -r '.dependencies | keys[]'
+ 1264  ./package-json-list-dependencies.sh 
+ 1265  cat package-names.txt 
+ 1266  ./package-json-list-dependencies.sh 
+ 1267  cat package-names.txt 
+ 1268  ./package-json-list-dependencies.sh 
+ 1269  cat package-names.txt 
+ 1270  ll
+ 1271  cp package-json-list-dependencies.sh ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1272  npx jest
+ 1273  npm i
+ 1274  ll
+ 1275  clesanpl
+ 1276  cleanpl
+ 1277  npx jest
+ 1278  cp -v --no-clobber package.json ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1279  cp -v --no-clobber webpack.config.js ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1280  cp -v --no-clobber .eslintrc.json ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1281  cp -v --no-clobber jest.config.js ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1282  cp -v --no-clobber jest.setup.js ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1283  ll
+ 1284  cp -v --no-clobber .prettierrc.json ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1285  cp -v --no-clobber index.jsx  ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1286  ll
+ 1287  code.
+ 1288  code .
+ 1289  npx jest
+ 1290  ncu
+ 1291  ncu -u
+ 1292  ll
+ 1293  cleanpl
+ 1294  ll
+ 1295  npm i
+ 1296  git remote -v
+ 1297  cd1
+ 1298  git clone git@github.com:charliecalvert/elven-blog-code-references.git
+ 1299  cd elven-blog-code-references/
+ 1300  ll
+ 1301  git br
+ 1302  git br -a
+ 1303  git co remotes/origin/setup-jest-and-react-testing-library
+ 1304  cd1
+ 1305  ll
+ 1306  rm -rf elven-blog-code-references/
+ 1307  git clone git@github.com:charliecalvert/elven-blog-code-references.git
+ 1308  cd elven-blog-code-references/
+ 1309  cat README.md 
+ 1310  ll
+ 1311  git co setup-jest-and-react-testing-library
+ 1312  ll
+ 1313  npm i
+ 1314  npm run
+ 1315  npm test
+ 1316  code .
+ 1317  diff README.md ../blog-code-references/README.md 
+ 1318  gss
+ 1319  ncu
+ 1320  ncu -u
+ 1321  npm i
+ 1322  ll
+ 1323  rm -rf node_modules/
+ 1324  rm package-lock.json 
+ 1325  ll
+ 1326  npm i
+ 1327  ll
+ 1328  npm i
+ 1329  ll
+ 1330  ncu
+ 1331  git rm eslint-config-airbnb
+ 1332  npm rm eslint-config-airbnb
+ 1333  ll
+ 1334  npm i
+ 1335  ncu
+ 1336  npm i
+ 1337  npm test
+ 1338  ncu
+ 1339  ncu -u
+ 1340  ll
+ 1341  npm i
+ 1342  ncu
+ 1343  npm test
+ 1344  ncu
+ 1345  npm i
+ 1346  exit
+ 1347  jor
+ 1348  cd simple-inputs
+ 1349  ls -lrt
+ 1350  cd1
+ 1351  cd RestExpress/
+ 1352  ls -lrt
+ 1353  ll
+ 1354  gd
+ 1355  cd JsObjects/
+ 1356  gss
+ 1357  git add .
+ 1358  gss
+ 1359  git ci
+ 1360  gss
+ 1361  git push
+ 1362  gss
+ 1363  cd 
+ 1364  gd
+ 1365  m -v JsObjects/ /tmp/.
+ 1366  mv -v --no-clobber JsObjects/ /tmp/.
+ 1367  ll
+ 1368  git clone git@github.com:charliecalvert/JsObjects.git
+ 1369  git br -a
+ 1370  cd JsObjects/
+ 1371  git br -a
+ 1372  git co it-works-08-09-10-2024
+ 1373  jor
+ 1374  cd simple-radio-buttons/
+ 1375  ll
+ 1376  gss
+ 1377  ll
+ 1378  npm i
+ 1379  npm test
+ 1380  npx jest
+ 1381  npm i
+ 1382  npx jest
+ 1383  ll
+ 1384  cleanpl
+ 1385  npx jest
+ 1386  ll
+ 1387  rm .eslintignore 
+ 1388  npx jest
+ 1389  cat .babelrc 
+ 1390  npx jest
+ 1391  cleanpl
+ 1392  npx jest
+ 1393  ll
+ 1394  ls -lrt "*.sh
+ 1395  ls -lrt "*.sh"
+ 1396  ls -lrt *.sh
+ 1397  cp -v --no-clobber /tmp/JsObjects/JavaScript/React/simple-radio-buttons/*.sh .
+ 1398  ls -lrt *.sh
+ 1399  cat run-dir-compare.sh 
+ 1400  ./run-dir-compare.sh 
+ 1401  ./run-dir-compare.sh | grep diff
+ 1402  cp -v /home/ubuntu/Source/blog-code-references/.eslintrc.json .
+ 1403  ./run-dir-compare.sh | grep diff
+ 1404  cp -v /home/ubuntu/Source/blog-code-references/dist/index.html dist/index.html 
+ 1405  ./run-dir-compare.sh | grep diff
+ 1406  cp -v /home/ubuntu/Source/blog-code-references/package.json .
+ 1407  cp -v /home/ubuntu/Source/blog-code-references/webpack.config.js .
+ 1408  ./run-dir-compare.sh | grep diff
+ 1409  ll
+ 1410  cleanpl
+ 1411  ll
+ 1412  npm i
+ 1413  husky ini
+ 1414  npx husky init
+ 1415  npm test
+ 1416  ll
+ 1417  cleanpl
+ 1418  npm test
+ 1419  npx jest
+ 1420  ll
+ 1421  npm i eslint
+ 1422  npm i -D eslint
+ 1423  npx jest
+ 1424  cleanpl
+ 1425  npx jest
+ 1426  rm .prettierignore 
+ 1427  ll
+ 1428  rm webpack.config.back
+ 1429  rm webpack.config.back-08-15 
+ 1430  ll
+ 1431  cleanpl
+ 1432  npm test
+ 1433  ./run-dir-compare.sh 
+ 1434  cat ./run-dir-compare.sh 
+ 1435  exit
+ 1436  gosrc
+ 1437  cd blog-code-references/
+ 1438  ll
+ 1439  cat README.md 
+ 1440  cd ~/temp/JsObjects/
+ 1441  ll
+ 1442  cp -v --no-clobber .git ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/. 
+ 1443  cp -vr --no-clobber .git ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/. 
+ 1444  cd ~/Source/elven-blog-code-references/
+ 1445  npm jest
+ 1446  npm test
+ 1447  gss
+ 1448  ncu
+ 1449  npm i
+ 1450  npm test
+ 1451  ncu
+ 1452  cleanpl
+ 1453  npm test
+ 1454  ll
+ 1455  npx husky init
+ 1456  ll
+ 1457  npm i
+ 1458  npm i eslint
+ 1459  cleanpl
+ 1460  husky
+ 1461  npx husky
+ 1462  gss
+ 1463  ll
+ 1464  npm i -D eslint
+ 1465  ll
+ 1466  cat package-json-test.sh 
+ 1467  ll
+ 1468  gss
+ 1469  ncu
+ 1470  npm test
+ 1471  ll
+ 1472  npm test
+ 1473  ncu
+ 1474  exit
+ 1475  jor
+ 1476  ll
+ 1477  cd simple-radio-buttons/
+ 1478  code .
+ 1479  ll
+ 1480  ./package-json-list-dependencies.sh 
+ 1481  cat package-names.txt 
+ 1482  diff package-names.txt ~/S
+ 1483  diff package-names.txt ~/Source/blog-code-references/package-names.txt 
+ 1484  while read old ; do
+ 1485      echo -e "\n $old"; done < <(comm -23 <( ./sortpackage-names.txt) <(sort ~/Source/blog-code-references/package-names.txt))
+ 1486  while read old ; do     echo -e "\n $old"; done < <(comm -23 <( ./package-names.txt) <(sort ~/Source/blog-code-references/package-names.txt))
+ 1487  while read old ; do     echo -e "\n $old"; done < <(comm -23 <( ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/package-names.txt) <(sort ~/Source/blog-code-references/package-names.txt))
+ 1488  chmod +x compare-results.sh 
+ 1489  ./compare-results.sh 
+ 1490  cp -v package-names.txt /tmp/oldlist
+ 1491  ./compare-results.sh 
+ 1492  mv /tmp/oldlist /tmp/oldList
+ 1493  mv /tmp/newlist /tmp/newList
+ 1494  ./compare-results.sh 
+ 1495  npx jest
+ 1496  npm i -D @babel/eslint-parser @babel/plugin-proposal-class-properties @testing-library/dom @babel/preset-react @babel/preset-env
+ 1497  npx jest
+ 1498  ./build.sh 
+ 1499  ncu
+ 1500  ncu -u
+ 1501  cleanpl
+ 1502  ./build.sh 
+ 1503  cleanpl
+ 1504  npm i
+ 1505  ll
+ 1506  npx jest
+ 1507  ll
+ 1508  cleanpl
+ 1509  npx jest
+ 1510  grep -v @babel/plugin-proposal-class-properties
+ 1511  npx jest
+ 1512  ll
+ 1513  cleanpl
+ 1514  npx jest
+ 1515  cleanpl
+ 1516  npx jest
+ 1517  ll
+ 1518  cat .env 
+ 1519  ll
+ 1520  rm .prettierignore .prettierrc
+ 1521  ll
+ 1522  rm .eslintignore 
+ 1523  npx jest
+ 1524  ll
+ 1525  rm webpack.config.back
+ 1526  rm webpack.config.back-08-15 
+ 1527  cleanpl
+ 1528  npx jest
+ 1529  ll
+ 1530  cat app.js 
+ 1531  ll src/  
+ 1532  ll
+ 1533  ll bin/
+ 1534  rm bin/www 
+ 1535  rmdir ./bin
+ 1536  npx jest
+ 1537  cleanpl  
+ 1538  npx jest
+ 1539  ll
+ 1540  code .
+ 1541  chmod +x dir-compare.sh 
+ 1542  ./dir-compare.sh 
+ 1543  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/
+ 1544  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ ".git"
+ 1545  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ ".git/**"
+ 1546  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ "*.save"
+ 1547  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/
+ 1548  ./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ "*.sh" elfOutput.txt
+ 1549  echo "./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ "*.sh" elfOutput.txt" run-dir-compare.sh
+ 1550  chmod +x run-dir-compare.sh
+ 1551  echo "./dir-compare.sh $HOME/Git/JsObjects/JavaScript/React/simple-radio-buttons $HOME/Source/blog-code-references/ "*.sh" elfOutput.txt" > run-dir-compare.sh
+ 1552  chmod +x run-dir-compare.sh
+ 1553  ll
+ 1554  ./run-dir-compare.sh 
+ 1555  ll
+ 1556  ll "*.txt"
+ 1557  ls -lrt "*.txt"
+ 1558  ll
+ 1559  cat elfOutput.txt 
+ 1560  ./dir-compare.sh 
+ 1561  ./run-dir-compare.sh 
+ 1562  ./run-dir-compare.sh | grep "differ"
+ 1563  npx jest
+ 1564  gss
+ 1565  ls ~/Git/JsObjects/JavaScript/UnitTests/
+ 1566  ls ~/Git/JsObjects/Python/
+ 1567  gss
+ 1568  git restore --staged ~/Git/JsObjects/Utilities/
+ 1569  git co ~/Git/JsObjects/Utilities/
+ 1570  cd3
+ 1571  gss
+ 1572  code .
+ 1573  FindNp ".gitignore"
+ 1574  ll
+ 1575  gss
+ 1576  jor
+ 1577  gss
+ 1578  code .
+ 1579  cd simple-radio-buttons/
+ 1580  ll
+ 1581  npx jest
+ 1582  ./run-dir-compare.sh 
+ 1583  ./run-dir-compare.sh | grep differ
+ 1584  npx jest
+ 1585  ncu
+ 1586  ncu -u
+ 1587  npm i
+ 1588  ncu
+ 1589  npx jest
+ 1590  cd /tmp/JsObjects/
+ 1591  ll
+ 1592  cd JavaScript/React/simple-radio-buttons/
+ 1593  ll
+ 1594  code .
+ 1595  ls -lrt *.sh
+ 1596  ./run-dir-compare.sh 
+ 1597  ./run-dir-compare.sh | grep diff
+ 1598  diff /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json package.json
+ 1599  diff /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json ./package.json
+ 1600  ./run-dir-compare.sh | grep only
+ 1601  ./run-dir-compare.sh 
+ 1602  ./run-dir-compare.sh | grep Only
+ 1603  npm test
+ 1604  exit
+ 1605  cd /tmp/JsObjects/JavaScript/React/simpl
+ 1606  e-radio-buttons/
+ 1607  cd /tmp/JsObjects/JavaScript/React/simple-radio-buttons/
+ 1608  code .
+ 1609  ll
+ 1610  ./run-dir-compare.sh | grep Only
+ 1611  cat run-dir-compare.sh 
+ 1612  cp -v ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/run-dir-compare.sh .
+ 1613  cat run-dir-compare.sh 
+ 1614  ./run-dir-compare.sh 
+ 1615  ./run-dir-compare.sh TMP-HOME
+ 1616  cat dir-compare.sh 
+ 1617  diff dir-compare.sh /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/dir-compare.sh 
+ 1618  cp -v ~/Git/JsObjects/JavaScript/React/simple-radio-buttons/dir-compare.sh .
+ 1619  ./run-dir-compare.sh TMP-HOME
+ 1620  ./run-dir-compare.sh TMP-HOME | grep differ
+ 1621  diff /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json
+ 1622  ./run-dir-compare.sh TMP-HOME 
+ 1623  ./run-dir-compare.sh TMP-HOME | grep "Only in /tmp/JsObjects/JavaScript/React/simple-radio-buttons/"
+ 1624  ll .husky/
+ 1625  ll .husky/_
+ 1626  ./run-dir-compare.sh TMP-HOME | grep "Only in /tmp/JsObjects/JavaScript/React/simple-radio-buttons/"
+ 1627  ./run-dir-compare.sh TMP-HOME
+ 1628  cp -v --no-clobber index.jsx /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1629  cp -v --no-clobber jest.config.js /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1630  cp -v --no-clobber jest.setup.js /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1631  history
+ 1632  ./run-dir-compare.sh TMP-HOME
+ 1633  cp -v --no-clobber .prettierrc.json /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.
+ 1634  ll /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.prettierrc
+ 1635  rm /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.prettierrc
+ 1636  ./run-dir-compare.sh TMP-HOME
+ 1637  ll
+ 1638  ll __tests__/
+ 1639  npx jest
+ 1640  exit
+ 1641  jor
+ 1642  cd simple-radio-buttons/
+ 1643  ggss
+ 1644  gss
+ 1645  code .
+ 1646  npx jest
+ 1647  ll
+ 1648  cat run-dir-compare.sh 
+ 1649  run-dir-compare.sh 
+ 1650  ./run-dir-compare.sh 
+ 1651  ll
+ 1652  ./run-dir-compare.sh 
+ 1653  ./run-dir-compare.sh | grep differ
+ 1654  diff /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js
+ 1655  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js > patchfile.patch
+ 1656  cat patchfile.patch 
+ 1657  cat run-dir-compare.sh 
+ 1658  ./run-dir-compare.sh 
+ 1659  ./run-dir-compare.sh | grep differ
+ 1660  diff /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js
+ 1661  diff /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js > patchfile.patch
+ 1662  ls -lrt
+ 1663  cat patchfile.patch 
+ 1664  man patch
+ 1665  patch --backup /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js
+ 1666  ls -lrt
+ 1667  ./run-dir-compare
+ 1668  ./run-dir-compare.sh 
+ 1669  ./run-dir-compare.sh HOME-TMP
+ 1670  ./run-dir-compare.sh HOME-TMP | grep differ
+ 1671  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js /tmp/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js > patchfile.patch 
+ 1672  patch /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/src/App.js patchfile.patch 
+ 1673  ./run-dir-compare.sh HOME-TMP | grep differ
+ 1674  man diff
+ 1675  diff /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json
+ 1676  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json
+ 1677  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json > patchfile.patch 
+ 1678  patch --backup /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json patchfile.patch 
+ 1679  ./run-dir-compare.sh HOME-TMP | grep differ
+ 1680  ls -lrt
+ 1681  diff /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore /tmp/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore
+ 1682  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore /tmp/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore
+ 1683  history
+ 1684  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore /tmp/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore
+ 1685  diff -u /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore /tmp/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore > patchfile.patch 
+ 1686  cat patchfile.patch 
+ 1687  history
+ 1688  patch --backup /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/.gitignore patchfile.patch 
+ 1689  ./run-dir-compare.sh HOME-TMP | grep differ
+ 1690  npx jest
+ 1691  history
+ 1692  ./run-dir-compare.sh HOME-TMP
+ 1693  cleanpl
+ 1694  elfgrepcomps "husky install"
+ 1695  grep -r "husky"
+ 1696  grep -r "husky install"
+ 1697  grep -r --exclude-dir=node_modules "husky install"
+ 1698  npm run
+ 1699  npm run prepare
+ 1700  cleanpl
+ 1701  npx jest
+ 1702  ./run-dir-compare.sh HOME-TMP
+ 1703  diff /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/package.json /tmp/JsObjects/JavaScript/React/simple-radio-buttons/package.json
+ 1704  ./run-dir-compare.sh HOME-TMP
+ 1705  ./run-dir-compare.sh HOME-TMP | grep "Only in /tmp/JsObjects/JavaScript/React/simple-radio-buttons/"
+ 1706  npm run prepare
+ 1707  ./run-dir-compare.sh HOME-TMP | grep "Only in /tmp/JsObjects/JavaScript/React/simple-radio-buttons/"
+ 1708  ll
+ 1709  ll public/
+ 1710  cp -v --no-clobber /tmp/JsObjects/JavaScript/React/simple-radio-buttons/public/bundle.j* public/.
+ 1711  ./run-dir-compare.sh HOME-TMP | grep "Only in /tmp/JsObjects/JavaScript/React/simple-radio-buttons/"
+ 1712  ./run-dir-compare.sh HOME-TMP | grep "Only in /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons"
+ 1713  rm dist/index.bundle.js 
+ 1714  mv bin/ ~/temp/back/.
+ 1715  ./run-dir-compare.sh HOME-TMP | grep "Only in /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons"
+ 1716  npm run
+ 1717  npm run prepare
+ 1718  ll .husky/
+ 1719  ll .husky/pre-commit 
+ 1720  rm -rv .husky/
+ 1721  npm run prepare
+ 1722  ll .husky/
+ 1723  ll
+ 1724  cleanpl
+ 1725  npx jest
+ 1726  code .
+ 1727  husky init
+ 1728  npx husky init
+ 1729  ll
+ 1730  ll .husky/
+ 1731  ll .husky/pre-commit 
+ 1732  less package.json
+ 1733  npm run
+ 1734  npm run prepare
+ 1735  git config --unset core.hooksPath
+ 1736  ll
+ 1737  ll .husky/
+ 1738  ll .husky/pre-commit 
+ 1739  rmdir .husky/pre-commit/
+ 1740  ll .husky/pre-commit 
+ 1741  rm .husky/pre-commit
+ 1742  rmdir .husky
+ 1743  npx husky init
+ 1744  ll
+ 1745  ll .husky/
+ 1746  git config core.hooksPath
+ 1747  git -v
+ 1748  git --version 
+ 1749  ncu
+ 1750  ncu -g
+ 1751  npm -g install eslint-plugin-react@7.36.1 nodemon@3.1.6 npm-check-updates@17.1.2 sass@1.79.1
+ 1752  which git
+ 1753  ll /usr/bin/git
+ 1754  apt-get update
+ 1755  cat ~/bin/update-all 
+ 1756  sudo apt-get update
+ 1757  cat ~/bin/update-all 
+ 1758  sudo apt upgrade
+ 1759  cat ~/bin/update-all 
+ 1760  sudo apt dist-upgrade 
+ 1761  sudo apt autoremove 
+ 1762  which git
+ 1763  git --version 
+ 1764  sudo add-apt-repository ppa:git-core/ppa -y
+ 1765  sudo apt-get update
+ 1766  df -h
+ 1767  sudo apt-key list
+ 1768  sudo add-apt-repository ppa:git-core/ppa sudo apt update && sudo apt upgrade
+ 1769  sudo add-apt-repository ppa:git-core/ppa
+ 1770  sudo apt-get install software-properties-common
+ 1771  sudo apt update && sudo apt upgrade
+ 1772  git --version 
+ 1773  slb
+ 1774  ./VersionCheck 
+ 1775  sudo mkdir -m 0755 -p /etc/apt/keyrings/
+ 1776  curl -fsSL https://example.com/EXAMPLE.gpg |     sudo gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1777  echo "deb [signed-by=/etc/apt/keyrings/EXAMPLE.gpg] https://example.com/apt stable main" |     sudo tee /etc/apt/sources.list.d/EXAMPLE.list > /dev/null
+ 1778  ll /etc/apt/keyrings/
+ 1779  cat /etc/apt/keyrings/EXAMPLE.gpg 
+ 1780  curl -fsSL https://example.com/EXAMPLE.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1781  sudo curl -fsSL https://example.com/EXAMPLE.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1782  file /etc/apt/keyrings/EXAMPLE.gpg
+ 1783  sudo gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1784  file /etc/apt/keyrings/EXAMPLE.gpg
+ 1785  sudo gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1786  gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1787  curl -fsSL https://example.com/EXAMPLE.gpg
+ 1788  sudo chmod 644 /etc/apt/keyrings/EXAMPLE.gpg
+ 1789  sudo chmod 644 /etc/apt/sources.list.d/EXAMPLE.list
+ 1790  curl -fsSL https://example.com/EXAMPLE.gpg
+ 1791  gpg --dearmor -o /etc/apt/keyrings/EXAMPLE.gpg
+ 1792  exit
+ 1793  cd /tmp/JsObjects/JavaScript/React/simple-radio-buttons/
+ 1794  npm test
+ 1795  ll __tests__/
+ 1796  cp -v --no-clobber __tests__/try-test.jsx /home/ubuntu/Git/JsObjects/JavaScript/React/simple-radio-buttons/__test__/.
+ 1797  jor
+ 1798  cd simple-radio-buttons/
+ 1799  ll
+ 1800  npm run
+ 1801  npm test
+ 1802  code .
+ 1803  npm test
+ 1804  npx jest
+ 1805  mv __test__/ __tests__/
+ 1806  npx jest
+ 1807  gss
+ 1808  npm install css-loader style-loader --save-dev
+ 1809  npx jest
+ 1810  npm run build
+ 1811  npm i -D esbuild-loader
+ 1812  npm run build
+ 1813  npm start
+ 1814  gosrc
+ 1815  ll
+ 1816  cd elven-blog-code-references/
+ 1817  ll
+ 1818  code .
+ 1819  cat webpack.config.js 
+ 1820  git br -a
+ 1821  git co setup-tailwind-css 
+ 1822  ll
+ 1823  npm run
+ 1824  npm test
+ 1825  cd1
+ 1826  ll
+ 1827  mkdir tailwindCli
+ 1828  cd tailwindCli/
+ 1829  ll
+ 1830  code .
+ 1831  npm init -y
+ 1832  touch tailwind.config.js
+ 1833  touch src/import.css
+ 1834  mkdir src
+ 1835  touch src/import.css
+ 1836  npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+ 1837  npm install -D tailwindcss
+ 1838  npx tailwindcss init
+ 1839  npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+ 1840  ll
+ 1841  ll src/
+ 1842  ll
+ 1843  ll src
+ 1844  npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+ 1845  npx tailwindcss -i ../src/input.css -o ./src/output.css --watch
+ 1846  npx tailwindcss
+ 1847  touch src/index.css
+ 1848  touch src/index.html
+ 1849  cat src/index.html 
+ 1850  npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+ 1851  cd1
+ 1852  <html>
+ 1853  <head>
+ 1854  </head>
+ 1855  <body>
+ 1856  </
+ 1857  npm init -y
+ 1858  npm install express tailwindcss postcss-cli autoprefixer
+ 1859  npx tailwindcss init -p
+ 1860  code .
+ 1861  mkdir src
+ 1862  touch src/styles.css
+ 1863  npm run build:css
+ 1864  touch app.js
+ 1865  node app.js
+ 1866  ll
+ 1867  npm install express
+ 1868  node app.js
+ 1869  cd1
+ 1870  ll
+ 1871  mkdir tailwind-examples
+ 1872  mv tailwind-node-example/ tailwind-examples/.
+ 1873  cd tailwind-examples/
+ 1874  ll
+ 1875  npm init -y
+ 1876  npm install  ejs
+ 1877  cd tailwind-node-example/
+ 1878  code .
+ 1879  node app.js
+ 1880  jor
+ 1881  ll
+ 1882  jor
+ 1883  cd simple-radio-buttons/
+ 1884  npx jest
+ 1885  code .
+ 1886  npx jest
+ 1887  npm run
+ 1888  npm run build
+ 1889  npm start
+ 1890  npm run build
+ 1891  npm start
+ 1892  npm run
+ 1893  npm test
+ 1894  jor
+ 1895  ll
+ 1896  gosrc
+ 1897  ll
+ 1898  gosrc 
+ 1899  ll
+ 1900  cd elven-blog-code-references/
+ 1901  ll
+ 1902  code .
+ 1903  npm run
+ 1904  npm run build
+ 1905  npm i
+ 1906  npm run build
+ 1907  npm start
+ 1908  npm test
+ 1909  ll
+ 1910  ll dist/
+ 1911  npm install --save-dev @testing-library/react @testing-library/jest-dom
+ 1912  ncu
+ 1913  ncu -u
+ 1914  cleanpl
+ 1915  npm i
+ 1916  npm install --save-dev jest jest-environment-jsdom
+ 1917  npm install --save-dev eslint-plugin-jest
+ 1918  npm run test
+ 1919  gosrc
+ 1920  ls -lrt
+ 1921  cd tailwind-examples/
+ 1922  ll
+ 1923  code .
+ 1924  npm run
+ 1925  npm build:css
+ 1926  npx tailwind build:css
+ 1927  cd tailwind-node-example/
+ 1928  npm run
+ 1929  npm run build:css
+ 1930  ll
+ 1931  ll public/styles.css 
+ 1932  cat public/styles.css 
+ 1933  ll
+ 1934  ls public/
+ 1935  npm run 
+ 1936  npx jest
+ 1937  ll
+ 1938  npm i -D jest
+ 1939  npx jest
+ 1940  npm run
+ 1941  npm run test
+ 1942  npm install --save-dev eslint-plugin-jest
+ 1943  npm install --save-dev jest jest-environment-jsdom
+ 1944  npm install --save-dev @testing-library/react @testing-library/jest-dom
+ 1945  npm run test
+ 1946  npm i -D @babel/preset-env
+ 1947  npm i -D @babel/preset-react
+ 1948  npm run test
+ 1949  ll
+ 1950  npm i -D webpack webpack-cli
+ 1951  npm i -D html-webpack-plugin style-loader css-loader babel-loader postcss-loader
+ 1952  ll
+ 1953  npm run
+ 1954  npm run build
+ 1955  npm i -D webpack-dev-server
+ 1956  npm run build
+ 1957  jo
+ 1958  git br -a
+ 1959  gd
+ 1960  ll
+ 1961  cd dependebot-demo/
+ 1962  jo
+ 1963  git br -a
+ 1964  cd JavaScript/NodeCode/NodeRoutesParams
+ 1965  ll
+ 1966  jo
+ 1967  cd .git
+ 1968  ll
+ 1969  cd1
+ 1970  cd .git
+ 1971  grep -r "*.yml"
+ 1972  git br -a
+ 1973  git co remotes/origin/dependabot/npm_and_yarn/JavaScript/Games/CraftyReact/multi-27a054522e
+ 1974  cd1
+ 1975  git co remotes/origin/dependabot/npm_and_yarn/JavaScript/Games/CraftyReact/multi-27a054522e
+ 1976  cd JavaScript/React/simple-radio-buttons
+ 1977  gss
+ 1978  code .
+ 1979  git co remotes/origin/dependabot/npm_and_yarn/JavaScript/Games/CraftyReact/multi-27a054522e
+ 1980  git switch -c dependabot-try-2024-09-23
+ 1981  ncu
+ 1982  ncu -u
+ 1983  npm i
+ 1984  'gss
+ 1985  gss
+ 1986  git co master 
+ 1987  gss
+ 1988  git add .
+ 1989  git ci
+ 1990  git push
+ 1991  exit
+ 1992  lor
+ 1993  jor
+ 1994  ll
+ 1995  code .
+ 1996  ls -lrt ~/temp/
+ 1997  date
+ 1998  ls -lrt ~/temp/auditDataReports.json 
+ 1999  cat -lrt ~/temp/auditDataReports.json 
+ 2000  cat  ~/temp/auditDataReports.json 
+ 2001  ll
+ 2002  ./find-bad-packages.sh 
+ 2003  cd src/
+ 2004  ll
+ 2005  node run-parse-json.js 
+ 2006  ls -lrt ~/temp/
+ 2007  node callRunParseJson.js 
+ 2008  ll
+ 2009  cd1
+ 2010  ll
+ 2011  ls ReactFetchTests/
+ 2012  cd src/
+ 2013  ll
+ 2014  git br
+ 2015  git co it-works-08-09-10-2024 
+ 2016  ll
+ 2017  node callRunParseJson.js 
+ 2018  ll
+ 2019  cat  ~/temp/auditDataReports.json 
+ 2020  cd1
+ 2021  ll
+ 2022  node src/callRunParseJson.js 
+ 2023  npm run
+ 2024  npm run audit
+ 2025  cd ReactRouterDomBasics/
+ 2026  ll
+ 2027  ncu
+ 2028  ncu -u
+ 2029  cleanpl
+ 2030  ll
+ 2031  rm package-lock.json 
+ 2032  npm i
+ 2033  cd1
+ 2034  ll
+ 2035  npm run audit
+ 2036  cd simple-express-jest/
+ 2037  ll
+ 2038  ncu
+ 2039  ncu -u
+ 2040  ll
+ 2041  rm package-lock.json 
+ 2042  npm i
+ 2043  ll
+ 2044  ncu
+ 2045  npm audit
+ 2046  cd1
+ 2047  ll
+ 2048  npm run audit
+ 2049  cd ReactEs6/ReactEs6Bower/
+ 2050  ll
+ 2051  ncu
+ 2052  history > history-2024-09-24-02.txt

@@ -4,6 +4,8 @@
 
 export GIT_HOME=$HOME/Git
 export JSOBJECTS=$GIT_HOME/JsObjects
+export JSOBJECTS_JAVASCRIPT=$JSOBJECTS/JavaScript
+export JSOBJECTS_JAVASCRIPT_REACT=$JSOBJECTS/JavaScript/React
 export ELF_UTILS=$JSOBJECTS/Utilities
 export NODE_UTILS=$JSOBJECTS/Utilities/NodeInstall
 export ELF_TEMPLATES=$ELF_UTILS/Templates
@@ -100,7 +102,7 @@ alias joj="cd $JSOBJECTS/JavaScript"
 alias joui="cd $JSOBJECTS/Utilities/InstallScripts"
 alias jon="cd $JSOBJECTS/JavaScript/NodeCode"
 alias jop="cd $JSOBJECTS/Python"
-alias jor="cd $JSOBJECTS/JavaScript/React"
+alias jor="cd $JSOBJECTS_JAVASCRIPT_REACT"
 alias jos="cd $JSOBJECTS/JavaScript/Syntax"
 alias jot="cd $JSOBJECTS/JavaScript/UnitTests"
 alias jou="cd $JSOBJECTS/Utilities"
