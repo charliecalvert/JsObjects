@@ -44,7 +44,7 @@ async function setupAuditCheck(auditDataReports, fullPathToPackageJson) {
         console.log('Command output:', result);
         return result;
     } catch (error) {
-        console.error('Error executing command in runParseJson:', error);
+        console.error('Error executing elf command in setupAuditCheck:', error);
         process.exit(1);
     }
     return null;
