@@ -6,6 +6,7 @@ food-lookup-demo
 bundle.js
 after.txt
 before.txt
+temp.js*
 
 # Node.js
 node_modules/
