@@ -33,10 +33,10 @@ In the long run I will probably want to convert
 these bash scripts into javascript. But for now,
 I will use bash scripts.
 
-```bash
-
 Example of copying files from one directory to another
 if you want to copy the files from the React directory to the src directory
+
+### Copy Live files
 
 ```bash
 #!/bin/bash
@@ -57,15 +57,29 @@ ensure_directory_exists() {
 ensure_directory_exists "$1"
 
 # Copy files from React to src directory
-# Dry run. No files will be copied.
+# Live run. Files will be copied.
 rsync -auv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
 rsync -av ${CDSN} "$1"
 ```
 
-if you want to try a dry run, add the -n flag:
+### Dry Run
+
+If you want to try a dry run, add the -n flag:
 
 ```bash
 #!/bin/bash
+
+# Pass in the full path to the destination
+# directory
+
+# Test if a parameter is present
+if [ -z "$1" ]; then
+    echo "Error: No directory name provided."
+    echo "Usage: $0 <directory>"
+    echo "Pass in the full path to the destination directory."
+    echo "Example: $0 /home/charlie/MyProject"
+    exit 1
+fi
 
 CDSN=${JSOBJECTS_JAVASCRIPT_REACT}/src/create-directory-specific-ncu-script.js
 
@@ -80,12 +94,21 @@ ensure_directory_exists() {
     fi
 }
 
-ensure_directory_exists "$1"
+ensure_directory_exists "$1/src"
 
 # Copy files from React to src directory
 # Dry run. No files will be copied.
-rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"
-rsync -anv ${CDSN} "$1"
+rsync -aunv ${JSOBJECTS_JAVASCRIPT_REACT}/src/* "$1"/src/
+rsync -anv ${CDSN} "$1"/src/
+rsync -anv ${MAKE_AUDIT_DR} "$1"
+
+echo "Dry run complete. No files were copied."
+echo "Still a work in progress. BUGGY! Do not run this script."
+echo "Now run this: node make-audit-data-report.js
+echo "Now run: ./create-audit-data-report.js
+echo "Then run: node make-audit-data-report.js
+echo "Then run: cp -v --no-clobber  ~/temp/auditDataReports-2024-10-03_14-21-19.json dir-specific-ncu-script.js
+echo "Then run: node src/audit-check/call-perform-audit-check.js
 ```
 
 ## Installation
