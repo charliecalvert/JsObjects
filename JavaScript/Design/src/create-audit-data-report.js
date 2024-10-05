@@ -1,7 +1,9 @@
 const path = require('path');
+const { cwd } = require('process');
 const { log } = require('console');
 const fsp = require('fs/promises');
 const { writeFile } = require('fs');
+
 // const { useDebug } = require('./utils');
 
 const useDebug = false;
@@ -27,6 +29,7 @@ function writeAuditDataReport(auditDataReportsJson) {
 async function createAuditDataReport(entries, dir, auditDataReports) {
     log('newEntriesLength:', newEntriesLength);
     await Promise.all(entries.map(async (entry) => {
+
         const fullPath = path.join(dir, entry.name);
 
         // Skip directories that are not needed
@@ -56,7 +59,7 @@ async function createAuditDataReport(entries, dir, auditDataReports) {
             if (auditDataReports === undefined) {
                 throw new Error('auditDataReports is not defined');
             } else {
-                auditDataReports.push(fullPath);
+                auditDataReports.push(path.join(cwd(), fullPath));
             }
 
             // Why can't I pass auditDataReports to runParseJson? I want to update it.

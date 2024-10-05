@@ -9,15 +9,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.4.2"
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@fontsource/roboto": "^5.0.14",
-    "@mui/icons-material": "^6.0.1",
-    "@mui/material": "^6.0.1",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@fontsource/roboto": "^5.1.0",
+    "@mui/icons-material": "^6.1.2",
+    "@mui/material": "^6.1.2",
+    "@vitejs/plugin-react": "^4.3.2",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
