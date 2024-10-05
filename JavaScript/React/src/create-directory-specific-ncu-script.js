@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { log } = require('console');
 const fs = require('fs');
 // const path = require('path');
 
@@ -64,7 +65,10 @@ fs.readFile(readFileName, 'utf8', (err, data) => {
             console.error('Error writing the file:', writeFileError);
             return;
         }
-        console.log(`File has been saved as ${outputFileName}`);
+        log(`File has been saved as ${outputFileName}`);
+        log(`You can now copy ${outputFileName} from src/ to the`);
+        log('root for this set of projects.');
+        log(`cp -v --no-clobber ${outputFileName} ../new-make-audit-data-report.js`);
     });
 });
 
