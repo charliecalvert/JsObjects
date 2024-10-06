@@ -1,22 +1,39 @@
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
 const { log } = require('console');
 const { dirname } = require('path');
-const { getCurrentDateTime, getFileDateTime } = require('../utils');
+const { getFileDateTime } = require('../utils');
+
+function getFileDateTimeInfo(fileName) {
+    const filePath = fileName; // Replace with your file path
+    const fileDateTime = getFileDateTime(filePath);
+
+    if (fileDateTime) {
+        console.log('Creation Time:', fileDateTime.creationTime);
+        console.log('Modification Time:', fileDateTime.modificationTime);
+    }
+    return fileDateTime;
+}
 
 // Run npm audit and save  the output to a file
 function performDateCheck(reports, packageJsonPath) {
     return new Promise((resolve, reject) => {
-        const filePath = 'package.json'; // Replace with your file path
-        const fileDateTime = getFileDateTime(filePath);
-
-        if (fileDateTime) {
-        console.log('Creation Time:', fileDateTime.creationTime);
-        console.log('Modification Time:', fileDateTime.modificationTime);
+        // Use JavaScript to change directory (CWD) to packageJsonPath
+        process.chdir(packageJsonPath);
+        try {
+            const fileDateTime01 = getFileDateTimeInfo('package.json');
+            const fileDateTime02 = getFileDateTimeInfo('package-lock.json');
+            resolve(fileDateTime01, fileDateTime02);
         }
-        resolve(fileDateTime);
-
+        catch (error) {
+            console.error(`Error executing npm audit in performAuditCheck: ${error.message} for ${packageJsonPath}`);
+            reject(error);
+            return;
+        }
+        // resolve(fileDateTime01, fileDateTime02);
     });
 }
+
+
 
 async function reportPackagesDate(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
