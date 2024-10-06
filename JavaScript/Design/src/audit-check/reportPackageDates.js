@@ -3,15 +3,16 @@ const { log } = require('console');
 const { dirname } = require('path');
 const { getFileDateTime } = require('../utils');
 
-function getFileDateTimeInfo(fileName) {
+function getFileDateTimeInfo(fileName, packageJsonPath) {
     const filePath = fileName; // Replace with your file path
     const fileDateTime = getFileDateTime(filePath);
 
     if (fileDateTime) {
-        console.log('Creation Time:', fileDateTime.creationTime);
-        console.log('Modification Time:', fileDateTime.modificationTime);
+        log('packageJsonPath CWD:', packageJsonPath);
+        log('Creation Time:', fileDateTime.creationTime);
+        log('Modification Time:', fileDateTime.modificationTime);
     }
-    return fileDateTime;
+    return { fileDateTime, packageJsonPath };
 }
 
 // Run npm audit and save  the output to a file
@@ -19,10 +20,11 @@ function performDateCheck(reports, packageJsonPath) {
     return new Promise((resolve, reject) => {
         // Use JavaScript to change directory (CWD) to packageJsonPath
         process.chdir(packageJsonPath);
+        log('Current directory:', process.cwd());
         try {
-            const fileDateTime01 = getFileDateTimeInfo('package.json');
-            const fileDateTime02 = getFileDateTimeInfo('package-lock.json');
-            resolve(fileDateTime01, fileDateTime02);
+            const fileDateTime01 = getFileDateTimeInfo('package.json', packageJsonPath);
+            const fileDateTime02 = getFileDateTimeInfo('package-lock.json', packageJsonPath);
+            resolve(fileDateTime01, fileDateTime02, packageJsonPath);
         }
         catch (error) {
             console.error(`Error executing npm audit in performAuditCheck: ${error.message} for ${packageJsonPath}`);
