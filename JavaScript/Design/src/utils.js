@@ -69,9 +69,29 @@ async function runParseJson(packageJson, auditDataReports, newEntriesLength) {
     runExec();
 }
 
+const fs = require('fs');
+
+function getFileDateTime(filePath) {
+  try {
+    const stats = fs.statSync(filePath);
+
+    // Access creation time (ctime)
+    const creationTime = stats.ctime;
+
+    // Access modification time (mtime)
+    const modificationTime = stats.mtime;
+
+    return { creationTime, modificationTime };
+  } catch (err) {
+    console.error('Error getting file stats:', err);
+    return null;
+  }
+}
+
 module.exports = {
     getCurrentDateTime,
     writeAuditDataReport,
     checks,
     runParseJson,
+    getFileDateTime,
 };
