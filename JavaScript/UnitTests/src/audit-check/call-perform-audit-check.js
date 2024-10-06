@@ -6,7 +6,6 @@
 
 const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
-// TODO: Remove this require import cwd when testing is done.
 const { cwd } = require('process');
 const { setupAuditCheck } = require('./perform-audit-check');
 
@@ -64,7 +63,6 @@ const callRunParseJson = async () => {
 
             for (let i = 0; i < auditDataReportNames.length; i += 1) {
                 log('auditDataReportNames[i]:', auditDataReportNames[i]);
-                // TODO: Remove next line with cwd when testing is done.
                 log('cwd:', cwd);
                 const fullPathToPackageJson = `${auditDataReportNames[i]}`;
                 log('fullPathToPackageJson:', fullPathToPackageJson);
