@@ -32,6 +32,7 @@ async function runCommand(fullPathToPackageJson) {
         modificationTime: result.fileDateTime.modificationTime,
         readableCreationTime: result.fileDateTime.creationTime.toLocaleDateString('en-US'),
         readableModificationTime: result.fileDateTime.modificationTime.toLocaleDateString('en-US'),
+        tryThis: 'git log -1 --pretty="format:%cI" /home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json'
      });
 
     // Write the result to the console
