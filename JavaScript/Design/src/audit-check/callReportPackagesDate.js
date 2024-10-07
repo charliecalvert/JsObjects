@@ -4,7 +4,7 @@
  * It logs various stages of the process for debugging and informational purposes.
  */
 
-const { existsSync, readFileSync } = require('fs');
+const { existsSync, readFileSync, writeFileSync } = require('fs');
 const { log } = require('console');
 const { reportPackagesDate } = require('./reportPackageDates');
 const useDebug = false;
@@ -17,7 +17,14 @@ const useDebug = false;
  * @returns {Promise<Object>} The parsed result of the audit check.
  */
 async function runCommand(auditDataReports, fullPathToPackageJson) {
-    const result = await reportPackagesDate(auditDataReports, fullPathToPackageJson);
+    const result = await    (auditDataReports, fullPathToPackageJson);
+    const simpleJson = [``${{result}`];
+    // Insert the pathe to package.json into the simpleJson object
+
+    // Save the result in our array
+    auditDataReports.push(result);
+
+    // Write the result to the console
     log('Vanilla Result:', result);
     const parsedResult = JSON.parse(result);
     log('DoIt Parsed result:', parsedResult || 'No result yet');
@@ -65,6 +72,12 @@ const callReportPackagesDate = async () => {
                 log('fullPathToPackageJson:', fullPathToPackageJson);
                 runCommand(auditDataReports, fullPathToPackageJson);
             }
+
+            // Save the audit data reports to a file
+            const auditDataReportPath = `${process.env.HOME}/temp/ReportPackageDates.json`;
+            // Convert the array to a string
+            const auditDataReportsAsString = JSON.stringify(auditDataReports, null, 2);
+            writeFileSync(auditDataReportPath, auditDataReportsAsString, 'utf8');
         }
     }
 };
