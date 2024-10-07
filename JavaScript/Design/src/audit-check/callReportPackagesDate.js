@@ -8,6 +8,7 @@ const { existsSync, readFileSync, writeFileSync } = require('fs');
 const { log } = require('console');
 const { reportPackagesDate } = require('./reportPackageDates');
 const useDebug = false;
+const auditDataReports = [];
 
 /**
  * Runs the audit check command and processes the result.
@@ -16,22 +17,31 @@ const useDebug = false;
  * @param {string} fullPathToPackageJson - The full path to the package.json file.
  * @returns {Promise<Object>} The parsed result of the audit check.
  */
-async function runCommand(auditDataReports, fullPathToPackageJson) {
-    const result = await    (auditDataReports, fullPathToPackageJson);
-    const simpleJson = [``${{result}`];
+async function runCommand(fullPathToPackageJson) {
+    const result = await reportPackagesDate(auditDataReports, fullPathToPackageJson);
+    log('Vanilla Result:', result);
+    /* let simpleJson = {};
+    simpleJson.push = result.packageJsonPath;
+    log('simpleJson:', simpleJson); */
     // Insert the pathe to package.json into the simpleJson object
 
     // Save the result in our array
-    auditDataReports.push(result);
+    auditDataReports.push({
+        packageJsonPath: result.packageJsonPath,
+        creationTime: result.fileDateTime.creationTime,
+        modificationTime: result.fileDateTime.modificationTime,
+        readableCreationTime: result.fileDateTime.creationTime.toLocaleDateString('en-US'),
+        readableModificationTime: result.fileDateTime.modificationTime.toLocaleDateString('en-US'),
+     });
 
     // Write the result to the console
     log('Vanilla Result:', result);
-    const parsedResult = JSON.parse(result);
-    log('DoIt Parsed result:', parsedResult || 'No result yet');
+    // const parsedResult = JSON.parse(simpleJson  || ['No result yet']);
+    // log('DoIt Parsed result:', parsedResult || 'No result yet');
     log('DoIt Audit data reports:', auditDataReports);
     log('DoIt Audit data reports length:', auditDataReports.length);
-    log('DoIt Vanilla audit data reports type:', auditDataReports);
-    return parsedResult;
+    log('DoIt Vanilla audit data reports type:', typeof  auditDataReports);
+    return auditDataReports;
 }
 
 /**
@@ -57,7 +67,7 @@ function readAuditDataReport(filename) {
  * and processes each report.
  */
 const callReportPackagesDate = async () => {
-    const auditDataReports = [];
+
     const reportPath = `${process.env.HOME}/temp/auditDataReports.json`;
     const auditDataReportNames = readAuditDataReport(reportPath);
     if (auditDataReportNames) {
@@ -70,9 +80,9 @@ const callReportPackagesDate = async () => {
                 log('auditDataReportNames[i]:', auditDataReportNames[i]);
                 const fullPathToPackageJson = `${auditDataReportNames[i]}`;
                 log('fullPathToPackageJson:', fullPathToPackageJson);
-                runCommand(auditDataReports, fullPathToPackageJson);
+                await runCommand(fullPathToPackageJson);
             }
-
+            log('final auditDataReports:', auditDataReports);
             // Save the audit data reports to a file
             const auditDataReportPath = `${process.env.HOME}/temp/ReportPackageDates.json`;
             // Convert the array to a string
