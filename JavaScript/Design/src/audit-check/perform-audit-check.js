@@ -32,22 +32,32 @@ function performSanityCheck(reports, packageJsonPath) {
         });
     });
 }
-// exports.performSanityCheck = performSanityCheck;
-async function setupPackageJsonCheck(auditDataReports, fullPathToPackageJson) {
+
+function getPackageJsonPath(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
     const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
     log('CSCPackage JSON path:', fullPathToPackageJson);
     log(`packageJsonPath: ${packageJsonPath}`);
+    return packageJsonPath;
+}
+
+function handleAuditCheckError(error, packageJsonPath) {
+    console.error('Error executing elf command in setupAuditCheck:', error);
+    log('Try \ncd', packageJsonPath);
+    log('ncu -u\nnpm i\ncd -\nnode call-perform-audit-check.js');
+    process.exit(1);
+}
+
+// exports.performSanityCheck = performSanityCheck;
+async function setupPackageJsonCheck(auditDataReports, fullPathToPackageJson) {
+    const packageJsonPath = getPackageJsonPath(auditDataReports, fullPathToPackageJson);
     try {
         // How can I wait for this call to exec to finish and return is result?
         const result = await performSanityCheck(auditDataReports, packageJsonPath);
         console.log('Command output:', result);
         return result;
     } catch (error) {
-        console.error('Error executing elf command in setupAuditCheck:', error);
-        log('Try \ncd', packageJsonPath);
-        log('ncu -u\nnpm i\ncd -\nnode call-perform-audit-check.js');
-        process.exit(1);
+        handleAuditCheckError(error, packageJsonPath);
     }
     return null;
 }
