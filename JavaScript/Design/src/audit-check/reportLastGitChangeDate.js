@@ -2,8 +2,9 @@
 const { log } = require('console');
 const { dirname } = require('path');
 const { getFileDateTime, getPackageJsonPath, handleAuditCheckError } = require('../utils');
+const temp = "/home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json"
 
-exec('npm outdated --json', (error, stdout, stderr) => {
+exec(`git log -1 --pretty="format:%cI" ${temp}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       return;
