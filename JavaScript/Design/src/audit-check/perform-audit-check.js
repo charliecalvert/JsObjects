@@ -4,7 +4,7 @@ const { dirname } = require('path');
 const { getCurrentDateTime } = require('../utils');
 
 // Run npm audit and save  the output to a file
-function performAuditCheck(reports, packageJsonPath) {
+function performSanityCheck(reports, packageJsonPath) {
     return new Promise((resolve, reject) => {
         exec('npm audit --summary --json', { cwd: packageJsonPath }, (error, stdout, stderr) => {
             if (error) {
@@ -32,15 +32,15 @@ function performAuditCheck(reports, packageJsonPath) {
         });
     });
 }
-
-async function setupAuditCheck(auditDataReports, fullPathToPackageJson) {
+// exports.performSanityCheck = performSanityCheck;
+async function setupPackageJsonCheck(auditDataReports, fullPathToPackageJson) {
     log('Audit data reports type inside runparse:', typeof auditDataReports);
     const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
     log('CSCPackage JSON path:', fullPathToPackageJson);
     log(`packageJsonPath: ${packageJsonPath}`);
     try {
         // How can I wait for this call to exec to finish and return is result?
-        const result = await performAuditCheck(auditDataReports, packageJsonPath);
+        const result = await performSanityCheck(auditDataReports, packageJsonPath);
         console.log('Command output:', result);
         return result;
     } catch (error) {
@@ -52,4 +52,7 @@ async function setupAuditCheck(auditDataReports, fullPathToPackageJson) {
     return null;
 }
 
-module.exports = { setupAuditCheck };
+module.exports = {
+    setupAuditCheck: setupPackageJsonCheck,
+    performAuditSanityCheck: performSanityCheck,
+};

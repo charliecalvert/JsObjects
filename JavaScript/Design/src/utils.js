@@ -71,6 +71,7 @@ async function runParseJson(packageJson, auditDataReports, newEntriesLength) {
 }
 
 const fs = require('fs');
+const { performSanityCheck } = require('./audit-check/perform-audit-check');
 
 function getFileDateTime(filePath) {
   try {
@@ -105,6 +106,8 @@ function readAuditDataReport(filename) {
     console.error('File does not exist:', filename);
     return false;
 }
+
+
 
 module.exports = {
     getCurrentDateTime,

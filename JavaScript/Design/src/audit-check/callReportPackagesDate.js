@@ -6,7 +6,7 @@
 
 const { writeFileSync } = require('fs');
 const { log } = require('console');
-const { reportPackagesDate } = require('./reportPackageDates');
+const { performDatesSanityCheck } = require('./reportPackageDates');
 const { readAuditDataReport } = require('../utils');
 const useDebug = false;
 const auditDataReports = [];
@@ -19,7 +19,7 @@ const auditDataReports = [];
  * @returns {Promise<Object>} The parsed result of the audit check.
  */
 async function runCommand(fullPathToPackageJson) {
-    const result = await reportPackagesDate(auditDataReports, fullPathToPackageJson);
+    const result = await performDatesSanityCheck    (auditDataReports, fullPathToPackageJson);
     log('Vanilla Result:', result);
 
     // Save the result in our array
