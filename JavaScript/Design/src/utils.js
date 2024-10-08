@@ -107,6 +107,20 @@ function readAuditDataReport(filename) {
     return false;
 }
 
+function getPackageJsonPath(auditDataReports, fullPathToPackageJson) {
+    log('Audit data reports type inside runparse:', typeof auditDataReports);
+    const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
+    log('CSCPackage JSON path:', fullPathToPackageJson);
+    log(`packageJsonPath: ${packageJsonPath}`);
+    return packageJsonPath;
+}
+
+function handleAuditCheckError(error, packageJsonPath) {
+    console.error('Error executing elf command in setupAuditCheck:', error);
+    log('Try \ncd', packageJsonPath);
+    log('ncu -u\nnpm i\ncd -\nnode call-perform-audit-check.js');
+    process.exit(1);
+}
 
 
 module.exports = {
@@ -116,4 +130,10 @@ module.exports = {
     runParseJson,
     getFileDateTime,
     readAuditDataReport,
+    getPackageJsonPath,
+    handleAuditCheckError,
 };
+
+// exports.getPackageJsonPath = getPackageJsonPath;
+// exports.handleAuditCheckError = handleAuditCheckError;
+

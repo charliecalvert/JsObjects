@@ -1,7 +1,6 @@
 const { exec } = require('child_process');
 const { log } = require('console');
-const { dirname } = require('path');
-const { getCurrentDateTime } = require('../utils');
+const { getCurrentDateTime, getPackageJsonPath, handleAuditCheckError } = require('../utils');
 
 // Run npm audit and save  the output to a file
 function performSanityCheck(reports, packageJsonPath) {
@@ -31,21 +30,6 @@ function performSanityCheck(reports, packageJsonPath) {
             resolve(auditReport);
         });
     });
-}
-
-function getPackageJsonPath(auditDataReports, fullPathToPackageJson) {
-    log('Audit data reports type inside runparse:', typeof auditDataReports);
-    const packageJsonPath = `${dirname(fullPathToPackageJson)}/`;
-    log('CSCPackage JSON path:', fullPathToPackageJson);
-    log(`packageJsonPath: ${packageJsonPath}`);
-    return packageJsonPath;
-}
-
-function handleAuditCheckError(error, packageJsonPath) {
-    console.error('Error executing elf command in setupAuditCheck:', error);
-    log('Try \ncd', packageJsonPath);
-    log('ncu -u\nnpm i\ncd -\nnode call-perform-audit-check.js');
-    process.exit(1);
 }
 
 // exports.performSanityCheck = performSanityCheck;
