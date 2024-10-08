@@ -4,9 +4,10 @@
  * It logs various stages of the process for debugging and informational purposes.
  */
 
-const { existsSync, readFileSync, writeFileSync } = require('fs');
+const { writeFileSync } = require('fs');
 const { log } = require('console');
 const { reportPackagesDate } = require('./reportPackageDates');
+const { readAuditDataReport } = require('../utils');
 const useDebug = false;
 const auditDataReports = [];
 
@@ -20,10 +21,6 @@ const auditDataReports = [];
 async function runCommand(fullPathToPackageJson) {
     const result = await reportPackagesDate(auditDataReports, fullPathToPackageJson);
     log('Vanilla Result:', result);
-    /* let simpleJson = {};
-    simpleJson.push = result.packageJsonPath;
-    log('simpleJson:', simpleJson); */
-    // Insert the pathe to package.json into the simpleJson object
 
     // Save the result in our array
     auditDataReports.push({
@@ -37,29 +34,10 @@ async function runCommand(fullPathToPackageJson) {
 
     // Write the result to the console
     log('Vanilla Result:', result);
-    // const parsedResult = JSON.parse(simpleJson  || ['No result yet']);
-    // log('DoIt Parsed result:', parsedResult || 'No result yet');
     log('DoIt Audit data reports:', auditDataReports);
     log('DoIt Audit data reports length:', auditDataReports.length);
     log('DoIt Vanilla audit data reports type:', typeof  auditDataReports);
     return auditDataReports;
-}
-
-/**
- * Reads the audit data report from a specified file.
- *
- * @param {string} filename - The path to the audit data report file.
- * @returns {Object|boolean} The parsed JSON report if the file exists, otherwise false.
- */
-function readAuditDataReport(filename) {
-    if (existsSync(filename)) {
-        const fileContents = readFileSync(filename, 'utf8');
-        const jsonReport = JSON.parse(fileContents);
-        log('audit.json exists', jsonReport);
-        return jsonReport;
-    }
-    console.error('File does not exist:', filename);
-    return false;
 }
 
 /**

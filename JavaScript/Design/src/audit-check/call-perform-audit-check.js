@@ -1,14 +1,6 @@
-/**
- * @fileoverview This script reads audit data reports from a specified file, processes them,
- * and runs an audit check using the `setupAuditCheck` function from `perform-audit-check`.
- * It logs various stages of the process for debugging and informational purposes.
- */
-
-const { existsSync, readFileSync } = require('fs');
 const { log } = require('console');
-// TODO: Remove this require import cwd when testing is done.
-const { cwd } = require('process');
 const { setupAuditCheck } = require('./perform-audit-check');
+const { readAuditDataReport } = require('../utils');
 
 const useDebug = false;
 
@@ -31,23 +23,6 @@ async function runCommand(auditDataReports, fullPathToPackageJson) {
 }
 
 /**
- * Reads the audit data report from a specified file.
- *
- * @param {string} filename - The path to the audit data report file.
- * @returns {Object|boolean} The parsed JSON report if the file exists, otherwise false.
- */
-function readAuditDataReport(filename) {
-    if (existsSync(filename)) {
-        const fileContents = readFileSync(filename, 'utf8');
-        const jsonReport = JSON.parse(fileContents);
-        log('audit.json exists', jsonReport);
-        return jsonReport;
-    }
-    console.error('File does not exist:', filename);
-    return false;
-}
-
-/**
  * Main function to read audit data reports and run the audit check.
  * It reads the audit data report names from a specified file
  * and processes each report.
@@ -64,8 +39,6 @@ const callRunParseJson = async () => {
 
             for (let i = 0; i < auditDataReportNames.length; i += 1) {
                 log('auditDataReportNames[i]:', auditDataReportNames[i]);
-                // TODO: Remove next line with cwd when testing is done.
-                log('cwd:', cwd);
                 const fullPathToPackageJson = `${auditDataReportNames[i]}`;
                 log('fullPathToPackageJson:', fullPathToPackageJson);
                 runCommand(auditDataReports, fullPathToPackageJson);

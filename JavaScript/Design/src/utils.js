@@ -1,5 +1,6 @@
 const { log } = require('console');
 const { exec } = require('child_process');
+const { existsSync, readFileSync } = require('fs');
 const { dirname } = require('path/posix');
 const { writeAuditDataReport } = require('./create-audit-data-report');
 
@@ -88,10 +89,28 @@ function getFileDateTime(filePath) {
   }
 }
 
+/**
+ * Reads the audit data report from a specified file.
+ *
+ * @param {string} filename - The path to the audit data report file.
+ * @returns {Object|boolean} The parsed JSON report if the file exists, otherwise false.
+ */
+function readAuditDataReport(filename) {
+    if (existsSync(filename)) {
+        const fileContents = readFileSync(filename, 'utf8');
+        const jsonReport = JSON.parse(fileContents);
+        log('audit.json exists', jsonReport);
+        return jsonReport;
+    }
+    console.error('File does not exist:', filename);
+    return false;
+}
+
 module.exports = {
     getCurrentDateTime,
     writeAuditDataReport,
     checks,
     runParseJson,
     getFileDateTime,
+    readAuditDataReport,
 };
