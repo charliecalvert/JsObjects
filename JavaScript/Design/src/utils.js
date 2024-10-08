@@ -71,7 +71,7 @@ async function runParseJson(packageJson, auditDataReports, newEntriesLength) {
 }
 
 const fs = require('fs');
-const { performSanityCheck } = require('./audit-check/perform-audit-check');
+const { performSanityCheck } = require('./audit-check/report-audit-check');
 
 function getFileDateTime(filePath) {
   try {

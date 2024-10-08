@@ -1,5 +1,5 @@
 const { log } = require('console');
-const { setupAuditCheck } = require('./perform-audit-check');
+const { setupAuditCheck } = require('./report-audit-check');
 const { readAuditDataReport } = require('../utils');
 
 const useDebug = false;
