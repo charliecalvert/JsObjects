@@ -1,10 +1,30 @@
-// const { exec } = require('child_process');
+const { exec } = require('child_process');
+const fs = require('fs');
 const { log } = require('console');
-const { dirname } = require('path');
-const { getFileDateTime, getPackageJsonPath, handleAuditCheckError } = require('../utils');
+// const { dirname } = require('path');
+// const { getFileDateTime, getPackageJsonPath, handleAuditCheckError } = require('../utils');
 const temp = "/home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json"
 
-exec(`git log -1 --pretty="format:%cI" ${temp}`, (error, stdout, stderr) => {
+async function gitDateChangeCheck() {
+    await exec(`git log -1 --pretty="format:%cI" ${temp}`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`Stderr: ${stderr}`);
+            return;
+        }
+
+        const lastChange = stdout;
+        log('stdout:', lastChange);
+
+        return lastChange;
+    });
+    return null;
+}
+
+/* exec(`git log -1 --pretty="format:%cI" ${temp}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       return;
@@ -18,9 +38,9 @@ exec(`git log -1 --pretty="format:%cI" ${temp}`, (error, stdout, stderr) => {
     console.log('Outdated packages:', outdatedPackages);
 
     fs.writeFileSync('outdated-packages.json', JSON.stringify(outdatedPackages, null, 2));
-  });
+  }); */
 
-function getFileDateTimeInfo(fileName, packageJsonPath) {
+/* function getFileDateTimeInfo(fileName, packageJsonPath) {
     const filePath = fileName; // Replace with your file path
     const fileDateTime = getFileDateTime(filePath);
 
@@ -63,11 +83,22 @@ async function setupPackageJsonCheck(auditDataReports, fullPathToPackageJson) {
         handleAuditCheckError(error, packageJsonPath);
     }
     return null;
-}
+} */
 
-module.exports = {
+/* module.exports = {
     reportPackagesDate: setupPackageJsonCheck,
     performDatesSanityCheck: performSanityCheck
 };
+ */
 
+async function callGitDateChangeCheck() {
+    const lastChange = await gitDateChangeCheck();
+    log('Last Change from gitDateChangeCheck:', lastChange);
+    if (lastChange) {
+    fs.writeFileSync('lastChange.txt', lastChange);
+    } else {
+        log('No lastChange');
+    }
+}
 
+callGitDateChangeCheck();
