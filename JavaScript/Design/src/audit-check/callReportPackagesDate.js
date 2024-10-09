@@ -34,16 +34,18 @@ async function runCommand(fullPathToPackageJson) {
         })
         .catch(error => console.error('Error:', error));
 
+        const finalGitChangeDateObject = new Date(finalGitChange);
+
     // Save the result in our array
     auditDataReports.push({
         packageJsonPath: result.packageJsonPath,
         creationTime: result.fileDateTime.creationTime,
         modificationTime: result.fileDateTime.modificationTime,
+        lastGitChange: finalGitChangeDateObject,
         readableCreationTime: result.fileDateTime.creationTime.toLocaleDateString('en-US'),
         readableModificationTime: result.fileDateTime.modificationTime.toLocaleDateString('en-US'),
         // tryThis: 'git log -1 --pretty="format:%cI" /home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json'
-        lastGitChange: finalGitChange,
-        // readableLastGitChange: finalGitChange.toLocaleDateString('en-US'),
+        readableLastGitChange: finalGitChangeDateObject.toLocaleDateString('en-US'),
     });
 
     // Write the result to the console
