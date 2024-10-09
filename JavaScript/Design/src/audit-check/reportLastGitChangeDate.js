@@ -41,12 +41,12 @@ async function executeGitDateChangeCheck(command) {
     }
 }
 
-executeGitDateChangeCheck(command)
+/* executeGitDateChangeCheck(command)
     .then(output => {
         console.log('Output:', output);
         fs.writeFileSync('lastChange.txt', output);
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error:', error)); */
 
 
 // Call the function
@@ -61,3 +61,9 @@ async function callGitDateChangeCheck() {
 }
 
 // callGitDateChangeCheck();
+
+module.exports = {
+    gitDateChangeCheck,
+    executeGitDateChangeCheck,
+    callGitDateChangeCheck
+};

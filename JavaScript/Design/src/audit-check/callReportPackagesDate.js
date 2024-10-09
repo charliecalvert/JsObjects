@@ -8,6 +8,7 @@ const { writeFileSync } = require('fs');
 const { log } = require('console');
 const { performDatesSanityCheck } = require('./reportPackageDates');
 const { readAuditDataReport } = require('../utils');
+const { executeGitDateChangeCheck } = require('./reportLastGitChangeDate');
 const useDebug = false;
 const auditDataReports = [];
 
@@ -19,8 +20,19 @@ const auditDataReports = [];
  * @returns {Promise<Object>} The parsed result of the audit check.
  */
 async function runCommand(fullPathToPackageJson) {
-    const result = await performDatesSanityCheck    (auditDataReports, fullPathToPackageJson);
+    const result = await performDatesSanityCheck(auditDataReports, fullPathToPackageJson);
     log('Vanilla Result:', result);
+    let finalGitChange = '';
+    // const filePathToPackageJson = "/home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json"
+    const filePathToPackageJson = result.packageJsonPath;
+    const command = `git log -1 --pretty="format:%cI" ${filePathToPackageJson}`;
+    await executeGitDateChangeCheck(command)
+        .then(output => {
+            finalGitChange = output;
+            console.log('Output:', output);
+            // fs.writeFileSync('lastChange.txt', output);
+        })
+        .catch(error => console.error('Error:', error));
 
     // Save the result in our array
     auditDataReports.push({
@@ -29,14 +41,16 @@ async function runCommand(fullPathToPackageJson) {
         modificationTime: result.fileDateTime.modificationTime,
         readableCreationTime: result.fileDateTime.creationTime.toLocaleDateString('en-US'),
         readableModificationTime: result.fileDateTime.modificationTime.toLocaleDateString('en-US'),
-        tryThis: 'git log -1 --pretty="format:%cI" /home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json'
-     });
+        // tryThis: 'git log -1 --pretty="format:%cI" /home/ubuntu/Git/JsObjects/JavaScript/Design/OldAngular/AngularThreeModules02/package.json'
+        lastGitChange: finalGitChange,
+        // readableLastGitChange: finalGitChange.toLocaleDateString('en-US'),
+    });
 
     // Write the result to the console
     log('Vanilla Result:', result);
     log('DoIt Audit data reports:', auditDataReports);
     log('DoIt Audit data reports length:', auditDataReports.length);
-    log('DoIt Vanilla audit data reports type:', typeof  auditDataReports);
+    log('DoIt Vanilla audit data reports type:', typeof auditDataReports);
     return auditDataReports;
 }
 
