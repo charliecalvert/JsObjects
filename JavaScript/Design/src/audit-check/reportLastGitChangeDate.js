@@ -31,7 +31,7 @@ async function gitDateChangeCheck(command) {
 
 
 // Execute a command and return the output
-async function executeCommand(command) {
+async function executeGitDateChangeCheck(command) {
     try {
         const { stdout, stderr } = await execPromise(command);
         return stdout;
@@ -41,7 +41,7 @@ async function executeCommand(command) {
     }
 }
 
-executeCommand(command)
+executeGitDateChangeCheck(command)
     .then(output => {
         console.log('Output:', output);
         fs.writeFileSync('lastChange.txt', output);
