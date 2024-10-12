@@ -1,5 +1,5 @@
 const fs = require('fs');
-const readAndSortReportDates = require('../audit-check/ReportDateReader'); // Adjust the path as needed
+const readAndSortReportDates = require('../audit-check/report-data-reader'); // Adjust the path as needed
 
 jest.mock('fs', () => ({
     promises: {
@@ -28,8 +28,6 @@ describe('readAndSortReportDates', () => {
 
     it('should throw an error if reading the file fails', async () => {
         const mockError = new Error('File read error');
-        // Why is line 29 failing?
-        // TypeError: Cannot read properties of undefined (reading 'readFile')
         fs.promises.readFile.mockRejectedValue(mockError);
 
         await expect(readAndSortReportDates()).rejects.toThrow('File read error');

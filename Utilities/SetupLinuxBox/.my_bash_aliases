@@ -26,6 +26,7 @@ export CHARLIE_IO=${GIT_HOME}/charliecalvert.github.io
 export ELVEN_CODE="$GIT_HOME"/elven-code
 export ELVEN_WEB="$GIT_HOME"/elven-web
 export ELF_HYPER="$GIT_HOME"/hyperv-stuff
+export ELF_TEMP="$HOME"/temp
 
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'

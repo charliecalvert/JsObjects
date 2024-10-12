@@ -7,7 +7,8 @@ const fs = require('fs');
 // We could then call the function from the test.
 async function readAndSortReportDates() {
     try {
-        const data = await fs.promises.readFile('ReportPackageDates.json', 'utf8');
+        const pathToTempDirectory = `${process.env.ELF_TEMP}/ReportPackageDates.json`;
+        const data = await fs.promises.readFile(`${pathToTempDirectory}`, 'utf8');
         const jsonData = JSON.parse(data);
         jsonData.sort((a, b) => new Date(a.lastGitChange) - new Date(b.lastGitChange));
         return jsonData;
@@ -16,22 +17,5 @@ async function readAndSortReportDates() {
         throw err;
     }
 }
-fs.readFile('ReportPackageDates.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  try {
-    const jsonData = JSON.parse(data);
-
-    // Sort the array by the date field
-    jsonData.sort((a, b) => new Date(a.lastGitChange) - new Date(b.lastGitChange));
-
-    console.log(jsonData);
-  } catch (parseError) {
-    console.error('Error parsing JSON:', parseError);
-  }
-});
 
 module.exports = readAndSortReportDates;
