@@ -13,8 +13,9 @@ async function readAndSortReportDates() {
         jsonData.sort((a, b) => new Date(a.lastGitChange) - new Date(b.lastGitChange));
         return jsonData;
     } catch (err) {
-        console.error('Error reading or parsing JSON:', err);
-        throw err;
+        /* console.error('Error reading or parsing JSON:', err);
+        throw err; */
+        throw new Error('File read error');
     }
 }
 
