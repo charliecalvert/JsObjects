@@ -27,7 +27,9 @@ export ELVEN_CODE="$GIT_HOME"/elven-code
 export ELVEN_WEB="$GIT_HOME"/elven-web
 export ELF_HYPER="$GIT_HOME"/hyperv-stuff
 export ELF_TEMP="$HOME"/temp
-
+export ELF_CONFIG="$HOME"/.config
+export ELF_DESIGN="$ELF_CONFIG"/design
+export ELF_HISTORY="$ELF_CONFIG"/history
 alias writing='cd $ELF_WRITE'
 alias wt='cd $ELF_WRITE'
 
@@ -46,6 +48,11 @@ alias wtu="cd $ELF_WRITE/UnitTests/Js"
 alias wte="cd $ELF_WRITE/Elvenware"
 alias wted="cd $ELF_WRITE/Elvenware/development"
 alias wteo="cd $ELF_WRITE/Elvenware/os"
+
+# CONFIG
+alias elfconfig='cd $ELF_CONFIG'
+alias elfdesign='cd $ELF_DESIGN'
+alias elfhistory='cd $ELF_HISTORY'
 
 # Elvenware
 export WRITE_ELF=$ELF_WRITE/Elvenware

@@ -6,12 +6,22 @@
     "configurations": [
         {
             "type": "node",
+            "name": "ReportPackageDate",
+            "program": "${workspaceFolder}/src/audit-check/callReportPackagesDate.js",
             "request": "launch",
-            "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/audit-check/callReportPackagesDate.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Show audit date report check",
+            "program": "${workspaceFolder}/src/audit-check/show-audit-data-report.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+
         }
     ]
 }
