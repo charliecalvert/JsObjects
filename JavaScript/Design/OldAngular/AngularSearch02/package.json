@@ -4,7 +4,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "selenium-webdriver": "~4.24.0"
+    "selenium-webdriver": "~4.25.0"
   },
   "dependencies": {
     "pug": "^3.0.3"

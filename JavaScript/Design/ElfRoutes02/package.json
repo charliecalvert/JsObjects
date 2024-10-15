@@ -1,21 +1,21 @@
 {
   "name": "Week05-JadeMixinBasics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "debug": "^4.3.7",
-    "express": "^4.21.0",
+    "express": "^4.21.1",
     "morgan": "^1.10.0",
     "pug": "^3.0.3",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "jasmine-core": "^5.3.0",
+    "jasmine-core": "^5.4.0",
     "jasmine-jquery": "^2.1.1"
   }
 }
