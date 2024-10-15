@@ -87,8 +87,12 @@ const searchString = 'Run ncu -u to upgrade package.json'; // Replace with the s
 }); */
 // cli;
 
-function runNcu() {
-    run({
+async function runNcu() {
+    log('runNcu starting');
+    log("argv[1]:", argv[1]);
+    log("argv[2]:", argv[2]);
+    log("cwd:", process.cwd());
+    await ncu.run({
         // Pass any cli option
         packageFile: './package.json',
         upgrade: true,
@@ -98,6 +102,16 @@ function runNcu() {
     }).then((upgraded) => {
         console.log(upgraded);
     });
+    /* run({
+        // Pass any cli option
+        packageFile: './package.json',
+        upgrade: true,
+        // Defaults:
+        // jsonUpgraded: true,
+        // silent: true,
+    }).then((upgraded) => {
+        console.log(upgraded);
+    }); */
 }
 
 /* const upgraded = await ncu.run({
