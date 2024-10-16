@@ -87,6 +87,25 @@ Singleton
 
 ## Save Me
 
+```text
+$ npm cache clean && npm i --loglevel=info
+npm error As of npm@5, the npm cache self-heals from corruption issues
+npm error   by treating integrity mismatches as cache misses.  As a result,
+npm error   data extracted from the cache is guaranteed to be valid.  If you
+npm error   want to make sure everything is consistent, use `npm cache verify`
+npm error   instead.  Deleting the cache can only make npm go slower, and is
+npm error   not likely to correct any problems you may be encountering!
+npm error
+npm error   On the other hand, if you're debugging an issue with the installer,
+npm error   or race conditions that depend on the timing of writing to an empty
+npm error   cache, you can use `npm install --cache /tmp/empty-cache` to use a
+npm error   temporary cache instead of nuking the actual one.
+npm error
+npm error   If you're sure you want to delete the entire cache, rerun this command
+npm error   with --force.
+npm error A complete log of this run can be found in: /home/ubuntu/.npm/_logs/2024-10-16T23_31_35_251Z-debug-0.log
+```
+
 ```JavaScript
 /* exec('ncu', (error, stdout, stderr) => {
     if (error) {
