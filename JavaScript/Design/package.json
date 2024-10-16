@@ -1,7 +1,7 @@
 {
-  "name": "GruntForDesign",
+  "name": "home-for-design",
   "version": "0.1.4",
-  "description": "Grunt for Design",
+  "description": "Home Directory for Design",
   "main": "Gruntfile.js",
   "scripts": {
     "build": "grunt",
@@ -15,5 +15,8 @@
     "gulp": "^5.0.0",
     "jest": "^29.7.0",
     "selenium-webdriver": "~4.25.0"
+  },
+  "dependencies": {
+    "npm-check-updates": "^17.1.3"
   }
 }

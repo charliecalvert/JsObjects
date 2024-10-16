@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const { log } = require('console');
-const execNcu = require('./exec-ncu');
-const execProgram = require('./utils');
+const { runNcu } = require('./exec-ncu-try-o2');
+// const execProgram = require('./utils');
 
-log('runNcu starting', execNcu);
+log('runNcu starting', runNcu); // Function
 
-execNcu.runNcu();
+runNcu();

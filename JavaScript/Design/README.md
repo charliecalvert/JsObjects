@@ -84,3 +84,35 @@ Singleton
 - [AngularThreeModules02 Show modules](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/AngularThreeModules02)
 - [AngularThreeModules03 Show modules](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/AngularThreeModules03)
 - [AngularDirective Show Directives](https://github.com/charliecalvert/JsObjects/tree/master/JavaScript/Design/AngularDirective)
+
+## Save Me
+
+```JavaScript
+/* exec('ncu', (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+
+    // Optionally install updated dependencies
+    if (false) {
+        exec('npm install', (error, stdout, stderr) => {
+            // ... handle output or errors
+            if (error) {
+                console.error(`Error: ${error.message}`);
+                return;
+            }
+            if (stderr) {
+                console.error(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+    }
+});  */
+```

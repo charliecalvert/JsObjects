@@ -1,27 +1,17 @@
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
+const { log } = require('console');
+const { cwd } = require('process');
+const { run } = require('npm-check-updates');
 
-exec('ncu -u', (error, stdout, stderr) => {
-  if (error) {
-    console.error(`Error: ${error.message}`);
-    return;
-  }
-  if (stderr) {
-    console.error(`stderr: ${stderr}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
+log("cwd", cwd()); // Current working directory
 
-  // Optionally install updated dependencies
-  exec('npm install', (error, stdout, stderr) => {
-    // ... handle output or errors
-    if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-  });
-});
+function runNcu() {
+    // Run npm-check-updates
+    run({
+        packageFile: './package.json',
+        upgrade: true,
+        silent: false,
+        jsonUpgraded: false,
+    });
+}
+module.exports = { runNcu };
