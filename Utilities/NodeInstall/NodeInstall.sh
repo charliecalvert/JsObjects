@@ -56,10 +56,10 @@ sudo apt-get install curl
 # curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 
 # The new setup script for Node.js v18.X
-# curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 
 # The new setup script for Node.js v20.X
-curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 # Install node
 sudo apt-get install -y nodejs

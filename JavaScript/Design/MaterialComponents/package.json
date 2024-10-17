@@ -9,14 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.4.8"
+    "vite": "^5.4.9"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
-    "@mui/icons-material": "^6.1.2",
-    "@mui/material": "^6.1.2",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
     "@vitejs/plugin-react": "^4.3.2",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
