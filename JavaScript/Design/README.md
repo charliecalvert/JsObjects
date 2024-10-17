@@ -1,6 +1,21 @@
 # Overview
 
 ```text
+# Basic `dependabot.yml` file with
+# minimum configuration for two package managers
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates every day (weekdays)
+    schedule:
+      interval: "daily"
+```
+
+```text
 Create a gulpfile.js that visits the following directories and runs
 this command: "ncu -j" and writes the output to temp.json
 if there is a package.json file in the directory.
