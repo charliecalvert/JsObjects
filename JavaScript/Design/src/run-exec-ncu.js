@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
 const path = require('path');
-
 const { log } = require('console');
-// const { runNcu } = require('./exec-ncu-try-o2');
 const { readFileSync } = require('fs');
-// const execProgram = require('./utils');
 const { exec } = require('child_process');
+const { cwd } = require('process');
 
 log('runNcu starting', runNcu); // Function
 
@@ -42,7 +40,14 @@ function runNcu() {
             if (error) {
                 reject(`Error: ${stderr}`);
             } else {
-                console.log(stdout);
+                const output = stdout;
+                if (output.includes('No package.json file found')) {
+                    reject(`Error: ${output}`);
+                }
+                if (output.includes('Run ncu -u to upgrade package.json')) {
+                    log('need to upgrade', cwd());
+                }
+                console.log(output);
                 resolve();
             }
         });
