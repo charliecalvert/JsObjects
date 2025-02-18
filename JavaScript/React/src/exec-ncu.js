@@ -103,7 +103,7 @@ function runNcu() {
 /* const upgraded = await ncu.run({
     // Pass any cli option
     packageFile: './package.json',
-    upgrade: false,
+    upgrade: true,
     // Defaults:
     // jsonUpgraded: true,
     // silent: true,
